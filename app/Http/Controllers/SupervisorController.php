@@ -7986,4 +7986,12 @@ class SupervisorController extends Controller
             'BudgetControlOb',
         ]);
     }
+    /* public function profil()
+    {
+        $profil = Users::select('role_id')->count('role_id');
+
+        return view('login', [
+            'count_user' => $count_user,
+        ]);
+    } */
 }

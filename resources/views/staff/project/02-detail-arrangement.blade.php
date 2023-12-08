@@ -1,4 +1,3 @@
-
 @extends('layouts.layout_staff')
 @section('title_page', 'Aranggement - Project')
 
@@ -20,7 +19,7 @@
 
     {{-- header --}}
     <div class="tracking-wide text-gray-600 mb-2">
-        <p class=" font-light text-2xl">Projects Detail:</p>
+        <p class=" font-light text-3xl mb-4">Projects Detail - AR:</p>
     </div>
     {{-- akhir header --}}
 
@@ -345,7 +344,7 @@
     </div>
 
 
-     {{-- awal stepper --}}
+    {{-- awal stepper --}}
     <div class="max-w-4xl mx-auto mt-8">
         <div class="flex items-center">
             <div class="flex items-center relative">
@@ -726,11 +725,25 @@
                                 @endif
                             </td>
                             <td class="text-center">{{ $koneksiar->date_draw_me_1 }}</td>
-                            <td><input type="file" name="as_draw_me_1" id=""></td>
+                            <td>
+                                @if ($koneksiar->up_draw_me_by_1 = '')
+                                    <input type="file" name="as_draw_me_1" id="">
+                                @else
+                                    <button
+                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md">Ubah</button>
+                                    <button class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="15"
+                                            fill="white" viewBox="0 0 48 48">
+                                            <path
+                                                d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                            </path>
+                                        </svg>
+                                    </button>
+                                @endif
+                            </td>
                             <input type="text" hidden name="as_up_draw_me_by_1"
                                 value="{{ Auth::user()->first_name }}">
                             <input type="date" hidden name="as_date_draw_me_1" value="{{ date('Y-m-d') }}">
-
                         </tr>
 
                         <tr class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
@@ -755,8 +768,6 @@
                                     target="blank" download="" class="hover:underline ">
                                     {{ $koneksiar->draw_me_2 }}</a>
                                 {{-- == --}}
-
-
                             </td>
                             <td>
                                 @if ($koneksiar->up_draw_me_by_2 != '')
@@ -767,7 +778,22 @@
                                 @endif
                             </td>
                             <td class="text-center">{{ $koneksiar->date_draw_me_2 }}</td>
-                            <td><input type="file" name="as_draw_me_2" id=""></td>
+                            <td>
+                                @if ($koneksiar->up_draw_me_2 != '')
+                                    <button
+                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md">Ubah</button>
+                                    <button class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="15"
+                                            fill="white" viewBox="0 0 48 48">
+                                            <path
+                                                d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                            </path>
+                                        </svg>
+                                    </button>
+                                @else
+                                    <input type="file" name="as_draw_me_2" id="">
+                                @endif
+                            </td>
                             <input type="text" hidden name="as_up_draw_me_by_2"
                                 value="{{ Auth::user()->first_name }}">
                             <input type="date" hidden name="as_date_draw_me_2" value="{{ date('Y-m-d') }}">
@@ -859,7 +885,22 @@
                                 @endif
                             </td>
                             <td class="text-center">{{ $koneksiar->date_draw_el_1 }}</td>
-                            <td><input type="file" name="as_draw_el_1" id=""></td>
+                            <td>
+                                <input type="file" name="as_draw_el_1" id="">
+
+                                <button
+                                    class=" text-white bg-blue-500 hover:bg-blue-600 p-3 rounded-md">Tambah</button>
+                                <button class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md">Ubah</button>
+                                <button class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="15"
+                                        fill="white" viewBox="0 0 48 48">
+                                        <path
+                                            d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                        </path>
+                                    </svg>
+                                </button>
+
+                            </td>
                             <input type="text" hidden name="as_up_draw_el_by_1"
                                 value="{{ Auth::user()->first_name }}">
                             <input type="date" hidden name="as_date_draw_el_1" value="{{ date('Y-m-d') }}">
@@ -900,7 +941,22 @@
                                 @endif
                             </td>
                             <td class="text-center">{{ $koneksiar->date_draw_el_2 }}</td>
-                            <td><input type="file" name="as_draw_el_2" id=""></td>
+                            <td>
+                                <input type="file" name="as_draw_el_2" id="">
+
+                                <button
+                                    class=" text-white bg-blue-500 hover:bg-blue-600 p-3 rounded-md">Tambah</button>
+                                <button class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md">Ubah</button>
+                                <button class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="15"
+                                        fill="white" viewBox="0 0 48 48">
+                                        <path
+                                            d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                        </path>
+                                    </svg>
+                                </button>
+
+                            </td>
                             <input type="text" hidden name="as_up_draw_el_by_2"
                                 value="{{ Auth::user()->first_name }}">
                             <input type="date" hidden name="as_date_draw_el_2" value="{{ date('Y-m-d') }}">
@@ -992,7 +1048,22 @@
                                 @endif
                             </td>
                             <td class="text-center">{{ $koneksiar->date_approval_lay_1 }}</td>
-                            <td><input type="file" name="as_approval_lay_1" id=""></td>
+                            <td>
+                                <input type="file" name="as_approval_lay_1" id="">
+
+                                <button
+                                    class=" text-white bg-blue-500 hover:bg-blue-600 p-3 rounded-md">Tambah</button>
+                                <button class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md">Ubah</button>
+                                <button class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="15"
+                                        fill="white" viewBox="0 0 48 48">
+                                        <path
+                                            d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                        </path>
+                                    </svg>
+                                </button>
+
+                            </td>
                             <input type="text" hidden name="as_up_approval_lay_by_1"
                                 value="{{ Auth::user()->first_name }}">
                             <input type="date" hidden name="as_date_approval_lay_1" value="{{ date('Y-m-d') }}">
@@ -1033,7 +1104,22 @@
                                 @endif
                             </td>
                             <td class="text-center">{{ $koneksiar->date_approval_lay_2 }}</td>
-                            <td><input type="file" name="as_approval_lay_2" id=""></td>
+                            <td>
+                                <input type="file" name="as_approval_lay_2" id="">
+
+                                <button
+                                    class=" text-white bg-blue-500 hover:bg-blue-600 p-3 rounded-md">Tambah</button>
+                                <button class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md">Ubah</button>
+                                <button class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="15"
+                                        fill="white" viewBox="0 0 48 48">
+                                        <path
+                                            d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                        </path>
+                                    </svg>
+                                </button>
+
+                            </td>
                             <input type="text" hidden name="as_up_approval_lay_by_2"
                                 value="{{ Auth::user()->first_name }}">
                             <input type="date" hidden name="as_date_approval_lay_2" value="{{ date('Y-m-d') }}">
@@ -1125,7 +1211,22 @@
                                 @endif
                             </td>
                             <td class="text-center">{{ $koneksiar->date_approval_draw_1 }}</td>
-                            <td><input type="file" name="as_approval_draw_1" id=""></td>
+                            <td>
+                                <input type="file" name="as_approval_draw_1" id="">
+
+                                <button
+                                    class=" text-white bg-blue-500 hover:bg-blue-600 p-3 rounded-md">Tambah</button>
+                                <button class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md">Ubah</button>
+                                <button class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="15"
+                                        fill="white" viewBox="0 0 48 48">
+                                        <path
+                                            d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                        </path>
+                                    </svg>
+                                </button>
+
+                            </td>
                             <input type="text" hidden name="as_up_approval_draw_by_1"
                                 value="{{ Auth::user()->first_name }}">
                             <input type="date" hidden name="as_date_approval_draw_1"
@@ -1167,7 +1268,22 @@
                                 @endif
                             </td>
                             <td class="text-center">{{ $koneksiar->date_approval_draw_2 }}</td>
-                            <td><input type="file" name="as_approval_draw_2" id=""></td>
+                            <td>
+                                <input type="file" name="as_approval_draw_2" id="">
+
+                                <button
+                                    class=" text-white bg-blue-500 hover:bg-blue-600 p-3 rounded-md">Tambah</button>
+                                <button class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md">Ubah</button>
+                                <button class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="15"
+                                        fill="white" viewBox="0 0 48 48">
+                                        <path
+                                            d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                        </path>
+                                    </svg>
+                                </button>
+
+                            </td>
                             <input type="text" hidden name="as_up_approval_draw_by_2"
                                 value="{{ Auth::user()->first_name }}">
                             <input type="date" hidden name="as_date_approval_draw_2"
@@ -1262,7 +1378,22 @@
                                 @endif
                             </td>
                             <td class="text-center">{{ $koneksiar->date_dsgn_sheet_1 }}</td>
-                            <td><input type="file" name="as_dsgn_sheet_1" id=""></td>
+                            <td>
+                                <input type="file" name="as_dsgn_sheet_1" id="">
+
+                                <button
+                                    class=" text-white bg-blue-500 hover:bg-blue-600 p-3 rounded-md">Tambah</button>
+                                <button class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md">Ubah</button>
+                                <button class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="15"
+                                        fill="white" viewBox="0 0 48 48">
+                                        <path
+                                            d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                        </path>
+                                    </svg>
+                                </button>
+
+                            </td>
                             <input type="text" hidden name="as_up_dsgn_sheet_by_1"
                                 value="{{ Auth::user()->first_name }}">
                             <input type="date" hidden name="as_date_dsgn_sheet_1" value="{{ date('Y-m-d') }}">
@@ -1303,7 +1434,22 @@
                                 @endif
                             </td>
                             <td class="text-center">{{ $koneksiar->date_dsgn_sheet_2 }}</td>
-                            <td><input type="file" name="as_dsgn_sheet_2" id=""></td>
+                            <td>
+                                <input type="file" name="as_dsgn_sheet_2" id="">
+
+                                <button
+                                    class=" text-white bg-blue-500 hover:bg-blue-600 p-3 rounded-md">Tambah</button>
+                                <button class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md">Ubah</button>
+                                <button class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="15"
+                                        fill="white" viewBox="0 0 48 48">
+                                        <path
+                                            d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                        </path>
+                                    </svg>
+                                </button>
+
+                            </td>
                             <input type="text" hidden name="as_up_dsgn_sheet_by_2"
                                 value="{{ Auth::user()->first_name }}">
                             <input type="date" hidden name="as_date_dsgn_sheet_2" value="{{ date('Y-m-d') }}">
@@ -1396,7 +1542,22 @@
                                 @endif
                             </td>
                             <td class="text-center">{{ $koneksiar->date_dr_meet_1 }}</td>
-                            <td><input type="file" name="as_dr_meet_1" id=""></td>
+                            <td>
+                                <input type="file" name="as_dr_meet_1" id="">
+
+                                <button
+                                    class=" text-white bg-blue-500 hover:bg-blue-600 p-3 rounded-md">Tambah</button>
+                                <button class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md">Ubah</button>
+                                <button class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="15"
+                                        fill="white" viewBox="0 0 48 48">
+                                        <path
+                                            d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                        </path>
+                                    </svg>
+                                </button>
+
+                            </td>
                             <input type="text" hidden name="as_up_dr_meet_by_1"
                                 value="{{ Auth::user()->first_name }}">
                             <input type="date" hidden name="as_date_dr_meet_1" value="{{ date('Y-m-d') }}">
@@ -1437,7 +1598,22 @@
                                 @endif
                             </td>
                             <td class="text-center">{{ $koneksiar->date_dr_meet_2 }}</td>
-                            <td><input type="file" name="as_dr_meet_2" id=""></td>
+                            <td>
+                                <input type="file" name="as_dr_meet_2" id="">
+
+                                <button
+                                    class=" text-white bg-blue-500 hover:bg-blue-600 p-3 rounded-md">Tambah</button>
+                                <button class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md">Ubah</button>
+                                <button class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="15"
+                                        fill="white" viewBox="0 0 48 48">
+                                        <path
+                                            d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                        </path>
+                                    </svg>
+                                </button>
+
+                            </td>
                             <input type="text" hidden name="as_up_dr_meet_by_2"
                                 value="{{ Auth::user()->first_name }}">
                             <input type="date" hidden name="as_date_dr_meet_2" value="{{ date('Y-m-d') }}">
@@ -1477,7 +1653,22 @@
                                 @endif
                             </td>
                             <td class="text-center">{{ $koneksiar->date_dr_meet_3 }}</td>
-                            <td><input type="file" name="as_dr_meet_3" id=""></td>
+                            <td>
+                                <input type="file" name="as_dr_meet_3" id="">
+
+                                <button
+                                    class=" text-white bg-blue-500 hover:bg-blue-600 p-3 rounded-md">Tambah</button>
+                                <button class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md">Ubah</button>
+                                <button class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="15"
+                                        fill="white" viewBox="0 0 48 48">
+                                        <path
+                                            d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                        </path>
+                                    </svg>
+                                </button>
+
+                            </td>
                             <input type="text" hidden name="as_up_dr_meet_by_3"
                                 value="{{ Auth::user()->first_name }}">
                             <input type="date" hidden name="as_date_dr_meet_3" value="{{ date('Y-m-d') }}">
@@ -1518,7 +1709,22 @@
                                 @endif
                             </td>
                             <td class="text-center">{{ $koneksiar->date_dr_meet_4 }}</td>
-                            <td><input type="file" name="as_dr_meet_4" id=""></td>
+                            <td>
+                                <input type="file" name="as_dr_meet_4" id="">
+
+                                <button
+                                    class=" text-white bg-blue-500 hover:bg-blue-600 p-3 rounded-md">Tambah</button>
+                                <button class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md">Ubah</button>
+                                <button class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="15"
+                                        fill="white" viewBox="0 0 48 48">
+                                        <path
+                                            d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                        </path>
+                                    </svg>
+                                </button>
+
+                            </td>
                             <input type="text" hidden name="as_up_dr_meet_by_4"
                                 value="{{ Auth::user()->first_name }}">
                             <input type="date" hidden name="as_date_dr_meet_4" value="{{ date('Y-m-d') }}">
@@ -1557,7 +1763,22 @@
                                 @endif
                             </td>
                             <td class="text-center">{{ $koneksiar->date_dr_meet_5 }}</td>
-                            <td><input type="file" name="as_dr_meet_5" id=""></td>
+                            <td>
+                                <input type="file" name="as_dr_meet_5" id="">
+
+                                <button
+                                    class=" text-white bg-blue-500 hover:bg-blue-600 p-3 rounded-md">Tambah</button>
+                                <button class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md">Ubah</button>
+                                <button class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="15"
+                                        fill="white" viewBox="0 0 48 48">
+                                        <path
+                                            d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                        </path>
+                                    </svg>
+                                </button>
+
+                            </td>
                             <input type="text" hidden name="as_up_dr_meet_by_5"
                                 value="{{ Auth::user()->first_name }}">
                             <input type="date" hidden name="as_date_dr_meet_5" value="{{ date('Y-m-d') }}">
@@ -1651,7 +1872,22 @@
                                 @endif
                             </td>
                             <td class="text-center">{{ $koneksiar->date_est_budget_1 }}</td>
-                            <td><input type="file" name="as_est_budget_1" id=""></td>
+                            <td>
+                                <input type="file" name="as_est_budget_1" id="">
+
+                                <button
+                                    class=" text-white bg-blue-500 hover:bg-blue-600 p-3 rounded-md">Tambah</button>
+                                <button class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md">Ubah</button>
+                                <button class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="15"
+                                        fill="white" viewBox="0 0 48 48">
+                                        <path
+                                            d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                        </path>
+                                    </svg>
+                                </button>
+
+                            </td>
                             <input type="text" hidden name="as_up_est_budget_by_1"
                                 value="{{ Auth::user()->first_name }}">
                             <input type="date" hidden name="as_date_est_budget_1" value="{{ date('Y-m-d') }}">
@@ -1692,10 +1928,25 @@
                                 @endif
                             </td>
                             <td class="text-center">{{ $koneksiar->date_est_budget_2 }}</td>
-                            <td><input type="file" name="as_est_budget_2" id=""></td>
+                            <td>
+                                <input type="file" name="as_est_budget_2" id="">
+
+                                <button class="text-white bg-blue-500 hover:bg-blue-600 p-3 rounded-md">Tambah</button>
+                                <button class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md">Ubah</button>
+                                <button class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="15"
+                                        fill="white" viewBox="0 0 48 48">
+                                        <path
+                                            d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                        </path>
+                                    </svg>
+                                </button>
+
+                            </td>
                             <input type="text" hidden name="as_up_est_budget_by_2"
                                 value="{{ Auth::user()->first_name }}">
-                            <input type="date" hidden name="as_date_est_budget_2" value="{{ date('Y-m-d') }}">
+                            <input type="date" hidden name="as_date_est_budget_2"
+                                value="{{ date('Y-m-d') }}">
                         </tr>
 
                     </tbody>
@@ -1708,7 +1959,7 @@
             <input type="text" name="status_ar" value="Waiting Approval" hidden>
             <input type="date" hidden name="status_ar_date" value="{{ date('Y-m-d') }}">
             {{-- table project --}}
-             <input type="text" name="check" value="needcheck" hidden>
+            <input type="text" name="check" value="needcheck" hidden>
             <input type="text" name="progress" value="Waiting Approval Arrangement" hidden>
             <input type="text" name="last_update_name" value="{{ Auth::user()->first_name }}" hidden>
             <input type="text" name="last_update_date" value="{{ date('d-M-Y') }}" hidden>

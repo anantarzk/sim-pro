@@ -933,9 +933,7 @@ class SpvStandarProjectController extends Controller
                 $request['as_date_dr_e_sheet_form'];
         }
         if ($request['as_file_lay_aprvl_sheet_form'] != '') {
-            $request[
-                'file_lay_aprvl_sheet_form'
-            ] = $newNamelay_aprvl_sheet_form;
+            $request['file_lay_aprvl_sheet_form'] = $newNamelay_aprvl_sheet_form;
             $request['up_lay_aprvl_sheet_form'] =
                 $request['as_up_lay_aprvl_sheet_form'];
             $request['date_lay_aprvl_sheet_form'] =
@@ -969,18 +967,14 @@ class SpvStandarProjectController extends Controller
         }
         //pr
         if ($request['as_file_pr_parts_material_form'] != '') {
-            $request[
-                'file_pr_parts_material_form'
-            ] = $newNamepr_parts_material_form;
+            $request['file_pr_parts_material_form'] = $newNamepr_parts_material_form;
             $request['up_pr_parts_material_form'] =
                 $request['as_up_pr_parts_material_form'];
             $request['date_pr_parts_material_form'] =
                 $request['as_date_pr_parts_material_form'];
         }
         if ($request['as_file_pr_pekerjaan_jasa_form'] != '') {
-            $request[
-                'file_pr_pekerjaan_jasa_form'
-            ] = $newNamepr_pekerjaan_jasa_form;
+            $request['file_pr_pekerjaan_jasa_form'] = $newNamepr_pekerjaan_jasa_form;
             $request['up_pr_pekerjaan_jasa_form'] =
                 $request['as_up_pr_pekerjaan_jasa_form'];
             $request['date_pr_pekerjaan_jasa_form'] =

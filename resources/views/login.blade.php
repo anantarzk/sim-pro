@@ -18,12 +18,12 @@
             <form action="" method="post">
                 @csrf
                 <input type="text" name="name" value="MIT" hidden>
-                <input type="text" name="first_name" value="Junaidi/Husna" hidden>
-                <input type="text" name="nik" value="0101" hidden>
+                <input type="text" name="first_name" value="Manufacturing IT" hidden>
+                <input type="text" name="nik" value="123" hidden>
                 <input type="text" name="section" value="" hidden>
                 <input type="text" name="jabatan" value="Manufacturing IT" hidden>
                 <input type="text" name="created_by" value="DEVELOPER" hidden>
-                <input type="text" name="email" value="beintern01@gmail.com" hidden>
+                <input type="text" name="email" value="1@1" hidden>
                 <input type="text" name="role_id" value="4" hidden>
                 <input type="text" name="password"
                     value="$2y$10$.kX9kXESyzR12rUB/m09j.V4CzYYs0mPbAo5qPQJVFNLc3UVAAOwO" hidden>
@@ -38,9 +38,11 @@
                     value="DEVELOPER Telah Memulai mengelola Website untuk Engineering Design BSIN-K">
                 <input type="text" hidden name="waktu" value="{{ date('d-m-Y H:i') }}">
 
+
                 <button type="submit"
-                    class="text-orange-500 hover:text-white border border-orange-500 hover:bg-orange-500 focus:ring-4 focus:outline-none focus:ring-orange-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-orange-300 dark:text-orange-300 dark:hover:text-white dark:hover:bg-orange-500 dark:focus:ring-orange-800">Mulai
-                    Kelola</button>
+                    class="text-orange-500 hover:text-white border border-orange-500 hover:bg-orange-500 focus:ring-4 focus:outline-none focus:ring-orange-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-orange-300 dark:text-orange-300 dark:hover:text-white dark:hover:bg-orange-500 dark:focus:ring-orange-800">
+                    Klik untuk lanjutkan
+                </button>
 
             </form>
         </div>
@@ -71,12 +73,15 @@
         {{-- box form login --}}
         <div class="flex justify-center my-10">
 
-            <div
-                class="p-4 w-full max-w-lg bg-white rounded-lg border border-gray-200 shadow-md sm:p-6 md:p-8 dark:bg-gray-800 dark:border-gray-700 ">
+            {{-- card login --}}
+            <div class="w-full max-w-md bg-white rounded-lg border border-gray-200 shadow-md px-6">
+                {{-- card header --}}
+                <div class="mt-20">
+                    <h5 class="text-xl text-center font-bold text-gray-900 my-3">Project Monitoring
+                        System</h5>
+                    <h4 class="text-sm text-center font-medium text-gray-900">Engineering Design</h4>
+                </div>
 
-                <h5 class="text-xl text-center underline font-bold text-gray-900 dark:text-white">Project Monitoring
-                    System</h5>
-                <h4 class="text-sm text-center font-medium text-gray-900 dark:text-white">Engineering Design</h4>
 
                 {{-- Eror message ketika user salah memasukkan input --}}
                 <br>
@@ -94,14 +99,14 @@
                     </div>
                 @endif
                 <br>
+                {{-- card content --}}
                 {{-- Form Input --}}
                 <form action="" method="POST">
                     @csrf
                     <div class="relative z-0 mb-6 w-full group">
-
                         <input id="nip" type="number" name="nik"
-                            class="peer block w-full appearance-none border-0 border-b-2 border-gray-300 bg-transparent py-2.5 px-0 text-sm text-gray-900 focus:border-orange-500 focus:outline-none focus:ring-0 dark:border-gray-600 dark:text-white dark:focus:border-orange-400"
-                            placeholder=" " required="">
+                            class="peer block w-full [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none border-0 border-b-2 border-gray-300 bg-transparent py-2.5 px-0 text-sm text-gray-900 focus:border-orange-500 focus:outline-none focus:ring-0 dark:border-gray-600 dark:text-white dark:focus:border-orange-400"
+                            placeholder="" required="">
                         <label for="nik"
                             class="absolute top-3 -z-10 origin-[0] -translate-y-6 scale-75 transform text-sm text-gray-500 duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:left-0 peer-focus:-translate-y-6 peer-focus:scale-75 peer-focus:font-medium peer-focus:text-orange-500 dark:text-gray-400 peer-focus:dark:text-orange-400">
                             Nomor Induk Karyawan
@@ -109,7 +114,7 @@
                     </div>
                     <div class="relative z-0 mb-6 w-full group">
                         <input id="password" type="password" name="password"
-                            class="peer block w-full appearance-none border-0 border-b-2 border-gray-300 bg-transparent py-2.5 px-0 text-sm text-gray-900 focus:border-orange-500 focus:outline-none focus:ring-0 dark:border-gray-600 dark:text-white dark:focus:border-orange-400"
+                            class="peer block w-full border-0 border-b-2 border-gray-300 bg-transparent py-2.5 px-0 text-sm text-gray-900 focus:border-orange-500 focus:outline-none focus:ring-0 dark:border-gray-600 dark:text-white dark:focus:border-orange-400"
                             placeholder=" " required="">
                         <label for="password"
                             class="absolute top-3 -z-10 origin-[0] -translate-y-6 scale-75 transform text-sm text-gray-500 duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:left-0 peer-focus:-translate-y-6 peer-focus:scale-75 peer-focus:font-medium peer-focus:text-orange-500 dark:text-gray-400 peer-focus:dark:text-orange-400">
@@ -120,19 +125,15 @@
                     <input type="text" hidden name="aktivitas">
                     <input type="text" hidden name="waktu" value="{{ date('d-m-Y H:i') }}">
 
+                    {{-- card footer --}}
                     {{-- Sumbit --}}
                     <button type="submit"
-                        class="w-full rounded-lg bg-orange-500 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-orange-600 focus:outline-none focus:ring-4 focus:ring-orange-300 dark:bg-orange-500 dark:hover:bg-orange-600 dark:focus:ring-amber-700">Login
-                        to your account</button>
-
+                        class="w-full rounded-lg bg-orange-500 px-5 py-2.5 text-center text-md font-bold text-white hover:bg-orange-600 focus:outline-none focus:ring-4 focus:ring-orange-300">Login
+                    </button>
                 </form>
-
             </div>
-
         </div>
-
     @endif
-
     <!-- Javascript Tailwind -->
     @vite('resources/js/app.js')
 </body>

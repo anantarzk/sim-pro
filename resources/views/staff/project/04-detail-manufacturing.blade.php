@@ -9,7 +9,7 @@
 
     {{-- header --}}
     <div class="tracking-wide text-gray-600 mb-2">
-        <p class=" font-light text-2xl">Projects Detail:</p>
+        <p class=" font-light text-3xl mb-4">Projects Detail - MN:</p>
     </div>
     {{-- akhir header --}}
 

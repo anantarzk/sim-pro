@@ -30,7 +30,7 @@
 
     {{-- header --}}
     <div class="tracking-wide text-gray-600 mb-2">
-        <p class=" font-light text-2xl">Projects Detail:</p>
+        <p class=" font-light text-3xl mb-4">Projects Detail - PR:</p>
     </div>
     {{-- akhir header --}}
     <div class=" flex overflow-x-auto">
@@ -878,6 +878,11 @@
                                                     class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
                                                     placeholder="Rp (input nilai PR)" min="0" max="999999999999" oninput="validity.valid||(value='');" name="as_mny_parts_pr_1">
                                             </div>
+
+                                <button  class=" text-white bg-blue-500 hover:bg-blue-600 p-3 rounded-md">Tambah</button>
+                                <button class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md">Ubah</button>
+                                <button class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">Hapus</button>
+
                                         </td>
                                         <input type="text" hidden name="as_up_by_parts_pr_1"
                                             value="{{ Auth::user()->first_name }}">
@@ -933,6 +938,11 @@
                                                     class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
                                                     placeholder="Rp (input nilai PR)" min="0" max="999999999999" oninput="validity.valid||(value='');" name="as_mny_parts_pr_2">
                                             </div>
+
+                                <button  class=" text-white bg-blue-500 hover:bg-blue-600 p-3 rounded-md">Tambah</button>
+                                <button class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md">Ubah</button>
+                                <button class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">Hapus</button>
+
                                         </td>
                                         <input type="text" hidden name="as_up_by_parts_pr_2"
                                             value="{{ Auth::user()->first_name }}">
@@ -989,6 +999,11 @@
                                                     class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
                                                     placeholder="Rp (input nilai PR)" min="0" max="999999999999" oninput="validity.valid||(value='');" name="as_mny_parts_pr_3">
                                             </div>
+
+                                <button  class=" text-white bg-blue-500 hover:bg-blue-600 p-3 rounded-md">Tambah</button>
+                                <button class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md">Ubah</button>
+                                <button class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">Hapus</button>
+
                                         </td>
                                         <input type="text" hidden name="as_up_by_parts_pr_3"
                                             value="{{ Auth::user()->first_name }}">
@@ -1045,6 +1060,11 @@
                                                     class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
                                                     placeholder="Rp (input nilai PR)" min="0" max="999999999999" oninput="validity.valid||(value='');" name="as_mny_parts_pr_4">
                                             </div>
+
+                                <button  class=" text-white bg-blue-500 hover:bg-blue-600 p-3 rounded-md">Tambah</button>
+                                <button class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md">Ubah</button>
+                                <button class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">Hapus</button>
+
                                         </td>
                                         <input type="text" hidden name="as_up_by_parts_pr_4"
                                             value="{{ Auth::user()->first_name }}">
@@ -1101,6 +1121,11 @@
                                                     class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
                                                     placeholder="Rp (input nilai PR)" min="0" max="999999999999" oninput="validity.valid||(value='');" name="as_mny_parts_pr_5">
                                             </div>
+
+                                <button  class=" text-white bg-blue-500 hover:bg-blue-600 p-3 rounded-md">Tambah</button>
+                                <button class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md">Ubah</button>
+                                <button class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">Hapus</button>
+
                                         </td>
                                         <input type="text" hidden name="as_up_by_parts_pr_5"
                                             value="{{ Auth::user()->first_name }}">
@@ -1158,6 +1183,11 @@
                                                     class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
                                                     placeholder="Rp (input nilai PR)" min="0" max="999999999999" oninput="validity.valid||(value='');" name="as_mny_parts_pr_6">
                                             </div>
+
+                                <button  class=" text-white bg-blue-500 hover:bg-blue-600 p-3 rounded-md">Tambah</button>
+                                <button class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md">Ubah</button>
+                                <button class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">Hapus</button>
+
                                         </td>
                                         <input type="text" hidden name="as_up_by_parts_pr_6"
                                             value="{{ Auth::user()->first_name }}">
@@ -1213,6 +1243,11 @@
                                                     class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
                                                     placeholder="Rp (input nilai PR)" min="0" max="999999999999" oninput="validity.valid||(value='');" name="as_mny_parts_pr_7">
                                             </div>
+
+                                <button  class=" text-white bg-blue-500 hover:bg-blue-600 p-3 rounded-md">Tambah</button>
+                                <button class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md">Ubah</button>
+                                <button class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">Hapus</button>
+
                                         </td>
                                         <input type="text" hidden name="as_up_by_parts_pr_7"
                                             value="{{ Auth::user()->first_name }}">
@@ -1269,6 +1304,11 @@
                                                     class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
                                                     placeholder="Rp (input nilai PR)" min="0" max="999999999999" oninput="validity.valid||(value='');" name="as_mny_parts_pr_8">
                                             </div>
+
+                                <button  class=" text-white bg-blue-500 hover:bg-blue-600 p-3 rounded-md">Tambah</button>
+                                <button class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md">Ubah</button>
+                                <button class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">Hapus</button>
+
                                         </td>
                                         <input type="text" hidden name="as_up_by_parts_pr_8"
                                             value="{{ Auth::user()->first_name }}">
@@ -1325,6 +1365,11 @@
                                                     class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
                                                     placeholder="Rp (input nilai PR)" min="0" max="999999999999" oninput="validity.valid||(value='');" name="as_mny_parts_pr_9">
                                             </div>
+
+                                <button  class=" text-white bg-blue-500 hover:bg-blue-600 p-3 rounded-md">Tambah</button>
+                                <button class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md">Ubah</button>
+                                <button class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">Hapus</button>
+
                                         </td>
                                         <input type="text" hidden name="as_up_by_parts_pr_9"
                                             value="{{ Auth::user()->first_name }}">
@@ -1381,6 +1426,11 @@
                                                     class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
                                                     placeholder="Rp (input nilai PR)" min="0" max="999999999999" oninput="validity.valid||(value='');" name="as_mny_parts_pr_10">
                                             </div>
+
+                                <button  class=" text-white bg-blue-500 hover:bg-blue-600 p-3 rounded-md">Tambah</button>
+                                <button class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md">Ubah</button>
+                                <button class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">Hapus</button>
+
                                         </td>
                                         <input type="text" hidden name="as_up_by_parts_pr_10"
                                             value="{{ Auth::user()->first_name }}">
@@ -1438,6 +1488,11 @@
                                                     class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
                                                     placeholder="Rp (input nilai PR)" min="0" max="999999999999" oninput="validity.valid||(value='');" name="as_mny_parts_pr_11">
                                             </div>
+
+                                <button  class=" text-white bg-blue-500 hover:bg-blue-600 p-3 rounded-md">Tambah</button>
+                                <button class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md">Ubah</button>
+                                <button class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">Hapus</button>
+
                                         </td>
                                         <input type="text" hidden name="as_up_by_parts_pr_11"
                                             value="{{ Auth::user()->first_name }}">
@@ -1493,6 +1548,11 @@
                                                     class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
                                                     placeholder="Rp (input nilai PR)" min="0" max="999999999999" oninput="validity.valid||(value='');" name="as_mny_parts_pr_12">
                                             </div>
+
+                                <button  class=" text-white bg-blue-500 hover:bg-blue-600 p-3 rounded-md">Tambah</button>
+                                <button class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md">Ubah</button>
+                                <button class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">Hapus</button>
+
                                         </td>
                                         <input type="text" hidden name="as_up_by_parts_pr_12"
                                             value="{{ Auth::user()->first_name }}">
@@ -1549,6 +1609,11 @@
                                                     class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
                                                     placeholder="Rp (input nilai PR)" min="0" max="999999999999" oninput="validity.valid||(value='');" name="as_mny_parts_pr_13">
                                             </div>
+
+                                <button  class=" text-white bg-blue-500 hover:bg-blue-600 p-3 rounded-md">Tambah</button>
+                                <button class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md">Ubah</button>
+                                <button class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">Hapus</button>
+
                                         </td>
                                         <input type="text" hidden name="as_up_by_parts_pr_13"
                                             value="{{ Auth::user()->first_name }}">
@@ -1605,6 +1670,11 @@
                                                     class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
                                                     placeholder="Rp (input nilai PR)" min="0" max="999999999999" oninput="validity.valid||(value='');" name="as_mny_parts_pr_14">
                                             </div>
+
+                                <button  class=" text-white bg-blue-500 hover:bg-blue-600 p-3 rounded-md">Tambah</button>
+                                <button class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md">Ubah</button>
+                                <button class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">Hapus</button>
+
                                         </td>
                                         <input type="text" hidden name="as_up_by_parts_pr_14"
                                             value="{{ Auth::user()->first_name }}">
@@ -1661,6 +1731,11 @@
                                                     class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
                                                     placeholder="Rp (input nilai PR)" min="0" max="999999999999" oninput="validity.valid||(value='');" name="as_mny_parts_pr_15">
                                             </div>
+
+                                <button  class=" text-white bg-blue-500 hover:bg-blue-600 p-3 rounded-md">Tambah</button>
+                                <button class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md">Ubah</button>
+                                <button class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">Hapus</button>
+
                                         </td>
                                         <input type="text" hidden name="as_up_by_parts_pr_15"
                                             value="{{ Auth::user()->first_name }}">
@@ -1717,6 +1792,11 @@
                                                 <input type="number" id="base-input"
                                                     class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
                                                     placeholder="Rp (input nilai PR)" min="0" max="999999999999" oninput="validity.valid||(value='');" name="as_mny_parts_pr_16">
+
+                                <button  class=" text-white bg-blue-500 hover:bg-blue-600 p-3 rounded-md">Tambah</button>
+                                <button class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md">Ubah</button>
+                                <button class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">Hapus</button>
+
                                             </div>
                                         </td>
                                         <input type="text" hidden name="as_up_by_parts_pr_16"
@@ -1773,6 +1853,11 @@
                                                     class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
                                                     placeholder="Rp (input nilai PR)" min="0" max="999999999999" oninput="validity.valid||(value='');" name="as_mny_parts_pr_17">
                                             </div>
+
+                                <button  class=" text-white bg-blue-500 hover:bg-blue-600 p-3 rounded-md">Tambah</button>
+                                <button class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md">Ubah</button>
+                                <button class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">Hapus</button>
+
                                         </td>
                                         <input type="text" hidden name="as_up_by_parts_pr_17"
                                             value="{{ Auth::user()->first_name }}">
@@ -1829,6 +1914,11 @@
                                                     class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
                                                     placeholder="Rp (input nilai PR)" min="0" max="999999999999" oninput="validity.valid||(value='');" name="as_mny_parts_pr_18">
                                             </div>
+
+                                <button  class=" text-white bg-blue-500 hover:bg-blue-600 p-3 rounded-md">Tambah</button>
+                                <button class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md">Ubah</button>
+                                <button class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">Hapus</button>
+
                                         </td>
                                         <input type="text" hidden name="as_up_by_parts_pr_18"
                                             value="{{ Auth::user()->first_name }}">
@@ -1887,6 +1977,11 @@
                                                     class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
                                                     placeholder="Rp (input nilai PR)" min="0" max="999999999999" oninput="validity.valid||(value='');" name="as_mny_parts_pr_19">
                                             </div>
+
+                                <button  class=" text-white bg-blue-500 hover:bg-blue-600 p-3 rounded-md">Tambah</button>
+                                <button class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md">Ubah</button>
+                                <button class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">Hapus</button>
+
                                         </td>
                                         <input type="text" hidden name="as_up_by_parts_pr_19"
                                             value="{{ Auth::user()->first_name }}">
@@ -1942,6 +2037,11 @@
                                                     class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
                                                     placeholder="Rp (input nilai PR)" min="0" max="999999999999" oninput="validity.valid||(value='');" name="as_mny_parts_pr_20">
                                             </div>
+
+                                <button  class=" text-white bg-blue-500 hover:bg-blue-600 p-3 rounded-md">Tambah</button>
+                                <button class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md">Ubah</button>
+                                <button class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">Hapus</button>
+
                                         </td>
                                         <input type="text" hidden name="as_up_by_parts_pr_20"
                                             value="{{ Auth::user()->first_name }}">

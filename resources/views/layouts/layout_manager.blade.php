@@ -248,43 +248,7 @@
     {{-- Akhir Sidebar --}}
 
     @yield('konten')
-
-    {{-- Awal Footer --}}
-    <div class="flex  border-t-2 mt-96">
-        <footer class="bg-white py-8 w-screen">
-            <div class="ml-6 mr-6 flex sm:items-center sm:justify-between">
-                <p class="mb-4 flex items-center sm:mb-0" href="#">
-                    <img src="{{ asset('/image/logo/01-logo-ori-bridgestone.svg') }}" class="w-1/4"
-                        alt="tidak ada gambar">
-
-                    <span class="self-center whitespace-nowrap text-base font-semibold ">
-                        &nbsp TIRE INDONESIA | KARAWANG PLANT
-                    </span>
-
-                <ul class="mb-6 flex flex-wrap items-center text-sm text-gray-500 sm:mb-0">
-                    <li>
-                        <a class="mr-4 hover:underline decoration-red-600 md:mr-6" href="#">About</a>
-                    </li>
-                    <li>
-                        <a class="mr-4 hover:underline decoration-red-600 md:mr-6" href="#">Privacy
-                            Policy</a>
-                    </li>
-                    <li>
-                        <a class="mr-4 hover:underline decoration-red-600 md:mr-6" href="#">Licensing</a>
-                    </li>
-                    <li>
-                        <a class="hover:underline decoration-red-600" href="#">Contact</a>
-                    </li>
-                </ul>
-            </div>
-            <hr class="my-6 border-gray-200 dark:border-gray-700 sm:mx-auto lg:my-8">
-            <span class="block text-sm text-gray-500 sm:text-center">2022
-                <a class="hover:underline decoration-red-600" href="#">
-                    Engineering Design - BSIN-K
-                </a>
-            </span>
-        </footer>
-    </div>
+    <div class="flex mt-96"></div>
 
 
 

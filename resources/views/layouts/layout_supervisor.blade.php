@@ -36,7 +36,7 @@
 
 </head>
 
-<body>
+<body class="bg-gray-100">
 
     {{-- Navbar --}}
     <div class="container mb-20">
@@ -346,7 +346,7 @@
     {{-- Akhir Sidebar --}}
 
     @yield('konten')
-    <div class="flex mt-96"></div>
+
 
 
 

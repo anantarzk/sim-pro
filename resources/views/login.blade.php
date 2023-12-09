@@ -9,7 +9,7 @@
     @vite('resources/css/app.css')
 </head>
 
-<body>
+<body class="bg-gray-200">
     @if ($count_user == 0)
         <div class="flex flex-col items-center justify-center mt-44">
             <p>Klik Tombol dibawah untuk mulai mengelola Website ENGINEERING DESIGN - BSIN-K</p>
@@ -17,7 +17,7 @@
             <br>
             <form action="" method="post">
                 @csrf
-                <input type="text" name="name" value="MIT" hidden>
+                <input type="text" name="name" value="Manufacturing IT" hidden>
                 <input type="text" name="first_name" value="Manufacturing IT" hidden>
                 <input type="text" name="nik" value="123" hidden>
                 <input type="text" name="section" value="" hidden>
@@ -51,7 +51,7 @@
         <div class="flex flex-col items-center mt-28">
             {{-- Logo Bridgestone --}}
 
-            <svg viewBox="0 0 1000 124" fill="none" xmlns="http://www.w3.org/2000/svg" width="20%" height="auto">
+            <svg viewBox="0 0 1000 124" fill="none" xmlns="http://www.w3.org/2000/svg" width="25%" height="auto">
                 <g id="2b684ee162c384d2bc2515eb2b253fad">
                     <g id="43c012495f5f66a41d03af6b7499bd87">
                         <g id="288d66471ef0b0698f0a2ddc21c54bd8" clip-path="url(#clip0_439_48)">
@@ -67,24 +67,22 @@
                     </g>
                 </g>
             </svg>
-            <h1>Bridgestone Tire Indonesia - Plant Karawang</h1>
+
+            <p class="text-sm text-center font-medium text-gray-900 uppercase">Engineering Design - BSIN K</p>
+            <p class="text-2xl text-center font-bold text-gray-900 mt-10 font-mono">Project Monitoring
+                System
+            </p>
         </div>
 
         {{-- box form login --}}
-        <div class="flex justify-center my-10">
+        <div class="flex justify-center mt-5">
 
             {{-- card login --}}
-            <div class="w-full max-w-md bg-white rounded-lg border border-gray-200 shadow-md px-6">
-                {{-- card header --}}
-                <div class="mt-20">
-                    <h5 class="text-xl text-center font-bold text-gray-900 my-3">Project Monitoring
-                        System</h5>
-                    <h4 class="text-sm text-center font-medium text-gray-900">Engineering Design</h4>
-                </div>
+            <div class="w-full max-w-md bg-white rounded-lg border border-gray-200 shadow-md px-5">
 
-
+                <p class="mt-5 text-xl font-bold text-center text-gray-800">Selamat datang,</p>
+                <p class="text-md font-normal text-center text-gray-600">silahkan masuk dengan akun yang dimiliki.</p>
                 {{-- Eror message ketika user salah memasukkan input --}}
-                <br>
                 @if (Session::has('status'))
                     <div class="flex p-4 mb-4 text-sm text-red-700 bg-red-100 rounded-lg dark:bg-red-200 dark:text-red-800"
                         role="alert">

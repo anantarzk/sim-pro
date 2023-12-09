@@ -10,7 +10,7 @@
     </div>
     {{-- akhir header --}}
 
-
+    {{-- mulai card --}}
     <div class="bg-white p-4 rounded-md shadow-md">
         <div class=" flex overflow-x-auto">
             <div class="w-full">
@@ -98,7 +98,7 @@
                 <div class="mt-3">
                     <hr class="mb-2 w-full border">
                     {{-- progress bar --}}
-                    {{-- @if ($viewdataproject->progress == 'Not Started')
+                    @if ($viewdataproject->progress == 'Not Started')
                         <div class="w-full bg-gray-200 rounded-full my-2 text-xs font-medium text-black text-center"
                             data-popover-target="popover-0" data-popover-placement="bottom">
                             <p class="">0%</p>
@@ -259,7 +259,7 @@
                             </div>
                         </div>
                     @endif
- --}}
+
                     {{-- akhir bar --}}
 
                     {{-- status --}}
@@ -530,7 +530,7 @@
 
     {{-- Awal progress file --}}
 
-    <div class="bg-white mt-5 w-full rounded-md shadow-md p-3">
+    <div class="bg-white mt-3 w-full rounded-md shadow-md p-3">
         <div class="flex justify-between items-center">
             <div class="flex">
                 <p>Checked by: &nbsp;

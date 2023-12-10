@@ -361,7 +361,12 @@
                         <div class="rounded-full h-12 w-12 py-2 px-2.5 bg-green-600 border-white border-4">
                             <p class="font-bold text-md text-white">FR</p>
                         </div>
-                    @else
+                        @elseif(
+                            $koneksifr->status_fr == 'Revisi Fund Request')
+                            <div class="rounded-full h-12 w-12 py-2 px-2 bg-yellow-300 border-white border-4">
+                                <p class="font-bold text-md text-black">FR</p>
+                            </div>
+                        @else
                         <div class="rounded-full h-12 w-12 py-2 px-2.5 bg-gray-400 border-white border-4">
                             <p class="font-bold text-md text-white">FR</p>
                         </div>
@@ -383,11 +388,16 @@
 
                 <div class="flex items-center relative">
                     @if ($koneksiar->status_ar == 'Complete')
-                        <div class="rounded-full h-12 w-12 py-2 px-2 bg-green-600 border-white border-4">
+                        <div class="rounded-full h-12 w-12 py-2 px-2 bg-green-600 border-white  border-4">
                             <p class="font-bold text-md text-white">AR</p>
                         </div>
-                    @else
-                        <div class="rounded-full h-12 w-12 py-2 px-2 bg-gray-400 border-white border-4">
+                        @elseif(
+                            $koneksiar->status_ar == 'Revisi Arrangement')
+                            <div class="rounded-full h-12 w-12 py-2 px-2 bg-yellow-300 border-white  border-4">
+                                <p class="font-bold text-md text-black">AR</p>
+                            </div>
+                        @else
+                        <div class="rounded-full h-12 w-12 py-2 px-2 bg-gray-400 border-white  border-4">
                             <p class="font-bold text-md text-white">AR</p>
                         </div>
                     @endif
@@ -408,6 +418,14 @@
                     @if ($koneksipr->status_purchasing == 'Complete')
                         <div class="rounded-full h-12 w-12 py-2 px-2.5 bg-green-600 border-orange-500 border-4">
                             <p class="font-bold text-md text-white">PR</p>
+                        </div>
+                    @elseif(
+                        $koneksipr->status_pr_01 == 'Revisi Purchasing - PR' ||
+                            $koneksipa->status_pa_02 == 'Revisi Purchasing - PA' ||
+                            $koneksipo->status_po_03 == 'Revisi Purchasing - PO' ||
+                            $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY')
+                        <div class="rounded-full h-12 w-12 py-2 px-2 bg-yellow-300 border-orange-500 border-4">
+                            <p class="font-bold text-md text-black">PR</p>
                         </div>
                     @else
                         <div class="rounded-full h-12 w-12 py-2 px-2.5 bg-gray-400 border-orange-500 border-4">
@@ -432,7 +450,12 @@
                         <div class="rounded-full h-12 w-12 py-2 px-1.5 bg-green-600 border-white border-4">
                             <p class="font-bold text-md text-white">MN</p>
                         </div>
-                    @else
+                        @elseif(
+                            $koneksimn->status_mn == 'Revisi Manufacturing')
+                            <div class="rounded-full h-12 w-12 py-2 px-1.5 bg-yellow-300 border-white border-4">
+                                <p class="font-bold text-md text-black">MN</p>
+                            </div>
+                        @else
                         <div class="rounded-full h-12 w-12 py-2 px-1.5 bg-gray-400 border-white border-4">
                             <p class="font-bold text-md text-white">MN</p>
                         </div>
@@ -455,7 +478,12 @@
                         <div class="rounded-full h-12 w-12 py-2 px-2.5 bg-green-600 border-white border-4">
                             <p class="font-bold text-md text-white">IN</p>
                         </div>
-                    @else
+                        @elseif(
+                            $koneksiin->status_in == 'Revisi Installation')
+                            <div class="rounded-full h-12 w-12 py-2 px-2.5 bg-yellow-300 border-white border-4">
+                                <p class="font-bold text-md text-black">IN</p>
+                            </div>
+                        @else
                         <div class="rounded-full h-12 w-12 py-2 px-2.5 bg-gray-400 border-white border-4">
                             <p class="font-bold text-md text-white">IN</p>
                         </div>
@@ -476,9 +504,14 @@
                 <div class="flex items-center relative">
                     @if ($koneksicl->status_cl == 'Complete')
                         <div class="rounded-full h-12 w-12 py-2 pl-0.5 bg-green-600 border-white border-4">
-                            <p class="font-bold text-md text-white">X</p>
+                            <p class="font-bold text-md text-white">HOV</p>
                         </div>
-                    @else
+                        @elseif(
+                            $koneksicl->status_cl == 'Revisi Handover')
+                            <div class="rounded-full h-12 w-12 py-2 px-0.5 bg-yellow-300 border-white border-4">
+                                <p class="font-bold text-md text-black">HOV</p>
+                            </div>
+                        @else
                         <div class="rounded-full h-12 w-12 py-2 pl-0.5 bg-gray-400 border-white border-4">
                             <p class="font-bold text-md text-white">HOV</p>
                         </div>
@@ -555,29 +588,31 @@
 
 
 
+
     {{-- Awal progress file --}}
-    <div class="bg-white  mt-10  w-full rounded-t">
-
-
-
+    <div class="bg-white mt-3 w-full rounded-md shadow-md p-3">
         {{-- awal stepper khusus purchasing --}}
         <div class="max-w-2xl mx-auto mb-16 mt-2">
-            <div class="flex items-center">
 
+            <div class="flex items-center">
                 <div class="flex items-center relative">
                     @if ($koneksipr->status_pr_01 == 'Complete')
                         <div class="rounded-full h-12 w-12 py-2 px-2 bg-green-600 border-white border-4">
                             <p class="font-bold text-md text-white">PR</p>
                         </div>
+                    @elseif($koneksipr->status_pr_01 == 'Revisi Purchasing - PR')
+                    <div class="rounded-full h-12 w-12 py-2 px-2 bg-yellow-300 border-white border-4">
+                        <p class="font-bold text-md text-black">PR</p>
+                    </div>
                     @else
                         <div class="rounded-full h-12 w-12 py-2 px-2 bg-gray-400 border-white border-4">
                             <p class="font-bold text-md text-white">PR</p>
                         </div>
                     @endif
-                    <div class="absolute top-0 -ml-10 text-center mt-14 w-32 text-xs font-medium uppercase">
+                    <div class="absolute top-0 -ml-10 text-center mt-14 w-32 text-xs font-medium">
                         <a
                             href="/03-01-PR-purchasing-proyek/{{ $viewdataproject->id }}/{{ $koneksifr->id_fr_1 }}/{{ $koneksiar->id_ar_2 }}/{{ $koneksipr->id_pr_01_3 }}/{{ $koneksipa->id_pa_02_3 }}/{{ $koneksipo->id_po_03_3 }}/{{ $koneksipay->id_pay_04_3 }}/{{ $koneksimn->id_mn_4 }}/{{ $koneksiin->id_in_5 }}/{{ $koneksicl->id_cl_6 }}">
-                            <p class="font-semibold text-lg text-gray-900 hover:underline">PR
+                            <p class="font-semibold text-lg text-gray-900 hover:underline">Pur. Request
                             </p>
                         </a>
                         <p>{{ $koneksipr->status_pr_01 }}</p>
@@ -592,15 +627,19 @@
                         <div class="rounded-full h-12 w-12 py-2 px-2 bg-green-600 border-white border-4">
                             <p class="font-bold text-md text-white">PA</p>
                         </div>
+                        @elseif($koneksipa->status_pa_02 == 'Revisi Purchasing - PA')
+                    <div class="rounded-full h-12 w-12 py-2 px-2 bg-yellow-300 border-white border-4">
+                        <p class="font-bold text-md text-black">PA</p>
+                    </div>
                     @else
                         <div class="rounded-full h-12 w-12 py-2 px-2 bg-gray-400 border-white border-4">
                             <p class="font-bold text-md text-white">PA</p>
                         </div>
                     @endif
-                    <div class="absolute top-0 -ml-10 text-center mt-14 w-32 text-xs font-medium uppercase">
+                    <div class="absolute top-0 -ml-10 text-center mt-14 w-32 text-xs font-medium">
                         <a
                             href="/03-02-PA-purchase-approval-proyek/{{ $viewdataproject->id }}/{{ $koneksifr->id_fr_1 }}/{{ $koneksiar->id_ar_2 }}/{{ $koneksipr->id_pr_01_3 }}/{{ $koneksipa->id_pa_02_3 }}/{{ $koneksipo->id_po_03_3 }}/{{ $koneksipay->id_pay_04_3 }}/{{ $koneksimn->id_mn_4 }}/{{ $koneksiin->id_in_5 }}/{{ $koneksicl->id_cl_6 }}">
-                            <p class="font-semibold text-lg text-gray-900 hover:underline">PA
+                            <p class="font-semibold text-lg text-gray-900 hover:underline">Pur. Approval
                             </p>
                         </a>
                         <p>{{ $koneksipa->status_pa_02 }}</p>
@@ -615,15 +654,19 @@
                         <div class="rounded-full h-12 w-12 py-2 px-2 bg-green-600 border-orange-500 border-4">
                             <p class="font-bold text-md text-white">PO</p>
                         </div>
+                        @elseif($koneksipo->status_po_03 == 'Revisi Purchasing - PO')
+                    <div class="rounded-full h-12 w-12 py-2 px-2 bg-yellow-300 border-orange-500 border-4">
+                        <p class="font-bold text-md text-black">PO</p>
+                    </div>
                     @else
                         <div class="rounded-full h-12 w-12 py-2 px-2 bg-gray-400 border-orange-500 border-4">
                             <p class="font-bold text-md text-white">PO</p>
                         </div>
                     @endif
-                    <div class="absolute top-0 -ml-10 text-center mt-14 w-32 text-xs font-medium uppercase">
+                    <div class="absolute top-0 -ml-10 text-center mt-14 w-32 text-xs font-medium">
                         <a
                             href="/03-03-PO-purchase-order-proyek/{{ $viewdataproject->id }}/{{ $koneksifr->id_fr_1 }}/{{ $koneksiar->id_ar_2 }}/{{ $koneksipr->id_pr_01_3 }}/{{ $koneksipa->id_pa_02_3 }}/{{ $koneksipo->id_po_03_3 }}/{{ $koneksipay->id_pay_04_3 }}/{{ $koneksimn->id_mn_4 }}/{{ $koneksiin->id_in_5 }}/{{ $koneksicl->id_cl_6 }}">
-                            <p class="font-semibold text-lg text-gray-900 hover:underline">PO
+                            <p class="font-semibold text-lg text-gray-900 hover:underline">Pur. Order
                             </p>
                         </a>
                         <p>{{ $koneksipo->status_po_03 }}</p>
@@ -635,18 +678,22 @@
 
                 <div class="flex items-center relative">
                     @if ($koneksipay->status_pay_04 == 'Complete')
-                        <div class="rounded-full h-12 w-12 py-2 px-3.5 bg-green-600 border-white border-4">
-                            <p class="font-bold text-md text-white">V</p>
+                        <div class="rounded-full h-12 w-12 py-2 px-1.5 bg-green-600 border-white border-4">
+                            <p class="font-bold text-md text-white">PAY</p>
                         </div>
+                        @elseif($koneksipay->status_pay_04 == 'Revisi Purchasing - PAY')
+                    <div class="rounded-full h-12 w-12 py-2 px-1.5 bg-yellow-300 border-white border-4">
+                        <p class="font-bold text-md text-black">PAY</p>
+                    </div>
                     @else
-                        <div class="rounded-full h-12 w-12 py-2 px-3.5 bg-gray-400 border-white border-4">
-                            <p class="font-bold text-md text-white">V</p>
+                        <div class="rounded-full h-12 w-12 py-2 px-1.5 bg-gray-400 border-white border-4">
+                            <p class="font-bold text-md text-white">PAY</p>
                         </div>
                     @endif
-                    <div class="absolute top-0 -ml-10 text-center mt-14 w-32 text-xs font-medium uppercase">
+                    <div class="absolute top-0 -ml-10 text-center mt-14 w-32 text-xs font-medium">
                         <a
                             href="/03-04-PAY-payment-purchasing-proyek/{{ $viewdataproject->id }}/{{ $koneksifr->id_fr_1 }}/{{ $koneksiar->id_ar_2 }}/{{ $koneksipr->id_pr_01_3 }}/{{ $koneksipa->id_pa_02_3 }}/{{ $koneksipo->id_po_03_3 }}/{{ $koneksipay->id_pay_04_3 }}/{{ $koneksimn->id_mn_4 }}/{{ $koneksiin->id_in_5 }}/{{ $koneksicl->id_cl_6 }}">
-                            <p class="font-semibold text-lg text-gray-900 hover:underline">Payment
+                            <p class="font-semibold text-lg text-gray-900 hover:underline">Actual Payment
                             </p>
                         </a>
                         <p>{{ $koneksipay->status_pay_04 }}</p>
@@ -658,9 +705,9 @@
         {{-- akhir stepper --}}
 
         <br>
-        <br>
-        <div class="flex justify-between items-center mb-3">
+        <hr class="mb-2 w-full border">
 
+            <div class="flex justify-between items-center mb-3">
             {{-- status approval row --}}
             <div class="flex">
                 <p>Checked by: &nbsp;

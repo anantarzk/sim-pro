@@ -371,6 +371,7 @@ class StaffProjectController extends Controller
             'id_pr_01_3',
             'status_purchasing',
             'status_purchasing_date',
+            'status_pr_01',
             'mny_parts_pr_1',
             'mny_parts_pr_2',
             'mny_parts_pr_3',
@@ -465,6 +466,7 @@ class StaffProjectController extends Controller
 
         $koneksipa = PAproject::select(
             'id_pa_02_3',
+            'status_pa_02',
 
             'mny_parts_pa_1',
             'mny_parts_pa_2',
@@ -566,6 +568,7 @@ class StaffProjectController extends Controller
 
         $koneksipo = POproject::select(
             'id_po_03_3',
+            'status_po_03',
 
             'mny_parts_po_1',
             'mny_parts_po_2',
@@ -667,6 +670,8 @@ class StaffProjectController extends Controller
 
         $koneksipay = PAYproject::select(
             'id_pay_04_3',
+            'status_pay_04',
+
             'mny_parts_pay_1',
             'mny_parts_pay_2',
             'mny_parts_pay_3',
@@ -1509,6 +1514,7 @@ class StaffProjectController extends Controller
         );
     }
 
+/* arrangement */
     public function DuaFormProgress(
         Request $request,
         $id,
@@ -1537,6 +1543,8 @@ class StaffProjectController extends Controller
             'id_pr_01_3',
             'status_purchasing',
             'status_purchasing_date',
+            'status_pr_01',
+
             'mny_parts_pr_1',
             'mny_parts_pr_2',
             'mny_parts_pr_3',
@@ -1631,6 +1639,7 @@ class StaffProjectController extends Controller
 
         $koneksipa = PAproject::select(
             'id_pa_02_3',
+            'status_pa_02',
 
             'mny_parts_pa_1',
             'mny_parts_pa_2',
@@ -1732,6 +1741,7 @@ class StaffProjectController extends Controller
 
         $koneksipo = POproject::select(
             'id_po_03_3',
+            'status_po_03',
 
             'mny_parts_po_1',
             'mny_parts_po_2',
@@ -1833,6 +1843,8 @@ class StaffProjectController extends Controller
 
         $koneksipay = PAYproject::select(
             'id_pay_04_3',
+            'status_pay_04',
+
             'mny_parts_pay_1',
             'mny_parts_pay_2',
             'mny_parts_pay_3',
@@ -8467,7 +8479,7 @@ class StaffProjectController extends Controller
             ]
         );
     }
-
+/* Purchase Approval PA */
     public function TigaTitikDuaFormProgress(
         Request $request,
         $id,
@@ -13847,6 +13859,7 @@ class StaffProjectController extends Controller
             ]
         );
     }
+    /* Purchase Order PO */
     public function TigaTitikTigaFormProgress(
         Request $request,
         $id,
@@ -19229,6 +19242,7 @@ class StaffProjectController extends Controller
             ]
         );
     }
+    /* Actual Payment */
     public function TigaTitikEmpatFormProgress(
         Request $request,
         $id,
@@ -24631,6 +24645,7 @@ class StaffProjectController extends Controller
         );
     }
 
+    /* manufacturing */
     public function EmpatFormProgress(
         Request $request,
         $id,
@@ -24663,6 +24678,8 @@ class StaffProjectController extends Controller
             'id_pr_01_3',
             'status_purchasing',
             'status_purchasing_date',
+            'status_pr_01',
+
             'mny_parts_pr_1',
             'mny_parts_pr_2',
             'mny_parts_pr_3',
@@ -24757,6 +24774,7 @@ class StaffProjectController extends Controller
 
         $koneksipa = PAproject::select(
             'id_pa_02_3',
+            'status_pa_02',
 
             'mny_parts_pa_1',
             'mny_parts_pa_2',
@@ -24858,6 +24876,7 @@ class StaffProjectController extends Controller
 
         $koneksipo = POproject::select(
             'id_po_03_3',
+            'status_po_03',
 
             'mny_parts_po_1',
             'mny_parts_po_2',
@@ -24959,6 +24978,8 @@ class StaffProjectController extends Controller
 
         $koneksipay = PAYproject::select(
             'id_pay_04_3',
+            'status_pay_04',
+
             'mny_parts_pay_1',
             'mny_parts_pay_2',
             'mny_parts_pay_3',
@@ -26066,6 +26087,8 @@ class StaffProjectController extends Controller
             'id_pr_01_3',
             'status_purchasing',
             'status_purchasing_date',
+            'status_pr_01',
+
             'mny_parts_pr_1',
             'mny_parts_pr_2',
             'mny_parts_pr_3',
@@ -26160,6 +26183,7 @@ class StaffProjectController extends Controller
 
         $koneksipa = PAproject::select(
             'id_pa_02_3',
+            'status_pa_02',
 
             'mny_parts_pa_1',
             'mny_parts_pa_2',
@@ -26261,6 +26285,7 @@ class StaffProjectController extends Controller
 
         $koneksipo = POproject::select(
             'id_po_03_3',
+            'status_po_03',
 
             'mny_parts_po_1',
             'mny_parts_po_2',
@@ -26362,6 +26387,8 @@ class StaffProjectController extends Controller
 
         $koneksipay = PAYproject::select(
             'id_pay_04_3',
+            'status_pay_04',
+
             'mny_parts_pay_1',
             'mny_parts_pay_2',
             'mny_parts_pay_3',
@@ -27657,6 +27684,8 @@ class StaffProjectController extends Controller
             'id_pr_01_3',
             'status_purchasing',
             'status_purchasing_date',
+            'status_pr_01',
+
             'mny_parts_pr_1',
             'mny_parts_pr_2',
             'mny_parts_pr_3',
@@ -27751,6 +27780,7 @@ class StaffProjectController extends Controller
 
         $koneksipa = PAproject::select(
             'id_pa_02_3',
+            'status_pa_02',
 
             'mny_parts_pa_1',
             'mny_parts_pa_2',
@@ -27852,6 +27882,7 @@ class StaffProjectController extends Controller
 
         $koneksipo = POproject::select(
             'id_po_03_3',
+            'status_po_03',
 
             'mny_parts_po_1',
             'mny_parts_po_2',
@@ -27953,6 +27984,8 @@ class StaffProjectController extends Controller
 
         $koneksipay = PAYproject::select(
             'id_pay_04_3',
+            'status_pay_04',
+            
             'mny_parts_pay_1',
             'mny_parts_pay_2',
             'mny_parts_pay_3',

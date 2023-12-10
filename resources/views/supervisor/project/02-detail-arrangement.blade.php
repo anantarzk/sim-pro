@@ -1,5 +1,5 @@
 @extends('layouts.layout_supervisor')
-@section('title_page', 'Aranggement - Project')
+@section('title_page', 'Arrangement - Project')
 
 
 <a href="#submit-1">
@@ -348,7 +348,12 @@
                         <div class="rounded-full h-12 w-12 py-2 px-2.5 bg-green-600 border-white border-4">
                             <p class="font-bold text-md text-white">FR</p>
                         </div>
-                    @else
+                        @elseif(
+                            $koneksifr->status_fr == 'Revisi Fund Request')
+                            <div class="rounded-full h-12 w-12 py-2 px-2 bg-yellow-300 border-white border-4">
+                                <p class="font-bold text-md text-black">FR</p>
+                            </div>
+                        @else
                         <div class="rounded-full h-12 w-12 py-2 px-2.5 bg-gray-400 border-white border-4">
                             <p class="font-bold text-md text-white">FR</p>
                         </div>
@@ -370,11 +375,16 @@
 
                 <div class="flex items-center relative">
                     @if ($koneksiar->status_ar == 'Complete')
-                        <div class="rounded-full h-12 w-12 py-2 px-2 bg-green-600 border-orange-500 border-4">
+                        <div class="rounded-full h-12 w-12 py-2 px-2 bg-green-600 border-orange-500  border-4">
                             <p class="font-bold text-md text-white">AR</p>
                         </div>
-                    @else
-                        <div class="rounded-full h-12 w-12 py-2 px-2 bg-gray-400 border-orange-500 border-4">
+                        @elseif(
+                            $koneksiar->status_ar == 'Revisi Arrangement')
+                            <div class="rounded-full h-12 w-12 py-2 px-2 bg-yellow-300 border-orange-500  border-4">
+                                <p class="font-bold text-md text-black">AR</p>
+                            </div>
+                        @else
+                        <div class="rounded-full h-12 w-12 py-2 px-2 bg-gray-400 border-orange-500  border-4">
                             <p class="font-bold text-md text-white">AR</p>
                         </div>
                     @endif
@@ -395,6 +405,14 @@
                     @if ($koneksipr->status_purchasing == 'Complete')
                         <div class="rounded-full h-12 w-12 py-2 px-2.5 bg-green-600 border-white border-4">
                             <p class="font-bold text-md text-white">PR</p>
+                        </div>
+                    @elseif(
+                        $koneksipr->status_pr_01 == 'Revisi Purchasing - PR' ||
+                            $koneksipa->status_pa_02 == 'Revisi Purchasing - PA' ||
+                            $koneksipo->status_po_03 == 'Revisi Purchasing - PO' ||
+                            $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY')
+                        <div class="rounded-full h-12 w-12 py-2 px-2 bg-yellow-300 border-white border-4">
+                            <p class="font-bold text-md text-black">PR</p>
                         </div>
                     @else
                         <div class="rounded-full h-12 w-12 py-2 px-2.5 bg-gray-400 border-white border-4">
@@ -419,7 +437,12 @@
                         <div class="rounded-full h-12 w-12 py-2 px-1.5 bg-green-600 border-white border-4">
                             <p class="font-bold text-md text-white">MN</p>
                         </div>
-                    @else
+                        @elseif(
+                            $koneksimn->status_mn == 'Revisi Manufacturing')
+                            <div class="rounded-full h-12 w-12 py-2 px-1.5 bg-yellow-300 border-white border-4">
+                                <p class="font-bold text-md text-black">MN</p>
+                            </div>
+                        @else
                         <div class="rounded-full h-12 w-12 py-2 px-1.5 bg-gray-400 border-white border-4">
                             <p class="font-bold text-md text-white">MN</p>
                         </div>
@@ -442,7 +465,12 @@
                         <div class="rounded-full h-12 w-12 py-2 px-2.5 bg-green-600 border-white border-4">
                             <p class="font-bold text-md text-white">IN</p>
                         </div>
-                    @else
+                        @elseif(
+                            $koneksiin->status_in == 'Revisi Installation')
+                            <div class="rounded-full h-12 w-12 py-2 px-2.5 bg-yellow-300 border-white border-4">
+                                <p class="font-bold text-md text-black">IN</p>
+                            </div>
+                        @else
                         <div class="rounded-full h-12 w-12 py-2 px-2.5 bg-gray-400 border-white border-4">
                             <p class="font-bold text-md text-white">IN</p>
                         </div>
@@ -463,9 +491,14 @@
                 <div class="flex items-center relative">
                     @if ($koneksicl->status_cl == 'Complete')
                         <div class="rounded-full h-12 w-12 py-2 pl-0.5 bg-green-600 border-white border-4">
-                            <p class="font-bold text-md text-white">X</p>
+                            <p class="font-bold text-md text-white">HOV</p>
                         </div>
-                    @else
+                        @elseif(
+                            $koneksicl->status_cl == 'Revisi Handover')
+                            <div class="rounded-full h-12 w-12 py-2 px-0.5 bg-yellow-300 border-white border-4">
+                                <p class="font-bold text-md text-black">HOV</p>
+                            </div>
+                        @else
                         <div class="rounded-full h-12 w-12 py-2 pl-0.5 bg-gray-400 border-white border-4">
                             <p class="font-bold text-md text-white">HOV</p>
                         </div>
@@ -544,7 +577,7 @@
 
     {{-- Awal progress file --}}
 
-    <div class="bg-white mt-10 w-full rounded-t">
+    <div class="bg-white mt-3 w-full rounded-md shadow-md p-3">
         <div class="flex justify-between items-center mb-3">
             <div class="flex">
                 <p>Checked by: &nbsp;
@@ -685,7 +718,7 @@
                         <th class="w-[57%]">Nama File</th>
                         <th class="w-[10%]">Uploaded by</th>
                         <th class="w-[13%]">Last Update</th>
-                        <th class="w-[15%]">Upload</th>
+                        <th class="w-[15%]">Aksi</th>
                     </thead>
                     <tbody class="text-left border">
 

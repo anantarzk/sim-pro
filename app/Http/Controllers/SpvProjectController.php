@@ -758,6 +758,7 @@ class SpvProjectController extends Controller
             'id_pr_01_3',
             'status_purchasing',
             'status_purchasing_date',
+            'status_pr_01',
             'mny_parts_pr_1',
             'mny_parts_pr_2',
             'mny_parts_pr_3',
@@ -852,6 +853,7 @@ class SpvProjectController extends Controller
 
         $koneksipa = PAproject::select(
             'id_pa_02_3',
+            'status_pa_02',
 
             'mny_parts_pa_1',
             'mny_parts_pa_2',
@@ -953,6 +955,7 @@ class SpvProjectController extends Controller
 
         $koneksipo = POproject::select(
             'id_po_03_3',
+            'status_po_03',
 
             'mny_parts_po_1',
             'mny_parts_po_2',
@@ -1054,6 +1057,8 @@ class SpvProjectController extends Controller
 
         $koneksipay = PAYproject::select(
             'id_pay_04_3',
+            'status_pay_04',
+
             'mny_parts_pay_1',
             'mny_parts_pay_2',
             'mny_parts_pay_3',
@@ -1924,6 +1929,8 @@ class SpvProjectController extends Controller
             'id_pr_01_3',
             'status_purchasing',
             'status_purchasing_date',
+            'status_pr_01',
+
             'mny_parts_pr_1',
             'mny_parts_pr_2',
             'mny_parts_pr_3',
@@ -2018,6 +2025,7 @@ class SpvProjectController extends Controller
 
         $koneksipa = PAproject::select(
             'id_pa_02_3',
+            'status_pa_02',
 
             'mny_parts_pa_1',
             'mny_parts_pa_2',
@@ -2119,6 +2127,7 @@ class SpvProjectController extends Controller
 
         $koneksipo = POproject::select(
             'id_po_03_3',
+            'status_po_03',
 
             'mny_parts_po_1',
             'mny_parts_po_2',
@@ -2220,6 +2229,8 @@ class SpvProjectController extends Controller
 
         $koneksipay = PAYproject::select(
             'id_pay_04_3',
+            'status_pay_04',
+
             'mny_parts_pay_1',
             'mny_parts_pay_2',
             'mny_parts_pay_3',
@@ -3638,7 +3649,7 @@ class SpvProjectController extends Controller
             $request['date_est_budget_2'] = $request['as_date_est_budget_2'];
         }
 
-        // menyimpan seluruh ke table FR
+        // menyimpan seluruh ke table AR
         $viewdataproject->update($request->all());
         $koneksiar->update($request->all());
 
@@ -8854,7 +8865,7 @@ class SpvProjectController extends Controller
             ]
         );
     }
-
+/* Purchase approval */
     public function TigaTitikDuaFormProgress(
         Request $request,
         $id,
@@ -14234,6 +14245,8 @@ class SpvProjectController extends Controller
             ]
         );
     }
+
+    /* purchase order */
     public function TigaTitikTigaFormProgress(
         Request $request,
         $id,
@@ -19616,6 +19629,8 @@ class SpvProjectController extends Controller
             ]
         );
     }
+
+    /* actual payment */
     public function TigaTitikEmpatFormProgress(
         Request $request,
         $id,
@@ -25018,6 +25033,7 @@ class SpvProjectController extends Controller
         );
     }
 
+    /* manufacturing */
     public function EmpatFormProgress(
         Request $request,
         $id,
@@ -25050,6 +25066,8 @@ class SpvProjectController extends Controller
             'id_pr_01_3',
             'status_purchasing',
             'status_purchasing_date',
+            'status_pr_01',
+
             'mny_parts_pr_1',
             'mny_parts_pr_2',
             'mny_parts_pr_3',
@@ -25144,6 +25162,7 @@ class SpvProjectController extends Controller
 
         $koneksipa = PAproject::select(
             'id_pa_02_3',
+            'status_pa_02',
 
             'mny_parts_pa_1',
             'mny_parts_pa_2',
@@ -25245,6 +25264,7 @@ class SpvProjectController extends Controller
 
         $koneksipo = POproject::select(
             'id_po_03_3',
+            'status_po_03',
 
             'mny_parts_po_1',
             'mny_parts_po_2',
@@ -25346,6 +25366,8 @@ class SpvProjectController extends Controller
 
         $koneksipay = PAYproject::select(
             'id_pay_04_3',
+            'status_pay_04',
+
             'mny_parts_pay_1',
             'mny_parts_pay_2',
             'mny_parts_pay_3',
@@ -26421,6 +26443,7 @@ class SpvProjectController extends Controller
         );
     }
 
+    /* installation */
     public function LimaFormProgress(
         Request $request,
         $id,
@@ -26453,6 +26476,8 @@ class SpvProjectController extends Controller
             'id_pr_01_3',
             'status_purchasing',
             'status_purchasing_date',
+            'status_pr_01',
+
             'mny_parts_pr_1',
             'mny_parts_pr_2',
             'mny_parts_pr_3',
@@ -26547,6 +26572,7 @@ class SpvProjectController extends Controller
 
         $koneksipa = PAproject::select(
             'id_pa_02_3',
+            'status_pa_02',
 
             'mny_parts_pa_1',
             'mny_parts_pa_2',
@@ -26648,6 +26674,7 @@ class SpvProjectController extends Controller
 
         $koneksipo = POproject::select(
             'id_po_03_3',
+            'status_po_03',
 
             'mny_parts_po_1',
             'mny_parts_po_2',
@@ -26749,6 +26776,8 @@ class SpvProjectController extends Controller
 
         $koneksipay = PAYproject::select(
             'id_pay_04_3',
+            'status_pay_04',
+
             'mny_parts_pay_1',
             'mny_parts_pay_2',
             'mny_parts_pay_3',
@@ -27278,6 +27307,8 @@ class SpvProjectController extends Controller
             'standar_project' => $standar_project,
         ]);
     }
+
+
     public function ProcessLimaFormProgress(
         Request $request,
         $id,
@@ -28012,6 +28043,7 @@ class SpvProjectController extends Controller
         );
     }
 
+    /* Handover/closed */
     public function EnamFormProgress(
         Request $request,
         $id,
@@ -28044,6 +28076,8 @@ class SpvProjectController extends Controller
             'id_pr_01_3',
             'status_purchasing',
             'status_purchasing_date',
+            'status_pr_01',
+
             'mny_parts_pr_1',
             'mny_parts_pr_2',
             'mny_parts_pr_3',
@@ -28138,6 +28172,7 @@ class SpvProjectController extends Controller
 
         $koneksipa = PAproject::select(
             'id_pa_02_3',
+            'status_pa_02',
 
             'mny_parts_pa_1',
             'mny_parts_pa_2',
@@ -28239,6 +28274,7 @@ class SpvProjectController extends Controller
 
         $koneksipo = POproject::select(
             'id_po_03_3',
+            'status_po_03',
 
             'mny_parts_po_1',
             'mny_parts_po_2',
@@ -28340,6 +28376,8 @@ class SpvProjectController extends Controller
 
         $koneksipay = PAYproject::select(
             'id_pay_04_3',
+            'status_pay_04',
+            
             'mny_parts_pay_1',
             'mny_parts_pay_2',
             'mny_parts_pay_3',

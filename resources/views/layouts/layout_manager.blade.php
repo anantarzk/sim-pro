@@ -35,7 +35,7 @@
 
 </head>
 
-<body>
+<body class="bg-gray-200">
 
     {{-- Navbar --}}
     <div class="container mb-20">

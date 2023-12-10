@@ -360,7 +360,12 @@
                         <div class="rounded-full h-12 w-12 py-2 px-2.5 bg-green-600 border-white border-4">
                             <p class="font-bold text-md text-white">FR</p>
                         </div>
-                    @else
+                        @elseif(
+                            $koneksifr->status_fr == 'Revisi Fund Request')
+                            <div class="rounded-full h-12 w-12 py-2 px-2 bg-yellow-300 border-white border-4">
+                                <p class="font-bold text-md text-black">FR</p>
+                            </div>
+                        @else
                         <div class="rounded-full h-12 w-12 py-2 px-2.5 bg-gray-400 border-white border-4">
                             <p class="font-bold text-md text-white">FR</p>
                         </div>
@@ -382,11 +387,16 @@
 
                 <div class="flex items-center relative">
                     @if ($koneksiar->status_ar == 'Complete')
-                        <div class="rounded-full h-12 w-12 py-2 px-2 bg-green-600 border-white border-4">
+                        <div class="rounded-full h-12 w-12 py-2 px-2 bg-green-600 border-white  border-4">
                             <p class="font-bold text-md text-white">AR</p>
                         </div>
-                    @else
-                        <div class="rounded-full h-12 w-12 py-2 px-2 bg-gray-400 border-white border-4">
+                        @elseif(
+                            $koneksiar->status_ar == 'Revisi Arrangement')
+                            <div class="rounded-full h-12 w-12 py-2 px-2 bg-yellow-300 border-white  border-4">
+                                <p class="font-bold text-md text-black">AR</p>
+                            </div>
+                        @else
+                        <div class="rounded-full h-12 w-12 py-2 px-2 bg-gray-400 border-white  border-4">
                             <p class="font-bold text-md text-white">AR</p>
                         </div>
                     @endif
@@ -407,6 +417,14 @@
                     @if ($koneksipr->status_purchasing == 'Complete')
                         <div class="rounded-full h-12 w-12 py-2 px-2.5 bg-green-600 border-orange-500 border-4">
                             <p class="font-bold text-md text-white">PR</p>
+                        </div>
+                    @elseif(
+                        $koneksipr->status_pr_01 == 'Revisi Purchasing - PR' ||
+                            $koneksipa->status_pa_02 == 'Revisi Purchasing - PA' ||
+                            $koneksipo->status_po_03 == 'Revisi Purchasing - PO' ||
+                            $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY')
+                        <div class="rounded-full h-12 w-12 py-2 px-2 bg-yellow-300 border-orange-500 border-4">
+                            <p class="font-bold text-md text-black">PR</p>
                         </div>
                     @else
                         <div class="rounded-full h-12 w-12 py-2 px-2.5 bg-gray-400 border-orange-500 border-4">
@@ -431,7 +449,12 @@
                         <div class="rounded-full h-12 w-12 py-2 px-1.5 bg-green-600 border-white border-4">
                             <p class="font-bold text-md text-white">MN</p>
                         </div>
-                    @else
+                        @elseif(
+                            $koneksimn->status_mn == 'Revisi Manufacturing')
+                            <div class="rounded-full h-12 w-12 py-2 px-1.5 bg-yellow-300 border-white border-4">
+                                <p class="font-bold text-md text-black">MN</p>
+                            </div>
+                        @else
                         <div class="rounded-full h-12 w-12 py-2 px-1.5 bg-gray-400 border-white border-4">
                             <p class="font-bold text-md text-white">MN</p>
                         </div>
@@ -454,7 +477,12 @@
                         <div class="rounded-full h-12 w-12 py-2 px-2.5 bg-green-600 border-white border-4">
                             <p class="font-bold text-md text-white">IN</p>
                         </div>
-                    @else
+                        @elseif(
+                            $koneksiin->status_in == 'Revisi Installation')
+                            <div class="rounded-full h-12 w-12 py-2 px-2.5 bg-yellow-300 border-white border-4">
+                                <p class="font-bold text-md text-black">IN</p>
+                            </div>
+                        @else
                         <div class="rounded-full h-12 w-12 py-2 px-2.5 bg-gray-400 border-white border-4">
                             <p class="font-bold text-md text-white">IN</p>
                         </div>
@@ -475,9 +503,14 @@
                 <div class="flex items-center relative">
                     @if ($koneksicl->status_cl == 'Complete')
                         <div class="rounded-full h-12 w-12 py-2 pl-0.5 bg-green-600 border-white border-4">
-                            <p class="font-bold text-md text-white">X</p>
+                            <p class="font-bold text-md text-white">HOV</p>
                         </div>
-                    @else
+                        @elseif(
+                            $koneksicl->status_cl == 'Revisi Handover')
+                            <div class="rounded-full h-12 w-12 py-2 px-0.5 bg-yellow-300 border-white border-4">
+                                <p class="font-bold text-md text-black">HOV</p>
+                            </div>
+                        @else
                         <div class="rounded-full h-12 w-12 py-2 pl-0.5 bg-gray-400 border-white border-4">
                             <p class="font-bold text-md text-white">HOV</p>
                         </div>
@@ -555,28 +588,29 @@
 
 
     {{-- Awal progress file --}}
-    <div class="bg-white  mt-10 w-full rounded-t">
-
-
-
+    <div class="bg-white mt-3 w-full rounded-md shadow-md p-3">
         {{-- awal stepper khusus purchasing --}}
         <div class="max-w-2xl mx-auto mb-16 mt-2">
-            <div class="flex items-center">
 
+            <div class="flex items-center">
                 <div class="flex items-center relative">
                     @if ($koneksipr->status_pr_01 == 'Complete')
                         <div class="rounded-full h-12 w-12 py-2 px-2 bg-green-600 border-white border-4">
                             <p class="font-bold text-md text-white">PR</p>
                         </div>
+                    @elseif($koneksipr->status_pr_01 == 'Revisi Purchasing - PR')
+                    <div class="rounded-full h-12 w-12 py-2 px-2 bg-yellow-300 border-white border-4">
+                        <p class="font-bold text-md text-black">PR</p>
+                    </div>
                     @else
                         <div class="rounded-full h-12 w-12 py-2 px-2 bg-gray-400 border-white border-4">
                             <p class="font-bold text-md text-white">PR</p>
                         </div>
                     @endif
-                    <div class="absolute top-0 -ml-10 text-center mt-14 w-32 text-xs font-medium uppercase">
+                    <div class="absolute top-0 -ml-10 text-center mt-14 w-32 text-xs font-medium">
                         <a
                             href="/03-01-PR-purchasing-proyek/{{ $viewdataproject->id }}/{{ $koneksifr->id_fr_1 }}/{{ $koneksiar->id_ar_2 }}/{{ $koneksipr->id_pr_01_3 }}/{{ $koneksipa->id_pa_02_3 }}/{{ $koneksipo->id_po_03_3 }}/{{ $koneksipay->id_pay_04_3 }}/{{ $koneksimn->id_mn_4 }}/{{ $koneksiin->id_in_5 }}/{{ $koneksicl->id_cl_6 }}">
-                            <p class="font-semibold text-lg text-gray-900 hover:underline">PR
+                            <p class="font-semibold text-lg text-gray-900 hover:underline">Pur. Request
                             </p>
                         </a>
                         <p>{{ $koneksipr->status_pr_01 }}</p>
@@ -591,15 +625,19 @@
                         <div class="rounded-full h-12 w-12 py-2 px-2 bg-green-600 border-white border-4">
                             <p class="font-bold text-md text-white">PA</p>
                         </div>
+                        @elseif($koneksipa->status_pa_02 == 'Revisi Purchasing - PA')
+                    <div class="rounded-full h-12 w-12 py-2 px-2 bg-yellow-300 border-white border-4">
+                        <p class="font-bold text-md text-black">PA</p>
+                    </div>
                     @else
                         <div class="rounded-full h-12 w-12 py-2 px-2 bg-gray-400 border-white border-4">
                             <p class="font-bold text-md text-white">PA</p>
                         </div>
                     @endif
-                    <div class="absolute top-0 -ml-10 text-center mt-14 w-32 text-xs font-medium uppercase">
+                    <div class="absolute top-0 -ml-10 text-center mt-14 w-32 text-xs font-medium">
                         <a
                             href="/03-02-PA-purchase-approval-proyek/{{ $viewdataproject->id }}/{{ $koneksifr->id_fr_1 }}/{{ $koneksiar->id_ar_2 }}/{{ $koneksipr->id_pr_01_3 }}/{{ $koneksipa->id_pa_02_3 }}/{{ $koneksipo->id_po_03_3 }}/{{ $koneksipay->id_pay_04_3 }}/{{ $koneksimn->id_mn_4 }}/{{ $koneksiin->id_in_5 }}/{{ $koneksicl->id_cl_6 }}">
-                            <p class="font-semibold text-lg text-gray-900 hover:underline">PA
+                            <p class="font-semibold text-lg text-gray-900 hover:underline">Pur. Approval
                             </p>
                         </a>
                         <p>{{ $koneksipa->status_pa_02 }}</p>
@@ -614,15 +652,19 @@
                         <div class="rounded-full h-12 w-12 py-2 px-2 bg-green-600 border-white border-4">
                             <p class="font-bold text-md text-white">PO</p>
                         </div>
+                        @elseif($koneksipo->status_po_03 == 'Revisi Purchasing - PO')
+                    <div class="rounded-full h-12 w-12 py-2 px-2 bg-yellow-300 border-white border-4">
+                        <p class="font-bold text-md text-black">PO</p>
+                    </div>
                     @else
                         <div class="rounded-full h-12 w-12 py-2 px-2 bg-gray-400 border-white border-4">
                             <p class="font-bold text-md text-white">PO</p>
                         </div>
                     @endif
-                    <div class="absolute top-0 -ml-10 text-center mt-14 w-32 text-xs font-medium uppercase">
+                    <div class="absolute top-0 -ml-10 text-center mt-14 w-32 text-xs font-medium">
                         <a
                             href="/03-03-PO-purchase-order-proyek/{{ $viewdataproject->id }}/{{ $koneksifr->id_fr_1 }}/{{ $koneksiar->id_ar_2 }}/{{ $koneksipr->id_pr_01_3 }}/{{ $koneksipa->id_pa_02_3 }}/{{ $koneksipo->id_po_03_3 }}/{{ $koneksipay->id_pay_04_3 }}/{{ $koneksimn->id_mn_4 }}/{{ $koneksiin->id_in_5 }}/{{ $koneksicl->id_cl_6 }}">
-                            <p class="font-semibold text-lg text-gray-900 hover:underline">PO
+                            <p class="font-semibold text-lg text-gray-900 hover:underline">Pur. Order
                             </p>
                         </a>
                         <p>{{ $koneksipo->status_po_03 }}</p>
@@ -634,18 +676,22 @@
 
                 <div class="flex items-center relative">
                     @if ($koneksipay->status_pay_04 == 'Complete')
-                        <div class="rounded-full h-12 w-12 py-2 px-3.5 bg-green-600 border-orange-500 border-4">
-                            <p class="font-bold text-md text-white">V</p>
+                        <div class="rounded-full h-12 w-12 py-2 px-1.5 bg-green-600 border-orange-500 border-4">
+                            <p class="font-bold text-md text-white">PAY</p>
                         </div>
+                        @elseif($koneksipay->status_pay_04 == 'Revisi Purchasing - PAY')
+                    <div class="rounded-full h-12 w-12 py-2 px-1.5 bg-yellow-300 border-orange-500 border-4">
+                        <p class="font-bold text-md text-black">PAY</p>
+                    </div>
                     @else
-                        <div class="rounded-full h-12 w-12 py-2 px-3.5 bg-gray-400 border-orange-500 border-4">
-                            <p class="font-bold text-md text-white">V</p>
+                        <div class="rounded-full h-12 w-12 py-2 px-1.5 bg-gray-400 border-orange-500 border-4">
+                            <p class="font-bold text-md text-white">PAY</p>
                         </div>
                     @endif
-                    <div class="absolute top-0 -ml-10 text-center mt-14 w-32 text-xs font-medium uppercase">
+                    <div class="absolute top-0 -ml-10 text-center mt-14 w-32 text-xs font-medium">
                         <a
                             href="/03-04-PAY-payment-purchasing-proyek/{{ $viewdataproject->id }}/{{ $koneksifr->id_fr_1 }}/{{ $koneksiar->id_ar_2 }}/{{ $koneksipr->id_pr_01_3 }}/{{ $koneksipa->id_pa_02_3 }}/{{ $koneksipo->id_po_03_3 }}/{{ $koneksipay->id_pay_04_3 }}/{{ $koneksimn->id_mn_4 }}/{{ $koneksiin->id_in_5 }}/{{ $koneksicl->id_cl_6 }}">
-                            <p class="font-semibold text-lg text-gray-900 hover:underline">Payment
+                            <p class="font-semibold text-lg text-gray-900 hover:underline">Actual Payment
                             </p>
                         </a>
                         <p>{{ $koneksipay->status_pay_04 }}</p>
@@ -657,100 +703,102 @@
         {{-- akhir stepper --}}
 
         <br>
-        <br>
-        <div class="flex justify-between items-center mb-3">
+        <hr class="mb-2 w-full border">
 
-            {{-- status approval row --}}
-            <div class="flex">
-                <p>Checked by: &nbsp;
-                <div class="items-center py-1 px-2 text-sm font-medium text-center text-white bg-red-700 mr-2 rounded">
-                    {{ $koneksipay->approval_by }}
+            <div class="flex justify-between items-center mb-3">
+
+                {{-- status approval row --}}
+                <div class="flex">
+                    <p>Checked by: &nbsp;
+                    <div
+                        class="items-center py-1 px-2 text-sm font-medium text-center text-white bg-red-700 mr-2 rounded">
+                        {{ $koneksipay->approval_by }}
+                    </div>
+                    </p>
+                    &nbsp;&nbsp;
+                    <p>On: &nbsp;
+                    <p class="font-semibold">
+                        {{ $koneksipay->approval_date }}
+                    </p>
+                    </p>
                 </div>
-                </p>
-                &nbsp;&nbsp;
-                <p>On: &nbsp;
-                <p class="font-semibold">
-                    {{ $koneksipay->approval_date }}
-                </p>
-                </p>
+
+
+                @if ($koneksipay->status_pay_04 == 'Complete')
+                    {{-- approval ijo --}}
+                    <div class="bg-green-600 flex  py-1 px-2   items-center rounded">
+                        <div class="">
+                            <svg width="18" height="auto" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+
+                                <path
+                                    d="M12 0C5.376 0 0 5.376 0 12C0 18.624 5.376 24 12 24C18.624 24 24 18.624 24 12C24 5.376 18.624 0 12 0ZM9.6 18L3.6 12L5.292 10.308L9.6 14.604L18.708 5.496L20.4 7.2L9.6 18Z"
+                                    fill="white" />
+
+                            </svg>
+                        </div>
+                        <div class="text-white font-medium ml-3">
+                            <p>
+                                {{ $koneksipay->status_pay_04 }}
+                            </p>
+                        </div>
+                    </div>
+                @elseif ($koneksipay->status_pay_04 == '-')
+                    {{-- - abu2 --}}
+                    <div class="bg-gray-400 flex  py-1 px-2   items-center rounded">
+                        <div class="">
+                            <svg width="18" height="auto" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M10.6667 18.6667C10.6667 19.4 11.2667 20 12 20C12.7333 20 13.3333 19.4 13.3333 18.6667C13.3333 17.9333 12.7333 17.3333 12 17.3333C11.2667 17.3333 10.6667 17.9333 10.6667 18.6667ZM10.6667 0V5.33333H13.3333V2.77333C17.8533 3.42667 21.3333 7.29333 21.3333 12C21.3333 17.16 17.16 21.3333 12 21.3333C6.84 21.3333 2.66667 17.16 2.66667 12C2.66667 9.76 3.45333 7.70667 4.77333 6.10667L12 13.3333L13.88 11.4533L4.81333 2.38667V2.41333C1.89333 4.6 0 8.06667 0 12C0 18.6267 5.36 24 12 24C18.6267 24 24 18.6267 24 12C24 5.37333 18.6267 0 12 0H10.6667ZM20 12C20 11.2667 19.4 10.6667 18.6667 10.6667C17.9333 10.6667 17.3333 11.2667 17.3333 12C17.3333 12.7333 17.9333 13.3333 18.6667 13.3333C19.4 13.3333 20 12.7333 20 12ZM4 12C4 12.7333 4.6 13.3333 5.33333 13.3333C6.06667 13.3333 6.66667 12.7333 6.66667 12C6.66667 11.2667 6.06667 10.6667 5.33333 10.6667C4.6 10.6667 4 11.2667 4 12Z"
+                                    fill="white" />
+                            </svg>
+                        </div>
+                        <div class="text-white font-medium ml-3">
+                            <p>
+                                {{ $koneksipr->status_pr_01 }}
+                            </p>
+                        </div>
+                    </div>
+                @elseif ($koneksipay->status_pay_04 == 'Waiting Approval')
+                    {{-- waiting approval abu2 --}}
+                    <div class="bg-gray-400 flex  py-1 px-2   items-center rounded">
+                        <div class="">
+                            <svg width="18" height="auto" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M10.6667 18.6667C10.6667 19.4 11.2667 20 12 20C12.7333 20 13.3333 19.4 13.3333 18.6667C13.3333 17.9333 12.7333 17.3333 12 17.3333C11.2667 17.3333 10.6667 17.9333 10.6667 18.6667ZM10.6667 0V5.33333H13.3333V2.77333C17.8533 3.42667 21.3333 7.29333 21.3333 12C21.3333 17.16 17.16 21.3333 12 21.3333C6.84 21.3333 2.66667 17.16 2.66667 12C2.66667 9.76 3.45333 7.70667 4.77333 6.10667L12 13.3333L13.88 11.4533L4.81333 2.38667V2.41333C1.89333 4.6 0 8.06667 0 12C0 18.6267 5.36 24 12 24C18.6267 24 24 18.6267 24 12C24 5.37333 18.6267 0 12 0H10.6667ZM20 12C20 11.2667 19.4 10.6667 18.6667 10.6667C17.9333 10.6667 17.3333 11.2667 17.3333 12C17.3333 12.7333 17.9333 13.3333 18.6667 13.3333C19.4 13.3333 20 12.7333 20 12ZM4 12C4 12.7333 4.6 13.3333 5.33333 13.3333C6.06667 13.3333 6.66667 12.7333 6.66667 12C6.66667 11.2667 6.06667 10.6667 5.33333 10.6667C4.6 10.6667 4 11.2667 4 12Z"
+                                    fill="white" />
+                            </svg>
+                        </div>
+                        <div class="text-white font-medium ml-3">
+                            <p>
+                                {{ $koneksipay->status_pay_04 }}
+                            </p>
+                        </div>
+                    </div>
+                @elseif ($koneksipay->status_pay_04 == 'Revisi Purchasing - PAY')
+                    {{-- revisi --}}
+                    <div class="bg-yellow-300 flex py-1 px-2 items-center rounded border-red-500 border-4">
+                        <div class="">
+                            <svg width="20" height="auto" viewBox="0 0 80 80" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M40 0C17.92 0 0 17.92 0 40C0 62.08 17.92 80 40 80C62.08 80 80 62.08 80 40C80 17.92 62.08 0 40 0ZM44 60H36V52H44V60ZM44 44H36V20H44V44Z"
+                                    fill="black" />
+                            </svg>
+                        </div>
+                        <div class="text-black font-medium ml-3">
+                            <p>
+                                {{ $koneksipay->status_pay_04 }}
+                            </p>
+                        </div>
+                    </div>
+                @endif
+
             </div>
-
-
-            @if ($koneksipay->status_pay_04 == 'Complete')
-                {{-- approval ijo --}}
-                <div class="bg-green-600 flex  py-1 px-2   items-center rounded">
-                    <div class="">
-                        <svg width="18" height="auto" viewBox="0 0 24 24" fill="none"
-                            xmlns="http://www.w3.org/2000/svg">
-
-                            <path
-                                d="M12 0C5.376 0 0 5.376 0 12C0 18.624 5.376 24 12 24C18.624 24 24 18.624 24 12C24 5.376 18.624 0 12 0ZM9.6 18L3.6 12L5.292 10.308L9.6 14.604L18.708 5.496L20.4 7.2L9.6 18Z"
-                                fill="white" />
-
-                        </svg>
-                    </div>
-                    <div class="text-white font-medium ml-3">
-                        <p>
-                            {{ $koneksipay->status_pay_04 }}
-                        </p>
-                    </div>
-                </div>
-            @elseif ($koneksipay->status_pay_04 == '-')
-                {{-- - abu2 --}}
-                <div class="bg-gray-400 flex  py-1 px-2   items-center rounded">
-                    <div class="">
-                        <svg width="18" height="auto" viewBox="0 0 24 24" fill="none"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                d="M10.6667 18.6667C10.6667 19.4 11.2667 20 12 20C12.7333 20 13.3333 19.4 13.3333 18.6667C13.3333 17.9333 12.7333 17.3333 12 17.3333C11.2667 17.3333 10.6667 17.9333 10.6667 18.6667ZM10.6667 0V5.33333H13.3333V2.77333C17.8533 3.42667 21.3333 7.29333 21.3333 12C21.3333 17.16 17.16 21.3333 12 21.3333C6.84 21.3333 2.66667 17.16 2.66667 12C2.66667 9.76 3.45333 7.70667 4.77333 6.10667L12 13.3333L13.88 11.4533L4.81333 2.38667V2.41333C1.89333 4.6 0 8.06667 0 12C0 18.6267 5.36 24 12 24C18.6267 24 24 18.6267 24 12C24 5.37333 18.6267 0 12 0H10.6667ZM20 12C20 11.2667 19.4 10.6667 18.6667 10.6667C17.9333 10.6667 17.3333 11.2667 17.3333 12C17.3333 12.7333 17.9333 13.3333 18.6667 13.3333C19.4 13.3333 20 12.7333 20 12ZM4 12C4 12.7333 4.6 13.3333 5.33333 13.3333C6.06667 13.3333 6.66667 12.7333 6.66667 12C6.66667 11.2667 6.06667 10.6667 5.33333 10.6667C4.6 10.6667 4 11.2667 4 12Z"
-                                fill="white" />
-                        </svg>
-                    </div>
-                    <div class="text-white font-medium ml-3">
-                        <p>
-                            {{ $koneksipay->status_pay_04 }}
-                        </p>
-                    </div>
-                </div>
-            @elseif ($koneksipay->status_pay_04 == 'Waiting Approval')
-                {{-- waiting approval abu2 --}}
-                <div class="bg-gray-400 flex  py-1 px-2   items-center rounded">
-                    <div class="">
-                        <svg width="18" height="auto" viewBox="0 0 24 24" fill="none"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                d="M10.6667 18.6667C10.6667 19.4 11.2667 20 12 20C12.7333 20 13.3333 19.4 13.3333 18.6667C13.3333 17.9333 12.7333 17.3333 12 17.3333C11.2667 17.3333 10.6667 17.9333 10.6667 18.6667ZM10.6667 0V5.33333H13.3333V2.77333C17.8533 3.42667 21.3333 7.29333 21.3333 12C21.3333 17.16 17.16 21.3333 12 21.3333C6.84 21.3333 2.66667 17.16 2.66667 12C2.66667 9.76 3.45333 7.70667 4.77333 6.10667L12 13.3333L13.88 11.4533L4.81333 2.38667V2.41333C1.89333 4.6 0 8.06667 0 12C0 18.6267 5.36 24 12 24C18.6267 24 24 18.6267 24 12C24 5.37333 18.6267 0 12 0H10.6667ZM20 12C20 11.2667 19.4 10.6667 18.6667 10.6667C17.9333 10.6667 17.3333 11.2667 17.3333 12C17.3333 12.7333 17.9333 13.3333 18.6667 13.3333C19.4 13.3333 20 12.7333 20 12ZM4 12C4 12.7333 4.6 13.3333 5.33333 13.3333C6.06667 13.3333 6.66667 12.7333 6.66667 12C6.66667 11.2667 6.06667 10.6667 5.33333 10.6667C4.6 10.6667 4 11.2667 4 12Z"
-                                fill="white" />
-                        </svg>
-                    </div>
-                    <div class="text-white font-medium ml-3">
-                        <p>
-                            {{ $koneksipay->status_pay_04 }}
-                        </p>
-                    </div>
-                </div>
-            @elseif ($koneksipay->status_pay_04 == 'Revisi Purchasing - PAY')
-                {{-- revisi --}}
-                <div class="bg-yellow-300 flex py-1 px-2 items-center rounded border-red-500 border-4">
-                    <div class="">
-                        <svg width="20" height="auto" viewBox="0 0 80 80" fill="none"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                d="M40 0C17.92 0 0 17.92 0 40C0 62.08 17.92 80 40 80C62.08 80 80 62.08 80 40C80 17.92 62.08 0 40 0ZM44 60H36V52H44V60ZM44 44H36V20H44V44Z"
-                                fill="black" />
-                        </svg>
-                    </div>
-                    <div class="text-black font-medium ml-3">
-                        <p>
-                            {{ $koneksipay->status_pay_04 }}
-                        </p>
-                    </div>
-                </div>
-            @endif
-
-        </div>
-        {{-- approval abu2 slesai --}}
-        {{-- selesai status approval row --}}
+            {{-- approval abu2 slesai --}}
+            {{-- selesai status approval row --}}
 
         {{-- Yang diganti pertahapnya --}}
         <form action="" method="post" enctype="multipart/form-data">

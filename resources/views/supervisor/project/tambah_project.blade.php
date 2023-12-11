@@ -5,7 +5,7 @@
 <div class="container my-20 mx-auto">
     <div class="mx-6 px-8 pt-5 pb-3 bg-white shadow-md rounded">
 
-        <p class="font-bold text-gray-800 text-3xl mb-3">Tambah Proyek </p>
+        <p class="font-bold text-gray-800 text-3xl mb-3">Tambah Proyek:</p>
 
         {{-- Notifikasi --}}
 
@@ -75,7 +75,7 @@
                     </label>
                 </div>
             </div>
-            <br>
+            
             <div class="grid grid-cols-3 gap-6">
                 <div class="relative z-0 mb-6 w-full group">
                     <select id="underline_select" name="section" required

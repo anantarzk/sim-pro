@@ -103,7 +103,8 @@ class SpvProjectController extends Controller
             'LandingProjectSupervisor',
         ]);
     }
-    public function ProcessHapusProject(Request $request, $id)
+    public function ProcessHapusProject(
+        Request $request, $id)
     {
         $project = CONTROLPROJECT::findOrfail($id);
 
@@ -1886,6 +1887,63 @@ class SpvProjectController extends Controller
 
         return redirect()->action(
             [SpvProjectController::class, 'DuaFormProgress'],
+            [
+                'id' => $viewdataproject->id,
+                'id_fr_1' => $koneksifr->id_fr_1,
+                'id_ar_2' => $koneksiar->id_ar_2,
+                'id_pr_01_3' => $koneksipr->id_pr_01_3,
+                'id_pa_02_3' => $koneksipa->id_pa_02_3,
+                'id_po_03_3' => $koneksipo->id_po_03_3,
+                'id_pay_04_3' => $koneksipay->id_pay_04_3,
+                'id_mn_4' => $koneksimn->id_mn_4,
+                'id_in_5' => $koneksiin->id_in_5,
+                'id_cl_6' => $koneksicl->id_cl_6,
+            ]
+        );
+    }
+
+    public function HapusSatuForm(Request $request, $id)
+    {
+        // Mendapatkan data berdasarkan ID
+        $data = YourModel::findOrFail($id);
+
+        // Hapus atribut_1 jika diizinkan
+        if ($request->has('hapus_atribut_1')) {
+            $this->hapusAtribut($data, 'atribut_1');
+        }
+
+        // Hapus atribut_2 jika diizinkan
+        if ($request->has('hapus_atribut_2')) {
+            $this->hapusAtribut($data, 'atribut_2');
+        }
+
+        // Hapus atribut_3 jika diizinkan
+        if ($request->has('hapus_atribut_3')) {
+            $this->hapusAtribut($data, 'atribut_3');
+        }
+
+        // Hapus atribut_4 jika diizinkan
+        if ($request->has('hapus_atribut_4')) {
+            $this->hapusAtribut($data, 'atribut_4');
+        }
+
+        // Hapus atribut_5 jika diizinkan
+        if ($request->has('hapus_atribut_5')) {
+            $this->hapusAtribut($data, 'atribut_5');
+        }
+
+        // Redirect atau berikan respons sesuai kebutuhan
+        return redirect()->back()->with('success', 'Atribut berhasil dihapus');
+    }
+
+    // Fungsi untuk menghapus atribut
+    private function hapusAtribut($data, $atribut)
+    {
+        // Lakukan proses penghapusan atribut
+        $data->update([$atribut => null]);
+
+        return redirect()->action(
+            [SpvProjectController::class, 'SatuFormProgress'],
             [
                 'id' => $viewdataproject->id,
                 'id_fr_1' => $koneksifr->id_fr_1,
@@ -28377,7 +28435,7 @@ class SpvProjectController extends Controller
         $koneksipay = PAYproject::select(
             'id_pay_04_3',
             'status_pay_04',
-            
+
             'mny_parts_pay_1',
             'mny_parts_pay_2',
             'mny_parts_pay_3',

@@ -6,8 +6,8 @@
 <div class="">
     <div class="my-20 mx-10">
 
-        <div>
-            <div class="flex justify-between space-x-5 mt-1 mb-10">
+        <div class="">
+            <div class="flex justify-between space-x-5 mt-1 mb-5">
                 {{-- kiri --}}
                 <div class="w-3.5/6 flex space-x-3">
                     {{-- dashboard status --}}
@@ -130,15 +130,16 @@
                                             <div class="container">
                                                 {{-- Mengenerate project yang dipilih berdasarkan id --}}
 
-                                                @if ($object->id == $object->koneksikefr->id_fr_1 &&
-                                                    $object->id == $object->koneksikear->id_ar_2 &&
-                                                    $object->id == $object->koneksikepr01->id_pr_01_3 &&
-                                                    $object->id == $object->koneksikepa02->id_pa_02_3 &&
-                                                    $object->id == $object->koneksikepo03->id_po_03_3 &&
-                                                    $object->id == $object->koneksikepay04->id_pay_04_3 &&
-                                                    $object->id == $object->koneksikemn->id_mn_4 &&
-                                                    $object->id == $object->koneksikein->id_in_5 &&
-                                                    $object->id == $object->koneksikecl->id_cl_6)
+                                                @if (
+                                                    $object->id == $object->koneksikefr->id_fr_1 &&
+                                                        $object->id == $object->koneksikear->id_ar_2 &&
+                                                        $object->id == $object->koneksikepr01->id_pr_01_3 &&
+                                                        $object->id == $object->koneksikepa02->id_pa_02_3 &&
+                                                        $object->id == $object->koneksikepo03->id_po_03_3 &&
+                                                        $object->id == $object->koneksikepay04->id_pay_04_3 &&
+                                                        $object->id == $object->koneksikemn->id_mn_4 &&
+                                                        $object->id == $object->koneksikein->id_in_5 &&
+                                                        $object->id == $object->koneksikecl->id_cl_6)
                                                     <a
                                                         href="/redirect-proyek/{{ $object->id }}/{{ $object->koneksikefr->id_fr_1 }}/{{ $object->koneksikear->id_ar_2 }}/{{ $object->koneksikepr01->id_pr_01_3 }}/{{ $object->koneksikepa02->id_pa_02_3 }}/{{ $object->koneksikepo03->id_po_03_3 }}/{{ $object->koneksikepay04->id_pay_04_3 }}/{{ $object->koneksikemn->id_mn_4 }}/{{ $object->koneksikein->id_in_5 }}/{{ $object->koneksikecl->id_cl_6 }}">
                                                         <p

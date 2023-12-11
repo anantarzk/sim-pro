@@ -604,26 +604,26 @@
 
         {{-- awal stepper khusus purchasing --}}
         <div class="max-w-2xl mx-auto mb-16 mt-2">
-            <div class="flex items-center">
 
+            <div class="flex items-center">
                 <div class="flex items-center relative">
                     @if ($koneksipr->status_pr_01 == 'Complete')
                         <div class="rounded-full h-12 w-12 py-2 px-2 bg-green-600 border-white border-4">
                             <p class="font-bold text-md text-white">PR</p>
                         </div>
-                        @elseif($koneksipr->status_pr_01 == 'Revisi Purchasing - PR')
-                        <div class="rounded-full h-12 w-12 py-2 px-2 bg-yellow-300 border-white border-4">
-                            <p class="font-bold text-md text-black">PR</p>
-                        </div>
-                        @else
+                    @elseif($koneksipr->status_pr_01 == 'Revisi Purchasing - PR')
+                    <div class="rounded-full h-12 w-12 py-2 px-2 bg-yellow-300 border-white border-4">
+                        <p class="font-bold text-md text-black">PR</p>
+                    </div>
+                    @else
                         <div class="rounded-full h-12 w-12 py-2 px-2 bg-gray-400 border-white border-4">
                             <p class="font-bold text-md text-white">PR</p>
                         </div>
                     @endif
-                    <div class="absolute top-0 -ml-10 text-center mt-14 w-32 text-xs font-medium uppercase">
+                    <div class="absolute top-0 -ml-10 text-center mt-14 w-32 text-xs font-medium">
                         <a
                             href="/staff-03-01-PR-purchasing-proyek/{{ $viewdataproject->id }}/{{ $koneksifr->id_fr_1 }}/{{ $koneksiar->id_ar_2 }}/{{ $koneksipr->id_pr_01_3 }}/{{ $koneksipa->id_pa_02_3 }}/{{ $koneksipo->id_po_03_3 }}/{{ $koneksipay->id_pay_04_3 }}/{{ $koneksimn->id_mn_4 }}/{{ $koneksiin->id_in_5 }}/{{ $koneksicl->id_cl_6 }}">
-                            <p class="font-semibold text-lg text-gray-900 hover:underline">PR
+                            <p class="font-semibold text-lg text-gray-900 hover:underline">Pur. Request
                             </p>
                         </a>
                         <p>{{ $koneksipr->status_pr_01 }}</p>
@@ -639,18 +639,18 @@
                             <p class="font-bold text-md text-white">PA</p>
                         </div>
                         @elseif($koneksipa->status_pa_02 == 'Revisi Purchasing - PA')
-                        <div class="rounded-full h-12 w-12 py-2 px-2 bg-yellow-300 border-white border-4">
-                            <p class="font-bold text-md text-black">PA</p>
-                        </div>
-                        @else
+                    <div class="rounded-full h-12 w-12 py-2 px-2 bg-yellow-300 border-white border-4">
+                        <p class="font-bold text-md text-black">PA</p>
+                    </div>
+                    @else
                         <div class="rounded-full h-12 w-12 py-2 px-2 bg-gray-400 border-white border-4">
                             <p class="font-bold text-md text-white">PA</p>
                         </div>
                     @endif
-                    <div class="absolute top-0 -ml-10 text-center mt-14 w-32 text-xs font-medium uppercase">
+                    <div class="absolute top-0 -ml-10 text-center mt-14 w-32 text-xs font-medium">
                         <a
                             href="/staff-03-02-PA-purchase-approval-proyek/{{ $viewdataproject->id }}/{{ $koneksifr->id_fr_1 }}/{{ $koneksiar->id_ar_2 }}/{{ $koneksipr->id_pr_01_3 }}/{{ $koneksipa->id_pa_02_3 }}/{{ $koneksipo->id_po_03_3 }}/{{ $koneksipay->id_pay_04_3 }}/{{ $koneksimn->id_mn_4 }}/{{ $koneksiin->id_in_5 }}/{{ $koneksicl->id_cl_6 }}">
-                            <p class="font-semibold text-lg text-gray-900 hover:underline">PA
+                            <p class="font-semibold text-lg text-gray-900 hover:underline">Pur. Approval
                             </p>
                         </a>
                         <p>{{ $koneksipa->status_pa_02 }}</p>
@@ -666,18 +666,18 @@
                             <p class="font-bold text-md text-white">PO</p>
                         </div>
                         @elseif($koneksipo->status_po_03 == 'Revisi Purchasing - PO')
-                        <div class="rounded-full h-12 w-12 py-2 px-2 bg-yellow-300 border-white border-4">
-                            <p class="font-bold text-md text-black">PO</p>
-                        </div>
-                        @else
+                    <div class="rounded-full h-12 w-12 py-2 px-2 bg-yellow-300 border-white border-4">
+                        <p class="font-bold text-md text-black">PO</p>
+                    </div>
+                    @else
                         <div class="rounded-full h-12 w-12 py-2 px-2 bg-gray-400 border-white border-4">
                             <p class="font-bold text-md text-white">PO</p>
                         </div>
                     @endif
-                    <div class="absolute top-0 -ml-10 text-center mt-14 w-32 text-xs font-medium uppercase">
+                    <div class="absolute top-0 -ml-10 text-center mt-14 w-32 text-xs font-medium">
                         <a
                             href="/staff-03-03-PO-purchase-order-proyek/{{ $viewdataproject->id }}/{{ $koneksifr->id_fr_1 }}/{{ $koneksiar->id_ar_2 }}/{{ $koneksipr->id_pr_01_3 }}/{{ $koneksipa->id_pa_02_3 }}/{{ $koneksipo->id_po_03_3 }}/{{ $koneksipay->id_pay_04_3 }}/{{ $koneksimn->id_mn_4 }}/{{ $koneksiin->id_in_5 }}/{{ $koneksicl->id_cl_6 }}">
-                            <p class="font-semibold text-lg text-gray-900 hover:underline">PO
+                            <p class="font-semibold text-lg text-gray-900 hover:underline">Pur. Order
                             </p>
                         </a>
                         <p>{{ $koneksipo->status_po_03 }}</p>
@@ -689,22 +689,22 @@
 
                 <div class="flex items-center relative">
                     @if ($koneksipay->status_pay_04 == 'Complete')
-                        <div class="rounded-full h-12 w-12 py-2 px-3.5 bg-green-600 border-orange-500 border-4">
-                            <p class="font-bold text-md text-white">V</p>
+                        <div class="rounded-full h-12 w-12 py-2 px-1.5 bg-green-600 border-orange-500 border-4">
+                            <p class="font-bold text-md text-white">PAY</p>
                         </div>
                         @elseif($koneksipay->status_pay_04 == 'Revisi Purchasing - PAY')
-                        <div class="rounded-full h-12 w-12 py-2 px-1.5 bg-yellow-300 border-orange-500 border-4">
-                            <p class="font-bold text-md text-black">PAY</p>
-                        </div>
-                        @else
-                        <div class="rounded-full h-12 w-12 py-2 px-3.5 bg-gray-400 border-orange-500 border-4">
-                            <p class="font-bold text-md text-white">V</p>
+                    <div class="rounded-full h-12 w-12 py-2 px-1.5 bg-yellow-300 border-orange-500 border-4">
+                        <p class="font-bold text-md text-black">PAY</p>
+                    </div>
+                    @else
+                        <div class="rounded-full h-12 w-12 py-2 px-1.5 bg-gray-400 border-orange-500 border-4">
+                            <p class="font-bold text-md text-white">PAY</p>
                         </div>
                     @endif
-                    <div class="absolute top-0 -ml-10 text-center mt-14 w-32 text-xs font-medium uppercase">
+                    <div class="absolute top-0 -ml-10 text-center mt-14 w-32 text-xs font-medium">
                         <a
                             href="/staff-03-04-PAY-payment-purchasing-proyek/{{ $viewdataproject->id }}/{{ $koneksifr->id_fr_1 }}/{{ $koneksiar->id_ar_2 }}/{{ $koneksipr->id_pr_01_3 }}/{{ $koneksipa->id_pa_02_3 }}/{{ $koneksipo->id_po_03_3 }}/{{ $koneksipay->id_pay_04_3 }}/{{ $koneksimn->id_mn_4 }}/{{ $koneksiin->id_in_5 }}/{{ $koneksicl->id_cl_6 }}">
-                            <p class="font-semibold text-lg text-gray-900 hover:underline">Payment
+                            <p class="font-semibold text-lg text-gray-900 hover:underline">Actual Payment
                             </p>
                         </a>
                         <p>{{ $koneksipay->status_pay_04 }}</p>

@@ -16,7 +16,7 @@
                             {{ $totalproject }}
                         </div>
                         <div class="pl-3 text-xl">
-                            Seluruh Project
+                            Proyek diarsipkan
                         </div>
                     </div>
                 </div>

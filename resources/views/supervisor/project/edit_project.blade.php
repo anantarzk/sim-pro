@@ -2,40 +2,36 @@
 @section('title_page', 'Edit Proyek')
 
 <div class="container my-20 mx-auto">
-    <div class="mx-6 p-10 bg-white shadow-md rounded">
-
-        <p class="font-bold text-gray-800 text-center text-3xl mb-6">Edit Project - OB </p>
 
 
+    <a href="/seluruh-proyek-supervisor-manager" class="mx-6 text-2xl  font-medium font-mono hover:underline text-blue-500 hover:text-blue-600">< Kembali</a>
 
+    <div class="mx-6 px-8 mt-4 pt-5 pb-3 bg-white shadow-md rounded">
 
+        <p class="font-bold text-gray-800 text-3xl mb-3">Ubah Proyek</p>
         <form action="" method="post">
             @csrf
              @method('PUT')
 
 
-            <p class="font-semibold text-gray-800 text-xl">
-                Project Detail
+             <p class="font-light text-gray-800 text-xl mb-2">
+                Identitas proyek
             </p>
-            <br>
 
-            <div class="relative z-0 mb-6 w-full group">
-                <input type="text" name="project_name" id="floating_email"
-                    class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-orange-500 focus:outline-none focus:ring-0 focus:border-orange-500 peer"
-                    placeholder=" " required value="{{ $project->project_name }}">
-                <label for="floating_email"
-                    class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-orange-500 peer-focus:dark:text-orange-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
-                    *Project Name
-                </label>
-            </div>
-
-            <br>
-            <div class="grid grid-cols-2 gap-6">
-
+            <div class="grid grid-cols-3 gap-6">
+                <div class="relative z-0 mb-6 group">
+                    <input type="text" name="project_name" id="floating_email"
+                        class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-orange-500 peer"
+                        placeholder=" " required value="{{ $project->project_name }}">
+                    <label for="floating_email"
+                        class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-orange-500 peer-focus:dark:text-orange-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
+                        *Project Name
+                    </label>
+                </div>
                 <div class="relative z-0 mb-6 w-full group">
                     <input type="text" name="io_number" id="floating_company"
                         class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-orange-500 focus:outline-none focus:ring-0 focus:border-orange-500 peer"
-                        placeholder=" " required="" value="{{ $project->io_number }}">
+                        placeholder=" " required value="{{ $project->io_number }}">
                     <label for="floating_company"
                         class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-orange-500 peer-focus:dark:text-orange-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
                         *IO Number
@@ -43,63 +39,21 @@
                 </div>
                 <div class="relative z-0 mb-6 w-full group">
                     <input type="number" name="budget_amount" id="floating_company"
-                        class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-orange-500 focus:outline-none focus:ring-0 focus:border-orange-500 peer"
+                        class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300  [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none  focus:outline-none focus:ring-0 focus:border-orange-500 peer"
                         placeholder=" " value="{{ $project->budget_amount }}">
                     <label for="floating_company"
                         class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-orange-500 peer-focus:dark:text-orange-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
-                        *Budget Amount (Rp.)
+                        *Budget (Rp)
                     </label>
                 </div>
-
             </div>
 
-            <br>
 
             <div class="grid grid-cols-3 gap-6">
-
-                <div class="relative z-0 mb-6 w-full group">
-                    <input type="date" name="date_start" id="floating_company"
-                        class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-orange-500 focus:outline-none focus:ring-0 focus:border-orange-500 peer"
-                        placeholder=" " value="{{ $project->date_start }}">
-                    <label for="floating_company"
-                        class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-orange-500 peer-focus:dark:text-orange-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
-                        Date Start
-                    </label>
-                </div>
-                <div class="relative z-0 mb-6 w-full group">
-                    <input type="date" name="date_end" id="floating_company"
-                        class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-orange-500 focus:outline-none focus:ring-0 focus:border-orange-500 peer"
-                        placeholder=" " value="{{ $project->date_end}}" >
-                    <label for="floating_company"
-                        class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-orange-500 peer-focus:dark:text-orange-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
-                        Date End
-                    </label>
-                </div>
-                <div class="relative z-0 mb-6 w-full group">
-                    <select id="underline_select" name="status_project" required
-                        class="block py-2.5 px-0 w-full text-sm text-gray-500 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-gray-400 focus:outline-none focus:ring-0 focus:border-orange-500 peer">
-                        <option selected value="{{ $project->status_project }}">{{ $project->status_project }}</option>
-                        <option disabled value="">-Status Fund Request-</option>
-                        <option value="Approval">Approval</option>
-                        <option value="Cancel">Cancel</option>
-                        <option value="On Progress">On Progress</option>
-
-                    </select>
-                    <label for="floating_company"
-                        class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-orange-500 peer-focus:dark:text-orange-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
-                        *Status Fund Request
-                    </label>
-                </div>
-            </div>
-
-            <br>
-
-            <div class="grid grid-cols-4 gap-6">
                 <div class="relative z-0 mb-6 w-full group">
                     <select id="underline_select" name="section" required
                         class="block py-2.5 px-0 w-full text-sm text-gray-500 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-gray-400 focus:outline-none focus:ring-0 focus:border-orange-500 peer">
                         <option selected value="{{ $project->section }}">{{ $project->section }}</option>
-                        <option disabled value="">-Section-</option>
                         <option value="Design">Design</option>
                         <option value="IE">IE</option>
                         <option value="Eng">Maintenance</option>
@@ -109,10 +63,6 @@
                         <option value="Tech">Tech</option>
                         <option value="QA">QA</option>
                     </select>
-                    <label for="floating_company"
-                        class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-orange-500 peer-focus:dark:text-orange-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
-                        *Section
-                    </label>
                 </div>
                 <div class="relative z-0 mb-6 w-full group">
                     <select id="underline_select" name="cost_dept" required
@@ -130,6 +80,7 @@
                         <option value="P9.K">P9.K</option>
                         <option value="P10.K">P10.K</option>
                         <option value="P11.K">P11.K</option>
+
                         <option value="S1.K">S1.K</option>
                         <option value="S2.K">S2.K</option>
                         <option value="S3.K">S3.K</option>
@@ -146,25 +97,27 @@
                         <option value="S11.K">S11.K</option>
                         <option value="S12.K">S12.K</option>
                         <option value="S13.K">S13.K</option>
+
                         <option value="C4.1">C4.1</option>
                         <option value="C4.2">C4.2</option>
                         <option value="C4.3">C4.3</option>
                         <option value="C4.4">C4.4</option>
                     </select>
-                    <label for="floating_company"
-                        class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-orange-500 peer-focus:dark:text-orange-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
-                        *Cost Dept
-                    </label>
                 </div>
+
                 <div class="relative z-0 mb-6 w-full group">
-                    <input type="text" name="remarks" id="floating_company"
-                        class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-orange-500 focus:outline-none focus:ring-0 focus:border-orange-500 peer"
-                        placeholder=" " value="{{ $project->remarks }}">
-                    <label for="floating_company"
-                        class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-orange-500 peer-focus:dark:text-orange-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
-                        Remarks
-                    </label>
+                    <select id="underline_select" name="status_project" required
+                        class="block py-2.5 px-0 w-full text-sm text-gray-500 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-gray-400 focus:outline-none focus:ring-0 focus:border-orange-500 peer">
+                        <option selected value="{{ $project->status_project }}">{{ $project->status_project }}</option>
+                        <option value="Approval">Approval</option>
+                        <option value="Cancel">Cancel</option>
+                        <option value="On Progress">On Progress</option>
+                    </select>
                 </div>
+
+            </div>
+
+            <div class="grid grid-cols-3 gap-6">
                 <div class="relative z-0 mb-6 w-full group">
                     <select id="underline_select" name="ob_year" required
                         class="block py-2.5 px-0 w-full text-sm text-gray-500 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-gray-400 focus:outline-none focus:ring-0 focus:border-orange-500 peer">
@@ -187,12 +140,29 @@
                         *OB Year
                     </label>
                 </div>
+                <div class="relative z-0 mb-6 w-full group">
+                    <input type="date" name="date_start" id="floating_company"
+                        class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-orange-500 focus:outline-none focus:ring-0 focus:border-orange-500 peer"
+                        placeholder=" " value="{{ $project->date_start }}">
+                    <label for="floating_company"
+                        class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-orange-500 peer-focus:dark:text-orange-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
+                        Date Start
+                    </label>
+                </div>
+                <div class="relative z-0 mb-6 w-full group">
+                    <input type="date" name="date_end" id="floating_company"
+                        class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-orange-500 focus:outline-none focus:ring-0 focus:border-orange-500 peer"
+                        placeholder=" " value="{{ $project->date_end}}" >
+                    <label for="floating_company"
+                        class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-orange-500 peer-focus:dark:text-orange-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
+                        Date End
+                    </label>
+                </div>
             </div>
-            <br><br>
-            <p class="font-semibold text-gray-800 text-xl">
-                Assign PIC
+
+            <p class="font-light text-gray-800 text-xl mb-3">
+                Person in Charge (PIC)
             </p>
-            <br>
 
             <div class="grid grid-cols-3 gap-6">
                 <div class="relative z-0 mb-6 w-full group">
@@ -256,7 +226,6 @@
                     </label>
                 </div>
             </div>
-            <br><br>
 
             {{-- input ke table log activity --}}
             <input type="text" hidden name="aktivitas"
@@ -266,7 +235,7 @@
 
             <button type="submit"
                 class="text-white bg-orange-500 hover:bg-orange-600 focus:ring-4 focus:outline-none focus:ring-orange-500 font-Bold rounded text-xl w-full py-3 text-center">
-                Submit
+                Ubah proyek
             </button>
         </form>
 

@@ -9,10 +9,12 @@
     @vite('resources/css/app.css')
 </head>
 
-<body class="bg-gray-200">
+<body class="bg-[url('image/icon/global/BSIN-K.jpg')] bg-no-repeat bg-cover bg-center">
+
     @if ($count_user == 0)
         <div class="flex flex-col items-center justify-center mt-44">
-            <p>Klik Tombol dibawah untuk mulai mengelola Website ENGINEERING DESIGN - BSIN-K</p>
+            <p class="text-2xl font-bold mb-2">Selamat datang,</p>
+            <p class="font-mono text-1xl">Klik Tombol dibawah untuk mulai mengelola Website ENGINEERING DESIGN - BSIN-K</p>
 
             <br>
             <form action="" method="post">
@@ -40,7 +42,7 @@
 
 
                 <button type="submit"
-                    class="text-orange-500 hover:text-white border border-orange-500 hover:bg-orange-500 focus:ring-4 focus:outline-none focus:ring-orange-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-orange-300 dark:text-orange-300 dark:hover:text-white dark:hover:bg-orange-500 dark:focus:ring-orange-800">
+                    class="text-white hover:text-white border border-orange-500 bg-orange-500 hover:bg-orange-600 focus:ring-4 focus:outline-none focus:ring-orange-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">
                     Klik untuk lanjutkan
                 </button>
 
@@ -48,7 +50,7 @@
         </div>
     @else
         {{-- Card form login --}}
-        <div class="flex flex-col items-center mt-28">
+        <div class="flex flex-col items-center mt-20 mb-24">
             {{-- Logo Bridgestone --}}
 
             <svg viewBox="0 0 1000 124" fill="none" xmlns="http://www.w3.org/2000/svg" width="25%" height="auto">
@@ -68,8 +70,8 @@
                 </g>
             </svg>
 
-            <p class="text-sm text-center font-medium text-gray-900 uppercase">Engineering Design - BSIN K</p>
-            <p class="text-2xl text-center font-bold text-gray-900 mt-10 font-mono">Project Monitoring
+            <p class="text-sm text-center font-medium text-gray-900 uppercase mt-5">Engineering Design - BSIN K</p>
+            <p class="text-2xl text-center font-bold text-gray-900 font-mono">Project Monitoring
                 System
             </p>
         </div>
@@ -84,7 +86,7 @@
                 <p class="text-md font-normal text-center text-gray-600">silahkan masuk dengan akun yang dimiliki.</p>
                 {{-- Eror message ketika user salah memasukkan input --}}
                 @if (Session::has('status'))
-                    <div class="flex p-4 mb-4 text-sm text-red-700 bg-red-100 rounded-lg dark:bg-red-200 dark:text-red-800"
+                    <div class="flex p-4 mt-3 text-sm text-red-700 bg-red-100 rounded-lg dark:bg-red-200 dark:text-red-800"
                         role="alert">
                         <svg aria-hidden="true" class="flex-shrink-0 inline w-5 h-5 mr-3" fill="currentColor"
                             viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
@@ -96,12 +98,12 @@
                         {{ Session::get('message') }}
                     </div>
                 @endif
-                <br>
+
                 {{-- card content --}}
                 {{-- Form Input --}}
                 <form action="" method="POST">
                     @csrf
-                    <div class="relative z-0 mb-6 w-full group">
+                    <div class="relative z-0 mb-6 w-full group mt-4">
                         <input id="nip" type="number" name="nik"
                             class="peer block w-full [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none border-0 border-b-2 border-gray-300 bg-transparent py-2.5 px-0 text-sm text-gray-900 focus:border-orange-500 focus:outline-none focus:ring-0 dark:border-gray-600 dark:text-white dark:focus:border-orange-400"
                             placeholder="" required="">

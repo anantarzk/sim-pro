@@ -35,7 +35,7 @@
 
 </head>
 
-<body class="bg-gray-200">
+<body class="bg-[url('image/BSIN-K.jpg')] bg-no-repeat bg-cover bg-center bg-gray-200">
 
     {{-- Navbar --}}
     <div class="container mb-20">

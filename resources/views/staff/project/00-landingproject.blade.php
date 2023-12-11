@@ -69,7 +69,7 @@
         {{-- div wadah luar --}}
         <div class="mt-4">
 
-            <div class="mx-auto md:mx-auto lg:w-9/12 xl:w-9/12 2xl:w-9/12 ">
+            <div class="mx-auto md:mx-auto lg:w-9/12 xl:w-9/12 2xl:w-9/12 bg-white">
                 {{-- <div class="mx-auto "> --}}
 
                 {{-- Memanggil seluruh project --}}

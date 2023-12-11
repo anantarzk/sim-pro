@@ -214,7 +214,7 @@
                                     </div>
                                     {{-- Akhir Tombol Pencarian --}}
                                 </div>
-                                <div class="rounded-lg overflow-hidden">
+                                <div class="rounded-lg overflow-hidden bg-white">
                                     <table class="w-full">
                                         <thead
                                             class="text-md text-white uppercase bg-green-600 text-center  border border-gray-500">

@@ -89,7 +89,7 @@ Route::get('/hapus-akun/{id}', [
 
 
 Route::delete('/hapus-akun/{id}', [
-     AdministratorController::class,
+    AdministratorController::class,
     'ProcessHapusAkun',
 ])->middleware(['auth', 'only-administrator']);
 
@@ -264,6 +264,8 @@ Route::put(
     '/01-fundrequest-proyek/{id}/{id_fr_1}/{id_ar_2}/{id_pr_01_3}/{id_pa_02_3}/{id_po_03_3}/{id_pay_04_3}/{id_mn_4}/{id_in_5}/{id_cl_6}',
     [SpvProjectController::class, 'ProcessSatuFormProgress']
 )->middleware(['auth', 'only-supervisor']);
+
+Route::post('/hapus-satu-form/{id}', [SpvProjectController::class, 'HapusSatuForm'])->middleware(['auth', 'only-supervisor']);
 
 Route::get(
     '/02-arrangement-proyek/{id}/{id_fr_1}/{id_ar_2}/{id_pr_01_3}/{id_pa_02_3}/{id_po_03_3}/{id_pay_04_3}/{id_mn_4}/{id_in_5}/{id_cl_6}',

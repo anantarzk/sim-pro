@@ -755,7 +755,29 @@
                                 @endif
                             </td>
                             <td class="text-center">{{ $koneksiar->date_draw_me_1 }}</td>
-                            <td><input type="file" name="as_draw_me_1" id=""></td>
+                            <td>
+                                @if ($koneksiar->draw_me_1 != '')
+                                    <div class="justify-center flex space-x-2">
+                                        <button type="button"
+                                            class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                            data-modal-target="modal1" data-modal-show="modal1"
+                                            data-modal-toggle="modal1">
+                                            Ubah
+                                        </button>
+                                        <button id="dropdown1" data-dropdown-toggle="dropdownsatu" type="button"
+                                            class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="22"
+                                                fill="white" viewBox="0 0 48 48">
+                                                <path
+                                                    d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                </path>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                @else
+                                <input type="file" name="as_draw_me_1" id="">
+                                @endif
+                            </td>
                             <input type="text" hidden name="as_up_draw_me_by_1"
                                 value="{{ Auth::user()->first_name }}">
                             <input type="date" hidden name="as_date_draw_me_1" value="{{ date('Y-m-d') }}">
@@ -796,7 +818,29 @@
                                 @endif
                             </td>
                             <td class="text-center">{{ $koneksiar->date_draw_me_2 }}</td>
-                            <td><input type="file" name="as_draw_me_2" id=""></td>
+                            <td>
+                                @if ($koneksiar->draw_me_2 != '')
+                                    <div class="justify-center flex space-x-2">
+                                        <button type="button"
+                                            class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                            data-modal-target="modal1" data-modal-show="modal1"
+                                            data-modal-toggle="modal1">
+                                            Ubah
+                                        </button>
+                                        <button id="dropdown1" data-dropdown-toggle="dropdownsatu" type="button"
+                                            class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="22"
+                                                fill="white" viewBox="0 0 48 48">
+                                                <path
+                                                    d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                </path>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                @else
+                                <input type="file" name="as_draw_me_2" id="">
+                                @endif
+                            </td>
                             <input type="text" hidden name="as_up_draw_me_by_2"
                                 value="{{ Auth::user()->first_name }}">
                             <input type="date" hidden name="as_date_draw_me_2" value="{{ date('Y-m-d') }}">
@@ -809,7 +853,6 @@
 
             {{-- electrical --}}
             {{-- awal standar formulir --}}
-
             <div class="flex space-x-2 items-center justify-between">
                 <p class="font-normal text-lg bg-teal-600 px-4 py-1 w-fit text-white mb-2 rounded"> Drawing
                     Electrical
@@ -849,7 +892,7 @@
                         <th class="w-[57%]">Nama File</th>
                         <th class="w-[10%]">Uploaded by</th>
                         <th class="w-[13%]">Last Update</th>
-                        <th class="w-[15%]">Upload</th>
+                        <th class="w-[15%]">Aksi</th>
                     </thead>
                     <tbody class="text-left border">
 
@@ -875,9 +918,6 @@
                                     target="blank" download="" class="hover:underline">
                                     {{ $koneksiar->draw_el_1 }}</a>
                                 {{-- == --}}
-
-
-
                             </td>
                             <td>
                                 @if ($koneksiar->up_draw_el_by_1 != '')
@@ -888,7 +928,29 @@
                                 @endif
                             </td>
                             <td class="text-center">{{ $koneksiar->date_draw_el_1 }}</td>
-                            <td><input type="file" name="as_draw_el_1" id=""></td>
+                            <td>
+                                @if ($koneksiar->draw_el_1 != '')
+                                    <div class="justify-center flex space-x-2">
+                                        <button type="button"
+                                            class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                            data-modal-target="modal1" data-modal-show="modal1"
+                                            data-modal-toggle="modal1">
+                                            Ubah
+                                        </button>
+                                        <button id="dropdown1" data-dropdown-toggle="dropdownsatu" type="button"
+                                            class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="22"
+                                                fill="white" viewBox="0 0 48 48">
+                                                <path
+                                                    d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                </path>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                @else
+                                    <input type="file" name="as_draw_el_1" id="">
+                                @endif
+                            </td>
                             <input type="text" hidden name="as_up_draw_el_by_1"
                                 value="{{ Auth::user()->first_name }}">
                             <input type="date" hidden name="as_date_draw_el_1" value="{{ date('Y-m-d') }}">
@@ -929,7 +991,28 @@
                                 @endif
                             </td>
                             <td class="text-center">{{ $koneksiar->date_draw_el_2 }}</td>
-                            <td><input type="file" name="as_draw_el_2" id=""></td>
+                            <td>
+                                @if ($koneksiar->draw_el_2 != '')
+                                    <div class="justify-center flex space-x-2">
+                                        <button type="button"
+                                            class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                            data-modal-target="modal1" data-modal-show="modal1"
+                                            data-modal-toggle="modal1">
+                                            Ubah
+                                        </button>
+                                        <button id="dropdown1" data-dropdown-toggle="dropdownsatu" type="button"
+                                            class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="22"
+                                                fill="white" viewBox="0 0 48 48">
+                                                <path
+                                                    d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                </path>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                @else
+                                <input type="file" name="as_draw_el_2" id=""></td>
+                                @endif
                             <input type="text" hidden name="as_up_draw_el_by_2"
                                 value="{{ Auth::user()->first_name }}">
                             <input type="date" hidden name="as_date_draw_el_2" value="{{ date('Y-m-d') }}">
@@ -1008,9 +1091,6 @@
                                     target="blank" download="" class="hover:underline">
                                     {{ $koneksiar->approval_lay_1 }}</a>
                                 {{-- == --}}
-
-
-
                             </td>
                             <td>
                                 @if ($koneksiar->up_approval_lay_by_1 != '')
@@ -1021,7 +1101,28 @@
                                 @endif
                             </td>
                             <td class="text-center">{{ $koneksiar->date_approval_lay_1 }}</td>
-                            <td><input type="file" name="as_approval_lay_1" id=""></td>
+                            <td>
+                                @if ($koneksiar->approval_lay_1 != '')
+                                    <div class="justify-center flex space-x-2">
+                                        <button type="button"
+                                            class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                            data-modal-target="modal1" data-modal-show="modal1"
+                                            data-modal-toggle="modal1">
+                                            Ubah
+                                        </button>
+                                        <button id="dropdown1" data-dropdown-toggle="dropdownsatu" type="button"
+                                            class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="22"
+                                                fill="white" viewBox="0 0 48 48">
+                                                <path
+                                                    d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                </path>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                @else
+                                <input type="file" name="as_approval_lay_1" id=""></td>
+                                @endif
                             <input type="text" hidden name="as_up_approval_lay_by_1"
                                 value="{{ Auth::user()->first_name }}">
                             <input type="date" hidden name="as_date_approval_lay_1" value="{{ date('Y-m-d') }}">
@@ -1062,7 +1163,28 @@
                                 @endif
                             </td>
                             <td class="text-center">{{ $koneksiar->date_approval_lay_2 }}</td>
-                            <td><input type="file" name="as_approval_lay_2" id=""></td>
+                            <td>
+                                @if ($koneksiar->approval_lay_2 != '')
+                                    <div class="justify-center flex space-x-2">
+                                        <button type="button"
+                                            class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                            data-modal-target="modal1" data-modal-show="modal1"
+                                            data-modal-toggle="modal1">
+                                            Ubah
+                                        </button>
+                                        <button id="dropdown1" data-dropdown-toggle="dropdownsatu" type="button"
+                                            class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="22"
+                                                fill="white" viewBox="0 0 48 48">
+                                                <path
+                                                    d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                </path>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                @else
+                                <input type="file" name="as_approval_lay_2" id=""></td>
+                                @endif
                             <input type="text" hidden name="as_up_approval_lay_by_2"
                                 value="{{ Auth::user()->first_name }}">
                             <input type="date" hidden name="as_date_approval_lay_2" value="{{ date('Y-m-d') }}">
@@ -1141,9 +1263,6 @@
                                     target="blank" download="" class="hover:underline">
                                     {{ $koneksiar->approval_draw_1 }}</a>
                                 {{-- == --}}
-
-
-
                             </td>
                             <td>
                                 @if ($koneksiar->up_approval_draw_by_1 != '')
@@ -1154,7 +1273,29 @@
                                 @endif
                             </td>
                             <td class="text-center">{{ $koneksiar->date_approval_draw_1 }}</td>
-                            <td><input type="file" name="as_approval_draw_1" id=""></td>
+                            <td>
+                                @if ($koneksiar->approval_draw_1 != '')
+                                    <div class="justify-center flex space-x-2">
+                                        <button type="button"
+                                            class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                            data-modal-target="modal1" data-modal-show="modal1"
+                                            data-modal-toggle="modal1">
+                                            Ubah
+                                        </button>
+                                        <button id="dropdown1" data-dropdown-toggle="dropdownsatu" type="button"
+                                            class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="22"
+                                                fill="white" viewBox="0 0 48 48">
+                                                <path
+                                                    d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                </path>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                @else
+                                <input type="file" name="as_approval_draw_1" id="">
+                                @endif
+                            </td>
                             <input type="text" hidden name="as_up_approval_draw_by_1"
                                 value="{{ Auth::user()->first_name }}">
                             <input type="date" hidden name="as_date_approval_draw_1"
@@ -1196,7 +1337,29 @@
                                 @endif
                             </td>
                             <td class="text-center">{{ $koneksiar->date_approval_draw_2 }}</td>
-                            <td><input type="file" name="as_approval_draw_2" id=""></td>
+                            <td>
+                                @if ($koneksiar->approval_draw_2 != '')
+                                    <div class="justify-center flex space-x-2">
+                                        <button type="button"
+                                            class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                            data-modal-target="modal1" data-modal-show="modal1"
+                                            data-modal-toggle="modal1">
+                                            Ubah
+                                        </button>
+                                        <button id="dropdown1" data-dropdown-toggle="dropdownsatu" type="button"
+                                            class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="22"
+                                                fill="white" viewBox="0 0 48 48">
+                                                <path
+                                                    d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                </path>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                @else
+                                <input type="file" name="as_approval_draw_2" id="">
+                                @endif
+                            </td>
                             <input type="text" hidden name="as_up_approval_draw_by_2"
                                 value="{{ Auth::user()->first_name }}">
                             <input type="date" hidden name="as_date_approval_draw_2"

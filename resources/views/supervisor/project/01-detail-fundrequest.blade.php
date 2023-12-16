@@ -557,7 +557,6 @@
 
 
     {{-- Awal progress file --}}
-
     <div class="bg-white mt-3 w-full rounded-md shadow-md p-3">
         <div class="flex justify-between items-center">
             <div class="flex">
@@ -1427,92 +1426,32 @@
         }
     </script>
 
+    {{-- fungsional hapus FR --}}
+    @php
+        $words = ['satu', 'dua', 'tiga', 'empat', 'lima'];
+        $num = ['1', '2', '3', '4', '5'];
+    @endphp
 
-    <form action="" method="post" enctype="multipart/form-data">
-        @csrf
-        @method('PUT')
-        {{-- dropdown1 --}}
-        <div id="dropdownsatu" class="z-10 hidden bg-gray-800 rounded-lg shadow w-110% p-4 shadow-md">
-            <input type="text" hidden name="up_by_1" value="">
-            <input type="text" hidden name="date_atribut_1" value="">
-            <input type="text" hidden name="atribut_1" value="">
-            <p class="text-white">Apakah anda yakin untuk menghapus dokumen ini?</p>
-            <div class="grid grid-cols-1 space-x-2 mt-2">
-                <button type="submit" class="px-2 py-1 bg-red-500 hover:bg-red-600 text-white rounded-md font-bold">
-                    Ya, saya yakin
-                </button>
-            </div>
-        </div>
-    </form>
-    <form action="" method="post" enctype="multipart/form-data">
-        @csrf
-        @method('PUT')
-        {{-- dropdown2 --}}
-        <div id="dropdowndua" class="z-10 hidden bg-gray-800 rounded-lg shadow w-110% p-4 shadow-md">
-            <input type="text" hidden name="up_by_2" value="">
-            <input type="text" hidden name="date_atribut_2" value="">
-            <input type="text" hidden name="atribut_2" value="">
-            <div class="grid grid-cols-1 space-x-2 mt-2">
+    @foreach ($words as $index => $word)
+        <form action="" method="post" enctype="multipart/form-data">
+            @csrf
+            @method('PUT')
+            <div id="dropdown{{ $word }}" class="z-10 hidden bg-gray-800 rounded-lg w-110% p-4 shadow-md">
+                @if ($num[$index])
+                    <input type="text" hidden name="up_by_{{ $num[$index] }}" value="">
+                    <input type="text" hidden name="date_atribut_{{ $num[$index] }}" value="">
+                    <input type="text" hidden name="atribut_{{ $num[$index] }}" value="">
+                @endif
                 <p class="text-white">Apakah anda yakin untuk menghapus dokumen ini?</p>
-                <button type="submit" class="px-2 py-1 bg-red-500 hover:bg-red-600 text-white rounded-md font-bold">
-                    Ya, saya yakin
-                </button>
+                <div class="grid grid-cols-1 space-x-2 mt-2">
+                    <button type="submit"
+                        class="px-2 py-1 bg-red-500 hover:bg-red-600 text-white rounded-md font-bold">
+                        Ya, saya yakin
+                    </button>
+                </div>
             </div>
-        </div>
-    </form>
-    <form action="" method="post" enctype="multipart/form-data">
-        @csrf
-        @method('PUT')
-        {{-- dropdown3 --}}
-        <div id="dropdowntiga" class="z-10 hidden bg-gray-800 rounded-lg shadow w-110% p-4 shadow-md">
-            <input type="text" hidden name="up_by_3" value="">
-            <input type="text" hidden name="date_atribut_3" value="">
-            <input type="text" hidden name="atribut_3" value="">
-            <p class="text-white">Apakah anda yakin untuk menghapus dokumen ini?</p>
-            <div class="grid grid-cols-1 space-x-2 mt-2">
-                <button type="submit" class="px-2 py-1 bg-red-500 hover:bg-red-600 text-white rounded-md font-bold">
-                    Ya, saya yakin
-                </button>
-            </div>
-        </div>
-    </form>
-    <form action="" method="post" enctype="multipart/form-data">
-        @csrf
-        @method('PUT')
-        {{-- dropdown4 --}}
-        <div id="dropdownempat" class="z-10 hidden bg-gray-800 rounded-lg shadow w-110% p-4 shadow-md">
-            <input type="text" hidden name="up_by_4" value="">
-            <input type="text" hidden name="date_atribut_4" value="">
-            <input type="text" hidden name="atribut_4" value="">
-            <p class="text-white">Apakah anda yakin untuk menghapus dokumen ini?</p>
-            <div class="grid grid-cols-1 space-x-2 mt-2">
-                <button type="submit" class="px-2 py-1 bg-red-500 hover:bg-red-600 text-white rounded-md font-bold">
-                    Ya, saya yakin
-                </button>
-            </div>
-        </div>
-    </form>
-    <form action="" method="post" enctype="multipart/form-data">
-        @csrf
-        @method('PUT')
-        {{-- dropdown5 --}}
-        <div id="dropdownlima" class="z-10 hidden bg-gray-800 rounded-lg shadow w-110% p-4 shadow-md">
-            <input type="text" hidden name="up_by_5" value="">
-            <input type="text" hidden name="date_atribut_5" value="">
-            <input type="text" hidden name="atribut_5" value="">
-            <p class="text-white">Apakah anda yakin untuk menghapus dokumen ini?</p>
-            <div class="grid grid-cols-1 space-x-2 mt-2">
-                <button type="submit" class="px-2 py-1 bg-red-500 hover:bg-red-600 text-white rounded-md font-bold">
-                    Ya, saya yakin
-                </button>
-            </div>
-        </div>
-    </form>
-
-
-
-
-
+        </form>
+    @endforeach
 
 
 </div>

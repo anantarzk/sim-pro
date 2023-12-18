@@ -735,7 +735,7 @@
                                             data-modal-toggle="modal1">
                                             Ubah
                                         </button>
-                                        <button id="dropdown1" data-dropdown-toggle="dropdownsatu" type="button"
+                                        <button data-dropdown-toggle="dropdownsatu" type="button"
                                             class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
                                             <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="22"
                                                 fill="white" viewBox="0 0 48 48">
@@ -797,7 +797,7 @@
                                                 data-modal-target="modal2" data-modal-show="modal2"
                                                 data-modal-toggle="modal2">
                                                 Ubah</button>
-                                            <button id="dropdown2" data-dropdown-toggle="dropdowndua" type="button"
+                                            <button data-dropdown-toggle="dropdowndua" type="button"
                                                 class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
                                                 <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="22"
                                                     fill="white" viewBox="0 0 48 48">
@@ -857,7 +857,7 @@
                                             class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                             data-modal-target="modal3" data-modal-show="modal3"
                                             data-modal-toggle="modal3">Ubah</button>
-                                        <button id="dropdown3" data-dropdown-toggle="dropdowntiga" type="button"
+                                        <button data-dropdown-toggle="dropdowntiga" type="button"
                                             class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
                                             <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="22"
                                                 fill="white" viewBox="0 0 48 48">
@@ -915,7 +915,7 @@
                                             class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                             data-modal-target="modal4" data-modal-show="modal4"
                                             data-modal-toggle="modal4">Ubah</button>
-                                        <button id="dropdown4" data-dropdown-toggle="dropdownempat" type="button"
+                                        <button data-dropdown-toggle="dropdownempat" type="button"
                                             class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
                                             <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="22"
                                                 fill="white" viewBox="0 0 48 48">
@@ -973,7 +973,7 @@
                                             class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                             data-modal-target="modal5" data-modal-show="modal5"
                                             data-modal-toggle="modal5">Ubah</button>
-                                        <button id="dropdown5" data-dropdown-toggle="dropdownlima" type="button"
+                                        <button data-dropdown-toggle="dropdownlima" type="button"
                                             class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
                                             <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="22"
                                                 fill="white" viewBox="0 0 48 48">
@@ -1025,324 +1025,73 @@
 
             <br>
 
-            {{-- batas --}}
-            {{-- modal1 --}}
-            <div id="modal1"
-                class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 inset-0 justify-center items-center w-full max-h-full">
-                <div class="relative p-4 w-full max-w-2xl max-h-full">
-                    <!-- Modal content -->
-                    <div class="relative bg-white rounded-lg shadow">
-                        <!-- Modal header -->
-                        <div class="flex items-center justify-between px-5 py-3 border-b rounded-t">
-                            <p class="text-2xl font-semibold text-gray-900 font-mono">
-                                Ubah dokumen unggahan
-                            </p>
-                            <button type="button"
-                                class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center"
-                                onclick="simulateEscape()">
-                                <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                                    fill="none" viewBox="0 0 14 14">
-                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                        stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
-                                </svg>
-                                <span class="sr-only">Close modal</span>
-                            </button>
-                        </div>
-                        <!-- Modal body -->
-                        <div class="py-2 px-5">
-                            <p class="font-light text-lg mb-2">Dokumen sebelumnya</p>
-                            <div class="grid grid-cols-2 space-x-2">
-                                <div>
-                                    <p class="text-base leading-relaxed text-gray-600">
-                                        Nama dokumen:
-                                    </p>
-                                    <p class="text-gray-900">
-                                        {{ $koneksifr->atribut_1 }}
-                                    </p>
-                                </div>
-                                <div>
-                                    <p class="text-base leading-relaxed text-gray-600">
-                                        Oleh:
-                                    </p>
-                                    <p class="text-gray-900">
-                                        {{ $koneksifr->up_by_1 }}
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Modal footer -->
-                        <div class="items-center px-5 py-2 border-t border-gray-200 rounded-b">
-                            <p class="font-light text-lg">
-                                Unggah dokumen baru
-                            </p>
-                            <div class="items-center justify-center w-full border my-4">
-                                @if ($koneksifr->atribut_1 != '')
-                                    <input type="file"name="as_atribut_1" id="">
-                                @else()
-                                @endif
-                            </div>
-                        </div>
-                        <button type="submit"
-                            class="bg-orange-500 w-full hover:bg-orange-600 text-white font-bold py-2 rounded-b-lg shadow-md">Submit</button>
-                    </div>
-                </div>
-            </div>
-            {{-- modal1 tutup --}}
+            @php
+                $n = range(1, 5);
+            @endphp
 
-            {{-- modal2  --}}
-            <div id="modal2"
-                class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 inset-0 justify-center items-center w-full max-h-full">
-                <div class="relative p-4 w-full max-w-2xl max-h-full">
-                    <!-- Modal content -->
-                    <div class="relative bg-white rounded-lg shadow">
-                        <!-- Modal header -->
-                        <div class="flex items-center justify-between px-5 py-3 border-b rounded-t">
-                            <p class="text-2xl font-semibold text-gray-900 font-mono">
-                                Ubah dokumen unggahan
-                            </p>
-                            <button type="button"
-                                class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center"
-                                onclick="simulateEscape()">
-                                <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                                    fill="none" viewBox="0 0 14 14">
-                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                        stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
-                                </svg>
-                                <span class="sr-only">Close modal</span>
-                            </button>
-                        </div>
-                        <!-- Modal body -->
-                        <div class="py-2 px-5">
-                            <p class="font-light text-lg mb-2">Dokumen sebelumnya</p>
-                            <div class="grid grid-cols-2 space-x-2">
-                                <div>
-                                    <p class="text-base leading-relaxed text-gray-600">
-                                        Nama dokumen:
-                                    </p>
-                                    <p class="text-gray-900">
-                                        {{ $koneksifr->atribut_2 }}
-                                    </p>
-                                </div>
-                                <div>
-                                    <p class="text-base leading-relaxed text-gray-600">
-                                        Oleh:
-                                    </p>
-                                    <p class="text-gray-900">
-                                        {{ $koneksifr->up_by_2 }}
-                                    </p>
+            @foreach ($n as $index => $number)
+                <div id="modal{{ $number }}"
+                    class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 inset-0 justify-center items-center w-full max-h-full">
+                    <div class="relative p-4 w-full max-w-2xl max-h-full">
+                        <!-- Modal content -->
+                        <div class="relative bg-white rounded-lg shadow">
+                            <!-- Modal header -->
+                            <div class="flex items-center justify-between px-5 py-3 border-b rounded-t">
+                                <p class="text-2xl font-semibold text-gray-900 font-mono">
+                                    Ubah dokumen unggahan
+                                </p>
+                                <button type="button"
+                                    class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center"
+                                    onclick="simulateEscape()">
+                                    <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                        fill="none" viewBox="0 0 14 14">
+                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                            stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+                                    </svg>
+                                    <span class="sr-only">Close modal</span>
+                                </button>
+                            </div>
+                            <!-- Modal body -->
+                            <div class="py-2 px-5">
+                                <p class="font-light text-lg mb-2">Dokumen sebelumnya</p>
+                                <div class="grid grid-cols-2 space-x-2">
+                                    <div>
+                                        <p class="text-base leading-relaxed text-gray-600">
+                                            Nama dokumen:
+                                        </p>
+                                        <p class="text-gray-900">
+                                            {{ $koneksifr->{'atribut_' . $number} }}
+                                        </p>
+                                    </div>
+                                    <div>
+                                        <p class="text-base leading-relaxed text-gray-600">
+                                            Oleh:
+                                        </p>
+                                        <p class="text-gray-900">
+                                            {{ $koneksifr->{'up_by_' . $number} }}
+                                        </p>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <!-- Modal footer -->
-                        <div class="items-center px-5 py-2 border-t border-gray-200 rounded-b">
-                            <p class="font-light text-lg">
-                                Unggah dokumen baru
-                            </p>
-                            <div class="items-center justify-center w-full border my-4">
-                                @if ($koneksifr->atribut_2 != '')
-                                    <input type="file"name="as_atribut_2" id="">
-                                @else()
-                                @endif
+                            <!-- Modal footer -->
+                            <div class="items-center px-5 py-2 border-t border-gray-200 rounded-b">
+                                <p class="font-light text-lg">
+                                    Unggah dokumen baru
+                                </p>
+                                <div class="items-center justify-center w-full border my-4">
+                                    @if ($koneksifr->{'atribut_' . $number} != '')
+                                        <input type="file"name="as_atribut_{{ $number }}" id="">
+                                    @else()
+                                    @endif
+                                </div>
                             </div>
+                            <button type="submit"
+                                class="bg-orange-500 w-full hover:bg-orange-600 text-white font-bold py-2 rounded-b-lg shadow-md">Submit</button>
                         </div>
-                        <button type="submit"
-                            class="bg-orange-500 w-full hover:bg-orange-600 text-white font-bold py-2 rounded-b-lg shadow-md">Submit</button>
                     </div>
                 </div>
-            </div>
-            {{-- tutup modal2 --}}
-
-            {{-- modal3  --}}
-            <div id="modal3"
-                class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 inset-0 justify-center items-center w-full max-h-full">
-                <div class="relative p-4 w-full max-w-2xl max-h-full">
-                    <!-- Modal content -->
-                    <div class="relative bg-white rounded-lg shadow">
-                        <!-- Modal header -->
-                        <div class="flex items-center justify-between px-5 py-3 border-b rounded-t">
-                            <p class="text-2xl font-semibold text-gray-900 font-mono">
-                                Ubah dokumen unggahan
-                            </p>
-                            <button type="button"
-                                class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center"
-                                onclick="simulateEscape()">
-                                <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                                    fill="none" viewBox="0 0 14 14">
-                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                        stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
-                                </svg>
-                                <span class="sr-only">Close modal</span>
-                            </button>
-                        </div>
-                        <!-- Modal body -->
-                        <div class="py-2 px-5">
-                            <p class="font-light text-lg mb-2">Dokumen sebelumnya</p>
-                            <div class="grid grid-cols-2 space-x-2">
-                                <div>
-                                    <p class="text-base leading-relaxed text-gray-600">
-                                        Nama dokumen:
-                                    </p>
-                                    <p class="text-gray-900">
-                                        {{ $koneksifr->atribut_3 }}
-                                    </p>
-                                </div>
-                                <div>
-                                    <p class="text-base leading-relaxed text-gray-600">
-                                        Oleh:
-                                    </p>
-                                    <p class="text-gray-900">
-                                        {{ $koneksifr->up_by_3 }}
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Modal footer -->
-                        <div class="items-center px-5 py-2 border-t border-gray-200 rounded-b">
-                            <p class="font-light text-lg">
-                                Unggah dokumen baru
-                            </p>
-                            <div class="items-center justify-center w-full border my-4">
-                                @if ($koneksifr->atribut_3 != '')
-                                    <input type="file"name="as_atribut_3" id="">
-                                @else()
-                                @endif
-                            </div>
-                        </div>
-                        <button type="submit"
-                            class="bg-orange-500 w-full hover:bg-orange-600 text-white font-bold py-2 rounded-b-lg shadow-md">Submit</button>
-                    </div>
-                </div>
-            </div>
-            {{-- tutup modal3 --}}
-
-            {{-- modal4  --}}
-            <div id="modal4"
-                class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 inset-0 justify-center items-center w-full max-h-full">
-                <div class="relative p-4 w-full max-w-2xl max-h-full">
-                    <!-- Modal content -->
-                    <div class="relative bg-white rounded-lg shadow">
-                        <!-- Modal header -->
-                        <div class="flex items-center justify-between px-5 py-3 border-b rounded-t">
-                            <p class="text-2xl font-semibold text-gray-900 font-mono">
-                                Ubah dokumen unggahan
-                            </p>
-                            <button type="button"
-                                class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center"
-                                onclick="simulateEscape()">
-                                <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                                    fill="none" viewBox="0 0 14 14">
-                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                        stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
-                                </svg>
-                                <span class="sr-only">Close modal</span>
-                            </button>
-                        </div>
-                        <!-- Modal body -->
-                        <div class="py-2 px-5">
-                            <p class="font-light text-lg mb-2">Dokumen sebelumnya</p>
-                            <div class="grid grid-cols-2 space-x-2">
-                                <div>
-                                    <p class="text-base leading-relaxed text-gray-600">
-                                        Nama dokumen:
-                                    </p>
-                                    <p class="text-gray-900">
-                                        {{ $koneksifr->atribut_4 }}
-                                    </p>
-                                </div>
-                                <div>
-                                    <p class="text-base leading-relaxed text-gray-600">
-                                        Oleh:
-                                    </p>
-                                    <p class="text-gray-900">
-                                        {{ $koneksifr->up_by_4 }}
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Modal footer -->
-                        <div class="items-center px-5 py-2 border-t border-gray-200 rounded-b">
-                            <p class="font-light text-lg">
-                                Unggah dokumen baru
-                            </p>
-                            <div class="items-center justify-center w-full border my-4">
-                                @if ($koneksifr->atribut_4 != '')
-                                    <input type="file"name="as_atribut_4" id="">
-                                @else()
-                                @endif
-                            </div>
-                        </div>
-                        <button type="submit"
-                            class="bg-orange-500 w-full hover:bg-orange-600 text-white font-bold py-2 rounded-b-lg shadow-md">Submit</button>
-                    </div>
-                </div>
-            </div>
-            {{-- tutup modal4 --}}
-
-            {{-- modal5  --}}
-            <div id="modal5"
-                class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 inset-0 justify-center items-center w-full max-h-full">
-                <div class="relative p-4 w-full max-w-2xl max-h-full">
-                    <!-- Modal content -->
-                    <div class="relative bg-white rounded-lg shadow">
-                        <!-- Modal header -->
-                        <div class="flex items-center justify-between px-5 py-3 border-b rounded-t">
-                            <p class="text-2xl font-semibold text-gray-900 font-mono">
-                                Ubah dokumen unggahan
-                            </p>
-                            <button type="button"
-                                class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center"
-                                onclick="simulateEscape()">
-                                <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                                    fill="none" viewBox="0 0 14 14">
-                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                        stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
-                                </svg>
-                                <span class="sr-only">Close modal</span>
-                            </button>
-                        </div>
-                        <!-- Modal body -->
-                        <div class="py-2 px-5">
-                            <p class="font-light text-lg mb-2">Dokumen sebelumnya</p>
-                            <div class="grid grid-cols-2 space-x-2">
-                                <div>
-                                    <p class="text-base leading-relaxed text-gray-600">
-                                        Nama dokumen:
-                                    </p>
-                                    <p class="text-gray-900">
-                                        {{ $koneksifr->atribut_5 }}
-                                    </p>
-                                </div>
-                                <div>
-                                    <p class="text-base leading-relaxed text-gray-600">
-                                        Oleh:
-                                    </p>
-                                    <p class="text-gray-900">
-                                        {{ $koneksifr->up_by_5 }}
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Modal footer -->
-                        <div class="items-center px-5 py-2 border-t border-gray-200 rounded-b">
-                            <p class="font-light text-lg">
-                                Unggah dokumen baru
-                            </p>
-                            <div class="items-center justify-center w-full border my-4">
-                                @if ($koneksifr->atribut_5 != '')
-                                    <input type="file"name="as_atribut_5" id="">
-                                @else()
-                                @endif
-                            </div>
-                        </div>
-                        <button type="submit"
-                            class="bg-orange-500 w-full hover:bg-orange-600 text-white font-bold py-2 rounded-b-lg shadow-md">Submit</button>
-                    </div>
-                </div>
-            </div>
-            {{-- tutup modal5 --}}
+            @endforeach
         </form>
-
-
         {{-- Tombol Approve --}}
         <div class="grid grid-cols-2 gap-2">
             <form action="" method="post" enctype="multipart/form-data">
@@ -1429,7 +1178,7 @@
     {{-- fungsional hapus FR --}}
     @php
         $words = ['satu', 'dua', 'tiga', 'empat', 'lima'];
-        $num = ['1', '2', '3', '4', '5'];
+        $num = range(1, 5);
     @endphp
 
     @foreach ($words as $index => $word)

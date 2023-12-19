@@ -759,7 +759,7 @@
                                             data-modal-toggle="modal11">
                                             Ubah
                                         </button>
-                                        <button data-dropdown-toggle="dropdownsatu" type="button"
+                                        <button data-dropdown-toggle="dropdown11" type="button"
                                             class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
                                             <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="22"
                                                 fill="white" viewBox="0 0 48 48">
@@ -822,7 +822,7 @@
                                             data-modal-toggle="modal12">
                                             Ubah
                                         </button>
-                                        <button data-dropdown-toggle="dropdownsatu" type="button"
+                                        <button data-dropdown-toggle="dropdown12" type="button"
                                             class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
                                             <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="22"
                                                 fill="white" viewBox="0 0 48 48">
@@ -932,7 +932,7 @@
                                             data-modal-toggle="modal21">
                                             Ubah
                                         </button>
-                                        <button data-dropdown-toggle="dropdownsatu" type="button"
+                                        <button data-dropdown-toggle="dropdown21" type="button"
                                             class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
                                             <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="22"
                                                 fill="white" viewBox="0 0 48 48">
@@ -995,7 +995,7 @@
                                             data-modal-toggle="modal22">
                                             Ubah
                                         </button>
-                                        <button data-dropdown-toggle="dropdownsatu" type="button"
+                                        <button data-dropdown-toggle="dropdown22" type="button"
                                             class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
                                             <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="22"
                                                 fill="white" viewBox="0 0 48 48">
@@ -1106,7 +1106,7 @@
                                             data-modal-toggle="modal31">
                                             Ubah
                                         </button>
-                                        <button data-dropdown-toggle="dropdownsatu" type="button"
+                                        <button data-dropdown-toggle="dropdown31" type="button"
                                             class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
                                             <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="22"
                                                 fill="white" viewBox="0 0 48 48">
@@ -1168,7 +1168,7 @@
                                             data-modal-toggle="modal32">
                                             Ubah
                                         </button>
-                                        <button data-dropdown-toggle="dropdownsatu" type="button"
+                                        <button data-dropdown-toggle="dropdown32" type="button"
                                             class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
                                             <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="22"
                                                 fill="white" viewBox="0 0 48 48">
@@ -1279,7 +1279,7 @@
                                             data-modal-toggle="modal41">
                                             Ubah
                                         </button>
-                                        <button data-dropdown-toggle="dropdownsatu" type="button"
+                                        <button data-dropdown-toggle="dropdown41" type="button"
                                             class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
                                             <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="22"
                                                 fill="white" viewBox="0 0 48 48">
@@ -1343,7 +1343,7 @@
                                             data-modal-toggle="modal42">
                                             Ubah
                                         </button>
-                                        <button data-dropdown-toggle="dropdownsatu" type="button"
+                                        <button data-dropdown-toggle="dropdown42" type="button"
                                             class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
                                             <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="22"
                                                 fill="white" viewBox="0 0 48 48">
@@ -1460,7 +1460,7 @@
                                             data-modal-toggle="modal51">
                                             Ubah
                                         </button>
-                                        <button data-dropdown-toggle="dropdownsatu" type="button"
+                                        <button data-dropdown-toggle="dropdown51" type="button"
                                             class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
                                             <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="22"
                                                 fill="white" viewBox="0 0 48 48">
@@ -1523,7 +1523,7 @@
                                             data-modal-toggle="modal52">
                                             Ubah
                                         </button>
-                                        <button data-dropdown-toggle="dropdownsatu" type="button"
+                                        <button data-dropdown-toggle="dropdown52" type="button"
                                             class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
                                             <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="22"
                                                 fill="white" viewBox="0 0 48 48">
@@ -1638,7 +1638,7 @@
                                             data-modal-toggle="modal61">
                                             Ubah
                                         </button>
-                                        <button data-dropdown-toggle="dropdownsatu" type="button"
+                                        <button data-dropdown-toggle="dropdown61" type="button"
                                             class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
                                             <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="22"
                                                 fill="white" viewBox="0 0 48 48">
@@ -1701,7 +1701,7 @@
                                             data-modal-toggle="modal62">
                                             Ubah
                                         </button>
-                                        <button data-dropdown-toggle="dropdownsatu" type="button"
+                                        <button data-dropdown-toggle="dropdown62" type="button"
                                             class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
                                             <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="22"
                                                 fill="white" viewBox="0 0 48 48">
@@ -1763,7 +1763,7 @@
                                             data-modal-toggle="modal63">
                                             Ubah
                                         </button>
-                                        <button data-dropdown-toggle="dropdownsatu" type="button"
+                                        <button data-dropdown-toggle="dropdown63" type="button"
                                             class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
                                             <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="22"
                                                 fill="white" viewBox="0 0 48 48">
@@ -1826,7 +1826,7 @@
                                             data-modal-toggle="modal64">
                                             Ubah
                                         </button>
-                                        <button data-dropdown-toggle="dropdownsatu" type="button"
+                                        <button data-dropdown-toggle="dropdown64" type="button"
                                             class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
                                             <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="22"
                                                 fill="white" viewBox="0 0 48 48">
@@ -1887,7 +1887,7 @@
                                             data-modal-toggle="modal65">
                                             Ubah
                                         </button>
-                                        <button data-dropdown-toggle="dropdownsatu" type="button"
+                                        <button data-dropdown-toggle="dropdown65" type="button"
                                             class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
                                             <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="22"
                                                 fill="white" viewBox="0 0 48 48">
@@ -2003,7 +2003,7 @@
                                             data-modal-toggle="modal71">
                                             Ubah
                                         </button>
-                                        <button data-dropdown-toggle="dropdownsatu" type="button"
+                                        <button data-dropdown-toggle="dropdown71" type="button"
                                             class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
                                             <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="22"
                                                 fill="white" viewBox="0 0 48 48">
@@ -2066,7 +2066,7 @@
                                             data-modal-toggle="modal72">
                                             Ubah
                                         </button>
-                                        <button data-dropdown-toggle="dropdownsatu" type="button"
+                                        <button data-dropdown-toggle="dropdown72" type="button"
                                             class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
                                             <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="22"
                                                 fill="white" viewBox="0 0 48 48">
@@ -2137,7 +2137,7 @@
                     $koneksiar->est_budget_2 != '')
             @else
                 <button type="submit"
-                    class="bg-orange-500 w-full hover:bg-orange-600 text-white font-bold py-2 rounded-b-lg shadow-md">Submit</button>
+                    class="bg-orange-500 w-full hover:bg-orange-600 text-white font-bold py-2 rounded-lg mt-3 shadow-md">Klik untuk submit dokumen</button>
             @endif
 
             @php
@@ -2677,6 +2677,172 @@
             document.dispatchEvent(escapeEvent);
         }
     </script>
+
+    @php
+        $num = range(1, 5);
+    @endphp
+    {{-- 1 --}}
+    @foreach ($num as $index => $number)
+        <form action="" method="post" enctype="multipart/form-data">
+            @csrf
+            @method('PUT')
+            <div id="dropdown1{{ $number }}"
+                class="z-10 hidden bg-gray-800 rounded-lg w-110% p-4 shadow-md">
+                @if ($number)
+                    <input type="text" hidden name="up_draw_me_by_{{ $number }}" value="">
+                    <input type="text" hidden name="date_draw_me_{{ $number }}" value="">
+                    <input type="text" hidden name="draw_me_{{ $number }}" value="">
+                @endif
+                <p class="text-white">Apakah anda yakin untuk menghapus dokumen ini?</p>
+                <div class="grid grid-cols-1 space-x-2 mt-2">
+                    <button type="submit"
+                        class="px-2 py-1 bg-red-500 hover:bg-red-600 text-white rounded-md font-bold">
+                        Ya, saya yakin
+                    </button>
+                </div>
+            </div>
+        </form>
+    @endforeach
+
+    {{-- 2 --}}
+    @foreach ($num as $index => $number)
+        <form action="" method="post" enctype="multipart/form-data">
+            @csrf
+            @method('PUT')
+            <div id="dropdown2{{ $number }}"
+                class="z-10 hidden bg-gray-800 rounded-lg w-110% p-4 shadow-md">
+                @if ($number)
+                    <input type="text" hidden name="up_draw_el_by_{{ $number }}" value="">
+                    <input type="text" hidden name="date_draw_el_{{ $number }}" value="">
+                    <input type="text" hidden name="draw_el_{{ $number }}" value="">
+                @endif
+                <p class="text-white">Apakah anda yakin untuk menghapus dokumen ini?</p>
+                <div class="grid grid-cols-1 space-x-2 mt-2">
+                    <button type="submit"
+                        class="px-2 py-1 bg-red-500 hover:bg-red-600 text-white rounded-md font-bold">
+                        Ya, saya yakin
+                    </button>
+                </div>
+            </div>
+        </form>
+    @endforeach
+
+    {{-- 3 --}}
+    @foreach ($num as $index => $number)
+        <form action="" method="post" enctype="multipart/form-data">
+            @csrf
+            @method('PUT')
+            <div id="dropdown3{{ $number }}"
+                class="z-10 hidden bg-gray-800 rounded-lg w-110% p-4 shadow-md">
+                @if ($number)
+                    <input type="text" hidden name="up_approval_lay_by_{{ $number }}" value="">
+                    <input type="text" hidden name="date_approval_lay_{{ $number }}" value="">
+                    <input type="text" hidden name="approval_lay_{{ $number }}" value="">
+                @endif
+                <p class="text-white">Apakah anda yakin untuk menghapus dokumen ini?</p>
+                <div class="grid grid-cols-1 space-x-2 mt-2">
+                    <button type="submit"
+                        class="px-2 py-1 bg-red-500 hover:bg-red-600 text-white rounded-md font-bold">
+                        Ya, saya yakin
+                    </button>
+                </div>
+            </div>
+        </form>
+    @endforeach
+
+    {{--  4 --}}
+    @foreach ($num as $index => $number)
+        <form action="" method="post" enctype="multipart/form-data">
+            @csrf
+            @method('PUT')
+            <div id="dropdown4{{ $number }}"
+                class="z-10 hidden bg-gray-800 rounded-lg w-110% p-4 shadow-md">
+                @if ($number)
+                    <input type="text" hidden name="up_approval_draw_by_{{ $number }}" value="">
+                    <input type="text" hidden name="date_approval_draw_{{ $number }}" value="">
+                    <input type="text" hidden name="approval_draw_{{ $number }}" value="">
+                @endif
+                <p class="text-white">Apakah anda yakin untuk menghapus dokumen ini?</p>
+                <div class="grid grid-cols-1 space-x-2 mt-2">
+                    <button type="submit"
+                        class="px-2 py-1 bg-red-500 hover:bg-red-600 text-white rounded-md font-bold">
+                        Ya, saya yakin
+                    </button>
+                </div>
+            </div>
+        </form>
+    @endforeach
+
+    {{-- 5 --}}
+    @foreach ($num as $index => $number)
+        <form action="" method="post" enctype="multipart/form-data">
+            @csrf
+            @method('PUT')
+            <div id="dropdown5{{ $number }}"
+                class="z-10 hidden bg-gray-800 rounded-lg w-110% p-4 shadow-md">
+                @if ($number)
+                    <input type="text" hidden name="up_dsgn_sheet_by_{{ $number }}" value="">
+                    <input type="text" hidden name="date_dsgn_sheet_{{ $number }}" value="">
+                    <input type="text" hidden name="dsgn_sheet_{{ $number }}" value="">
+                @endif
+                <p class="text-white">Apakah anda yakin untuk menghapus dokumen ini?</p>
+                <div class="grid grid-cols-1 space-x-2 mt-2">
+                    <button type="submit"
+                        class="px-2 py-1 bg-red-500 hover:bg-red-600 text-white rounded-md font-bold">
+                        Ya, saya yakin
+                    </button>
+                </div>
+            </div>
+        </form>
+    @endforeach
+
+    {{-- 6 --}}
+    @foreach ($num as $index => $number)
+        <form action="" method="post" enctype="multipart/form-data">
+            @csrf
+            @method('PUT')
+            <div id="dropdown6{{ $number }}"
+                class="z-10 hidden bg-gray-800 rounded-lg w-110% p-4 shadow-md">
+                @if ($number)
+                    <input type="text" hidden name="up_dr_meet_by_{{ $number }}" value="">
+                    <input type="text" hidden name="date_dr_meet_{{ $number }}" value="">
+                    <input type="text" hidden name="dr_meet_{{ $number }}" value="">
+                @endif
+                <p class="text-white">Apakah anda yakin untuk menghapus dokumen ini?</p>
+                <div class="grid grid-cols-1 space-x-2 mt-2">
+                    <button type="submit"
+                        class="px-2 py-1 bg-red-500 hover:bg-red-600 text-white rounded-md font-bold">
+                        Ya, saya yakin
+                    </button>
+                </div>
+            </div>
+        </form>
+    @endforeach
+
+    {{-- 7 --}}
+    @foreach ($num as $index => $number)
+        <form action="" method="post" enctype="multipart/form-data">
+            @csrf
+            @method('PUT')
+            <div id="dropdown7{{ $number }}"
+                class="z-10 hidden bg-gray-800 rounded-lg w-110% p-4 shadow-md">
+                @if ($number)
+                    <input type="text" hidden name="up_est_budget_by_{{ $number }}" value="">
+                    <input type="text" hidden name="date_est_budget_{{ $number }}" value="">
+                    <input type="text" hidden name="est_budget_{{ $number }}" value="">
+                @endif
+                <p class="text-white">Apakah anda yakin untuk menghapus dokumen ini?</p>
+                <div class="grid grid-cols-1 space-x-2 mt-2">
+                    <button type="submit"
+                        class="px-2 py-1 bg-red-500 hover:bg-red-600 text-white rounded-md font-bold">
+                        Ya, saya yakin
+                    </button>
+                </div>
+            </div>
+        </form>
+    @endforeach
+
+
 </div>
 {{-- tutup bungkus --}}
 

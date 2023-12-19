@@ -735,7 +735,7 @@
                                             data-modal-toggle="modal1">
                                             Ubah
                                         </button>
-                                        <button data-dropdown-toggle="dropdownsatu" type="button"
+                                        <button data-dropdown-toggle="dropdown1" type="button"
                                             class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
                                             <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="22"
                                                 fill="white" viewBox="0 0 48 48">
@@ -797,7 +797,7 @@
                                                 data-modal-target="modal2" data-modal-show="modal2"
                                                 data-modal-toggle="modal2">
                                                 Ubah</button>
-                                            <button data-dropdown-toggle="dropdowndua" type="button"
+                                            <button data-dropdown-toggle="dropdown2" type="button"
                                                 class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
                                                 <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="22"
                                                     fill="white" viewBox="0 0 48 48">
@@ -857,7 +857,7 @@
                                             class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                             data-modal-target="modal3" data-modal-show="modal3"
                                             data-modal-toggle="modal3">Ubah</button>
-                                        <button data-dropdown-toggle="dropdowntiga" type="button"
+                                        <button data-dropdown-toggle="dropdown3" type="button"
                                             class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
                                             <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="22"
                                                 fill="white" viewBox="0 0 48 48">
@@ -915,7 +915,7 @@
                                             class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                             data-modal-target="modal4" data-modal-show="modal4"
                                             data-modal-toggle="modal4">Ubah</button>
-                                        <button data-dropdown-toggle="dropdownempat" type="button"
+                                        <button data-dropdown-toggle="dropdown4" type="button"
                                             class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
                                             <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="22"
                                                 fill="white" viewBox="0 0 48 48">
@@ -973,7 +973,7 @@
                                             class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                             data-modal-target="modal5" data-modal-show="modal5"
                                             data-modal-toggle="modal5">Ubah</button>
-                                        <button data-dropdown-toggle="dropdownlima" type="button"
+                                        <button data-dropdown-toggle="dropdown5" type="button"
                                             class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
                                             <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="22"
                                                 fill="white" viewBox="0 0 48 48">
@@ -1020,7 +1020,7 @@
                     $koneksifr->atribut_5 != '')
             @else
                 <button type="submit"
-                    class="bg-orange-500 w-full hover:bg-orange-600 text-white font-bold py-2 rounded-b-lg shadow-md mb-3">Submit</button>
+                    class="bg-orange-500 w-full hover:bg-orange-600 text-white font-bold py-2 rounded-b-lg shadow-md mb-3">Klik untuk submit dokumen</button>
             @endif
 
             <br>
@@ -1177,19 +1177,18 @@
 
     {{-- fungsional hapus FR --}}
     @php
-        $words = ['satu', 'dua', 'tiga', 'empat', 'lima'];
         $num = range(1, 5);
     @endphp
 
-    @foreach ($words as $index => $word)
+    @foreach ($num as $index => $number)
         <form action="" method="post" enctype="multipart/form-data">
             @csrf
             @method('PUT')
-            <div id="dropdown{{ $word }}" class="z-10 hidden bg-gray-800 rounded-lg w-110% p-4 shadow-md">
-                @if ($num[$index])
-                    <input type="text" hidden name="up_by_{{ $num[$index] }}" value="">
-                    <input type="text" hidden name="date_atribut_{{ $num[$index] }}" value="">
-                    <input type="text" hidden name="atribut_{{ $num[$index] }}" value="">
+            <div id="dropdown{{ $number }}" class="z-10 hidden bg-gray-800 rounded-lg w-110% p-4 shadow-md">
+                @if ($number)
+                    <input type="text" hidden name="up_by_{{ $number }}" value="">
+                    <input type="text" hidden name="date_atribut_{{ $number }}" value="">
+                    <input type="text" hidden name="atribut_{{ $number }}" value="">
                 @endif
                 <p class="text-white">Apakah anda yakin untuk menghapus dokumen ini?</p>
                 <div class="grid grid-cols-1 space-x-2 mt-2">

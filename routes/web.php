@@ -34,9 +34,10 @@ Route::get('/registrasi', function () {
     return view('registrasi');
 });
 
-Route::get('/testing-page', function () {
+Route::get('/test', function () {
     return view('testing-page');
 });
+
 Route::get('/home', function () {
     return view('home');
 });

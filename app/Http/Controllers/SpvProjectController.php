@@ -8869,7 +8869,7 @@ class SpvProjectController extends Controller
         ]);
 
         return redirect()->action(
-            [SpvProjectController::class, 'TigaTitikDuaFormProgress'],
+            [SpvProjectController::class, 'TigaTitikSatuFormProgress'],
             [
                 'id' => $viewdataproject->id,
                 'id_fr_1' => $koneksifr->id_fr_1,
@@ -14249,7 +14249,7 @@ class SpvProjectController extends Controller
         ]);
 
         return redirect()->action(
-            [SpvProjectController::class, 'TigaTitikTigaFormProgress'],
+            [SpvProjectController::class, 'TigaTitikDuaFormProgress'],
             [
                 'id' => $viewdataproject->id,
                 'id_fr_1' => $koneksifr->id_fr_1,
@@ -19633,7 +19633,7 @@ class SpvProjectController extends Controller
         ]);
 
         return redirect()->action(
-            [SpvProjectController::class, 'TigaTitikEmpatFormProgress'],
+            [SpvProjectController::class, 'TigaTitikTigaFormProgress'],
             [
                 'id' => $viewdataproject->id,
                 'id_fr_1' => $koneksifr->id_fr_1,
@@ -28046,7 +28046,7 @@ class SpvProjectController extends Controller
         ]);
 
         return redirect()->action(
-            [SpvProjectController::class, 'LimaFormProgress'],
+            [SpvProjectController::class, 'TigaTitikEmpatFormProgress'],
             [
                 'id' => $viewdataproject->id,
                 'id_fr_1' => $koneksifr->id_fr_1,
@@ -30097,6 +30097,21 @@ class SpvProjectController extends Controller
             'waktu' => $request->waktu,
         ]);
 
-        return redirect('seluruh-proyek');
+        return redirect()->action(
+            [SpvProjectController::class, 'EnamFormProgress'],
+            [
+                'id' => $viewdataproject->id,
+                'id_fr_1' => $koneksifr->id_fr_1,
+                'id_ar_2' => $koneksiar->id_ar_2,
+                'id_pr_01_3' => $koneksipr->id_pr_01_3,
+                'id_pa_02_3' => $koneksipa->id_pa_02_3,
+                'id_po_03_3' => $koneksipo->id_po_03_3,
+                'id_pay_04_3' => $koneksipay->id_pay_04_3,
+                'id_mn_4' => $koneksimn->id_mn_4,
+                'id_in_5' => $koneksiin->id_in_5,
+                'id_cl_6' => $koneksicl->id_cl_6,
+            ]
+        );
+        /* return redirect('seluruh-proyek'); */
     }
 }

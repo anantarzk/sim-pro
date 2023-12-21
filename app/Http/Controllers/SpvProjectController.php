@@ -25036,7 +25036,7 @@ class SpvProjectController extends Controller
         ]);
 
         return redirect()->action(
-            [SpvProjectController::class, 'EmpatFormProgress'],
+            [SpvProjectController::class, 'TigaTitikEmpatFormProgress'],
             [
                 'id' => $viewdataproject->id,
                 'id_fr_1' => $koneksifr->id_fr_1,

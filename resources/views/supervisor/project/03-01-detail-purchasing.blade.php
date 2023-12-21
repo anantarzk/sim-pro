@@ -810,7 +810,7 @@
                             <button class=" p-3 w-full rounded-tl-lg border-b-2" id="lokal-tab"
                                 data-tabs-target="#lokal" type="button" role="tab" aria-controls="lokal"
                                 aria-selected="false">
-                                PR Lokal
+                                Purchase Request Lokal
                             </button>
                         </div>
 
@@ -818,7 +818,7 @@
                             <button class=" p-3 w-full rounded-tr-lg border-b-2" id="impor-tab"
                                 data-tabs-target="#impor" type="button" role="tab" aria-controls="impor"
                                 aria-selected="false">
-                                PR Impor
+                                Purchase Request Impor
                             </button>
                         </div>
                     </div>
@@ -832,7 +832,7 @@
                             <p class="font-normal text-lg bg-teal-600 px-4 py-1 w-fit text-white mb-2 rounded">
                                 PR Parts & Material
                             </p>
-                            {{-- tombol form --}} @foreach ($standar_project as $spt)
+                            @foreach ($standar_project as $spt)
                                 @if ($spt->file_pr_parts_material_form != '')
                                     <div class="mb-1">
                                         <p class="text-right font-light text-sm">Harap Menggunakan Standar
@@ -939,7 +939,7 @@
                                                 <div class="">
                                                     <input type="number"
                                                         class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (input nilai PR)" min="0"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PR)" min="0"
                                                         max="999999999999" oninput="validity.valid||(value='');"
                                                         name="as_mny_parts_pr_1">
                                                 </div>
@@ -1017,7 +1017,7 @@
                                                 <div class="">
                                                     <input type="number" id="base-input"
                                                         class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (input nilai PR)" min="0"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PR)" min="0"
                                                         max="999999999999" oninput="validity.valid||(value='');"
                                                         name="as_mny_parts_pr_2">
                                                 </div>
@@ -1093,7 +1093,7 @@
                                                 <div class="">
                                                     <input type="number" id="base-input"
                                                         class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (input nilai PR)" min="0"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PR)" min="0"
                                                         max="999999999999" oninput="validity.valid||(value='');"
                                                         name="as_mny_parts_pr_3">
                                                 </div>
@@ -1169,7 +1169,7 @@
                                                 <div class="">
                                                     <input type="number" id="base-input"
                                                         class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (input nilai PR)" min="0"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PR)" min="0"
                                                         max="999999999999" oninput="validity.valid||(value='');"
                                                         name="as_mny_parts_pr_4">
                                                 </div>
@@ -1245,7 +1245,7 @@
                                                 <div class="">
                                                     <input type="number" id="base-input"
                                                         class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (input nilai PR)" min="0"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PR)" min="0"
                                                         max="999999999999" oninput="validity.valid||(value='');"
                                                         name="as_mny_parts_pr_5">
                                                 </div>
@@ -1322,7 +1322,7 @@
                                                 <div class="">
                                                     <input type="number" id="base-input"
                                                         class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (input nilai PR)" min="0"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PR)" min="0"
                                                         max="999999999999" oninput="validity.valid||(value='');"
                                                         name="as_mny_parts_pr_6">
                                                 </div>
@@ -1397,7 +1397,7 @@
                                                 <div class="">
                                                     <input type="number" id="base-input"
                                                         class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (input nilai PR)" min="0"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PR)" min="0"
                                                         max="999999999999" oninput="validity.valid||(value='');"
                                                         name="as_mny_parts_pr_7">
                                                 </div>
@@ -1473,7 +1473,7 @@
                                                 <div class="">
                                                     <input type="number" id="base-input"
                                                         class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (input nilai PR)" min="0"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PR)" min="0"
                                                         max="999999999999" oninput="validity.valid||(value='');"
                                                         name="as_mny_parts_pr_8">
                                                 </div>
@@ -1550,7 +1550,7 @@
                                                 <div class="">
                                                     <input type="number" id="base-input"
                                                         class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (input nilai PR)" min="0"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PR)" min="0"
                                                         max="999999999999" oninput="validity.valid||(value='');"
                                                         name="as_mny_parts_pr_9">
                                                 </div>
@@ -1626,7 +1626,7 @@
                                                 <div class="">
                                                     <input type="number" id="base-input"
                                                         class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (input nilai PR)" min="0"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PR)" min="0"
                                                         max="999999999999" oninput="validity.valid||(value='');"
                                                         name="as_mny_parts_pr_10">
                                                 </div>
@@ -1703,7 +1703,7 @@
                                                 <div class="">
                                                     <input type="number" id="base-input"
                                                         class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (input nilai PR)" min="0"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PR)" min="0"
                                                         max="999999999999" oninput="validity.valid||(value='');"
                                                         name="as_mny_parts_pr_11">
                                                 </div>
@@ -1778,7 +1778,7 @@
                                                 <div class="">
                                                     <input type="number" id="base-input"
                                                         class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (input nilai PR)" min="0"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PR)" min="0"
                                                         max="999999999999" oninput="validity.valid||(value='');"
                                                         name="as_mny_parts_pr_12">
                                                 </div>
@@ -1854,7 +1854,7 @@
                                                 <div class="">
                                                     <input type="number" id="base-input"
                                                         class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (input nilai PR)" min="0"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PR)" min="0"
                                                         max="999999999999" oninput="validity.valid||(value='');"
                                                         name="as_mny_parts_pr_13">
                                                 </div>
@@ -1930,7 +1930,7 @@
                                                 <div class="">
                                                     <input type="number" id="base-input"
                                                         class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (input nilai PR)" min="0"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PR)" min="0"
                                                         max="999999999999" oninput="validity.valid||(value='');"
                                                         name="as_mny_parts_pr_14">
                                                 </div>
@@ -2006,7 +2006,7 @@
                                                 <div class="">
                                                     <input type="number" id="base-input"
                                                         class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (input nilai PR)" min="0"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PR)" min="0"
                                                         max="999999999999" oninput="validity.valid||(value='');"
                                                         name="as_mny_parts_pr_15">
                                                 </div>
@@ -2083,7 +2083,7 @@
                                                 <div class="">
                                                     <input type="number" id="base-input"
                                                         class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (input nilai PR)" min="0"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PR)" min="0"
                                                         max="999999999999" oninput="validity.valid||(value='');"
                                                         name="as_mny_parts_pr_16">
                                                 </div>
@@ -2159,7 +2159,7 @@
                                                 <div class="">
                                                     <input type="number" id="base-input"
                                                         class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (input nilai PR)" min="0"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PR)" min="0"
                                                         max="999999999999" oninput="validity.valid||(value='');"
                                                         name="as_mny_parts_pr_17">
                                                 </div>
@@ -2236,7 +2236,7 @@
                                                 <div class="">
                                                     <input type="number" id="base-input"
                                                         class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (input nilai PR)" min="0"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PR)" min="0"
                                                         max="999999999999" oninput="validity.valid||(value='');"
                                                         name="as_mny_parts_pr_18">
                                                 </div>
@@ -2314,7 +2314,7 @@
                                                 <div class="">
                                                     <input type="number" id="base-input"
                                                         class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (input nilai PR)" min="0"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PR)" min="0"
                                                         max="999999999999" oninput="validity.valid||(value='');"
                                                         name="as_mny_parts_pr_19">
                                                 </div>
@@ -2390,7 +2390,7 @@
                                                 <div class="">
                                                     <input type="number" id="base-input"
                                                         class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (input nilai PR)" min="0"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PR)" min="0"
                                                         max="999999999999" oninput="validity.valid||(value='');"
                                                         name="as_mny_parts_pr_20">
                                                 </div>
@@ -2469,7 +2469,7 @@
                                                 <div class="">
                                                     <input type="number" id="base-input"
                                                         class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (input nilai PR)" min="0"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PR)" min="0"
                                                         max="999999999999" oninput="validity.valid||(value='');"
                                                         name="as_mny_parts_pr_21">
                                                 </div>
@@ -2545,7 +2545,7 @@
                                                 <div class="">
                                                     <input type="number" id="base-input"
                                                         class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (input nilai PR)" min="0"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PR)" min="0"
                                                         max="999999999999" oninput="validity.valid||(value='');"
                                                         name="as_mny_parts_pr_22">
                                                 </div>
@@ -2621,7 +2621,7 @@
                                                 <div class="">
                                                     <input type="number" id="base-input"
                                                         class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (input nilai PR)" min="0"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PR)" min="0"
                                                         max="999999999999" oninput="validity.valid||(value='');"
                                                         name="as_mny_parts_pr_23">
                                                 </div>
@@ -2697,7 +2697,7 @@
                                                 <div class="">
                                                     <input type="number" id="base-input"
                                                         class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (input nilai PR)" min="0"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PR)" min="0"
                                                         max="999999999999" oninput="validity.valid||(value='');"
                                                         name="as_mny_parts_pr_24">
                                                 </div>
@@ -2773,7 +2773,7 @@
                                                 <div class="">
                                                     <input type="number" id="base-input"
                                                         class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (input nilai PR)" min="0"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PR)" min="0"
                                                         max="999999999999" oninput="validity.valid||(value='');"
                                                         name="as_mny_parts_pr_25">
                                                 </div>
@@ -2848,7 +2848,7 @@
                                                 <div class="">
                                                     <input type="number" id="base-input"
                                                         class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (input nilai PR)" min="0"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PR)" min="0"
                                                         max="999999999999" oninput="validity.valid||(value='');"
                                                         name="as_mny_parts_pr_26">
                                                 </div>
@@ -2923,7 +2923,7 @@
                                                 <div class="">
                                                     <input type="number" id="base-input"
                                                         class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (input nilai PR)" min="0"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PR)" min="0"
                                                         max="999999999999" oninput="validity.valid||(value='');"
                                                         name="as_mny_parts_pr_27">
                                                 </div>
@@ -2999,7 +2999,7 @@
                                                 <div class="">
                                                     <input type="number" id="base-input"
                                                         class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (input nilai PR)" min="0"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PR)" min="0"
                                                         max="999999999999" oninput="validity.valid||(value='');"
                                                         name="as_mny_parts_pr_28">
                                                 </div>
@@ -3075,7 +3075,7 @@
                                                 <div class="">
                                                     <input type="number" id="base-input"
                                                         class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (input nilai PR)" min="0"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PR)" min="0"
                                                         max="999999999999" oninput="validity.valid||(value='');"
                                                         name="as_mny_parts_pr_29">
                                                 </div>
@@ -3151,7 +3151,7 @@
                                                 <div class="">
                                                     <input type="number" id="base-input"
                                                         class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (input nilai PR)" min="0"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PR)" min="0"
                                                         max="999999999999" oninput="validity.valid||(value='');"
                                                         name="as_mny_parts_pr_30">
                                                 </div>
@@ -3229,7 +3229,7 @@
                                                 <div class="">
                                                     <input type="number" id="base-input"
                                                         class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (input nilai PR)" min="0"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PR)" min="0"
                                                         max="999999999999" oninput="validity.valid||(value='');"
                                                         name="as_mny_parts_pr_31">
                                                 </div>
@@ -3305,7 +3305,7 @@
                                                 <div class="">
                                                     <input type="number" id="base-input"
                                                         class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (input nilai PR)" min="0"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PR)" min="0"
                                                         max="999999999999" oninput="validity.valid||(value='');"
                                                         name="as_mny_parts_pr_32">
                                                 </div>
@@ -3381,7 +3381,7 @@
                                                 <div class="">
                                                     <input type="number" id="base-input"
                                                         class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (input nilai PR)" min="0"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PR)" min="0"
                                                         max="999999999999" oninput="validity.valid||(value='');"
                                                         name="as_mny_parts_pr_33">
                                                 </div>
@@ -3457,7 +3457,7 @@
                                                 <div class="">
                                                     <input type="number" id="base-input"
                                                         class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (input nilai PR)" min="0"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PR)" min="0"
                                                         max="999999999999" oninput="validity.valid||(value='');"
                                                         name="as_mny_parts_pr_34">
                                                 </div>
@@ -3533,7 +3533,7 @@
                                                 <div class="">
                                                     <input type="number" id="base-input"
                                                         class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (input nilai PR)" min="0"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PR)" min="0"
                                                         max="999999999999" oninput="validity.valid||(value='');"
                                                         name="as_mny_parts_pr_35">
                                                 </div>
@@ -3609,7 +3609,7 @@
                                                 <div class="">
                                                     <input type="number" id="base-input"
                                                         class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (input nilai PR)" min="0"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PR)" min="0"
                                                         max="999999999999" oninput="validity.valid||(value='');"
                                                         name="as_mny_parts_pr_36">
                                                 </div>
@@ -3686,7 +3686,7 @@
                                                 <div class="">
                                                     <input type="number" id="base-input"
                                                         class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (input nilai PR)" min="0"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PR)" min="0"
                                                         max="999999999999" oninput="validity.valid||(value='');"
                                                         name="as_mny_parts_pr_37">
                                                 </div>
@@ -3762,7 +3762,7 @@
                                                 <div class="">
                                                     <input type="number" id="base-input"
                                                         class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (input nilai PR)" min="0"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PR)" min="0"
                                                         max="999999999999" oninput="validity.valid||(value='');"
                                                         name="as_mny_parts_pr_38">
                                                 </div>
@@ -3838,7 +3838,7 @@
                                                 <div class="">
                                                     <input type="number" id="base-input"
                                                         class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (input nilai PR)" min="0"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PR)" min="0"
                                                         max="999999999999" oninput="validity.valid||(value='');"
                                                         name="as_mny_parts_pr_39">
                                                 </div>
@@ -3914,7 +3914,7 @@
                                                 <div class="">
                                                     <input type="number" id="base-input"
                                                         class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (input nilai PR)" min="0"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PR)" min="0"
                                                         max="999999999999" oninput="validity.valid||(value='');"
                                                         name="as_mny_parts_pr_40">
                                                 </div>
@@ -3991,7 +3991,7 @@
                                                 <div class="">
                                                     <input type="number" id="base-input"
                                                         class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (input nilai PR)" min="0"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PR)" min="0"
                                                         max="999999999999" oninput="validity.valid||(value='');"
                                                         name="as_mny_parts_pr_41">
                                                 </div>
@@ -4067,7 +4067,7 @@
                                                 <div class="">
                                                     <input type="number" id="base-input"
                                                         class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (input nilai PR)" min="0"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PR)" min="0"
                                                         max="999999999999" oninput="validity.valid||(value='');"
                                                         name="as_mny_parts_pr_42">
                                                 </div>
@@ -4143,7 +4143,7 @@
                                                 <div class="">
                                                     <input type="number" id="base-input"
                                                         class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (input nilai PR)" min="0"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PR)" min="0"
                                                         max="999999999999" oninput="validity.valid||(value='');"
                                                         name="as_mny_parts_pr_43">
                                                 </div>
@@ -4219,7 +4219,7 @@
                                                 <div class="">
                                                     <input type="number" id="base-input"
                                                         class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (input nilai PR)" min="0"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PR)" min="0"
                                                         max="999999999999" oninput="validity.valid||(value='');"
                                                         name="as_mny_parts_pr_44">
                                                 </div>
@@ -4295,7 +4295,7 @@
                                                 <div class="">
                                                     <input type="number" id="base-input"
                                                         class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (input nilai PR)" min="0"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PR)" min="0"
                                                         max="999999999999" oninput="validity.valid||(value='');"
                                                         name="as_mny_parts_pr_45">
                                                 </div>
@@ -4370,7 +4370,7 @@
                                                 <div class="">
                                                     <input type="number" id="base-input"
                                                         class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (input nilai PR)" min="0"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PR)" min="0"
                                                         max="999999999999" oninput="validity.valid||(value='');"
                                                         name="as_mny_parts_pr_46">
                                                 </div>
@@ -4447,7 +4447,7 @@
                                                 <div class="">
                                                     <input type="number" id="base-input"
                                                         class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (input nilai PR)" min="0"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PR)" min="0"
                                                         max="999999999999" oninput="validity.valid||(value='');"
                                                         name="as_mny_parts_pr_47">
                                                 </div>
@@ -4522,7 +4522,7 @@
                                                 <div class="">
                                                     <input type="number" id="base-input"
                                                         class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (input nilai PR)" min="0"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PR)" min="0"
                                                         max="999999999999" oninput="validity.valid||(value='');"
                                                         name="as_mny_parts_pr_48">
                                                 </div>
@@ -4598,7 +4598,7 @@
                                                 <div class="">
                                                     <input type="number" id="base-input"
                                                         class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (input nilai PR)" min="0"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PR)" min="0"
                                                         max="999999999999" oninput="validity.valid||(value='');"
                                                         name="as_mny_parts_pr_49">
                                                 </div>
@@ -4674,7 +4674,7 @@
                                                 <div class="">
                                                     <input type="number" id="base-input"
                                                         class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (input nilai PR)" min="0"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PR)" min="0"
                                                         max="999999999999" oninput="validity.valid||(value='');"
                                                         name="as_mny_parts_pr_50">
                                                 </div>
@@ -4805,7 +4805,7 @@
                                                 <div class="">
                                                     <input type="number" id="base-input"
                                                         class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (input nilai PR)" min="0"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PR)" min="0"
                                                         max="999999999999" oninput="validity.valid||(value='');"
                                                         name="as_mny_jasa_pr_1">
                                                 </div>
@@ -4880,7 +4880,7 @@
                                                 <div class="">
                                                     <input type="number" id="base-input"
                                                         class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (input nilai PR)" min="0"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PR)" min="0"
                                                         max="999999999999" oninput="validity.valid||(value='');"
                                                         name="as_mny_jasa_pr_2">
                                                 </div>
@@ -4956,7 +4956,7 @@
                                                 <div class="">
                                                     <input type="number" id="base-input"
                                                         class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (input nilai PR)" min="0"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PR)" min="0"
                                                         max="999999999999" oninput="validity.valid||(value='');"
                                                         name="as_mny_jasa_pr_3">
                                                 </div>
@@ -5032,7 +5032,7 @@
                                                 <div class="">
                                                     <input type="number" id="base-input"
                                                         class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (input nilai PR)" min="0"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PR)" min="0"
                                                         max="999999999999" oninput="validity.valid||(value='');"
                                                         name="as_mny_jasa_pr_4">
                                                 </div>
@@ -5106,7 +5106,7 @@
                                                 <div class="">
                                                     <input type="number" id="base-input"
                                                         class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (input nilai PR)" min="0"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PR)" min="0"
                                                         max="999999999999" oninput="validity.valid||(value='');"
                                                         name="as_mny_jasa_pr_5">
                                                 </div>
@@ -5179,7 +5179,7 @@
                                                 <div class="">
                                                     <input type="number" id="base-input"
                                                         class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (input nilai PR)" min="0"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PR)" min="0"
                                                         max="999999999999" oninput="validity.valid||(value='');"
                                                         name="as_mny_jasa_pr_6">
                                                 </div>
@@ -5254,7 +5254,7 @@
                                                 <div class="">
                                                     <input type="number" id="base-input"
                                                         class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (input nilai PR)" min="0"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PR)" min="0"
                                                         max="999999999999" oninput="validity.valid||(value='');"
                                                         name="as_mny_jasa_pr_7">
                                                 </div>
@@ -5328,7 +5328,7 @@
                                                 <div class="">
                                                     <input type="number" id="base-input"
                                                         class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (input nilai PR)" min="0"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PR)" min="0"
                                                         max="999999999999" oninput="validity.valid||(value='');"
                                                         name="as_mny_jasa_pr_8">
                                                 </div>
@@ -5402,7 +5402,7 @@
                                                 <div class="">
                                                     <input type="number" id="base-input"
                                                         class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (input nilai PR)" min="0"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PR)" min="0"
                                                         max="999999999999" oninput="validity.valid||(value='');"
                                                         name="as_mny_jasa_pr_9">
                                                 </div>
@@ -5477,7 +5477,7 @@
                                                 <div class="">
                                                     <input type="number" id="base-input"
                                                         class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (input nilai PR)" min="0"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PR)" min="0"
                                                         max="999999999999" oninput="validity.valid||(value='');"
                                                         name="as_mny_jasa_pr_10">
                                                 </div>
@@ -5552,7 +5552,7 @@
                                                 <div class="">
                                                     <input type="number" id="base-input"
                                                         class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (input nilai PR)" min="0"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PR)" min="0"
                                                         max="999999999999" oninput="validity.valid||(value='');"
                                                         name="as_mny_jasa_pr_11">
                                                 </div>
@@ -5627,7 +5627,7 @@
                                                 <div class="">
                                                     <input type="number" id="base-input"
                                                         class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (input nilai PR)" min="0"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PR)" min="0"
                                                         max="999999999999" oninput="validity.valid||(value='');"
                                                         name="as_mny_jasa_pr_12">
                                                 </div>
@@ -5701,7 +5701,7 @@
                                                 <div class="">
                                                     <input type="number" id="base-input"
                                                         class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (input nilai PR)" min="0"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PR)" min="0"
                                                         max="999999999999" oninput="validity.valid||(value='');"
                                                         name="as_mny_jasa_pr_13">
                                                 </div>
@@ -5775,7 +5775,7 @@
                                                 <div class="">
                                                     <input type="number" id="base-input"
                                                         class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (input nilai PR)" min="0"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PR)" min="0"
                                                         max="999999999999" oninput="validity.valid||(value='');"
                                                         name="as_mny_jasa_pr_14">
                                                 </div>
@@ -5850,7 +5850,7 @@
                                                 <div class="">
                                                     <input type="number" id="base-input"
                                                         class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (input nilai PR)" min="0"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PR)" min="0"
                                                         max="999999999999" oninput="validity.valid||(value='');"
                                                         name="as_mny_jasa_pr_15">
                                                 </div>
@@ -5925,7 +5925,7 @@
                                                 <div class="">
                                                     <input type="number" id="base-input"
                                                         class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (input nilai PR)" min="0"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PR)" min="0"
                                                         max="999999999999" oninput="validity.valid||(value='');"
                                                         name="as_mny_jasa_pr_16">
                                                 </div>
@@ -6000,7 +6000,7 @@
                                                 <div class="">
                                                     <input type="number" id="base-input"
                                                         class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (input nilai PR)" min="0"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PR)" min="0"
                                                         max="999999999999" oninput="validity.valid||(value='');"
                                                         name="as_mny_jasa_pr_17">
                                                 </div>
@@ -6075,7 +6075,7 @@
                                                 <div class="">
                                                     <input type="number" id="base-input"
                                                         class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (input nilai PR)" min="0"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PR)" min="0"
                                                         max="999999999999" oninput="validity.valid||(value='');"
                                                         name="as_mny_jasa_pr_18">
                                                 </div>
@@ -6150,7 +6150,7 @@
                                                 <div class="">
                                                     <input type="number" id="base-input"
                                                         class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (input nilai PR)" min="0"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PR)" min="0"
                                                         max="999999999999" oninput="validity.valid||(value='');"
                                                         name="as_mny_jasa_pr_19">
                                                 </div>
@@ -6225,7 +6225,7 @@
                                                 <div class="">
                                                     <input type="number" id="base-input"
                                                         class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (input nilai PR)" min="0"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PR)" min="0"
                                                         max="999999999999" oninput="validity.valid||(value='');"
                                                         name="as_mny_jasa_pr_20">
                                                 </div>
@@ -6300,7 +6300,7 @@
                                                 <div class="">
                                                     <input type="number" id="base-input"
                                                         class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (input nilai PR)" min="0"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PR)" min="0"
                                                         max="999999999999" oninput="validity.valid||(value='');"
                                                         name="as_mny_jasa_pr_21">
                                                 </div>
@@ -6375,7 +6375,7 @@
                                                 <div class="">
                                                     <input type="number" id="base-input"
                                                         class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (input nilai PR)" min="0"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PR)" min="0"
                                                         max="999999999999" oninput="validity.valid||(value='');"
                                                         name="as_mny_jasa_pr_22">
                                                 </div>
@@ -6450,7 +6450,7 @@
                                                 <div class="">
                                                     <input type="number" id="base-input"
                                                         class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (input nilai PR)" min="0"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PR)" min="0"
                                                         max="999999999999" oninput="validity.valid||(value='');"
                                                         name="as_mny_jasa_pr_23">
                                                 </div>
@@ -6525,7 +6525,7 @@
                                                 <div class="">
                                                     <input type="number" id="base-input"
                                                         class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (input nilai PR)" min="0"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PR)" min="0"
                                                         max="999999999999" oninput="validity.valid||(value='');"
                                                         name="as_mny_jasa_pr_24">
                                                 </div>
@@ -6600,7 +6600,7 @@
                                                 <div class="">
                                                     <input type="number" id="base-input"
                                                         class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (input nilai PR)" min="0"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PR)" min="0"
                                                         max="999999999999" oninput="validity.valid||(value='');"
                                                         name="as_mny_jasa_pr_25">
                                                 </div>
@@ -6675,7 +6675,7 @@
                                                 <div class="">
                                                     <input type="number" id="base-input"
                                                         class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (input nilai PR)" min="0"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PR)" min="0"
                                                         max="999999999999" oninput="validity.valid||(value='');"
                                                         name="as_mny_jasa_pr_26">
                                                 </div>
@@ -6750,7 +6750,7 @@
                                                 <div class="">
                                                     <input type="number" id="base-input"
                                                         class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (input nilai PR)" min="0"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PR)" min="0"
                                                         max="999999999999" oninput="validity.valid||(value='');"
                                                         name="as_mny_jasa_pr_27">
                                                 </div>
@@ -6825,7 +6825,7 @@
                                                 <div class="">
                                                     <input type="number" id="base-input"
                                                         class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (input nilai PR)" min="0"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PR)" min="0"
                                                         max="999999999999" oninput="validity.valid||(value='');"
                                                         name="as_mny_jasa_pr_28">
                                                 </div>
@@ -6900,7 +6900,7 @@
                                                 <div class="">
                                                     <input type="number" id="base-input"
                                                         class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (input nilai PR)" min="0"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PR)" min="0"
                                                         max="999999999999" oninput="validity.valid||(value='');"
                                                         name="as_mny_jasa_pr_29">
                                                 </div>
@@ -6975,7 +6975,7 @@
                                                 <div class="">
                                                     <input type="number" id="base-input"
                                                         class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (input nilai PR)" min="0"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PR)" min="0"
                                                         max="999999999999" oninput="validity.valid||(value='');"
                                                         name="as_mny_jasa_pr_30">
                                                 </div>
@@ -7106,7 +7106,7 @@
                                                 <div class="">
                                                     <input type="number" id="base-input"
                                                         class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (input nilai PR)" min="0"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PR)" min="0"
                                                         max="999999999999" oninput="validity.valid||(value='');"
                                                         name="as_mny_mnftr_pr_1">
                                                 </div>
@@ -7181,7 +7181,7 @@
                                                 <div class="">
                                                     <input type="number" id="base-input"
                                                         class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (input nilai PR)" min="0"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PR)" min="0"
                                                         max="999999999999" oninput="validity.valid||(value='');"
                                                         name="as_mny_mnftr_pr_2">
                                                 </div>
@@ -7257,7 +7257,7 @@
                                                 <div class="">
                                                     <input type="number" id="base-input"
                                                         class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (input nilai PR)" min="0"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PR)" min="0"
                                                         max="999999999999" oninput="validity.valid||(value='');"
                                                         name="as_mny_mnftr_pr_3">
                                                 </div>
@@ -7334,7 +7334,7 @@
                                                 <div class="">
                                                     <input type="number" id="base-input"
                                                         class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (input nilai PR)" min="0"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PR)" min="0"
                                                         max="999999999999" oninput="validity.valid||(value='');"
                                                         name="as_mny_mnftr_pr_4">
                                                 </div>
@@ -7409,7 +7409,7 @@
                                                 <div class="">
                                                     <input type="number" id="base-input"
                                                         class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (input nilai PR)" min="0"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PR)" min="0"
                                                         max="999999999999" oninput="validity.valid||(value='');"
                                                         name="as_mny_mnftr_pr_5">
                                                 </div>
@@ -7484,7 +7484,7 @@
                                                 <div class="" id="submit-1">
                                                     <input type="number" id="base-input"
                                                         class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (input nilai PR)" min="0"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PR)" min="0"
                                                         max="999999999999" oninput="validity.valid||(value='');"
                                                         name="as_mny_mnftr_pr_6">
                                                 </div>
@@ -7559,7 +7559,7 @@
                                                 <div class="">
                                                     <input type="number" id="base-input"
                                                         class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (input nilai PR)" min="0"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PR)" min="0"
                                                         max="999999999999" oninput="validity.valid||(value='');"
                                                         name="as_mny_mnftr_pr_7">
                                                 </div>
@@ -7634,7 +7634,7 @@
                                                 <div class="">
                                                     <input type="number" id="base-input"
                                                         class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (input nilai PR)" min="0"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PR)" min="0"
                                                         max="999999999999" oninput="validity.valid||(value='');"
                                                         name="as_mny_mnftr_pr_8">
                                                 </div>
@@ -7709,7 +7709,7 @@
                                                 <div class="">
                                                     <input type="number" id="base-input"
                                                         class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (input nilai PR)" min="0"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PR)" min="0"
                                                         max="999999999999" oninput="validity.valid||(value='');"
                                                         name="as_mny_mnftr_pr_9">
                                                 </div>
@@ -7784,7 +7784,7 @@
                                                 <div class="">
                                                     <input type="number" id="base-input"
                                                         class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (input nilai PR)" min="0"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PR)" min="0"
                                                         max="999999999999" oninput="validity.valid||(value='');"
                                                         name="as_mny_mnftr_pr_10">
                                                 </div>
@@ -8288,6 +8288,7 @@
                                 <p class="font-light text-lg">
                                     Unggah dokumen dan nilai finansial baru
                                 </p>
+                                <p class="text-sm font-bold">*Pastikan isi kedua bidang isian (file & nilai finansial) untuk dapat mengubah ajuan</p>
                                 <div class="items-center justify-center w-full border my-4">
                                     @if ($koneksipr->{'pr_parts_' . $number} != '')
                                         <div class="grid grid-cols-2">
@@ -8371,6 +8372,7 @@
                                 <p class="font-light text-lg">
                                     Unggah dokumen dan nilai finansial baru
                                 </p>
+                                <p class="text-sm font-bold">*Pastikan isi kedua bidang isian (file & nilai finansial) untuk dapat mengubah ajuan</p>
                                 <div class="items-center justify-center w-full border my-4">
                                     @if ($koneksipr->{'pr_jasa_' . $number} != '')
                                         <div class="grid grid-cols-2">
@@ -8528,6 +8530,7 @@
                                 <p class="font-light text-lg">
                                     Unggah dokumen baru
                                 </p>
+                                <p class="text-sm font-bold">*Pastikan isi kedua bidang isian (file & nilai finansial) untuk dapat mengubah ajuan</p>
                                 <div class="items-center justify-center w-full border my-4">
                                     @if ($koneksipr->{'pr_rfq_' . $number} != '')
                                         <input type="file"name="as_pr_rfq_{{ $number }}" id="">
@@ -8635,7 +8638,7 @@
     }
 </script>
 
-{{-- hapus cl --}}
+{{-- hapus pr --}}
 @php
     $num = range(1, 50);
 @endphp

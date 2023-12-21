@@ -27985,7 +27985,7 @@ class StaffProjectController extends Controller
         $koneksipay = PAYproject::select(
             'id_pay_04_3',
             'status_pay_04',
-            
+
             'mny_parts_pay_1',
             'mny_parts_pay_2',
             'mny_parts_pay_3',
@@ -29686,6 +29686,21 @@ class StaffProjectController extends Controller
             'waktu' => $request->waktu,
         ]);
 
-        return redirect('seluruh-proyek');
+return redirect()->action(
+            [StaffProjectController::class, 'EnamFormProgress'],
+            [
+                'id' => $viewdataproject->id,
+                'id_fr_1' => $koneksifr->id_fr_1,
+                'id_ar_2' => $koneksiar->id_ar_2,
+                'id_pr_01_3' => $koneksipr->id_pr_01_3,
+                'id_pa_02_3' => $koneksipa->id_pa_02_3,
+                'id_po_03_3' => $koneksipo->id_po_03_3,
+                'id_pay_04_3' => $koneksipay->id_pay_04_3,
+                'id_mn_4' => $koneksimn->id_mn_4,
+                'id_in_5' => $koneksiin->id_in_5,
+                'id_cl_6' => $koneksicl->id_cl_6,
+            ]
+        );
+        /* return redirect('seluruh-proyek'); */
     }
 }

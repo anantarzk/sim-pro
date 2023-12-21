@@ -784,8 +784,12 @@
                                 <td>
                                     @if ($koneksifr->atribut_1 != '')
                                         <div class="justify-center flex space-x-2">
-                                            <button
-                                                class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md">Ubah</button>
+                                            <button type="button"
+                                                class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                data-modal-target="modal1" data-modal-show="modal1"
+                                                data-modal-toggle="modal1">
+                                                Ubah
+                                            </button>
                                         </div>
                                     @else
                                         <input type="file" name="as_atribut_1" id="">
@@ -794,7 +798,6 @@
                                 <input type="text" hidden name="as_up_by_1"
                                     value="{{ Auth::user()->first_name }}">
                                 <input type="date" hidden name="as_date_atribut_1" value="{{ date('Y-m-d') }}">
-
                             </tr>
 
                             <tr class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
@@ -834,8 +837,11 @@
                                 <td>
                                     @if ($koneksifr->atribut_2 != '')
                                         <div class="justify-center flex space-x-2">
-                                            <button
-                                                class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md">Ubah</button>
+                                            <button type="button"
+                                                class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                data-modal-target="modal2" data-modal-show="modal2"
+                                                data-modal-toggle="modal2">
+                                                Ubah</button>
                                         </div>
                                     @else
                                         <input type="file" name="as_atribut_2" id="">
@@ -882,8 +888,11 @@
                                 <td>
                                     @if ($koneksifr->atribut_3 != '')
                                         <div class="justify-center flex space-x-2">
-                                            <button
-                                                class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md">Ubah</button>
+                                            <button type="button"
+                                                class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                data-modal-target="modal3" data-modal-show="modal3"
+                                                data-modal-toggle="modal3">Ubah</button>
+
                                         </div>
                                     @else
                                         <input type="file" name="as_atribut_3" id="">
@@ -930,8 +939,11 @@
                                 <td>
                                     @if ($koneksifr->atribut_4 != '')
                                         <div class="justify-center flex space-x-2">
-                                            <button
-                                                class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md">Ubah</button>
+                                            <button type="button"
+                                                class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                data-modal-target="modal4" data-modal-show="modal4"
+                                                data-modal-toggle="modal4">Ubah</button>
+
                                         </div>
                                     @else
                                         <input type="file" name="as_atribut_4" id="">
@@ -947,7 +959,7 @@
                                 <td class="flex justify-start py-4 items-center">
 
                                     @if ($koneksifr->atribut_5 != '')
-                                        <a href="{{ asset('storage/supervisor/project/fr/' . $koneksifr->atribut_5) }}"
+                                        <a href="{{ asset('storage/supervisor/project/01_FR/' . $koneksifr->atribut_5) }}"
                                             target="blank" class=" py-2 px-1 rounded hover:bg-gray-200   ">
                                             <svg width="22" height="17" viewBox="0 0 22 17" fill="none"
                                                 xmlns="http://www.w3.org/2000/svg">
@@ -978,46 +990,137 @@
                                 <td>
                                     @if ($koneksifr->atribut_5 != '')
                                         <div class="justify-center flex space-x-2">
-                                            <button
-                                                class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md">Ubah</button>
+                                            <button type="button"
+                                                class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                data-modal-target="modal5" data-modal-show="modal5"
+                                                data-modal-toggle="modal5">Ubah</button>
+
                                         </div>
                                     @else
                                         <input type="file" name="as_atribut_5" id="">
                                     @endif
                                 </td>
+
+                                <!-- Dropdown menu -->
                                 <input type="text" hidden name="as_up_by_5"
                                     value="{{ Auth::user()->first_name }}">
                                 <input type="date" hidden name="as_date_atribut_5" value="{{ date('Y-m-d') }}">
                             </tr>
-
                         </tbody>
                     </table>
+                </div>
+
+                @if (
+                    $koneksifr->atribut_1 &&
+                        $koneksifr->atribut_2 &&
+                        $koneksifr->atribut_3 &&
+                        $koneksifr->atribut_4 &&
+                        $koneksifr->atribut_5 != '')
+                @else
                     <button type="submit"
-                        class="bg-orange-500 w-full hover:bg-orange-600 text-white font-bold py-2 rounded-b-lg shadow-md">
-                        Submit
-                    </button>
+                        class="bg-orange-500 w-full hover:bg-orange-600 text-white font-bold py-2 rounded-b-lg shadow-md mb-3">Klik
+                        untuk submit dokumen</button>
+                @endif
+
+                @php
+                    $n = range(1, 5);
+                @endphp
+
+                @foreach ($n as $index => $number)
+                    <div id="modal{{ $number }}"
+                        class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 inset-0 justify-center items-center w-full max-h-full">
+                        <div class="relative p-4 w-full max-w-2xl max-h-full">
+                            <!-- Modal content -->
+                            <div class="relative bg-white rounded-lg shadow">
+                                <!-- Modal header -->
+                                <div class="flex items-center justify-between px-5 py-3 border-b rounded-t">
+                                    <p class="text-2xl font-semibold text-gray-900 font-mono">
+                                        Ubah dokumen unggahan
+                                    </p>
+                                    <button type="button"
+                                        class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center"
+                                        onclick="simulateEscape()">
+                                        <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                            fill="none" viewBox="0 0 14 14">
+                                            <path stroke="currentColor" stroke-linecap="round"
+                                                stroke-linejoin="round" stroke-width="2"
+                                                d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+                                        </svg>
+                                        <span class="sr-only">Close modal</span>
+                                    </button>
+                                </div>
+                                <!-- Modal body -->
+                                <div class="py-2 px-5">
+                                    <p class="font-light text-lg mb-2">Dokumen sebelumnya</p>
+                                    <div class="grid grid-cols-2 space-x-2">
+                                        <div>
+                                            <p class="text-base leading-relaxed text-gray-600">
+                                                Nama dokumen:
+                                            </p>
+                                            <p class="text-gray-900">
+                                                {{ $koneksifr->{'atribut_' . $number} }}
+                                            </p>
+                                        </div>
+                                        <div>
+                                            <p class="text-base leading-relaxed text-gray-600">
+                                                Oleh:
+                                            </p>
+                                            <p class="text-gray-900">
+                                                {{ $koneksifr->{'up_by_' . $number} }}
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Modal footer -->
+                                <div class="items-center px-5 py-2 border-t border-gray-200 rounded-b">
+                                    <p class="font-light text-lg">
+                                        Unggah dokumen baru
+                                    </p>
+                                    <div class="items-center justify-center w-full border my-4">
+                                        @if ($koneksifr->{'atribut_' . $number} != '')
+                                            <input type="file"name="as_atribut_{{ $number }}"
+                                                id="">
+                                        @else()
+                                        @endif
+                                    </div>
+                                </div>
+                                <button type="submit"
+                                    class="bg-orange-500 w-full hover:bg-orange-600 text-white font-bold py-2 rounded-b-lg shadow-md">Submit</button>
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
             </form>
+
+
+            {{-- input ke table project --}}
+            <input type="text" name="status_fr" value="Waiting Approval" hidden>
+            <input type="date" hidden name="status_fr_date" value="{{ date('Y-m-d') }}">
+            {{-- table project --}}
+            <input type="text" name="check" value="needcheck" hidden>
+            <input type="text" name="progress" value="Waiting Approval Fund Request" hidden>
+            <input type="text" name="last_update_name" value="{{ Auth::user()->first_name }}" hidden>
+            <input type="text" name="last_update_date" value="{{ date('d-M-Y') }}" hidden>
+            {{-- input ke table log activity --}}
+            <input type="text" hidden name="aktivitas"
+                value="{{ Auth::user()->first_name }} - Memperbarui Fund Request pada project id={{ $viewdataproject->id }}">
+            <input type="text" hidden name="waktu" value="{{ date('d-m-Y H:i') }}">
+
+
         </div>
+        {{-- Akhir progress file --}}
 
-        {{-- input ke table project --}}
-        <input type="text" name="status_fr" value="Waiting Approval" hidden>
-        <input type="date" hidden name="status_fr_date" value="{{ date('Y-m-d') }}">
-        {{-- table project --}}
-        <input type="text" name="check" value="needcheck" hidden>
-        <input type="text" name="progress" value="Waiting Approval Fund Request" hidden>
-        <input type="text" name="last_update_name" value="{{ Auth::user()->first_name }}" hidden>
-        <input type="text" name="last_update_date" value="{{ date('d-M-Y') }}" hidden>
-        {{-- input ke table log activity --}}
-        <input type="text" hidden name="aktivitas"
-            value="{{ Auth::user()->first_name }} - Memperbarui Fund Request pada project id={{ $viewdataproject->id }}">
-        <input type="text" hidden name="waktu" value="{{ date('d-m-Y H:i') }}">
-
-
-
-        {{-- button view spv acc dan revisi --}}
-
-        {{-- button view spv acc dan revisi --}}
-</div>
-{{-- Akhir progress file --}}
+        <script>
+            function simulateEscape() {
+                // Create a new KeyboardEvent for the "Escape" key
+                const escapeEvent = new KeyboardEvent('keydown', {
+                    key: 'Escape',
+                    code: 'Escape',
+                    keyCode: 27,
+                    which: 27,
+                });
+                document.dispatchEvent(escapeEvent);
+            }
+        </script>
 </div>
 {{-- tutup bungkus --}}

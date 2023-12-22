@@ -8219,7 +8219,7 @@
 
             <button type="submit"
                 class="bg-orange-500 w-full hover:bg-orange-600 text-white font-bold py-2 rounded-b-lg shadow-md">
-                Submit</button>
+                Klik untuk submit dokumen</button>
 
             {{-- modal ubah --}}
             @php

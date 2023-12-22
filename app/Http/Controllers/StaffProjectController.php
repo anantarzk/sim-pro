@@ -1498,7 +1498,7 @@ class StaffProjectController extends Controller
         }
 
         return redirect()->action(
-            [StaffProjectController::class, 'DuaFormProgress'],
+            [StaffProjectController::class, 'SatuFormProgress'],
             [
                 'id' => $viewdataproject->id,
                 'id_fr_1' => $koneksifr->id_fr_1,
@@ -3278,7 +3278,7 @@ class StaffProjectController extends Controller
         }
 
         return redirect()->action(
-            [StaffProjectController::class, 'TigaTitikSatuFormProgress'],
+            [StaffProjectController::class, 'DuaFormProgress'],
             [
                 'id' => $viewdataproject->id,
                 'id_fr_1' => $koneksifr->id_fr_1,
@@ -8464,7 +8464,7 @@ class StaffProjectController extends Controller
         ]);
 
         return redirect()->action(
-            [StaffProjectController::class, 'TigaTitikDuaFormProgress'],
+            [StaffProjectController::class, 'TigaTitikSatuFormProgress'],
             [
                 'id' => $viewdataproject->id,
                 'id_fr_1' => $koneksifr->id_fr_1,
@@ -13844,7 +13844,7 @@ class StaffProjectController extends Controller
         ]);
 
         return redirect()->action(
-            [StaffProjectController::class, 'TigaTitikTigaFormProgress'],
+            [StaffProjectController::class, 'TigaTitikDuaFormProgress'],
             [
                 'id' => $viewdataproject->id,
                 'id_fr_1' => $koneksifr->id_fr_1,
@@ -19227,7 +19227,7 @@ class StaffProjectController extends Controller
         ]);
 
         return redirect()->action(
-            [StaffProjectController::class, 'TigaTitikEmpatFormProgress'],
+            [StaffProjectController::class, 'TigaTitikTigaFormProgress'],
             [
                 'id' => $viewdataproject->id,
                 'id_fr_1' => $koneksifr->id_fr_1,
@@ -24629,7 +24629,7 @@ class StaffProjectController extends Controller
         ]);
 
         return redirect()->action(
-            [StaffProjectController::class, 'EmpatFormProgress'],
+            [StaffProjectController::class, 'TigaTitikEmpatFormProgress'],
             [
                 'id' => $viewdataproject->id,
                 'id_fr_1' => $koneksifr->id_fr_1,
@@ -26039,7 +26039,7 @@ class StaffProjectController extends Controller
         ]);
 
         return redirect()->action(
-            [StaffProjectController::class, 'LimaFormProgress'],
+            [StaffProjectController::class, 'EmpatFormProgress'],
             [
                 'id' => $viewdataproject->id,
                 'id_fr_1' => $koneksifr->id_fr_1,
@@ -27636,7 +27636,7 @@ class StaffProjectController extends Controller
         ]);
 
         return redirect()->action(
-            [StaffProjectController::class, 'EnamFormProgress'],
+            [StaffProjectController::class, 'LimaFormProgress'],
             [
                 'id' => $viewdataproject->id,
                 'id_fr_1' => $koneksifr->id_fr_1,

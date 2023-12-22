@@ -361,12 +361,11 @@
                         <div class="rounded-full h-12 w-12 py-2 px-2.5 bg-green-600 border-white border-4">
                             <p class="font-bold text-md text-white">FR</p>
                         </div>
-                        @elseif(
-                            $koneksifr->status_fr == 'Revisi Fund Request')
-                            <div class="rounded-full h-12 w-12 py-2 px-2 bg-yellow-300 border-white border-4">
-                                <p class="font-bold text-md text-black">FR</p>
-                            </div>
-                        @else
+                    @elseif($koneksifr->status_fr == 'Revisi Fund Request')
+                        <div class="rounded-full h-12 w-12 py-2 px-2 bg-yellow-300 border-white border-4">
+                            <p class="font-bold text-md text-black">FR</p>
+                        </div>
+                    @else
                         <div class="rounded-full h-12 w-12 py-2 px-2.5 bg-gray-400 border-white border-4">
                             <p class="font-bold text-md text-white">FR</p>
                         </div>
@@ -391,12 +390,11 @@
                         <div class="rounded-full h-12 w-12 py-2 px-2 bg-green-600 border-white  border-4">
                             <p class="font-bold text-md text-white">AR</p>
                         </div>
-                        @elseif(
-                            $koneksiar->status_ar == 'Revisi Arrangement')
-                            <div class="rounded-full h-12 w-12 py-2 px-2 bg-yellow-300 border-white  border-4">
-                                <p class="font-bold text-md text-black">AR</p>
-                            </div>
-                        @else
+                    @elseif($koneksiar->status_ar == 'Revisi Arrangement')
+                        <div class="rounded-full h-12 w-12 py-2 px-2 bg-yellow-300 border-white  border-4">
+                            <p class="font-bold text-md text-black">AR</p>
+                        </div>
+                    @else
                         <div class="rounded-full h-12 w-12 py-2 px-2 bg-gray-400 border-white  border-4">
                             <p class="font-bold text-md text-white">AR</p>
                         </div>
@@ -450,12 +448,11 @@
                         <div class="rounded-full h-12 w-12 py-2 px-1.5 bg-green-600 border-white border-4">
                             <p class="font-bold text-md text-white">MN</p>
                         </div>
-                        @elseif(
-                            $koneksimn->status_mn == 'Revisi Manufacturing')
-                            <div class="rounded-full h-12 w-12 py-2 px-1.5 bg-yellow-300 border-white border-4">
-                                <p class="font-bold text-md text-black">MN</p>
-                            </div>
-                        @else
+                    @elseif($koneksimn->status_mn == 'Revisi Manufacturing')
+                        <div class="rounded-full h-12 w-12 py-2 px-1.5 bg-yellow-300 border-white border-4">
+                            <p class="font-bold text-md text-black">MN</p>
+                        </div>
+                    @else
                         <div class="rounded-full h-12 w-12 py-2 px-1.5 bg-gray-400 border-white border-4">
                             <p class="font-bold text-md text-white">MN</p>
                         </div>
@@ -478,12 +475,11 @@
                         <div class="rounded-full h-12 w-12 py-2 px-2.5 bg-green-600 border-white border-4">
                             <p class="font-bold text-md text-white">IN</p>
                         </div>
-                        @elseif(
-                            $koneksiin->status_in == 'Revisi Installation')
-                            <div class="rounded-full h-12 w-12 py-2 px-2.5 bg-yellow-300 border-white border-4">
-                                <p class="font-bold text-md text-black">IN</p>
-                            </div>
-                        @else
+                    @elseif($koneksiin->status_in == 'Revisi Installation')
+                        <div class="rounded-full h-12 w-12 py-2 px-2.5 bg-yellow-300 border-white border-4">
+                            <p class="font-bold text-md text-black">IN</p>
+                        </div>
+                    @else
                         <div class="rounded-full h-12 w-12 py-2 px-2.5 bg-gray-400 border-white border-4">
                             <p class="font-bold text-md text-white">IN</p>
                         </div>
@@ -506,12 +502,11 @@
                         <div class="rounded-full h-12 w-12 py-2 pl-0.5 bg-green-600 border-white border-4">
                             <p class="font-bold text-md text-white">HOV</p>
                         </div>
-                        @elseif(
-                            $koneksicl->status_cl == 'Revisi Handover')
-                            <div class="rounded-full h-12 w-12 py-2 px-0.5 bg-yellow-300 border-white border-4">
-                                <p class="font-bold text-md text-black">HOV</p>
-                            </div>
-                        @else
+                    @elseif($koneksicl->status_cl == 'Revisi Handover')
+                        <div class="rounded-full h-12 w-12 py-2 px-0.5 bg-yellow-300 border-white border-4">
+                            <p class="font-bold text-md text-black">HOV</p>
+                        </div>
+                    @else
                         <div class="rounded-full h-12 w-12 py-2 pl-0.5 bg-gray-400 border-white border-4">
                             <p class="font-bold text-md text-white">HOV</p>
                         </div>
@@ -601,9 +596,9 @@
                             <p class="font-bold text-md text-white">PR</p>
                         </div>
                     @elseif($koneksipr->status_pr_01 == 'Revisi Purchasing - PR')
-                    <div class="rounded-full h-12 w-12 py-2 px-2 bg-yellow-300 border-white border-4">
-                        <p class="font-bold text-md text-black">PR</p>
-                    </div>
+                        <div class="rounded-full h-12 w-12 py-2 px-2 bg-yellow-300 border-white border-4">
+                            <p class="font-bold text-md text-black">PR</p>
+                        </div>
                     @else
                         <div class="rounded-full h-12 w-12 py-2 px-2 bg-gray-400 border-white border-4">
                             <p class="font-bold text-md text-white">PR</p>
@@ -627,10 +622,10 @@
                         <div class="rounded-full h-12 w-12 py-2 px-2 bg-green-600 border-white border-4">
                             <p class="font-bold text-md text-white">PA</p>
                         </div>
-                        @elseif($koneksipa->status_pa_02 == 'Revisi Purchasing - PA')
-                    <div class="rounded-full h-12 w-12 py-2 px-2 bg-yellow-300 border-white border-4">
-                        <p class="font-bold text-md text-black">PA</p>
-                    </div>
+                    @elseif($koneksipa->status_pa_02 == 'Revisi Purchasing - PA')
+                        <div class="rounded-full h-12 w-12 py-2 px-2 bg-yellow-300 border-white border-4">
+                            <p class="font-bold text-md text-black">PA</p>
+                        </div>
                     @else
                         <div class="rounded-full h-12 w-12 py-2 px-2 bg-gray-400 border-white border-4">
                             <p class="font-bold text-md text-white">PA</p>
@@ -654,10 +649,10 @@
                         <div class="rounded-full h-12 w-12 py-2 px-2 bg-green-600 border-orange-500 border-4">
                             <p class="font-bold text-md text-white">PO</p>
                         </div>
-                        @elseif($koneksipo->status_po_03 == 'Revisi Purchasing - PO')
-                    <div class="rounded-full h-12 w-12 py-2 px-2 bg-yellow-300 border-orange-500 border-4">
-                        <p class="font-bold text-md text-black">PO</p>
-                    </div>
+                    @elseif($koneksipo->status_po_03 == 'Revisi Purchasing - PO')
+                        <div class="rounded-full h-12 w-12 py-2 px-2 bg-yellow-300 border-orange-500 border-4">
+                            <p class="font-bold text-md text-black">PO</p>
+                        </div>
                     @else
                         <div class="rounded-full h-12 w-12 py-2 px-2 bg-gray-400 border-orange-500 border-4">
                             <p class="font-bold text-md text-white">PO</p>
@@ -681,10 +676,10 @@
                         <div class="rounded-full h-12 w-12 py-2 px-1.5 bg-green-600 border-white border-4">
                             <p class="font-bold text-md text-white">PAY</p>
                         </div>
-                        @elseif($koneksipay->status_pay_04 == 'Revisi Purchasing - PAY')
-                    <div class="rounded-full h-12 w-12 py-2 px-1.5 bg-yellow-300 border-white border-4">
-                        <p class="font-bold text-md text-black">PAY</p>
-                    </div>
+                    @elseif($koneksipay->status_pay_04 == 'Revisi Purchasing - PAY')
+                        <div class="rounded-full h-12 w-12 py-2 px-1.5 bg-yellow-300 border-white border-4">
+                            <p class="font-bold text-md text-black">PAY</p>
+                        </div>
                     @else
                         <div class="rounded-full h-12 w-12 py-2 px-1.5 bg-gray-400 border-white border-4">
                             <p class="font-bold text-md text-white">PAY</p>
@@ -707,7 +702,7 @@
         <br>
         <hr class="mb-2 w-full border">
 
-            <div class="flex justify-between items-center mb-3">
+        <div class="flex justify-between items-center mb-3">
             {{-- status approval row --}}
             <div class="flex">
                 <p>Checked by: &nbsp;
@@ -1859,8 +1854,9 @@
                                                 <div class="">
                                                     <input type="number" id="base-input"
                                                         class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PO)" min="0"
-                                                        max="999999999999" oninput="validity.valid||(value='');"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PO)"
+                                                        min="0" max="999999999999"
+                                                        oninput="validity.valid||(value='');"
                                                         name="as_mny_parts_po_13">
                                                 </div>
                                             @endif
@@ -1935,8 +1931,9 @@
                                                 <div class="">
                                                     <input type="number" id="base-input"
                                                         class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PO)" min="0"
-                                                        max="999999999999" oninput="validity.valid||(value='');"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PO)"
+                                                        min="0" max="999999999999"
+                                                        oninput="validity.valid||(value='');"
                                                         name="as_mny_parts_po_14">
                                                 </div>
                                             @endif
@@ -2011,8 +2008,9 @@
                                                 <div class="">
                                                     <input type="number" id="base-input"
                                                         class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PO)" min="0"
-                                                        max="999999999999" oninput="validity.valid||(value='');"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PO)"
+                                                        min="0" max="999999999999"
+                                                        oninput="validity.valid||(value='');"
                                                         name="as_mny_parts_po_15">
                                                 </div>
                                             @endif
@@ -2088,8 +2086,9 @@
                                                 <div class="">
                                                     <input type="number" id="base-input"
                                                         class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PO)" min="0"
-                                                        max="999999999999" oninput="validity.valid||(value='');"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PO)"
+                                                        min="0" max="999999999999"
+                                                        oninput="validity.valid||(value='');"
                                                         name="as_mny_parts_po_16">
                                                 </div>
                                             @endif
@@ -2164,8 +2163,9 @@
                                                 <div class="">
                                                     <input type="number" id="base-input"
                                                         class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PO)" min="0"
-                                                        max="999999999999" oninput="validity.valid||(value='');"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PO)"
+                                                        min="0" max="999999999999"
+                                                        oninput="validity.valid||(value='');"
                                                         name="as_mny_parts_po_17">
                                                 </div>
                                             @endif
@@ -2241,8 +2241,9 @@
                                                 <div class="">
                                                     <input type="number" id="base-input"
                                                         class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PO)" min="0"
-                                                        max="999999999999" oninput="validity.valid||(value='');"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PO)"
+                                                        min="0" max="999999999999"
+                                                        oninput="validity.valid||(value='');"
                                                         name="as_mny_parts_po_18">
                                                 </div>
                                             @endif
@@ -2319,8 +2320,9 @@
                                                 <div class="">
                                                     <input type="number" id="base-input"
                                                         class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PO)" min="0"
-                                                        max="999999999999" oninput="validity.valid||(value='');"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PO)"
+                                                        min="0" max="999999999999"
+                                                        oninput="validity.valid||(value='');"
                                                         name="as_mny_parts_po_19">
                                                 </div>
                                             @endif
@@ -2395,8 +2397,9 @@
                                                 <div class="">
                                                     <input type="number" id="base-input"
                                                         class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PO)" min="0"
-                                                        max="999999999999" oninput="validity.valid||(value='');"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PO)"
+                                                        min="0" max="999999999999"
+                                                        oninput="validity.valid||(value='');"
                                                         name="as_mny_parts_po_20">
                                                 </div>
                                             @endif
@@ -2474,8 +2477,9 @@
                                                 <div class="">
                                                     <input type="number" id="base-input"
                                                         class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PO)" min="0"
-                                                        max="999999999999" oninput="validity.valid||(value='');"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PO)"
+                                                        min="0" max="999999999999"
+                                                        oninput="validity.valid||(value='');"
                                                         name="as_mny_parts_po_21">
                                                 </div>
                                             @endif
@@ -2550,8 +2554,9 @@
                                                 <div class="">
                                                     <input type="number" id="base-input"
                                                         class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PO)" min="0"
-                                                        max="999999999999" oninput="validity.valid||(value='');"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PO)"
+                                                        min="0" max="999999999999"
+                                                        oninput="validity.valid||(value='');"
                                                         name="as_mny_parts_po_22">
                                                 </div>
                                             @endif
@@ -2626,8 +2631,9 @@
                                                 <div class="">
                                                     <input type="number" id="base-input"
                                                         class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PO)" min="0"
-                                                        max="999999999999" oninput="validity.valid||(value='');"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PO)"
+                                                        min="0" max="999999999999"
+                                                        oninput="validity.valid||(value='');"
                                                         name="as_mny_parts_po_23">
                                                 </div>
                                             @endif
@@ -2702,8 +2708,9 @@
                                                 <div class="">
                                                     <input type="number" id="base-input"
                                                         class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PO)" min="0"
-                                                        max="999999999999" oninput="validity.valid||(value='');"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PO)"
+                                                        min="0" max="999999999999"
+                                                        oninput="validity.valid||(value='');"
                                                         name="as_mny_parts_po_24">
                                                 </div>
                                             @endif
@@ -2778,8 +2785,9 @@
                                                 <div class="">
                                                     <input type="number" id="base-input"
                                                         class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PO)" min="0"
-                                                        max="999999999999" oninput="validity.valid||(value='');"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PO)"
+                                                        min="0" max="999999999999"
+                                                        oninput="validity.valid||(value='');"
                                                         name="as_mny_parts_po_25">
                                                 </div>
                                             @endif
@@ -2853,8 +2861,9 @@
                                                 <div class="">
                                                     <input type="number" id="base-input"
                                                         class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PO)" min="0"
-                                                        max="999999999999" oninput="validity.valid||(value='');"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PO)"
+                                                        min="0" max="999999999999"
+                                                        oninput="validity.valid||(value='');"
                                                         name="as_mny_parts_po_26">
                                                 </div>
                                             @endif
@@ -2928,8 +2937,9 @@
                                                 <div class="">
                                                     <input type="number" id="base-input"
                                                         class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PO)" min="0"
-                                                        max="999999999999" oninput="validity.valid||(value='');"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PO)"
+                                                        min="0" max="999999999999"
+                                                        oninput="validity.valid||(value='');"
                                                         name="as_mny_parts_po_27">
                                                 </div>
                                             @endif
@@ -3004,8 +3014,9 @@
                                                 <div class="">
                                                     <input type="number" id="base-input"
                                                         class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PO)" min="0"
-                                                        max="999999999999" oninput="validity.valid||(value='');"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PO)"
+                                                        min="0" max="999999999999"
+                                                        oninput="validity.valid||(value='');"
                                                         name="as_mny_parts_po_28">
                                                 </div>
                                             @endif
@@ -3080,8 +3091,9 @@
                                                 <div class="">
                                                     <input type="number" id="base-input"
                                                         class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PO)" min="0"
-                                                        max="999999999999" oninput="validity.valid||(value='');"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PO)"
+                                                        min="0" max="999999999999"
+                                                        oninput="validity.valid||(value='');"
                                                         name="as_mny_parts_po_29">
                                                 </div>
                                             @endif
@@ -3156,8 +3168,9 @@
                                                 <div class="">
                                                     <input type="number" id="base-input"
                                                         class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PO)" min="0"
-                                                        max="999999999999" oninput="validity.valid||(value='');"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PO)"
+                                                        min="0" max="999999999999"
+                                                        oninput="validity.valid||(value='');"
                                                         name="as_mny_parts_po_30">
                                                 </div>
                                             @endif
@@ -3234,8 +3247,9 @@
                                                 <div class="">
                                                     <input type="number" id="base-input"
                                                         class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PO)" min="0"
-                                                        max="999999999999" oninput="validity.valid||(value='');"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PO)"
+                                                        min="0" max="999999999999"
+                                                        oninput="validity.valid||(value='');"
                                                         name="as_mny_parts_po_31">
                                                 </div>
                                             @endif
@@ -3310,8 +3324,9 @@
                                                 <div class="">
                                                     <input type="number" id="base-input"
                                                         class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PO)" min="0"
-                                                        max="999999999999" oninput="validity.valid||(value='');"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PO)"
+                                                        min="0" max="999999999999"
+                                                        oninput="validity.valid||(value='');"
                                                         name="as_mny_parts_po_32">
                                                 </div>
                                             @endif
@@ -3386,8 +3401,9 @@
                                                 <div class="">
                                                     <input type="number" id="base-input"
                                                         class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PO)" min="0"
-                                                        max="999999999999" oninput="validity.valid||(value='');"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PO)"
+                                                        min="0" max="999999999999"
+                                                        oninput="validity.valid||(value='');"
                                                         name="as_mny_parts_po_33">
                                                 </div>
                                             @endif
@@ -3462,8 +3478,9 @@
                                                 <div class="">
                                                     <input type="number" id="base-input"
                                                         class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PO)" min="0"
-                                                        max="999999999999" oninput="validity.valid||(value='');"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PO)"
+                                                        min="0" max="999999999999"
+                                                        oninput="validity.valid||(value='');"
                                                         name="as_mny_parts_po_34">
                                                 </div>
                                             @endif
@@ -3538,8 +3555,9 @@
                                                 <div class="">
                                                     <input type="number" id="base-input"
                                                         class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PO)" min="0"
-                                                        max="999999999999" oninput="validity.valid||(value='');"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PO)"
+                                                        min="0" max="999999999999"
+                                                        oninput="validity.valid||(value='');"
                                                         name="as_mny_parts_po_35">
                                                 </div>
                                             @endif
@@ -3614,8 +3632,9 @@
                                                 <div class="">
                                                     <input type="number" id="base-input"
                                                         class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PO)" min="0"
-                                                        max="999999999999" oninput="validity.valid||(value='');"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PO)"
+                                                        min="0" max="999999999999"
+                                                        oninput="validity.valid||(value='');"
                                                         name="as_mny_parts_po_36">
                                                 </div>
                                             @endif
@@ -3691,8 +3710,9 @@
                                                 <div class="">
                                                     <input type="number" id="base-input"
                                                         class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PO)" min="0"
-                                                        max="999999999999" oninput="validity.valid||(value='');"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PO)"
+                                                        min="0" max="999999999999"
+                                                        oninput="validity.valid||(value='');"
                                                         name="as_mny_parts_po_37">
                                                 </div>
                                             @endif
@@ -3767,8 +3787,9 @@
                                                 <div class="">
                                                     <input type="number" id="base-input"
                                                         class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PO)" min="0"
-                                                        max="999999999999" oninput="validity.valid||(value='');"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PO)"
+                                                        min="0" max="999999999999"
+                                                        oninput="validity.valid||(value='');"
                                                         name="as_mny_parts_po_38">
                                                 </div>
                                             @endif
@@ -3843,8 +3864,9 @@
                                                 <div class="">
                                                     <input type="number" id="base-input"
                                                         class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PO)" min="0"
-                                                        max="999999999999" oninput="validity.valid||(value='');"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PO)"
+                                                        min="0" max="999999999999"
+                                                        oninput="validity.valid||(value='');"
                                                         name="as_mny_parts_po_39">
                                                 </div>
                                             @endif
@@ -3919,8 +3941,9 @@
                                                 <div class="">
                                                     <input type="number" id="base-input"
                                                         class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PO)" min="0"
-                                                        max="999999999999" oninput="validity.valid||(value='');"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PO)"
+                                                        min="0" max="999999999999"
+                                                        oninput="validity.valid||(value='');"
                                                         name="as_mny_parts_po_40">
                                                 </div>
                                             @endif
@@ -3996,8 +4019,9 @@
                                                 <div class="">
                                                     <input type="number" id="base-input"
                                                         class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PO)" min="0"
-                                                        max="999999999999" oninput="validity.valid||(value='');"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PO)"
+                                                        min="0" max="999999999999"
+                                                        oninput="validity.valid||(value='');"
                                                         name="as_mny_parts_po_41">
                                                 </div>
                                             @endif
@@ -4072,8 +4096,9 @@
                                                 <div class="">
                                                     <input type="number" id="base-input"
                                                         class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PO)" min="0"
-                                                        max="999999999999" oninput="validity.valid||(value='');"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PO)"
+                                                        min="0" max="999999999999"
+                                                        oninput="validity.valid||(value='');"
                                                         name="as_mny_parts_po_42">
                                                 </div>
                                             @endif
@@ -4148,8 +4173,9 @@
                                                 <div class="">
                                                     <input type="number" id="base-input"
                                                         class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PO)" min="0"
-                                                        max="999999999999" oninput="validity.valid||(value='');"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PO)"
+                                                        min="0" max="999999999999"
+                                                        oninput="validity.valid||(value='');"
                                                         name="as_mny_parts_po_43">
                                                 </div>
                                             @endif
@@ -4224,8 +4250,9 @@
                                                 <div class="">
                                                     <input type="number" id="base-input"
                                                         class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PO)" min="0"
-                                                        max="999999999999" oninput="validity.valid||(value='');"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PO)"
+                                                        min="0" max="999999999999"
+                                                        oninput="validity.valid||(value='');"
                                                         name="as_mny_parts_po_44">
                                                 </div>
                                             @endif
@@ -4300,8 +4327,9 @@
                                                 <div class="">
                                                     <input type="number" id="base-input"
                                                         class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PO)" min="0"
-                                                        max="999999999999" oninput="validity.valid||(value='');"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PO)"
+                                                        min="0" max="999999999999"
+                                                        oninput="validity.valid||(value='');"
                                                         name="as_mny_parts_po_45">
                                                 </div>
                                             @endif
@@ -4375,8 +4403,9 @@
                                                 <div class="">
                                                     <input type="number" id="base-input"
                                                         class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PO)" min="0"
-                                                        max="999999999999" oninput="validity.valid||(value='');"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PO)"
+                                                        min="0" max="999999999999"
+                                                        oninput="validity.valid||(value='');"
                                                         name="as_mny_parts_po_46">
                                                 </div>
                                             @endif
@@ -4452,8 +4481,9 @@
                                                 <div class="">
                                                     <input type="number" id="base-input"
                                                         class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PO)" min="0"
-                                                        max="999999999999" oninput="validity.valid||(value='');"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PO)"
+                                                        min="0" max="999999999999"
+                                                        oninput="validity.valid||(value='');"
                                                         name="as_mny_parts_po_47">
                                                 </div>
                                             @endif
@@ -4527,8 +4557,9 @@
                                                 <div class="">
                                                     <input type="number" id="base-input"
                                                         class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PO)" min="0"
-                                                        max="999999999999" oninput="validity.valid||(value='');"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PO)"
+                                                        min="0" max="999999999999"
+                                                        oninput="validity.valid||(value='');"
                                                         name="as_mny_parts_po_48">
                                                 </div>
                                             @endif
@@ -4603,8 +4634,9 @@
                                                 <div class="">
                                                     <input type="number" id="base-input"
                                                         class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PO)" min="0"
-                                                        max="999999999999" oninput="validity.valid||(value='');"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PO)"
+                                                        min="0" max="999999999999"
+                                                        oninput="validity.valid||(value='');"
                                                         name="as_mny_parts_po_49">
                                                 </div>
                                             @endif
@@ -4679,8 +4711,9 @@
                                                 <div class="">
                                                     <input type="number" id="base-input"
                                                         class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PO)" min="0"
-                                                        max="999999999999" oninput="validity.valid||(value='');"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PO)"
+                                                        min="0" max="999999999999"
+                                                        oninput="validity.valid||(value='');"
                                                         name="as_mny_parts_po_50">
                                                 </div>
                                             @endif
@@ -4810,8 +4843,9 @@
                                                 <div class="">
                                                     <input type="number" id="base-input"
                                                         class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PO)" min="0"
-                                                        max="999999999999" oninput="validity.valid||(value='');"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PO)"
+                                                        min="0" max="999999999999"
+                                                        oninput="validity.valid||(value='');"
                                                         name="as_mny_jasa_po_1">
                                                 </div>
                                             @endif
@@ -4885,8 +4919,9 @@
                                                 <div class="">
                                                     <input type="number" id="base-input"
                                                         class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PO)" min="0"
-                                                        max="999999999999" oninput="validity.valid||(value='');"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PO)"
+                                                        min="0" max="999999999999"
+                                                        oninput="validity.valid||(value='');"
                                                         name="as_mny_jasa_po_2">
                                                 </div>
                                             @endif
@@ -4961,8 +4996,9 @@
                                                 <div class="">
                                                     <input type="number" id="base-input"
                                                         class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PO)" min="0"
-                                                        max="999999999999" oninput="validity.valid||(value='');"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PO)"
+                                                        min="0" max="999999999999"
+                                                        oninput="validity.valid||(value='');"
                                                         name="as_mny_jasa_po_3">
                                                 </div>
                                             @endif
@@ -5037,8 +5073,9 @@
                                                 <div class="">
                                                     <input type="number" id="base-input"
                                                         class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PO)" min="0"
-                                                        max="999999999999" oninput="validity.valid||(value='');"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PO)"
+                                                        min="0" max="999999999999"
+                                                        oninput="validity.valid||(value='');"
                                                         name="as_mny_jasa_po_4">
                                                 </div>
                                             @endif
@@ -5111,8 +5148,9 @@
                                                 <div class="">
                                                     <input type="number" id="base-input"
                                                         class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PO)" min="0"
-                                                        max="999999999999" oninput="validity.valid||(value='');"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PO)"
+                                                        min="0" max="999999999999"
+                                                        oninput="validity.valid||(value='');"
                                                         name="as_mny_jasa_po_5">
                                                 </div>
                                             @endif
@@ -5184,8 +5222,9 @@
                                                 <div class="">
                                                     <input type="number" id="base-input"
                                                         class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PO)" min="0"
-                                                        max="999999999999" oninput="validity.valid||(value='');"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PO)"
+                                                        min="0" max="999999999999"
+                                                        oninput="validity.valid||(value='');"
                                                         name="as_mny_jasa_po_6">
                                                 </div>
                                             @endif
@@ -5259,8 +5298,9 @@
                                                 <div class="">
                                                     <input type="number" id="base-input"
                                                         class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PO)" min="0"
-                                                        max="999999999999" oninput="validity.valid||(value='');"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PO)"
+                                                        min="0" max="999999999999"
+                                                        oninput="validity.valid||(value='');"
                                                         name="as_mny_jasa_po_7">
                                                 </div>
                                             @endif
@@ -5333,8 +5373,9 @@
                                                 <div class="">
                                                     <input type="number" id="base-input"
                                                         class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PO)" min="0"
-                                                        max="999999999999" oninput="validity.valid||(value='');"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PO)"
+                                                        min="0" max="999999999999"
+                                                        oninput="validity.valid||(value='');"
                                                         name="as_mny_jasa_po_8">
                                                 </div>
                                             @endif
@@ -5407,8 +5448,9 @@
                                                 <div class="">
                                                     <input type="number" id="base-input"
                                                         class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PO)" min="0"
-                                                        max="999999999999" oninput="validity.valid||(value='');"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PO)"
+                                                        min="0" max="999999999999"
+                                                        oninput="validity.valid||(value='');"
                                                         name="as_mny_jasa_po_9">
                                                 </div>
                                             @endif
@@ -5482,8 +5524,9 @@
                                                 <div class="">
                                                     <input type="number" id="base-input"
                                                         class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PO)" min="0"
-                                                        max="999999999999" oninput="validity.valid||(value='');"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PO)"
+                                                        min="0" max="999999999999"
+                                                        oninput="validity.valid||(value='');"
                                                         name="as_mny_jasa_po_10">
                                                 </div>
                                             @endif
@@ -5557,8 +5600,9 @@
                                                 <div class="">
                                                     <input type="number" id="base-input"
                                                         class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PO)" min="0"
-                                                        max="999999999999" oninput="validity.valid||(value='');"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PO)"
+                                                        min="0" max="999999999999"
+                                                        oninput="validity.valid||(value='');"
                                                         name="as_mny_jasa_po_11">
                                                 </div>
                                             @endif
@@ -5632,8 +5676,9 @@
                                                 <div class="">
                                                     <input type="number" id="base-input"
                                                         class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PO)" min="0"
-                                                        max="999999999999" oninput="validity.valid||(value='');"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PO)"
+                                                        min="0" max="999999999999"
+                                                        oninput="validity.valid||(value='');"
                                                         name="as_mny_jasa_po_12">
                                                 </div>
                                             @endif
@@ -5706,8 +5751,9 @@
                                                 <div class="">
                                                     <input type="number" id="base-input"
                                                         class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PO)" min="0"
-                                                        max="999999999999" oninput="validity.valid||(value='');"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PO)"
+                                                        min="0" max="999999999999"
+                                                        oninput="validity.valid||(value='');"
                                                         name="as_mny_jasa_po_13">
                                                 </div>
                                             @endif
@@ -5780,8 +5826,9 @@
                                                 <div class="">
                                                     <input type="number" id="base-input"
                                                         class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PO)" min="0"
-                                                        max="999999999999" oninput="validity.valid||(value='');"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PO)"
+                                                        min="0" max="999999999999"
+                                                        oninput="validity.valid||(value='');"
                                                         name="as_mny_jasa_po_14">
                                                 </div>
                                             @endif
@@ -5855,8 +5902,9 @@
                                                 <div class="">
                                                     <input type="number" id="base-input"
                                                         class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PO)" min="0"
-                                                        max="999999999999" oninput="validity.valid||(value='');"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PO)"
+                                                        min="0" max="999999999999"
+                                                        oninput="validity.valid||(value='');"
                                                         name="as_mny_jasa_po_15">
                                                 </div>
                                             @endif
@@ -5930,8 +5978,9 @@
                                                 <div class="">
                                                     <input type="number" id="base-input"
                                                         class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PO)" min="0"
-                                                        max="999999999999" oninput="validity.valid||(value='');"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PO)"
+                                                        min="0" max="999999999999"
+                                                        oninput="validity.valid||(value='');"
                                                         name="as_mny_jasa_po_16">
                                                 </div>
                                             @endif
@@ -6005,8 +6054,9 @@
                                                 <div class="">
                                                     <input type="number" id="base-input"
                                                         class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PO)" min="0"
-                                                        max="999999999999" oninput="validity.valid||(value='');"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PO)"
+                                                        min="0" max="999999999999"
+                                                        oninput="validity.valid||(value='');"
                                                         name="as_mny_jasa_po_17">
                                                 </div>
                                             @endif
@@ -6080,8 +6130,9 @@
                                                 <div class="">
                                                     <input type="number" id="base-input"
                                                         class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PO)" min="0"
-                                                        max="999999999999" oninput="validity.valid||(value='');"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PO)"
+                                                        min="0" max="999999999999"
+                                                        oninput="validity.valid||(value='');"
                                                         name="as_mny_jasa_po_18">
                                                 </div>
                                             @endif
@@ -6155,8 +6206,9 @@
                                                 <div class="">
                                                     <input type="number" id="base-input"
                                                         class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PO)" min="0"
-                                                        max="999999999999" oninput="validity.valid||(value='');"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PO)"
+                                                        min="0" max="999999999999"
+                                                        oninput="validity.valid||(value='');"
                                                         name="as_mny_jasa_po_19">
                                                 </div>
                                             @endif
@@ -6230,8 +6282,9 @@
                                                 <div class="">
                                                     <input type="number" id="base-input"
                                                         class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PO)" min="0"
-                                                        max="999999999999" oninput="validity.valid||(value='');"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PO)"
+                                                        min="0" max="999999999999"
+                                                        oninput="validity.valid||(value='');"
                                                         name="as_mny_jasa_po_20">
                                                 </div>
                                             @endif
@@ -6305,8 +6358,9 @@
                                                 <div class="">
                                                     <input type="number" id="base-input"
                                                         class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PO)" min="0"
-                                                        max="999999999999" oninput="validity.valid||(value='');"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PO)"
+                                                        min="0" max="999999999999"
+                                                        oninput="validity.valid||(value='');"
                                                         name="as_mny_jasa_po_21">
                                                 </div>
                                             @endif
@@ -6380,8 +6434,9 @@
                                                 <div class="">
                                                     <input type="number" id="base-input"
                                                         class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PO)" min="0"
-                                                        max="999999999999" oninput="validity.valid||(value='');"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PO)"
+                                                        min="0" max="999999999999"
+                                                        oninput="validity.valid||(value='');"
                                                         name="as_mny_jasa_po_22">
                                                 </div>
                                             @endif
@@ -6455,8 +6510,9 @@
                                                 <div class="">
                                                     <input type="number" id="base-input"
                                                         class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PO)" min="0"
-                                                        max="999999999999" oninput="validity.valid||(value='');"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PO)"
+                                                        min="0" max="999999999999"
+                                                        oninput="validity.valid||(value='');"
                                                         name="as_mny_jasa_po_23">
                                                 </div>
                                             @endif
@@ -6530,8 +6586,9 @@
                                                 <div class="">
                                                     <input type="number" id="base-input"
                                                         class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PO)" min="0"
-                                                        max="999999999999" oninput="validity.valid||(value='');"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PO)"
+                                                        min="0" max="999999999999"
+                                                        oninput="validity.valid||(value='');"
                                                         name="as_mny_jasa_po_24">
                                                 </div>
                                             @endif
@@ -6605,8 +6662,9 @@
                                                 <div class="">
                                                     <input type="number" id="base-input"
                                                         class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PO)" min="0"
-                                                        max="999999999999" oninput="validity.valid||(value='');"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PO)"
+                                                        min="0" max="999999999999"
+                                                        oninput="validity.valid||(value='');"
                                                         name="as_mny_jasa_po_25">
                                                 </div>
                                             @endif
@@ -6680,8 +6738,9 @@
                                                 <div class="">
                                                     <input type="number" id="base-input"
                                                         class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PO)" min="0"
-                                                        max="999999999999" oninput="validity.valid||(value='');"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PO)"
+                                                        min="0" max="999999999999"
+                                                        oninput="validity.valid||(value='');"
                                                         name="as_mny_jasa_po_26">
                                                 </div>
                                             @endif
@@ -6755,8 +6814,9 @@
                                                 <div class="">
                                                     <input type="number" id="base-input"
                                                         class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PO)" min="0"
-                                                        max="999999999999" oninput="validity.valid||(value='');"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PO)"
+                                                        min="0" max="999999999999"
+                                                        oninput="validity.valid||(value='');"
                                                         name="as_mny_jasa_po_27">
                                                 </div>
                                             @endif
@@ -6830,8 +6890,9 @@
                                                 <div class="">
                                                     <input type="number" id="base-input"
                                                         class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PO)" min="0"
-                                                        max="999999999999" oninput="validity.valid||(value='');"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PO)"
+                                                        min="0" max="999999999999"
+                                                        oninput="validity.valid||(value='');"
                                                         name="as_mny_jasa_po_28">
                                                 </div>
                                             @endif
@@ -6905,8 +6966,9 @@
                                                 <div class="">
                                                     <input type="number" id="base-input"
                                                         class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PO)" min="0"
-                                                        max="999999999999" oninput="validity.valid||(value='');"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PO)"
+                                                        min="0" max="999999999999"
+                                                        oninput="validity.valid||(value='');"
                                                         name="as_mny_jasa_po_29">
                                                 </div>
                                             @endif
@@ -6980,8 +7042,9 @@
                                                 <div class="">
                                                     <input type="number" id="base-input"
                                                         class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PO)" min="0"
-                                                        max="999999999999" oninput="validity.valid||(value='');"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PO)"
+                                                        min="0" max="999999999999"
+                                                        oninput="validity.valid||(value='');"
                                                         name="as_mny_jasa_po_30">
                                                 </div>
                                             @endif
@@ -7111,8 +7174,9 @@
                                                 <div class="">
                                                     <input type="number" id="base-input"
                                                         class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PO)" min="0"
-                                                        max="999999999999" oninput="validity.valid||(value='');"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PO)"
+                                                        min="0" max="999999999999"
+                                                        oninput="validity.valid||(value='');"
                                                         name="as_mny_mnftr_po_1">
                                                 </div>
                                             @endif
@@ -7186,8 +7250,9 @@
                                                 <div class="">
                                                     <input type="number" id="base-input"
                                                         class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PO)" min="0"
-                                                        max="999999999999" oninput="validity.valid||(value='');"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PO)"
+                                                        min="0" max="999999999999"
+                                                        oninput="validity.valid||(value='');"
                                                         name="as_mny_mnftr_po_2">
                                                 </div>
                                         </td>
@@ -7262,8 +7327,9 @@
                                                 <div class="">
                                                     <input type="number" id="base-input"
                                                         class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PO)" min="0"
-                                                        max="999999999999" oninput="validity.valid||(value='');"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PO)"
+                                                        min="0" max="999999999999"
+                                                        oninput="validity.valid||(value='');"
                                                         name="as_mny_mnftr_po_3">
                                                 </div>
                                         </td>
@@ -7339,8 +7405,9 @@
                                                 <div class="">
                                                     <input type="number" id="base-input"
                                                         class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PO)" min="0"
-                                                        max="999999999999" oninput="validity.valid||(value='');"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PO)"
+                                                        min="0" max="999999999999"
+                                                        oninput="validity.valid||(value='');"
                                                         name="as_mny_mnftr_po_4">
                                                 </div>
                                             @endif
@@ -7414,8 +7481,9 @@
                                                 <div class="">
                                                     <input type="number" id="base-input"
                                                         class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PO)" min="0"
-                                                        max="999999999999" oninput="validity.valid||(value='');"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PO)"
+                                                        min="0" max="999999999999"
+                                                        oninput="validity.valid||(value='');"
                                                         name="as_mny_mnftr_po_5">
                                                 </div>
                                             @endif
@@ -7489,8 +7557,9 @@
                                                 <div class="" id="submit-1">
                                                     <input type="number" id="base-input"
                                                         class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PO)" min="0"
-                                                        max="999999999999" oninput="validity.valid||(value='');"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PO)"
+                                                        min="0" max="999999999999"
+                                                        oninput="validity.valid||(value='');"
                                                         name="as_mny_mnftr_po_6">
                                                 </div>
                                             @endif
@@ -7564,8 +7633,9 @@
                                                 <div class="">
                                                     <input type="number" id="base-input"
                                                         class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PO)" min="0"
-                                                        max="999999999999" oninput="validity.valid||(value='');"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PO)"
+                                                        min="0" max="999999999999"
+                                                        oninput="validity.valid||(value='');"
                                                         name="as_mny_mnftr_po_7">
                                                 </div>
                                             @endif
@@ -7639,8 +7709,9 @@
                                                 <div class="">
                                                     <input type="number" id="base-input"
                                                         class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PO)" min="0"
-                                                        max="999999999999" oninput="validity.valid||(value='');"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PO)"
+                                                        min="0" max="999999999999"
+                                                        oninput="validity.valid||(value='');"
                                                         name="as_mny_mnftr_po_8">
                                                 </div>
                                             @endif
@@ -7714,8 +7785,9 @@
                                                 <div class="">
                                                     <input type="number" id="base-input"
                                                         class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PO)" min="0"
-                                                        max="999999999999" oninput="validity.valid||(value='');"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PO)"
+                                                        min="0" max="999999999999"
+                                                        oninput="validity.valid||(value='');"
                                                         name="as_mny_mnftr_po_9">
                                                 </div>
                                             @endif
@@ -7789,8 +7861,9 @@
                                                 <div class="">
                                                     <input type="number" id="base-input"
                                                         class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PO)" min="0"
-                                                        max="999999999999" oninput="validity.valid||(value='');"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PO)"
+                                                        min="0" max="999999999999"
+                                                        oninput="validity.valid||(value='');"
                                                         name="as_mny_mnftr_po_10">
                                                 </div>
                                             @endif
@@ -8224,328 +8297,332 @@
             <input type="text" hidden name="waktu" value="{{ date('d-m-Y H:i') }}">
 
             <button type="submit"
-                class="bg-orange-500 w-full hover:bg-orange-600 text-white font-bold py-2 rounded-b-lg shadow-md">Submit</button>
+                class="bg-orange-500 w-full hover:bg-orange-600 text-white font-bold py-2 rounded-b-lg shadow-md">Klik untuk submit dokumen</button>
 
-{{-- modal ubah --}}
-@php
-$m = range(1, 50);
-@endphp
+            {{-- modal ubah --}}
+            @php
+                $m = range(1, 50);
+            @endphp
 
-@foreach ($m as $index => $number)
-<div id="modal1{{ $number }}"
-    class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 inset-0 justify-center items-center w-full max-h-full">
-    <div class="relative p-4 w-full max-w-2xl max-h-full">
-        <!-- Modal content -->
-        <div class="relative bg-white rounded-lg shadow">
-            <!-- Modal header -->
-            <div class="flex items-center justify-between px-5 py-3 border-b rounded-t">
-                <p class="text-2xl font-semibold text-gray-900 font-mono">
-                    Ubah dokumen unggahan
-                </p>
-                <button type="button"
-                    class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center"
-                    onclick="simulateEscape()">
-                    <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                        fill="none" viewBox="0 0 14 14">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                            stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
-                    </svg>
-                    <span class="sr-only">Close modal</span>
-                </button>
-            </div>
-            <!-- Modal body -->
-            <div class="py-2 px-5">
-                <p class="font-light text-lg mb-2">Dokumen sebelumnya</p>
-                <div class="grid grid-cols-3 space-x-2">
-                    <div>
-                        <p class="text-base leading-relaxed text-gray-600">
-                            Nama dokumen:
-                        </p>
-                        <p class="text-gray-900">
-                            {{ $koneksipo->{'po_parts_' . $number} }}
-                        </p>
-                    </div>
-                    <div>
-                        <p class="text-base leading-relaxed text-gray-600">
-                            Jumlah:
-                        </p>
-                        <p class="text-gray-900">
-
-                            Rp{{ number_format($koneksipo->{'mny_parts_po_' . $number}, 0, ',', '.') }}
-                        </p>
-                    </div>
-                    <div>
-                        <p class="text-base leading-relaxed text-gray-600">
-                            Oleh:
-                        </p>
-                        <p class="text-gray-900">
-                            {{ $koneksipo->{'up_by_parts_po_' . $number} }}
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <!-- Modal footer -->
-            <div class="items-center px-5 py-2 border-t border-gray-200 rounded-b">
-                <p class="font-light text-lg">
-                    Unggah dokumen dan nilai finansial baru
-                </p>
-                <p class="text-sm font-bold">*Pastikan isi kedua bidang isian (file & nilai finansial) untuk dapat mengubah ajuan</p>
-                <div class="items-center justify-center w-full border my-4">
-                    @if ($koneksipo->{'po_parts_' . $number} != '')
-                        <div class="grid grid-cols-2">
-                            <input type="file"name="as_po_parts_{{ $number }}"
-                                id="">
-                            <div class="">
-                                <input type="number" id="base-input"
-                                    class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                    placeholder="Rp{{ number_format($koneksipo->{'mny_parts_po_' . $number}, 0, ',', '.') }}"
-                                    min="0" max="999999999999"
-                                    oninput="validity.valid||(value='');"
-                                    name="as_mny_parts_po_{{ $number }}">
+            @foreach ($m as $index => $number)
+                <div id="modal1{{ $number }}"
+                    class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 inset-0 justify-center items-center w-full max-h-full">
+                    <div class="relative p-4 w-full max-w-2xl max-h-full">
+                        <!-- Modal content -->
+                        <div class="relative bg-white rounded-lg shadow">
+                            <!-- Modal header -->
+                            <div class="flex items-center justify-between px-5 py-3 border-b rounded-t">
+                                <p class="text-2xl font-semibold text-gray-900 font-mono">
+                                    Ubah dokumen unggahan
+                                </p>
+                                <button type="button"
+                                    class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center"
+                                    onclick="simulateEscape()">
+                                    <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                        fill="none" viewBox="0 0 14 14">
+                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                            stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+                                    </svg>
+                                    <span class="sr-only">Close modal</span>
+                                </button>
                             </div>
-                        </div>
-                    @else()
-                    @endif
-                </div>
-            </div>
-            <button type="submit"
-                class="bg-orange-500 w-full hover:bg-orange-600 text-white font-bold py-2 rounded-b-lg shadow-md">Submit</button>
-        </div>
-    </div>
-</div>
-@endforeach
+                            <!-- Modal body -->
+                            <div class="py-2 px-5">
+                                <p class="font-light text-lg mb-2">Dokumen sebelumnya</p>
+                                <div class="grid grid-cols-3 space-x-2">
+                                    <div>
+                                        <p class="text-base leading-relaxed text-gray-600">
+                                            Nama dokumen:
+                                        </p>
+                                        <p class="text-gray-900">
+                                            {{ $koneksipo->{'po_parts_' . $number} }}
+                                        </p>
+                                    </div>
+                                    <div>
+                                        <p class="text-base leading-relaxed text-gray-600">
+                                            Jumlah:
+                                        </p>
+                                        <p class="text-gray-900">
 
-@foreach ($m as $index => $number)
-<div id="modal2{{ $number }}"
-    class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 inset-0 justify-center items-center w-full max-h-full">
-    <div class="relative p-4 w-full max-w-2xl max-h-full">
-        <!-- Modal content -->
-        <div class="relative bg-white rounded-lg shadow">
-            <!-- Modal header -->
-            <div class="flex items-center justify-between px-5 py-3 border-b rounded-t">
-                <p class="text-2xl font-semibold text-gray-900 font-mono">
-                    Ubah dokumen unggahan
-                </p>
-                <button type="button"
-                    class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center"
-                    onclick="simulateEscape()">
-                    <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                        fill="none" viewBox="0 0 14 14">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                            stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
-                    </svg>
-                    <span class="sr-only">Close modal</span>
-                </button>
-            </div>
-            <!-- Modal body -->
-            <div class="py-2 px-5">
-                <p class="font-light text-lg mb-2">Dokumen sebelumnya</p>
-                <div class="grid grid-cols-3 space-x-2">
-                    <div>
-                        <p class="text-base leading-relaxed text-gray-600">
-                            Nama dokumen:
-                        </p>
-                        <p class="text-gray-900">
-                            {{ $koneksipo->{'po_jasa_' . $number} }}
-                        </p>
-                    </div>
-                    <div>
-                        <p class="text-base leading-relaxed text-gray-600">
-                            Jumlah:
-                        </p>
-                        <p class="text-gray-900">
-
-                            Rp{{ number_format($koneksipo->{'mny_jasa_po_' . $number}, 0, ',', '.') }}
-                        </p>
-                    </div>
-                    <div>
-                        <p class="text-base leading-relaxed text-gray-600">
-                            Oleh:
-                        </p>
-                        <p class="text-gray-900">
-                            {{ $koneksipo->{'up_by_jasa_po_' . $number} }}
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <!-- Modal footer -->
-            <div class="items-center px-5 py-2 border-t border-gray-200 rounded-b">
-                <p class="font-light text-lg">
-                    Unggah dokumen dan nilai finansial baru
-                </p>
-                <p class="text-sm font-bold">*Pastikan isi kedua bidang isian (file & nilai finansial) untuk dapat mengubah ajuan</p>
-                <div class="items-center justify-center w-full border my-4">
-                    @if ($koneksipo->{'po_jasa_' . $number} != '')
-                        <div class="grid grid-cols-2">
-                            <input type="file"name="as_po_jasa_{{ $number }}"
-                                id="">
-                            <div class="">
-                                <input type="number" id="base-input"
-                                    class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                    placeholder="Rp{{ number_format($koneksipo->{'mny_jasa_po_' . $number}, 0, ',', '.') }}"
-                                    min="0" max="999999999999"
-                                    oninput="validity.valid||(value='');"
-                                    name="as_mny_jasa_po_{{ $number }}">
+                                            Rp{{ number_format($koneksipo->{'mny_parts_po_' . $number}, 0, ',', '.') }}
+                                        </p>
+                                    </div>
+                                    <div>
+                                        <p class="text-base leading-relaxed text-gray-600">
+                                            Oleh:
+                                        </p>
+                                        <p class="text-gray-900">
+                                            {{ $koneksipo->{'up_by_parts_po_' . $number} }}
+                                        </p>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                    @else()
-                    @endif
-                </div>
-            </div>
-            <button type="submit"
-                class="bg-orange-500 w-full hover:bg-orange-600 text-white font-bold py-2 rounded-b-lg shadow-md">Submit</button>
-        </div>
-    </div>
-</div>
-@endforeach
-
-@foreach ($m as $index => $number)
-<div id="modal3{{ $number }}"
-    class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 inset-0 justify-center items-center w-full max-h-full">
-    <div class="relative p-4 w-full max-w-2xl max-h-full">
-        <!-- Modal content -->
-        <div class="relative bg-white rounded-lg shadow">
-            <!-- Modal header -->
-            <div class="flex items-center justify-between px-5 py-3 border-b rounded-t">
-                <p class="text-2xl font-semibold text-gray-900 font-mono">
-                    Ubah dokumen unggahan
-                </p>
-                <button type="button"
-                    class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center"
-                    onclick="simulateEscape()">
-                    <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                        fill="none" viewBox="0 0 14 14">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                            stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
-                    </svg>
-                    <span class="sr-only">Close modal</span>
-                </button>
-            </div>
-            <!-- Modal body -->
-            <div class="py-2 px-5">
-                <p class="font-light text-lg mb-2">Dokumen sebelumnya</p>
-                <div class="grid grid-cols-3 space-x-2">
-                    <div>
-                        <p class="text-base leading-relaxed text-gray-600">
-                            Nama dokumen:
-                        </p>
-                        <p class="text-gray-900">
-                            {{ $koneksipo->{'po_mnftr_' . $number} }}
-                        </p>
-                    </div>
-                    <div>
-                        <p class="text-base leading-relaxed text-gray-600">
-                            Jumlah:
-                        </p>
-                        <p class="text-gray-900">
-
-                            Rp{{ number_format($koneksipo->{'mny_mnftr_po_' . $number}, 0, ',', '.') }}
-                        </p>
-                    </div>
-                    <div>
-                        <p class="text-base leading-relaxed text-gray-600">
-                            Oleh:
-                        </p>
-                        <p class="text-gray-900">
-                            {{ $koneksipo->{'up_by_mnftr_po_' . $number} }}
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <!-- Modal footer -->
-            <div class="items-center px-5 py-2 border-t border-gray-200 rounded-b">
-                <p class="font-light text-lg">
-                    Unggah dokumen dan nilai finansial baru
-                </p>
-                <p class="text-sm font-bold">*Pastikan isi kedua bidang isian (file & nilai finansial) untuk dapat mengubah ajuan</p>
-                <div class="items-center justify-center w-full border my-4">
-                    @if ($koneksipo->{'po_mnftr_' . $number} != '')
-                        <div class="grid grid-cols-2">
-                            <input type="file"name="as_po_mnftr_{{ $number }}"
-                                id="">
-                            <div class="">
-                                <input type="number" id="base-input"
-                                    class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                    placeholder="Rp{{ number_format($koneksipo->{'mny_mnftr_po_' . $number}, 0, ',', '.') }}"
-                                    min="0" max="999999999999"
-                                    oninput="validity.valid||(value='');"
-                                    name="as_mny_mnftr_po_{{ $number }}">
+                            <!-- Modal footer -->
+                            <div class="items-center px-5 py-2 border-t border-gray-200 rounded-b">
+                                <p class="font-light text-lg">
+                                    Unggah dokumen dan nilai finansial baru
+                                </p>
+                                <p class="text-sm font-bold">*Pastikan isi kedua bidang isian (file & nilai finansial)
+                                    untuk dapat mengubah ajuan</p>
+                                <div class="items-center justify-center w-full border my-4">
+                                    @if ($koneksipo->{'po_parts_' . $number} != '')
+                                        <div class="grid grid-cols-2">
+                                            <input type="file"name="as_po_parts_{{ $number }}"
+                                                id="">
+                                            <div class="">
+                                                <input type="number" id="base-input"
+                                                    class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
+                                                    placeholder="Rp{{ number_format($koneksipo->{'mny_parts_po_' . $number}, 0, ',', '.') }}"
+                                                    min="0" max="999999999999"
+                                                    oninput="validity.valid||(value='');"
+                                                    name="as_mny_parts_po_{{ $number }}">
+                                            </div>
+                                        </div>
+                                    @else()
+                                    @endif
+                                </div>
                             </div>
+                            <button type="submit"
+                                class="bg-orange-500 w-full hover:bg-orange-600 text-white font-bold py-2 rounded-b-lg shadow-md">Submit</button>
                         </div>
-                    @else()
-                    @endif
+                    </div>
                 </div>
-            </div>
-            <button type="submit"
-                class="bg-orange-500 w-full hover:bg-orange-600 text-white font-bold py-2 rounded-b-lg shadow-md">Submit</button>
-        </div>
-    </div>
-</div>
-@endforeach
+            @endforeach
 
-@foreach ($m as $index => $number)
-<div id="modal4{{ $number }}"
-    class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 inset-0 justify-center items-center w-full max-h-full">
-    <div class="relative p-4 w-full max-w-2xl max-h-full">
-        <!-- Modal content -->
-        <div class="relative bg-white rounded-lg shadow">
-            <!-- Modal header -->
-            <div class="flex items-center justify-between px-5 py-3 border-b rounded-t">
-                <p class="text-2xl font-semibold text-gray-900 font-mono">
-                    Ubah dokumen unggahan
-                </p>
-                <button type="button"
-                    class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center"
-                    onclick="simulateEscape()">
-                    <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                        fill="none" viewBox="0 0 14 14">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                            stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
-                    </svg>
-                    <span class="sr-only">Close modal</span>
-                </button>
-            </div>
-            <!-- Modal body -->
-            <div class="py-2 px-5">
-                <p class="font-light text-lg mb-2">Dokumen sebelumnya</p>
-                <div class="grid grid-cols-2 space-x-2">
-                    <div>
-                        <p class="text-base leading-relaxed text-gray-600">
-                            Nama dokumen:
-                        </p>
-                        <p class="text-gray-900">
-                            {{ $koneksipo->{'po_capo_' . $number} }}
-                        </p>
-                    </div>
-                    <div>
-                        <p class="text-base leading-relaxed text-gray-600">
-                            Oleh:
-                        </p>
-                        <p class="text-gray-900">
-                            {{ $koneksipo->{'up_by_capo_po_' . $number} }}
-                        </p>
+            @foreach ($m as $index => $number)
+                <div id="modal2{{ $number }}"
+                    class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 inset-0 justify-center items-center w-full max-h-full">
+                    <div class="relative p-4 w-full max-w-2xl max-h-full">
+                        <!-- Modal content -->
+                        <div class="relative bg-white rounded-lg shadow">
+                            <!-- Modal header -->
+                            <div class="flex items-center justify-between px-5 py-3 border-b rounded-t">
+                                <p class="text-2xl font-semibold text-gray-900 font-mono">
+                                    Ubah dokumen unggahan
+                                </p>
+                                <button type="button"
+                                    class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center"
+                                    onclick="simulateEscape()">
+                                    <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                        fill="none" viewBox="0 0 14 14">
+                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                            stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+                                    </svg>
+                                    <span class="sr-only">Close modal</span>
+                                </button>
+                            </div>
+                            <!-- Modal body -->
+                            <div class="py-2 px-5">
+                                <p class="font-light text-lg mb-2">Dokumen sebelumnya</p>
+                                <div class="grid grid-cols-3 space-x-2">
+                                    <div>
+                                        <p class="text-base leading-relaxed text-gray-600">
+                                            Nama dokumen:
+                                        </p>
+                                        <p class="text-gray-900">
+                                            {{ $koneksipo->{'po_jasa_' . $number} }}
+                                        </p>
+                                    </div>
+                                    <div>
+                                        <p class="text-base leading-relaxed text-gray-600">
+                                            Jumlah:
+                                        </p>
+                                        <p class="text-gray-900">
+
+                                            Rp{{ number_format($koneksipo->{'mny_jasa_po_' . $number}, 0, ',', '.') }}
+                                        </p>
+                                    </div>
+                                    <div>
+                                        <p class="text-base leading-relaxed text-gray-600">
+                                            Oleh:
+                                        </p>
+                                        <p class="text-gray-900">
+                                            {{ $koneksipo->{'up_by_jasa_po_' . $number} }}
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Modal footer -->
+                            <div class="items-center px-5 py-2 border-t border-gray-200 rounded-b">
+                                <p class="font-light text-lg">
+                                    Unggah dokumen dan nilai finansial baru
+                                </p>
+                                <p class="text-sm font-bold">*Pastikan isi kedua bidang isian (file & nilai finansial)
+                                    untuk dapat mengubah ajuan</p>
+                                <div class="items-center justify-center w-full border my-4">
+                                    @if ($koneksipo->{'po_jasa_' . $number} != '')
+                                        <div class="grid grid-cols-2">
+                                            <input type="file"name="as_po_jasa_{{ $number }}"
+                                                id="">
+                                            <div class="">
+                                                <input type="number" id="base-input"
+                                                    class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
+                                                    placeholder="Rp{{ number_format($koneksipo->{'mny_jasa_po_' . $number}, 0, ',', '.') }}"
+                                                    min="0" max="999999999999"
+                                                    oninput="validity.valid||(value='');"
+                                                    name="as_mny_jasa_po_{{ $number }}">
+                                            </div>
+                                        </div>
+                                    @else()
+                                    @endif
+                                </div>
+                            </div>
+                            <button type="submit"
+                                class="bg-orange-500 w-full hover:bg-orange-600 text-white font-bold py-2 rounded-b-lg shadow-md">Submit</button>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <!-- Modal footer -->
-            <div class="items-center px-5 py-2 border-t border-gray-200 rounded-b">
-                <p class="font-light text-lg">
-                    Unggah dokumen baru
-                </p>
-                <p class="text-sm font-bold">*Pastikan isi kedua bidang isian (file & nilai finansial) untuk dapat mengubah ajuan</p>
-                <div class="items-center justify-center w-full border my-4">
-                    @if ($koneksipo->{'po_capo_' . $number} != '')
-                        <input type="file"name="as_po_capo_{{ $number }}" id="">
-                    @else()
-                    @endif
+            @endforeach
+
+            @foreach ($m as $index => $number)
+                <div id="modal3{{ $number }}"
+                    class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 inset-0 justify-center items-center w-full max-h-full">
+                    <div class="relative p-4 w-full max-w-2xl max-h-full">
+                        <!-- Modal content -->
+                        <div class="relative bg-white rounded-lg shadow">
+                            <!-- Modal header -->
+                            <div class="flex items-center justify-between px-5 py-3 border-b rounded-t">
+                                <p class="text-2xl font-semibold text-gray-900 font-mono">
+                                    Ubah dokumen unggahan
+                                </p>
+                                <button type="button"
+                                    class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center"
+                                    onclick="simulateEscape()">
+                                    <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                        fill="none" viewBox="0 0 14 14">
+                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                            stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+                                    </svg>
+                                    <span class="sr-only">Close modal</span>
+                                </button>
+                            </div>
+                            <!-- Modal body -->
+                            <div class="py-2 px-5">
+                                <p class="font-light text-lg mb-2">Dokumen sebelumnya</p>
+                                <div class="grid grid-cols-3 space-x-2">
+                                    <div>
+                                        <p class="text-base leading-relaxed text-gray-600">
+                                            Nama dokumen:
+                                        </p>
+                                        <p class="text-gray-900">
+                                            {{ $koneksipo->{'po_mnftr_' . $number} }}
+                                        </p>
+                                    </div>
+                                    <div>
+                                        <p class="text-base leading-relaxed text-gray-600">
+                                            Jumlah:
+                                        </p>
+                                        <p class="text-gray-900">
+
+                                            Rp{{ number_format($koneksipo->{'mny_mnftr_po_' . $number}, 0, ',', '.') }}
+                                        </p>
+                                    </div>
+                                    <div>
+                                        <p class="text-base leading-relaxed text-gray-600">
+                                            Oleh:
+                                        </p>
+                                        <p class="text-gray-900">
+                                            {{ $koneksipo->{'up_by_mnftr_po_' . $number} }}
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Modal footer -->
+                            <div class="items-center px-5 py-2 border-t border-gray-200 rounded-b">
+                                <p class="font-light text-lg">
+                                    Unggah dokumen dan nilai finansial baru
+                                </p>
+                                <p class="text-sm font-bold">*Pastikan isi kedua bidang isian (file & nilai finansial)
+                                    untuk dapat mengubah ajuan</p>
+                                <div class="items-center justify-center w-full border my-4">
+                                    @if ($koneksipo->{'po_mnftr_' . $number} != '')
+                                        <div class="grid grid-cols-2">
+                                            <input type="file"name="as_po_mnftr_{{ $number }}"
+                                                id="">
+                                            <div class="">
+                                                <input type="number" id="base-input"
+                                                    class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
+                                                    placeholder="Rp{{ number_format($koneksipo->{'mny_mnftr_po_' . $number}, 0, ',', '.') }}"
+                                                    min="0" max="999999999999"
+                                                    oninput="validity.valid||(value='');"
+                                                    name="as_mny_mnftr_po_{{ $number }}">
+                                            </div>
+                                        </div>
+                                    @else()
+                                    @endif
+                                </div>
+                            </div>
+                            <button type="submit"
+                                class="bg-orange-500 w-full hover:bg-orange-600 text-white font-bold py-2 rounded-b-lg shadow-md">Submit</button>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <button type="submit"
-                class="bg-orange-500 w-full hover:bg-orange-600 text-white font-bold py-2 rounded-b-lg shadow-md">Submit</button>
-        </div>
-    </div>
-</div>
-@endforeach
+            @endforeach
+
+            @foreach ($m as $index => $number)
+                <div id="modal4{{ $number }}"
+                    class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 inset-0 justify-center items-center w-full max-h-full">
+                    <div class="relative p-4 w-full max-w-2xl max-h-full">
+                        <!-- Modal content -->
+                        <div class="relative bg-white rounded-lg shadow">
+                            <!-- Modal header -->
+                            <div class="flex items-center justify-between px-5 py-3 border-b rounded-t">
+                                <p class="text-2xl font-semibold text-gray-900 font-mono">
+                                    Ubah dokumen unggahan
+                                </p>
+                                <button type="button"
+                                    class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center"
+                                    onclick="simulateEscape()">
+                                    <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                        fill="none" viewBox="0 0 14 14">
+                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                            stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+                                    </svg>
+                                    <span class="sr-only">Close modal</span>
+                                </button>
+                            </div>
+                            <!-- Modal body -->
+                            <div class="py-2 px-5">
+                                <p class="font-light text-lg mb-2">Dokumen sebelumnya</p>
+                                <div class="grid grid-cols-2 space-x-2">
+                                    <div>
+                                        <p class="text-base leading-relaxed text-gray-600">
+                                            Nama dokumen:
+                                        </p>
+                                        <p class="text-gray-900">
+                                            {{ $koneksipo->{'po_capo_' . $number} }}
+                                        </p>
+                                    </div>
+                                    <div>
+                                        <p class="text-base leading-relaxed text-gray-600">
+                                            Oleh:
+                                        </p>
+                                        <p class="text-gray-900">
+                                            {{ $koneksipo->{'up_by_capo_po_' . $number} }}
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Modal footer -->
+                            <div class="items-center px-5 py-2 border-t border-gray-200 rounded-b">
+                                <p class="font-light text-lg">
+                                    Unggah dokumen baru
+                                </p>
+                                <p class="text-sm font-bold">*Pastikan isi kedua bidang isian (file & nilai finansial)
+                                    untuk dapat mengubah ajuan</p>
+                                <div class="items-center justify-center w-full border my-4">
+                                    @if ($koneksipo->{'po_capo_' . $number} != '')
+                                        <input type="file"name="as_po_capo_{{ $number }}" id="">
+                                    @else()
+                                    @endif
+                                </div>
+                            </div>
+                            <button type="submit"
+                                class="bg-orange-500 w-full hover:bg-orange-600 text-white font-bold py-2 rounded-b-lg shadow-md">Submit</button>
+                        </div>
+                    </div>
+                </div>
+            @endforeach
 
         </form>
 
@@ -8651,7 +8728,8 @@ $m = range(1, 50);
         <form action="" method="post" enctype="multipart/form-data">
             @csrf
             @method('PUT')
-            <div id="dropdown1{{ $number }}" class="z-10 hidden bg-gray-800 rounded-lg w-110% p-4 shadow-md">
+            <div id="dropdown1{{ $number }}"
+                class="z-10 hidden bg-gray-800 rounded-lg w-110% p-4 shadow-md">
                 @if ($number)
                     <input type="text" hidden name="up_by_parts_po_{{ $number }}" value="">
                     <input type="text" hidden name="date_po_parts_{{ $number }}" value="">
@@ -8674,7 +8752,8 @@ $m = range(1, 50);
         <form action="" method="post" enctype="multipart/form-data">
             @csrf
             @method('PUT')
-            <div id="dropdown2{{ $number }}" class="z-10 hidden bg-gray-800 rounded-lg w-110% p-4 shadow-md">
+            <div id="dropdown2{{ $number }}"
+                class="z-10 hidden bg-gray-800 rounded-lg w-110% p-4 shadow-md">
                 @if ($number)
                     <input type="text" hidden name="up_by_jasa_po_{{ $number }}" value="">
                     <input type="text" hidden name="date_po_jasa_{{ $number }}" value="">
@@ -8697,7 +8776,8 @@ $m = range(1, 50);
         <form action="" method="post" enctype="multipart/form-data">
             @csrf
             @method('PUT')
-            <div id="dropdown3{{ $number }}" class="z-10 hidden bg-gray-800 rounded-lg w-110% p-4 shadow-md">
+            <div id="dropdown3{{ $number }}"
+                class="z-10 hidden bg-gray-800 rounded-lg w-110% p-4 shadow-md">
                 @if ($number)
                     <input type="text" hidden name="up_by_mnftr_po_{{ $number }}" value="">
                     <input type="text" hidden name="date_po_mnftr_{{ $number }}" value="">
@@ -8720,7 +8800,8 @@ $m = range(1, 50);
         <form action="" method="post" enctype="multipart/form-data">
             @csrf
             @method('PUT')
-            <div id="dropdown4{{ $number }}" class="z-10 hidden bg-gray-800 rounded-lg w-110% p-4 shadow-md">
+            <div id="dropdown4{{ $number }}"
+                class="z-10 hidden bg-gray-800 rounded-lg w-110% p-4 shadow-md">
                 @if ($number)
                     <input type="text" hidden name="up_by_capo_po_{{ $number }}" value="">
                     <input type="text" hidden name="date_po_capo_{{ $number }}" value="">

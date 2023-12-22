@@ -2417,6 +2417,7 @@ class SupervisorController extends Controller
                 ->whereNull('archive_at')
                 ->where('project_name', 'LIKE', '%' . $keyword . '%')
                 ->OrWhere('io_number', 'LIKE', '%' . $keyword . '%')
+                /* ->OrWhere('budget_amount', 'LIKE', '%' . $keyword . '%') */
                 ->where('check', 'needcheck')
                 ->orderBy('updated_at', 'asc')
                 ->paginate(2);

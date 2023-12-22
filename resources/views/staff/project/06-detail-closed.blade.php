@@ -1,5 +1,5 @@
 @extends('layouts.layout_staff')
-@section('title_page', 'CLOSED - Project')
+@section('title_page', 'Handover - Project')
 
 
 <a href="#submit-1">
@@ -748,7 +748,7 @@
                                 <th class="w-[57%]">Nama File</th>
                                 <th class="w-[10%]">Uploaded by</th>
                                 <th class="w-[13%]">Last Update</th>
-                                <th class="w-[15%]">Upload</th>
+                                <th class="w-[15%]">Aksi</th>
                             </thead>
                             <tbody class="text-left border">
                                 {{-- 1 --}}
@@ -787,7 +787,16 @@
                                     </td>
                                     <td class="text-center">{{ $koneksicl->date_cl_i_periksa_m_1 }}</td>
                                     <td class="space-y-2 py-3 px-2">
-                                        <input type="file" name="as_cl_i_periksa_m_1" id="">
+                                        @if ($koneksicl->cl_i_periksa_m_1 != '')
+                                            <div class="justify-center flex space-x-2">
+                                                <button type="button"
+                                                    class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                    data-modal-target="modal11" data-modal-show="modal11"
+                                                    data-modal-toggle="modal11">Ubah</button>
+                                            </div>
+                                        @else
+                                            <input type="file" name="as_cl_i_periksa_m_1" id="">
+                                        @endif
                                     </td>
                                     <input type="text" hidden name="as_up_by_i_periksa_m_cl_1"
                                         value="{{ Auth::user()->first_name }}">
@@ -831,7 +840,17 @@
                                     </td>
                                     <td class="text-center">{{ $koneksicl->date_cl_i_periksa_m_2 }}</td>
                                     <td class="space-y-2 py-3 px-2">
-                                        <input type="file" name="as_cl_i_periksa_m_2" id="">
+                                        @if ($koneksicl->cl_i_periksa_m_2 != '')
+                                            <div class="justify-center flex space-x-2">
+                                                <button type="button"
+                                                    class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                    data-modal-target="modal12" data-modal-show="modal12"
+                                                    data-modal-toggle="modal12">Ubah</button>
+                                            </div>
+                                        @else
+                                            <input type="file" name="as_cl_i_periksa_m_2" id="">
+                                        @endif
+
                                     </td>
                                     <input type="text" hidden name="as_up_by_i_periksa_m_cl_2"
                                         value="{{ Auth::user()->first_name }}">
@@ -876,7 +895,17 @@
                                     </td>
                                     <td class="text-center">{{ $koneksicl->date_cl_i_periksa_m_3 }}</td>
                                     <td class="space-y-2 py-3 px-2">
-                                        <input type="file" name="as_cl_i_periksa_m_3" id="">
+                                        @if ($koneksicl->cl_i_periksa_m_3 != '')
+                                            <div class="justify-center flex space-x-2">
+                                                <button type="button"
+                                                    class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                    data-modal-target="modal13" data-modal-show="modal13"
+                                                    data-modal-toggle="modal13">Ubah</button>
+                                            </div>
+                                        @else
+                                            <input type="file" name="as_cl_i_periksa_m_3" id="">
+                                        @endif
+
                                     </td>
                                     <input type="text" hidden name="as_up_by_i_periksa_m_cl_3"
                                         value="{{ Auth::user()->first_name }}">
@@ -972,13 +1001,21 @@
                                     </td>
                                     <td class="text-center">{{ $koneksicl->date_cl_qas_1 }}</td>
                                     <td class="space-y-2 py-3 px-2">
-                                        <input type="file" name="as_cl_qas_1" id="">
+                                        @if ($koneksicl->cl_qas_1 != '')
+                                            <div class="justify-center flex space-x-2">
+                                                <button type="button"
+                                                    class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                    data-modal-target="modal21" data-modal-show="modal21"
+                                                    data-modal-toggle="modal21">Ubah</button>
+                                            </div>
+                                        @else
+                                            <input type="file" name="as_cl_qas_1" id="">
+                                        @endif
                                     </td>
                                     <input type="text" hidden name="as_up_by_qas_cl_1"
                                         value="{{ Auth::user()->first_name }}">
                                     <input type="date" hidden name="as_date_cl_qas_1"
                                         value="{{ date('Y-m-d') }}">
-
                                 </tr>
                                 {{-- 2 --}}
                                 <tr
@@ -1016,7 +1053,16 @@
                                     </td>
                                     <td class="text-center">{{ $koneksicl->date_cl_qas_2 }}</td>
                                     <td class="space-y-2 py-3 px-2">
-                                        <input type="file" name="as_cl_qas_2" id="">
+                                        @if ($koneksicl->cl_qas_2 != '')
+                                            <div class="justify-center flex space-x-2">
+                                                <button type="button"
+                                                    class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                    data-modal-target="modal22" data-modal-show="modal22"
+                                                    data-modal-toggle="modal22">Ubah</button>
+                                            </div>
+                                        @else
+                                            <input type="file" name="as_cl_qas_2" id="">
+                                        @endif
                                     </td>
                                     <input type="text" hidden name="as_up_by_qas_cl_2"
                                         value="{{ Auth::user()->first_name }}">
@@ -1112,7 +1158,16 @@
                                     </td>
                                     <td class="text-center">{{ $koneksicl->date_cl_i_pakai_m_1 }}</td>
                                     <td class="space-y-2 py-3 px-2">
-                                        <input type="file" name="as_cl_i_pakai_m_1" id="">
+                                        @if ($koneksicl->cl_i_pakai_m_1 != '')
+                                            <div class="justify-center flex space-x-2">
+                                                <button type="button"
+                                                    class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                    data-modal-target="modal31" data-modal-show="modal31"
+                                                    data-modal-toggle="modal31">Ubah</button>
+                                            </div>
+                                        @else
+                                            <input type="file" name="as_cl_i_pakai_m_1" id="">
+                                        @endif
                                     </td>
                                     <input type="text" hidden name="as_up_by_i_pakai_m_cl_1"
                                         value="{{ Auth::user()->first_name }}">
@@ -1125,7 +1180,6 @@
                                     class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
                                     <td class="py-4 font-bold text-center">2.</td>
                                     <td class="flex justify-start py-4 items-center">
-
                                         @if ($koneksicl->cl_i_pakai_m_2 != '')
                                             <a href="{{ asset('storage/supervisor/project/06_CL/' . $koneksicl->cl_i_pakai_m_2) }}"
                                                 target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
@@ -1156,13 +1210,21 @@
                                     </td>
                                     <td class="text-center">{{ $koneksicl->date_cl_i_pakai_m_2 }}</td>
                                     <td class="space-y-2 py-3 px-2">
-                                        <input type="file" name="as_cl_i_pakai_m_2" id="">
+                                        @if ($koneksicl->cl_i_pakai_m_2 != '')
+                                            <div class="justify-center flex space-x-2">
+                                                <button type="button"
+                                                    class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                    data-modal-target="modal32" data-modal-show="modal32"
+                                                    data-modal-toggle="modal32">Ubah</button>
+                                            </div>
+                                        @else
+                                            <input type="file" name="as_cl_i_pakai_m_2" id="">
+                                        @endif
                                     </td>
                                     <input type="text" hidden name="as_up_by_i_pakai_m_cl_2"
                                         value="{{ Auth::user()->first_name }}">
                                     <input type="date" hidden name="as_date_cl_i_pakai_m_2"
                                         value="{{ date('Y-m-d') }}">
-
                                 </tr>
                             </tbody>
                         </table>
@@ -1252,20 +1314,27 @@
                                     </td>
                                     <td class="text-center">{{ $koneksicl->date_cl_training_1 }}</td>
                                     <td class="space-y-2 py-3 px-2">
-                                        <input type="file" name="as_cl_training_1" id="">
+                                        @if ($koneksicl->cl_training_1 != '')
+                                            <div class="justify-center flex space-x-2">
+                                                <button type="button"
+                                                    class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                    data-modal-target="modal41" data-modal-show="modal41"
+                                                    data-modal-toggle="modal41">Ubah</button>
+                                            </div>
+                                        @else
+                                            <input type="file" name="as_cl_training_1" id="">
+                                        @endif
                                     </td>
                                     <input type="text" hidden name="as_up_by_training_cl_1"
                                         value="{{ Auth::user()->first_name }}">
                                     <input type="date" hidden name="as_date_cl_training_1"
                                         value="{{ date('Y-m-d') }}">
-
                                 </tr>
                                 {{-- 2 --}}
                                 <tr
                                     class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
                                     <td class="py-4 font-bold text-center">2.</td>
                                     <td class="flex justify-start py-4 items-center">
-
                                         @if ($koneksicl->cl_training_2 != '')
                                             <a href="{{ asset('storage/supervisor/project/06_CL/' . $koneksicl->cl_training_2) }}"
                                                 target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
@@ -1284,7 +1353,6 @@
                                             target="blank" download="" class="hover:underline">
                                             {{ $koneksicl->cl_training_2 }}</a>
                                         {{-- == --}}
-
                                     </td>
                                     <td>
                                         @if ($koneksicl->up_by_training_cl_2 != '')
@@ -1296,7 +1364,16 @@
                                     </td>
                                     <td class="text-center">{{ $koneksicl->date_cl_training_2 }}</td>
                                     <td class="space-y-2 py-3 px-2">
-                                        <input type="file" name="as_cl_training_2" id="">
+                                        @if ($koneksicl->cl_training_2 != '')
+                                            <div class="justify-center flex space-x-2">
+                                                <button type="button"
+                                                    class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                    data-modal-target="modal42" data-modal-show="modal42"
+                                                    data-modal-toggle="modal42">Ubah</button>
+                                            </div>
+                                        @else
+                                            <input type="file" name="as_cl_training_2" id="">
+                                        @endif
                                     </td>
                                     <input type="text" hidden name="as_up_by_training_cl_2"
                                         value="{{ Auth::user()->first_name }}">
@@ -1340,13 +1417,21 @@
                                     </td>
                                     <td class="text-center">{{ $koneksicl->date_cl_training_3 }}</td>
                                     <td class="space-y-2 py-3 px-2">
-                                        <input type="file" name="as_cl_training_3" id="">
+                                        @if ($koneksicl->cl_training_3 != '')
+                                            <div class="justify-center flex space-x-2">
+                                                <button type="button"
+                                                    class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                    data-modal-target="modal43" data-modal-show="modal43"
+                                                    data-modal-toggle="modal43">Ubah</button>
+                                            </div>
+                                        @else
+                                            <input type="file" name="as_cl_training_3" id="">
+                                        @endif
                                     </td>
                                     <input type="text" hidden name="as_up_by_training_cl_3"
                                         value="{{ Auth::user()->first_name }}">
                                     <input type="date" hidden name="as_date_cl_training_3"
                                         value="{{ date('Y-m-d') }}">
-
                                 </tr>
                                 {{-- 4 --}}
                                 <tr
@@ -1384,7 +1469,16 @@
                                     </td>
                                     <td class="text-center">{{ $koneksicl->date_cl_training_4 }}</td>
                                     <td class="space-y-2 py-3 px-2">
-                                        <input type="file" name="as_cl_training_4" id="">
+                                        @if ($koneksicl->cl_training_4 != '')
+                                            <div class="justify-center flex space-x-2">
+                                                <button type="button"
+                                                    class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                    data-modal-target="modal44" data-modal-show="modal44"
+                                                    data-modal-toggle="modal44">Ubah</button>
+                                            </div>
+                                        @else
+                                            <input type="file" name="as_cl_training_4" id="">
+                                        @endif
                                     </td>
                                     <input type="text" hidden name="as_up_by_training_cl_4"
                                         value="{{ Auth::user()->first_name }}">
@@ -1428,13 +1522,21 @@
                                     </td>
                                     <td class="text-center">{{ $koneksicl->date_cl_training_5 }}</td>
                                     <td class="space-y-2 py-3 px-2">
-                                        <input type="file" name="as_cl_training_5" id="">
+                                        @if ($koneksicl->cl_training_5 != '')
+                                            <div class="justify-center flex space-x-2">
+                                                <button type="button"
+                                                    class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                    data-modal-target="modal45" data-modal-show="modal45"
+                                                    data-modal-toggle="modal45">Ubah</button>
+                                            </div>
+                                        @else
+                                            <input type="file" name="as_cl_training_5" id="">
+                                        @endif
                                     </td>
                                     <input type="text" hidden name="as_up_by_training_cl_5"
                                         value="{{ Auth::user()->first_name }}">
                                     <input type="date" hidden name="as_date_cl_training_5"
                                         value="{{ date('Y-m-d') }}">
-
                                 </tr>
                             </tbody>
                         </table>
@@ -1524,7 +1626,16 @@
                                     </td>
                                     <td class="text-center">{{ $koneksicl->date_cl_l_trouble_1 }}</td>
                                     <td class="space-y-2 py-3 px-2">
-                                        <input type="file" name="as_cl_l_trouble_1" id="">
+                                        @if ($koneksicl->cl_l_trouble_1 != '')
+                                            <div class="justify-center flex space-x-2">
+                                                <button type="button"
+                                                    class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                    data-modal-target="modal51" data-modal-show="modal51"
+                                                    data-modal-toggle="modal51">Ubah</button>
+                                            </div>
+                                        @else
+                                            <input type="file" name="as_cl_l_trouble_1" id="">
+                                        @endif
                                     </td>
                                     <input type="text" hidden name="as_up_by_l_trouble_cl_1"
                                         value="{{ Auth::user()->first_name }}">
@@ -1568,7 +1679,16 @@
                                     </td>
                                     <td class="text-center">{{ $koneksicl->date_cl_l_trouble_2 }}</td>
                                     <td class="space-y-2 py-3 px-2">
-                                        <input type="file" name="as_cl_l_trouble_2" id="">
+                                        @if ($koneksicl->cl_l_trouble_2 != '')
+                                            <div class="justify-center flex space-x-2">
+                                                <button type="button"
+                                                    class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                    data-modal-target="modal52" data-modal-show="modal52"
+                                                    data-modal-toggle="modal52">Ubah</button>
+                                            </div>
+                                        @else
+                                            <input type="file" name="as_cl_l_trouble_2" id="">
+                                        @endif
                                     </td>
                                     <input type="text" hidden name="as_up_by_l_trouble_cl_2"
                                         value="{{ Auth::user()->first_name }}">
@@ -1664,7 +1784,16 @@
                                     </td>
                                     <td class="text-center">{{ $koneksicl->date_cl_camb_1 }}</td>
                                     <td class="space-y-2 py-3 px-2">
-                                        <input type="file" name="as_cl_camb_1" id="">
+                                        @if ($koneksicl->cl_camb_1 != '')
+                                            <div class="justify-center flex space-x-2">
+                                                <button type="button"
+                                                    class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                    data-modal-target="modal61" data-modal-show="modal61"
+                                                    data-modal-toggle="modal61">Ubah</button>
+                                            </div>
+                                        @else
+                                            <input type="file" name="as_cl_camb_1" id="">
+                                        @endif
                                     </td>
                                     <input type="text" hidden name="as_up_by_camb_cl_1"
                                         value="{{ Auth::user()->first_name }}">
@@ -1708,13 +1837,21 @@
                                     </td>
                                     <td class="text-center">{{ $koneksicl->date_cl_camb_2 }}</td>
                                     <td class="space-y-2 py-3 px-2">
-                                        <input type="file" name="as_cl_camb_2" id="">
+                                        @if ($koneksicl->cl_camb_2 != '')
+                                            <div class="justify-center flex space-x-2">
+                                                <button type="button"
+                                                    class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                    data-modal-target="modal62" data-modal-show="modal62"
+                                                    data-modal-toggle="modal62">Ubah</button>
+                                            </div>
+                                        @else
+                                            <input type="file" name="as_cl_camb_2" id="">
+                                        @endif
                                     </td>
                                     <input type="text" hidden name="as_up_by_camb_cl_2"
                                         value="{{ Auth::user()->first_name }}">
                                     <input type="date" hidden name="as_date_cl_camb_2"
                                         value="{{ date('Y-m-d') }}">
-
                                 </tr>
                             </tbody>
                         </table>
@@ -1801,9 +1938,19 @@
                                             </div>
                                         @endif
                                     </td>
+                                    <div id="submit-1"></div>
                                     <td class="text-center">{{ $koneksicl->date_cl_im_1 }}</td>
                                     <td class="space-y-2 py-3 px-2">
-                                        <input type="file" name="as_cl_im_1" id="">
+                                        @if ($koneksicl->cl_im_1 != '')
+                                            <div class="justify-center flex space-x-2">
+                                                <button type="button"
+                                                    class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                    data-modal-target="modal71" data-modal-show="modal71"
+                                                    data-modal-toggle="modal71">Ubah</button>
+                                            </div>
+                                        @else
+                                            <input type="file" name="as_cl_im_1" id="">
+                                        @endif
                                     </td>
                                     <input type="text" hidden name="as_up_by_im_cl_1"
                                         value="{{ Auth::user()->first_name }}">
@@ -1847,7 +1994,16 @@
                                     </td>
                                     <td class="text-center">{{ $koneksicl->date_cl_im_2 }}</td>
                                     <td class="space-y-2 py-3 px-2">
-                                        <input type="file" name="as_cl_im_2" id="">
+                                        @if ($koneksicl->cl_im_2 != '')
+                                            <div class="justify-center flex space-x-2">
+                                                <button type="button"
+                                                    class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                    data-modal-target="modal72" data-modal-show="modal72"
+                                                    data-modal-toggle="modal72">Ubah</button>
+                                            </div>
+                                        @else
+                                            <input type="file" name="as_cl_im_2" id="">
+                                        @endif
                                     </td>
                                     <input type="text" hidden name="as_up_by_im_cl_2"
                                         value="{{ Auth::user()->first_name }}">
@@ -1891,13 +2047,21 @@
                                     </td>
                                     <td class="text-center">{{ $koneksicl->date_cl_im_3 }}</td>
                                     <td class="space-y-2 py-3 px-2">
-                                        <input type="file" name="as_cl_im_3" id="">
+                                        @if ($koneksicl->cl_im_3 != '')
+                                            <div class="justify-center flex space-x-2">
+                                                <button type="button"
+                                                    class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                    data-modal-target="modal73" data-modal-show="modal73"
+                                                    data-modal-toggle="modal73">Ubah</button>
+                                            </div>
+                                        @else
+                                            <input type="file" name="as_cl_im_3" id="">
+                                        @endif
                                     </td>
                                     <input type="text" hidden name="as_up_by_im_cl_3"
                                         value="{{ Auth::user()->first_name }}">
                                     <input type="date" hidden name="as_date_cl_im_3"
                                         value="{{ date('Y-m-d') }}">
-
                                 </tr>
                                 {{-- 4 --}}
                                 <tr
@@ -1935,7 +2099,16 @@
                                     </td>
                                     <td class="text-center">{{ $koneksicl->date_cl_im_4 }}</td>
                                     <td class="space-y-2 py-3 px-2">
-                                        <input type="file" name="as_cl_im_4" id="">
+                                        @if ($koneksicl->cl_im_4 != '')
+                                            <div class="justify-center flex space-x-2">
+                                                <button type="button"
+                                                    class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                    data-modal-target="modal74" data-modal-show="modal74"
+                                                    data-modal-toggle="modal74">Ubah</button>
+                                            </div>
+                                        @else
+                                            <input type="file" name="as_cl_im_4" id="">
+                                        @endif
                                     </td>
                                     <input type="text" hidden name="as_up_by_im_cl_4"
                                         value="{{ Auth::user()->first_name }}">
@@ -1979,7 +2152,16 @@
                                     </td>
                                     <td class="text-center">{{ $koneksicl->date_cl_im_5 }}</td>
                                     <td class="space-y-2 py-3 px-2">
-                                        <input type="file" name="as_cl_im_5" id="">
+                                        @if ($koneksicl->cl_im_5 != '')
+                                            <div class="justify-center flex space-x-2">
+                                                <button type="button"
+                                                    class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                    data-modal-target="modal75" data-modal-show="modal75"
+                                                    data-modal-toggle="modal75">Ubah</button>
+                                            </div>
+                                        @else
+                                            <input type="file" name="as_cl_im_5" id="">
+                                        @endif
                                     </td>
                                     <input type="text" hidden name="as_up_by_im_cl_5"
                                         value="{{ Auth::user()->first_name }}">
@@ -2076,7 +2258,16 @@
                                     <td class="text-center">{{ $koneksicl->date_cl_chor_1 }}</td>
 
                                     <td class="space-y-2 py-3 px-2">
-                                        <input type="file" name="as_cl_chor_1" id="">
+                                        @if ($koneksicl->cl_chor_1 != '')
+                                            <div class="justify-center flex space-x-2">
+                                                <button type="button"
+                                                    class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                    data-modal-target="modal81" data-modal-show="modal81"
+                                                    data-modal-toggle="modal81">Ubah</button>
+                                            </div>
+                                        @else
+                                            <input type="file" name="as_cl_chor_1" id="">
+                                        @endif
                                     </td>
                                     <input type="text" hidden name="as_up_by_chor_cl_1"
                                         value="{{ Auth::user()->first_name }}">
@@ -2120,13 +2311,21 @@
                                     </td>
                                     <td class="text-center">{{ $koneksicl->date_cl_chor_2 }}</td>
                                     <td class="space-y-2 py-3 px-2">
-                                        <input type="file" name="as_cl_chor_2" id="">
+                                        @if ($koneksicl->cl_chor_2 != '')
+                                            <div class="justify-center flex space-x-2">
+                                                <button type="button"
+                                                    class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                    data-modal-target="modal82" data-modal-show="modal82"
+                                                    data-modal-toggle="modal82">Ubah</button>
+                                            </div>
+                                        @else
+                                            <input type="file" name="as_cl_chor_2" id="">
+                                        @endif
                                     </td>
                                     <input type="text" hidden name="as_up_by_chor_cl_2"
                                         value="{{ Auth::user()->first_name }}">
                                     <input type="date" hidden name="as_date_cl_chor_2"
                                         value="{{ date('Y-m-d') }}">
-
                                 </tr>
                             </tbody>
                         </table>
@@ -2135,7 +2334,6 @@
                 </div>
             </div>
             {{-- bungkus --}}
-
             <input type="text" name="status_cl" value="Waiting Approval" hidden>
             <input type="date" hidden name="status_cl_date" value="{{ date('Y-m-d') }}">
 
@@ -2150,12 +2348,575 @@
                 value="{{ Auth::user()->first_name }} - Memperbarui Closed pada project id={{ $viewdataproject->id }}">
             <input type="text" hidden name="waktu" value="{{ date('d-m-Y H:i') }}">
 
-            <button type="submit"
-                class="bg-orange-500 w-full hover:bg-orange-600 text-white font-bold py-2 rounded-b-lg shadow-md">Submit</button>
+
+            @if (
+                /* 1 */
+                $koneksicl->cl_i_periksa_m_1 &&
+                    $koneksicl->cl_i_periksa_m_2 &&
+                    $koneksicl->cl_i_periksa_m_3 &&
+                    /* 2 */
+                    $koneksicl->cl_qas_1 &&
+                    $koneksicl->cl_qas_2 &&
+                    /* 3 */
+                    $koneksicl->cl_i_pakai_m_1 &&
+                    $koneksicl->cl_i_pakai_m_2 &&
+                    /* 4 */
+                    $koneksicl->cl_training_1 &&
+                    $koneksicl->cl_training_2 &&
+                    $koneksicl->cl_training_3 &&
+                    $koneksicl->cl_training_4 &&
+                    $koneksicl->cl_training_5 &&
+                    /* 5 */
+                    $koneksicl->cl_l_trouble_1 &&
+                    $koneksicl->cl_l_trouble_2 &&
+                    /* 6 */
+                    $koneksicl->cl_camb_1 &&
+                    $koneksicl->cl_camb_2 &&
+                    /* 7 */
+                    $koneksicl->cl_imb_1 &&
+                    $koneksicl->cl_imb_2 &&
+                    $koneksicl->cl_imb_3 &&
+                    $koneksicl->cl_imb_4 &&
+                    $koneksicl->cl_imb_5 &&
+                    /* 8 */
+                    $koneksicl->cl_chor_1 &&
+                    $koneksicl->cl_chor_2 != '')
+            @else
+                <button type="submit"
+                    class="bg-orange-500 w-full hover:bg-orange-600 text-white font-bold py-2 rounded-lg mt-3 shadow-md">Klik
+                    untuk submit dokumen</button>
+            @endif
+
+            {{-- modal ubah --}}
+            @php
+                $m = range(1, 5);
+            @endphp
+
+            @foreach ($m as $index => $number)
+                <div id="modal1{{ $number }}"
+                    class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 inset-0 justify-center items-center w-full max-h-full">
+                    <div class="relative p-4 w-full max-w-2xl max-h-full">
+                        <!-- Modal content -->
+                        <div class="relative bg-white rounded-lg shadow">
+                            <!-- Modal header -->
+                            <div class="flex items-center justify-between px-5 py-3 border-b rounded-t">
+                                <p class="text-2xl font-semibold text-gray-900 font-mono">
+                                    Ubah dokumen unggahan
+                                </p>
+                                <button type="button"
+                                    class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center"
+                                    onclick="simulateEscape()">
+                                    <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                        fill="none" viewBox="0 0 14 14">
+                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                            stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+                                    </svg>
+                                    <span class="sr-only">Close modal</span>
+                                </button>
+                            </div>
+                            <!-- Modal body -->
+                            <div class="py-2 px-5">
+                                <p class="font-light text-lg mb-2">Dokumen sebelumnya</p>
+                                <div class="grid grid-cols-2 space-x-2">
+                                    <div>
+                                        <p class="text-base leading-relaxed text-gray-600">
+                                            Nama dokumen:
+                                        </p>
+                                        <p class="text-gray-900">
+                                            {{ $koneksicl->{'cl_i_periksa_m_' . $number} }}
+                                        </p>
+                                    </div>
+                                    <div>
+                                        <p class="text-base leading-relaxed text-gray-600">
+                                            Oleh:
+                                        </p>
+                                        <p class="text-gray-900">
+                                            {{ $koneksicl->{'up_by_i_periksa_m_cl_' . $number} }}
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Modal footer -->
+                            <div class="items-center px-5 py-2 border-t border-gray-200 rounded-b">
+                                <p class="font-light text-lg">
+                                    Unggah dokumen baru
+                                </p>
+                                <div class="items-center justify-center w-full border my-4">
+                                    @if ($koneksicl->{'cl_i_periksa_m_' . $number} != '')
+                                        <input type="file"name="as_cl_i_periksa_m_{{ $number }}"
+                                            id="">
+                                    @else()
+                                    @endif
+                                </div>
+                            </div>
+                            <button type="submit"
+                                class="bg-orange-500 w-full hover:bg-orange-600 text-white font-bold py-2 rounded-b-lg shadow-md">Submit</button>
+                        </div>
+                    </div>
+                </div>
+            @endforeach
+
+            @foreach ($m as $index => $number)
+                <div id="modal2{{ $number }}"
+                    class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 inset-0 justify-center items-center w-full max-h-full">
+                    <div class="relative p-4 w-full max-w-2xl max-h-full">
+                        <!-- Modal content -->
+                        <div class="relative bg-white rounded-lg shadow">
+                            <!-- Modal header -->
+                            <div class="flex items-center justify-between px-5 py-3 border-b rounded-t">
+                                <p class="text-2xl font-semibold text-gray-900 font-mono">
+                                    Ubah dokumen unggahan
+                                </p>
+                                <button type="button"
+                                    class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center"
+                                    onclick="simulateEscape()">
+                                    <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                        fill="none" viewBox="0 0 14 14">
+                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                            stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+                                    </svg>
+                                    <span class="sr-only">Close modal</span>
+                                </button>
+                            </div>
+                            <!-- Modal body -->
+                            <div class="py-2 px-5">
+                                <p class="font-light text-lg mb-2">Dokumen sebelumnya</p>
+                                <div class="grid grid-cols-2 space-x-2">
+                                    <div>
+                                        <p class="text-base leading-relaxed text-gray-600">
+                                            Nama dokumen:
+                                        </p>
+                                        <p class="text-gray-900">
+                                            {{ $koneksicl->{'cl_qas_' . $number} }}
+                                        </p>
+                                    </div>
+                                    <div>
+                                        <p class="text-base leading-relaxed text-gray-600">
+                                            Oleh:
+                                        </p>
+                                        <p class="text-gray-900">
+                                            {{ $koneksicl->{'up_by_qas_cl_' . $number} }}
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Modal footer -->
+                            <div class="items-center px-5 py-2 border-t border-gray-200 rounded-b">
+                                <p class="font-light text-lg">
+                                    Unggah dokumen baru
+                                </p>
+                                <div class="items-center justify-center w-full border my-4">
+                                    @if ($koneksicl->{'cl_qas_' . $number} != '')
+                                        <input type="file"name="as_cl_qas_{{ $number }}" id="">
+                                    @else()
+                                    @endif
+                                </div>
+                            </div>
+                            <button type="submit"
+                                class="bg-orange-500 w-full hover:bg-orange-600 text-white font-bold py-2 rounded-b-lg shadow-md">Submit</button>
+                        </div>
+                    </div>
+                </div>
+            @endforeach
+
+            @foreach ($m as $index => $number)
+                <div id="modal3{{ $number }}"
+                    class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 inset-0 justify-center items-center w-full max-h-full">
+                    <div class="relative p-4 w-full max-w-2xl max-h-full">
+                        <!-- Modal content -->
+                        <div class="relative bg-white rounded-lg shadow">
+                            <!-- Modal header -->
+                            <div class="flex items-center justify-between px-5 py-3 border-b rounded-t">
+                                <p class="text-2xl font-semibold text-gray-900 font-mono">
+                                    Ubah dokumen unggahan
+                                </p>
+                                <button type="button"
+                                    class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center"
+                                    onclick="simulateEscape()">
+                                    <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                        fill="none" viewBox="0 0 14 14">
+                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                            stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+                                    </svg>
+                                    <span class="sr-only">Close modal</span>
+                                </button>
+                            </div>
+                            <!-- Modal body -->
+                            <div class="py-2 px-5">
+                                <p class="font-light text-lg mb-2">Dokumen sebelumnya</p>
+                                <div class="grid grid-cols-2 space-x-2">
+                                    <div>
+                                        <p class="text-base leading-relaxed text-gray-600">
+                                            Nama dokumen:
+                                        </p>
+                                        <p class="text-gray-900">
+                                            {{ $koneksicl->{'cl_i_pakai_m_' . $number} }}
+                                        </p>
+                                    </div>
+                                    <div>
+                                        <p class="text-base leading-relaxed text-gray-600">
+                                            Oleh:
+                                        </p>
+                                        <p class="text-gray-900">
+                                            {{ $koneksicl->{'up_by_i_pakai_m_cl_' . $number} }}
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Modal footer -->
+                            <div class="items-center px-5 py-2 border-t border-gray-200 rounded-b">
+                                <p class="font-light text-lg">
+                                    Unggah dokumen baru
+                                </p>
+                                <div class="items-center justify-center w-full border my-4">
+                                    @if ($koneksicl->{'cl_i_pakai_m_' . $number} != '')
+                                        <input type="file"name="as_cl_i_pakai_m_{{ $number }}"
+                                            id="">
+                                    @else()
+                                    @endif
+                                </div>
+                            </div>
+                            <button type="submit"
+                                class="bg-orange-500 w-full hover:bg-orange-600 text-white font-bold py-2 rounded-b-lg shadow-md">Submit</button>
+                        </div>
+                    </div>
+                </div>
+            @endforeach
+
+            @foreach ($m as $index => $number)
+                <div id="modal4{{ $number }}"
+                    class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 inset-0 justify-center items-center w-full max-h-full">
+                    <div class="relative p-4 w-full max-w-2xl max-h-full">
+                        <!-- Modal content -->
+                        <div class="relative bg-white rounded-lg shadow">
+                            <!-- Modal header -->
+                            <div class="flex items-center justify-between px-5 py-3 border-b rounded-t">
+                                <p class="text-2xl font-semibold text-gray-900 font-mono">
+                                    Ubah dokumen unggahan
+                                </p>
+                                <button type="button"
+                                    class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center"
+                                    onclick="simulateEscape()">
+                                    <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                        fill="none" viewBox="0 0 14 14">
+                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                            stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+                                    </svg>
+                                    <span class="sr-only">Close modal</span>
+                                </button>
+                            </div>
+                            <!-- Modal body -->
+                            <div class="py-2 px-5">
+                                <p class="font-light text-lg mb-2">Dokumen sebelumnya</p>
+                                <div class="grid grid-cols-2 space-x-2">
+                                    <div>
+                                        <p class="text-base leading-relaxed text-gray-600">
+                                            Nama dokumen:
+                                        </p>
+                                        <p class="text-gray-900">
+                                            {{ $koneksicl->{'cl_training_' . $number} }}
+                                        </p>
+                                    </div>
+                                    <div>
+                                        <p class="text-base leading-relaxed text-gray-600">
+                                            Oleh:
+                                        </p>
+                                        <p class="text-gray-900">
+                                            {{ $koneksicl->{'up_by_training_cl_' . $number} }}
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Modal footer -->
+                            <div class="items-center px-5 py-2 border-t border-gray-200 rounded-b">
+                                <p class="font-light text-lg">
+                                    Unggah dokumen baru
+                                </p>
+                                <div class="items-center justify-center w-full border my-4">
+                                    @if ($koneksicl->{'cl_training_' . $number} != '')
+                                        <input type="file"name="as_cl_training_{{ $number }}"
+                                            id="">
+                                    @else()
+                                    @endif
+                                </div>
+                            </div>
+                            <button type="submit"
+                                class="bg-orange-500 w-full hover:bg-orange-600 text-white font-bold py-2 rounded-b-lg shadow-md">Submit</button>
+                        </div>
+                    </div>
+                </div>
+            @endforeach
+
+            @foreach ($m as $index => $number)
+                <div id="modal5{{ $number }}"
+                    class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 inset-0 justify-center items-center w-full max-h-full">
+                    <div class="relative p-4 w-full max-w-2xl max-h-full">
+                        <!-- Modal content -->
+                        <div class="relative bg-white rounded-lg shadow">
+                            <!-- Modal header -->
+                            <div class="flex items-center justify-between px-5 py-3 border-b rounded-t">
+                                <p class="text-2xl font-semibold text-gray-900 font-mono">
+                                    Ubah dokumen unggahan
+                                </p>
+                                <button type="button"
+                                    class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center"
+                                    onclick="simulateEscape()">
+                                    <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                        fill="none" viewBox="0 0 14 14">
+                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                            stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+                                    </svg>
+                                    <span class="sr-only">Close modal</span>
+                                </button>
+                            </div>
+                            <!-- Modal body -->
+                            <div class="py-2 px-5">
+                                <p class="font-light text-lg mb-2">Dokumen sebelumnya</p>
+                                <div class="grid grid-cols-2 space-x-2">
+                                    <div>
+                                        <p class="text-base leading-relaxed text-gray-600">
+                                            Nama dokumen:
+                                        </p>
+                                        <p class="text-gray-900">
+                                            {{ $koneksicl->{'cl_l_trouble_' . $number} }}
+                                        </p>
+                                    </div>
+                                    <div>
+                                        <p class="text-base leading-relaxed text-gray-600">
+                                            Oleh:
+                                        </p>
+                                        <p class="text-gray-900">
+                                            {{ $koneksicl->{'up_by_l_trouble_cl_' . $number} }}
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Modal footer -->
+                            <div class="items-center px-5 py-2 border-t border-gray-200 rounded-b">
+                                <p class="font-light text-lg">
+                                    Unggah dokumen baru
+                                </p>
+                                <div class="items-center justify-center w-full border my-4">
+                                    @if ($koneksicl->{'cl_l_trouble_' . $number} != '')
+                                        <input type="file"name="as_cl_l_trouble_{{ $number }}"
+                                            id="">
+                                    @else()
+                                    @endif
+                                </div>
+                            </div>
+                            <button type="submit"
+                                class="bg-orange-500 w-full hover:bg-orange-600 text-white font-bold py-2 rounded-b-lg shadow-md">Submit</button>
+                        </div>
+                    </div>
+                </div>
+            @endforeach
+
+            @foreach ($m as $index => $number)
+                <div id="modal6{{ $number }}"
+                    class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 inset-0 justify-center items-center w-full max-h-full">
+                    <div class="relative p-4 w-full max-w-2xl max-h-full">
+                        <!-- Modal content -->
+                        <div class="relative bg-white rounded-lg shadow">
+                            <!-- Modal header -->
+                            <div class="flex items-center justify-between px-5 py-3 border-b rounded-t">
+                                <p class="text-2xl font-semibold text-gray-900 font-mono">
+                                    Ubah dokumen unggahan
+                                </p>
+                                <button type="button"
+                                    class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center"
+                                    onclick="simulateEscape()">
+                                    <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                        fill="none" viewBox="0 0 14 14">
+                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                            stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+                                    </svg>
+                                    <span class="sr-only">Close modal</span>
+                                </button>
+                            </div>
+                            <!-- Modal body -->
+                            <div class="py-2 px-5">
+                                <p class="font-light text-lg mb-2">Dokumen sebelumnya</p>
+                                <div class="grid grid-cols-2 space-x-2">
+                                    <div>
+                                        <p class="text-base leading-relaxed text-gray-600">
+                                            Nama dokumen:
+                                        </p>
+                                        <p class="text-gray-900">
+                                            {{ $koneksicl->{'cl_camb_' . $number} }}
+                                        </p>
+                                    </div>
+                                    <div>
+                                        <p class="text-base leading-relaxed text-gray-600">
+                                            Oleh:
+                                        </p>
+                                        <p class="text-gray-900">
+                                            {{ $koneksicl->{'up_by_camb_cl_' . $number} }}
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Modal footer -->
+                            <div class="items-center px-5 py-2 border-t border-gray-200 rounded-b">
+                                <p class="font-light text-lg">
+                                    Unggah dokumen baru
+                                </p>
+                                <div class="items-center justify-center w-full border my-4">
+                                    @if ($koneksicl->{'cl_camb_' . $number} != '')
+                                        <input type="file"name="as_cl_camb_{{ $number }}" id="">
+                                    @else()
+                                    @endif
+                                </div>
+                            </div>
+                            <button type="submit"
+                                class="bg-orange-500 w-full hover:bg-orange-600 text-white font-bold py-2 rounded-b-lg shadow-md">Submit</button>
+                        </div>
+                    </div>
+                </div>
+            @endforeach
+
+            @foreach ($m as $index => $number)
+                <div id="modal7{{ $number }}"
+                    class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 inset-0 justify-center items-center w-full max-h-full">
+                    <div class="relative p-4 w-full max-w-2xl max-h-full">
+                        <!-- Modal content -->
+                        <div class="relative bg-white rounded-lg shadow">
+                            <!-- Modal header -->
+                            <div class="flex items-center justify-between px-5 py-3 border-b rounded-t">
+                                <p class="text-2xl font-semibold text-gray-900 font-mono">
+                                    Ubah dokumen unggahan
+                                </p>
+                                <button type="button"
+                                    class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center"
+                                    onclick="simulateEscape()">
+                                    <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                        fill="none" viewBox="0 0 14 14">
+                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                            stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+                                    </svg>
+                                    <span class="sr-only">Close modal</span>
+                                </button>
+                            </div>
+                            <!-- Modal body -->
+                            <div class="py-2 px-5">
+                                <p class="font-light text-lg mb-2">Dokumen sebelumnya</p>
+                                <div class="grid grid-cols-2 space-x-2">
+                                    <div>
+                                        <p class="text-base leading-relaxed text-gray-600">
+                                            Nama dokumen:
+                                        </p>
+                                        <p class="text-gray-900">
+                                            {{ $koneksicl->{'cl_im_' . $number} }}
+                                        </p>
+                                    </div>
+                                    <div>
+                                        <p class="text-base leading-relaxed text-gray-600">
+                                            Oleh:
+                                        </p>
+                                        <p class="text-gray-900">
+                                            {{ $koneksicl->{'up_by_im_cl_' . $number} }}
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Modal footer -->
+                            <div class="items-center px-5 py-2 border-t border-gray-200 rounded-b">
+                                <p class="font-light text-lg">
+                                    Unggah dokumen baru
+                                </p>
+                                <div class="items-center justify-center w-full border my-4">
+                                    @if ($koneksicl->{'cl_im_' . $number} != '')
+                                        <input type="file"name="as_cl_im_{{ $number }}" id="">
+                                    @else()
+                                    @endif
+                                </div>
+                            </div>
+                            <button type="submit"
+                                class="bg-orange-500 w-full hover:bg-orange-600 text-white font-bold py-2 rounded-b-lg shadow-md">Submit</button>
+                        </div>
+                    </div>
+                </div>
+            @endforeach
+
+            @foreach ($m as $index => $number)
+                <div id="modal8{{ $number }}"
+                    class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 inset-0 justify-center items-center w-full max-h-full">
+                    <div class="relative p-4 w-full max-w-2xl max-h-full">
+                        <!-- Modal content -->
+                        <div class="relative bg-white rounded-lg shadow">
+                            <!-- Modal header -->
+                            <div class="flex items-center justify-between px-5 py-3 border-b rounded-t">
+                                <p class="text-2xl font-semibold text-gray-900 font-mono">
+                                    Ubah dokumen unggahan
+                                </p>
+                                <button type="button"
+                                    class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center"
+                                    onclick="simulateEscape()">
+                                    <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                        fill="none" viewBox="0 0 14 14">
+                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                            stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+                                    </svg>
+                                    <span class="sr-only">Close modal</span>
+                                </button>
+                            </div>
+                            <!-- Modal body -->
+                            <div class="py-2 px-5">
+                                <p class="font-light text-lg mb-2">Dokumen sebelumnya</p>
+                                <div class="grid grid-cols-2 space-x-2">
+                                    <div>
+                                        <p class="text-base leading-relaxed text-gray-600">
+                                            Nama dokumen:
+                                        </p>
+                                        <p class="text-gray-900">
+                                            {{ $koneksicl->{'cl_chor_' . $number} }}
+                                        </p>
+                                    </div>
+                                    <div>
+                                        <p class="text-base leading-relaxed text-gray-600">
+                                            Oleh:
+                                        </p>
+                                        <p class="text-gray-900">
+                                            {{ $koneksicl->{'up_by_chor_cl_' . $number} }}
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Modal footer -->
+                            <div class="items-center px-5 py-2 border-t border-gray-200 rounded-b">
+                                <p class="font-light text-lg">
+                                    Unggah dokumen baru
+                                </p>
+                                <div class="items-center justify-center w-full border my-4">
+                                    @if ($koneksicl->{'cl_chor_' . $number} != '')
+                                        <input type="file"name="as_cl_chor_{{ $number }}" id="">
+                                    @else()
+                                    @endif
+                                </div>
+                            </div>
+                            <button type="submit"
+                                class="bg-orange-500 w-full hover:bg-orange-600 text-white font-bold py-2 rounded-b-lg shadow-md">Submit</button>
+                        </div>
+                    </div>
+                </div>
+            @endforeach
+            {{-- selesai modal ubah --}}
 
         </form>
     </div>
     {{-- Akhir progress file --}}
+
+    <script>
+        function simulateEscape() {
+            // Create a new KeyboardEvent for the "Escape" key
+            const escapeEvent = new KeyboardEvent('keydown', {
+                key: 'Escape',
+                code: 'Escape',
+                keyCode: 27,
+                which: 27,
+            });
+            document.dispatchEvent(escapeEvent);
+        }
+    </script>
 </div>
 {{-- tutup bungkus --}}
 

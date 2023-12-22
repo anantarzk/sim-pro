@@ -178,8 +178,7 @@
                     @elseif ($viewdataproject->progress == 'Purchasing - PA')
                         <div class="w-full bg-gray-200 rounded-full my-2">
                             <div class="bg-orange-500  text-xs font-medium text-blue-100 text-center leading-none rounded-lg hover:cursor-default"
-                                data-popover-target="popover-8" data-popover-placement="bottom"
-                                style="width: 20%">
+                                data-popover-target="popover-8" data-popover-placement="bottom" style="width: 20%">
                                 <p>20%</p>
 
                             </div>
@@ -187,8 +186,7 @@
                     @elseif ($viewdataproject->progress == 'Waiting Approval Purchasing - PO')
                         <div class="w-full bg-gray-200 rounded-full my-2">
                             <div class="bg-orange-500  text-xs font-medium text-blue-100 text-center leading-none rounded-lg hover:cursor-default"
-                                data-popover-target="popover-9" data-popover-placement="bottom"
-                                style="width: 20%">
+                                data-popover-target="popover-9" data-popover-placement="bottom" style="width: 20%">
                                 <p>20%</p>
 
                             </div>
@@ -196,8 +194,7 @@
                     @elseif ($viewdataproject->progress == 'Purchasing - PO')
                         <div class="w-full bg-gray-200 rounded-full my-2">
                             <div class="bg-orange-500  text-xs font-medium text-blue-100 text-center leading-none rounded-lg hover:cursor-default"
-                                data-popover-target="popover-10" data-popover-placement="bottom"
-                                style="width: 25%">
+                                data-popover-target="popover-10" data-popover-placement="bottom" style="width: 25%">
                                 <p>25%</p>
 
                             </div>
@@ -205,8 +202,7 @@
                     @elseif ($viewdataproject->progress == 'Waiting Approval Purchasing - PAY')
                         <div class="w-full bg-gray-200 rounded-full my-2">
                             <div class="bg-orange-500  text-xs font-medium text-blue-100 text-center leading-none rounded-lg hover:cursor-default"
-                                data-popover-target="popover-11" data-popover-placement="bottom"
-                                style="width: 25%">
+                                data-popover-target="popover-11" data-popover-placement="bottom" style="width: 25%">
                                 <p>25%</p>
 
                             </div>
@@ -214,8 +210,7 @@
                     @elseif ($viewdataproject->progress == 'Purchasing - PAY')
                         <div class="w-full bg-gray-200 rounded-full my-2">
                             <div class="bg-orange-500  text-xs font-medium text-blue-100 text-center leading-none rounded-lg hover:cursor-default"
-                                data-popover-target="popover-12" data-popover-placement="bottom"
-                                style="width: 30%">
+                                data-popover-target="popover-12" data-popover-placement="bottom" style="width: 30%">
                                 <p>30%</p>
 
                             </div>
@@ -223,8 +218,7 @@
                     @elseif ($viewdataproject->progress == 'Purchasing')
                         <div class="w-full bg-gray-200 rounded-full my-2">
                             <div class="bg-orange-500  text-xs font-medium text-blue-100 text-center leading-none rounded-lg hover:cursor-default"
-                                data-popover-target="popover-13" data-popover-placement="bottom"
-                                style="width: 30%">
+                                data-popover-target="popover-13" data-popover-placement="bottom" style="width: 30%">
                                 <p>30%</p>
 
                             </div>
@@ -232,8 +226,7 @@
                     @elseif ($viewdataproject->progress == 'Waiting Approval Manufacturing')
                         <div class="w-full bg-gray-200 rounded-full my-2">
                             <div class="bg-orange-500  text-xs font-medium text-blue-100 text-center leading-none rounded-lg hover:cursor-default"
-                                data-popover-target="popover-14" data-popover-placement="bottom"
-                                style="width: 30%">
+                                data-popover-target="popover-14" data-popover-placement="bottom" style="width: 30%">
                                 <p>30%</p>
 
                             </div>
@@ -241,8 +234,7 @@
                     @elseif ($viewdataproject->progress == 'Manufacturing')
                         <div class="w-full bg-gray-200 rounded-full my-2">
                             <div class="bg-orange-500  text-xs font-medium text-blue-100 text-center leading-none rounded-lg hover:cursor-default"
-                                data-popover-target="popover-15" data-popover-placement="bottom"
-                                style="width: 60%">
+                                data-popover-target="popover-15" data-popover-placement="bottom" style="width: 60%">
                                 <p>60%</p>
 
                             </div>
@@ -250,8 +242,7 @@
                     @elseif ($viewdataproject->progress == 'Waiting Approval Installation')
                         <div class="w-full bg-gray-200 rounded-full my-2">
                             <div class="bg-orange-500  text-xs font-medium text-blue-100 text-center leading-none rounded-lg hover:cursor-default"
-                                data-popover-target="popover-16" data-popover-placement="bottom"
-                                style="width: 60%">
+                                data-popover-target="popover-16" data-popover-placement="bottom" style="width: 60%">
                                 <p>60%</p>
 
                             </div>
@@ -259,8 +250,7 @@
                     @elseif ($viewdataproject->progress == 'Installation')
                         <div class="w-full bg-gray-200 rounded-full my-2">
                             <div class="bg-orange-500  text-xs font-medium text-blue-100 text-center leading-none rounded-lg hover:cursor-default"
-                                data-popover-target="popover-17" data-popover-placement="bottom"
-                                style="width: 95%">
+                                data-popover-target="popover-17" data-popover-placement="bottom" style="width: 95%">
                                 <p>95%</p>
 
                             </div>
@@ -268,8 +258,7 @@
                     @elseif ($viewdataproject->progress == 'Waiting Approval Closed')
                         <div class="w-full bg-gray-200 rounded-full my-2">
                             <div class="bg-orange-500  text-xs font-medium text-blue-100 text-center leading-none rounded-lg hover:cursor-default"
-                                data-popover-target="popover-18" data-popover-placement="bottom"
-                                style="width: 95%">
+                                data-popover-target="popover-18" data-popover-placement="bottom" style="width: 95%">
                                 <p>95%</p>
 
                             </div>
@@ -277,8 +266,7 @@
                     @elseif ($viewdataproject->progress == 'Closed')
                         <div class="w-full bg-gray-200 rounded-full my-2">
                             <div class="bg-orange-500  text-xs font-medium text-blue-100 text-center leading-none rounded-lg hover:cursor-default"
-                                data-popover-target="popover-19" data-popover-placement="bottom"
-                                style="width: 100%">
+                                data-popover-target="popover-19" data-popover-placement="bottom" style="width: 100%">
                                 <p>100%</p>
 
                             </div>
@@ -532,8 +520,7 @@
             <hr class="mb-2 w-full border">
             <div class=" bg-gray-300 overflow-x-auto rounded">
                 <div class="grid grid-cols-1 gap-1">
-                    <div
-                        class="bg-gray-300 p-1 text-lg text-center font-bold text-pink-600 tracking-wider font-mono">
+                    <div class="bg-gray-300 p-1 text-lg text-center font-bold text-pink-600 tracking-wider font-mono">
                         Status Finansial:
                     </div>
                 </div>
@@ -729,7 +716,7 @@
                         <th class="w-[57%]">Nama File</th>
                         <th class="w-[10%]">Uploaded by</th>
                         <th class="w-[13%]">Last Update</th>
-                        <th class="w-[15%]">Upload</th>
+                        <th class="w-[15%]">Aksi</th>
                     </thead>
                     <tbody class="text-left border">
 
@@ -767,24 +754,23 @@
                             </td>
                             <td class="text-center">{{ $koneksiar->date_draw_me_1 }}</td>
                             <td>
-                                @if ($koneksiar->up_draw_me_by_1 = '')
-                                    <input type="file" name="as_draw_me_1" id="">
+                                @if ($koneksiar->draw_me_1 != '')
+                                    <div class="justify-center flex space-x-2">
+                                        <button type="button"
+                                            class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                            data-modal-target="modal11" data-modal-show="modal11"
+                                            data-modal-toggle="modal11">
+                                            Ubah
+                                        </button>
+                                    </div>
                                 @else
-                                    <button
-                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md">Ubah</button>
-                                    <button class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
-                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="15"
-                                            fill="white" viewBox="0 0 48 48">
-                                            <path
-                                                d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
-                                            </path>
-                                        </svg>
-                                    </button>
+                                    <input type="file" name="as_draw_me_1" id="">
                                 @endif
                             </td>
                             <input type="text" hidden name="as_up_draw_me_by_1"
                                 value="{{ Auth::user()->first_name }}">
                             <input type="date" hidden name="as_date_draw_me_1" value="{{ date('Y-m-d') }}">
+
                         </tr>
 
                         <tr class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
@@ -809,6 +795,8 @@
                                     target="blank" download="" class="hover:underline ">
                                     {{ $koneksiar->draw_me_2 }}</a>
                                 {{-- == --}}
+
+
                             </td>
                             <td>
                                 @if ($koneksiar->up_draw_me_by_2 != '')
@@ -820,17 +808,15 @@
                             </td>
                             <td class="text-center">{{ $koneksiar->date_draw_me_2 }}</td>
                             <td>
-                                @if ($koneksiar->up_draw_me_2 != '')
-                                    <button
-                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md">Ubah</button>
-                                    <button class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
-                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="15"
-                                            fill="white" viewBox="0 0 48 48">
-                                            <path
-                                                d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
-                                            </path>
-                                        </svg>
-                                    </button>
+                                @if ($koneksiar->draw_me_2 != '')
+                                    <div class="justify-center flex space-x-2">
+                                        <button type="button"
+                                            class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                            data-modal-target="modal12" data-modal-show="modal12"
+                                            data-modal-toggle="modal12">
+                                            Ubah
+                                        </button>
+                                    </div>
                                 @else
                                     <input type="file" name="as_draw_me_2" id="">
                                 @endif
@@ -847,7 +833,6 @@
 
             {{-- electrical --}}
             {{-- awal standar formulir --}}
-
             <div class="flex space-x-2 items-center justify-between">
                 <p class="font-normal text-lg bg-teal-600 px-4 py-1 w-fit text-white mb-2 rounded"> Drawing
                     Electrical
@@ -887,7 +872,7 @@
                         <th class="w-[57%]">Nama File</th>
                         <th class="w-[10%]">Uploaded by</th>
                         <th class="w-[13%]">Last Update</th>
-                        <th class="w-[15%]">Upload</th>
+                        <th class="w-[15%]">Aksi</th>
                     </thead>
                     <tbody class="text-left border">
 
@@ -913,9 +898,6 @@
                                     target="blank" download="" class="hover:underline">
                                     {{ $koneksiar->draw_el_1 }}</a>
                                 {{-- == --}}
-
-
-
                             </td>
                             <td>
                                 @if ($koneksiar->up_draw_el_by_1 != '')
@@ -927,20 +909,18 @@
                             </td>
                             <td class="text-center">{{ $koneksiar->date_draw_el_1 }}</td>
                             <td>
-                                <input type="file" name="as_draw_el_1" id="">
-
-                                <button
-                                    class=" text-white bg-blue-500 hover:bg-blue-600 p-3 rounded-md">Tambah</button>
-                                <button class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md">Ubah</button>
-                                <button class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
-                                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="15"
-                                        fill="white" viewBox="0 0 48 48">
-                                        <path
-                                            d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
-                                        </path>
-                                    </svg>
-                                </button>
-
+                                @if ($koneksiar->draw_el_1 != '')
+                                    <div class="justify-center flex space-x-2">
+                                        <button type="button"
+                                            class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                            data-modal-target="modal21" data-modal-show="modal21"
+                                            data-modal-toggle="modal21">
+                                            Ubah
+                                        </button>
+                                    </div>
+                                @else
+                                    <input type="file" name="as_draw_el_1" id="">
+                                @endif
                             </td>
                             <input type="text" hidden name="as_up_draw_el_by_1"
                                 value="{{ Auth::user()->first_name }}">
@@ -983,21 +963,19 @@
                             </td>
                             <td class="text-center">{{ $koneksiar->date_draw_el_2 }}</td>
                             <td>
-                                <input type="file" name="as_draw_el_2" id="">
-
-                                <button
-                                    class=" text-white bg-blue-500 hover:bg-blue-600 p-3 rounded-md">Tambah</button>
-                                <button class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md">Ubah</button>
-                                <button class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
-                                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="15"
-                                        fill="white" viewBox="0 0 48 48">
-                                        <path
-                                            d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
-                                        </path>
-                                    </svg>
-                                </button>
-
+                                @if ($koneksiar->draw_el_2 != '')
+                                    <div class="justify-center flex space-x-2">
+                                        <button type="button"
+                                            class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                            data-modal-target="modal22" data-modal-show="modal22"
+                                            data-modal-toggle="modal22">
+                                            Ubah
+                                        </button>
+                                    </div>
+                                @else
+                                    <input type="file" name="as_draw_el_2" id="">
                             </td>
+                            @endif
                             <input type="text" hidden name="as_up_draw_el_by_2"
                                 value="{{ Auth::user()->first_name }}">
                             <input type="date" hidden name="as_date_draw_el_2" value="{{ date('Y-m-d') }}">
@@ -1076,9 +1054,6 @@
                                     target="blank" download="" class="hover:underline">
                                     {{ $koneksiar->approval_lay_1 }}</a>
                                 {{-- == --}}
-
-
-
                             </td>
                             <td>
                                 @if ($koneksiar->up_approval_lay_by_1 != '')
@@ -1090,25 +1065,22 @@
                             </td>
                             <td class="text-center">{{ $koneksiar->date_approval_lay_1 }}</td>
                             <td>
-                                <input type="file" name="as_approval_lay_1" id="">
-
-                                <button
-                                    class=" text-white bg-blue-500 hover:bg-blue-600 p-3 rounded-md">Tambah</button>
-                                <button class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md">Ubah</button>
-                                <button class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
-                                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="15"
-                                        fill="white" viewBox="0 0 48 48">
-                                        <path
-                                            d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
-                                        </path>
-                                    </svg>
-                                </button>
-
+                                @if ($koneksiar->approval_lay_1 != '')
+                                    <div class="justify-center flex space-x-2">
+                                        <button type="button"
+                                            class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                            data-modal-target="modal31" data-modal-show="modal31"
+                                            data-modal-toggle="modal31">
+                                            Ubah
+                                        </button>
+                                    </div>
+                                @else
+                                    <input type="file" name="as_approval_lay_1" id="">
                             </td>
+                            @endif
                             <input type="text" hidden name="as_up_approval_lay_by_1"
                                 value="{{ Auth::user()->first_name }}">
                             <input type="date" hidden name="as_date_approval_lay_1" value="{{ date('Y-m-d') }}">
-
                         </tr>
 
                         <tr class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
@@ -1146,21 +1118,19 @@
                             </td>
                             <td class="text-center">{{ $koneksiar->date_approval_lay_2 }}</td>
                             <td>
-                                <input type="file" name="as_approval_lay_2" id="">
-
-                                <button
-                                    class=" text-white bg-blue-500 hover:bg-blue-600 p-3 rounded-md">Tambah</button>
-                                <button class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md">Ubah</button>
-                                <button class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
-                                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="15"
-                                        fill="white" viewBox="0 0 48 48">
-                                        <path
-                                            d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
-                                        </path>
-                                    </svg>
-                                </button>
-
+                                @if ($koneksiar->approval_lay_2 != '')
+                                    <div class="justify-center flex space-x-2">
+                                        <button type="button"
+                                            class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                            data-modal-target="modal32" data-modal-show="modal32"
+                                            data-modal-toggle="modal32">
+                                            Ubah
+                                        </button>
+                                    </div>
+                                @else
+                                    <input type="file" name="as_approval_lay_2" id="">
                             </td>
+                            @endif
                             <input type="text" hidden name="as_up_approval_lay_by_2"
                                 value="{{ Auth::user()->first_name }}">
                             <input type="date" hidden name="as_date_approval_lay_2" value="{{ date('Y-m-d') }}">
@@ -1239,9 +1209,6 @@
                                     target="blank" download="" class="hover:underline">
                                     {{ $koneksiar->approval_draw_1 }}</a>
                                 {{-- == --}}
-
-
-
                             </td>
                             <td>
                                 @if ($koneksiar->up_approval_draw_by_1 != '')
@@ -1253,20 +1220,18 @@
                             </td>
                             <td class="text-center">{{ $koneksiar->date_approval_draw_1 }}</td>
                             <td>
-                                <input type="file" name="as_approval_draw_1" id="">
-
-                                <button
-                                    class=" text-white bg-blue-500 hover:bg-blue-600 p-3 rounded-md">Tambah</button>
-                                <button class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md">Ubah</button>
-                                <button class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
-                                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="15"
-                                        fill="white" viewBox="0 0 48 48">
-                                        <path
-                                            d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
-                                        </path>
-                                    </svg>
-                                </button>
-
+                                @if ($koneksiar->approval_draw_1 != '')
+                                    <div class="justify-center flex space-x-2">
+                                        <button type="button"
+                                            class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                            data-modal-target="modal41" data-modal-show="modal41"
+                                            data-modal-toggle="modal41">
+                                            Ubah
+                                        </button>
+                                    </div>
+                                @else
+                                    <input type="file" name="as_approval_draw_1" id="">
+                                @endif
                             </td>
                             <input type="text" hidden name="as_up_approval_draw_by_1"
                                 value="{{ Auth::user()->first_name }}">
@@ -1310,20 +1275,18 @@
                             </td>
                             <td class="text-center">{{ $koneksiar->date_approval_draw_2 }}</td>
                             <td>
-                                <input type="file" name="as_approval_draw_2" id="">
-
-                                <button
-                                    class=" text-white bg-blue-500 hover:bg-blue-600 p-3 rounded-md">Tambah</button>
-                                <button class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md">Ubah</button>
-                                <button class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
-                                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="15"
-                                        fill="white" viewBox="0 0 48 48">
-                                        <path
-                                            d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
-                                        </path>
-                                    </svg>
-                                </button>
-
+                                @if ($koneksiar->approval_draw_2 != '')
+                                    <div class="justify-center flex space-x-2">
+                                        <button type="button"
+                                            class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                            data-modal-target="modal42" data-modal-show="modal42"
+                                            data-modal-toggle="modal42">
+                                            Ubah
+                                        </button>
+                                    </div>
+                                @else
+                                    <input type="file" name="as_approval_draw_2" id="">
+                                @endif
                             </td>
                             <input type="text" hidden name="as_up_approval_draw_by_2"
                                 value="{{ Auth::user()->first_name }}">
@@ -1420,20 +1383,18 @@
                             </td>
                             <td class="text-center">{{ $koneksiar->date_dsgn_sheet_1 }}</td>
                             <td>
-                                <input type="file" name="as_dsgn_sheet_1" id="">
-
-                                <button
-                                    class=" text-white bg-blue-500 hover:bg-blue-600 p-3 rounded-md">Tambah</button>
-                                <button class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md">Ubah</button>
-                                <button class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
-                                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="15"
-                                        fill="white" viewBox="0 0 48 48">
-                                        <path
-                                            d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
-                                        </path>
-                                    </svg>
-                                </button>
-
+                                @if ($koneksiar->dsgn_sheet_1 != '')
+                                    <div class="justify-center flex space-x-2">
+                                        <button type="button"
+                                            class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                            data-modal-target="modal51" data-modal-show="modal51"
+                                            data-modal-toggle="modal51">
+                                            Ubah
+                                        </button>
+                                    </div>
+                                @else
+                                    <input type="file" name="as_dsgn_sheet_1" id="">
+                                @endif
                             </td>
                             <input type="text" hidden name="as_up_dsgn_sheet_by_1"
                                 value="{{ Auth::user()->first_name }}">
@@ -1476,20 +1437,18 @@
                             </td>
                             <td class="text-center">{{ $koneksiar->date_dsgn_sheet_2 }}</td>
                             <td>
-                                <input type="file" name="as_dsgn_sheet_2" id="">
-
-                                <button
-                                    class=" text-white bg-blue-500 hover:bg-blue-600 p-3 rounded-md">Tambah</button>
-                                <button class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md">Ubah</button>
-                                <button class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
-                                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="15"
-                                        fill="white" viewBox="0 0 48 48">
-                                        <path
-                                            d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
-                                        </path>
-                                    </svg>
-                                </button>
-
+                                @if ($koneksiar->dsgn_sheet_2 != '')
+                                    <div class="justify-center flex space-x-2">
+                                        <button type="button"
+                                            class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                            data-modal-target="modal52" data-modal-show="modal52"
+                                            data-modal-toggle="modal52">
+                                            Ubah
+                                        </button>
+                                    </div>
+                                @else
+                                    <input type="file" name="as_dsgn_sheet_2" id="">
+                                @endif
                             </td>
                             <input type="text" hidden name="as_up_dsgn_sheet_by_2"
                                 value="{{ Auth::user()->first_name }}">
@@ -1584,20 +1543,18 @@
                             </td>
                             <td class="text-center">{{ $koneksiar->date_dr_meet_1 }}</td>
                             <td>
-                                <input type="file" name="as_dr_meet_1" id="">
-
-                                <button
-                                    class=" text-white bg-blue-500 hover:bg-blue-600 p-3 rounded-md">Tambah</button>
-                                <button class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md">Ubah</button>
-                                <button class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
-                                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="15"
-                                        fill="white" viewBox="0 0 48 48">
-                                        <path
-                                            d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
-                                        </path>
-                                    </svg>
-                                </button>
-
+                                @if ($koneksiar->dr_meet_1 != '')
+                                    <div class="justify-center flex space-x-2">
+                                        <button type="button"
+                                            class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                            data-modal-target="modal61" data-modal-show="modal61"
+                                            data-modal-toggle="modal61">
+                                            Ubah
+                                        </button>
+                                    </div>
+                                @else
+                                    <input type="file" name="as_dr_meet_1" id="">
+                                @endif
                             </td>
                             <input type="text" hidden name="as_up_dr_meet_by_1"
                                 value="{{ Auth::user()->first_name }}">
@@ -1640,20 +1597,18 @@
                             </td>
                             <td class="text-center">{{ $koneksiar->date_dr_meet_2 }}</td>
                             <td>
-                                <input type="file" name="as_dr_meet_2" id="">
-
-                                <button
-                                    class=" text-white bg-blue-500 hover:bg-blue-600 p-3 rounded-md">Tambah</button>
-                                <button class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md">Ubah</button>
-                                <button class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
-                                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="15"
-                                        fill="white" viewBox="0 0 48 48">
-                                        <path
-                                            d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
-                                        </path>
-                                    </svg>
-                                </button>
-
+                                @if ($koneksiar->dr_meet_2 != '')
+                                    <div class="justify-center flex space-x-2">
+                                        <button type="button"
+                                            class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                            data-modal-target="modal62" data-modal-show="modal62"
+                                            data-modal-toggle="modal62">
+                                            Ubah
+                                        </button>
+                                    </div>
+                                @else
+                                    <input type="file" name="as_dr_meet_2" id="">
+                                @endif
                             </td>
                             <input type="text" hidden name="as_up_dr_meet_by_2"
                                 value="{{ Auth::user()->first_name }}">
@@ -1695,20 +1650,18 @@
                             </td>
                             <td class="text-center">{{ $koneksiar->date_dr_meet_3 }}</td>
                             <td>
-                                <input type="file" name="as_dr_meet_3" id="">
-
-                                <button
-                                    class=" text-white bg-blue-500 hover:bg-blue-600 p-3 rounded-md">Tambah</button>
-                                <button class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md">Ubah</button>
-                                <button class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
-                                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="15"
-                                        fill="white" viewBox="0 0 48 48">
-                                        <path
-                                            d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
-                                        </path>
-                                    </svg>
-                                </button>
-
+                                @if ($koneksiar->dr_meet_3 != '')
+                                    <div class="justify-center flex space-x-2">
+                                        <button type="button"
+                                            class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                            data-modal-target="modal63" data-modal-show="modal63"
+                                            data-modal-toggle="modal63">
+                                            Ubah
+                                        </button>
+                                    </div>
+                                @else
+                                    <input type="file" name="as_dr_meet_3" id="">
+                                @endif
                             </td>
                             <input type="text" hidden name="as_up_dr_meet_by_3"
                                 value="{{ Auth::user()->first_name }}">
@@ -1751,20 +1704,18 @@
                             </td>
                             <td class="text-center">{{ $koneksiar->date_dr_meet_4 }}</td>
                             <td>
-                                <input type="file" name="as_dr_meet_4" id="">
-
-                                <button
-                                    class=" text-white bg-blue-500 hover:bg-blue-600 p-3 rounded-md">Tambah</button>
-                                <button class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md">Ubah</button>
-                                <button class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
-                                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="15"
-                                        fill="white" viewBox="0 0 48 48">
-                                        <path
-                                            d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
-                                        </path>
-                                    </svg>
-                                </button>
-
+                                @if ($koneksiar->dr_meet_4 != '')
+                                    <div class="justify-center flex space-x-2">
+                                        <button type="button"
+                                            class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                            data-modal-target="modal64" data-modal-show="modal64"
+                                            data-modal-toggle="modal64">
+                                            Ubah
+                                        </button>
+                                    </div>
+                                @else
+                                    <input type="file" name="as_dr_meet_4" id="">
+                                @endif
                             </td>
                             <input type="text" hidden name="as_up_dr_meet_by_4"
                                 value="{{ Auth::user()->first_name }}">
@@ -1805,20 +1756,18 @@
                             </td>
                             <td class="text-center">{{ $koneksiar->date_dr_meet_5 }}</td>
                             <td>
-                                <input type="file" name="as_dr_meet_5" id="">
-
-                                <button
-                                    class=" text-white bg-blue-500 hover:bg-blue-600 p-3 rounded-md">Tambah</button>
-                                <button class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md">Ubah</button>
-                                <button class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
-                                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="15"
-                                        fill="white" viewBox="0 0 48 48">
-                                        <path
-                                            d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
-                                        </path>
-                                    </svg>
-                                </button>
-
+                                @if ($koneksiar->dr_meet_5 != '')
+                                    <div class="justify-center flex space-x-2">
+                                        <button type="button"
+                                            class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                            data-modal-target="modal65" data-modal-show="modal65"
+                                            data-modal-toggle="modal65">
+                                            Ubah
+                                        </button>
+                                    </div>
+                                @else
+                                    <input type="file" name="as_dr_meet_5" id="">
+                                @endif
                             </td>
                             <input type="text" hidden name="as_up_dr_meet_by_5"
                                 value="{{ Auth::user()->first_name }}">
@@ -1847,8 +1796,8 @@
                                 <a href="{{ asset('storage/supervisor/standarproject/' . $spt->file_est_budget_form) }}"
                                     download="">
                                     <div class="w-fit items-center space-x-2 flex">
-                                        <svg width="10" height="auto" viewBox="0 0 31 39" class="fill-blue-700"
-                                            xmlns="http://www.w3.org/2000/svg">
+                                        <svg width="10" height="auto" viewBox="0 0 31 39"
+                                            class="fill-blue-700" xmlns="http://www.w3.org/2000/svg">
                                             <path
                                                 d="M17.4375 13.5625H28.0938L17.4375 2.90625V13.5625ZM3.875 0H19.375L31 11.625V34.875C31 35.9027 30.5917 36.8883 29.865 37.615C29.1383 38.3417 28.1527 38.75 27.125 38.75H3.875C1.72438 38.75 0 37.0062 0 34.875V3.875C0 1.72438 1.72438 0 3.875 0ZM5.8125 34.875H9.6875V23.25H5.8125V34.875ZM13.5625 34.875H17.4375V19.375H13.5625V34.875ZM21.3125 34.875H25.1875V27.125H21.3125V34.875Z" />
                                         </svg>
@@ -1914,25 +1863,23 @@
                             </td>
                             <td class="text-center">{{ $koneksiar->date_est_budget_1 }}</td>
                             <td>
-                                <input type="file" name="as_est_budget_1" id="">
-
-                                <button
-                                    class=" text-white bg-blue-500 hover:bg-blue-600 p-3 rounded-md">Tambah</button>
-                                <button class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md">Ubah</button>
-                                <button class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
-                                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="15"
-                                        fill="white" viewBox="0 0 48 48">
-                                        <path
-                                            d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
-                                        </path>
-                                    </svg>
-                                </button>
-
+                                @if ($koneksiar->est_budget_1 != '')
+                                    <div class="justify-center flex space-x-2">
+                                        <button type="button"
+                                            class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                            data-modal-target="modal71" data-modal-show="modal71"
+                                            data-modal-toggle="modal71">
+                                            Ubah
+                                        </button>
+                                    </div>
+                                @else
+                                    <input type="file" name="as_est_budget_1" id="">
+                                @endif
                             </td>
                             <input type="text" hidden name="as_up_est_budget_by_1"
                                 value="{{ Auth::user()->first_name }}">
-                            <input type="date" hidden name="as_date_est_budget_1" value="{{ date('Y-m-d') }}">
-
+                            <input type="date" hidden name="as_date_est_budget_1"
+                                value="{{ date('Y-m-d') }}">
                         </tr>
 
                         <tr class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
@@ -1970,19 +1917,18 @@
                             </td>
                             <td class="text-center">{{ $koneksiar->date_est_budget_2 }}</td>
                             <td>
-                                <input type="file" name="as_est_budget_2" id="">
-
-                                <button class="text-white bg-blue-500 hover:bg-blue-600 p-3 rounded-md">Tambah</button>
-                                <button class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md">Ubah</button>
-                                <button class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
-                                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="15"
-                                        fill="white" viewBox="0 0 48 48">
-                                        <path
-                                            d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
-                                        </path>
-                                    </svg>
-                                </button>
-
+                                @if ($koneksiar->est_budget_2 != '')
+                                    <div class="justify-center flex space-x-2">
+                                        <button type="button"
+                                            class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                            data-modal-target="modal72" data-modal-show="modal72"
+                                            data-modal-toggle="modal72">
+                                            Ubah
+                                        </button>
+                                    </div>
+                                @else
+                                    <input type="file" name="as_est_budget_2" id="">
+                                @endif
                             </td>
                             <input type="text" hidden name="as_up_est_budget_by_2"
                                 value="{{ Auth::user()->first_name }}">
@@ -2011,15 +1957,510 @@
             <input type="text" hidden name="waktu" value="{{ date('d-m-Y H:i') }}">
 
 
-            <button type="submit"
-                class="bg-orange-500 w-full hover:bg-orange-600 text-white font-bold py-2 rounded-b-lg shadow-md">Submit</button>
+            @if (
+                /* 1m */
+                $koneksiar->draw_me_1 &&
+                    $koneksiar->draw_me_2 &&
+                    /* 2n */
+                    $koneksiar->draw_el_1 &&
+                    $koneksiar->draw_el_2 &&
+                    /* 3o */
+                    $koneksiar->approval_lay_1 &&
+                    $koneksiar->approval_lay_2 &&
+                    /* 4p */
+                    $koneksiar->approval_draw_1 &&
+                    $koneksiar->approval_draw_2 &&
+                    /* 5q */
+                    $koneksiar->dsgn_sheet_1 &&
+                    $koneksiar->dsgn_sheet_2 &&
+                    /* 6r */
+                    $koneksiar->dr_meet_1 &&
+                    $koneksiar->dr_meet_2 &&
+                    $koneksiar->dr_meet_3 &&
+                    $koneksiar->dr_meet_4 &&
+                    $koneksiar->dr_meet_5 &&
+                    /* 7s */
+                    $koneksiar->est_budget_1 &&
+                    $koneksiar->est_budget_2 != '')
+            @else
+                <button type="submit" id="submit-1"
+                    class="bg-orange-500 w-full hover:bg-orange-600 text-white font-bold py-2 rounded-lg mt-3 shadow-md">Klik untuk submit dokumen</button>
+            @endif
+
+            {{-- modal ubah --}}
+            @php
+                $m = range(1, 2);
+            @endphp
+
+            @foreach ($m as $index => $number)
+                <div id="modal1{{ $number }}"
+                    class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 inset-0 justify-center items-center w-full max-h-full">
+                    <div class="relative p-4 w-full max-w-2xl max-h-full">
+                        <!-- Modal content -->
+                        <div class="relative bg-white rounded-lg shadow">
+                            <!-- Modal header -->
+                            <div class="flex items-center justify-between px-5 py-3 border-b rounded-t">
+                                <p class="text-2xl font-semibold text-gray-900 font-mono">
+                                    Ubah dokumen unggahan
+                                </p>
+                                <button type="button"
+                                    class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center"
+                                    onclick="simulateEscape()">
+                                    <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                        fill="none" viewBox="0 0 14 14">
+                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                            stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+                                    </svg>
+                                    <span class="sr-only">Close modal</span>
+                                </button>
+                            </div>
+                            <!-- Modal body -->
+                            <div class="py-2 px-5">
+                                <p class="font-light text-lg mb-2">Dokumen sebelumnya</p>
+                                <div class="grid grid-cols-2 space-x-2">
+                                    <div>
+                                        <p class="text-base leading-relaxed text-gray-600">
+                                            Nama dokumen:
+                                        </p>
+                                        <p class="text-gray-900">
+                                            {{ $koneksiar->{'draw_me_' . $number} }}
+                                        </p>
+                                    </div>
+                                    <div>
+                                        <p class="text-base leading-relaxed text-gray-600">
+                                            Oleh:
+                                        </p>
+                                        <p class="text-gray-900">
+                                            {{ $koneksiar->{'up_draw_me_by_' . $number} }}
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Modal footer -->
+                            <div class="items-center px-5 py-2 border-t border-gray-200 rounded-b">
+                                <p class="font-light text-lg">
+                                    Unggah dokumen baru
+                                </p>
+                                <div class="items-center justify-center w-full border my-4">
+                                    @if ($koneksiar->{'draw_me_' . $number} != '')
+                                        <input type="file"name="as_draw_me_{{ $number }}" id="">
+                                    @else()
+                                    @endif
+                                </div>
+                            </div>
+                            <button type="submit"
+                                class="bg-orange-500 w-full hover:bg-orange-600 text-white font-bold py-2 rounded-b-lg shadow-md">Submit</button>
+                        </div>
+                    </div>
+                </div>
+            @endforeach
+
+            @foreach ($m as $index => $number)
+                <div id="modal2{{ $number }}"
+                    class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 inset-0 justify-center items-center w-full max-h-full">
+                    <div class="relative p-4 w-full max-w-2xl max-h-full">
+                        <!-- Modal content -->
+                        <div class="relative bg-white rounded-lg shadow">
+                            <!-- Modal header -->
+                            <div class="flex items-center justify-between px-5 py-3 border-b rounded-t">
+                                <p class="text-2xl font-semibold text-gray-900 font-mono">
+                                    Ubah dokumen unggahan
+                                </p>
+                                <button type="button"
+                                    class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center"
+                                    onclick="simulateEscape()">
+                                    <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                        fill="none" viewBox="0 0 14 14">
+                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                            stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+                                    </svg>
+                                    <span class="sr-only">Close modal</span>
+                                </button>
+                            </div>
+                            <!-- Modal body -->
+                            <div class="py-2 px-5">
+                                <p class="font-light text-lg mb-2">Dokumen sebelumnya</p>
+                                <div class="grid grid-cols-2 space-x-2">
+                                    <div>
+                                        <p class="text-base leading-relaxed text-gray-600">
+                                            Nama dokumen:
+                                        </p>
+                                        <p class="text-gray-900">
+                                            {{ $koneksiar->{'draw_el_' . $number} }}
+                                        </p>
+                                    </div>
+                                    <div>
+                                        <p class="text-base leading-relaxed text-gray-600">
+                                            Oleh:
+                                        </p>
+                                        <p class="text-gray-900">
+                                            {{ $koneksiar->{'up_draw_el_by_' . $number} }}
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Modal footer -->
+                            <div class="items-center px-5 py-2 border-t border-gray-200 rounded-b">
+                                <p class="font-light text-lg">
+                                    Unggah dokumen baru
+                                </p>
+                                <div class="items-center justify-center w-full border my-4">
+                                    @if ($koneksiar->{'draw_el_' . $number} != '')
+                                        <input type="file"name="as_draw_el_{{ $number }}" id="">
+                                    @else()
+                                    @endif
+                                </div>
+                            </div>
+                            <button type="submit"
+                                class="bg-orange-500 w-full hover:bg-orange-600 text-white font-bold py-2 rounded-b-lg shadow-md">Submit</button>
+                        </div>
+                    </div>
+                </div>
+            @endforeach
+
+            @foreach ($m as $index => $number)
+                <div id="modal3{{ $number }}"
+                    class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 inset-0 justify-center items-center w-full max-h-full">
+                    <div class="relative p-4 w-full max-w-2xl max-h-full">
+                        <!-- Modal content -->
+                        <div class="relative bg-white rounded-lg shadow">
+                            <!-- Modal header -->
+                            <div class="flex items-center justify-between px-5 py-3 border-b rounded-t">
+                                <p class="text-2xl font-semibold text-gray-900 font-mono">
+                                    Ubah dokumen unggahan
+                                </p>
+                                <button type="button"
+                                    class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center"
+                                    onclick="simulateEscape()">
+                                    <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                        fill="none" viewBox="0 0 14 14">
+                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                            stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+                                    </svg>
+                                    <span class="sr-only">Close modal</span>
+                                </button>
+                            </div>
+                            <!-- Modal body -->
+                            <div class="py-2 px-5">
+                                <p class="font-light text-lg mb-2">Dokumen sebelumnya</p>
+                                <div class="grid grid-cols-2 space-x-2">
+                                    <div>
+                                        <p class="text-base leading-relaxed text-gray-600">
+                                            Nama dokumen:
+                                        </p>
+                                        <p class="text-gray-900">
+                                            {{ $koneksiar->{'approval_lay_' . $number} }}
+                                        </p>
+                                    </div>
+                                    <div>
+                                        <p class="text-base leading-relaxed text-gray-600">
+                                            Oleh:
+                                        </p>
+                                        <p class="text-gray-900">
+                                            {{ $koneksiar->{'up_approval_lay_by_' . $number} }}
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Modal footer -->
+                            <div class="items-center px-5 py-2 border-t border-gray-200 rounded-b">
+                                <p class="font-light text-lg">
+                                    Unggah dokumen baru
+                                </p>
+                                <div class="items-center justify-center w-full border my-4">
+                                    @if ($koneksiar->{'approval_lay_' . $number} != '')
+                                        <input type="file"name="as_approval_lay_{{ $number }}"
+                                            id="">
+                                    @else()
+                                    @endif
+                                </div>
+                            </div>
+                            <button type="submit"
+                                class="bg-orange-500 w-full hover:bg-orange-600 text-white font-bold py-2 rounded-b-lg shadow-md">Submit</button>
+                        </div>
+                    </div>
+                </div>
+            @endforeach
+
+            @foreach ($m as $index => $number)
+                <div id="modal4{{ $number }}"
+                    class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 inset-0 justify-center items-center w-full max-h-full">
+                    <div class="relative p-4 w-full max-w-2xl max-h-full">
+                        <!-- Modal content -->
+                        <div class="relative bg-white rounded-lg shadow">
+                            <!-- Modal header -->
+                            <div class="flex items-center justify-between px-5 py-3 border-b rounded-t">
+                                <p class="text-2xl font-semibold text-gray-900 font-mono">
+                                    Ubah dokumen unggahan
+                                </p>
+                                <button type="button"
+                                    class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center"
+                                    onclick="simulateEscape()">
+                                    <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                        fill="none" viewBox="0 0 14 14">
+                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                            stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+                                    </svg>
+                                    <span class="sr-only">Close modal</span>
+                                </button>
+                            </div>
+                            <!-- Modal body -->
+                            <div class="py-2 px-5">
+                                <p class="font-light text-lg mb-2">Dokumen sebelumnya</p>
+                                <div class="grid grid-cols-2 space-x-2">
+                                    <div>
+                                        <p class="text-base leading-relaxed text-gray-600">
+                                            Nama dokumen:
+                                        </p>
+                                        <p class="text-gray-900">
+                                            {{ $koneksiar->{'approval_draw_' . $number} }}
+                                        </p>
+                                    </div>
+                                    <div>
+                                        <p class="text-base leading-relaxed text-gray-600">
+                                            Oleh:
+                                        </p>
+                                        <p class="text-gray-900">
+                                            {{ $koneksiar->{'up_approval_draw_by_' . $number} }}
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Modal footer -->
+                            <div class="items-center px-5 py-2 border-t border-gray-200 rounded-b">
+                                <p class="font-light text-lg">
+                                    Unggah dokumen baru
+                                </p>
+                                <div class="items-center justify-center w-full border my-4">
+                                    @if ($koneksiar->{'approval_draw_' . $number} != '')
+                                        <input type="file"name="as_approval_draw_{{ $number }}"
+                                            id="">
+                                    @else()
+                                    @endif
+                                </div>
+                            </div>
+                            <button type="submit"
+                                class="bg-orange-500 w-full hover:bg-orange-600 text-white font-bold py-2 rounded-b-lg shadow-md">Submit</button>
+                        </div>
+                    </div>
+                </div>
+            @endforeach
+
+            @foreach ($m as $index => $number)
+                <div id="modal5{{ $number }}"
+                    class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 inset-0 justify-center items-center w-full max-h-full">
+                    <div class="relative p-4 w-full max-w-2xl max-h-full">
+                        <!-- Modal content -->
+                        <div class="relative bg-white rounded-lg shadow">
+                            <!-- Modal header -->
+                            <div class="flex items-center justify-between px-5 py-3 border-b rounded-t">
+                                <p class="text-2xl font-semibold text-gray-900 font-mono">
+                                    Ubah dokumen unggahan
+                                </p>
+                                <button type="button"
+                                    class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center"
+                                    onclick="simulateEscape()">
+                                    <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                        fill="none" viewBox="0 0 14 14">
+                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                            stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+                                    </svg>
+                                    <span class="sr-only">Close modal</span>
+                                </button>
+                            </div>
+                            <!-- Modal body -->
+                            <div class="py-2 px-5">
+                                <p class="font-light text-lg mb-2">Dokumen sebelumnya</p>
+                                <div class="grid grid-cols-2 space-x-2">
+                                    <div>
+                                        <p class="text-base leading-relaxed text-gray-600">
+                                            Nama dokumen:
+                                        </p>
+                                        <p class="text-gray-900">
+                                            {{ $koneksiar->{'dsgn_sheet_' . $number} }}
+                                        </p>
+                                    </div>
+                                    <div>
+                                        <p class="text-base leading-relaxed text-gray-600">
+                                            Oleh:
+                                        </p>
+                                        <p class="text-gray-900">
+                                            {{ $koneksiar->{'up_dsgn_sheet_by_' . $number} }}
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Modal footer -->
+                            <div class="items-center px-5 py-2 border-t border-gray-200 rounded-b">
+                                <p class="font-light text-lg">
+                                    Unggah dokumen baru
+                                </p>
+                                <div class="items-center justify-center w-full border my-4">
+                                    @if ($koneksiar->{'dsgn_sheet_' . $number} != '')
+                                        <input type="file"name="as_dsgn_sheet_{{ $number }}"
+                                            id="">
+                                    @else()
+                                    @endif
+                                </div>
+                            </div>
+                            <button type="submit"
+                                class="bg-orange-500 w-full hover:bg-orange-600 text-white font-bold py-2 rounded-b-lg shadow-md">Submit</button>
+                        </div>
+                    </div>
+                </div>
+            @endforeach
+
+
+            @php
+                $p = range(1, 5);
+            @endphp
+
+            @foreach ($p as $index => $number)
+                <div id="modal6{{ $number }}"
+                    class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 inset-0 justify-center items-center w-full max-h-full">
+                    <div class="relative p-4 w-full max-w-2xl max-h-full">
+                        <!-- Modal content -->
+                        <div class="relative bg-white rounded-lg shadow">
+                            <!-- Modal header -->
+                            <div class="flex items-center justify-between px-5 py-3 border-b rounded-t">
+                                <p class="text-2xl font-semibold text-gray-900 font-mono">
+                                    Ubah dokumen unggahan
+                                </p>
+                                <button type="button"
+                                    class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center"
+                                    onclick="simulateEscape()">
+                                    <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                        fill="none" viewBox="0 0 14 14">
+                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                            stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+                                    </svg>
+                                    <span class="sr-only">Close modal</span>
+                                </button>
+                            </div>
+                            <!-- Modal body -->
+                            <div class="py-2 px-5">
+                                <p class="font-light text-lg mb-2">Dokumen sebelumnya</p>
+                                <div class="grid grid-cols-2 space-x-2">
+                                    <div>
+                                        <p class="text-base leading-relaxed text-gray-600">
+                                            Nama dokumen:
+                                        </p>
+                                        <p class="text-gray-900">
+                                            {{ $koneksiar->{'dr_meet_' . $number} }}
+                                        </p>
+                                    </div>
+                                    <div>
+                                        <p class="text-base leading-relaxed text-gray-600">
+                                            Oleh:
+                                        </p>
+                                        <p class="text-gray-900">
+                                            {{ $koneksiar->{'up_dr_meet_by_' . $number} }}
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Modal footer -->
+                            <div class="items-center px-5 py-2 border-t border-gray-200 rounded-b">
+                                <p class="font-light text-lg">
+                                    Unggah dokumen baru
+                                </p>
+                                <div class="items-center justify-center w-full border my-4">
+                                    @if ($koneksiar->{'dr_meet_' . $number} != '')
+                                        <input type="file"name="as_dr_meet_{{ $number }}" id="">
+                                    @else()
+                                    @endif
+                                </div>
+                            </div>
+                            <button type="submit"
+                                class="bg-orange-500 w-full hover:bg-orange-600 text-white font-bold py-2 rounded-b-lg shadow-md">Submit</button>
+                        </div>
+                    </div>
+                </div>
+            @endforeach
+
+            @foreach ($m as $index => $number)
+                <div id="modal7{{ $number }}"
+                    class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 inset-0 justify-center items-center w-full max-h-full">
+                    <div class="relative p-4 w-full max-w-2xl max-h-full">
+                        <!-- Modal content -->
+                        <div class="relative bg-white rounded-lg shadow">
+                            <!-- Modal header -->
+                            <div class="flex items-center justify-between px-5 py-3 border-b rounded-t">
+                                <p class="text-2xl font-semibold text-gray-900 font-mono">
+                                    Ubah dokumen unggahan
+                                </p>
+                                <button type="button"
+                                    class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center"
+                                    onclick="simulateEscape()">
+                                    <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                        fill="none" viewBox="0 0 14 14">
+                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                            stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+                                    </svg>
+                                    <span class="sr-only">Close modal</span>
+                                </button>
+                            </div>
+                            <!-- Modal body -->
+                            <div class="py-2 px-5">
+                                <p class="font-light text-lg mb-2">Dokumen sebelumnya</p>
+                                <div class="grid grid-cols-2 space-x-2">
+                                    <div>
+                                        <p class="text-base leading-relaxed text-gray-600">
+                                            Nama dokumen:
+                                        </p>
+                                        <p class="text-gray-900">
+                                            {{ $koneksiar->{'est_budget_' . $number} }}
+                                        </p>
+                                    </div>
+                                    <div>
+                                        <p class="text-base leading-relaxed text-gray-600">
+                                            Oleh:
+                                        </p>
+                                        <p class="text-gray-900">
+                                            {{ $koneksiar->{'up_est_budget_by_' . $number} }}
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Modal footer -->
+                            <div class="items-center px-5 py-2 border-t border-gray-200 rounded-b">
+                                <p class="font-light text-lg">
+                                    Unggah dokumen baru
+                                </p>
+                                <div class="items-center justify-center w-full border my-4">
+                                    @if ($koneksiar->{'est_budget_' . $number} != '')
+                                        <input type="file"name="as_est_budget_{{ $number }}"
+                                            id="">
+                                    @else()
+                                    @endif
+                                </div>
+                            </div>
+                            <button type="submit"
+                                class="bg-orange-500 w-full hover:bg-orange-600 text-white font-bold py-2 rounded-b-lg shadow-md">Submit</button>
+                        </div>
+                    </div>
+                </div>
+            @endforeach
+            {{-- selesai modal ubah --}}
+
         </form>
 
-    </div>
-    {{-- Akhir progress file --}}
+</div>
+{{-- Akhir progress file --}}
+
+<script>
+    function simulateEscape() {
+        // Create a new KeyboardEvent for the "Escape" key
+        const escapeEvent = new KeyboardEvent('keydown', {
+            key: 'Escape',
+            code: 'Escape',
+            keyCode: 27,
+            which: 27,
+        });
+        document.dispatchEvent(escapeEvent);
+    }
+</script>
 </div>
 {{-- tutup bungkus --}}
 
-
-<div id="submit-1" class="-mt-52"></div>
 </div>

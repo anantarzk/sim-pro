@@ -609,7 +609,7 @@
                             <p class="font-semibold text-lg text-gray-900 hover:underline">Pur. Request
                             </p>
                         </a>
-                        <p>{{ $koneksipr->status_pr_01 }}</p>
+                        <p class="uppercase">{{ $koneksipr->status_pr_01 }}</p>
                         <p>{{ $koneksipr->status_pr_01_date }}</p>
                     </div>
                 </div>
@@ -636,7 +636,7 @@
                             <p class="font-semibold text-lg text-gray-900 hover:underline">Pur. Approval
                             </p>
                         </a>
-                        <p>{{ $koneksipa->status_pa_02 }}</p>
+                        <p class="uppercase">{{ $koneksipa->status_pa_02 }}</p>
                         <p>{{ $koneksipa->status_pa_02_date }}</p>
                     </div>
                 </div>
@@ -663,7 +663,7 @@
                             <p class="font-semibold text-lg text-gray-900 hover:underline">Pur. Order
                             </p>
                         </a>
-                        <p>{{ $koneksipo->status_po_03 }}</p>
+                        <p class="uppercase">{{ $koneksipo->status_po_03 }}</p>
                         <p>{{ $koneksipo->status_po_03_date }}</p>
                     </div>
                 </div>
@@ -690,7 +690,7 @@
                             <p class="font-semibold text-lg text-gray-900 hover:underline">Actual Payment
                             </p>
                         </a>
-                        <p>{{ $koneksipay->status_pay_04 }}</p>
+                        <p class="uppercase">{{ $koneksipay->status_pay_04 }}</p>
                         <p>{{ $koneksipay->status_pay_04_date }}</p>
                     </div>
                 </div>
@@ -8220,7 +8220,7 @@
 
             <button type="submit"
                 class="bg-orange-500 w-full hover:bg-orange-600 text-white font-bold py-2 rounded-lg mt-3 shadow-md">
-                Submit
+                Klik untuk submit dokumen
             </button>
 
 
@@ -8619,12 +8619,9 @@
             </button>
         </form>
     </div>
-
     {{-- Akhir Tombol Approve --}}
 </div>
 {{-- Akhir progress file --}}
-
-
 <script>
     function simulateEscape() {
         // Create a new KeyboardEvent for the "Escape" key

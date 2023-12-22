@@ -189,8 +189,7 @@
                     @elseif ($viewdataproject->progress == 'Purchasing - PA')
                         <div class="w-full bg-gray-200 rounded-full my-2">
                             <div class="bg-orange-500  text-xs font-medium text-blue-100 text-center leading-none rounded-lg hover:cursor-default"
-                                data-popover-target="popover-8" data-popover-placement="bottom"
-                                style="width: 20%">
+                                data-popover-target="popover-8" data-popover-placement="bottom" style="width: 20%">
                                 <p>20%</p>
 
                             </div>
@@ -198,8 +197,7 @@
                     @elseif ($viewdataproject->progress == 'Waiting Approval Purchasing - PO')
                         <div class="w-full bg-gray-200 rounded-full my-2">
                             <div class="bg-orange-500  text-xs font-medium text-blue-100 text-center leading-none rounded-lg hover:cursor-default"
-                                data-popover-target="popover-9" data-popover-placement="bottom"
-                                style="width: 20%">
+                                data-popover-target="popover-9" data-popover-placement="bottom" style="width: 20%">
                                 <p>20%</p>
 
                             </div>
@@ -207,8 +205,7 @@
                     @elseif ($viewdataproject->progress == 'Purchasing - PO')
                         <div class="w-full bg-gray-200 rounded-full my-2">
                             <div class="bg-orange-500  text-xs font-medium text-blue-100 text-center leading-none rounded-lg hover:cursor-default"
-                                data-popover-target="popover-10" data-popover-placement="bottom"
-                                style="width: 25%">
+                                data-popover-target="popover-10" data-popover-placement="bottom" style="width: 25%">
                                 <p>25%</p>
 
                             </div>
@@ -216,8 +213,7 @@
                     @elseif ($viewdataproject->progress == 'Waiting Approval Purchasing - PAY')
                         <div class="w-full bg-gray-200 rounded-full my-2">
                             <div class="bg-orange-500  text-xs font-medium text-blue-100 text-center leading-none rounded-lg hover:cursor-default"
-                                data-popover-target="popover-11" data-popover-placement="bottom"
-                                style="width: 25%">
+                                data-popover-target="popover-11" data-popover-placement="bottom" style="width: 25%">
                                 <p>25%</p>
 
                             </div>
@@ -225,8 +221,7 @@
                     @elseif ($viewdataproject->progress == 'Purchasing - PAY')
                         <div class="w-full bg-gray-200 rounded-full my-2">
                             <div class="bg-orange-500  text-xs font-medium text-blue-100 text-center leading-none rounded-lg hover:cursor-default"
-                                data-popover-target="popover-12" data-popover-placement="bottom"
-                                style="width: 30%">
+                                data-popover-target="popover-12" data-popover-placement="bottom" style="width: 30%">
                                 <p>30%</p>
 
                             </div>
@@ -234,8 +229,7 @@
                     @elseif ($viewdataproject->progress == 'Purchasing')
                         <div class="w-full bg-gray-200 rounded-full my-2">
                             <div class="bg-orange-500  text-xs font-medium text-blue-100 text-center leading-none rounded-lg hover:cursor-default"
-                                data-popover-target="popover-13" data-popover-placement="bottom"
-                                style="width: 30%">
+                                data-popover-target="popover-13" data-popover-placement="bottom" style="width: 30%">
                                 <p>30%</p>
 
                             </div>
@@ -243,8 +237,7 @@
                     @elseif ($viewdataproject->progress == 'Waiting Approval Manufacturing')
                         <div class="w-full bg-gray-200 rounded-full my-2">
                             <div class="bg-orange-500  text-xs font-medium text-blue-100 text-center leading-none rounded-lg hover:cursor-default"
-                                data-popover-target="popover-14" data-popover-placement="bottom"
-                                style="width: 30%">
+                                data-popover-target="popover-14" data-popover-placement="bottom" style="width: 30%">
                                 <p>30%</p>
 
                             </div>
@@ -252,8 +245,7 @@
                     @elseif ($viewdataproject->progress == 'Manufacturing')
                         <div class="w-full bg-gray-200 rounded-full my-2">
                             <div class="bg-orange-500  text-xs font-medium text-blue-100 text-center leading-none rounded-lg hover:cursor-default"
-                                data-popover-target="popover-15" data-popover-placement="bottom"
-                                style="width: 60%">
+                                data-popover-target="popover-15" data-popover-placement="bottom" style="width: 60%">
                                 <p>60%</p>
 
                             </div>
@@ -261,8 +253,7 @@
                     @elseif ($viewdataproject->progress == 'Waiting Approval Installation')
                         <div class="w-full bg-gray-200 rounded-full my-2">
                             <div class="bg-orange-500  text-xs font-medium text-blue-100 text-center leading-none rounded-lg hover:cursor-default"
-                                data-popover-target="popover-16" data-popover-placement="bottom"
-                                style="width: 60%">
+                                data-popover-target="popover-16" data-popover-placement="bottom" style="width: 60%">
                                 <p>60%</p>
 
                             </div>
@@ -270,8 +261,7 @@
                     @elseif ($viewdataproject->progress == 'Installation')
                         <div class="w-full bg-gray-200 rounded-full my-2">
                             <div class="bg-orange-500  text-xs font-medium text-blue-100 text-center leading-none rounded-lg hover:cursor-default"
-                                data-popover-target="popover-17" data-popover-placement="bottom"
-                                style="width: 95%">
+                                data-popover-target="popover-17" data-popover-placement="bottom" style="width: 95%">
                                 <p>95%</p>
 
                             </div>
@@ -279,8 +269,7 @@
                     @elseif ($viewdataproject->progress == 'Waiting Approval Closed')
                         <div class="w-full bg-gray-200 rounded-full my-2">
                             <div class="bg-orange-500  text-xs font-medium text-blue-100 text-center leading-none rounded-lg hover:cursor-default"
-                                data-popover-target="popover-18" data-popover-placement="bottom"
-                                style="width: 95%">
+                                data-popover-target="popover-18" data-popover-placement="bottom" style="width: 95%">
                                 <p>95%</p>
 
                             </div>
@@ -288,8 +277,7 @@
                     @elseif ($viewdataproject->progress == 'Closed')
                         <div class="w-full bg-gray-200 rounded-full my-2">
                             <div class="bg-orange-500  text-xs font-medium text-blue-100 text-center leading-none rounded-lg hover:cursor-default"
-                                data-popover-target="popover-19" data-popover-placement="bottom"
-                                style="width: 100%">
+                                data-popover-target="popover-19" data-popover-placement="bottom" style="width: 100%">
                                 <p>100%</p>
 
                             </div>
@@ -543,8 +531,7 @@
             <hr class="mb-2 w-full border">
             <div class=" bg-gray-300 overflow-x-auto rounded">
                 <div class="grid grid-cols-1 gap-1">
-                    <div
-                        class="bg-gray-300 p-1 text-lg text-center font-bold text-pink-600 tracking-wider font-mono">
+                    <div class="bg-gray-300 p-1 text-lg text-center font-bold text-pink-600 tracking-wider font-mono">
                         Status Finansial:
                     </div>
                 </div>
@@ -612,9 +599,9 @@
                             <p class="font-bold text-md text-white">PR</p>
                         </div>
                     @elseif($koneksipr->status_pr_01 == 'Revisi Purchasing - PR')
-                    <div class="rounded-full h-12 w-12 py-2 px-2 bg-yellow-300 border-white border-4">
-                        <p class="font-bold text-md text-black">PR</p>
-                    </div>
+                        <div class="rounded-full h-12 w-12 py-2 px-2 bg-yellow-300 border-white border-4">
+                            <p class="font-bold text-md text-black">PR</p>
+                        </div>
                     @else
                         <div class="rounded-full h-12 w-12 py-2 px-2 bg-gray-400 border-white border-4">
                             <p class="font-bold text-md text-white">PR</p>
@@ -626,7 +613,7 @@
                             <p class="font-semibold text-lg text-gray-900 hover:underline">Pur. Request
                             </p>
                         </a>
-                        <p>{{ $koneksipr->status_pr_01 }}</p>
+                        <p class="uppercase">{{ $koneksipr->status_pr_01 }}</p>
                         <p>{{ $koneksipr->status_pr_01_date }}</p>
                     </div>
                 </div>
@@ -638,10 +625,10 @@
                         <div class="rounded-full h-12 w-12 py-2 px-2 bg-green-600 border-orange-500 border-4">
                             <p class="font-bold text-md text-white">PA</p>
                         </div>
-                        @elseif($koneksipa->status_pa_02 == 'Revisi Purchasing - PA')
-                    <div class="rounded-full h-12 w-12 py-2 px-2 bg-yellow-300 border-orange-500 border-4">
-                        <p class="font-bold text-md text-black">PA</p>
-                    </div>
+                    @elseif($koneksipa->status_pa_02 == 'Revisi Purchasing - PA')
+                        <div class="rounded-full h-12 w-12 py-2 px-2 bg-yellow-300 border-orange-500 border-4">
+                            <p class="font-bold text-md text-black">PA</p>
+                        </div>
                     @else
                         <div class="rounded-full h-12 w-12 py-2 px-2 bg-gray-400 border-orange-500 border-4">
                             <p class="font-bold text-md text-white">PA</p>
@@ -653,7 +640,7 @@
                             <p class="font-semibold text-lg text-gray-900 hover:underline">Pur. Approval
                             </p>
                         </a>
-                        <p>{{ $koneksipa->status_pa_02 }}</p>
+                        <p class="uppercase">{{ $koneksipa->status_pa_02 }}</p>
                         <p>{{ $koneksipa->status_pa_02_date }}</p>
                     </div>
                 </div>
@@ -665,10 +652,10 @@
                         <div class="rounded-full h-12 w-12 py-2 px-2 bg-green-600 border-white border-4">
                             <p class="font-bold text-md text-white">PO</p>
                         </div>
-                        @elseif($koneksipo->status_po_03 == 'Revisi Purchasing - PO')
-                    <div class="rounded-full h-12 w-12 py-2 px-2 bg-yellow-300 border-white border-4">
-                        <p class="font-bold text-md text-black">PO</p>
-                    </div>
+                    @elseif($koneksipo->status_po_03 == 'Revisi Purchasing - PO')
+                        <div class="rounded-full h-12 w-12 py-2 px-2 bg-yellow-300 border-white border-4">
+                            <p class="font-bold text-md text-black">PO</p>
+                        </div>
                     @else
                         <div class="rounded-full h-12 w-12 py-2 px-2 bg-gray-400 border-white border-4">
                             <p class="font-bold text-md text-white">PO</p>
@@ -680,7 +667,7 @@
                             <p class="font-semibold text-lg text-gray-900 hover:underline">Pur. Order
                             </p>
                         </a>
-                        <p>{{ $koneksipo->status_po_03 }}</p>
+                        <p class="uppercase">{{ $koneksipo->status_po_03 }}</p>
                         <p>{{ $koneksipo->status_po_03_date }}</p>
                     </div>
                 </div>
@@ -692,10 +679,10 @@
                         <div class="rounded-full h-12 w-12 py-2 px-1.5 bg-green-600 border-white border-4">
                             <p class="font-bold text-md text-white">PAY</p>
                         </div>
-                        @elseif($koneksipay->status_pay_04 == 'Revisi Purchasing - PAY')
-                    <div class="rounded-full h-12 w-12 py-2 px-1.5 bg-yellow-300 border-white border-4">
-                        <p class="font-bold text-md text-black">PAY</p>
-                    </div>
+                    @elseif($koneksipay->status_pay_04 == 'Revisi Purchasing - PAY')
+                        <div class="rounded-full h-12 w-12 py-2 px-1.5 bg-yellow-300 border-white border-4">
+                            <p class="font-bold text-md text-black">PAY</p>
+                        </div>
                     @else
                         <div class="rounded-full h-12 w-12 py-2 px-1.5 bg-gray-400 border-white border-4">
                             <p class="font-bold text-md text-white">PAY</p>
@@ -707,7 +694,7 @@
                             <p class="font-semibold text-lg text-gray-900 hover:underline">Actual Payment
                             </p>
                         </a>
-                        <p>{{ $koneksipay->status_pay_04 }}</p>
+                        <p class="uppercase">{{ $koneksipay->status_pay_04 }}</p>
                         <p>{{ $koneksipay->status_pay_04_date }}</p>
                     </div>
                 </div>
@@ -816,17 +803,16 @@
             @csrf
             @method('PUT')
             {{-- atas form --}}
-
-            <div class="w-full bg-white rounded-lg  mt-3">
+            <div class="w-full mt-3">
                 {{-- card tabel approval dan revisi --}}
-                <div class="flex text-sm font-medium rounded-t-lg bg-gray-200 " id="defaultTab"
+                <div class="flex text-sm font-medium rounded-t-lg bg-gray-300 " id="defaultTab"
                     data-tabs-toggle="#defaultTabContent" role="tab">
                     <div class="flex mx-auto w-full space-x-4">
                         <div class="w-full">
                             <button class=" p-3 w-full rounded-tl-lg border-b-2" id="lokal-tab"
                                 data-tabs-target="#lokal" type="button" role="tab" aria-controls="lokal"
                                 aria-selected="false">
-                                PA Lokal
+                                Purchase Approval Lokal
                             </button>
                         </div>
 
@@ -834,7 +820,7 @@
                             <button class=" p-3 w-full rounded-tr-lg border-b-2" id="impor-tab"
                                 data-tabs-target="#impor" type="button" role="tab" aria-controls="impor"
                                 aria-selected="false">
-                                PA Impor
+                                Purchase Approval Impor
                             </button>
                         </div>
                     </div>
@@ -850,9 +836,9 @@
                             </p>
                             @foreach ($standar_project as $spt)
                                 @if ($spt->file_pr_parts_material_form != '')
-                                    {{-- tombol form --}}
                                     <div class="mb-1">
-                                        <p class="text-right font-light text-sm">Harap Menggunakan Standar formulir:
+                                        <p class="text-right font-light text-sm">Harap Menggunakan Standar
+                                            formulir:
                                         </p>
                                         <div class="flex items-center justify-end">
                                             <a href="{{ asset('storage/supervisor/standarproject/' . $spt->file_pr_parts_material_form) }}"
@@ -877,6 +863,7 @@
                         </div>
 
                         {{-- akhir standar formulir --}}
+
                         <div class="overflow-x-auto rounded-md mb-5 max-h-screen overflow-y-auto border">
                             <table class="w-full ">
                                 <thead class="bg-green-600 text-white sticky top-0">
@@ -884,7 +871,7 @@
                                     <th class="w-[45%]">Nama File</th>
                                     <th class="w-[12%]">Uploaded by</th>
                                     <th class="w-[12%]">Last Update</th>
-                                    <th class="w-[11%]">PR Amount</th>
+                                    <th class="w-[11%]">PA Amount</th>
                                     <th class="w-[15%]">Aksi</th>
                                 </thead>
                                 <tbody class="text-left border">
@@ -892,26 +879,29 @@
                                     <tr
                                         class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
                                         <td class="py-4 font-bold text-center">1.</td>
-                                        <td class="flex items-center my-10">
-
-                                            @if ($koneksipa->pa_parts_1 != '')
-                                                <a href="{{ asset('storage/supervisor/project/03_02_PR/' . $koneksipa->pa_parts_1) }}"
-                                                    target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
-                                                    <svg width="22" height="17" viewBox="0 0 22 17"
-                                                        fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                        <path
-                                                            d="M11 0C6 0 1.73 3.11 0 7.5C1.73 11.89 6 15 11 15C11.36 15 11.72 15 12.08 14.95C12.03 14.63 12 14.32 12 14C12 13.44 12.08 12.88 12.24 12.34C11.83 12.44 11.42 12.5 11 12.5C8.24 12.5 6 10.26 6 7.5C6 4.74 8.24 2.5 11 2.5C13.76 2.5 16 4.74 16 7.5C16 7.79 15.97 8.09 15.92 8.38C16.58 8.13 17.29 8 18 8C19.17 8 20.31 8.34 21.29 9C21.56 8.5 21.8 8 22 7.5C20.27 3.11 16 0 11 0ZM11 4.5C9.34 4.5 8 5.84 8 7.5C8 9.16 9.34 10.5 11 10.5C12.66 10.5 14 9.16 14 7.5C14 5.84 12.66 4.5 11 4.5ZM17 10.5V12.5H21V14.5H17V16.5L14 13.5L17 10.5Z"
-                                                            fill="black" />
-                                                    </svg>
-                                                </a>
-
-                                                &emsp;
-                                            @endif
-                                            {{--  --}}
+                                        @if ($koneksipa->pa_parts_1 != '')
+                                            <td class="flex items-center my-4">
+                                            @else
+                                            <td class="flex items-center my-10">
+                                        @endif
+                                        @if ($koneksipa->pa_parts_1 != '')
                                             <a href="{{ asset('storage/supervisor/project/03_02_PR/' . $koneksipa->pa_parts_1) }}"
-                                                target="blank" download="" class="hover:underline">
-                                                {{ $koneksipa->pa_parts_1 }}</a>
-                                            {{-- == --}}
+                                                target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
+                                                <svg width="22" height="17" viewBox="0 0 22 17"
+                                                    fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path
+                                                        d="M11 0C6 0 1.73 3.11 0 7.5C1.73 11.89 6 15 11 15C11.36 15 11.72 15 12.08 14.95C12.03 14.63 12 14.32 12 14C12 13.44 12.08 12.88 12.24 12.34C11.83 12.44 11.42 12.5 11 12.5C8.24 12.5 6 10.26 6 7.5C6 4.74 8.24 2.5 11 2.5C13.76 2.5 16 4.74 16 7.5C16 7.79 15.97 8.09 15.92 8.38C16.58 8.13 17.29 8 18 8C19.17 8 20.31 8.34 21.29 9C21.56 8.5 21.8 8 22 7.5C20.27 3.11 16 0 11 0ZM11 4.5C9.34 4.5 8 5.84 8 7.5C8 9.16 9.34 10.5 11 10.5C12.66 10.5 14 9.16 14 7.5C14 5.84 12.66 4.5 11 4.5ZM17 10.5V12.5H21V14.5H17V16.5L14 13.5L17 10.5Z"
+                                                        fill="black" />
+                                                </svg>
+                                            </a>
+
+                                            &emsp;
+                                        @endif
+                                        {{--  --}}
+                                        <a href="{{ asset('storage/supervisor/project/03_02_PR/' . $koneksipa->pa_parts_1) }}"
+                                            target="blank" download="" class="hover:underline">
+                                            {{ $koneksipa->pa_parts_1 }}</a>
+                                        {{-- == --}}
 
                                         </td>
                                         <td>
@@ -928,14 +918,25 @@
                                                 Rp{{ number_format($koneksipa->mny_parts_pa_1, 0, ',', '.') }}
                                             @endif
                                         </td>
+
                                         <td class="space-y-2 py-3 px-2">
-                                            <input type="file" name="as_pa_parts_1" id="">
-                                            <div class="">
-                                                <input type="number"
-                                                    class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                    placeholder="Rp (input nilai PA)"
-                                                    min="0" max="999999999999" oninput="validity.valid||(value='');"  name="as_mny_parts_pa_1">
-                                            </div>
+                                            @if ($koneksipa->pa_parts_1 != '')
+                                                <div class="justify-center flex space-x-2">
+                                                    <button type="button"
+                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        data-modal-target="modal11" data-modal-show="modal11"
+                                                        data-modal-toggle="modal11">Ubah</button>
+                                                </div>
+                                            @else
+                                                <input type="file" name="as_pa_parts_1" id="">
+                                                <div class="">
+                                                    <input type="number"
+                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PA)" min="0"
+                                                        max="999999999999" oninput="validity.valid||(value='');"
+                                                        name="as_mny_parts_pa_1">
+                                                </div>
+                                            @endif
                                         </td>
                                         <input type="text" hidden name="as_up_by_parts_pa_1"
                                             value="{{ Auth::user()->first_name }}">
@@ -947,26 +948,29 @@
                                     <tr
                                         class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
                                         <td class="py-4 font-bold text-center">2.</td>
-                                        <td class="flex items-center my-10">
-
-                                            @if ($koneksipa->pa_parts_2 != '')
-                                                <a href="{{ asset('storage/supervisor/project/03_02_PR/' . $koneksipa->pa_parts_2) }}"
-                                                    target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
-                                                    <svg width="22" height="17" viewBox="0 0 22 17"
-                                                        fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                        <path
-                                                            d="M11 0C6 0 1.73 3.11 0 7.5C1.73 11.89 6 15 11 15C11.36 15 11.72 15 12.08 14.95C12.03 14.63 12 14.32 12 14C12 13.44 12.08 12.88 12.24 12.34C11.83 12.44 11.42 12.5 11 12.5C8.24 12.5 6 10.26 6 7.5C6 4.74 8.24 2.5 11 2.5C13.76 2.5 16 4.74 16 7.5C16 7.79 15.97 8.09 15.92 8.38C16.58 8.13 17.29 8 18 8C19.17 8 20.31 8.34 21.29 9C21.56 8.5 21.8 8 22 7.5C20.27 3.11 16 0 11 0ZM11 4.5C9.34 4.5 8 5.84 8 7.5C8 9.16 9.34 10.5 11 10.5C12.66 10.5 14 9.16 14 7.5C14 5.84 12.66 4.5 11 4.5ZM17 10.5V12.5H21V14.5H17V16.5L14 13.5L17 10.5Z"
-                                                            fill="black" />
-                                                    </svg>
-                                                </a>
-
-                                                &emsp;
-                                            @endif
-                                            {{--  --}}
+                                        @if ($koneksipa->pa_parts_2 != '')
+                                            <td class="flex items-center my-4">
+                                            @else
+                                            <td class="flex items-center my-10">
+                                        @endif
+                                        @if ($koneksipa->pa_parts_2 != '')
                                             <a href="{{ asset('storage/supervisor/project/03_02_PR/' . $koneksipa->pa_parts_2) }}"
-                                                target="blank" download="" class="hover:underline">
-                                                {{ $koneksipa->pa_parts_2 }}</a>
-                                            {{-- == --}}
+                                                target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
+                                                <svg width="22" height="17" viewBox="0 0 22 17"
+                                                    fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path
+                                                        d="M11 0C6 0 1.73 3.11 0 7.5C1.73 11.89 6 15 11 15C11.36 15 11.72 15 12.08 14.95C12.03 14.63 12 14.32 12 14C12 13.44 12.08 12.88 12.24 12.34C11.83 12.44 11.42 12.5 11 12.5C8.24 12.5 6 10.26 6 7.5C6 4.74 8.24 2.5 11 2.5C13.76 2.5 16 4.74 16 7.5C16 7.79 15.97 8.09 15.92 8.38C16.58 8.13 17.29 8 18 8C19.17 8 20.31 8.34 21.29 9C21.56 8.5 21.8 8 22 7.5C20.27 3.11 16 0 11 0ZM11 4.5C9.34 4.5 8 5.84 8 7.5C8 9.16 9.34 10.5 11 10.5C12.66 10.5 14 9.16 14 7.5C14 5.84 12.66 4.5 11 4.5ZM17 10.5V12.5H21V14.5H17V16.5L14 13.5L17 10.5Z"
+                                                        fill="black" />
+                                                </svg>
+                                            </a>
+
+                                            &emsp;
+                                        @endif
+                                        {{--  --}}
+                                        <a href="{{ asset('storage/supervisor/project/03_02_PR/' . $koneksipa->pa_parts_2) }}"
+                                            target="blank" download="" class="hover:underline">
+                                            {{ $koneksipa->pa_parts_2 }}</a>
+                                        {{-- == --}}
 
                                         </td>
                                         <td>
@@ -983,14 +987,25 @@
                                                 Rp{{ number_format($koneksipa->mny_parts_pa_2, 0, ',', '.') }}
                                             @endif
                                         </td>
+
                                         <td class="space-y-2 py-3 px-2">
-                                            <input type="file" name="as_pa_parts_2" id="">
-                                            <div class="">
-                                                <input type="number" id="base-input"
-                                                    class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                    placeholder="Rp (input nilai PA)"
-                                                    min="0" max="999999999999" oninput="validity.valid||(value='');"  name="as_mny_parts_pa_2">
-                                            </div>
+                                            @if ($koneksipa->pa_parts_2 != '')
+                                                <div class="justify-center flex space-x-2">
+                                                    <button type="button"
+                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        data-modal-target="modal12" data-modal-show="modal12"
+                                                        data-modal-toggle="modal12">Ubah</button>
+                                                </div>
+                                            @else
+                                                <input type="file" name="as_pa_parts_2" id="">
+                                                <div class="">
+                                                    <input type="number" id="base-input"
+                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PA)" min="0"
+                                                        max="999999999999" oninput="validity.valid||(value='');"
+                                                        name="as_mny_parts_pa_2">
+                                                </div>
+                                            @endif
                                         </td>
                                         <input type="text" hidden name="as_up_by_parts_pa_2"
                                             value="{{ Auth::user()->first_name }}">
@@ -1039,14 +1054,25 @@
                                                 Rp{{ number_format($koneksipa->mny_parts_pa_3, 0, ',', '.') }}
                                             @endif
                                         </td>
+
                                         <td class="space-y-2 py-3 px-2">
-                                            <input type="file" name="as_pa_parts_3" id="">
-                                            <div class="">
-                                                <input type="number" id="base-input"
-                                                    class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                    placeholder="Rp (input nilai PA)"
-                                                    min="0" max="999999999999" oninput="validity.valid||(value='');"  name="as_mny_parts_pa_3">
-                                            </div>
+                                            @if ($koneksipa->pa_parts_3 != '')
+                                                <div class="justify-center flex space-x-2">
+                                                    <button type="button"
+                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        data-modal-target="modal13" data-modal-show="modal13"
+                                                        data-modal-toggle="modal13">Ubah</button>
+                                                </div>
+                                            @else
+                                                <input type="file" name="as_pa_parts_3" id="">
+                                                <div class="">
+                                                    <input type="number" id="base-input"
+                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PA)" min="0"
+                                                        max="999999999999" oninput="validity.valid||(value='');"
+                                                        name="as_mny_parts_pa_3">
+                                                </div>
+                                            @endif
                                         </td>
                                         <input type="text" hidden name="as_up_by_parts_pa_3"
                                             value="{{ Auth::user()->first_name }}">
@@ -1095,14 +1121,25 @@
                                                 Rp{{ number_format($koneksipa->mny_parts_pa_4, 0, ',', '.') }}
                                             @endif
                                         </td>
+
                                         <td class="space-y-2 py-3 px-2">
-                                            <input type="file" name="as_pa_parts_4" id="">
-                                            <div class="">
-                                                <input type="number" id="base-input"
-                                                    class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                    placeholder="Rp (input nilai PA)"
-                                                    min="0" max="999999999999" oninput="validity.valid||(value='');"  name="as_mny_parts_pa_4">
-                                            </div>
+                                            @if ($koneksipa->pa_parts_4 != '')
+                                                <div class="justify-center flex space-x-2">
+                                                    <button type="button"
+                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        data-modal-target="modal14" data-modal-show="modal14"
+                                                        data-modal-toggle="modal14">Ubah</button>
+                                                </div>
+                                            @else
+                                                <input type="file" name="as_pa_parts_4" id="">
+                                                <div class="">
+                                                    <input type="number" id="base-input"
+                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PA)" min="0"
+                                                        max="999999999999" oninput="validity.valid||(value='');"
+                                                        name="as_mny_parts_pa_4">
+                                                </div>
+                                            @endif
                                         </td>
                                         <input type="text" hidden name="as_up_by_parts_pa_4"
                                             value="{{ Auth::user()->first_name }}">
@@ -1151,14 +1188,25 @@
                                                 Rp{{ number_format($koneksipa->mny_parts_pa_5, 0, ',', '.') }}
                                             @endif
                                         </td>
+
                                         <td class="space-y-2 py-3 px-2">
-                                            <input type="file" name="as_pa_parts_5" id="">
-                                            <div class="">
-                                                <input type="number" id="base-input"
-                                                    class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                    placeholder="Rp (input nilai PA)"
-                                                    min="0" max="999999999999" oninput="validity.valid||(value='');"  name="as_mny_parts_pa_5">
-                                            </div>
+                                            @if ($koneksipa->pa_parts_5 != '')
+                                                <div class="justify-center flex space-x-2">
+                                                    <button type="button"
+                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        data-modal-target="modal15" data-modal-show="modal15"
+                                                        data-modal-toggle="modal15">Ubah</button>
+                                                </div>
+                                            @else
+                                                <input type="file" name="as_pa_parts_5" id="">
+                                                <div class="">
+                                                    <input type="number" id="base-input"
+                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PA)" min="0"
+                                                        max="999999999999" oninput="validity.valid||(value='');"
+                                                        name="as_mny_parts_pa_5">
+                                                </div>
+                                            @endif
                                         </td>
                                         <input type="text" hidden name="as_up_by_parts_pa_5"
                                             value="{{ Auth::user()->first_name }}">
@@ -1208,14 +1256,25 @@
                                                 Rp{{ number_format($koneksipa->mny_parts_pa_6, 0, ',', '.') }}
                                             @endif
                                         </td>
+
                                         <td class="space-y-2 py-3 px-2">
-                                            <input type="file" name="as_pa_parts_6" id="">
-                                            <div class="">
-                                                <input type="number" id="base-input"
-                                                    class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                    placeholder="Rp (input nilai PA)"
-                                                    min="0" max="999999999999" oninput="validity.valid||(value='');"  name="as_mny_parts_pa_6">
-                                            </div>
+                                            @if ($koneksipa->pa_parts_6 != '')
+                                                <div class="justify-center flex space-x-2">
+                                                    <button type="button"
+                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        data-modal-target="modal16" data-modal-show="modal16"
+                                                        data-modal-toggle="modal16">Ubah</button>
+                                                </div>
+                                            @else
+                                                <input type="file" name="as_pa_parts_6" id="">
+                                                <div class="">
+                                                    <input type="number" id="base-input"
+                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PA)" min="0"
+                                                        max="999999999999" oninput="validity.valid||(value='');"
+                                                        name="as_mny_parts_pa_6">
+                                                </div>
+                                            @endif
                                         </td>
                                         <input type="text" hidden name="as_up_by_parts_pa_6"
                                             value="{{ Auth::user()->first_name }}">
@@ -1263,14 +1322,25 @@
                                                 Rp{{ number_format($koneksipa->mny_parts_pa_7, 0, ',', '.') }}
                                             @endif
                                         </td>
+
                                         <td class="space-y-2 py-3 px-2">
-                                            <input type="file" name="as_pa_parts_7" id="">
-                                            <div class="">
-                                                <input type="number" id="base-input"
-                                                    class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                    placeholder="Rp (input nilai PA)"
-                                                    min="0" max="999999999999" oninput="validity.valid||(value='');"  name="as_mny_parts_pa_7">
-                                            </div>
+                                            @if ($koneksipa->pa_parts_7 != '')
+                                                <div class="justify-center flex space-x-2">
+                                                    <button type="button"
+                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        data-modal-target="modal17" data-modal-show="modal17"
+                                                        data-modal-toggle="modal17">Ubah</button>
+                                                </div>
+                                            @else
+                                                <input type="file" name="as_pa_parts_7" id="">
+                                                <div class="">
+                                                    <input type="number" id="base-input"
+                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PA)" min="0"
+                                                        max="999999999999" oninput="validity.valid||(value='');"
+                                                        name="as_mny_parts_pa_7">
+                                                </div>
+                                            @endif
                                         </td>
                                         <input type="text" hidden name="as_up_by_parts_pa_7"
                                             value="{{ Auth::user()->first_name }}">
@@ -1319,14 +1389,26 @@
                                                 Rp{{ number_format($koneksipa->mny_parts_pa_8, 0, ',', '.') }}
                                             @endif
                                         </td>
+
                                         <td class="space-y-2 py-3 px-2">
-                                            <input type="file" name="as_pa_parts_8" id="">
-                                            <div class="">
-                                                <input type="number" id="base-input"
-                                                    class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                    placeholder="Rp (input nilai PA)"
-                                                    min="0" max="999999999999" oninput="validity.valid||(value='');"  name="as_mny_parts_pa_8">
-                                            </div>
+                                            @if ($koneksipa->pa_parts_8 != '')
+                                                <div class="justify-center flex space-x-2">
+                                                    <button type="button"
+                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        data-modal-target="modal18" data-modal-show="modal18"
+                                                        data-modal-toggle="modal18">Ubah</button>
+                                                </div>
+                                            @else
+                                                <input type="file" name="as_pa_parts_8" id="">
+                                                <div class="">
+                                                    <input type="number" id="base-input"
+                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PA)" min="0"
+                                                        max="999999999999" oninput="validity.valid||(value='');"
+                                                        name="as_mny_parts_pa_8">
+                                                </div>
+                                            @endif
+
                                         </td>
                                         <input type="text" hidden name="as_up_by_parts_pa_8"
                                             value="{{ Auth::user()->first_name }}">
@@ -1375,14 +1457,25 @@
                                                 Rp{{ number_format($koneksipa->mny_parts_pa_9, 0, ',', '.') }}
                                             @endif
                                         </td>
+
                                         <td class="space-y-2 py-3 px-2">
-                                            <input type="file" name="as_pa_parts_9" id="">
-                                            <div class="">
-                                                <input type="number" id="base-input"
-                                                    class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                    placeholder="Rp (input nilai PA)"
-                                                    min="0" max="999999999999" oninput="validity.valid||(value='');"  name="as_mny_parts_pa_9">
-                                            </div>
+                                            @if ($koneksipa->pa_parts_9 != '')
+                                                <div class="justify-center flex space-x-2">
+                                                    <button type="button"
+                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        data-modal-target="modal19" data-modal-show="modal19"
+                                                        data-modal-toggle="modal19">Ubah</button>
+                                                </div>
+                                            @else
+                                                <input type="file" name="as_pa_parts_9" id="">
+                                                <div class="">
+                                                    <input type="number" id="base-input"
+                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PA)" min="0"
+                                                        max="999999999999" oninput="validity.valid||(value='');"
+                                                        name="as_mny_parts_pa_9">
+                                                </div>
+                                            @endif
                                         </td>
                                         <input type="text" hidden name="as_up_by_parts_pa_9"
                                             value="{{ Auth::user()->first_name }}">
@@ -1431,14 +1524,25 @@
                                                 Rp{{ number_format($koneksipa->mny_parts_pa_10, 0, ',', '.') }}
                                             @endif
                                         </td>
+
                                         <td class="space-y-2 py-3 px-2">
-                                            <input type="file" name="as_pa_parts_10" id="">
-                                            <div class="">
-                                                <input type="number" id="base-input"
-                                                    class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                    placeholder="Rp (input nilai PA)"
-                                                    min="0" max="999999999999" oninput="validity.valid||(value='');"  name="as_mny_parts_pa_10">
-                                            </div>
+                                            @if ($koneksipa->pa_parts_10 != '')
+                                                <div class="justify-center flex space-x-2">
+                                                    <button type="button"
+                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        data-modal-target="modal110" data-modal-show="modal110"
+                                                        data-modal-toggle="modal110">Ubah</button>
+                                                </div>
+                                            @else
+                                                <input type="file" name="as_pa_parts_10" id="">
+                                                <div class="">
+                                                    <input type="number" id="base-input"
+                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PA)" min="0"
+                                                        max="999999999999" oninput="validity.valid||(value='');"
+                                                        name="as_mny_parts_pa_10">
+                                                </div>
+                                            @endif
                                         </td>
                                         <input type="text" hidden name="as_up_by_parts_pa_10"
                                             value="{{ Auth::user()->first_name }}">
@@ -1488,14 +1592,25 @@
                                                 Rp{{ number_format($koneksipa->mny_parts_pa_11, 0, ',', '.') }}
                                             @endif
                                         </td>
+
                                         <td class="space-y-2 py-3 px-2">
-                                            <input type="file" name="as_pa_parts_11" id="">
-                                            <div class="">
-                                                <input type="number" id="base-input"
-                                                    class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                    placeholder="Rp (input nilai PA)"
-                                                    min="0" max="999999999999" oninput="validity.valid||(value='');"  name="as_mny_parts_pa_11">
-                                            </div>
+                                            @if ($koneksipa->pa_parts_11 != '')
+                                                <div class="justify-center flex space-x-2">
+                                                    <button type="button"
+                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        data-modal-target="modal111" data-modal-show="modal111"
+                                                        data-modal-toggle="modal111">Ubah</button>
+                                                </div>
+                                            @else
+                                                <input type="file" name="as_pa_parts_11" id="">
+                                                <div class="">
+                                                    <input type="number" id="base-input"
+                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PA)" min="0"
+                                                        max="999999999999" oninput="validity.valid||(value='');"
+                                                        name="as_mny_parts_pa_11">
+                                                </div>
+                                            @endif
                                         </td>
                                         <input type="text" hidden name="as_up_by_parts_pa_11"
                                             value="{{ Auth::user()->first_name }}">
@@ -1543,14 +1658,25 @@
                                                 Rp{{ number_format($koneksipa->mny_parts_pa_12, 0, ',', '.') }}
                                             @endif
                                         </td>
+
                                         <td class="space-y-2 py-3 px-2">
-                                            <input type="file" name="as_pa_parts_12" id="">
-                                            <div class="">
-                                                <input type="number" id="base-input"
-                                                    class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                    placeholder="Rp (input nilai PA)"
-                                                    min="0" max="999999999999" oninput="validity.valid||(value='');"  name="as_mny_parts_pa_12">
-                                            </div>
+                                            @if ($koneksipa->pa_parts_12 != '')
+                                                <div class="justify-center flex space-x-2">
+                                                    <button type="button"
+                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        data-modal-target="modal112" data-modal-show="modal112"
+                                                        data-modal-toggle="modal112">Ubah</button>
+                                                </div>
+                                            @else
+                                                <input type="file" name="as_pa_parts_12" id="">
+                                                <div class="">
+                                                    <input type="number" id="base-input"
+                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PA)" min="0"
+                                                        max="999999999999" oninput="validity.valid||(value='');"
+                                                        name="as_mny_parts_pa_12">
+                                                </div>
+                                            @endif
                                         </td>
                                         <input type="text" hidden name="as_up_by_parts_pa_12"
                                             value="{{ Auth::user()->first_name }}">
@@ -1599,14 +1725,25 @@
                                                 Rp{{ number_format($koneksipa->mny_parts_pa_13, 0, ',', '.') }}
                                             @endif
                                         </td>
+
                                         <td class="space-y-2 py-3 px-2">
-                                            <input type="file" name="as_pa_parts_13" id="">
-                                            <div class="">
-                                                <input type="number" id="base-input"
-                                                    class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                    placeholder="Rp (input nilai PA)"
-                                                    min="0" max="999999999999" oninput="validity.valid||(value='');"  name="as_mny_parts_pa_13">
-                                            </div>
+                                            @if ($koneksipa->pa_parts_13 != '')
+                                                <div class="justify-center flex space-x-2">
+                                                    <button type="button"
+                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        data-modal-target="modal113" data-modal-show="modal113"
+                                                        data-modal-toggle="modal113">Ubah</button>
+                                                </div>
+                                            @else
+                                                <input type="file" name="as_pa_parts_13" id="">
+                                                <div class="">
+                                                    <input type="number" id="base-input"
+                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PA)" min="0"
+                                                        max="999999999999" oninput="validity.valid||(value='');"
+                                                        name="as_mny_parts_pa_13">
+                                                </div>
+                                            @endif
                                         </td>
                                         <input type="text" hidden name="as_up_by_parts_pa_13"
                                             value="{{ Auth::user()->first_name }}">
@@ -1655,14 +1792,25 @@
                                                 Rp{{ number_format($koneksipa->mny_parts_pa_14, 0, ',', '.') }}
                                             @endif
                                         </td>
+
                                         <td class="space-y-2 py-3 px-2">
-                                            <input type="file" name="as_pa_parts_14" id="">
-                                            <div class="">
-                                                <input type="number" id="base-input"
-                                                    class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                    placeholder="Rp (input nilai PA)"
-                                                    min="0" max="999999999999" oninput="validity.valid||(value='');"  name="as_mny_parts_pa_14">
-                                            </div>
+                                            @if ($koneksipa->pa_parts_14 != '')
+                                                <div class="justify-center flex space-x-2">
+                                                    <button type="button"
+                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        data-modal-target="modal114" data-modal-show="modal114"
+                                                        data-modal-toggle="modal114">Ubah</button>
+                                                </div>
+                                            @else
+                                                <input type="file" name="as_pa_parts_14" id="">
+                                                <div class="">
+                                                    <input type="number" id="base-input"
+                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PA)" min="0"
+                                                        max="999999999999" oninput="validity.valid||(value='');"
+                                                        name="as_mny_parts_pa_14">
+                                                </div>
+                                            @endif
                                         </td>
                                         <input type="text" hidden name="as_up_by_parts_pa_14"
                                             value="{{ Auth::user()->first_name }}">
@@ -1711,14 +1859,26 @@
                                                 Rp{{ number_format($koneksipa->mny_parts_pa_15, 0, ',', '.') }}
                                             @endif
                                         </td>
+
                                         <td class="space-y-2 py-3 px-2">
-                                            <input type="file" name="as_pa_parts_15" id="">
-                                            <div class="">
-                                                <input type="number" id="base-input"
-                                                    class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                    placeholder="Rp (input nilai PA)"
-                                                    min="0" max="999999999999" oninput="validity.valid||(value='');"  name="as_mny_parts_pa_15">
-                                            </div>
+                                            @if ($koneksipa->pa_parts_15 != '')
+                                                <div class="justify-center flex space-x-2">
+                                                    <button type="button"
+                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        data-modal-target="modal115" data-modal-show="modal115"
+                                                        data-modal-toggle="modal115">Ubah</button>
+                                                </div>
+                                            @else
+                                                <input type="file" name="as_pa_parts_15" id="">
+                                                <div class="">
+                                                    <input type="number" id="base-input"
+                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PA)"
+                                                        min="0" max="999999999999"
+                                                        oninput="validity.valid||(value='');"
+                                                        name="as_mny_parts_pa_15">
+                                                </div>
+                                            @endif
                                         </td>
                                         <input type="text" hidden name="as_up_by_parts_pa_15"
                                             value="{{ Auth::user()->first_name }}">
@@ -1768,14 +1928,27 @@
                                                 Rp{{ number_format($koneksipa->mny_parts_pa_16, 0, ',', '.') }}
                                             @endif
                                         </td>
+
                                         <td class="space-y-2 py-3 px-2">
-                                            <input type="file" name="as_pa_parts_16" id="">
-                                            <div class="">
-                                                <input type="number" id="base-input"
-                                                    class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                    placeholder="Rp (input nilai PA)"
-                                                    min="0" max="999999999999" oninput="validity.valid||(value='');"  name="as_mny_parts_pa_16">
-                                            </div>
+                                            @if ($koneksipa->pa_parts_16 != '')
+                                                <div class="justify-center flex space-x-2">
+                                                    <button type="button"
+                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        data-modal-target="modal116" data-modal-show="modal116"
+                                                        data-modal-toggle="modal116">Ubah</button>
+                                                </div>
+                                            @else
+                                                <input type="file" name="as_pa_parts_16" id="">
+                                                <div class="">
+                                                    <input type="number" id="base-input"
+                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PA)"
+                                                        min="0" max="999999999999"
+                                                        oninput="validity.valid||(value='');"
+                                                        name="as_mny_parts_pa_16">
+                                                </div>
+                                            @endif
+
                                         </td>
                                         <input type="text" hidden name="as_up_by_parts_pa_16"
                                             value="{{ Auth::user()->first_name }}">
@@ -1823,14 +1996,27 @@
                                                 Rp{{ number_format($koneksipa->mny_parts_pa_17, 0, ',', '.') }}
                                             @endif
                                         </td>
+
                                         <td class="space-y-2 py-3 px-2">
-                                            <input type="file" name="as_pa_parts_17" id="">
-                                            <div class="">
-                                                <input type="number" id="base-input"
-                                                    class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                    placeholder="Rp (input nilai PA)"
-                                                    min="0" max="999999999999" oninput="validity.valid||(value='');"  name="as_mny_parts_pa_17">
-                                            </div>
+                                            @if ($koneksipa->pa_parts_17 != '')
+                                                <div class="justify-center flex space-x-2">
+                                                    <button type="button"
+                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        data-modal-target="modal117" data-modal-show="modal117"
+                                                        data-modal-toggle="modal117">Ubah</button>
+                                                </div>
+                                            @else
+                                                <input type="file" name="as_pa_parts_17" id="">
+                                                <div class="">
+                                                    <input type="number" id="base-input"
+                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PA)"
+                                                        min="0" max="999999999999"
+                                                        oninput="validity.valid||(value='');"
+                                                        name="as_mny_parts_pa_17">
+                                                </div>
+                                            @endif
+
                                         </td>
                                         <input type="text" hidden name="as_up_by_parts_pa_17"
                                             value="{{ Auth::user()->first_name }}">
@@ -1879,14 +2065,26 @@
                                                 Rp{{ number_format($koneksipa->mny_parts_pa_18, 0, ',', '.') }}
                                             @endif
                                         </td>
+
                                         <td class="space-y-2 py-3 px-2">
-                                            <input type="file" name="as_pa_parts_18" id="">
-                                            <div class="">
-                                                <input type="number" id="base-input"
-                                                    class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                    placeholder="Rp (input nilai PA)"
-                                                    min="0" max="999999999999" oninput="validity.valid||(value='');"  name="as_mny_parts_pa_18">
-                                            </div>
+                                            @if ($koneksipa->pa_parts_18 != '')
+                                                <div class="justify-center flex space-x-2">
+                                                    <button type="button"
+                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        data-modal-target="modal118" data-modal-show="modal118"
+                                                        data-modal-toggle="modal118">Ubah</button>
+                                                </div>
+                                            @else
+                                                <input type="file" name="as_pa_parts_18" id="">
+                                                <div class="">
+                                                    <input type="number" id="base-input"
+                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PA)"
+                                                        min="0" max="999999999999"
+                                                        oninput="validity.valid||(value='');"
+                                                        name="as_mny_parts_pa_18">
+                                                </div>
+                                            @endif
                                         </td>
                                         <input type="text" hidden name="as_up_by_parts_pa_18"
                                             value="{{ Auth::user()->first_name }}">
@@ -1894,6 +2092,7 @@
                                             value="{{ date('Y-m-d') }}">
 
                                     </tr>
+
                                     {{-- batas 18 --}}
                                     {{-- batas 18-20 --}}
                                     {{-- 19 --}}
@@ -1938,13 +2137,25 @@
                                         </td>
 
                                         <td class="space-y-2 py-3 px-2">
-                                            <input type="file" name="as_pa_parts_19" id="">
-                                            <div class="">
-                                                <input type="number" id="base-input"
-                                                    class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                    placeholder="Rp (input nilai PA)"
-                                                    min="0" max="999999999999" oninput="validity.valid||(value='');"  name="as_mny_parts_pa_19">
-                                            </div>
+                                            @if ($koneksipa->pa_parts_19 != '')
+                                                <div class="justify-center flex space-x-2">
+                                                    <button type="button"
+                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        data-modal-target="modal119" data-modal-show="modal119"
+                                                        data-modal-toggle="modal119">Ubah</button>
+                                                </div>
+                                            @else
+                                                <input type="file" name="as_pa_parts_19" id="">
+                                                <div class="">
+                                                    <input type="number" id="base-input"
+                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PA)"
+                                                        min="0" max="999999999999"
+                                                        oninput="validity.valid||(value='');"
+                                                        name="as_mny_parts_pa_19">
+                                                </div>
+                                            @endif
+
                                         </td>
                                         <input type="text" hidden name="as_up_by_parts_pa_19"
                                             value="{{ Auth::user()->first_name }}">
@@ -1994,13 +2205,25 @@
                                         </td>
 
                                         <td class="space-y-2 py-3 px-2">
-                                            <input type="file" name="as_pa_parts_20" id="">
-                                            <div class="">
-                                                <input type="number" id="base-input"
-                                                    class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                    placeholder="Rp (input nilai PA)"
-                                                    min="0" max="999999999999" oninput="validity.valid||(value='');"  name="as_mny_parts_pa_20">
-                                            </div>
+                                            @if ($koneksipa->pa_parts_20 != '')
+                                                <div class="justify-center flex space-x-2">
+                                                    <button type="button"
+                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        data-modal-target="modal120" data-modal-show="modal120"
+                                                        data-modal-toggle="modal120">Ubah</button>
+                                                </div>
+                                            @else
+                                                <input type="file" name="as_pa_parts_20" id="">
+                                                <div class="">
+                                                    <input type="number" id="base-input"
+                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PA)"
+                                                        min="0" max="999999999999"
+                                                        oninput="validity.valid||(value='');"
+                                                        name="as_mny_parts_pa_20">
+                                                </div>
+                                            @endif
+
                                         </td>
                                         <input type="text" hidden name="as_up_by_parts_pa_20"
                                             value="{{ Auth::user()->first_name }}">
@@ -2053,13 +2276,25 @@
                                         </td>
 
                                         <td class="space-y-2 py-3 px-2">
-                                            <input type="file" name="as_pa_parts_21" id="">
-                                            <div class="">
-                                                <input type="number" id="base-input"
-                                                    class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                    placeholder="Rp (input nilai PA)"
-                                                    min="0" max="999999999999" oninput="validity.valid||(value='');"  name="as_mny_parts_pa_21">
-                                            </div>
+                                            @if ($koneksipa->pa_parts_21 != '')
+                                                <div class="justify-center flex space-x-2">
+                                                    <button type="button"
+                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        data-modal-target="modal121" data-modal-show="modal121"
+                                                        data-modal-toggle="modal121">Ubah</button>
+                                                </div>
+                                            @else
+                                                <input type="file" name="as_pa_parts_21" id="">
+                                                <div class="">
+                                                    <input type="number" id="base-input"
+                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PA)"
+                                                        min="0" max="999999999999"
+                                                        oninput="validity.valid||(value='');"
+                                                        name="as_mny_parts_pa_21">
+                                                </div>
+                                            @endif
+
                                         </td>
                                         <input type="text" hidden name="as_up_by_parts_pa_21"
                                             value="{{ Auth::user()->first_name }}">
@@ -2109,13 +2344,25 @@
                                         </td>
 
                                         <td class="space-y-2 py-3 px-2">
-                                            <input type="file" name="as_pa_parts_22" id="">
-                                            <div class="">
-                                                <input type="number" id="base-input"
-                                                    class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                    placeholder="Rp (input nilai PA)"
-                                                    min="0" max="999999999999" oninput="validity.valid||(value='');"  name="as_mny_parts_pa_22">
-                                            </div>
+                                            @if ($koneksipa->pa_parts_22 != '')
+                                                <div class="justify-center flex space-x-2">
+                                                    <button type="button"
+                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        data-modal-target="modal122" data-modal-show="modal122"
+                                                        data-modal-toggle="modal122">Ubah</button>
+                                                </div>
+                                            @else
+                                                <input type="file" name="as_pa_parts_22" id="">
+                                                <div class="">
+                                                    <input type="number" id="base-input"
+                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PA)"
+                                                        min="0" max="999999999999"
+                                                        oninput="validity.valid||(value='');"
+                                                        name="as_mny_parts_pa_22">
+                                                </div>
+                                            @endif
+
                                         </td>
                                         <input type="text" hidden name="as_up_by_parts_pa_22"
                                             value="{{ Auth::user()->first_name }}">
@@ -2165,13 +2412,25 @@
                                         </td>
 
                                         <td class="space-y-2 py-3 px-2">
-                                            <input type="file" name="as_pa_parts_23" id="">
-                                            <div class="">
-                                                <input type="number" id="base-input"
-                                                    class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                    placeholder="Rp (input nilai PA)"
-                                                    min="0" max="999999999999" oninput="validity.valid||(value='');"  name="as_mny_parts_pa_23">
-                                            </div>
+                                            @if ($koneksipa->pa_parts_23 != '')
+                                                <div class="justify-center flex space-x-2">
+                                                    <button type="button"
+                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        data-modal-target="modal123" data-modal-show="modal123"
+                                                        data-modal-toggle="modal123">Ubah</button>
+                                                </div>
+                                            @else
+                                                <input type="file" name="as_pa_parts_23" id="">
+                                                <div class="">
+                                                    <input type="number" id="base-input"
+                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PA)"
+                                                        min="0" max="999999999999"
+                                                        oninput="validity.valid||(value='');"
+                                                        name="as_mny_parts_pa_23">
+                                                </div>
+                                            @endif
+
                                         </td>
                                         <input type="text" hidden name="as_up_by_parts_pa_23"
                                             value="{{ Auth::user()->first_name }}">
@@ -2221,13 +2480,25 @@
                                         </td>
 
                                         <td class="space-y-2 py-3 px-2">
-                                            <input type="file" name="as_pa_parts_24" id="">
-                                            <div class="">
-                                                <input type="number" id="base-input"
-                                                    class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                    placeholder="Rp (input nilai PA)"
-                                                    min="0" max="999999999999" oninput="validity.valid||(value='');"  name="as_mny_parts_pa_24">
-                                            </div>
+                                            @if ($koneksipa->pa_parts_24 != '')
+                                                <div class="justify-center flex space-x-2">
+                                                    <button type="button"
+                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        data-modal-target="modal124" data-modal-show="modal124"
+                                                        data-modal-toggle="modal124">Ubah</button>
+                                                </div>
+                                            @else
+                                                <input type="file" name="as_pa_parts_24" id="">
+                                                <div class="">
+                                                    <input type="number" id="base-input"
+                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PA)"
+                                                        min="0" max="999999999999"
+                                                        oninput="validity.valid||(value='');"
+                                                        name="as_mny_parts_pa_24">
+                                                </div>
+                                            @endif
+
                                         </td>
                                         <input type="text" hidden name="as_up_by_parts_pa_24"
                                             value="{{ Auth::user()->first_name }}">
@@ -2277,13 +2548,24 @@
                                         </td>
 
                                         <td class="space-y-2 py-3 px-2">
-                                            <input type="file" name="as_pa_parts_25" id="">
-                                            <div class="">
-                                                <input type="number" id="base-input"
-                                                    class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                    placeholder="Rp (input nilai PA)"
-                                                    min="0" max="999999999999" oninput="validity.valid||(value='');"  name="as_mny_parts_pa_25">
-                                            </div>
+                                            @if ($koneksipa->pa_parts_25 != '')
+                                                <div class="justify-center flex space-x-2">
+                                                    <button type="button"
+                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        data-modal-target="modal125" data-modal-show="modal125"
+                                                        data-modal-toggle="modal125">Ubah</button>
+                                                </div>
+                                            @else
+                                                <input type="file" name="as_pa_parts_25" id="">
+                                                <div class="">
+                                                    <input type="number" id="base-input"
+                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PA)"
+                                                        min="0" max="999999999999"
+                                                        oninput="validity.valid||(value='');"
+                                                        name="as_mny_parts_pa_25">
+                                                </div>
+                                            @endif
                                         </td>
                                         <input type="text" hidden name="as_up_by_parts_pa_25"
                                             value="{{ Auth::user()->first_name }}">
@@ -2333,13 +2615,24 @@
                                         </td>
 
                                         <td class="space-y-2 py-3 px-2">
-                                            <input type="file" name="as_pa_parts_26" id="">
-                                            <div class="">
-                                                <input type="number" id="base-input"
-                                                    class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                    placeholder="Rp (input nilai PA)"
-                                                    min="0" max="999999999999" oninput="validity.valid||(value='');"  name="as_mny_parts_pa_26">
-                                            </div>
+                                            @if ($koneksipa->pa_parts_26 != '')
+                                                <div class="justify-center flex space-x-2">
+                                                    <button type="button"
+                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        data-modal-target="modal126" data-modal-show="modal126"
+                                                        data-modal-toggle="modal126">Ubah</button>
+                                                </div>
+                                            @else
+                                                <input type="file" name="as_pa_parts_26" id="">
+                                                <div class="">
+                                                    <input type="number" id="base-input"
+                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PA)"
+                                                        min="0" max="999999999999"
+                                                        oninput="validity.valid||(value='');"
+                                                        name="as_mny_parts_pa_26">
+                                                </div>
+                                            @endif
                                         </td>
                                         <input type="text" hidden name="as_up_by_parts_pa_26"
                                             value="{{ Auth::user()->first_name }}">
@@ -2389,13 +2682,25 @@
                                         </td>
 
                                         <td class="space-y-2 py-3 px-2">
-                                            <input type="file" name="as_pa_parts_27" id="">
-                                            <div class="">
-                                                <input type="number" id="base-input"
-                                                    class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                    placeholder="Rp (input nilai PA)"
-                                                    min="0" max="999999999999" oninput="validity.valid||(value='');"  name="as_mny_parts_pa_27">
-                                            </div>
+                                            @if ($koneksipa->pa_parts_27 != '')
+                                                <div class="justify-center flex space-x-2">
+                                                    <button type="button"
+                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        data-modal-target="modal127" data-modal-show="modal127"
+                                                        data-modal-toggle="modal127">Ubah</button>
+                                                </div>
+                                            @else
+                                                <input type="file" name="as_pa_parts_27" id="">
+                                                <div class="">
+                                                    <input type="number" id="base-input"
+                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PA)"
+                                                        min="0" max="999999999999"
+                                                        oninput="validity.valid||(value='');"
+                                                        name="as_mny_parts_pa_27">
+                                                </div>
+                                            @endif
+
                                         </td>
                                         <input type="text" hidden name="as_up_by_parts_pa_27"
                                             value="{{ Auth::user()->first_name }}">
@@ -2445,13 +2750,25 @@
                                         </td>
 
                                         <td class="space-y-2 py-3 px-2">
-                                            <input type="file" name="as_pa_parts_28" id="">
-                                            <div class="">
-                                                <input type="number" id="base-input"
-                                                    class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                    placeholder="Rp (input nilai PA)"
-                                                    min="0" max="999999999999" oninput="validity.valid||(value='');"  name="as_mny_parts_pa_28">
-                                            </div>
+                                            @if ($koneksipa->pa_parts_28 != '')
+                                                <div class="justify-center flex space-x-2">
+                                                    <button type="button"
+                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        data-modal-target="modal128" data-modal-show="modal128"
+                                                        data-modal-toggle="modal128">Ubah</button>
+                                                </div>
+                                            @else
+                                                <input type="file" name="as_pa_parts_28" id="">
+                                                <div class="">
+                                                    <input type="number" id="base-input"
+                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PA)"
+                                                        min="0" max="999999999999"
+                                                        oninput="validity.valid||(value='');"
+                                                        name="as_mny_parts_pa_28">
+                                                </div>
+                                            @endif
+
                                         </td>
                                         <input type="text" hidden name="as_up_by_parts_pa_28"
                                             value="{{ Auth::user()->first_name }}">
@@ -2501,13 +2818,25 @@
                                         </td>
 
                                         <td class="space-y-2 py-3 px-2">
-                                            <input type="file" name="as_pa_parts_29" id="">
-                                            <div class="">
-                                                <input type="number" id="base-input"
-                                                    class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                    placeholder="Rp (input nilai PA)"
-                                                    min="0" max="999999999999" oninput="validity.valid||(value='');"  name="as_mny_parts_pa_29">
-                                            </div>
+                                            @if ($koneksipa->pa_parts_29 != '')
+                                                <div class="justify-center flex space-x-2">
+                                                    <button type="button"
+                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        data-modal-target="modal129" data-modal-show="modal129"
+                                                        data-modal-toggle="modal129">Ubah</button>
+                                                </div>
+                                            @else
+                                                <input type="file" name="as_pa_parts_29" id="">
+                                                <div class="">
+                                                    <input type="number" id="base-input"
+                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PA)"
+                                                        min="0" max="999999999999"
+                                                        oninput="validity.valid||(value='');"
+                                                        name="as_mny_parts_pa_29">
+                                                </div>
+                                            @endif
+
                                         </td>
                                         <input type="text" hidden name="as_up_by_parts_pa_29"
                                             value="{{ Auth::user()->first_name }}">
@@ -2557,13 +2886,25 @@
                                         </td>
 
                                         <td class="space-y-2 py-3 px-2">
-                                            <input type="file" name="as_pa_parts_30" id="">
-                                            <div class="">
-                                                <input type="number" id="base-input"
-                                                    class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                    placeholder="Rp (input nilai PA)"
-                                                    min="0" max="999999999999" oninput="validity.valid||(value='');"  name="as_mny_parts_pa_30">
-                                            </div>
+                                            @if ($koneksipa->pa_parts_30 != '')
+                                                <div class="justify-center flex space-x-2">
+                                                    <button type="button"
+                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        data-modal-target="modal130" data-modal-show="modal130"
+                                                        data-modal-toggle="modal130">Ubah</button>
+                                                </div>
+                                            @else
+                                                <input type="file" name="as_pa_parts_30" id="">
+                                                <div class="">
+                                                    <input type="number" id="base-input"
+                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PA)"
+                                                        min="0" max="999999999999"
+                                                        oninput="validity.valid||(value='');"
+                                                        name="as_mny_parts_pa_30">
+                                                </div>
+                                            @endif
+
                                         </td>
                                         <input type="text" hidden name="as_up_by_parts_pa_30"
                                             value="{{ Auth::user()->first_name }}">
@@ -2615,13 +2956,25 @@
                                         </td>
 
                                         <td class="space-y-2 py-3 px-2">
-                                            <input type="file" name="as_pa_parts_31" id="">
-                                            <div class="">
-                                                <input type="number" id="base-input"
-                                                    class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                    placeholder="Rp (input nilai PA)"
-                                                    min="0" max="999999999999" oninput="validity.valid||(value='');"  name="as_mny_parts_pa_31">
-                                            </div>
+                                            @if ($koneksipa->pa_parts_31 != '')
+                                                <div class="justify-center flex space-x-2">
+                                                    <button type="button"
+                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        data-modal-target="modal131" data-modal-show="modal131"
+                                                        data-modal-toggle="modal131">Ubah</button>
+                                                </div>
+                                            @else
+                                                <input type="file" name="as_pa_parts_31" id="">
+                                                <div class="">
+                                                    <input type="number" id="base-input"
+                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PA)"
+                                                        min="0" max="999999999999"
+                                                        oninput="validity.valid||(value='');"
+                                                        name="as_mny_parts_pa_31">
+                                                </div>
+                                            @endif
+
                                         </td>
                                         <input type="text" hidden name="as_up_by_parts_pa_31"
                                             value="{{ Auth::user()->first_name }}">
@@ -2671,13 +3024,25 @@
                                         </td>
 
                                         <td class="space-y-2 py-3 px-2">
-                                            <input type="file" name="as_pa_parts_32" id="">
-                                            <div class="">
-                                                <input type="number" id="base-input"
-                                                    class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                    placeholder="Rp (input nilai PA)"
-                                                    min="0" max="999999999999" oninput="validity.valid||(value='');"  name="as_mny_parts_pa_32">
-                                            </div>
+                                            @if ($koneksipa->pa_parts_32 != '')
+                                                <div class="justify-center flex space-x-2">
+                                                    <button type="button"
+                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        data-modal-target="modal132" data-modal-show="modal132"
+                                                        data-modal-toggle="modal132">Ubah</button>
+                                                </div>
+                                            @else
+                                                <input type="file" name="as_pa_parts_32" id="">
+                                                <div class="">
+                                                    <input type="number" id="base-input"
+                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PA)"
+                                                        min="0" max="999999999999"
+                                                        oninput="validity.valid||(value='');"
+                                                        name="as_mny_parts_pa_32">
+                                                </div>
+                                            @endif
+
                                         </td>
                                         <input type="text" hidden name="as_up_by_parts_pa_32"
                                             value="{{ Auth::user()->first_name }}">
@@ -2727,13 +3092,25 @@
                                         </td>
 
                                         <td class="space-y-2 py-3 px-2">
-                                            <input type="file" name="as_pa_parts_33" id="">
-                                            <div class="">
-                                                <input type="number" id="base-input"
-                                                    class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                    placeholder="Rp (input nilai PA)"
-                                                    min="0" max="999999999999" oninput="validity.valid||(value='');"  name="as_mny_parts_pa_33">
-                                            </div>
+                                            @if ($koneksipa->pa_parts_33 != '')
+                                                <div class="justify-center flex space-x-2">
+                                                    <button type="button"
+                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        data-modal-target="modal133" data-modal-show="modal133"
+                                                        data-modal-toggle="modal133">Ubah</button>
+                                                </div>
+                                            @else
+                                                <input type="file" name="as_pa_parts_33" id="">
+                                                <div class="">
+                                                    <input type="number" id="base-input"
+                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PA)"
+                                                        min="0" max="999999999999"
+                                                        oninput="validity.valid||(value='');"
+                                                        name="as_mny_parts_pa_33">
+                                                </div>
+                                            @endif
+
                                         </td>
                                         <input type="text" hidden name="as_up_by_parts_pa_33"
                                             value="{{ Auth::user()->first_name }}">
@@ -2783,13 +3160,25 @@
                                         </td>
 
                                         <td class="space-y-2 py-3 px-2">
-                                            <input type="file" name="as_pa_parts_34" id="">
-                                            <div class="">
-                                                <input type="number" id="base-input"
-                                                    class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                    placeholder="Rp (input nilai PA)"
-                                                    min="0" max="999999999999" oninput="validity.valid||(value='');"  name="as_mny_parts_pa_34">
-                                            </div>
+                                            @if ($koneksipa->pa_parts_34 != '')
+                                                <div class="justify-center flex space-x-2">
+                                                    <button type="button"
+                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        data-modal-target="modal134" data-modal-show="modal134"
+                                                        data-modal-toggle="modal134">Ubah</button>
+                                                </div>
+                                            @else
+                                                <input type="file" name="as_pa_parts_34" id="">
+                                                <div class="">
+                                                    <input type="number" id="base-input"
+                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PA)"
+                                                        min="0" max="999999999999"
+                                                        oninput="validity.valid||(value='');"
+                                                        name="as_mny_parts_pa_34">
+                                                </div>
+                                            @endif
+
                                         </td>
                                         <input type="text" hidden name="as_up_by_parts_pa_34"
                                             value="{{ Auth::user()->first_name }}">
@@ -2839,13 +3228,25 @@
                                         </td>
 
                                         <td class="space-y-2 py-3 px-2">
-                                            <input type="file" name="as_pa_parts_35" id="">
-                                            <div class="">
-                                                <input type="number" id="base-input"
-                                                    class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                    placeholder="Rp (input nilai PA)"
-                                                    min="0" max="999999999999" oninput="validity.valid||(value='');"  name="as_mny_parts_pa_35">
-                                            </div>
+                                            @if ($koneksipa->pa_parts_35 != '')
+                                                <div class="justify-center flex space-x-2">
+                                                    <button type="button"
+                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        data-modal-target="modal135" data-modal-show="modal135"
+                                                        data-modal-toggle="modal135">Ubah</button>
+                                                </div>
+                                            @else
+                                                <input type="file" name="as_pa_parts_35" id="">
+                                                <div class="">
+                                                    <input type="number" id="base-input"
+                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PA)"
+                                                        min="0" max="999999999999"
+                                                        oninput="validity.valid||(value='');"
+                                                        name="as_mny_parts_pa_35">
+                                                </div>
+                                            @endif
+
                                         </td>
                                         <input type="text" hidden name="as_up_by_parts_pa_35"
                                             value="{{ Auth::user()->first_name }}">
@@ -2895,13 +3296,25 @@
                                         </td>
 
                                         <td class="space-y-2 py-3 px-2">
-                                            <input type="file" name="as_pa_parts_36" id="">
-                                            <div class="">
-                                                <input type="number" id="base-input"
-                                                    class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                    placeholder="Rp (input nilai PA)"
-                                                    min="0" max="999999999999" oninput="validity.valid||(value='');"  name="as_mny_parts_pa_36">
-                                            </div>
+                                            @if ($koneksipa->pa_parts_36 != '')
+                                                <div class="justify-center flex space-x-2">
+                                                    <button type="button"
+                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        data-modal-target="modal136" data-modal-show="modal136"
+                                                        data-modal-toggle="modal136">Ubah</button>
+                                                </div>
+                                            @else
+                                                <input type="file" name="as_pa_parts_36" id="">
+                                                <div class="">
+                                                    <input type="number" id="base-input"
+                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PA)"
+                                                        min="0" max="999999999999"
+                                                        oninput="validity.valid||(value='');"
+                                                        name="as_mny_parts_pa_36">
+                                                </div>
+                                            @endif
+
                                         </td>
                                         <input type="text" hidden name="as_up_by_parts_pa_36"
                                             value="{{ Auth::user()->first_name }}">
@@ -2952,13 +3365,25 @@
                                         </td>
 
                                         <td class="space-y-2 py-3 px-2">
-                                            <input type="file" name="as_pa_parts_37" id="">
-                                            <div class="">
-                                                <input type="number" id="base-input"
-                                                    class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                    placeholder="Rp (input nilai PA)"
-                                                    min="0" max="999999999999" oninput="validity.valid||(value='');"  name="as_mny_parts_pa_37">
-                                            </div>
+                                            @if ($koneksipa->pa_parts_37 != '')
+                                                <div class="justify-center flex space-x-2">
+                                                    <button type="button"
+                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        data-modal-target="modal137" data-modal-show="modal137"
+                                                        data-modal-toggle="modal137">Ubah</button>
+                                                </div>
+                                            @else
+                                                <input type="file" name="as_pa_parts_37" id="">
+                                                <div class="">
+                                                    <input type="number" id="base-input"
+                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PA)"
+                                                        min="0" max="999999999999"
+                                                        oninput="validity.valid||(value='');"
+                                                        name="as_mny_parts_pa_37">
+                                                </div>
+                                            @endif
+
                                         </td>
                                         <input type="text" hidden name="as_up_by_parts_pa_37"
                                             value="{{ Auth::user()->first_name }}">
@@ -3008,13 +3433,25 @@
                                         </td>
 
                                         <td class="space-y-2 py-3 px-2">
-                                            <input type="file" name="as_pa_parts_38" id="">
-                                            <div class="">
-                                                <input type="number" id="base-input"
-                                                    class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                    placeholder="Rp (input nilai PA)"
-                                                    min="0" max="999999999999" oninput="validity.valid||(value='');"  name="as_mny_parts_pa_38">
-                                            </div>
+                                            @if ($koneksipa->pa_parts_38 != '')
+                                                <div class="justify-center flex space-x-2">
+                                                    <button type="button"
+                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        data-modal-target="modal138" data-modal-show="modal138"
+                                                        data-modal-toggle="modal138">Ubah</button>
+                                                </div>
+                                            @else
+                                                <input type="file" name="as_pa_parts_38" id="">
+                                                <div class="">
+                                                    <input type="number" id="base-input"
+                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PA)"
+                                                        min="0" max="999999999999"
+                                                        oninput="validity.valid||(value='');"
+                                                        name="as_mny_parts_pa_38">
+                                                </div>
+                                            @endif
+
                                         </td>
                                         <input type="text" hidden name="as_up_by_parts_pa_38"
                                             value="{{ Auth::user()->first_name }}">
@@ -3064,13 +3501,25 @@
                                         </td>
 
                                         <td class="space-y-2 py-3 px-2">
-                                            <input type="file" name="as_pa_parts_39" id="">
-                                            <div class="">
-                                                <input type="number" id="base-input"
-                                                    class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                    placeholder="Rp (input nilai PA)"
-                                                    min="0" max="999999999999" oninput="validity.valid||(value='');"  name="as_mny_parts_pa_39">
-                                            </div>
+                                            @if ($koneksipa->pa_parts_39 != '')
+                                                <div class="justify-center flex space-x-2">
+                                                    <button type="button"
+                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        data-modal-target="modal139" data-modal-show="modal139"
+                                                        data-modal-toggle="modal139">Ubah</button>
+                                                </div>
+                                            @else
+                                                <input type="file" name="as_pa_parts_39" id="">
+                                                <div class="">
+                                                    <input type="number" id="base-input"
+                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PA)"
+                                                        min="0" max="999999999999"
+                                                        oninput="validity.valid||(value='');"
+                                                        name="as_mny_parts_pa_39">
+                                                </div>
+                                            @endif
+
                                         </td>
                                         <input type="text" hidden name="as_up_by_parts_pa_39"
                                             value="{{ Auth::user()->first_name }}">
@@ -3120,13 +3569,25 @@
                                         </td>
 
                                         <td class="space-y-2 py-3 px-2">
-                                            <input type="file" name="as_pa_parts_40" id="">
-                                            <div class="">
-                                                <input type="number" id="base-input"
-                                                    class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                    placeholder="Rp (input nilai PA)"
-                                                    min="0" max="999999999999" oninput="validity.valid||(value='');"  name="as_mny_parts_pa_40">
-                                            </div>
+                                            @if ($koneksipa->pa_parts_40 != '')
+                                                <div class="justify-center flex space-x-2">
+                                                    <button type="button"
+                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        data-modal-target="modal140" data-modal-show="modal140"
+                                                        data-modal-toggle="modal140">Ubah</button>
+                                                </div>
+                                            @else
+                                                <input type="file" name="as_pa_parts_40" id="">
+                                                <div class="">
+                                                    <input type="number" id="base-input"
+                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PA)"
+                                                        min="0" max="999999999999"
+                                                        oninput="validity.valid||(value='');"
+                                                        name="as_mny_parts_pa_40">
+                                                </div>
+                                            @endif
+
                                         </td>
                                         <input type="text" hidden name="as_up_by_parts_pa_40"
                                             value="{{ Auth::user()->first_name }}">
@@ -3177,13 +3638,25 @@
                                         </td>
 
                                         <td class="space-y-2 py-3 px-2">
-                                            <input type="file" name="as_pa_parts_41" id="">
-                                            <div class="">
-                                                <input type="number" id="base-input"
-                                                    class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                    placeholder="Rp (input nilai PA)"
-                                                    min="0" max="999999999999" oninput="validity.valid||(value='');"  name="as_mny_parts_pa_41">
-                                            </div>
+                                            @if ($koneksipa->pa_parts_41 != '')
+                                                <div class="justify-center flex space-x-2">
+                                                    <button type="button"
+                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        data-modal-target="modal141" data-modal-show="modal141"
+                                                        data-modal-toggle="modal141">Ubah</button>
+                                                </div>
+                                            @else
+                                                <input type="file" name="as_pa_parts_41" id="">
+                                                <div class="">
+                                                    <input type="number" id="base-input"
+                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PA)"
+                                                        min="0" max="999999999999"
+                                                        oninput="validity.valid||(value='');"
+                                                        name="as_mny_parts_pa_41">
+                                                </div>
+                                            @endif
+
                                         </td>
                                         <input type="text" hidden name="as_up_by_parts_pa_41"
                                             value="{{ Auth::user()->first_name }}">
@@ -3233,13 +3706,25 @@
                                         </td>
 
                                         <td class="space-y-2 py-3 px-2">
-                                            <input type="file" name="as_pa_parts_42" id="">
-                                            <div class="">
-                                                <input type="number" id="base-input"
-                                                    class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                    placeholder="Rp (input nilai PA)"
-                                                    min="0" max="999999999999" oninput="validity.valid||(value='');"  name="as_mny_parts_pa_42">
-                                            </div>
+                                            @if ($koneksipa->pa_parts_42 != '')
+                                                <div class="justify-center flex space-x-2">
+                                                    <button type="button"
+                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        data-modal-target="modal142" data-modal-show="modal142"
+                                                        data-modal-toggle="modal142">Ubah</button>
+                                                </div>
+                                            @else
+                                                <input type="file" name="as_pa_parts_42" id="">
+                                                <div class="">
+                                                    <input type="number" id="base-input"
+                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PA)"
+                                                        min="0" max="999999999999"
+                                                        oninput="validity.valid||(value='');"
+                                                        name="as_mny_parts_pa_42">
+                                                </div>
+                                            @endif
+
                                         </td>
                                         <input type="text" hidden name="as_up_by_parts_pa_42"
                                             value="{{ Auth::user()->first_name }}">
@@ -3289,13 +3774,25 @@
                                         </td>
 
                                         <td class="space-y-2 py-3 px-2">
-                                            <input type="file" name="as_pa_parts_43" id="">
-                                            <div class="">
-                                                <input type="number" id="base-input"
-                                                    class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                    placeholder="Rp (input nilai PA)"
-                                                    min="0" max="999999999999" oninput="validity.valid||(value='');"  name="as_mny_parts_pa_43">
-                                            </div>
+                                            @if ($koneksipa->pa_parts_43 != '')
+                                                <div class="justify-center flex space-x-2">
+                                                    <button type="button"
+                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        data-modal-target="modal143" data-modal-show="modal143"
+                                                        data-modal-toggle="modal143">Ubah</button>
+                                                </div>
+                                            @else
+                                                <input type="file" name="as_pa_parts_43" id="">
+                                                <div class="">
+                                                    <input type="number" id="base-input"
+                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PA)"
+                                                        min="0" max="999999999999"
+                                                        oninput="validity.valid||(value='');"
+                                                        name="as_mny_parts_pa_43">
+                                                </div>
+                                            @endif
+
                                         </td>
                                         <input type="text" hidden name="as_up_by_parts_pa_43"
                                             value="{{ Auth::user()->first_name }}">
@@ -3345,13 +3842,25 @@
                                         </td>
 
                                         <td class="space-y-2 py-3 px-2">
-                                            <input type="file" name="as_pa_parts_44" id="">
-                                            <div class="">
-                                                <input type="number" id="base-input"
-                                                    class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                    placeholder="Rp (input nilai PA)"
-                                                    min="0" max="999999999999" oninput="validity.valid||(value='');"  name="as_mny_parts_pa_44">
-                                            </div>
+                                            @if ($koneksipa->pa_parts_44 != '')
+                                                <div class="justify-center flex space-x-2">
+                                                    <button type="button"
+                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        data-modal-target="modal144" data-modal-show="modal144"
+                                                        data-modal-toggle="modal144">Ubah</button>
+                                                </div>
+                                            @else
+                                                <input type="file" name="as_pa_parts_44" id="">
+                                                <div class="">
+                                                    <input type="number" id="base-input"
+                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PA)"
+                                                        min="0" max="999999999999"
+                                                        oninput="validity.valid||(value='');"
+                                                        name="as_mny_parts_pa_44">
+                                                </div>
+                                            @endif
+
                                         </td>
                                         <input type="text" hidden name="as_up_by_parts_pa_44"
                                             value="{{ Auth::user()->first_name }}">
@@ -3401,13 +3910,24 @@
                                         </td>
 
                                         <td class="space-y-2 py-3 px-2">
-                                            <input type="file" name="as_pa_parts_45" id="">
-                                            <div class="">
-                                                <input type="number" id="base-input"
-                                                    class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                    placeholder="Rp (input nilai PA)"
-                                                    min="0" max="999999999999" oninput="validity.valid||(value='');"  name="as_mny_parts_pa_45">
-                                            </div>
+                                            @if ($koneksipa->pa_parts_45 != '')
+                                                <div class="justify-center flex space-x-2">
+                                                    <button type="button"
+                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        data-modal-target="modal145" data-modal-show="modal145"
+                                                        data-modal-toggle="modal145">Ubah</button>
+                                                </div>
+                                            @else
+                                                <input type="file" name="as_pa_parts_45" id="">
+                                                <div class="">
+                                                    <input type="number" id="base-input"
+                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PA)"
+                                                        min="0" max="999999999999"
+                                                        oninput="validity.valid||(value='');"
+                                                        name="as_mny_parts_pa_45">
+                                                </div>
+                                            @endif
                                         </td>
                                         <input type="text" hidden name="as_up_by_parts_pa_45"
                                             value="{{ Auth::user()->first_name }}">
@@ -3457,13 +3977,25 @@
                                         </td>
 
                                         <td class="space-y-2 py-3 px-2">
-                                            <input type="file" name="as_pa_parts_46" id="">
-                                            <div class="">
-                                                <input type="number" id="base-input"
-                                                    class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                    placeholder="Rp (input nilai PA)"
-                                                    min="0" max="999999999999" oninput="validity.valid||(value='');"  name="as_mny_parts_pa_46">
-                                            </div>
+                                            @if ($koneksipa->pa_parts_46 != '')
+                                                <div class="justify-center flex space-x-2">
+                                                    <button type="button"
+                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        data-modal-target="modal146" data-modal-show="modal146"
+                                                        data-modal-toggle="modal146">Ubah</button>
+                                                </div>
+                                            @else
+                                                <input type="file" name="as_pa_parts_46" id="">
+                                                <div class="">
+                                                    <input type="number" id="base-input"
+                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PA)"
+                                                        min="0" max="999999999999"
+                                                        oninput="validity.valid||(value='');"
+                                                        name="as_mny_parts_pa_46">
+                                                </div>
+                                            @endif
+
                                         </td>
                                         <input type="text" hidden name="as_up_by_parts_pa_46"
                                             value="{{ Auth::user()->first_name }}">
@@ -3514,13 +4046,24 @@
                                         </td>
 
                                         <td class="space-y-2 py-3 px-2">
-                                            <input type="file" name="as_pa_parts_47" id="">
-                                            <div class="">
-                                                <input type="number" id="base-input"
-                                                    class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                    placeholder="Rp (input nilai PA)"
-                                                    min="0" max="999999999999" oninput="validity.valid||(value='');"  name="as_mny_parts_pa_47">
-                                            </div>
+                                            @if ($koneksipa->pa_parts_47 != '')
+                                                <div class="justify-center flex space-x-2">
+                                                    <button type="button"
+                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        data-modal-target="modal147" data-modal-show="modal147"
+                                                        data-modal-toggle="modal147">Ubah</button>
+                                                </div>
+                                            @else
+                                                <input type="file" name="as_pa_parts_47" id="">
+                                                <div class="">
+                                                    <input type="number" id="base-input"
+                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PA)"
+                                                        min="0" max="999999999999"
+                                                        oninput="validity.valid||(value='');"
+                                                        name="as_mny_parts_pa_47">
+                                                </div>
+                                            @endif
                                         </td>
                                         <input type="text" hidden name="as_up_by_parts_pa_47"
                                             value="{{ Auth::user()->first_name }}">
@@ -3570,13 +4113,25 @@
                                         </td>
 
                                         <td class="space-y-2 py-3 px-2">
-                                            <input type="file" name="as_pa_parts_48" id="">
-                                            <div class="">
-                                                <input type="number" id="base-input"
-                                                    class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                    placeholder="Rp (input nilai PA)"
-                                                    min="0" max="999999999999" oninput="validity.valid||(value='');"  name="as_mny_parts_pa_48">
-                                            </div>
+                                            @if ($koneksipa->pa_parts_48 != '')
+                                                <div class="justify-center flex space-x-2">
+                                                    <button type="button"
+                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        data-modal-target="modal148" data-modal-show="modal148"
+                                                        data-modal-toggle="modal148">Ubah</button>
+                                                </div>
+                                            @else
+                                                <input type="file" name="as_pa_parts_48" id="">
+                                                <div class="">
+                                                    <input type="number" id="base-input"
+                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PA)"
+                                                        min="0" max="999999999999"
+                                                        oninput="validity.valid||(value='');"
+                                                        name="as_mny_parts_pa_48">
+                                                </div>
+                                            @endif
+
                                         </td>
                                         <input type="text" hidden name="as_up_by_parts_pa_48"
                                             value="{{ Auth::user()->first_name }}">
@@ -3626,13 +4181,25 @@
                                         </td>
 
                                         <td class="space-y-2 py-3 px-2">
-                                            <input type="file" name="as_pa_parts_49" id="">
-                                            <div class="">
-                                                <input type="number" id="base-input"
-                                                    class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                    placeholder="Rp (input nilai PA)"
-                                                    min="0" max="999999999999" oninput="validity.valid||(value='');"  name="as_mny_parts_pa_49">
-                                            </div>
+                                            @if ($koneksipa->pa_parts_49 != '')
+                                                <div class="justify-center flex space-x-2">
+                                                    <button type="button"
+                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        data-modal-target="modal149" data-modal-show="modal149"
+                                                        data-modal-toggle="modal149">Ubah</button>
+                                                </div>
+                                            @else
+                                                <input type="file" name="as_pa_parts_49" id="">
+                                                <div class="">
+                                                    <input type="number" id="base-input"
+                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PA)"
+                                                        min="0" max="999999999999"
+                                                        oninput="validity.valid||(value='');"
+                                                        name="as_mny_parts_pa_49">
+                                                </div>
+                                            @endif
+
                                         </td>
                                         <input type="text" hidden name="as_up_by_parts_pa_49"
                                             value="{{ Auth::user()->first_name }}">
@@ -3682,13 +4249,25 @@
                                         </td>
 
                                         <td class="space-y-2 py-3 px-2">
-                                            <input type="file" name="as_pa_parts_50" id="">
-                                            <div class="">
-                                                <input type="number" id="base-input"
-                                                    class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                    placeholder="Rp (input nilai PA)"
-                                                    min="0" max="999999999999" oninput="validity.valid||(value='');"  name="as_mny_parts_pa_50">
-                                            </div>
+                                            @if ($koneksipa->pa_parts_50 != '')
+                                                <div class="justify-center flex space-x-2">
+                                                    <button type="button"
+                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        data-modal-target="modal150" data-modal-show="modal150"
+                                                        data-modal-toggle="modal150">Ubah</button>
+                                                </div>
+                                            @else
+                                                <input type="file" name="as_pa_parts_50" id="">
+                                                <div class="">
+                                                    <input type="number" id="base-input"
+                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PA)"
+                                                        min="0" max="999999999999"
+                                                        oninput="validity.valid||(value='');"
+                                                        name="as_mny_parts_pa_50">
+                                                </div>
+                                            @endif
+
                                         </td>
                                         <input type="text" hidden name="as_up_by_parts_pa_50"
                                             value="{{ Auth::user()->first_name }}">
@@ -3708,13 +4287,14 @@
 
                         <div class="flex space-x-2 items-center justify-between">
                             <p class="font-normal text-lg bg-teal-600 px-4 py-1 w-fit text-white mb-2 rounded">
-                                PA Pekerjaan/Jasa
+                                PR Pekerjaan/Jasa
                             </p>
                             @foreach ($standar_project as $spt)
                                 @if ($spt->file_pr_pekerjaan_jasa_form != '')
                                     {{-- tombol form --}}
                                     <div class="mb-1">
-                                        <p class="text-right font-light text-sm">Harap Menggunakan Standar formulir:
+                                        <p class="text-right font-light text-sm">Harap Menggunakan Standar
+                                            formulir:
                                         </p>
                                         <div class="flex items-center justify-end">
                                             <a href="{{ asset('storage/supervisor/standarproject/' . $spt->file_pr_pekerjaan_jasa_form) }}"
@@ -3727,8 +4307,8 @@
                                                     </svg>
                                                     <p
                                                         class="text-right hover:underline font-normal text-sm text-blue-700  ">
-                                                        Klik untuk mulai mengunduh</p>
-
+                                                        Klik untuk mulai mengunduh
+                                                    </p>
                                                 </div>
                                             </a>
                                         </div>
@@ -3739,6 +4319,7 @@
                         </div>
 
                         {{-- akhir standar formulir --}}
+
                         <div class="overflow-x-auto rounded-md mb-5 max-h-screen overflow-y-auto border">
                             <table class="w-full">
                                 <thead class="bg-green-600 text-white">
@@ -3791,13 +4372,25 @@
                                             @endif
                                         </td>
                                         <td class="space-y-2 py-3 px-2">
-                                            <input type="file" name="as_pa_jasa_1" id="">
-                                            <div class="">
-                                                <input type="number" id="base-input"
-                                                    class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                    placeholder="Rp (input nilai PA)"
-                                                    min="0" max="999999999999" oninput="validity.valid||(value='');"  name="as_mny_jasa_pa_1">
-                                            </div>
+                                            @if ($koneksipa->pa_jasa_1 != '')
+                                                <div class="justify-center flex space-x-2">
+                                                    <button type="button"
+                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        data-modal-target="modal21" data-modal-show="modal21"
+                                                        data-modal-toggle="modal21">Ubah</button>
+                                                </div>
+                                            @else
+                                                <input type="file" name="as_pa_jasa_1" id="">
+                                                <div class="">
+                                                    <input type="number" id="base-input"
+                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PA)"
+                                                        min="0" max="999999999999"
+                                                        oninput="validity.valid||(value='');"
+                                                        name="as_mny_jasa_pa_1">
+                                                </div>
+                                            @endif
+
                                         </td>
                                         <input type="text" hidden name="as_up_by_jasa_pa_1"
                                             value="{{ Auth::user()->first_name }}">
@@ -3846,13 +4439,25 @@
                                             @endif
                                         </td>
                                         <td class="space-y-2 py-3 px-2">
-                                            <input type="file" name="as_pa_jasa_2" id="">
-                                            <div class="">
-                                                <input type="number" id="base-input"
-                                                    class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                    placeholder="Rp (input nilai PA)"
-                                                    min="0" max="999999999999" oninput="validity.valid||(value='');"  name="as_mny_jasa_pa_2">
-                                            </div>
+                                            @if ($koneksipa->pa_jasa_2 != '')
+                                                <div class="justify-center flex space-x-2">
+                                                    <button type="button"
+                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        data-modal-target="modal22" data-modal-show="modal22"
+                                                        data-modal-toggle="modal22">Ubah</button>
+                                                </div>
+                                            @else
+                                                <input type="file" name="as_pa_jasa_2" id="">
+                                                <div class="">
+                                                    <input type="number" id="base-input"
+                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PA)"
+                                                        min="0" max="999999999999"
+                                                        oninput="validity.valid||(value='');"
+                                                        name="as_mny_jasa_pa_2">
+                                                </div>
+                                            @endif
+
                                         </td>
                                         <input type="text" hidden name="as_up_by_jasa_pa_2"
                                             value="{{ Auth::user()->first_name }}">
@@ -3902,13 +4507,25 @@
                                             @endif
                                         </td>
                                         <td class="space-y-2 py-3 px-2">
-                                            <input type="file" name="as_pa_jasa_3" id="">
-                                            <div class="">
-                                                <input type="number" id="base-input"
-                                                    class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                    placeholder="Rp (input nilai PA)"
-                                                    min="0" max="999999999999" oninput="validity.valid||(value='');"  name="as_mny_jasa_pa_3">
-                                            </div>
+                                            @if ($koneksipa->pa_jasa_3 != '')
+                                                <div class="justify-center flex space-x-2">
+                                                    <button type="button"
+                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        data-modal-target="modal23" data-modal-show="modal23"
+                                                        data-modal-toggle="modal23">Ubah</button>
+                                                </div>
+                                            @else
+                                                <input type="file" name="as_pa_jasa_3" id="">
+                                                <div class="">
+                                                    <input type="number" id="base-input"
+                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PA)"
+                                                        min="0" max="999999999999"
+                                                        oninput="validity.valid||(value='');"
+                                                        name="as_mny_jasa_pa_3">
+                                                </div>
+                                            @endif
+
                                         </td>
                                         <input type="text" hidden name="as_up_by_jasa_pa_3"
                                             value="{{ Auth::user()->first_name }}">
@@ -3958,13 +4575,24 @@
                                             @endif
                                         </td>
                                         <td class="space-y-2 py-3 px-2">
-                                            <input type="file" name="as_pa_jasa_4" id="">
-                                            <div class="">
-                                                <input type="number" id="base-input"
-                                                    class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                    placeholder="Rp (input nilai PA)"
-                                                    min="0" max="999999999999" oninput="validity.valid||(value='');"  name="as_mny_jasa_pa_4">
-                                            </div>
+                                            @if ($koneksipa->pa_jasa_4 != '')
+                                                <div class="justify-center flex space-x-2">
+                                                    <button type="button"
+                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        data-modal-target="modal24" data-modal-show="modal24"
+                                                        data-modal-toggle="modal24">Ubah</button>
+                                                </div>
+                                            @else
+                                                <input type="file" name="as_pa_jasa_4" id="">
+                                                <div class="">
+                                                    <input type="number" id="base-input"
+                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PA)"
+                                                        min="0" max="999999999999"
+                                                        oninput="validity.valid||(value='');"
+                                                        name="as_mny_jasa_pa_4">
+                                                </div>
+                                            @endif
                                         </td>
                                         <input type="text" hidden name="as_up_by_jasa_pa_4"
                                             value="{{ Auth::user()->first_name }}">
@@ -4013,19 +4641,29 @@
                                             @endif
                                         </td>
                                         <td class="space-y-2 py-3 px-2">
-                                            <input type="file" name="as_pa_jasa_5" id="">
-                                            <div class="">
-                                                <input type="number" id="base-input"
-                                                    class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                    placeholder="Rp (input nilai PA)"
-                                                    min="0" max="999999999999" oninput="validity.valid||(value='');"  name="as_mny_jasa_pa_5">
-                                            </div>
+                                            @if ($koneksipa->pa_jasa_5 != '')
+                                                <div class="justify-center flex space-x-2">
+                                                    <button type="button"
+                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        data-modal-target="modal25" data-modal-show="modal25"
+                                                        data-modal-toggle="modal25">Ubah</button>
+                                                </div>
+                                            @else
+                                                <input type="file" name="as_pa_jasa_5" id="">
+                                                <div class="">
+                                                    <input type="number" id="base-input"
+                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PA)"
+                                                        min="0" max="999999999999"
+                                                        oninput="validity.valid||(value='');"
+                                                        name="as_mny_jasa_pa_5">
+                                                </div>
+                                            @endif
                                         </td>
                                         <input type="text" hidden name="as_up_by_jasa_pa_5"
                                             value="{{ Auth::user()->first_name }}">
                                         <input type="date" hidden name="as_date_pa_jasa_5"
                                             value="{{ date('Y-m-d') }}">
-
                                     </tr>
                                     {{-- 6 --}}
                                     <tr
@@ -4068,13 +4706,25 @@
                                             @endif
                                         </td>
                                         <td class="space-y-2 py-3 px-2">
-                                            <input type="file" name="as_pa_jasa_6" id="">
-                                            <div class="">
-                                                <input type="number" id="base-input"
-                                                    class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                    placeholder="Rp (input nilai PA)"
-                                                    min="0" max="999999999999" oninput="validity.valid||(value='');"  name="as_mny_jasa_pa_6">
-                                            </div>
+                                            @if ($koneksipa->pa_jasa_6 != '')
+                                                <div class="justify-center flex space-x-2">
+                                                    <button type="button"
+                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        data-modal-target="modal26" data-modal-show="modal26"
+                                                        data-modal-toggle="modal26">Ubah</button>
+                                                </div>
+                                            @else
+                                                <input type="file" name="as_pa_jasa_6" id="">
+                                                <div class="">
+                                                    <input type="number" id="base-input"
+                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PA)"
+                                                        min="0" max="999999999999"
+                                                        oninput="validity.valid||(value='');"
+                                                        name="as_mny_jasa_pa_6">
+                                                </div>
+                                            @endif
+
                                         </td>
                                         <input type="text" hidden name="as_up_by_jasa_pa_6"
                                             value="{{ Auth::user()->first_name }}">
@@ -4123,13 +4773,24 @@
                                             @endif
                                         </td>
                                         <td class="space-y-2 py-3 px-2">
-                                            <input type="file" name="as_pa_jasa_7" id="">
-                                            <div class="">
-                                                <input type="number" id="base-input"
-                                                    class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                    placeholder="Rp (input nilai PA)"
-                                                    min="0" max="999999999999" oninput="validity.valid||(value='');"  name="as_mny_jasa_pa_7">
-                                            </div>
+                                            @if ($koneksipa->pa_jasa_7 != '')
+                                                <div class="justify-center flex space-x-2">
+                                                    <button type="button"
+                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        data-modal-target="modal27" data-modal-show="modal27"
+                                                        data-modal-toggle="modal27">Ubah</button>
+                                                </div>
+                                            @else
+                                                <input type="file" name="as_pa_jasa_7" id="">
+                                                <div class="">
+                                                    <input type="number" id="base-input"
+                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PA)"
+                                                        min="0" max="999999999999"
+                                                        oninput="validity.valid||(value='');"
+                                                        name="as_mny_jasa_pa_7">
+                                                </div>
+                                            @endif
                                         </td>
                                         <input type="text" hidden name="as_up_by_jasa_pa_7"
                                             value="{{ Auth::user()->first_name }}">
@@ -4178,13 +4839,24 @@
                                             @endif
                                         </td>
                                         <td class="space-y-2 py-3 px-2">
-                                            <input type="file" name="as_pa_jasa_8" id="">
-                                            <div class="">
-                                                <input type="number" id="base-input"
-                                                    class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                    placeholder="Rp (input nilai PA)"
-                                                    min="0" max="999999999999" oninput="validity.valid||(value='');"  name="as_mny_jasa_pa_8">
-                                            </div>
+                                            @if ($koneksipa->pa_jasa_8 != '')
+                                                <div class="justify-center flex space-x-2">
+                                                    <button type="button"
+                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        data-modal-target="modal28" data-modal-show="modal28"
+                                                        data-modal-toggle="modal28">Ubah</button>
+                                                </div>
+                                            @else
+                                                <input type="file" name="as_pa_jasa_8" id="">
+                                                <div class="">
+                                                    <input type="number" id="base-input"
+                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PA)"
+                                                        min="0" max="999999999999"
+                                                        oninput="validity.valid||(value='');"
+                                                        name="as_mny_jasa_pa_8">
+                                                </div>
+                                            @endif
                                         </td>
                                         <input type="text" hidden name="as_up_by_jasa_pa_8"
                                             value="{{ Auth::user()->first_name }}">
@@ -4233,13 +4905,25 @@
                                             @endif
                                         </td>
                                         <td class="space-y-2 py-3 px-2">
-                                            <input type="file" name="as_pa_jasa_9" id="">
-                                            <div class="">
-                                                <input type="number" id="base-input"
-                                                    class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                    placeholder="Rp (input nilai PA)"
-                                                    min="0" max="999999999999" oninput="validity.valid||(value='');"  name="as_mny_jasa_pa_9">
-                                            </div>
+                                            @if ($koneksipa->pa_jasa_9 != '')
+                                                <div class="justify-center flex space-x-2">
+                                                    <button type="button"
+                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        data-modal-target="modal29" data-modal-show="modal29"
+                                                        data-modal-toggle="modal29">Ubah</button>
+                                                </div>
+                                            @else
+                                                <input type="file" name="as_pa_jasa_9" id="">
+                                                <div class="">
+                                                    <input type="number" id="base-input"
+                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PA)"
+                                                        min="0" max="999999999999"
+                                                        oninput="validity.valid||(value='');"
+                                                        name="as_mny_jasa_pa_9">
+                                                </div>
+                                            @endif
+
                                         </td>
                                         <input type="text" hidden name="as_up_by_jasa_pa_9"
                                             value="{{ Auth::user()->first_name }}">
@@ -4288,13 +4972,25 @@
                                             @endif
                                         </td>
                                         <td class="space-y-2 py-3 px-2">
-                                            <input type="file" name="as_pa_jasa_10" id="">
-                                            <div class="">
-                                                <input type="number" id="base-input"
-                                                    class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                    placeholder="Rp (input nilai PA)"
-                                                    min="0" max="999999999999" oninput="validity.valid||(value='');"  name="as_mny_jasa_pa_10">
-                                            </div>
+                                            @if ($koneksipa->pa_jasa_10 != '')
+                                                <div class="justify-center flex space-x-2">
+                                                    <button type="button"
+                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        data-modal-target="modal210" data-modal-show="modal210"
+                                                        data-modal-toggle="modal210">Ubah</button>
+                                                </div>
+                                            @else
+                                                <input type="file" name="as_pa_jasa_10" id="">
+                                                <div class="">
+                                                    <input type="number" id="base-input"
+                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PA)"
+                                                        min="0" max="999999999999"
+                                                        oninput="validity.valid||(value='');"
+                                                        name="as_mny_jasa_pa_10">
+                                                </div>
+                                            @endif
+
                                         </td>
                                         <input type="text" hidden name="as_up_by_jasa_pa_10"
                                             value="{{ Auth::user()->first_name }}">
@@ -4343,13 +5039,25 @@
                                             @endif
                                         </td>
                                         <td class="space-y-2 py-3 px-2">
-                                            <input type="file" name="as_pa_jasa_11" id="">
-                                            <div class="">
-                                                <input type="number" id="base-input"
-                                                    class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                    placeholder="Rp (input nilai PA)"
-                                                    min="0" max="999999999999" oninput="validity.valid||(value='');"  name="as_mny_jasa_pa_11">
-                                            </div>
+                                            @if ($koneksipa->pa_jasa_11 != '')
+                                                <div class="justify-center flex space-x-2">
+                                                    <button type="button"
+                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        data-modal-target="modal211" data-modal-show="modal211"
+                                                        data-modal-toggle="modal211">Ubah</button>
+                                                </div>
+                                            @else
+                                                <input type="file" name="as_pa_jasa_11" id="">
+                                                <div class="">
+                                                    <input type="number" id="base-input"
+                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PA)"
+                                                        min="0" max="999999999999"
+                                                        oninput="validity.valid||(value='');"
+                                                        name="as_mny_jasa_pa_11">
+                                                </div>
+                                            @endif
+
                                         </td>
                                         <input type="text" hidden name="as_up_by_jasa_pa_11"
                                             value="{{ Auth::user()->first_name }}">
@@ -4398,13 +5106,24 @@
                                             @endif
                                         </td>
                                         <td class="space-y-2 py-3 px-2">
-                                            <input type="file" name="as_pa_jasa_12" id="">
-                                            <div class="">
-                                                <input type="number" id="base-input"
-                                                    class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                    placeholder="Rp (input nilai PA)"
-                                                    min="0" max="999999999999" oninput="validity.valid||(value='');"  name="as_mny_jasa_pa_12">
-                                            </div>
+                                            @if ($koneksipa->pa_jasa_12 != '')
+                                                <div class="justify-center flex space-x-2">
+                                                    <button type="button"
+                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        data-modal-target="modal212" data-modal-show="modal212"
+                                                        data-modal-toggle="modal212">Ubah</button>
+                                                </div>
+                                            @else
+                                                <input type="file" name="as_pa_jasa_12" id="">
+                                                <div class="">
+                                                    <input type="number" id="base-input"
+                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PA)"
+                                                        min="0" max="999999999999"
+                                                        oninput="validity.valid||(value='');"
+                                                        name="as_mny_jasa_pa_12">
+                                                </div>
+                                            @endif
                                         </td>
                                         <input type="text" hidden name="as_up_by_jasa_pa_12"
                                             value="{{ Auth::user()->first_name }}">
@@ -4453,13 +5172,24 @@
                                             @endif
                                         </td>
                                         <td class="space-y-2 py-3 px-2">
-                                            <input type="file" name="as_pa_jasa_13" id="">
-                                            <div class="">
-                                                <input type="number" id="base-input"
-                                                    class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                    placeholder="Rp (input nilai PA)"
-                                                    min="0" max="999999999999" oninput="validity.valid||(value='');"  name="as_mny_jasa_pa_13">
-                                            </div>
+                                            @if ($koneksipa->pa_jasa_13 != '')
+                                                <div class="justify-center flex space-x-2">
+                                                    <button type="button"
+                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        data-modal-target="modal213" data-modal-show="modal213"
+                                                        data-modal-toggle="modal213">Ubah</button>
+                                                </div>
+                                            @else
+                                                <input type="file" name="as_pa_jasa_13" id="">
+                                                <div class="">
+                                                    <input type="number" id="base-input"
+                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PA)"
+                                                        min="0" max="999999999999"
+                                                        oninput="validity.valid||(value='');"
+                                                        name="as_mny_jasa_pa_13">
+                                                </div>
+                                            @endif
                                         </td>
                                         <input type="text" hidden name="as_up_by_jasa_pa_13"
                                             value="{{ Auth::user()->first_name }}">
@@ -4508,13 +5238,25 @@
                                             @endif
                                         </td>
                                         <td class="space-y-2 py-3 px-2">
-                                            <input type="file" name="as_pa_jasa_14" id="">
-                                            <div class="">
-                                                <input type="number" id="base-input"
-                                                    class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                    placeholder="Rp (input nilai PA)"
-                                                    min="0" max="999999999999" oninput="validity.valid||(value='');"  name="as_mny_jasa_pa_14">
-                                            </div>
+                                            @if ($koneksipa->pa_jasa_14 != '')
+                                                <div class="justify-center flex space-x-2">
+                                                    <button type="button"
+                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        data-modal-target="modal214" data-modal-show="modal214"
+                                                        data-modal-toggle="modal214">Ubah</button>
+                                                </div>
+                                            @else
+                                                <input type="file" name="as_pa_jasa_14" id="">
+                                                <div class="">
+                                                    <input type="number" id="base-input"
+                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PA)"
+                                                        min="0" max="999999999999"
+                                                        oninput="validity.valid||(value='');"
+                                                        name="as_mny_jasa_pa_14">
+                                                </div>
+                                            @endif
+
                                         </td>
                                         <input type="text" hidden name="as_up_by_jasa_pa_14"
                                             value="{{ Auth::user()->first_name }}">
@@ -4563,13 +5305,25 @@
                                             @endif
                                         </td>
                                         <td class="space-y-2 py-3 px-2">
-                                            <input type="file" name="as_pa_jasa_15" id="">
-                                            <div class="">
-                                                <input type="number" id="base-input"
-                                                    class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                    placeholder="Rp (input nilai PA)"
-                                                    min="0" max="999999999999" oninput="validity.valid||(value='');"  name="as_mny_jasa_pa_15">
-                                            </div>
+                                            @if ($koneksipa->pa_jasa_15 != '')
+                                                <div class="justify-center flex space-x-2">
+                                                    <button type="button"
+                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        data-modal-target="modal215" data-modal-show="modal215"
+                                                        data-modal-toggle="modal215">Ubah</button>
+                                                </div>
+                                            @else
+                                                <input type="file" name="as_pa_jasa_15" id="">
+                                                <div class="">
+                                                    <input type="number" id="base-input"
+                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PA)"
+                                                        min="0" max="999999999999"
+                                                        oninput="validity.valid||(value='');"
+                                                        name="as_mny_jasa_pa_15">
+                                                </div>
+                                            @endif
+
                                         </td>
                                         <input type="text" hidden name="as_up_by_jasa_pa_15"
                                             value="{{ Auth::user()->first_name }}">
@@ -4618,13 +5372,25 @@
                                             @endif
                                         </td>
                                         <td class="space-y-2 py-3 px-2">
-                                            <input type="file" name="as_pa_jasa_16" id="">
-                                            <div class="">
-                                                <input type="number" id="base-input"
-                                                    class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                    placeholder="Rp (input nilai PA)"
-                                                    min="0" max="999999999999" oninput="validity.valid||(value='');"  name="as_mny_jasa_pa_16">
-                                            </div>
+                                            @if ($koneksipa->pa_jasa_16 != '')
+                                                <div class="justify-center flex space-x-2">
+                                                    <button type="button"
+                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        data-modal-target="modal216" data-modal-show="modal216"
+                                                        data-modal-toggle="modal216">Ubah</button>
+                                                </div>
+                                            @else
+                                                <input type="file" name="as_pa_jasa_16" id="">
+                                                <div class="">
+                                                    <input type="number" id="base-input"
+                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PA)"
+                                                        min="0" max="999999999999"
+                                                        oninput="validity.valid||(value='');"
+                                                        name="as_mny_jasa_pa_16">
+                                                </div>
+                                            @endif
+
                                         </td>
                                         <input type="text" hidden name="as_up_by_jasa_pa_16"
                                             value="{{ Auth::user()->first_name }}">
@@ -4632,7 +5398,6 @@
                                             value="{{ date('Y-m-d') }}">
 
                                     </tr>
-                                    {{-- akhir 16 --}}
                                     {{-- 17 jasa --}}
                                     <tr
                                         class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
@@ -4674,13 +5439,25 @@
                                             @endif
                                         </td>
                                         <td class="space-y-2 py-3 px-2">
-                                            <input type="file" name="as_pa_jasa_17" id="">
-                                            <div class="">
-                                                <input type="number" id="base-input"
-                                                    class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                    placeholder="Rp (input nilai PA)"
-                                                    min="0" max="999999999999" oninput="validity.valid||(value='');"  name="as_mny_jasa_pa_17">
-                                            </div>
+                                            @if ($koneksipa->pa_jasa_17 != '')
+                                                <div class="justify-center flex space-x-2">
+                                                    <button type="button"
+                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        data-modal-target="modal217" data-modal-show="modal217"
+                                                        data-modal-toggle="modal217">Ubah</button>
+                                                </div>
+                                            @else
+                                                <input type="file" name="as_pa_jasa_17" id="">
+                                                <div class="">
+                                                    <input type="number" id="base-input"
+                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PA)"
+                                                        min="0" max="999999999999"
+                                                        oninput="validity.valid||(value='');"
+                                                        name="as_mny_jasa_pa_17">
+                                                </div>
+                                            @endif
+
                                         </td>
                                         <input type="text" hidden name="as_up_by_jasa_pa_17"
                                             value="{{ Auth::user()->first_name }}">
@@ -4729,13 +5506,25 @@
                                             @endif
                                         </td>
                                         <td class="space-y-2 py-3 px-2">
-                                            <input type="file" name="as_pa_jasa_18" id="">
-                                            <div class="">
-                                                <input type="number" id="base-input"
-                                                    class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                    placeholder="Rp (input nilai PA)"
-                                                    min="0" max="999999999999" oninput="validity.valid||(value='');"  name="as_mny_jasa_pa_18">
-                                            </div>
+                                            @if ($koneksipa->pa_jasa_18 != '')
+                                                <div class="justify-center flex space-x-2">
+                                                    <button type="button"
+                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        data-modal-target="modal218" data-modal-show="modal218"
+                                                        data-modal-toggle="modal218">Ubah</button>
+                                                </div>
+                                            @else
+                                                <input type="file" name="as_pa_jasa_18" id="">
+                                                <div class="">
+                                                    <input type="number" id="base-input"
+                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PA)"
+                                                        min="0" max="999999999999"
+                                                        oninput="validity.valid||(value='');"
+                                                        name="as_mny_jasa_pa_18">
+                                                </div>
+                                            @endif
+
                                         </td>
                                         <input type="text" hidden name="as_up_by_jasa_pa_18"
                                             value="{{ Auth::user()->first_name }}">
@@ -4784,17 +5573,96 @@
                                             @endif
                                         </td>
                                         <td class="space-y-2 py-3 px-2">
-                                            <input type="file" name="as_pa_jasa_19" id="">
-                                            <div class="">
-                                                <input type="number" id="base-input"
-                                                    class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                    placeholder="Rp (input nilai PA)"
-                                                    min="0" max="999999999999" oninput="validity.valid||(value='');"  name="as_mny_jasa_pa_19">
-                                            </div>
+                                            @if ($koneksipa->pa_jasa_19 != '')
+                                                <div class="justify-center flex space-x-2">
+                                                    <button type="button"
+                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        data-modal-target="modal219" data-modal-show="modal219"
+                                                        data-modal-toggle="modal219">Ubah</button>
+                                                </div>
+                                            @else
+                                                <input type="file" name="as_pa_jasa_19" id="">
+                                                <div class="">
+                                                    <input type="number" id="base-input"
+                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PA)"
+                                                        min="0" max="999999999999"
+                                                        oninput="validity.valid||(value='');"
+                                                        name="as_mny_jasa_pa_19">
+                                                </div>
+                                            @endif
+
                                         </td>
                                         <input type="text" hidden name="as_up_by_jasa_pa_19"
                                             value="{{ Auth::user()->first_name }}">
                                         <input type="date" hidden name="as_date_pa_jasa_19"
+                                            value="{{ date('Y-m-d') }}">
+
+                                    </tr>
+                                    {{-- 20 --}}
+                                    <tr
+                                        class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
+                                        <td class="py-4 font-bold text-center">20.</td>
+                                        <td class="flex items-center my-10">
+
+                                            @if ($koneksipa->pa_jasa_20 != '')
+                                                <a href="{{ asset('storage/supervisor/project/03_02_PR/' . $koneksipa->pa_jasa_20) }}"
+                                                    target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
+                                                    <svg width="22" height="17" viewBox="0 0 22 17"
+                                                        fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path
+                                                            d="M11 0C6 0 1.73 3.11 0 7.5C1.73 11.89 6 15 11 15C11.36 15 11.72 15 12.08 14.95C12.03 14.63 12 14.32 12 14C12 13.44 12.08 12.88 12.24 12.34C11.83 12.44 11.42 12.5 11 12.5C8.24 12.5 6 10.26 6 7.5C6 4.74 8.24 2.5 11 2.5C13.76 2.5 16 4.74 16 7.5C16 7.79 15.97 8.09 15.92 8.38C16.58 8.13 17.29 8 18 8C19.17 8 20.31 8.34 21.29 9C21.56 8.5 21.8 8 22 7.5C20.27 3.11 16 0 11 0ZM11 4.5C9.34 4.5 8 5.84 8 7.5C8 9.16 9.34 10.5 11 10.5C12.66 10.5 14 9.16 14 7.5C14 5.84 12.66 4.5 11 4.5ZM17 10.5V12.5H21V14.5H17V16.5L14 13.5L17 10.5Z"
+                                                            fill="black" />
+                                                    </svg>
+                                                </a>
+
+                                                &emsp;
+                                            @endif
+                                            {{--  --}}
+                                            <a href="{{ asset('storage/supervisor/project/03_02_PR/' . $koneksipa->pa_jasa_20) }}"
+                                                target="blank" download="" class="hover:underline">
+                                                {{ $koneksipa->pa_jasa_20 }}</a>
+                                            {{-- == --}}
+
+                                        </td>
+                                        <td>
+                                            @if ($koneksipa->up_by_jasa_pa_20 != '')
+                                                <div
+                                                    class="items-center py-1 px-2 text-sm font-medium text-center text-white bg-orange-500 w-[100] mx-auto rounded">
+                                                    {{ $koneksipa->up_by_jasa_pa_20 }}
+                                                </div>
+                                            @endif
+                                        </td>
+                                        <td class="text-center">{{ $koneksipa->date_pa_jasa_20 }}</td>
+                                        <td>
+                                            @if ($koneksipa->mny_jasa_pa_20 != '')
+                                                Rp{{ number_format($koneksipa->mny_jasa_pa_20, 0, ',', '.') }}
+                                            @endif
+                                        </td>
+                                        <td class="space-y-2 py-3 px-2">
+                                            @if ($koneksipa->pa_jasa_20 != '')
+                                                <div class="justify-center flex space-x-2">
+                                                    <button type="button"
+                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        data-modal-target="modal220" data-modal-show="modal220"
+                                                        data-modal-toggle="modal220">Ubah</button>
+                                                </div>
+                                            @else
+                                                <input type="file" name="as_pa_jasa_20" id="">
+                                                <div class="">
+                                                    <input type="number" id="base-input"
+                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PA)"
+                                                        min="0" max="999999999999"
+                                                        oninput="validity.valid||(value='');"
+                                                        name="as_mny_jasa_pa_20">
+                                                </div>
+                                            @endif
+
+                                        </td>
+                                        <input type="text" hidden name="as_up_by_jasa_pa_20"
+                                            value="{{ Auth::user()->first_name }}">
+                                        <input type="date" hidden name="as_date_pa_jasa_20"
                                             value="{{ date('Y-m-d') }}">
 
                                     </tr>
@@ -4839,13 +5707,25 @@
                                             @endif
                                         </td>
                                         <td class="space-y-2 py-3 px-2">
-                                            <input type="file" name="as_pa_jasa_21" id="">
-                                            <div class="">
-                                                <input type="number" id="base-input"
-                                                    class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                    placeholder="Rp (input nilai PA)"
-                                                    min="0" max="999999999999" oninput="validity.valid||(value='');"  name="as_mny_jasa_pa_21">
-                                            </div>
+                                            @if ($koneksipa->pa_jasa_21 != '')
+                                                <div class="justify-center flex space-x-2">
+                                                    <button type="button"
+                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        data-modal-target="modal221" data-modal-show="modal221"
+                                                        data-modal-toggle="modal221">Ubah</button>
+                                                </div>
+                                            @else
+                                                <input type="file" name="as_pa_jasa_21" id="">
+                                                <div class="">
+                                                    <input type="number" id="base-input"
+                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PA)"
+                                                        min="0" max="999999999999"
+                                                        oninput="validity.valid||(value='');"
+                                                        name="as_mny_jasa_pa_21">
+                                                </div>
+                                            @endif
+
                                         </td>
                                         <input type="text" hidden name="as_up_by_jasa_pa_21"
                                             value="{{ Auth::user()->first_name }}">
@@ -4894,13 +5774,25 @@
                                             @endif
                                         </td>
                                         <td class="space-y-2 py-3 px-2">
-                                            <input type="file" name="as_pa_jasa_22" id="">
-                                            <div class="">
-                                                <input type="number" id="base-input"
-                                                    class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                    placeholder="Rp (input nilai PA)"
-                                                    min="0" max="999999999999" oninput="validity.valid||(value='');"  name="as_mny_jasa_pa_22">
-                                            </div>
+                                            @if ($koneksipa->pa_jasa_22 != '')
+                                                <div class="justify-center flex space-x-2">
+                                                    <button type="button"
+                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        data-modal-target="modal222" data-modal-show="modal222"
+                                                        data-modal-toggle="modal222">Ubah</button>
+                                                </div>
+                                            @else
+                                                <input type="file" name="as_pa_jasa_22" id="">
+                                                <div class="">
+                                                    <input type="number" id="base-input"
+                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PA)"
+                                                        min="0" max="999999999999"
+                                                        oninput="validity.valid||(value='');"
+                                                        name="as_mny_jasa_pa_22">
+                                                </div>
+                                            @endif
+
                                         </td>
                                         <input type="text" hidden name="as_up_by_jasa_pa_22"
                                             value="{{ Auth::user()->first_name }}">
@@ -4949,13 +5841,25 @@
                                             @endif
                                         </td>
                                         <td class="space-y-2 py-3 px-2">
-                                            <input type="file" name="as_pa_jasa_23" id="">
-                                            <div class="">
-                                                <input type="number" id="base-input"
-                                                    class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                    placeholder="Rp (input nilai PA)"
-                                                    min="0" max="999999999999" oninput="validity.valid||(value='');"  name="as_mny_jasa_pa_23">
-                                            </div>
+                                            @if ($koneksipa->pa_jasa_23 != '')
+                                                <div class="justify-center flex space-x-2">
+                                                    <button type="button"
+                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        data-modal-target="modal223" data-modal-show="modal223"
+                                                        data-modal-toggle="modal223">Ubah</button>
+                                                </div>
+                                            @else
+                                                <input type="file" name="as_pa_jasa_23" id="">
+                                                <div class="">
+                                                    <input type="number" id="base-input"
+                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PA)"
+                                                        min="0" max="999999999999"
+                                                        oninput="validity.valid||(value='');"
+                                                        name="as_mny_jasa_pa_23">
+                                                </div>
+                                            @endif
+
                                         </td>
                                         <input type="text" hidden name="as_up_by_jasa_pa_23"
                                             value="{{ Auth::user()->first_name }}">
@@ -5004,13 +5908,25 @@
                                             @endif
                                         </td>
                                         <td class="space-y-2 py-3 px-2">
-                                            <input type="file" name="as_pa_jasa_24" id="">
-                                            <div class="">
-                                                <input type="number" id="base-input"
-                                                    class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                    placeholder="Rp (input nilai PA)"
-                                                    min="0" max="999999999999" oninput="validity.valid||(value='');"  name="as_mny_jasa_pa_24">
-                                            </div>
+                                            @if ($koneksipa->pa_jasa_24 != '')
+                                                <div class="justify-center flex space-x-2">
+                                                    <button type="button"
+                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        data-modal-target="modal224" data-modal-show="modal224"
+                                                        data-modal-toggle="modal224">Ubah</button>
+                                                </div>
+                                            @else
+                                                <input type="file" name="as_pa_jasa_24" id="">
+                                                <div class="">
+                                                    <input type="number" id="base-input"
+                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PA)"
+                                                        min="0" max="999999999999"
+                                                        oninput="validity.valid||(value='');"
+                                                        name="as_mny_jasa_pa_24">
+                                                </div>
+                                            @endif
+
                                         </td>
                                         <input type="text" hidden name="as_up_by_jasa_pa_24"
                                             value="{{ Auth::user()->first_name }}">
@@ -5059,13 +5975,25 @@
                                             @endif
                                         </td>
                                         <td class="space-y-2 py-3 px-2">
-                                            <input type="file" name="as_pa_jasa_25" id="">
-                                            <div class="">
-                                                <input type="number" id="base-input"
-                                                    class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                    placeholder="Rp (input nilai PA)"
-                                                    min="0" max="999999999999" oninput="validity.valid||(value='');"  name="as_mny_jasa_pa_25">
-                                            </div>
+                                            @if ($koneksipa->pa_jasa_25 != '')
+                                                <div class="justify-center flex space-x-2">
+                                                    <button type="button"
+                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        data-modal-target="modal225" data-modal-show="modal225"
+                                                        data-modal-toggle="modal225">Ubah</button>
+                                                </div>
+                                            @else
+                                                <input type="file" name="as_pa_jasa_25" id="">
+                                                <div class="">
+                                                    <input type="number" id="base-input"
+                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PA)"
+                                                        min="0" max="999999999999"
+                                                        oninput="validity.valid||(value='');"
+                                                        name="as_mny_jasa_pa_25">
+                                                </div>
+                                            @endif
+
                                         </td>
                                         <input type="text" hidden name="as_up_by_jasa_pa_25"
                                             value="{{ Auth::user()->first_name }}">
@@ -5114,13 +6042,25 @@
                                             @endif
                                         </td>
                                         <td class="space-y-2 py-3 px-2">
-                                            <input type="file" name="as_pa_jasa_26" id="">
-                                            <div class="">
-                                                <input type="number" id="base-input"
-                                                    class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                    placeholder="Rp (input nilai PA)"
-                                                    min="0" max="999999999999" oninput="validity.valid||(value='');"  name="as_mny_jasa_pa_26">
-                                            </div>
+                                            @if ($koneksipa->pa_jasa_26 != '')
+                                                <div class="justify-center flex space-x-2">
+                                                    <button type="button"
+                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        data-modal-target="modal226" data-modal-show="modal226"
+                                                        data-modal-toggle="modal226">Ubah</button>
+                                                </div>
+                                            @else
+                                                <input type="file" name="as_pa_jasa_26" id="">
+                                                <div class="">
+                                                    <input type="number" id="base-input"
+                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PA)"
+                                                        min="0" max="999999999999"
+                                                        oninput="validity.valid||(value='');"
+                                                        name="as_mny_jasa_pa_26">
+                                                </div>
+                                            @endif
+
                                         </td>
                                         <input type="text" hidden name="as_up_by_jasa_pa_26"
                                             value="{{ Auth::user()->first_name }}">
@@ -5169,13 +6109,25 @@
                                             @endif
                                         </td>
                                         <td class="space-y-2 py-3 px-2">
-                                            <input type="file" name="as_pa_jasa_27" id="">
-                                            <div class="">
-                                                <input type="number" id="base-input"
-                                                    class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                    placeholder="Rp (input nilai PA)"
-                                                    min="0" max="999999999999" oninput="validity.valid||(value='');"  name="as_mny_jasa_pa_27">
-                                            </div>
+                                            @if ($koneksipa->pa_jasa_27 != '')
+                                                <div class="justify-center flex space-x-2">
+                                                    <button type="button"
+                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        data-modal-target="modal227" data-modal-show="modal227"
+                                                        data-modal-toggle="modal227">Ubah</button>
+                                                </div>
+                                            @else
+                                                <input type="file" name="as_pa_jasa_27" id="">
+                                                <div class="">
+                                                    <input type="number" id="base-input"
+                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PA)"
+                                                        min="0" max="999999999999"
+                                                        oninput="validity.valid||(value='');"
+                                                        name="as_mny_jasa_pa_27">
+                                                </div>
+                                            @endif
+
                                         </td>
                                         <input type="text" hidden name="as_up_by_jasa_pa_27"
                                             value="{{ Auth::user()->first_name }}">
@@ -5224,13 +6176,25 @@
                                             @endif
                                         </td>
                                         <td class="space-y-2 py-3 px-2">
-                                            <input type="file" name="as_pa_jasa_28" id="">
-                                            <div class="">
-                                                <input type="number" id="base-input"
-                                                    class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                    placeholder="Rp (input nilai PA)"
-                                                    min="0" max="999999999999" oninput="validity.valid||(value='');"  name="as_mny_jasa_pa_28">
-                                            </div>
+                                            @if ($koneksipa->pa_jasa_28 != '')
+                                                <div class="justify-center flex space-x-2">
+                                                    <button type="button"
+                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        data-modal-target="modal228" data-modal-show="modal228"
+                                                        data-modal-toggle="modal228">Ubah</button>
+                                                </div>
+                                            @else
+                                                <input type="file" name="as_pa_jasa_28" id="">
+                                                <div class="">
+                                                    <input type="number" id="base-input"
+                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PA)"
+                                                        min="0" max="999999999999"
+                                                        oninput="validity.valid||(value='');"
+                                                        name="as_mny_jasa_pa_28">
+                                                </div>
+                                            @endif
+
                                         </td>
                                         <input type="text" hidden name="as_up_by_jasa_pa_28"
                                             value="{{ Auth::user()->first_name }}">
@@ -5279,13 +6243,25 @@
                                             @endif
                                         </td>
                                         <td class="space-y-2 py-3 px-2">
-                                            <input type="file" name="as_pa_jasa_29" id="">
-                                            <div class="">
-                                                <input type="number" id="base-input"
-                                                    class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                    placeholder="Rp (input nilai PA)"
-                                                    min="0" max="999999999999" oninput="validity.valid||(value='');"  name="as_mny_jasa_pa_29">
-                                            </div>
+                                            @if ($koneksipa->pa_jasa_29 != '')
+                                                <div class="justify-center flex space-x-2">
+                                                    <button type="button"
+                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        data-modal-target="modal229" data-modal-show="modal229"
+                                                        data-modal-toggle="modal229">Ubah</button>
+                                                </div>
+                                            @else
+                                                <input type="file" name="as_pa_jasa_29" id="">
+                                                <div class="">
+                                                    <input type="number" id="base-input"
+                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PA)"
+                                                        min="0" max="999999999999"
+                                                        oninput="validity.valid||(value='');"
+                                                        name="as_mny_jasa_pa_29">
+                                                </div>
+                                            @endif
+
                                         </td>
                                         <input type="text" hidden name="as_up_by_jasa_pa_29"
                                             value="{{ Auth::user()->first_name }}">
@@ -5334,13 +6310,25 @@
                                             @endif
                                         </td>
                                         <td class="space-y-2 py-3 px-2">
-                                            <input type="file" name="as_pa_jasa_30" id="">
-                                            <div class="">
-                                                <input type="number" id="base-input"
-                                                    class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                    placeholder="Rp (input nilai PA)"
-                                                    min="0" max="999999999999" oninput="validity.valid||(value='');"  name="as_mny_jasa_pa_30">
-                                            </div>
+                                            @if ($koneksipa->pa_jasa_30 != '')
+                                                <div class="justify-center flex space-x-2">
+                                                    <button type="button"
+                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        data-modal-target="modal230" data-modal-show="modal230"
+                                                        data-modal-toggle="modal230">Ubah</button>
+                                                </div>
+                                            @else
+                                                <input type="file" name="as_pa_jasa_30" id="">
+                                                <div class="">
+                                                    <input type="number" id="base-input"
+                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PA)"
+                                                        min="0" max="999999999999"
+                                                        oninput="validity.valid||(value='');"
+                                                        name="as_mny_jasa_pa_30">
+                                                </div>
+                                            @endif
+
                                         </td>
                                         <input type="text" hidden name="as_up_by_jasa_pa_30"
                                             value="{{ Auth::user()->first_name }}">
@@ -5348,6 +6336,7 @@
                                             value="{{ date('Y-m-d') }}">
 
                                     </tr>
+
 
                                 </tbody>
                             </table>
@@ -5359,13 +6348,14 @@
 
                         <div class="flex space-x-2 items-center justify-between">
                             <p class="font-normal text-lg bg-teal-600 px-4 py-1 w-fit text-white mb-2 rounded">
-                                PA Manufaktur
+                                PR Manufaktur
                             </p>
                             @foreach ($standar_project as $spt)
                                 @if ($spt->file_pr_manufaktur_form != '')
                                     {{-- tombol form --}}
                                     <div class="mb-1">
-                                        <p class="text-right font-light text-sm">Harap Menggunakan Standar formulir:
+                                        <p class="text-right font-light text-sm">Harap Menggunakan Standar
+                                            formulir:
                                         </p>
                                         <div class="flex items-center justify-end">
                                             <a href="{{ asset('storage/supervisor/standarproject/' . $spt->file_pr_manufaktur_form) }}"
@@ -5390,7 +6380,8 @@
                         </div>
 
                         {{-- akhir standar formulir --}}
-                        <div class="overflow-x-auto rounded-md mb-5 max-h-screen overflow-y-auto border">
+
+                        <div class="overflow-x-auto rounded-t-md max-h-screen overflow-y-auto border">
                             <table class="w-full">
                                 <thead class="bg-green-600 text-white">
                                     <th class="py-2 w-[5%]">No.</th>
@@ -5442,13 +6433,25 @@
                                             @endif
                                         </td>
                                         <td class="space-y-2 py-3 px-2">
-                                            <input type="file" name="as_pa_mnftr_1" id="">
-                                            <div class="">
-                                                <input type="number" id="base-input"
-                                                    class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                    placeholder="Rp (input nilai PA)"
-                                                    min="0" max="999999999999" oninput="validity.valid||(value='');"  name="as_mny_mnftr_pa_1">
-                                            </div>
+                                            @if ($koneksipa->pa_mnftr_1 != '')
+                                                <div class="justify-center flex space-x-2">
+                                                    <button type="button"
+                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        data-modal-target="modal31" data-modal-show="modal31"
+                                                        data-modal-toggle="modal31">Ubah</button>
+                                                </div>
+                                            @else
+                                                <input type="file" name="as_pa_mnftr_1" id="">
+                                                <div class="">
+                                                    <input type="number" id="base-input"
+                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PA)"
+                                                        min="0" max="999999999999"
+                                                        oninput="validity.valid||(value='');"
+                                                        name="as_mny_mnftr_pa_1">
+                                                </div>
+                                            @endif
+
                                         </td>
                                         <input type="text" hidden name="as_up_by_mnftr_pa_1"
                                             value="{{ Auth::user()->first_name }}">
@@ -5497,14 +6500,26 @@
                                             @endif
                                         </td>
                                         <td class="space-y-2 py-3 px-2">
-                                            <input type="file" name="as_pa_mnftr_2" id="">
-                                            <div class="">
-                                                <input type="number" id="base-input"
-                                                    class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                    placeholder="Rp (input nilai PA)"
-                                                    min="0" max="999999999999" oninput="validity.valid||(value='');"  name="as_mny_mnftr_pa_2">
-                                            </div>
+                                            @if ($koneksipa->pa_mnftr_2 != '')
+                                                <div class="justify-center flex space-x-2">
+                                                    <button type="button"
+                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        data-modal-target="modal32" data-modal-show="modal32"
+                                                        data-modal-toggle="modal32">Ubah</button>
+                                                </div>
+                                            @else
+                                                <input type="file" name="as_pa_mnftr_2" id="">
+                                                <div class="">
+                                                    <input type="number" id="base-input"
+                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PA)"
+                                                        min="0" max="999999999999"
+                                                        oninput="validity.valid||(value='');"
+                                                        name="as_mny_mnftr_pa_2">
+                                                </div>
                                         </td>
+                                        @endif
+
                                         <input type="text" hidden name="as_up_by_mnftr_pa_2"
                                             value="{{ Auth::user()->first_name }}">
                                         <input type="date" hidden name="as_date_pa_mnftr_2"
@@ -5553,13 +6568,26 @@
                                             @endif
                                         </td>
                                         <td class="space-y-2 py-3 px-2">
-                                            <input type="file" name="as_pa_mnftr_3" id="">
-                                            <div class="">
-                                                <input type="number" id="base-input"
-                                                    class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                    placeholder="Rp (input nilai PA)"
-                                                    min="0" max="999999999999" oninput="validity.valid||(value='');"  name="as_mny_mnftr_pa_3">
-                                            </div>
+                                            @if ($koneksipa->pa_mnftr_3 != '')
+                                                <div class="justify-center flex space-x-2">
+                                                    <button type="button"
+                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        data-modal-target="modal33" data-modal-show="modal33"
+                                                        data-modal-toggle="modal33">Ubah</button>
+                                                </div>
+                                            @else
+                                                <input type="file" name="as_pa_mnftr_3" id="">
+                                                <div class="">
+                                                    <input type="number" id="base-input"
+                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PA)"
+                                                        min="0" max="999999999999"
+                                                        oninput="validity.valid||(value='');"
+                                                        name="as_mny_mnftr_pa_3">
+                                                </div>
+                                        </td>
+                                        @endif
+
                                         </td>
                                         <input type="text" hidden name="as_up_by_mnftr_pa_3"
                                             value="{{ Auth::user()->first_name }}">
@@ -5609,13 +6637,25 @@
                                             @endif
                                         </td>
                                         <td class="space-y-2 py-3 px-2">
-                                            <input type="file" name="as_pa_mnftr_4" id="">
-                                            <div class="">
-                                                <input type="number" id="base-input"
-                                                    class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                    placeholder="Rp (input nilai PA)"
-                                                    min="0" max="999999999999" oninput="validity.valid||(value='');"  name="as_mny_mnftr_pa_4">
-                                            </div>
+                                            @if ($koneksipa->pa_mnftr_4 != '')
+                                                <div class="justify-center flex space-x-2">
+                                                    <button type="button"
+                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        data-modal-target="modal34" data-modal-show="modal34"
+                                                        data-modal-toggle="modal34">Ubah</button>
+                                                </div>
+                                            @else
+                                                <input type="file" name="as_pa_mnftr_4" id="">
+                                                <div class="">
+                                                    <input type="number" id="base-input"
+                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PA)"
+                                                        min="0" max="999999999999"
+                                                        oninput="validity.valid||(value='');"
+                                                        name="as_mny_mnftr_pa_4">
+                                                </div>
+                                            @endif
+
                                         </td>
                                         <input type="text" hidden name="as_up_by_mnftr_pa_4"
                                             value="{{ Auth::user()->first_name }}">
@@ -5664,13 +6704,25 @@
                                             @endif
                                         </td>
                                         <td class="space-y-2 py-3 px-2">
-                                            <input type="file" name="as_pa_mnftr_5" id="">
-                                            <div class="">
-                                                <input type="number" id="base-input"
-                                                    class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                    placeholder="Rp (input nilai PA)"
-                                                    min="0" max="999999999999" oninput="validity.valid||(value='');"  name="as_mny_mnftr_pa_5">
-                                            </div>
+                                            @if ($koneksipa->pa_mnftr_5 != '')
+                                                <div class="justify-center flex space-x-2">
+                                                    <button type="button"
+                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        data-modal-target="modal35" data-modal-show="modal35"
+                                                        data-modal-toggle="modal35">Ubah</button>
+                                                </div>
+                                            @else
+                                                <input type="file" name="as_pa_mnftr_5" id="">
+                                                <div class="">
+                                                    <input type="number" id="base-input"
+                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PA)"
+                                                        min="0" max="999999999999"
+                                                        oninput="validity.valid||(value='');"
+                                                        name="as_mny_mnftr_pa_5">
+                                                </div>
+                                            @endif
+
                                         </td>
                                         <input type="text" hidden name="as_up_by_mnftr_pa_5"
                                             value="{{ Auth::user()->first_name }}">
@@ -5719,13 +6771,25 @@
                                             @endif
                                         </td>
                                         <td class="space-y-2 py-3 px-2">
-                                            <input type="file" name="as_pa_mnftr_6" id="">
-                                            <div class="" id="submit-1">
-                                                <input type="number" id="base-input"
-                                                    class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                    placeholder="Rp (input nilai PA)"
-                                                    min="0" max="999999999999" oninput="validity.valid||(value='');"  name="as_mny_mnftr_pa_6">
-                                            </div>
+                                            @if ($koneksipa->pa_mnftr_6 != '')
+                                                <div class="justify-center flex space-x-2">
+                                                    <button type="button"
+                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        data-modal-target="modal36" data-modal-show="modal36"
+                                                        data-modal-toggle="modal36">Ubah</button>
+                                                </div>
+                                            @else
+                                                <input type="file" name="as_pa_mnftr_6" id="">
+                                                <div class="" id="submit-1">
+                                                    <input type="number" id="base-input"
+                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PA)"
+                                                        min="0" max="999999999999"
+                                                        oninput="validity.valid||(value='');"
+                                                        name="as_mny_mnftr_pa_6">
+                                                </div>
+                                            @endif
+
                                         </td>
                                         <input type="text" hidden name="as_up_by_mnftr_pa_6"
                                             value="{{ Auth::user()->first_name }}">
@@ -5774,13 +6838,25 @@
                                             @endif
                                         </td>
                                         <td class="space-y-2 py-3 px-2">
-                                            <input type="file" name="as_pa_mnftr_7" id="">
-                                            <div class="">
-                                                <input type="number" id="base-input"
-                                                    class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                    placeholder="Rp (input nilai PA)"
-                                                    min="0" max="999999999999" oninput="validity.valid||(value='');"  name="as_mny_mnftr_pa_7">
-                                            </div>
+                                            @if ($koneksipa->pa_mnftr_7 != '')
+                                                <div class="justify-center flex space-x-2">
+                                                    <button type="button"
+                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        data-modal-target="modal37" data-modal-show="modal37"
+                                                        data-modal-toggle="modal37">Ubah</button>
+                                                </div>
+                                            @else
+                                                <input type="file" name="as_pa_mnftr_7" id="">
+                                                <div class="">
+                                                    <input type="number" id="base-input"
+                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PA)"
+                                                        min="0" max="999999999999"
+                                                        oninput="validity.valid||(value='');"
+                                                        name="as_mny_mnftr_pa_7">
+                                                </div>
+                                            @endif
+
                                         </td>
                                         <input type="text" hidden name="as_up_by_mnftr_pa_7"
                                             value="{{ Auth::user()->first_name }}">
@@ -5829,13 +6905,25 @@
                                             @endif
                                         </td>
                                         <td class="space-y-2 py-3 px-2">
-                                            <input type="file" name="as_pa_mnftr_8" id="">
-                                            <div class="">
-                                                <input type="number" id="base-input"
-                                                    class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                    placeholder="Rp (input nilai PA)"
-                                                    min="0" max="999999999999" oninput="validity.valid||(value='');"  name="as_mny_mnftr_pa_8">
-                                            </div>
+                                            @if ($koneksipa->pa_mnftr_8 != '')
+                                                <div class="justify-center flex space-x-2">
+                                                    <button type="button"
+                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        data-modal-target="modal38" data-modal-show="modal38"
+                                                        data-modal-toggle="modal38">Ubah</button>
+                                                </div>
+                                            @else
+                                                <input type="file" name="as_pa_mnftr_8" id="">
+                                                <div class="">
+                                                    <input type="number" id="base-input"
+                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PA)"
+                                                        min="0" max="999999999999"
+                                                        oninput="validity.valid||(value='');"
+                                                        name="as_mny_mnftr_pa_8">
+                                                </div>
+                                            @endif
+
                                         </td>
                                         <input type="text" hidden name="as_up_by_mnftr_pa_8"
                                             value="{{ Auth::user()->first_name }}">
@@ -5884,13 +6972,25 @@
                                             @endif
                                         </td>
                                         <td class="space-y-2 py-3 px-2">
-                                            <input type="file" name="as_pa_mnftr_9" id="">
-                                            <div class="">
-                                                <input type="number" id="base-input"
-                                                    class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                    placeholder="Rp (input nilai PA)"
-                                                    min="0" max="999999999999" oninput="validity.valid||(value='');"  name="as_mny_mnftr_pa_9">
-                                            </div>
+                                            @if ($koneksipa->pa_mnftr_9 != '')
+                                                <div class="justify-center flex space-x-2">
+                                                    <button type="button"
+                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        data-modal-target="modal39" data-modal-show="modal39"
+                                                        data-modal-toggle="modal39">Ubah</button>
+                                                </div>
+                                            @else
+                                                <input type="file" name="as_pa_mnftr_9" id="">
+                                                <div class="">
+                                                    <input type="number" id="base-input"
+                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PA)"
+                                                        min="0" max="999999999999"
+                                                        oninput="validity.valid||(value='');"
+                                                        name="as_mny_mnftr_pa_9">
+                                                </div>
+                                            @endif
+
                                         </td>
                                         <input type="text" hidden name="as_up_by_mnftr_pa_9"
                                             value="{{ Auth::user()->first_name }}">
@@ -5939,13 +7039,25 @@
                                             @endif
                                         </td>
                                         <td class="space-y-2 py-3 px-2">
-                                            <input type="file" name="as_pa_mnftr_10" id="">
-                                            <div class="">
-                                                <input type="number" id="base-input"
-                                                    class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                    placeholder="Rp (input nilai PA)"
-                                                    min="0" max="999999999999" oninput="validity.valid||(value='');"  name="as_mny_mnftr_pa_10">
-                                            </div>
+                                            @if ($koneksipa->pa_mnftr_10 != '')
+                                                <div class="justify-center flex space-x-2">
+                                                    <button type="button"
+                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        data-modal-target="modal310" data-modal-show="modal310"
+                                                        data-modal-toggle="modal310">Ubah</button>
+                                                </div>
+                                            @else
+                                                <input type="file" name="as_pa_mnftr_10" id="">
+                                                <div class="">
+                                                    <input type="number" id="base-input"
+                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
+                                                        placeholder="Rp (isi nilai sesuai dokumen PA)"
+                                                        min="0" max="999999999999"
+                                                        oninput="validity.valid||(value='');"
+                                                        name="as_mny_mnftr_pa_10">
+                                                </div>
+                                            @endif
+
                                         </td>
                                         <input type="text" hidden name="as_up_by_mnftr_pa_10"
                                             value="{{ Auth::user()->first_name }}">
@@ -5954,7 +7066,6 @@
 
                                     </tr>
 
-                                    {{-- akhir 10 --}}
                                 </tbody>
                             </table>
                         </div>
@@ -5967,7 +7078,7 @@
                     {{-- awal tab impor --}}
                     <div class="mt-3 bg-white rounded-lg" id="impor" role="tabpanel"
                         aria-labelledby="impor-tab">
-                        {{-- PR PER --}}
+                        {{-- PA EPQ --}}
                         {{-- awal standar formulir --}}
 
                         <div class="flex space-x-2 items-center justify-between">
@@ -5975,13 +7086,14 @@
                                 EPQ (Estimate Price Quotation)
                             </p>
                             @foreach ($standar_project as $spt)
-                                @if ($spt->file_pr_rfq_form != '' || $spt->file_pr_per_form)
+                                @if ($spt->file_pr_per_form != '' || $spt->file_pr_per_form)
                                     {{-- tombol form --}}
                                     <div class="mb-1">
-                                        <p class="text-right font-light text-sm">Harap Menggunakan Standar formulir:
+                                        <p class="text-right font-light text-sm">Harap Menggunakan Standar
+                                            formulir:
                                         </p>
                                         <div class="flex items-center justify-end">
-                                            <a href="{{ asset('storage/supervisor/standarproject/' . $spt->file_pr_rfq_form) }}"
+                                            <a href="{{ asset('storage/supervisor/standarproject/' . $spt->file_pr_per_form) }}"
                                                 download="">
                                                 <div class="w-fit items-center space-x-2 flex mr-4">
                                                     <svg width="10" height="auto" viewBox="0 0 31 39"
@@ -6011,9 +7123,9 @@
                                             </a>
                                         </div>
                                     </div>
-                                    {{-- tombol form --}}
                                 @endif
                             @endforeach
+                            {{-- tombol form --}}
                         </div>
 
                         {{-- akhir standar formulir --}}
@@ -6022,10 +7134,9 @@
                             <table class="w-full">
                                 <thead class="bg-green-600 text-white">
                                     <th class="py-2 w-[5%]">No.</th>
-                                    <th class="w-[45%]">Nama File</th>
-                                    <th class="w-[12%]">Uploaded by</th>
-                                    <th class="w-[12%]">Last Update</th>
-                                    <th class="w-[11%]">PR Amount</th>
+                                    <th class="w-[50%]">Nama File</th>
+                                    <th class="w-[15%]">Uploaded by</th>
+                                    <th class="w-[15%]">Last Update</th>
                                     <th class="w-[15%]">Aksi</th>
                                 </thead>
                                 <tbody class="text-left border">
@@ -6064,19 +7175,20 @@
                                             @endif
                                         </td>
                                         <td class="text-center">{{ $koneksipa->date_pa_epq_1 }}</td>
-                                        <td>
-                                            @if ($koneksipa->mny_epq_pa_1 != '')
-                                                Rp{{ number_format($koneksipa->mny_epq_pa_1, 0, ',', '.') }}
-                                            @endif
-                                        </td>
+
                                         <td class="space-y-2 py-3 px-2">
-                                            <input type="file" name="as_pa_epq_1" id="">
-                                            <div class="">
-                                                <input type="number" id="base-input"
-                                                    class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                    placeholder="Rp (input nilai PA)"
-                                                    min="0" max="999999999999" oninput="validity.valid||(value='');"  name="as_mny_epq_pa_1">
-                                            </div>
+                                            @if ($koneksipa->pa_epq_1 != '')
+                                                <div class="justify-center flex space-x-2">
+                                                    <button type="button"
+                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        data-modal-target="modal41" data-modal-show="modal41"
+                                                        data-modal-toggle="modal41">Ubah</button>
+                                                </div>
+                                            @else
+                                                <input type="file" name="as_pa_epq_1" id="">
+                                            @endif
+
+
                                         </td>
                                         <input type="text" hidden name="as_up_by_epq_pa_1"
                                             value="{{ Auth::user()->first_name }}">
@@ -6119,19 +7231,18 @@
                                             @endif
                                         </td>
                                         <td class="text-center">{{ $koneksipa->date_pa_epq_2 }}</td>
-                                        <td>
-                                            @if ($koneksipa->mny_epq_pa_2 != '')
-                                                Rp{{ number_format($koneksipa->mny_epq_pa_2, 0, ',', '.') }}
-                                            @endif
-                                        </td>
+
                                         <td class="space-y-2 py-3 px-2">
-                                            <input type="file" name="as_pa_epq_2" id="">
-                                            <div class="">
-                                                <input type="number" id="base-input"
-                                                    class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                    placeholder="Rp (input nilai PA)"
-                                                    min="0" max="999999999999" oninput="validity.valid||(value='');"  name="as_mny_epq_pa_2">
-                                            </div>
+                                            @if ($koneksipa->pa_epq_2 != '')
+                                                <div class="justify-center flex space-x-2">
+                                                    <button type="button"
+                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        data-modal-target="modal42" data-modal-show="modal42"
+                                                        data-modal-toggle="modal42">Ubah</button>
+                                                </div>
+                                            @else
+                                                <input type="file" name="as_pa_epq_2" id="">
+                                            @endif
                                         </td>
                                         <input type="text" hidden name="as_up_by_epq_pa_2"
                                             value="{{ Auth::user()->first_name }}">
@@ -6175,25 +7286,23 @@
                                             @endif
                                         </td>
                                         <td class="text-center">{{ $koneksipa->date_pa_epq_3 }}</td>
-                                        <td>
-                                            @if ($koneksipa->mny_epq_pa_3 != '')
-                                                Rp{{ number_format($koneksipa->mny_epq_pa_3, 0, ',', '.') }}
-                                            @endif
-                                        </td>
+
                                         <td class="space-y-2 py-3 px-2">
-                                            <input type="file" name="as_pa_epq_3" id="">
-                                            <div class="">
-                                                <input type="number" id="base-input"
-                                                    class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                    placeholder="Rp (input nilai PA)"
-                                                    min="0" max="999999999999" oninput="validity.valid||(value='');"  name="as_mny_epq_pa_3">
-                                            </div>
+                                            @if ($koneksipa->pa_epq_3 != '')
+                                                <div class="justify-center flex space-x-2">
+                                                    <button type="button"
+                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        data-modal-target="modal43" data-modal-show="modal43"
+                                                        data-modal-toggle="modal43">Ubah</button>
+                                                </div>
+                                            @else
+                                                <input type="file" name="as_pa_epq_3" id="">
+                                            @endif
                                         </td>
                                         <input type="text" hidden name="as_up_by_epq_pa_3"
                                             value="{{ Auth::user()->first_name }}">
                                         <input type="date" hidden name="as_date_pa_epq_3"
                                             value="{{ date('Y-m-d') }}">
-
                                     </tr>
 
                                     {{-- 4 --}}
@@ -6231,19 +7340,18 @@
                                             @endif
                                         </td>
                                         <td class="text-center">{{ $koneksipa->date_pa_epq_4 }}</td>
-                                        <td>
-                                            @if ($koneksipa->mny_epq_pa_4 != '')
-                                                Rp{{ number_format($koneksipa->mny_epq_pa_4, 0, ',', '.') }}
-                                            @endif
-                                        </td>
+
                                         <td class="space-y-2 py-3 px-2">
-                                            <input type="file" name="as_pa_epq_4" id="">
-                                            <div class="">
-                                                <input type="number" id="base-input"
-                                                    class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                    placeholder="Rp (input nilai PA)"
-                                                    min="0" max="999999999999" oninput="validity.valid||(value='');"  name="as_mny_epq_pa_4">
-                                            </div>
+                                            @if ($koneksipa->pa_epq_4 != '')
+                                                <div class="justify-center flex space-x-2">
+                                                    <button type="button"
+                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        data-modal-target="modal44" data-modal-show="modal44"
+                                                        data-modal-toggle="modal44">Ubah</button>
+                                                </div>
+                                            @else
+                                                <input type="file" name="as_pa_epq_4" id="">
+                                            @endif
                                         </td>
                                         <input type="text" hidden name="as_up_by_epq_pa_4"
                                             value="{{ Auth::user()->first_name }}">
@@ -6286,19 +7394,18 @@
                                             @endif
                                         </td>
                                         <td class="text-center">{{ $koneksipa->date_pa_epq_5 }}</td>
-                                        <td>
-                                            @if ($koneksipa->mny_epq_pa_5 != '')
-                                                Rp{{ number_format($koneksipa->mny_epq_pa_5, 0, ',', '.') }}
-                                            @endif
-                                        </td>
+
                                         <td class="space-y-2 py-3 px-2">
-                                            <input type="file" name="as_pa_epq_5" id="">
-                                            <div class="">
-                                                <input type="number" id="base-input"
-                                                    class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                    placeholder="Rp (input nilai PA)"
-                                                    min="0" max="999999999999" oninput="validity.valid||(value='');"  name="as_mny_epq_pa_5">
-                                            </div>
+                                            @if ($koneksipa->pa_epq_5 != '')
+                                                <div class="justify-center flex space-x-2">
+                                                    <button type="button"
+                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        data-modal-target="modal45" data-modal-show="modal45"
+                                                        data-modal-toggle="modal45">Ubah</button>
+                                                </div>
+                                            @else
+                                                <input type="file" name="as_pa_epq_5" id="">
+                                            @endif
                                         </td>
                                         <input type="text" hidden name="as_up_by_epq_pa_5"
                                             value="{{ Auth::user()->first_name }}">
@@ -6306,20 +7413,16 @@
                                             value="{{ date('Y-m-d') }}">
 
                                     </tr>
-                                    {{-- akhir epq --}}
                                 </tbody>
                             </table>
                         </div>
-                        {{-- Akhir pekerjaan --}}
-
-
                         {{-- Akhir manufaktur --}}
                     </div>
                 </div>
                 {{-- tabcontent --}}
             </div>
-            {{-- bungkus --}}
 
+            {{-- bungkus --}}
             <input type="text" name="status_purchasing" value="Waiting Approval Purchasing - PA" hidden>
             <input type="date" hidden name="status_purchasing_date" value="{{ date('Y-m-d') }}">
 
@@ -6339,10 +7442,347 @@
             <button type="submit"
                 class="bg-orange-500 w-full hover:bg-orange-600 text-white font-bold py-2 rounded-b-lg shadow-md">Submit</button>
 
+            {{-- modal ubah --}}
+            @php
+                $m = range(1, 50);
+            @endphp
+
+            @foreach ($m as $index => $number)
+                <div id="modal1{{ $number }}"
+                    class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 inset-0 justify-center items-center w-full max-h-full">
+                    <div class="relative p-4 w-full max-w-2xl max-h-full">
+                        <!-- Modal content -->
+                        <div class="relative bg-white rounded-lg shadow">
+                            <!-- Modal header -->
+                            <div class="flex items-center justify-between px-5 py-3 border-b rounded-t">
+                                <p class="text-2xl font-semibold text-gray-900 font-mono">
+                                    Ubah dokumen unggahan
+                                </p>
+                                <button type="button"
+                                    class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center"
+                                    onclick="simulateEscape()">
+                                    <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                        fill="none" viewBox="0 0 14 14">
+                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                            stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+                                    </svg>
+                                    <span class="sr-only">Close modal</span>
+                                </button>
+                            </div>
+                            <!-- Modal body -->
+                            <div class="py-2 px-5">
+                                <p class="font-light text-lg mb-2">Dokumen sebelumnya</p>
+                                <div class="grid grid-cols-3 space-x-2">
+                                    <div>
+                                        <p class="text-base leading-relaxed text-gray-600">
+                                            Nama dokumen:
+                                        </p>
+                                        <p class="text-gray-900">
+                                            {{ $koneksipa->{'pa_parts_' . $number} }}
+                                        </p>
+                                    </div>
+                                    <div>
+                                        <p class="text-base leading-relaxed text-gray-600">
+                                            Jumlah:
+                                        </p>
+                                        <p class="text-gray-900">
+
+                                            Rp{{ number_format($koneksipa->{'mny_parts_pa_' . $number}, 0, ',', '.') }}
+                                        </p>
+                                    </div>
+                                    <div>
+                                        <p class="text-base leading-relaxed text-gray-600">
+                                            Oleh:
+                                        </p>
+                                        <p class="text-gray-900">
+                                            {{ $koneksipa->{'up_by_parts_pa_' . $number} }}
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Modal footer -->
+                            <div class="items-center px-5 py-2 border-t border-gray-200 rounded-b">
+                                <p class="font-light text-lg">
+                                    Unggah dokumen dan nilai finansial baru
+                                </p>
+                                <p class="text-sm font-bold">*Pastikan isi kedua bidang isian (file & nilai finansial)
+                                    untuk dapat mengubah ajuan</p>
+                                <div class="items-center justify-center w-full border my-4">
+                                    @if ($koneksipa->{'pa_parts_' . $number} != '')
+                                        <div class="grid grid-cols-2">
+                                            <input type="file"name="as_pa_parts_{{ $number }}"
+                                                id="">
+                                            <div class="">
+                                                <input type="number" id="base-input"
+                                                    class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
+                                                    placeholder="Rp{{ number_format($koneksipa->{'mny_parts_pa_' . $number}, 0, ',', '.') }}"
+                                                    min="0" max="999999999999"
+                                                    oninput="validity.valid||(value='');"
+                                                    name="as_mny_parts_pa_{{ $number }}">
+                                            </div>
+                                        </div>
+                                    @else()
+                                    @endif
+                                </div>
+                            </div>
+                            <button type="submit"
+                                class="bg-orange-500 w-full hover:bg-orange-600 text-white font-bold py-2 rounded-b-lg shadow-md">Submit</button>
+                        </div>
+                    </div>
+                </div>
+            @endforeach
+
+            @foreach ($m as $index => $number)
+                <div id="modal2{{ $number }}"
+                    class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 inset-0 justify-center items-center w-full max-h-full">
+                    <div class="relative p-4 w-full max-w-2xl max-h-full">
+                        <!-- Modal content -->
+                        <div class="relative bg-white rounded-lg shadow">
+                            <!-- Modal header -->
+                            <div class="flex items-center justify-between px-5 py-3 border-b rounded-t">
+                                <p class="text-2xl font-semibold text-gray-900 font-mono">
+                                    Ubah dokumen unggahan
+                                </p>
+                                <button type="button"
+                                    class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center"
+                                    onclick="simulateEscape()">
+                                    <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                        fill="none" viewBox="0 0 14 14">
+                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                            stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+                                    </svg>
+                                    <span class="sr-only">Close modal</span>
+                                </button>
+                            </div>
+                            <!-- Modal body -->
+                            <div class="py-2 px-5">
+                                <p class="font-light text-lg mb-2">Dokumen sebelumnya</p>
+                                <div class="grid grid-cols-3 space-x-2">
+                                    <div>
+                                        <p class="text-base leading-relaxed text-gray-600">
+                                            Nama dokumen:
+                                        </p>
+                                        <p class="text-gray-900">
+                                            {{ $koneksipa->{'pa_jasa_' . $number} }}
+                                        </p>
+                                    </div>
+                                    <div>
+                                        <p class="text-base leading-relaxed text-gray-600">
+                                            Jumlah:
+                                        </p>
+                                        <p class="text-gray-900">
+
+                                            Rp{{ number_format($koneksipa->{'mny_jasa_pa_' . $number}, 0, ',', '.') }}
+                                        </p>
+                                    </div>
+                                    <div>
+                                        <p class="text-base leading-relaxed text-gray-600">
+                                            Oleh:
+                                        </p>
+                                        <p class="text-gray-900">
+                                            {{ $koneksipa->{'up_by_jasa_pa_' . $number} }}
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Modal footer -->
+                            <div class="items-center px-5 py-2 border-t border-gray-200 rounded-b">
+                                <p class="font-light text-lg">
+                                    Unggah dokumen dan nilai finansial baru
+                                </p>
+                                <p class="text-sm font-bold">*Pastikan isi kedua bidang isian (file & nilai finansial)
+                                    untuk dapat mengubah ajuan</p>
+                                <div class="items-center justify-center w-full border my-4">
+                                    @if ($koneksipa->{'pa_jasa_' . $number} != '')
+                                        <div class="grid grid-cols-2">
+                                            <input type="file"name="as_pa_jasa_{{ $number }}"
+                                                id="">
+                                            <div class="">
+                                                <input type="number" id="base-input"
+                                                    class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
+                                                    placeholder="Rp{{ number_format($koneksipa->{'mny_jasa_pa_' . $number}, 0, ',', '.') }}"
+                                                    min="0" max="999999999999"
+                                                    oninput="validity.valid||(value='');"
+                                                    name="as_mny_jasa_pa_{{ $number }}">
+                                            </div>
+                                        </div>
+                                    @else()
+                                    @endif
+                                </div>
+                            </div>
+                            <button type="submit"
+                                class="bg-orange-500 w-full hover:bg-orange-600 text-white font-bold py-2 rounded-b-lg shadow-md">Submit</button>
+                        </div>
+                    </div>
+                </div>
+            @endforeach
+
+            @foreach ($m as $index => $number)
+                <div id="modal3{{ $number }}"
+                    class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 inset-0 justify-center items-center w-full max-h-full">
+                    <div class="relative p-4 w-full max-w-2xl max-h-full">
+                        <!-- Modal content -->
+                        <div class="relative bg-white rounded-lg shadow">
+                            <!-- Modal header -->
+                            <div class="flex items-center justify-between px-5 py-3 border-b rounded-t">
+                                <p class="text-2xl font-semibold text-gray-900 font-mono">
+                                    Ubah dokumen unggahan
+                                </p>
+                                <button type="button"
+                                    class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center"
+                                    onclick="simulateEscape()">
+                                    <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                        fill="none" viewBox="0 0 14 14">
+                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                            stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+                                    </svg>
+                                    <span class="sr-only">Close modal</span>
+                                </button>
+                            </div>
+                            <!-- Modal body -->
+                            <div class="py-2 px-5">
+                                <p class="font-light text-lg mb-2">Dokumen sebelumnya</p>
+                                <div class="grid grid-cols-3 space-x-2">
+                                    <div>
+                                        <p class="text-base leading-relaxed text-gray-600">
+                                            Nama dokumen:
+                                        </p>
+                                        <p class="text-gray-900">
+                                            {{ $koneksipa->{'pa_mnftr_' . $number} }}
+                                        </p>
+                                    </div>
+                                    <div>
+                                        <p class="text-base leading-relaxed text-gray-600">
+                                            Jumlah:
+                                        </p>
+                                        <p class="text-gray-900">
+
+                                            Rp{{ number_format($koneksipa->{'mny_mnftr_pa_' . $number}, 0, ',', '.') }}
+                                        </p>
+                                    </div>
+                                    <div>
+                                        <p class="text-base leading-relaxed text-gray-600">
+                                            Oleh:
+                                        </p>
+                                        <p class="text-gray-900">
+                                            {{ $koneksipa->{'up_by_mnftr_pa_' . $number} }}
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Modal footer -->
+                            <div class="items-center px-5 py-2 border-t border-gray-200 rounded-b">
+                                <p class="font-light text-lg">
+                                    Unggah dokumen dan nilai finansial baru
+                                </p>
+                                <p class="text-sm font-bold">*Pastikan isi kedua bidang isian (file & nilai finansial)
+                                    untuk dapat mengubah ajuan</p>
+                                <div class="items-center justify-center w-full border my-4">
+                                    @if ($koneksipa->{'pa_mnftr_' . $number} != '')
+                                        <div class="grid grid-cols-2">
+                                            <input type="file"name="as_pa_mnftr_{{ $number }}"
+                                                id="">
+                                            <div class="">
+                                                <input type="number" id="base-input"
+                                                    class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
+                                                    placeholder="Rp{{ number_format($koneksipa->{'mny_mnftr_pa_' . $number}, 0, ',', '.') }}"
+                                                    min="0" max="999999999999"
+                                                    oninput="validity.valid||(value='');"
+                                                    name="as_mny_mnftr_pa_{{ $number }}">
+                                            </div>
+                                        </div>
+                                    @else()
+                                    @endif
+                                </div>
+                            </div>
+                            <button type="submit"
+                                class="bg-orange-500 w-full hover:bg-orange-600 text-white font-bold py-2 rounded-b-lg shadow-md">Submit</button>
+                        </div>
+                    </div>
+                </div>
+            @endforeach
+
+            @foreach ($m as $index => $number)
+                <div id="modal4{{ $number }}"
+                    class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 inset-0 justify-center items-center w-full max-h-full">
+                    <div class="relative p-4 w-full max-w-2xl max-h-full">
+                        <!-- Modal content -->
+                        <div class="relative bg-white rounded-lg shadow">
+                            <!-- Modal header -->
+                            <div class="flex items-center justify-between px-5 py-3 border-b rounded-t">
+                                <p class="text-2xl font-semibold text-gray-900 font-mono">
+                                    Ubah dokumen unggahan
+                                </p>
+                                <button type="button"
+                                    class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center"
+                                    onclick="simulateEscape()">
+                                    <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                        fill="none" viewBox="0 0 14 14">
+                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                            stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+                                    </svg>
+                                    <span class="sr-only">Close modal</span>
+                                </button>
+                            </div>
+                            <!-- Modal body -->
+                            <div class="py-2 px-5">
+                                <p class="font-light text-lg mb-2">Dokumen sebelumnya</p>
+                                <div class="grid grid-cols-2 space-x-2">
+                                    <div>
+                                        <p class="text-base leading-relaxed text-gray-600">
+                                            Nama dokumen:
+                                        </p>
+                                        <p class="text-gray-900">
+                                            {{ $koneksipa->{'pa_epq_' . $number} }}
+                                        </p>
+                                    </div>
+                                    <div>
+                                        <p class="text-base leading-relaxed text-gray-600">
+                                            Oleh:
+                                        </p>
+                                        <p class="text-gray-900">
+                                            {{ $koneksipa->{'up_by_epq_pa_' . $number} }}
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Modal footer -->
+                            <div class="items-center px-5 py-2 border-t border-gray-200 rounded-b">
+                                <p class="font-light text-lg">
+                                    Unggah dokumen baru
+                                </p>
+                                <p class="text-sm font-bold">*Pastikan isi kedua bidang isian (file & nilai finansial)
+                                    untuk dapat mengubah ajuan</p>
+                                <div class="items-center justify-center w-full border my-4">
+                                    @if ($koneksipa->{'pa_epq_' . $number} != '')
+                                        <input type="file"name="as_pa_epq_{{ $number }}" id="">
+                                    @else()
+                                    @endif
+                                </div>
+                            </div>
+                            <button type="submit"
+                                class="bg-orange-500 w-full hover:bg-orange-600 text-white font-bold py-2 rounded-b-lg shadow-md">Submit</button>
+                        </div>
+                    </div>
+                </div>
+            @endforeach
+
         </form>
     </div>
 
     {{-- Akhir progress file --}}
+    <script>
+        function simulateEscape() {
+            // Create a new KeyboardEvent for the "Escape" key
+            const escapeEvent = new KeyboardEvent('keydown', {
+                key: 'Escape',
+                code: 'Escape',
+                keyCode: 27,
+                which: 27,
+            });
+            document.dispatchEvent(escapeEvent);
+        }
+    </script>
 </div>
 {{-- tutup bungkus --}}
 

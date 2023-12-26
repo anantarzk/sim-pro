@@ -6,7 +6,7 @@
 
     <div class="flex justify-between">
         <div>
-            <h1 class=" text-2xl font-extrabold tracking-tight leading-none text-gray-900  text-left">
+            <h1 class=" text-2xl font-bold font-mono tracking-tight text-gray-900  text-left">
                 Kelola Akun Engineering Design
                 <p class="text-base font-normal text-gray-500 ">
                     Seluruh Akun yang ada pada Engineering Design.</p>
@@ -66,7 +66,7 @@
                 <th class="w-[10%]">Nama Depan</th>
                 <th class="w-[15%]">NIK</th>
                 <th class="w-[10%]">Jabatan</th>
-                <th class="w-[20%]">Created</th>
+                <th class="w-[20%]">Dibuat oleh</th>
                 <th class="w-[5%]">Aksi</th>
             </thead>
 

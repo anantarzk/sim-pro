@@ -296,48 +296,42 @@ class SpvProjectController extends Controller
     }
     public function LandingProjectSupervisor(Request $request)
     {
+        $users = User::select('section', 'first_name')->get();
         $keyword = $request->keyword;
         $totalproject = CONTROLPROJECT::select('id')
             ->whereNull('archive_at')
             ->count('id');
 
-        if ($keyword != '') {
-            $project = CONTROLPROJECT::with(
-                'koneksikefr',
-                'koneksikear',
-                'koneksikepr01',
-                'koneksikepa02',
-                'koneksikepo03',
-                'koneksikepay04',
-                'koneksikemn',
-                'koneksikein',
-                'koneksikecl'
-            )
-                ->whereNull('archive_at')
-                ->where('project_name', 'LIKE', '%' . $keyword . '%')
-                ->OrWhere('io_number', 'LIKE', '%' . $keyword . '%')
-                ->OrWhere('pic_1_me', 'LIKE', '%' . $keyword . '%')
-                ->OrWhere('pic_2_el', 'LIKE', '%' . $keyword . '%')
-                ->OrWhere('pic_3_mit', 'LIKE', '%' . $keyword . '%')
-                ->latest('updated_at')
-                ->paginate(20);
-        } elseif ($keyword == '') {
-            $project = CONTROLPROJECT::with(
-                'koneksikefr',
-                'koneksikear',
-                'koneksikepr01',
-                'koneksikepa02',
-                'koneksikepo03',
-                'koneksikepay04',
-                'koneksikemn',
-                'koneksikein',
-                'koneksikecl'
-            )
 
+            /* kode cari search */
+            $project = CONTROLPROJECT::with(
+                'koneksikefr',
+                'koneksikear',
+                'koneksikepr01',
+                'koneksikepa02',
+                'koneksikepo03',
+                'koneksikepay04',
+                'koneksikemn',
+                'koneksikein',
+                'koneksikecl'
+            )
                 ->whereNull('archive_at')
+                ->when($keyword, function ($query, $keyword) {
+                    $query->where(function ($query) use ($keyword) {
+                        $query->where('project_name', 'LIKE', "%{$keyword}%")
+                            ->orWhere('io_number', 'LIKE', "%{$keyword}%")
+                            ->orWhere('pic_1_me', 'LIKE', "%{$keyword}%")
+                            ->orWhere('pic_2_el', 'LIKE', "%{$keyword}%")
+                            ->orWhere('pic_3_mit', 'LIKE', "%{$keyword}%")
+                            ->orWhere('budget_amount', 'LIKE', "%{$keyword}%")
+                            ->orWhere('ob_year', 'LIKE', "%{$keyword}%")
+                            ->orWhere('section', 'LIKE', "%{$keyword}%")
+                            /* ->orWhere('date_start', 'LIKE', "%{$keyword}%")
+                            ->orWhere('date_end', 'LIKE', "%{$keyword}%") */;
+                    });
+                })
                 ->latest('updated_at')
                 ->paginate(20);
-        }
 
         $koneksifr = FRproject::select('id_fr_1')->get();
         $koneksiar = ARproject::select('id_ar_2')->get();
@@ -361,6 +355,7 @@ class SpvProjectController extends Controller
             'koneksiin' => $koneksiin,
             'koneksicl' => $koneksicl,
             'totalproject' => $totalproject,
+            'users' => $users
         ]);
     }
     public function ArsipLandingProjectSupervisor(Request $request)
@@ -755,6 +750,7 @@ class SpvProjectController extends Controller
             'status_ar',
             'status_ar_date'
         )->findOrFail($id_ar_2);
+
         $koneksipr = PRproject::select(
             'id_pr_01_3',
             'status_purchasing',

@@ -7,7 +7,7 @@
     <div class="">
         <div class="tracking-wide text-gray-600 mb-3 flex justify-between">
             <div>
-                <h1 class=" text-3xl font-extrabold tracking-tight leading-none text-gray-900  text-left">
+                <h1 class="text-3xl font-bold font-mono tracking-tight text-gray-900 text-left">
                     Your Project Dashboard
                     <p class="text-base font-normal text-gray-500 ">
                         Monitoring Project Engineering Design BSIN-K.</p>
@@ -69,18 +69,19 @@
         {{-- div wadah luar --}}
         <div class="mt-4">
 
-            <div class="mx-auto md:mx-auto lg:w-9/12 xl:w-9/12 2xl:w-9/12 bg-white">
+            <div class="mx-auto md:mx-auto lg:w-9/12 xl:w-9/12 2xl:w-9/12">
                 {{-- <div class="mx-auto "> --}}
 
                 {{-- Memanggil seluruh project --}}
                 @foreach ($project as $object)
                     @if ($object->archive_at == '')
-                        @if ($object->pic_1_me == Auth::user()->first_name ||
-                            $object->pic_2_el == Auth::user()->first_name ||
-                            $object->pic_3_mit == Auth::user()->first_name)
+                        @if (
+                            $object->pic_1_me == Auth::user()->first_name ||
+                                $object->pic_2_el == Auth::user()->first_name ||
+                                $object->pic_3_mit == Auth::user()->first_name)
                             {{-- kartu proyek --}}
 
-                            <div class="shadow-md p-4 rounded-xl mb-3 border">
+                            <div class="shadow-md p-4 rounded-xl mb-3 border bg-white">
                                 <div class=" flex overflow-x-auto">
                                     <div class="w-full">
                                         {{-- row judul proyek --}}
@@ -89,15 +90,16 @@
                                                 <div class="container">
                                                     {{-- Mengenerate project yang dipilih berdasarkan id --}}
 
-                                                    @if ($object->id == $object->koneksikefr->id_fr_1 &&
-                                                        $object->id == $object->koneksikear->id_ar_2 &&
-                                                        $object->id == $object->koneksikepr01->id_pr_01_3 &&
-                                                        $object->id == $object->koneksikepa02->id_pa_02_3 &&
-                                                        $object->id == $object->koneksikepo03->id_po_03_3 &&
-                                                        $object->id == $object->koneksikepay04->id_pay_04_3 &&
-                                                        $object->id == $object->koneksikemn->id_mn_4 &&
-                                                        $object->id == $object->koneksikein->id_in_5 &&
-                                                        $object->id == $object->koneksikecl->id_cl_6)
+                                                    @if (
+                                                        $object->id == $object->koneksikefr->id_fr_1 &&
+                                                            $object->id == $object->koneksikear->id_ar_2 &&
+                                                            $object->id == $object->koneksikepr01->id_pr_01_3 &&
+                                                            $object->id == $object->koneksikepa02->id_pa_02_3 &&
+                                                            $object->id == $object->koneksikepo03->id_po_03_3 &&
+                                                            $object->id == $object->koneksikepay04->id_pay_04_3 &&
+                                                            $object->id == $object->koneksikemn->id_mn_4 &&
+                                                            $object->id == $object->koneksikein->id_in_5 &&
+                                                            $object->id == $object->koneksikecl->id_cl_6)
                                                         <a
                                                             href="/staff-redirect-proyek/{{ $object->id }}/{{ $object->koneksikefr->id_fr_1 }}/{{ $object->koneksikear->id_ar_2 }}/{{ $object->koneksikepr01->id_pr_01_3 }}/{{ $object->koneksikepa02->id_pa_02_3 }}/{{ $object->koneksikepo03->id_po_03_3 }}/{{ $object->koneksikepay04->id_pay_04_3 }}/{{ $object->koneksikemn->id_mn_4 }}/{{ $object->koneksikein->id_in_5 }}/{{ $object->koneksikecl->id_cl_6 }}">
                                                             <p
@@ -242,8 +244,8 @@
 
                                                 <div class="w-full bg-gray-200 rounded-full my-2">
                                                     <div class="bg-orange-500 hover:bg-orange-600 text-xs font-medium text-blue-100 text-center leading-none rounded-lg hover:cursor-default"
-                                                        data-popover-target="popover-3"
-                                                        data-popover-placement="bottom" style="width: 05%">
+                                                        data-popover-target="popover-3" data-popover-placement="bottom"
+                                                        style="width: 05%">
                                                         <p>05%</p>
 
                                                     </div>

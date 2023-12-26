@@ -9,7 +9,7 @@
     @vite('resources/css/app.css')
 </head>
 
-<body class="bg-[url('image/icon/global/BSIN-K.jpg')] bg-no-repeat bg-cover bg-center">
+<body class="bg-gray-200 {{-- bg-[url('image/icon/global/BSIN-K.jpg')] bg-no-repeat bg-cover bg-center --}}">
 
     @if ($count_user == 0)
         <div class="flex flex-col items-center justify-center mt-44">

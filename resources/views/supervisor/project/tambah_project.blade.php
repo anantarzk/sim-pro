@@ -66,7 +66,7 @@
                     </label>
                 </div>
                 <div class="relative z-0 mb-6 w-full group">
-                    <input type="number" name="budget_amount" id="floating_company"
+                    <input type="number" name="budget_amount" id="floating_company" {{-- oninput="formatAngka(this)" --}}
                         class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300  [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none  focus:outline-none focus:ring-0 focus:border-orange-500 peer"
                         placeholder=" ">
                     <label for="floating_company"
@@ -75,7 +75,7 @@
                     </label>
                 </div>
             </div>
-            
+
             <div class="grid grid-cols-3 gap-6">
                 <div class="relative z-0 mb-6 w-full group">
                     <select id="underline_select" name="section" required
@@ -254,4 +254,17 @@
 
 
     </div>
+
+    <script>
+     function formatAngka(input) {
+            // Menghilangkan karakter selain angka
+            let angka = input.value.replace(/[^\d]/g, '');
+
+            // Menambahkan tanda titik setiap ribuan
+            angka = angka.replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+
+            // Update nilai input
+            input.value = angka;
+        }
+    </script>
 </div>

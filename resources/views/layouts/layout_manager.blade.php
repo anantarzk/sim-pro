@@ -96,9 +96,6 @@
                                     <span class="block text-lg text-gray-600  font-medium">
                                         {{ Auth::user()->name }}
                                     </span>
-                                    <span class="block truncate text-sm font-light text-gray-500 dark:text-gray-400">
-                                        {{ Auth::user()->email }}
-                                    </span>
                                 </div>
                                 <hr>
                                 <ul class="py-1" aria-labelledby="user-menu-button">

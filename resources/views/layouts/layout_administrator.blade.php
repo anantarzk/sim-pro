@@ -97,18 +97,9 @@
                                     <span class="block text-lg text-gray-600  font-medium">
                                         {{ Auth::user()->name }}
                                     </span>
-                                    <span class="block truncate text-sm font-light text-gray-500 dark:text-gray-400">
-                                        {{ Auth::user()->email }}
-                                    </span>
                                 </div>
                                 <hr>
-                                <ul class="py-1" aria-labelledby="user-menu-button">
-                                    <li>
-                                        <a class="py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 flex items-center space-x-2 text-center"
-                                            href="/view_team_administrator">
-                                            <p> View Team </p>
-                                        </a>
-                                    </li>
+                                <ul class="" aria-labelledby="user-menu-button">
                                     <li>
                                         <a class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:text-white"
                                             href="/view_profile_administrator">Profile</a>
@@ -129,10 +120,8 @@
                                                     <path
                                                         d="M13.9148 6.55605L10.0269 2.66844C9.91856 2.55999 9.72678 2.56013 9.61847 2.66844L8.6961 3.59096C8.58331 3.70374 8.58331 3.88657 8.6961 3.99936L10.4522 5.75571H2.85011C2.69067 5.75571 2.56128 5.88511 2.56128 6.04454V7.47596C2.56128 7.63539 2.69067 7.76479 2.85011 7.76479H10.4526L8.69653 9.52114C8.58375 9.63393 8.58375 9.81676 8.69653 9.92954L9.6189 10.8522C9.67306 10.9064 9.74671 10.9368 9.8231 10.9368C9.89978 10.9368 9.97315 10.9064 10.0273 10.8522L13.9152 6.9646C13.9694 6.91044 13.9998 6.83679 13.9998 6.76039C13.9997 6.68357 13.9689 6.6102 13.9148 6.55605Z" />
                                                 </svg>
-                                                <p>Sign out</p>
+                                                <p>Logout</p>
                                             </button>
-                                            {{-- <a class="block py-2 px-4 text-xs text-gray-700 hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-600 dark:hover:text-white"
-                                                href="/logout">Sign out</a> --}}
                                         </form>
                                     </li>
                                 </ul>

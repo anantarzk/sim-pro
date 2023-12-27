@@ -1,6 +1,6 @@
 {{-- Memanggil file untuk layout --}}
 @extends('layouts.layout_supervisor')
-@section('title_page', 'Proyek Saya')
+@section('title_page', 'Proyek aya')
 
 
 <div class="">

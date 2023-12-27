@@ -425,69 +425,6 @@ class SpvProjectController extends Controller
         ]);
     }
 
-    public function LandingSeluruhProject(Request $request)
-    {
-        $keyword = $request->keyword;
-        $totalproject = CONTROLPROJECT::select('id')
-            ->whereNull('archive_at')
-            ->count('id');
-        if ($keyword != '') {
-            $project = CONTROLPROJECT::with(
-                'koneksikefr',
-                'koneksikear',
-                'koneksikepr01',
-                'koneksikepa02',
-                'koneksikepo03',
-                'koneksikepay04',
-                'koneksikemn',
-                'koneksikein',
-                'koneksikecl'
-            )
-                ->whereNull('archive_at')
-                ->where('project_name', 'LIKE', '%' . $keyword . '%')
-                ->OrWhere('io_number', 'LIKE', '%' . $keyword . '%')
-                ->paginate(20);
-        } elseif ($keyword == '') {
-            $project = CONTROLPROJECT::with(
-                'koneksikefr',
-                'koneksikear',
-                'koneksikepr01',
-                'koneksikepa02',
-                'koneksikepo03',
-                'koneksikepay04',
-                'koneksikemn',
-                'koneksikein',
-                'koneksikecl'
-            )
-                ->whereNull('archive_at')
-                ->latest('updated_at')
-                ->paginate(20);
-        }
-
-        $koneksifr = FRproject::select('id_fr_1')->get();
-        $koneksiar = ARproject::select('id_ar_2')->get();
-        $koneksipr = PRproject::select('id_pr_01_3')->get();
-        $koneksipa = PAproject::select('id_pa_02_3')->get();
-        $koneksipo = POproject::select('id_po_03_3')->get();
-        $koneksipay = PAYproject::select('id_pay_04_3')->get();
-        $koneksimn = MNproject::select('id_mn_4')->get();
-        $koneksiin = INproject::select('id_in_5')->get();
-        $koneksicl = CLproject::select('id_cl_6')->get();
-
-        return view('supervisor.project.00-landingproject', [
-            'project' => $project,
-            'koneksifr' => $koneksifr,
-            'koneksiar' => $koneksiar,
-            'koneksipr' => $koneksipr,
-            'koneksipa' => $koneksipa,
-            'koneksipo' => $koneksipo,
-            'koneksipay' => $koneksipay,
-            'koneksimn' => $koneksimn,
-            'koneksiin' => $koneksiin,
-            'koneksicl' => $koneksicl,
-            'totalproject' => $totalproject,
-        ]);
-    }
     public function RedirectPage(
         Request $request,
         $id,

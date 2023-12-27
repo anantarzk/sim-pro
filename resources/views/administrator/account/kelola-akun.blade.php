@@ -1,5 +1,5 @@
 @extends('layouts.layout_administrator')
-@section('title_page', 'Kelola Akun')
+@section('title_page', 'Beranda')
 
 
 <div class="my-20 mx-10">
@@ -9,7 +9,7 @@
             <h1 class=" text-2xl font-bold font-mono tracking-tight text-gray-900  text-left">
                 Kelola Akun Engineering Design
                 <p class="text-base font-normal text-gray-500 ">
-                    Seluruh Akun yang ada pada sistem.</p>
+                    Seluruh akun yang ada pada sistem.</p>
             </h1>
         </div>
         {{-- Tombol Tambah --}}

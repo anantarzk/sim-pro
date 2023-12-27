@@ -40,7 +40,7 @@ class AdministratorController extends Controller
     {
         $users = User::select('id', 'first_name', 'nik')
             ->latest('id')
-            ->paginate(8);
+            ->paginate(6);
         $roles = Role::select('id', 'name')->get();
         return view('administrator.account.registrasi', [
             'users' => $users,
@@ -76,37 +76,13 @@ class AdministratorController extends Controller
         return redirect('registrasi-account');
     }
 
-
-    public function KelolaAkun(Request $request)
-    {
-        $keyword = $request->keyword;
-        $users = User::select(
-            'id',
-            'name',
-            'first_name',
-            'nik',
-            'jabatan',
-            'created_by'
-        )
-            ->where('name', 'LIKE', '%' . $keyword . '%')
-            ->orWhere('first_name', 'LIKE', '%' . $keyword . '%')
-            ->orWhere('nik', 'LIKE', '%' . $keyword . '%')
-            ->orWhere('section', 'LIKE', '%' . $keyword . '%')
-            ->latest('id')
-            ->paginate(10);
-
-        return view('administrator.account.kelola-akun', [
-            'users' => $users,
-        ]);
-    }
     public function EditAkun($id)
     {
         $users = User::findOrfail($id);
         $roles = Role::select('id', 'name')->get();
 
         $users1 = User::select('id', 'first_name', 'nik')
-            ->latest('id')
-            ->paginate(8);
+            ->latest('id');
 
         return view('administrator.account.edit-akun', [
             'users' => $users,
@@ -125,16 +101,16 @@ class AdministratorController extends Controller
 
         return redirect()->action([
             AdministratorController::class,
-            'KelolaAkun',
+            'IndexAdministrator',
         ]);
     }
+
     public function HapusAkun($id)
     {
         $users = User::findOrfail($id);
 
         $users1 = User::select('id', 'first_name', 'nik')
-            ->latest('id')
-            ->paginate(8);
+            ->latest('id');
 
         return view('administrator.account.hapus-akun', [
             'users' => $users,
@@ -142,14 +118,14 @@ class AdministratorController extends Controller
         ]);
     }
 
-    public function ProcessHapusAkun(Request $request, $id)
+    public function ProcessHapusAkun($id)
     {
         $users = User::findOrfail($id);
-
         $users->delete();
+
         return redirect()->action([
             AdministratorController::class,
-            'KelolaAkun',
+            'IndexAdministrator',
         ]);
     }
 }

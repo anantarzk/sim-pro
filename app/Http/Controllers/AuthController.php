@@ -21,7 +21,6 @@ class AuthController extends Controller
             'count_user' => $count_user,
         ]);
     }
-
     // cek form dari inputan user
     public function authenticating(Request $request)
     {
@@ -38,13 +37,9 @@ class AuthController extends Controller
             'nik' => ['required'],
             'password' => ['required'],
         ]);
-
         // redirect ke masing masing level halaman
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
-
-            // redirect hal index
-            // return redirect()->intended('/');
 
             // redirect page berdasarkan level
             if (Auth::user()->role_id == 4) {
@@ -56,17 +51,12 @@ class AuthController extends Controller
             if (Auth::user()->role_id == 2) {
                 return redirect('dashboard-supervisor');
             }
-            if (Auth::user()->role_id == 1) {
-                return redirect('dashboard-manager');
-            }
         }
-
         Session::flash('status', 'failed');
         Session::flash(
             'message',
             'NIK atau Password Salah! Silakan masukan kembali.'
         );
-
         return redirect('/login');
     }
 
@@ -80,11 +70,7 @@ class AuthController extends Controller
 
         return redirect('/login');
     }
-    public function ViewProfilemanager()
-    {
-        # code...
-        return view('layouts.layout_viewprofilemanager');
-    }
+
     public function ViewProfilesupervisor()
     {
         return view('layouts.layout_viewprofilesupervisor');

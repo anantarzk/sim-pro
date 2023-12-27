@@ -100,7 +100,7 @@
                                 </div>
                                 <hr>
                                 <ul class="py-1" aria-labelledby="user-menu-button">
-                                    
+
                                     <li>
                                         <a class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:text-white"
                                             href="/view_profile_supervisor">Profile</a>
@@ -148,12 +148,12 @@
 
         <div class="p-2">
             <div>
-                @if (Auth::user()->jabatan == 'Manager Design')
+                @if (Auth::user()->jabatan == 'Manager Eng Design')
                     <p id="sidebar-label" class="text-2xl font-bold text-white uppercase">
                         MANAGER</p>
                 @elseif (Auth::user()->jabatan == 'Asst. Manager')
                     <p id="sidebar-label" class="text-2xl font-bold text-white uppercase">
-                        MANAGER</p>
+                        Asst. MANAGER</p>
                 @else
                     <p id="sidebar-label" class="text-2xl font-bold text-white uppercase">
                         SUPERVISOR</p>
@@ -278,7 +278,8 @@
                     </a>
                     <div class="font-regular text-sm">
                         <ul id="dropdown-2" class="hidden space-y-2 py-2 pl-14">
-                            <li class="px-2 rounded-lg flex items-center  hover:bg-red-600 decoration-red-600 ">
+                            {{-- tombol formulir umum --}}
+                           {{--  <li class="px-2 rounded-lg flex items-center  hover:bg-red-600 decoration-red-600 ">
                                 <svg width="20" height="auto" viewBox="0 0 52 56" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
                                     <path
@@ -293,7 +294,7 @@
                                 </svg>
                                 <a class="group flex w-full items-center  p-2 pl-4 text-white"
                                     href="/supervisor-standar-form">Kelola Formulir Umum</a>
-                            </li>
+                            </li> --}}
                             <li class="px-2 flex items-center rounded-lg hover:bg-red-600 decoration-red-600">
                                 <svg width="26" height="auto" viewBox="0 0 1024 1024"
                                     xmlns="http://www.w3.org/2000/svg" class="icon" fill="white">

@@ -214,7 +214,6 @@ class SpvProjectController extends Controller
     {
         // simpan inputan
         $project = CONTROLPROJECT::create($request->all());
-
         if ($project) {
             DB::table('1_fr_project')->insert([
                 'id_fr_1' => $project->id,
@@ -243,12 +242,9 @@ class SpvProjectController extends Controller
             DB::table('6_cl_project')->insert([
                 'id_cl_6' => $project->id,
             ]);
-
-
             Session::flash('status', 'sukses');
             Session::flash('message', 'Data berhasil ditambahkan!');
         }
-
         return redirect('tambah-project');
     }
     public function LandingProjectSupervisor(Request $request)
@@ -258,8 +254,6 @@ class SpvProjectController extends Controller
         $totalproject = CONTROLPROJECT::select('id')
             ->whereNull('archive_at')
             ->count('id');
-
-
             /* kode cari search */
             $project = CONTROLPROJECT::with(
                 'koneksikefr',
@@ -289,7 +283,6 @@ class SpvProjectController extends Controller
                 })
                 ->latest('updated_at')
                 ->paginate(20);
-
         $koneksifr = FRproject::select('id_fr_1')->get();
         $koneksiar = ARproject::select('id_ar_2')->get();
         $koneksipr = PRproject::select('id_pr_01_3')->get();
@@ -299,7 +292,6 @@ class SpvProjectController extends Controller
         $koneksimn = MNproject::select('id_mn_4')->get();
         $koneksiin = INproject::select('id_in_5')->get();
         $koneksicl = CLproject::select('id_cl_6')->get();
-
         return view('supervisor.project.00-tabelproject', [
             'project' => $project,
             'koneksifr' => $koneksifr,

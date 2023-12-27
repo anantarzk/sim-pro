@@ -165,58 +165,21 @@
         </div>
         <div class="py-4 overflow-y-auto">
             <ul class="space-y-2">
+                <li class="flex items-center rounded-lg px-2 hover:bg-red-600 decoration-red-600">
 
-                {{-- Konten Menu Staff --}}
-                <li>
-                    <a class="flex items-center rounded-lg p-2 text-base font-semibold text-white hover:bg-red-600 decoration-red-600"
-                        data-collapse-toggle="dropdown-1" type="button" aria-controls="dropdown-1" href="#">
-                        <svg width="15" height="auto" viewBox="0 0 31 39" fill="none"
+
+                    <svg width="15" height="auto" viewBox="0 0 31 39" fill="none"
                             xmlns="http://www.w3.org/2000/svg">
                             <path
                                 d="M17.4375 13.5625H28.0938L17.4375 2.90625V13.5625ZM3.875 0H19.375L31 11.625V34.875C31 35.9027 30.5917 36.8883 29.865 37.615C29.1383 38.3417 28.1527 38.75 27.125 38.75H3.875C1.72437 38.75 0 37.0063 0 34.875V3.875C0 1.72437 1.72437 0 3.875 0ZM5.8125 34.875H9.6875V23.25H5.8125V34.875ZM13.5625 34.875H17.4375V19.375H13.5625V34.875ZM21.3125 34.875H25.1875V27.125H21.3125V34.875Z"
                                 fill="white" />
                         </svg>
-                        <span class="ml-8  flex-1">Proyek</span>
-                        <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 20 20"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd"
-                                d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                                clip-rule="evenodd"></path>
-                        </svg>
-                    </a>
-                    <div class="font-regular text-sm">
-                        <ul id="dropdown-1" class="hidden space-y-2 py-2 pl-14">
-                            <li class="flex items-center rounded-lg px-2 hover:bg-red-600 decoration-red-600">
-
-                                <svg width="16" height="auto" viewBox="0 0 31 39" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="M19.375 0H3.875C1.74375 0 0 1.74375 0 3.875V34.875C0 37.0063 1.74375 38.75 3.875 38.75H27.125C29.2563 38.75 31 37.0063 31 34.875V11.625L19.375 0ZM23.25 31H7.75V27.125H23.25V31ZM23.25 23.25H7.75V19.375H23.25V23.25ZM17.4375 13.5625V2.90625L28.0938 13.5625H17.4375Z"
-                                        fill="white" />
-                                </svg>
-
-
-                                <a class="group flex w-full items-center  p-2 pl-4 text-white"
-                                    href="/staff-seluruh-proyek">Proyek
-                                    Saya</a>
-                            </li>
-
-                            {{-- <li class="flex items-center rounded-lg px-2 hover:bg-red-600 decoration-red-600">
-
-                                <svg width="19" height="auto" viewBox="0 0 31 32" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="M31 23.8462L23.0513 31.7949L17.4872 26.2308L19.8718 23.8462L23.0513 27.0256L28.6154 21.4615L31 23.8462ZM3.17949 0C1.41487 0 0 1.41487 0 3.17949V28.6154C0 30.38 1.41487 31.7949 3.17949 31.7949H15.5954C14.7528 30.3482 14.3077 28.6949 14.3077 27.0256C14.3077 26.501 14.3554 25.9605 14.4349 25.4359H3.17949V22.2564H15.5954C16.3267 20.9846 17.3441 19.8718 18.5682 19.0769H3.17949V15.8974H22.2564V17.6144C22.781 17.5349 23.3215 17.4872 23.8462 17.4872C24.3867 17.4872 24.9113 17.5349 25.4359 17.6144V9.53846L15.8974 0M14.3077 2.38462L23.0513 11.1282H14.3077V2.38462Z"
-                                        fill="white" />
-                                </svg>
-
-                                <a class="group flex w-full items-center p-2 pl-4 text-white" href="#">Proyek
-                                    Selesai</a>
-                            </li> --}}
-                        </ul>
-                    </div>
+                    <a class="group flex w-full items-center  p-2 pl-4 text-white" href="/staff-seluruh-proyek">Proyek
+                        saya</a>
                 </li>
-                <li class="">
+
+                {{-- formulir umum kerja --}}
+                {{-- <li class="">
                     <a href="/staff-standar-form"
                         class="flex items-center rounded-lg p-2 text-base font-semibold text-white hover:bg-red-600 decoration-red-600">
                         <svg width="20" height="auto" viewBox="0 0 52 56" fill="none"
@@ -234,7 +197,7 @@
                         <span class="ml-6 flex-1">Standar Formulir Umum</span>
 
                     </a>
-                </li>
+                </li> --}}
 
 
                 {{-- Akhir konten menu staff --}}

@@ -1,19 +1,25 @@
 @extends('layouts.layout_administrator')
-@section('title_page', 'REGISTRASI')
+@section('title_page', 'Ubah akun')
 
 
 <div class="container mx-auto justify-between">
-    <div class="my-20 mx-11 flex">
+    <div class="my-20 mx-11">
+        {{-- tombol back --}}
+        <div class="mb-5">
+            <a href="/dashboard-administrator" class="hover:underline text-blue-600 hover:text-blue-800 text-lg"><-
+                    Kembali ke beranda</a>
+        </div>
         {{-- Card 1 --}}
 
         <div class="mr-6 flex rounded-lg border border-gray-200 bg-white p-2 shadow-md">
 
-            <div class="p-6 bg-white">
+            <div class="px-6 pt-4 bg-white">
 
                 {{-- Form --}}
-                <h5 class="mb-2 text-3xl font-semibold font-mono tracking-tight text-black dark:text-white">
+                <h5 class="text-3xl font-semibold font-mono tracking-tight text-black dark:text-white">
                     Ubah akun</h5>
-
+                    <p class="text-base font-normal text-gray-500 mb-2">
+                        Halaman formulir ubah akun.</p>
                 {{-- erorr notifikasi ketika inputan tidak sesuai --}}
                 <br>
                 @if ($errors->any())
@@ -60,15 +66,14 @@
                         <div class="group relative z-0 mb-6 w-full">
                             <input id="first_name" type="text" name="first_name"
                                 class="peer block w-full appearance-none border-0 border-b-2 border-gray-300 bg-transparent py-2.5 px-0 text-sm text-gray-900 focus:border-orange-500 focus:outline-none focus:ring-0 dark:border-gray-600 dark:text-white dark:focus:border-orange-400"
-                                placeholder=" " required="" value="{{ $users->first_name }}" readonly>
+                                placeholder=" " required="" value="{{ $users->first_name }}">
                             <label for="first_name"
                                 class="absolute top-3 -z-10 origin-[0] -translate-y-6 scale-75 transform text-sm text-gray-500 duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:left-0 peer-focus:-translate-y-6 peer-focus:scale-75 peer-focus:font-medium peer-focus:text-orange-500 dark:text-gray-400 peer-focus:dark:text-orange-400">
                                 *Nama Panggilan</label>
                             <p id="helper-text-explanation" class="mt-0 text-xs text-gray-500 dark:text-gray-400">
-                                Tidak disarankan untuk Edit karna berkaitan dengan PIC Project
+                                Tidak disarankan untuk Ubah karna berkaitan dengan PIC Project
                             </p>
                         </div>
-
                     </div>
 
                     <div class="grid grid-cols-3 gap-4">
@@ -90,24 +95,28 @@
                                 required>
                                 <option disabled selected="" value="{{ $users->jabatan }}">{{ $users->jabatan }}
                                 </option>
-                                <option value="Manager Design">Manager Design</option>
-                                <option value="Asst. Manager">Asst. Manager</option>
-                                <option value="Spv. Mechanical">Spv. Mechanical</option>
-                                <option value="Spv. Electrical">Spv. Electrical</option>
-                                <option value="Sr. Mechanical">Sr. Mechanical</option>
-                                <option value="Sr. Electrical">Sr. Electrical</option>
-                                <option value="Sr. MIT">Sr. MIT</option>
-                                <option value="MIT Engineer">MIT</option>
-                                <option value="Electrical">Electrical</option>
-                                <option value="Mechanical">Mechanical</option>
-                                <option value="Adminitrasi">Adminitrasi</option>
+                                <option value="Manager Eng Design">  Manager Eng Design</option>
+                                    <option value="Asst. Manager">Asst. Manager</option>
+                                    <option value="" disabled class="text-xs">============</option>
+                                    <option value="Spv. Mechanical">Spv. Mechanical</option>
+                                    <option value="Spv. Electrical">Spv. Electrical</option>
+                                    <option value="" disabled class="text-xs">============</option>
+                                    <option value="Sr. Mechanical">Sr. Mechanical</option>
+                                    <option value="Sr. Electrical">Sr. Electrical</option>
+                                    <option value="Sr. MIT">Sr. MIT</option>
+                                    <option value="" disabled class="text-xs">============</option>
+                                    <option value="MIT Engineer">MIT</option>
+                                    <option value="Electrical">Electrical</option>
+                                    <option value="Mechanical">Mechanical</option>
+                                    <option value="" disabled class="text-xs">============</option>
+                                    <option value="Web admin">Web admin</option>
                             </select>
                         </div>
 
                         <div class="group relative z-0 mb-6 w-full">
                             <label for="section"
                                 class="absolute top-3 -z-10 origin-[0] -translate-y-6 scale-75 transform text-sm text-gray-500 duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:left-0 peer-focus:-translate-y-6 peer-focus:scale-75 peer-focus:font-medium peer-focus:text-orange-500 dark:text-gray-400 peer-focus:dark:text-orange-400">
-                                *Divisi
+                                Divisi (Untuk assign PIC proyek)
                             </label>
                             <select id="section" name="section"
                                 class="peer block w-full appearance-none border-0 border-b-2 border-gray-200 bg-transparent py-2.5 px-0 text-sm text-gray-500 focus:border-gray-200 focus:outline-none focus:ring-0 dark:border-gray-700 dark:text-gray-400">
@@ -117,8 +126,8 @@
                                 <option value="Electrical">Electrical</option>
                                 <option value="Manufacturing IT">Manufacturing IT</option>
                             </select>
-                            <p id="helper-text-explanation" class="mt-0 text-xs text-gray-500 dark:text-gray-400">
-                                For PIC Project.
+                            <p id="helper-text-explanation" class="mt-0 text-xs text-gray-500">
+                                Dapat dikosongkan
                             </p>
                         </div>
                     </div>
@@ -132,11 +141,11 @@
                             <select id="role_id" name="role_id"
                                 class="peer block w-full appearance-none border-0 border-b-2 border-gray-200 bg-transparent py-2.5 px-0 text-sm text-gray-500 focus:border-gray-200 focus:outline-none focus:ring-0 dark:border-gray-700 dark:text-gray-400"
                                 required>
-                                @if ($users->role_id == 1)
+                                {{--                                 @if ($users->role_id == 1)
                                     <option disabled selected="" value="1">Manager</option>
-                                @endif
+                                @endif --}}
                                 @if ($users->role_id == 2)
-                                    <option disabled selected="" value="2">Supervisor & Manager</option>
+                                    <option disabled selected="" value="2">Manajerial</option>
                                 @endif
                                 @if ($users->role_id == 3)
                                     <option disabled selected="" value="3">Staff</option>
@@ -149,10 +158,6 @@
                                 @foreach ($roles as $lvl)
                                     @if ($lvl->id != 1)
                                         <option value="{{ $lvl->id }}">{{ $lvl->name }}</option>
-                                    @elseif ($lvl->id == 1)
-                                        <option disabled value="{{ $lvl->id }}">{{ $lvl->name }}= Manager
-                                            sementara
-                                            disamakan dengan Supervisor</option>
                                     @endif
                                 @endforeach
 
@@ -165,25 +170,12 @@
                             <label for="password"
                                 class="absolute top-3 -z-10 origin-[0] -translate-y-6 scale-75 transform text-sm text-gray-500 duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:left-0 peer-focus:-translate-y-6 peer-focus:scale-75 peer-focus:font-medium peer-focus:text-orange-500 dark:text-gray-400 peer-focus:dark:text-orange-400">
                                 *Password</label>
-                                <p id="helper-text-explanation" class="mt-0 text-xs text-gray-500 dark:text-gray-400 font-semibold">
-                                   Setiap kali edit. Wajib mengulangi/isi Password
-                                </p>
+                            <p id="helper-text-explanation"
+                                class="mt-0 text-xs text-gray-500 dark:text-gray-400 font-bold">
+                                Wajib mengisikan ulang password setiap melakukan perubahan akun.
+                            </p>
                         </div>
                     </div>
-
-
-
-
-                    <div class="group relative z-0 mb-6 w-full">
-                        <input id="email" type="email" name="email"
-                            class="peer block w-full appearance-none border-0 border-b-2 border-gray-300 bg-transparent py-2.5 px-0 text-sm text-gray-900 focus:border-orange-500 focus:outline-none focus:ring-0 dark:border-gray-600 dark:text-white dark:focus:border-orange-400"
-                            placeholder=" " required="" value="{{ $users->email }}">
-                        <label for="email"
-                            class="absolute top-3 -z-10 origin-[0] -translate-y-6 scale-75 transform text-sm text-gray-500 duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:left-0 peer-focus:-translate-y-6 peer-focus:scale-75 peer-focus:font-medium peer-focus:text-orange-500 dark:text-gray-400 peer-focus:dark:text-orange-400">
-                            *Email</label>
-                    </div>
-
-
 
                     <div class="group relative z-0 mb-6 w-full">
                         <input id="created_by" type="text" name="created_by" readonly

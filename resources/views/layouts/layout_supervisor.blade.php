@@ -100,12 +100,7 @@
                                 </div>
                                 <hr>
                                 <ul class="py-1" aria-labelledby="user-menu-button">
-                                    <li>
-                                        <a class="py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 flex items-center space-x-2 text-center"
-                                            href="/view_team_supervisor">
-                                            <p> View Team </p>
-                                        </a>
-                                    </li>
+                                    
                                     <li>
                                         <a class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:text-white"
                                             href="/view_profile_supervisor">Profile</a>
@@ -237,21 +232,9 @@
                                         fill="white" />
                                 </svg>
                                 <a class="group flex w-full items-center  p-2 pl-4 text-white"
-                                    href="/seluruh-proyek-supervisor-manager">Proyek
-                                    Aktif</a>
+                                    href="/seluruh-proyek-supervisor-manager">Seluruh Proyek Aktif</a>
                             </li>
-                            <li class="px-2 flex items-center rounded-lg hover:bg-red-600 decoration-red-600">
 
-                                <svg width="19" height="auto" viewBox="0 0 31 32" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="M31 23.8462L23.0513 31.7949L17.4872 26.2308L19.8718 23.8462L23.0513 27.0256L28.6154 21.4615L31 23.8462ZM3.17949 0C1.41487 0 0 1.41487 0 3.17949V28.6154C0 30.38 1.41487 31.7949 3.17949 31.7949H15.5954C14.7528 30.3482 14.3077 28.6949 14.3077 27.0256C14.3077 26.501 14.3554 25.9605 14.4349 25.4359H3.17949V22.2564H15.5954C16.3267 20.9846 17.3441 19.8718 18.5682 19.0769H3.17949V15.8974H22.2564V17.6144C22.781 17.5349 23.3215 17.4872 23.8462 17.4872C24.3867 17.4872 24.9113 17.5349 25.4359 17.6144V9.53846L15.8974 0M14.3077 2.38462L23.0513 11.1282H14.3077V2.38462Z"
-                                        fill="white" />
-                                </svg>
-                                <a class="group flex w-full items-center  p-2 pl-4 text-white"
-                                    href="/seluruh-proyek">Proyek
-                                    Aktif (View Staff)</a>
-                            </li>
                             <li class="px-2 flex items-center rounded-lg hover:bg-red-600 decoration-red-600">
                                 <svg width="21" height="21" viewBox="0 0 21 21" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">

@@ -13,25 +13,26 @@ use Illuminate\Contracts\Pagination\Paginator;
 
 class AdministratorController extends Controller
 {
-    public function IndexAdministrator()
+    public function IndexAdministrator(Request $request)
     {
-        // contoh
-        // ngambil dari table user
-        // $users = User::all();
-        $users = User::select('name', 'nik', 'section', 'jabatan')->paginate(
-            15
-        );
-        $tables = DB::select('SHOW TABLES');
-        $log = LOGactivity::select('id', 'aktivitas', 'waktu')
+        $keyword = $request->keyword;
+        $users = User::select(
+            'id',
+            'name',
+            'first_name',
+            'nik',
+            'jabatan',
+            'created_by'
+        )
+            ->where('name', 'LIKE', '%' . $keyword . '%')
+            ->orWhere('first_name', 'LIKE', '%' . $keyword . '%')
+            ->orWhere('nik', 'LIKE', '%' . $keyword . '%')
+            ->orWhere('section', 'LIKE', '%' . $keyword . '%')
             ->latest('id')
-            ->paginate(15);
+            ->paginate(10);
 
-        // melanjutkan ke halaman administrator dashboard
-
-        return view('administrator.dashboard-administrator', [
-            'tables' => $tables,
+        return view('administrator.account.kelola-akun', [
             'users' => $users,
-            'log' => $log,
         ]);
     }
 
@@ -60,7 +61,6 @@ class AdministratorController extends Controller
             'nik' => 'required',
             'jabatan' => 'required',
             'created_by' => 'required',
-            'email' => 'required',
             'role_id' => 'required',
         ]);
 

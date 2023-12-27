@@ -101,12 +101,6 @@
                                 <hr>
                                 <ul class="" aria-labelledby="user-menu-button">
                                     <li>
-                                        <a class="py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 flex items-center space-x-2 text-center"
-                                            href="/view_team_staff">
-                                            <p>  View Team </p>
-                                        </a>
-                                    </li>
-                                    <li>
                                         <a class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:text-white"
                                             href="/view_profile_staff">Profile</a>
                                     </li>

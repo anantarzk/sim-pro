@@ -101,7 +101,6 @@ class AuthController extends Controller
     }
     public function ViewProfilesupervisor()
     {
-        # code...
         return view('layouts.layout_viewprofilesupervisor');
     }
     public function ViewProfilestaff()
@@ -113,53 +112,5 @@ class AuthController extends Controller
     {
         # code...
         return view('layouts.layout_viewprofileadministrator');
-    }
-    public function ViewTeammanager(Request $request)
-    {
-        $keyword = $request->keyword;
-        $users = User::select('id', 'name', 'nik', 'jabatan', 'section')
-            ->where('name', 'LIKE', '%' . $keyword . '%')
-            ->orWhere('nik', 'LIKE', '%' . $keyword . '%')
-            ->orWhere('section', 'LIKE', '%' . $keyword . '%')
-            ->paginate(10);
-        return view('layouts.layout_viewteammanager', [
-            'users' => $users,
-        ]);
-    }
-    public function ViewTeamsupervisor(Request $request)
-    {
-        $keyword = $request->keyword;
-        $users = User::select('id', 'name', 'nik', 'jabatan', 'section')
-            ->where('name', 'LIKE', '%' . $keyword . '%')
-            ->orWhere('nik', 'LIKE', '%' . $keyword . '%')
-            ->orWhere('section', 'LIKE', '%' . $keyword . '%')
-            ->paginate(10);
-        return view('layouts.layout_viewteamsupervisor', [
-            'users' => $users,
-        ]);
-    }
-    public function ViewTeamstaff(Request $request)
-    {
-        $keyword = $request->keyword;
-        $users = User::select('id', 'name', 'nik', 'jabatan', 'section')
-            ->where('name', 'LIKE', '%' . $keyword . '%')
-            ->orWhere('nik', 'LIKE', '%' . $keyword . '%')
-            ->orWhere('section', 'LIKE', '%' . $keyword . '%')
-            ->paginate(10);
-        return view('layouts.layout_viewteamstaff', [
-            'users' => $users,
-        ]);
-    }
-    public function ViewTeamadministrator(Request $request)
-    {
-        $keyword = $request->keyword;
-        $users = User::select('id', 'name', 'nik', 'jabatan', 'section')
-            ->where('name', 'LIKE', '%' . $keyword . '%')
-            ->orWhere('nik', 'LIKE', '%' . $keyword . '%')
-            ->orWhere('section', 'LIKE', '%' . $keyword . '%')
-            ->paginate(10);
-        return view('layouts.layout_viewteamadministrator', [
-            'users' => $users,
-        ]);
     }
 }

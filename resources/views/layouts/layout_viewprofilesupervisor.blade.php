@@ -49,21 +49,18 @@
                         </div>
                         <div class="py-2">
                             <div class="font-light text-lg">Hak akses:</div>
-                            {{-- @foreach ($role_id as $role) --}}
                             <div class="text-gray-800 text-2xl font-mono font-medium">
-                                {{-- @if ($role == 1)
-                                        Web admin
-                                    @elseif ($role == 2)
-                                        Manajerial
-                                    @else
-                                        Staf
-                                    @endif --}}
-                                {{ Auth::user()->role_id }}
+                                @php
+                                $role_id = Auth::user()->role_id;
+                                $role_mapping = [
+                                    1, 2 => 'Manajerial',
+                                    3 => 'Staff',
+                                    4 => 'Web Admin'
+                                ];
+                            @endphp
+                            {{ $role_mapping[$role_id] ?? 'Undefined' }}
                             </div>
-                            {{-- @endforeach --}}
-                        </div>
                     </div>
-
                 </div>
                 {{-- akhir card --}}
             </div>

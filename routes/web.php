@@ -246,10 +246,6 @@ Route::get('/arsip-seluruh-proyek-supervisor-manager', [
     'ArsipLandingProjectSupervisor',
 ])->middleware(['auth', 'only-supervisor']);
 
-Route::get('/seluruh-proyek', [
-    SpvProjectController::class,
-    'LandingSeluruhProject',
-])->middleware(['auth', 'only-supervisor']);
 
 Route::get(
     '/redirect-proyek/{id}/{id_fr_1}/{id_ar_2}/{id_pr_01_3}/{id_pa_02_3}/{id_po_03_3}/{id_pay_04_3}/{id_mn_4}/{id_in_5}/{id_cl_6}',

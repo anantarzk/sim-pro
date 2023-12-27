@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
-use App\Models\LOGactivity;
 use App\Models\PlannedPayment;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -30,10 +29,7 @@ class AuthController extends Controller
         if ($count_user == 0) {
             PlannedPayment::create($request->all());
             User::create($request->all());
-            DB::table('log_activity')->insert([
-                'aktivitas' => $request->aktivitas,
-                'waktu' => $request->waktu,
-            ]);
+
             return redirect()->action([AuthController::class, 'login']);
         }
         // Autentikasi dari form inputan login
@@ -49,11 +45,6 @@ class AuthController extends Controller
 
             // redirect hal index
             // return redirect()->intended('/');
-
-            DB::table('log_activity')->insert([
-                'aktivitas' => $request->nik . ' - Telah berhasil Login.',
-                'waktu' => $request->waktu,
-            ]);
 
             // redirect page berdasarkan level
             if (Auth::user()->role_id == 4) {
@@ -86,11 +77,6 @@ class AuthController extends Controller
         $request->session()->invalidate();
 
         $request->session()->regenerateToken();
-
-        DB::table('log_activity')->insert([
-            'aktivitas' => $request->aktivitas,
-            'waktu' => $request->waktu,
-        ]);
 
         return redirect('/login');
     }

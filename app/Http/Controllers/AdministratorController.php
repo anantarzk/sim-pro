@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\Role;
 use App\Models\User;
-use App\Models\LOGactivity;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
@@ -68,10 +67,6 @@ class AdministratorController extends Controller
         $request['password'] = Hash::make($request->password);
         // simpan inputan
         $user = User::create($request->all());
-        DB::table('log_activity')->insert([
-            'aktivitas' => $request->aktivitas . ' ' . $request['nik'],
-            'waktu' => $request->waktu,
-        ]);
 
         // jika berhasil akan menampilkan berikut
         Session::flash('status', 'succses');
@@ -81,18 +76,7 @@ class AdministratorController extends Controller
         return redirect('registrasi-account');
     }
 
-    public function ActivityLog(Request $request)
-    {
-        $keyword = $request->keyword;
-        $log_activity = LOGactivity::latest('id')
-            ->where('aktivitas', 'LIKE', '%' . $keyword . '%')
-            ->OrWhere('waktu', 'LIKE', '%' . $keyword . '%')
-            ->paginate(50);
 
-        return view('administrator.log_activity.log-activity', [
-            'log_activity' => $log_activity,
-        ]);
-    }
     public function KelolaAkun(Request $request)
     {
         $keyword = $request->keyword;
@@ -139,11 +123,6 @@ class AdministratorController extends Controller
         $request['password'] = Hash::make($request->password);
         $users->update($request->all());
 
-        DB::table('log_activity')->insert([
-            'aktivitas' => $request->aktivitas . ' ' . $request['nik'],
-            'waktu' => $request->waktu,
-        ]);
-
         return redirect()->action([
             AdministratorController::class,
             'KelolaAkun',
@@ -166,11 +145,6 @@ class AdministratorController extends Controller
     public function ProcessHapusAkun(Request $request, $id)
     {
         $users = User::findOrfail($id);
-
-        DB::table('log_activity')->insert([
-            'aktivitas' => $request->aktivitas . ' ' . $request['nik'],
-            'waktu' => $request->waktu,
-        ]);
 
         $users->delete();
         return redirect()->action([

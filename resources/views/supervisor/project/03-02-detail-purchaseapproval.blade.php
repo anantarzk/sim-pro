@@ -8212,11 +8212,6 @@
             <input type="text" name="last_update_name" value="{{ Auth::user()->first_name }}" hidden>
             <input type="text" name="last_update_date" value="{{ date('d-M-Y') }}" hidden>
 
-            {{-- input ke table log activity --}}
-            <input type="text" hidden name="aktivitas"
-                value="{{ Auth::user()->first_name }} - Memperbarui dan Menyetujui Purchasing -> Purchase Approval pada project id={{ $viewdataproject->id }}">
-            <input type="text" hidden name="waktu" value="{{ date('d-m-Y H:i') }}">
-
             <button type="submit"
                 class="bg-orange-500 w-full hover:bg-orange-600 text-white font-bold py-2 rounded-b-lg shadow-md">Klik untuk submit dokumen</button>
 
@@ -8559,10 +8554,7 @@
 
                 <input type="text" name="approval_by" value="{{ Auth::user()->first_name }}" hidden>
                 <input type="text" name="approval_date" value="{{ date('Y-m-d') }}" hidden>
-                {{-- input ke table log activity --}}
-                <input type="text" hidden name="aktivitas"
-                    value="{{ Auth::user()->first_name }} - Menyetujui Purchasing -> Purchase Approval pada project id= {{ $viewdataproject->id }}">
-                <input type="text" hidden name="waktu" value="{{ date('d-m-Y H:i') }}">
+
                 <div class="flex space-x-1 w-full">
                     <button type="submit"
                         class="rounded-lg items-center p-3 my-1 w-full hover:bg-green-800 bg-green-600 flex">
@@ -8594,11 +8586,6 @@
 
                 <input type="text" name="approval_by" value="{{ Auth::user()->first_name }}" hidden>
                 <input type="text" name="approval_date" value="{{ date('Y-m-d') }}" hidden>
-                {{-- input ke table log activity --}}
-                <input type="text" hidden name="aktivitas"
-                    value="{{ Auth::user()->first_name }} - Memberi Revisi Purchasing -> Purchase Approval pada project id= {{ $viewdataproject->id }}">
-                <input type="text" hidden name="waktu" value="{{ date('d-m-Y H:i') }}">
-
 
                 <button type="submit"
                     class="rounded-lg items-center text-white p-3 my-1 w-full hover:bg-yellow-600 bg-yellow-400 flex space-x-2">

@@ -50,10 +50,7 @@
             <button>
 
             </button>
-            {{-- input ke table log activity --}}
-            <input type="text" hidden name="aktivitas"
-                value="{{ Auth::user()->first_name }} - Menghapus Standar Formulir  =  {{ $standar_forms->name_form }}">
-            <input type="text" hidden name="waktu" value="{{ date('d-m-Y H:i') }}">
+
 
 
             <button type="submit"

@@ -12,7 +12,6 @@ use App\Models\PAproject;
 use App\Models\POproject;
 use App\Models\PRproject;
 use App\Models\PAYproject;
-use App\Models\LOGactivity;
 use Illuminate\Http\Request;
 use App\Models\CONTROLPROJECT;
 use App\Models\StandarProject;
@@ -79,7 +78,7 @@ class StaffProjectController extends Controller
                 ->paginate(10);
         }
 
-        // dd(DB::getQueryLog());
+        //dd(DB::getQueryLog());
         $koneksifr = FRproject::select('id_fr_1')->get();
         $koneksiar = ARproject::select('id_ar_2')->get();
         $koneksipr = PRproject::select('id_pr_01_3')->get();
@@ -1487,10 +1486,6 @@ class StaffProjectController extends Controller
         $viewdataproject->update($request->all());
         $koneksifr->update($request->all());
 
-        DB::table('log_activity')->insert([
-            'aktivitas' => $request->aktivitas,
-            'waktu' => $request->waktu,
-        ]);
 
         if ($koneksifr) {
             Session::flash('status', 'sukses');
@@ -3267,10 +3262,6 @@ class StaffProjectController extends Controller
         $viewdataproject->update($request->all());
         $koneksiar->update($request->all());
 
-        DB::table('log_activity')->insert([
-            'aktivitas' => $request->aktivitas,
-            'waktu' => $request->waktu,
-        ]);
 
         if ($koneksiar) {
             Session::flash('status', 'sukses');
@@ -8458,10 +8449,6 @@ class StaffProjectController extends Controller
         $viewdataproject->update($request->all());
         $koneksipr->update($request->all());
 
-        DB::table('log_activity')->insert([
-            'aktivitas' => $request->aktivitas,
-            'waktu' => $request->waktu,
-        ]);
 
         return redirect()->action(
             [StaffProjectController::class, 'TigaTitikSatuFormProgress'],
@@ -13838,10 +13825,6 @@ class StaffProjectController extends Controller
         //untuk update status purchasing
         $koneksipr->update($request->all());
 
-        DB::table('log_activity')->insert([
-            'aktivitas' => $request->aktivitas,
-            'waktu' => $request->waktu,
-        ]);
 
         return redirect()->action(
             [StaffProjectController::class, 'TigaTitikDuaFormProgress'],
@@ -19221,10 +19204,6 @@ class StaffProjectController extends Controller
         //untuk update status purchasing
         $koneksipr->update($request->all());
 
-        DB::table('log_activity')->insert([
-            'aktivitas' => $request->aktivitas,
-            'waktu' => $request->waktu,
-        ]);
 
         return redirect()->action(
             [StaffProjectController::class, 'TigaTitikTigaFormProgress'],
@@ -24623,10 +24602,6 @@ class StaffProjectController extends Controller
         $koneksipay->update($request->all());
         $koneksipr->update($request->all());
 
-        DB::table('log_activity')->insert([
-            'aktivitas' => $request->aktivitas,
-            'waktu' => $request->waktu,
-        ]);
 
         return redirect()->action(
             [StaffProjectController::class, 'TigaTitikEmpatFormProgress'],
@@ -26033,10 +26008,6 @@ class StaffProjectController extends Controller
         $koneksimn->update($request->all());
         $koneksipr->update($request->all());
 
-        DB::table('log_activity')->insert([
-            'aktivitas' => $request->aktivitas,
-            'waktu' => $request->waktu,
-        ]);
 
         return redirect()->action(
             [StaffProjectController::class, 'EmpatFormProgress'],
@@ -27629,11 +27600,6 @@ class StaffProjectController extends Controller
         // menyimpan seluruh ke table purchasing 01
         $viewdataproject->update($request->all());
         $koneksiin->update($request->all());
-
-        DB::table('log_activity')->insert([
-            'aktivitas' => $request->aktivitas,
-            'waktu' => $request->waktu,
-        ]);
 
         return redirect()->action(
             [StaffProjectController::class, 'LimaFormProgress'],
@@ -29680,11 +29646,6 @@ class StaffProjectController extends Controller
         // menyimpan seluruh ke table purchasing 01
         $viewdataproject->update($request->all());
         $koneksicl->update($request->all());
-
-        DB::table('log_activity')->insert([
-            'aktivitas' => $request->aktivitas,
-            'waktu' => $request->waktu,
-        ]);
 
 return redirect()->action(
             [StaffProjectController::class, 'EnamFormProgress'],

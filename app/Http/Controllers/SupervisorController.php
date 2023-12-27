@@ -7881,10 +7881,7 @@ class SupervisorController extends Controller
     public function ProcessBudgetControlOb(Request $request)
     {
         PlannedPayment::create($request->all());
-        DB::table('log_activity')->insert([
-            'aktivitas' => $request->aktivitas,
-            'waktu' => $request->waktu,
-        ]);
+
 
         return redirect()->action([
             SupervisorController::class,
@@ -7897,11 +7894,6 @@ class SupervisorController extends Controller
         $planned = PlannedPayment::all()
             ->where('marking', 'Planned-1')
             ->first();
-
-        DB::table('log_activity')->insert([
-            'aktivitas' => $request->aktivitas,
-            'waktu' => $request->waktu,
-        ]);
 
         if ($request['as_year'] != '') {
             $request['year'] = $request['as_year'];
@@ -7986,12 +7978,4 @@ class SupervisorController extends Controller
             'BudgetControlOb',
         ]);
     }
-    /* public function profil()
-    {
-        $profil = Users::select('role_id')->count('role_id');
-
-        return view('login', [
-            'count_user' => $count_user,
-        ]);
-    } */
 }

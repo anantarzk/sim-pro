@@ -13,10 +13,7 @@
             <form action="" method="post">
                 @csrf
                 <input type="text" name="marking" value="Standar-1" hidden>
-                {{-- input ke table log activity --}}
-                <input type="text" hidden name="aktivitas"
-                    value="{{ Auth::user()->first_name }} - Mulai mengelola Standar Formulir untuk Step Project">
-                <input type="text" hidden name="waktu" value="{{ date('d-m-Y H:i') }}">
+
 
                 <button type="submit"
                     class="text-orange-500 hover:text-white border border-orange-500 hover:bg-orange-500 focus:ring-4 focus:outline-none focus:ring-orange-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-orange-300 dark:text-orange-300 dark:hover:text-white dark:hover:bg-orange-500 dark:focus:ring-orange-800">Mulai
@@ -1444,12 +1441,6 @@
                         </div>
                         {{-- akhir batas konten 6 --}}
                     </div>
-
-
-                    {{-- input ke table log activity --}}
-                    <input type="text" hidden name="aktivitas"
-                        value="{{ Auth::user()->first_name }} - Memperbarui Standar Formulir untuk Step Project">
-                    <input type="text" hidden name="waktu" value="{{ date('d-m-Y H:i') }}">
 
                     <button type="submit"
                         class="bg-orange-500 w-full hover:bg-orange-600 text-white font-bold py-2 rounded-md shadow-md">Submit</button>

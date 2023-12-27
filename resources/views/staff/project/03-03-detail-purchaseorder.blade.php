@@ -7434,11 +7434,6 @@
             <input type="text" name="last_update_name" value="{{ Auth::user()->first_name }}" hidden>
             <input type="text" name="last_update_date" value="{{ date('d-M-Y') }}" hidden>
 
-            {{-- input ke table log activity --}}
-            <input type="text" hidden name="aktivitas"
-                value="{{ Auth::user()->first_name }} - Memperbarui Purchasing -> Purchase Order pada project id= {{ $viewdataproject->id }}">
-            <input type="text" hidden name="waktu" value="{{ date('d-m-Y H:i') }}">
-
             <button type="submit"
                 class="bg-orange-500 w-full hover:bg-orange-600 text-white font-bold py-2 rounded-b-lg shadow-md">Klik
                 untuk submit dokumen</button>

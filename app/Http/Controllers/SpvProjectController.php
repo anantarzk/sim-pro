@@ -12,7 +12,6 @@ use App\Models\PAproject;
 use App\Models\POproject;
 use App\Models\PRproject;
 use App\Models\PAYproject;
-use App\Models\LOGactivity;
 use Illuminate\Http\Request;
 use App\Models\CONTROLPROJECT;
 use App\Models\StandarProject;
@@ -85,15 +84,6 @@ class SpvProjectController extends Controller
     {
         $project = CONTROLPROJECT::findOrfail($id);
         $project->update($request->all());
-        // menambah log
-        DB::table('log_activity')->insert([
-            'aktivitas' =>
-                $request->aktivitas .
-                $request->ob_year .
-                ' id= ' .
-                $project->id,
-            'waktu' => $request->waktu,
-        ]);
         if ($project) {
             Session::flash('statusedited', 'sukses');
             Session::flash('message', 'Data Project berhasil diedit!');
@@ -108,15 +98,6 @@ class SpvProjectController extends Controller
     {
         $project = CONTROLPROJECT::findOrfail($id);
 
-        // menambah log
-        DB::table('log_activity')->insert([
-            'aktivitas' =>
-                $request->aktivitas .
-                $request->ob_year .
-                ' id= ' .
-                $project->id,
-            'waktu' => $request->waktu,
-        ]);
         $project->delete();
 
         if ($project) {
@@ -167,15 +148,8 @@ class SpvProjectController extends Controller
         $koneksimn->update($request->all());
         $koneksiin->update($request->all());
         $koneksicl->update($request->all());
-        // menambah log
-        DB::table('log_activity')->insert([
-            'aktivitas' =>
-                $request->aktivitas .
-                $request->ob_year .
-                ' id= ' .
-                $project->id,
-            'waktu' => $request->waktu,
-        ]);
+
+
         if ($project) {
             Session::flash('statusedited', 'sukses');
             Session::flash('message', 'Data Project berhasil diarsipkan!');
@@ -224,15 +198,7 @@ class SpvProjectController extends Controller
         $koneksimn->update($request->all());
         $koneksiin->update($request->all());
         $koneksicl->update($request->all());
-        // menambah log
-        DB::table('log_activity')->insert([
-            'aktivitas' =>
-                $request->aktivitas .
-                $request->ob_year .
-                ' id= ' .
-                $project->id,
-            'waktu' => $request->waktu,
-        ]);
+
         if ($project) {
             Session::flash('statusedited', 'sukses');
             Session::flash('message', 'Data Project berhasil Restore!');
@@ -278,15 +244,6 @@ class SpvProjectController extends Controller
                 'id_cl_6' => $project->id,
             ]);
 
-            // menambah log
-            DB::table('log_activity')->insert([
-                'aktivitas' =>
-                    $request->aktivitas .
-                    $request->ob_year .
-                    ' id= ' .
-                    $project->id,
-                'waktu' => $request->waktu,
-            ]);
 
             Session::flash('status', 'sukses');
             Session::flash('message', 'Data berhasil ditambahkan!');
@@ -1808,10 +1765,6 @@ class SpvProjectController extends Controller
         $viewdataproject->update($request->all());
         $koneksifr->update($request->all());
 
-        DB::table('log_activity')->insert([
-            'aktivitas' => $request->aktivitas,
-            'waktu' => $request->waktu,
-        ]);
 
         if ($koneksifr) {
             Session::flash('status', 'sukses');
@@ -3588,11 +3541,6 @@ class SpvProjectController extends Controller
         // menyimpan seluruh ke table AR
         $viewdataproject->update($request->all());
         $koneksiar->update($request->all());
-
-        DB::table('log_activity')->insert([
-            'aktivitas' => $request->aktivitas,
-            'waktu' => $request->waktu,
-        ]);
 
         if ($koneksiar) {
             Session::flash('status', 'sukses');
@@ -8796,10 +8744,6 @@ class SpvProjectController extends Controller
         $viewdataproject->update($request->all());
         $koneksipr->update($request->all());
 
-        DB::table('log_activity')->insert([
-            'aktivitas' => $request->aktivitas,
-            'waktu' => $request->waktu,
-        ]);
 
         return redirect()->action(
             [SpvProjectController::class, 'TigaTitikSatuFormProgress'],
@@ -14175,11 +14119,6 @@ class SpvProjectController extends Controller
 
         //untuk update status purchasing
         $koneksipr->update($request->all());
-
-        DB::table('log_activity')->insert([
-            'aktivitas' => $request->aktivitas,
-            'waktu' => $request->waktu,
-        ]);
 
         return redirect()->action(
             [SpvProjectController::class, 'TigaTitikDuaFormProgress'],
@@ -19559,11 +19498,6 @@ class SpvProjectController extends Controller
         $koneksipo->update($request->all());
         //untuk update status purchasing
         $koneksipr->update($request->all());
-
-        DB::table('log_activity')->insert([
-            'aktivitas' => $request->aktivitas,
-            'waktu' => $request->waktu,
-        ]);
 
         return redirect()->action(
             [SpvProjectController::class, 'TigaTitikTigaFormProgress'],
@@ -24963,11 +24897,6 @@ class SpvProjectController extends Controller
         $koneksipay->update($request->all());
         $koneksipr->update($request->all());
 
-        DB::table('log_activity')->insert([
-            'aktivitas' => $request->aktivitas,
-            'waktu' => $request->waktu,
-        ]);
-
         return redirect()->action(
             [SpvProjectController::class, 'TigaTitikEmpatFormProgress'],
             [
@@ -26372,11 +26301,6 @@ class SpvProjectController extends Controller
         $viewdataproject->update($request->all());
         $koneksimn->update($request->all());
         $koneksipr->update($request->all());
-
-        DB::table('log_activity')->insert([
-            'aktivitas' => $request->aktivitas,
-            'waktu' => $request->waktu,
-        ]);
 
         return redirect()->action(
             [SpvProjectController::class, 'EmpatFormProgress'],
@@ -27972,11 +27896,6 @@ class SpvProjectController extends Controller
         // menyimpan seluruh ke table purchasing 01
         $viewdataproject->update($request->all());
         $koneksiin->update($request->all());
-
-        DB::table('log_activity')->insert([
-            'aktivitas' => $request->aktivitas,
-            'waktu' => $request->waktu,
-        ]);
 
         return redirect()->action(
             [SpvProjectController::class, 'TigaTitikEmpatFormProgress'],
@@ -30024,11 +29943,6 @@ class SpvProjectController extends Controller
         // menyimpan seluruh ke table purchasing 01
         $viewdataproject->update($request->all());
         $koneksicl->update($request->all());
-
-        DB::table('log_activity')->insert([
-            'aktivitas' => $request->aktivitas,
-            'waktu' => $request->waktu,
-        ]);
 
         return redirect()->action(
             [SpvProjectController::class, 'EnamFormProgress'],

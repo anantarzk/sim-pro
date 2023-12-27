@@ -20,11 +20,6 @@ class SpvStandarProjectController extends Controller
     public function ProcessStandarProject(Request $request)
     {
         StandarProject::create($request->all());
-        DB::table('log_activity')->insert([
-            'aktivitas' => $request->aktivitas,
-            'waktu' => $request->waktu,
-        ]);
-
         return redirect()->action([
             SpvStandarProjectController::class,
             'StandarProject',
@@ -1072,10 +1067,6 @@ class SpvStandarProjectController extends Controller
             $request['date_chor_form'] = $request['as_date_chor_form'];
         }
 
-        DB::table('log_activity')->insert([
-            'aktivitas' => $request->aktivitas,
-            'waktu' => $request->waktu,
-        ]);
         $standarproject->update($request->all());
 
         //redirect

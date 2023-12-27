@@ -8,9 +8,9 @@
         <div class="tracking-wide text-gray-600 mb-3 flex justify-between">
             <div>
                 <h1 class="text-3xl font-bold font-mono tracking-tight text-gray-900 text-left">
-                    Your Project Dashboard
+                    Proyek Saya
                     <p class="text-base font-normal text-gray-500 ">
-                        Monitoring Project Engineering Design BSIN-K.</p>
+                        Semua proyek yang anda laksanakan.</p>
                 </h1>
             </div>
             <div class="">

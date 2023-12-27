@@ -1101,12 +1101,6 @@
             <input type="text" name="progress" value="Waiting Approval Fund Request" hidden>
             <input type="text" name="last_update_name" value="{{ Auth::user()->first_name }}" hidden>
             <input type="text" name="last_update_date" value="{{ date('d-M-Y') }}" hidden>
-            {{-- input ke table log activity --}}
-            <input type="text" hidden name="aktivitas"
-                value="{{ Auth::user()->first_name }} - Memperbarui Fund Request pada project id={{ $viewdataproject->id }}">
-            <input type="text" hidden name="waktu" value="{{ date('d-m-Y H:i') }}">
-
-
         </div>
         {{-- Akhir progress file --}}
 

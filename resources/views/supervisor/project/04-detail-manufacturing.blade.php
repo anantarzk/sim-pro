@@ -1350,11 +1350,6 @@
             <input type="text" name="progress" value="Manufacturing" hidden>
             <input type="text" name="last_update_name" value="{{ Auth::user()->first_name }}" hidden>
             <input type="text" name="last_update_date" value="{{ date('d-M-Y') }}" hidden>
-            {{-- input ke table log activity --}}
-            <input type="text" hidden name="aktivitas"
-                value="{{ Auth::user()->first_name }} - Memperbarui dan Menyetujui Manufacturing pada project id={{ $viewdataproject->id }}">
-            <input type="text" hidden name="waktu" value="{{ date('d-m-Y H:i') }}">
-
 
             @if (
                 $koneksimn->mn_atribut_1 &&
@@ -1456,9 +1451,7 @@
                 <input type="date" hidden name="status_mn_date" value="{{ date('Y-m-d') }}">
                 <input type="text" name="approval_by" value="{{ Auth::user()->first_name }}" hidden>
                 <input type="text" name="approval_date" value="{{ date('Y-m-d') }}" hidden>
-                {{-- input ke table log activity --}}
-                <input type="text" hidden name="aktivitas"
-                    value="{{ Auth::user()->first_name }} - Menyetujui Manufacturing pada project id={{ $viewdataproject->id }}">
+
                 <input type="text" hidden name="waktu" value="{{ date('d-m-Y H:i') }}">
                 <div class="flex space-x-1 w-full">
                     <button type="submit"
@@ -1486,9 +1479,7 @@
                 <input type="date" hidden name="status_mn_date" value="{{ date('Y-m-d') }}">
                 <input type="text" name="approval_by" value="{{ Auth::user()->first_name }}" hidden>
                 <input type="text" name="approval_date" value="{{ date('Y-m-d') }}" hidden>
-                {{-- input ke table log activity --}}
-                <input type="text" hidden name="aktivitas"
-                    value="{{ Auth::user()->first_name }} - Memberi Revisi Manufacturing pada project id={{ $viewdataproject->id }}">
+
                 <input type="text" hidden name="waktu" value="{{ date('d-m-Y H:i') }}">
 
                 <button type="submit"

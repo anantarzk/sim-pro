@@ -33,17 +33,9 @@
                 {{-- planned --}}
                 <input type="text" name="marking" value="Planned-1" hidden>
 
-                {{-- Role ID --}}
-
-                {{-- input ke table log activity --}}
-                <input type="text" hidden name="aktivitas"
-                    value="DEVELOPER Telah Memulai mengelola Website untuk Engineering Design BSIN-K">
-                <input type="text" hidden name="waktu" value="{{ date('d-m-Y H:i') }}">
-
-
                 <button type="submit"
                     class="text-white hover:text-white border border-orange-500 bg-orange-500 hover:bg-orange-600 focus:ring-4 focus:outline-none focus:ring-orange-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">
-                    Klik untuk lanjutkan
+                    Mulai Kelola
                 </button>
 
             </form>

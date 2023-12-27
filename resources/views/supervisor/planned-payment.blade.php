@@ -11,10 +11,6 @@
                 <form action="" method="post">
                     @csrf
                     <input type="text" name="marking" value="Planned-1" hidden>
-                    {{-- input ke table log activity --}}
-                    <input type="text" hidden name="aktivitas"
-                        value="{{ Auth::user()->first_name }} - Mulai mengelola Planned Payment OB">
-                    <input type="text" hidden name="waktu" value="{{ date('d-m-Y H:i') }}">
 
                     <button type="submit"
                         class="text-orange-500 hover:text-white border border-orange-500 hover:bg-orange-500 focus:ring-4 focus:outline-none focus:ring-orange-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-orange-300 dark:text-orange-300 dark:hover:text-white dark:hover:bg-orange-500 dark:focus:ring-orange-800">Mulai
@@ -381,11 +377,6 @@
                                         </div>
                                     </div>
                                 </div>
-
-                                {{-- input ke table log activity --}}
-                                <input type="text" hidden name="aktivitas"
-                                    value="{{ Auth::user()->first_name }} - Memperbarui Planned Payment OB">
-                                <input type="text" hidden name="waktu" value="{{ date('d-m-Y H:i') }}">
 
                                 <button type="submit"
                                     class="text-white bg-orange-500 hover:bg-orange-600 py-1 text-lg font-semibold w-full text-center rounded-lg">Submit</button>

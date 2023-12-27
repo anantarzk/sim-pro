@@ -86,13 +86,6 @@
                             Edited_by</label>
                     </div>
 
-                    {{-- input ke table log activity --}}
-                    <input type="text" hidden name="aktivitas"
-                        value="{{ Auth::user()->first_name }} - Telah Edit Standar Formulir  = ">
-                    <input type="text" hidden name="waktu" value="{{ date('d-m-Y H:i') }}">
-
-
-
                     <button type="submit"
                         class="w-full rounded-lg bg-orange-500 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-orange-600 focus:outline-none focus:ring-4 focus:ring-orange-300 dark:bg-orange-500 dark:hover:bg-orange-600 dark:focus:ring-orange-700">
                         UPDATE FORM

@@ -131,11 +131,6 @@
 
             <input type="text" name="archive_at" value="" hidden>
 
-            {{-- input ke table log activity --}}
-            <input type="text" hidden name="aktivitas"
-                value="{{ Auth::user()->first_name }} - Restore Project pada OB Year => ">
-            <input type="text" hidden name="waktu" value="{{ date('d-m-Y H:i') }}">
-
             <p class="mt-4 my-1 text-md">Apakah anda yakin untuk memulihkan proyek di atas?</p>
 
             <button type="submit"

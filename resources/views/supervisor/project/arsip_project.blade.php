@@ -131,10 +131,6 @@
 
             <input type="text" name="archive_at" value="{{ date('Y-m-d H:i') }}" hidden>
 
-            {{-- input ke table log activity --}}
-            <input type="text" hidden name="aktivitas"
-                value="{{ Auth::user()->first_name }} - Mengarsipkan Project pada OB Year => ">
-            <input type="text" hidden name="waktu" value="{{ date('d-m-Y H:i') }}">
 
             <p class="mt-4 my-1 text-md">Apakah anda yakin untuk mengarsipkan proyek di atas?</p>
 

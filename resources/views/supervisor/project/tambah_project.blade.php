@@ -240,12 +240,6 @@
             </div>
             <br>
 
-            {{-- input ke table log activity --}}
-            <input type="text" hidden name="aktivitas"
-                value="{{ Auth::user()->first_name }} - Menambahkan Project pada OB Year => ">
-            <input type="text" hidden name="waktu" value="{{ date('d-m-Y H:i') }}">
-
-
             <button type="submit"
                 class="text-white bg-orange-500 hover:bg-orange-600 focus:ring-4 focus:outline-none focus:ring-orange-500 font-bold rounded text-xl w-full py-2 text-center">
                 Tambah proyek

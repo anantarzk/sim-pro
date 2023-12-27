@@ -2609,10 +2609,6 @@ class SupervisorController extends Controller
     public function ProcessBudgetControlOb(Request $request)
     {
         PlannedPayment::create($request->all());
-        DB::table('log_activity')->insert([
-            'aktivitas' => $request->aktivitas,
-            'waktu' => $request->waktu,
-        ]);
 
         return redirect()->action([
             SupervisorController::class,
@@ -2625,11 +2621,6 @@ class SupervisorController extends Controller
         $planned = PlannedPayment::all()
             ->where('marking', 'Planned-1')
             ->first();
-
-        DB::table('log_activity')->insert([
-            'aktivitas' => $request->aktivitas,
-            'waktu' => $request->waktu,
-        ]);
 
         if ($request['as_planned_1'] != '') {
             $request['planned_1'] = $request['as_planned_1'];

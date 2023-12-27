@@ -127,12 +127,6 @@
                     </select>
                 </div>
             </div>
-            {{-- input ke table log activity --}}
-            <input type="text" hidden name="aktivitas"
-                value="{{ Auth::user()->first_name }} - Menghapus Project pada OB Year => ">
-            <input type="text" hidden name="waktu" value="{{ date('d-m-Y H:i') }}">
-
-
 
             <p class="mt-4 my-1 text-md">Apakah anda yakin untuk menghapus proyek di atas?</p>
 

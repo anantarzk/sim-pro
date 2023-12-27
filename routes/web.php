@@ -63,11 +63,6 @@ Route::post('/registrasi-account', [
     'registerprocess',
 ])->middleware(['auth', 'only-administrator']);
 
-Route::get('/log-activity', [
-    AdministratorController::class,
-    'ActivityLog',
-])->middleware(['auth', 'only-administrator']);
-
 Route::get('/kelola-akun', [
     AdministratorController::class,
     'KelolaAkun',
@@ -505,21 +500,4 @@ Route::get('/view_profile_staff', [
 Route::get('/view_profile_administrator', [
     AuthController::class,
     'ViewProfileadministrator',
-])->middleware('auth');
-
-Route::get('/view_team_manager', [
-    AuthController::class,
-    'ViewTeammanager',
-])->middleware('auth');
-Route::get('/view_team_supervisor', [
-    AuthController::class,
-    'ViewTeamsupervisor',
-])->middleware('auth');
-Route::get('/view_team_staff', [
-    AuthController::class,
-    'ViewTeamstaff',
-])->middleware('auth');
-Route::get('/view_team_administrator', [
-    AuthController::class,
-    'ViewTeamadministrator',
 ])->middleware('auth');

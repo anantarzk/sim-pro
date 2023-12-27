@@ -76,11 +76,6 @@ class SpvFormController extends Controller
         // simpan inputan
         $standar_forms = Forms::create($request->all());
 
-        DB::table('log_activity')->insert([
-            'aktivitas' => $request->aktivitas . ' ' . $request['name_form'],
-            'waktu' => $request->waktu,
-        ]);
-
         if ($standar_forms) {
             Session::flash('status', 'sukses');
             Session::flash('message', 'Data berhasil ditambahkan!');
@@ -122,11 +117,6 @@ class SpvFormController extends Controller
 
         $standar_forms->update($request->all());
 
-        DB::table('log_activity')->insert([
-            'aktivitas' => $request->aktivitas . ' ' . $request['name_form'],
-            'waktu' => $request->waktu,
-        ]);
-
         if ($standar_forms) {
             Session::flash('status', 'sukses');
             Session::flash('message', 'Edit Data berhasil!');
@@ -154,10 +144,6 @@ class SpvFormController extends Controller
         // hapus dengan elquoment
         $deletedForms = Forms::findOrFail($id);
 
-        DB::table('log_activity')->insert([
-            'aktivitas' => $request->aktivitas,
-            'waktu' => $request->waktu,
-        ]);
         $deletedForms->delete();
 
         if ($deletedForms) {

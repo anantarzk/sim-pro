@@ -87,25 +87,25 @@
                         <div class="flex items-center p-4 border border-gray-200 rounded">
                             <input id="rb1" type="radio" value=1 name="nilai_proyek_type"
                                 class="w-4 h-4 text-orange-500 bg-gray-100 border-gray-300 focus:ring-orange-500">
-                            <label for="rb1" class="w-full ml-1 text-sm font-medium text-gray-900">
-                                < Rp100.000.000</label>
+                            <label for="rb1" class="w-full ml-4 text-sm font-medium text-gray-900">
+                                < Rp100 Juta</label>
                         </div>
                         <div class="flex items-center p-4 border border-gray-200 rounded">
                             <input id="rb2" type="radio" value=2 name="nilai_proyek_type"
                                 class="w-4 h-4 text-orange-500 bg-gray-100 border-gray-300 focus:ring-orange-500">
-                            <label for="rb2" class="w-full ml-1 text-sm font-medium text-gray-900">Rp100.000.000 -
+                            <label for="rb2" class="w-full ml-4 text-sm font-medium text-gray-900">Rp100 Juta -
                                 Rp1 Milyar</label>
                         </div>
                         <div class="flex items-center p-4 border border-gray-200 rounded">
                             <input id="rb3" type="radio" value=3 name="nilai_proyek_type"
                                 class="w-4 h-4 text-orange-500 bg-gray-100 border-gray-300 focus:ring-orange-500">
-                            <label for="rb3" class="w-full ml-1 text-sm font-medium text-gray-900">Rp1 Milyar -
+                            <label for="rb3" class="w-full ml-4 text-sm font-medium text-gray-900">Rp1 Milyar -
                                 Rp10 Milyar</label>
                         </div>
                         <div class="flex items-center p-4 border border-gray-200 rounded">
                             <input id="rb4" type="radio" value=4 name="nilai_proyek_type"
                                 class="w-4 h-4 text-orange-500 bg-gray-100 border-gray-300 focus:ring-orange-500">
-                            <label for="rb4" class="w-full ml-1 text-sm font-medium text-gray-900">> Rp10
+                            <label for="rb4" class="w-full ml-4 text-sm font-medium text-gray-900">> Rp10
                                 Milyar</label>
                         </div>
                     </div>

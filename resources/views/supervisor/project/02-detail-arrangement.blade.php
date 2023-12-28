@@ -572,7 +572,7 @@
 
     {{-- Awal progress file --}}
 
-    <div class="bg-white mt-3 w-full rounded-md shadow-md p-3">
+    <div class="bg-white mt-3 w-full rounded-md shadow-md p-2">
         <div class="flex justify-between items-center mb-3">
             <div class="flex">
                 <p>Checked by: &nbsp;
@@ -660,12 +660,9 @@
                     </div>
                 </div>
             @endif
-
         </div>
-        <br>
-
         {{-- approval abu2 slesai --}}
-
+<hr class="mb-2">
         {{-- Yang diganti pertahapnya --}}
         <form action="" method="post" enctype="multipart/form-data">
             @csrf
@@ -681,7 +678,6 @@
                     @if ($spt->file_dr_m_sheet_form != '')
                         {{-- tombol form --}}
                         <div class="mb-1">
-                            <p class="text-right font-light text-sm">Harap Menggunakan Standar formulir:</p>
                             <div class="flex items-center justify-end">
                                 <a href="{{ asset('storage/supervisor/standarproject/' . $spt->file_dr_m_sheet_form) }}"
                                     download="">
@@ -691,8 +687,8 @@
                                             <path
                                                 d="M17.4375 13.5625H28.0938L17.4375 2.90625V13.5625ZM3.875 0H19.375L31 11.625V34.875C31 35.9027 30.5917 36.8883 29.865 37.615C29.1383 38.3417 28.1527 38.75 27.125 38.75H3.875C1.72438 38.75 0 37.0062 0 34.875V3.875C0 1.72438 1.72438 0 3.875 0ZM5.8125 34.875H9.6875V23.25H5.8125V34.875ZM13.5625 34.875H17.4375V19.375H13.5625V34.875ZM21.3125 34.875H25.1875V27.125H21.3125V34.875Z" />
                                         </svg>
-                                        <p class="text-right hover:underline font-normal text-sm text-blue-700  ">
-                                            Klik untuk mulai mengunduh</p>
+                                        <p class="text-right hover:underline font-semibold text-md text-blue-700 ">
+                                            Klik untuk mengunduh standar formulir</p>
 
                                     </div>
                                 </a>

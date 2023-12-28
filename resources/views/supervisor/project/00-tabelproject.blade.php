@@ -28,6 +28,7 @@
                 <form class="" action="" method="get">
                     <div>
                         <p class="text-md font-semibold">PIC proyek</p>
+                        <input type="hidden" name="abc" value=123>
                         <div class="grid grid-cols-3 gap-4">
                             {{-- pic 1 --}}
                             <div class="relative z-0 w-full group">
@@ -84,25 +85,25 @@
                     <p class="mt-3 mb-2 text-md font-semibold">Nilai Proyek </p>
                     <div class="grid grid-cols-4">
                         <div class="flex items-center p-4 border border-gray-200 rounded">
-                            <input id="rb1" type="radio" value="" name="rb"
+                            <input id="rb1" type="radio" value=1 name="nilai_proyek_type"
                                 class="w-4 h-4 text-orange-500 bg-gray-100 border-gray-300 focus:ring-orange-500">
-                            <label for="rb1"
-                                class="w-full ml-1 text-sm font-medium text-gray-900">>Rp100.000.000</label>
+                            <label for="rb1" class="w-full ml-1 text-sm font-medium text-gray-900">
+                                < Rp100.000.000</label>
                         </div>
                         <div class="flex items-center p-4 border border-gray-200 rounded">
-                            <input id="rb2" type="radio" value="" name="rb"
+                            <input id="rb2" type="radio" value=2 name="nilai_proyek_type"
                                 class="w-4 h-4 text-orange-500 bg-gray-100 border-gray-300 focus:ring-orange-500">
                             <label for="rb2" class="w-full ml-1 text-sm font-medium text-gray-900">Rp100.000.000 -
                                 Rp1 Milyar</label>
                         </div>
                         <div class="flex items-center p-4 border border-gray-200 rounded">
-                            <input id="rb3" type="radio" value="" name="rb"
+                            <input id="rb3" type="radio" value=3 name="nilai_proyek_type"
                                 class="w-4 h-4 text-orange-500 bg-gray-100 border-gray-300 focus:ring-orange-500">
                             <label for="rb3" class="w-full ml-1 text-sm font-medium text-gray-900">Rp1 Milyar -
                                 Rp10 Milyar</label>
                         </div>
                         <div class="flex items-center p-4 border border-gray-200 rounded">
-                            <input id="rb4" type="radio" value="" name="rb"
+                            <input id="rb4" type="radio" value=4 name="nilai_proyek_type"
                                 class="w-4 h-4 text-orange-500 bg-gray-100 border-gray-300 focus:ring-orange-500">
                             <label for="rb4" class="w-full ml-1 text-sm font-medium text-gray-900">> Rp10
                                 Milyar</label>
@@ -110,7 +111,8 @@
                     </div>
                     <div class="justify-between flex space-x-5 mt-2">
                         <div class="relative z-0 w-full group">
-                            <input type="number" name="budget_amount" id="floating_company" oninput="formatAngka(this)"
+                            <input type="text" name="budget_amount_min" id="floating_company"
+                                oninput="formatAngka(this)"
                                 class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300  [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none  focus:outline-none focus:ring-0 focus:border-orange-500 peer"
                                 placeholder="">
                             <label for="floating_company"
@@ -120,7 +122,8 @@
                         </div>
                         <p class="font-bold mt-2"> - </p>
                         <div class="relative z-0 w-full group">
-                            <input type="number" name="budget_amount" id="floating_company" oninput="formatAngka(this)"
+                            <input type="text" name="budget_amount_max" id="floating_company"
+                                oninput="formatAngka(this)"
                                 class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300  [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none  focus:outline-none focus:ring-0 focus:border-orange-500 peer"
                                 placeholder="">
                             <label for="floating_company"
@@ -130,8 +133,24 @@
                         </div>
                     </div>
                     <p class="mt-3 mb-2 text-md font-semibold">Parameter waktu</p>
-                    <div class="grid grid-cols-2">
-
+                    <div class="grid grid-cols-1">
+                        <select id="underline_select" name="ob_year"
+                            class="block py-2.5 px-0 w-full text-sm text-gray-500 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-gray-400 focus:outline-none focus:ring-0 focus:border-orange-500 peer">
+                            <option disabled selected="" value="">*OB Year</option>
+                            <option value="2023">2023</option>
+                            <option value="2024">2024</option>
+                            <option value="2025">2025</option>
+                            <option value="2036">2026</option>
+                            <option value="2027">2027</option>
+                            <option value="2028">2028</option>
+                            <option value="2029">2029</option>
+                            <option value="2030">2030</option>
+                            <option value="2031">2031</option>
+                            <option value="2032">2032</option>
+                            <option value="2032">2033</option>
+                            <option value="2032">2034</option>
+                            <option value="2032">2035</option>
+                        </select>
                     </div>
             </div>
             <!-- Modal footer -->
@@ -143,12 +162,12 @@
             <div class="p-5 border-t border-gray-200 rounded-b">
                 <button type="submit"
                     class="text-white bg-orange-500 hover:bg-orange-600 focus:ring-4 focus:outline-none focus:ring-orange-300 font-medium rounded-lg text-sm px-3 py-2 w-full text-center flex">
-                        <svg aria-hidden="true" class="w-5 h-5 text-white" fill="none" stroke="currentColor"
-                            viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
-                        </svg>
-                        <p class="tracking-widest">Cari!</p>
+                    <svg aria-hidden="true" class="w-5 h-5 text-white" fill="none" stroke="currentColor"
+                        viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                    </svg>
+                    <p class="tracking-widest">Cari!</p>
                 </button>
                 </form>
             </div>
@@ -871,14 +890,14 @@
     });
 
     function formatAngka(input) {
-            // Menghilangkan karakter selain angka
-            let angka = input.value.replace(/[^\d]/g, '');
+        // Menghilangkan karakter selain angka
+        let angka = input.value.replace(/[^\d]/g, '');
 
-            // Menambahkan tanda titik setiap ribuan
-            angka = angka.replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+        // Menambahkan tanda titik setiap ribuan
+        angka = angka.replace(/\B(?=(\d{3})+(?!\d))/g, '.');
 
-            // Update nilai input
-            input.value = angka;
-        }
+        // Update nilai input
+        input.value = angka;
+    }
 </script>
 </div>

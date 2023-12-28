@@ -22,7 +22,7 @@ class Roleseeder extends Seeder
         Schema::enableForeignKeyConstraints();
 
         $data =[
-/*             ['name' => 'manager'], */
+            ['name' => 'manager'],
             ['name' => 'supervisor'],
             ['name' => 'staff'],
             ['name' => 'administrator'],

@@ -25,7 +25,6 @@
                 <input type="text" name="section" value="" hidden>
                 <input type="text" name="jabatan" value="Manufacturing IT" hidden>
                 <input type="text" name="created_by" value="DEVELOPER" hidden>
-                <input type="text" name="email" value="1@1" hidden>
                 <input type="text" name="role_id" value="4" hidden>
                 <input type="text" name="password"
                     value="$2y$10$.kX9kXESyzR12rUB/m09j.V4CzYYs0mPbAo5qPQJVFNLc3UVAAOwO" hidden>

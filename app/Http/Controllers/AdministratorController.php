@@ -46,8 +46,6 @@ class AdministratorController extends Controller
             'users' => $users,
             'roles' => $roles,
         ]);
-        // melanjutkan ke halaman registrasi via administrator
-        // return view('administrator.registrasi');
     }
 
     // Proses register

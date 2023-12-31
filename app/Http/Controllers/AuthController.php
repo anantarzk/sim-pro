@@ -41,7 +41,7 @@ class AuthController extends Controller
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
 
-            // redirect page berdasarkan level
+            // redirect page berdasarkan hak akses
             if (Auth::user()->role_id == 4) {
                 return redirect('dashboard-administrator');
             }
@@ -77,12 +77,10 @@ class AuthController extends Controller
     }
     public function ViewProfilestaff()
     {
-        # code...
         return view('layouts.layout_viewprofilestaff');
     }
     public function ViewProfileadministrator()
     {
-        # code...
         return view('layouts.layout_viewprofileadministrator');
     }
 }

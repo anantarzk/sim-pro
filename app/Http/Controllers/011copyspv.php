@@ -26417,7 +26417,7 @@ class SpvProjectController extends Controller
         // menyimpan seluruh ke table purchasing 01
         $viewdataproject->update($request->all());
         $koneksimn->update($request->all());
-        /* $koneksipr->update($request->all()); */
+        $koneksipr->update($request->all());
 
         return redirect()->action(
             [SpvProjectController::class, 'EmpatFormProgress'],
@@ -27373,7 +27373,7 @@ class SpvProjectController extends Controller
         $oldnamein_ir1 = $koneksiin->in_ir_1;
         $oldnamein_ir2 = $koneksiin->in_ir_2;
 
-        // namafilearu
+        // namafilebaru
         $newnamein_ipo1 = $koneksiin->in_ipo_1;
         $newnamein_ipo2 = $koneksiin->in_ipo_2;
         $newnamein_ipo3 = $koneksiin->in_ipo_3;
@@ -28016,6 +28016,8 @@ class SpvProjectController extends Controller
 
         return redirect()->action(
             [SpvProjectController::class, 'LimaFormProgress'],
+            /* [SpvProjectController::class,
+            'TigaTitikEmpatFormProgress'], iki salah bro */
             [
                 'id' => $viewdataproject->id,
                 'id_fr_1' => $koneksifr->id_fr_1,
@@ -30076,6 +30078,5 @@ class SpvProjectController extends Controller
                 'id_cl_6' => $koneksicl->id_cl_6,
             ]
         );
-        /* return redirect('seluruh-proyek'); */
     }
 }

@@ -26,7 +26,7 @@ class SupervisorController extends Controller
     {
         DB::enableQueryLog();
         $keyword = $request->keyword;
-        // for dashboar
+        // for dashboard
         $cancel = CONTROLPROJECT::select('id')
             ->whereNull('archive_at')
             ->where('status_project', 'Cancel')
@@ -77,7 +77,7 @@ class SupervisorController extends Controller
             ->whereNull('archive_at')
             ->count('id');
 
-        $totalprojectaprroval = CONTROLPROJECT::select('id')
+        $totalprojectapproval = CONTROLPROJECT::select('id')
             ->whereNull('archive_at')
             ->where('check', 'needcheck')
             ->count('id');
@@ -7732,7 +7732,7 @@ class SupervisorController extends Controller
             'koneksiin' => $koneksiin,
             'koneksicl' => $koneksicl,
             'totalproject' => $totalproject,
-            'totalprojectaprroval' => $totalprojectaprroval,
+            'totalprojectapproval' => $totalprojectapproval,
             'cancel' => $cancel,
             'not_started' => $not_started,
             'finished' => $finished,
@@ -7770,11 +7770,10 @@ class SupervisorController extends Controller
     public function ApprovalProgress(Request $request)
     {
         $keyword = $request->keyword;
-        $totalprojectaprroval = CONTROLPROJECT::select('id')
+        $totalprojectapproval = CONTROLPROJECT::select('id')
             ->whereNull('archive_at')
             ->where('check', 'needcheck')
             ->count('id');
-
         if ($keyword != '') {
             $project = CONTROLPROJECT::with(
                 'koneksikefr',
@@ -7833,7 +7832,7 @@ class SupervisorController extends Controller
             'koneksimn' => $koneksimn,
             'koneksiin' => $koneksiin,
             'koneksicl' => $koneksicl,
-            'totalprojectaprroval' => $totalprojectaprroval,
+            'totalprojectapproval' => $totalprojectapproval,
         ]);
     }
 

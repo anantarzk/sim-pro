@@ -1509,7 +1509,7 @@ class StaffProjectController extends Controller
         );
     }
 
-/* arrangement */
+    /* arrangement */
     public function DuaFormProgress(
         Request $request,
         $id,

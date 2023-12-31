@@ -32,7 +32,7 @@
                     <li
                         class="w-full py-2 font-semibold text-gray-800 rounded-lg opacity-50 hover:bg-gray-200 flex justify-center ">
                         <a href="#second" class="hover:text-gray-500">
-                            Progress Approval ({{ $totalprojectaprroval }} Menunggu)
+                            Progress Approval ({{ $totalprojectapproval }} Menunggu)
                         </a>
                     </li>
                 </ul>
@@ -44,9 +44,7 @@
                             <div class=" w-1/3 flex flex-col mr-2">
                                 <p class="text-2xl font-medium mb-1">Yearly Project</p>
                                 <div class="bg-white border shadow-md rounded mb-2 flex h-fit">
-
                                     <div class="w-1/2  p-1 "><canvas id="obproject" class=""></canvas>
-
                                     </div>
                                     <div class="w-1/2  p-1">
                                         <p class="font-bold text-xl text-center">Project Status</p>
@@ -179,12 +177,10 @@
                         <div class="mt-3">
                             <div class="mx-auto w-full">
                                 <div class="flex justify-between my-2">
-
-
                                     <div
                                         class="bg-red-600 px-4 py-2 w-fit rounded-md text-white flex items-center space-x-3">
                                         <p class="text-4xl font-medium">
-                                            {{ $totalprojectaprroval }}
+                                            {{ $totalprojectapproval }}
                                         </p>
                                         <p class="font-normal text-lg">
                                             Ajuan menunggu approval
@@ -192,7 +188,6 @@
                                     </div>
                                     {{-- Tombol Pencarian --}}
                                     <div class="w-2.5/ mt-3">
-
                                         <form class="" action="" method="get">
                                             <div class="flex">
                                                 <input type="search" id="keyword" name="keyword"
@@ -224,15 +219,13 @@
                                             <th class="w-[15%]">Diajukan Oleh</th>
                                             <th class="w-[15%]">Tanggal Ajuan</th>
                                         </thead>
-
                                         <tbody>
                                             @foreach ($project as $object)
                                                 <tr
                                                     class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border">
-
                                                     {{-- Loop i++ --}}
                                                     <td
-                                                        class="p-2 font-medium text-center text-white bg-teal-600 whitespace-nowrap">
+                                                        class="p-2 font-medium text-center text-nite bg-teal-600 whitespace-nowrap">
                                                         {{ $loop->iteration }}
                                                     </td>
                                                     <td class="p-2 text-left">
@@ -270,20 +263,14 @@
                                             @endforeach
                                         </tbody>
                                     </table>
-
                                     {{ $project }}
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-
-
-
             </div>
-
         </div>
-
     </div>
 
     {{-- <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> --}}

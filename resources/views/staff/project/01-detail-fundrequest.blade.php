@@ -331,8 +331,7 @@
                                 </div>
 
                                 <div>
-                                    <div class="items-center pt-1 pr-4 text-xs font-medium  text-gray-500">Last
-                                        updated:
+                                    <div class="items-center pt-1 pr-4 text-xs font-medium  text-gray-500">Last updated:
                                     </div>
                                     <div class="items-center pr-4 text-sm font-medium">
                                         {{ $viewdataproject->last_update_name }},
@@ -341,8 +340,7 @@
                                     </div>
                                 </div>
                                 <div>
-                                    <div class="items-center pt-1 pr-4 text-xs font-medium  text-gray-500">Tahap
-                                        Project:
+                                    <div class="items-center pt-1 pr-4 text-xs font-medium  text-gray-500">Tahap Project:
                                     </div>
                                     <div class="items-center pr-4 text-sm font-medium">
                                         {{ $viewdataproject->progress }}

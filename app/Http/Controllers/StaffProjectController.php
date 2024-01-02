@@ -78,7 +78,7 @@ class StaffProjectController extends Controller
                 ->paginate(10);
         }
 
-        //dd(DB::getQueryLog());
+        // dd(DB::getQueryLog());
         $koneksifr = FRproject::select('id_fr_1')->get();
         $koneksiar = ARproject::select('id_ar_2')->get();
         $koneksipr = PRproject::select('id_pr_01_3')->get();

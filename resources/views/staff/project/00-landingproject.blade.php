@@ -148,21 +148,12 @@
                                                     </div>
                                                 @endif
                                             </div>
-
-
-
                                         </div>
                                         {{-- akhir row pic --}}
 
-
-
                                         {{-- div row status --}}
                                         <div class="mt-3">
-
                                             <hr class="mb-2 w-full">
-
-
-
                                             {{-- progress bar --}}
                                             @if ($object->progress == 'Not Started')
                                                 {{-- popover tooltip --}}
@@ -602,7 +593,6 @@
                                                     </div>
                                                 </div>
                                             @endif
-
                                             {{-- akhir bar --}}
 
                                             {{-- status --}}
@@ -656,15 +646,12 @@
                                                             class="items-center py-1 px-2 text-sm font-medium text-center text-white bg-red-600 rounded drop-shadow-md">
                                                             {{ $object->date_end }}
                                                         </div>
-
                                                     </div>
-
                                                 </div>
                                             </div>
                                         </div>
                                         {{-- akhir row --}}
                                     </div>
-
                                 </div>
                             </div>
                             {{-- akhir kartu proyek --}}

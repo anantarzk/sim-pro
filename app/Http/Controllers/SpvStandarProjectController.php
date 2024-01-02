@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\StandarProject;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Session;
 
 class SpvStandarProjectController extends Controller
 {
@@ -1068,7 +1069,8 @@ class SpvStandarProjectController extends Controller
         }
 
         $standarproject->update($request->all());
-
+        Session::flash('status', 'sukses');
+        Session::flash('message', 'Berhasil melakukan perubahan!');
         //redirect
         return redirect()->action([
             SpvStandarProjectController::class,

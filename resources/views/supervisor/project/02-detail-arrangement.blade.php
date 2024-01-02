@@ -573,7 +573,7 @@
     {{-- Awal progress file --}}
 
     <div class="bg-white mt-3 w-full rounded-md shadow-md p-2">
-        <div class="flex justify-between items-center mb-3">
+        <div class="flex justify-between items-center">
             <div class="flex">
                 <p>Checked by: &nbsp;
                 <div class="items-center py-1 px-2 text-sm font-medium text-center text-white bg-red-700 mr-2 rounded">
@@ -587,8 +587,6 @@
                 </p>
                 </p>
             </div>
-
-
             @if ($koneksiar->status_ar == 'Complete')
                 {{-- approval ijo --}}
                 <div class="bg-green-600 flex  py-1 px-2   items-center rounded">
@@ -662,47 +660,44 @@
             @endif
         </div>
         {{-- approval abu2 slesai --}}
-<hr class="mb-2">
+        <hr class="mt-2 mb-2">
         {{-- Yang diganti pertahapnya --}}
         <form action="" method="post" enctype="multipart/form-data">
             @csrf
             @method('PUT')
             {{-- atas form --}}
             {{-- awal standar formulir --}}
-
-            <div class="flex space-x-2 items-center justify-between">
-                <p class="font-normal text-lg bg-teal-600 px-4 py-1 w-fit text-white mb-2 rounded"> Drawing -
-                    Mechanical
+            <div class="flex justify-between">
+                <p class="font-normal text-lg bg-teal-600 px-4 py-1 w-fit text-white mb-2 rounded"> Drawing Mechanical
                 </p>
                 @foreach ($standar_project as $spt)
                     @if ($spt->file_dr_m_sheet_form != '')
-                        {{-- tombol form --}}
-                        <div class="mb-1">
-                            <div class="flex items-center justify-end">
-                                <a href="{{ asset('storage/supervisor/standarproject/' . $spt->file_dr_m_sheet_form) }}"
-                                    download="">
-                                    <div class="w-fit items-center space-x-2 flex">
-                                        <svg width="10" height="auto" viewBox="0 0 31 39" class="fill-blue-700"
-                                            xmlns="http://www.w3.org/2000/svg">
-                                            <path
-                                                d="M17.4375 13.5625H28.0938L17.4375 2.90625V13.5625ZM3.875 0H19.375L31 11.625V34.875C31 35.9027 30.5917 36.8883 29.865 37.615C29.1383 38.3417 28.1527 38.75 27.125 38.75H3.875C1.72438 38.75 0 37.0062 0 34.875V3.875C0 1.72438 1.72438 0 3.875 0ZM5.8125 34.875H9.6875V23.25H5.8125V34.875ZM13.5625 34.875H17.4375V19.375H13.5625V34.875ZM21.3125 34.875H25.1875V27.125H21.3125V34.875Z" />
-                                        </svg>
-                                        <p class="text-right hover:underline font-semibold text-md text-blue-700 ">
-                                            Klik untuk mengunduh standar formulir</p>
+                        <div class="flex justify-end mr-1 mt-4">
+                            <a href="{{ asset('storage/supervisor/standarproject/' . $spt->file_dr_m_sheet_form) }}"
+                                download="">
+                                <div class="w-fit items-center space-x-1 flex fill-blue-600 hover:fill-blue-800">
+                                    <svg width="15" height="" viewBox="0 0 52 52"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="m36.4 14.8h8.48a1.09 1.09 0 0 0 1.12-1.12 1 1 0 0 0 -.32-.8l-10.56-10.56a1 1 0 0 0 -.8-.32 1.09 1.09 0 0 0 -1.12 1.12v8.48a3.21 3.21 0 0 0 3.2 3.2z" />
 
-                                    </div>
-                                </a>
-                            </div>
+                                        <path
+                                            d="m44.4 19.6h-11.2a4.81 4.81 0 0 1 -4.8-4.8v-11.2a1.6 1.6 0 0 0 -1.6-1.6h-16a4.81 4.81 0 0 0 -4.8 4.8v38.4a4.81 4.81 0 0 0 4.8 4.8h30.4a4.81 4.81 0 0 0 4.8-4.8v-24a1.6 1.6 0 0 0 -1.6-1.6zm-32-1.6a1.62 1.62 0 0 1 1.6-1.55h6.55a1.56 1.56 0 0 1 1.57 1.55v1.59a1.63 1.63 0 0 1 -1.59 1.58h-6.53a1.55 1.55 0 0 1 -1.58-1.58zm24 20.77a1.6 1.6 0 0 1 -1.6 1.6h-20.8a1.6 1.6 0 0 1 -1.6-1.6v-1.57a1.6 1.6 0 0 1 1.6-1.6h20.8a1.6 1.6 0 0 1 1.6 1.6zm3.2-9.6a1.6 1.6 0 0 1 -1.6 1.63h-24a1.6 1.6 0 0 1 -1.6-1.6v-1.6a1.6 1.6 0 0 1 1.6-1.6h24a1.6 1.6 0 0 1 1.6 1.6z" />
+                                    </svg>
+                                    <p
+                                        class="text-right hover:underline font-semibold text-md text-blue-600 hover:text-blue-800 ">
+                                        Klik untuk mengunduh formulir kerja</p>
+                                </div>
+                            </a>
                         </div>
                     @endif
                 @endforeach
                 {{-- tombol form --}}
             </div>
-
             {{-- akhir standar formulir --}}
             {{-- mechanical --}}
 
-            <div class="overflow-x-auto rounded-md mb-10">
+            <div class="overflow-x-auto rounded-md mb-5 border">
                 <table class="w-full">
                     <thead class="bg-green-600 text-white">
                         <th class="py-2 w-[5%]">No.</th>
@@ -844,39 +839,36 @@
 
             {{-- electrical --}}
             {{-- awal standar formulir --}}
-            <div class="flex space-x-2 items-center justify-between">
-                <p class="font-normal text-lg bg-teal-600 px-4 py-1 w-fit text-white mb-2 rounded"> Drawing
-                    Electrical
+            <div class="flex justify-between">
+                <p class="font-normal text-lg bg-teal-600 px-4 py-1 w-fit text-white mb-2 rounded"> Drawing Electrical
                 </p>
                 @foreach ($standar_project as $spt)
                     @if ($spt->file_dr_e_sheet_form != '')
-                        {{-- tombol form --}}
-                        <div class="mb-1">
-                            <p class="text-right font-light text-sm">Harap Menggunakan Standar formulir:</p>
-                            <div class="flex items-center justify-end">
-                                <a href="{{ asset('storage/supervisor/standarproject/' . $spt->file_dr_e_sheet_form) }}"
-                                    download="">
-                                    <div class="w-fit items-center space-x-2 flex">
-                                        <svg width="10" height="auto" viewBox="0 0 31 39" class="fill-blue-700"
-                                            xmlns="http://www.w3.org/2000/svg">
-                                            <path
-                                                d="M17.4375 13.5625H28.0938L17.4375 2.90625V13.5625ZM3.875 0H19.375L31 11.625V34.875C31 35.9027 30.5917 36.8883 29.865 37.615C29.1383 38.3417 28.1527 38.75 27.125 38.75H3.875C1.72438 38.75 0 37.0062 0 34.875V3.875C0 1.72438 1.72438 0 3.875 0ZM5.8125 34.875H9.6875V23.25H5.8125V34.875ZM13.5625 34.875H17.4375V19.375H13.5625V34.875ZM21.3125 34.875H25.1875V27.125H21.3125V34.875Z" />
-                                        </svg>
-                                        <p class="text-right hover:underline font-normal text-sm text-blue-700  ">
-                                            Klik untuk mulai mengunduh</p>
+                        <div class="flex justify-end mr-1 mt-4">
+                            <a href="{{ asset('storage/supervisor/standarproject/' . $spt->file_dr_e_sheet_form) }}"
+                                download="">
+                                <div class="w-fit items-center space-x-1 flex fill-blue-600 hover:fill-blue-800">
+                                    <svg width="15" height="" viewBox="0 0 52 52"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="m36.4 14.8h8.48a1.09 1.09 0 0 0 1.12-1.12 1 1 0 0 0 -.32-.8l-10.56-10.56a1 1 0 0 0 -.8-.32 1.09 1.09 0 0 0 -1.12 1.12v8.48a3.21 3.21 0 0 0 3.2 3.2z" />
 
-                                    </div>
-                                </a>
-                            </div>
+                                        <path
+                                            d="m44.4 19.6h-11.2a4.81 4.81 0 0 1 -4.8-4.8v-11.2a1.6 1.6 0 0 0 -1.6-1.6h-16a4.81 4.81 0 0 0 -4.8 4.8v38.4a4.81 4.81 0 0 0 4.8 4.8h30.4a4.81 4.81 0 0 0 4.8-4.8v-24a1.6 1.6 0 0 0 -1.6-1.6zm-32-1.6a1.62 1.62 0 0 1 1.6-1.55h6.55a1.56 1.56 0 0 1 1.57 1.55v1.59a1.63 1.63 0 0 1 -1.59 1.58h-6.53a1.55 1.55 0 0 1 -1.58-1.58zm24 20.77a1.6 1.6 0 0 1 -1.6 1.6h-20.8a1.6 1.6 0 0 1 -1.6-1.6v-1.57a1.6 1.6 0 0 1 1.6-1.6h20.8a1.6 1.6 0 0 1 1.6 1.6zm3.2-9.6a1.6 1.6 0 0 1 -1.6 1.63h-24a1.6 1.6 0 0 1 -1.6-1.6v-1.6a1.6 1.6 0 0 1 1.6-1.6h24a1.6 1.6 0 0 1 1.6 1.6z" />
+                                    </svg>
+                                    <p
+                                        class="text-right hover:underline font-semibold text-md text-blue-600 hover:text-blue-800 ">
+                                        Klik untuk mengunduh formulir kerja</p>
+                                </div>
+                            </a>
                         </div>
-                        {{-- tombol form --}}
                     @endif
                 @endforeach
+                {{-- tombol form --}}
             </div>
-
             {{-- akhir standar formulir --}}
 
-            <div class="overflow-x-auto rounded-md mb-10">
+            <div class="overflow-x-auto rounded-md mb-5 border">
                 <table class="w-full">
                     <thead class="bg-green-600 text-white">
                         <th class="py-2 w-[5%]">No.</th>
@@ -1017,40 +1009,36 @@
 
             {{-- layout approval --}}
             {{-- awal standar formulir --}}
-
-            <div class="flex space-x-2 items-center justify-between">
-                <p class="font-normal text-lg bg-teal-600 px-4 py-1 w-fit text-white mb-2 rounded"> Layout
-                    Approval
+            <div class="flex justify-between">
+                <p class="font-normal text-lg bg-teal-600 px-4 py-1 w-fit text-white mb-2 rounded"> Layout Approval
                 </p>
                 @foreach ($standar_project as $spt)
                     @if ($spt->file_lay_aprvl_sheet_form != '')
-                        {{-- tombol form --}}
-                        <div class="mb-1">
-                            <p class="text-right font-light text-sm">Harap Menggunakan Standar formulir:</p>
-                            <div class="flex items-center justify-end">
-                                <a href="{{ asset('storage/supervisor/standarproject/' . $spt->file_lay_aprvl_sheet_form) }}"
-                                    download="">
-                                    <div class="w-fit items-center space-x-2 flex">
-                                        <svg width="10" height="auto" viewBox="0 0 31 39" class="fill-blue-700"
-                                            xmlns="http://www.w3.org/2000/svg">
-                                            <path
-                                                d="M17.4375 13.5625H28.0938L17.4375 2.90625V13.5625ZM3.875 0H19.375L31 11.625V34.875C31 35.9027 30.5917 36.8883 29.865 37.615C29.1383 38.3417 28.1527 38.75 27.125 38.75H3.875C1.72438 38.75 0 37.0062 0 34.875V3.875C0 1.72438 1.72438 0 3.875 0ZM5.8125 34.875H9.6875V23.25H5.8125V34.875ZM13.5625 34.875H17.4375V19.375H13.5625V34.875ZM21.3125 34.875H25.1875V27.125H21.3125V34.875Z" />
-                                        </svg>
-                                        <p class="text-right hover:underline font-normal text-sm text-blue-700  ">
-                                            Klik untuk mulai mengunduh</p>
+                        <div class="flex justify-end mr-1 mt-4">
+                            <a href="{{ asset('storage/supervisor/standarproject/' . $spt->file_lay_aprvl_sheet_form) }}"
+                                download="">
+                                <div class="w-fit items-center space-x-1 flex fill-blue-600 hover:fill-blue-800">
+                                    <svg width="15" height="" viewBox="0 0 52 52"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="m36.4 14.8h8.48a1.09 1.09 0 0 0 1.12-1.12 1 1 0 0 0 -.32-.8l-10.56-10.56a1 1 0 0 0 -.8-.32 1.09 1.09 0 0 0 -1.12 1.12v8.48a3.21 3.21 0 0 0 3.2 3.2z" />
 
-                                    </div>
-                                </a>
-                            </div>
+                                        <path
+                                            d="m44.4 19.6h-11.2a4.81 4.81 0 0 1 -4.8-4.8v-11.2a1.6 1.6 0 0 0 -1.6-1.6h-16a4.81 4.81 0 0 0 -4.8 4.8v38.4a4.81 4.81 0 0 0 4.8 4.8h30.4a4.81 4.81 0 0 0 4.8-4.8v-24a1.6 1.6 0 0 0 -1.6-1.6zm-32-1.6a1.62 1.62 0 0 1 1.6-1.55h6.55a1.56 1.56 0 0 1 1.57 1.55v1.59a1.63 1.63 0 0 1 -1.59 1.58h-6.53a1.55 1.55 0 0 1 -1.58-1.58zm24 20.77a1.6 1.6 0 0 1 -1.6 1.6h-20.8a1.6 1.6 0 0 1 -1.6-1.6v-1.57a1.6 1.6 0 0 1 1.6-1.6h20.8a1.6 1.6 0 0 1 1.6 1.6zm3.2-9.6a1.6 1.6 0 0 1 -1.6 1.63h-24a1.6 1.6 0 0 1 -1.6-1.6v-1.6a1.6 1.6 0 0 1 1.6-1.6h24a1.6 1.6 0 0 1 1.6 1.6z" />
+                                    </svg>
+                                    <p
+                                        class="text-right hover:underline font-semibold text-md text-blue-600 hover:text-blue-800 ">
+                                        Klik untuk mengunduh formulir kerja</p>
+                                </div>
+                            </a>
                         </div>
                     @endif
                 @endforeach
                 {{-- tombol form --}}
             </div>
-
             {{-- akhir standar formulir --}}
 
-            <div class="overflow-x-auto rounded-md mb-10">
+            <div class="overflow-x-auto rounded-md mb-5 border">
                 <table class="w-full">
                     <thead class="bg-green-600 text-white">
                         <th class="py-2 w-[5%]">No.</th>
@@ -1190,40 +1178,36 @@
 
             {{-- drawing approval --}}
             {{-- awal standar formulir --}}
-
-            <div class="flex space-x-2 items-center justify-between">
-                <p class="font-normal text-lg bg-teal-600 px-4 py-1 w-fit text-white mb-2 rounded"> Drawing
-                    Approval
+            <div class="flex justify-between">
+                <p class="font-normal text-lg bg-teal-600 px-4 py-1 w-fit text-white mb-2 rounded"> Drawing Approval
                 </p>
                 @foreach ($standar_project as $spt)
                     @if ($spt->file_dr_aprvl_sheet_form != '')
-                        {{-- tombol form --}}
-                        <div class="mb-1">
-                            <p class="text-right font-light text-sm">Harap Menggunakan Standar formulir:</p>
-                            <div class="flex items-center justify-end">
-                                <a href="{{ asset('storage/supervisor/standarproject/' . $spt->file_dr_aprvl_sheet_form) }}"
-                                    download="">
-                                    <div class="w-fit items-center space-x-2 flex">
-                                        <svg width="10" height="auto" viewBox="0 0 31 39" class="fill-blue-700"
-                                            xmlns="http://www.w3.org/2000/svg">
-                                            <path
-                                                d="M17.4375 13.5625H28.0938L17.4375 2.90625V13.5625ZM3.875 0H19.375L31 11.625V34.875C31 35.9027 30.5917 36.8883 29.865 37.615C29.1383 38.3417 28.1527 38.75 27.125 38.75H3.875C1.72438 38.75 0 37.0062 0 34.875V3.875C0 1.72438 1.72438 0 3.875 0ZM5.8125 34.875H9.6875V23.25H5.8125V34.875ZM13.5625 34.875H17.4375V19.375H13.5625V34.875ZM21.3125 34.875H25.1875V27.125H21.3125V34.875Z" />
-                                        </svg>
-                                        <p class="text-right hover:underline font-normal text-sm text-blue-700  ">
-                                            Klik untuk mulai mengunduh</p>
+                        <div class="flex justify-end mr-1 mt-4">
+                            <a href="{{ asset('storage/supervisor/standarproject/' . $spt->file_dr_aprvl_sheet_form) }}"
+                                download="">
+                                <div class="w-fit items-center space-x-1 flex fill-blue-600 hover:fill-blue-800">
+                                    <svg width="15" height="" viewBox="0 0 52 52"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="m36.4 14.8h8.48a1.09 1.09 0 0 0 1.12-1.12 1 1 0 0 0 -.32-.8l-10.56-10.56a1 1 0 0 0 -.8-.32 1.09 1.09 0 0 0 -1.12 1.12v8.48a3.21 3.21 0 0 0 3.2 3.2z" />
 
-                                    </div>
-                                </a>
-                            </div>
+                                        <path
+                                            d="m44.4 19.6h-11.2a4.81 4.81 0 0 1 -4.8-4.8v-11.2a1.6 1.6 0 0 0 -1.6-1.6h-16a4.81 4.81 0 0 0 -4.8 4.8v38.4a4.81 4.81 0 0 0 4.8 4.8h30.4a4.81 4.81 0 0 0 4.8-4.8v-24a1.6 1.6 0 0 0 -1.6-1.6zm-32-1.6a1.62 1.62 0 0 1 1.6-1.55h6.55a1.56 1.56 0 0 1 1.57 1.55v1.59a1.63 1.63 0 0 1 -1.59 1.58h-6.53a1.55 1.55 0 0 1 -1.58-1.58zm24 20.77a1.6 1.6 0 0 1 -1.6 1.6h-20.8a1.6 1.6 0 0 1 -1.6-1.6v-1.57a1.6 1.6 0 0 1 1.6-1.6h20.8a1.6 1.6 0 0 1 1.6 1.6zm3.2-9.6a1.6 1.6 0 0 1 -1.6 1.63h-24a1.6 1.6 0 0 1 -1.6-1.6v-1.6a1.6 1.6 0 0 1 1.6-1.6h24a1.6 1.6 0 0 1 1.6 1.6z" />
+                                    </svg>
+                                    <p
+                                        class="text-right hover:underline font-semibold text-md text-blue-600 hover:text-blue-800 ">
+                                        Klik untuk mengunduh formulir kerja</p>
+                                </div>
+                            </a>
                         </div>
                     @endif
                 @endforeach
                 {{-- tombol form --}}
             </div>
-
             {{-- akhir standar formulir --}}
 
-            <div class="overflow-x-auto rounded-md mb-10">
+            <div class="overflow-x-auto rounded-md mb-5 border">
                 <table class="w-full">
                     <thead class="bg-green-600 text-white">
                         <th class="py-2 w-[5%]">No.</th>
@@ -1366,42 +1350,36 @@
 
             {{-- Design Sheet --}}
             {{-- awal standar formulir --}}
-
-            <div class="flex space-x-2 items-center justify-between">
-                <p class="font-normal text-lg bg-teal-600 px-4 py-1 w-fit text-white mb-2 rounded"> Design
-                    Sheet
+            <div class="flex justify-between">
+                <p class="font-normal text-lg bg-teal-600 px-4 py-1 w-fit text-white mb-2 rounded"> Design Sheet
                 </p>
                 @foreach ($standar_project as $spt)
                     @if ($spt->file_design_sheet_form != '')
-                        {{-- tombol form --}}
-                        <div class="mb-1">
-                            <p class="text-right font-light text-sm">Harap Menggunakan Standar formulir:</p>
-                            <div class="flex items-center justify-end">
-                                <a href="{{ asset('storage/supervisor/standarproject/' . $spt->file_design_sheet_form) }}"
-                                    download="">
-                                    <div class="w-fit items-center space-x-2 flex">
-                                        <svg width="10" height="auto" viewBox="0 0 31 39" class="fill-blue-700"
-                                            xmlns="http://www.w3.org/2000/svg">
-                                            <path
-                                                d="M17.4375 13.5625H28.0938L17.4375 2.90625V13.5625ZM3.875 0H19.375L31 11.625V34.875C31 35.9027 30.5917 36.8883 29.865 37.615C29.1383 38.3417 28.1527 38.75 27.125 38.75H3.875C1.72438 38.75 0 37.0062 0 34.875V3.875C0 1.72438 1.72438 0 3.875 0ZM5.8125 34.875H9.6875V23.25H5.8125V34.875ZM13.5625 34.875H17.4375V19.375H13.5625V34.875ZM21.3125 34.875H25.1875V27.125H21.3125V34.875Z" />
-                                        </svg>
-                                        <p class="text-right hover:underline font-normal text-sm text-blue-700  ">
-                                            Klik untuk mulai mengunduh</p>
+                        <div class="flex justify-end mr-1 mt-4">
+                            <a href="{{ asset('storage/supervisor/standarproject/' . $spt->file_design_sheet_form) }}"
+                                download="">
+                                <div class="w-fit items-center space-x-1 flex fill-blue-600 hover:fill-blue-800">
+                                    <svg width="15" height="" viewBox="0 0 52 52"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="m36.4 14.8h8.48a1.09 1.09 0 0 0 1.12-1.12 1 1 0 0 0 -.32-.8l-10.56-10.56a1 1 0 0 0 -.8-.32 1.09 1.09 0 0 0 -1.12 1.12v8.48a3.21 3.21 0 0 0 3.2 3.2z" />
 
-                                    </div>
-                                </a>
-                            </div>
+                                        <path
+                                            d="m44.4 19.6h-11.2a4.81 4.81 0 0 1 -4.8-4.8v-11.2a1.6 1.6 0 0 0 -1.6-1.6h-16a4.81 4.81 0 0 0 -4.8 4.8v38.4a4.81 4.81 0 0 0 4.8 4.8h30.4a4.81 4.81 0 0 0 4.8-4.8v-24a1.6 1.6 0 0 0 -1.6-1.6zm-32-1.6a1.62 1.62 0 0 1 1.6-1.55h6.55a1.56 1.56 0 0 1 1.57 1.55v1.59a1.63 1.63 0 0 1 -1.59 1.58h-6.53a1.55 1.55 0 0 1 -1.58-1.58zm24 20.77a1.6 1.6 0 0 1 -1.6 1.6h-20.8a1.6 1.6 0 0 1 -1.6-1.6v-1.57a1.6 1.6 0 0 1 1.6-1.6h20.8a1.6 1.6 0 0 1 1.6 1.6zm3.2-9.6a1.6 1.6 0 0 1 -1.6 1.63h-24a1.6 1.6 0 0 1 -1.6-1.6v-1.6a1.6 1.6 0 0 1 1.6-1.6h24a1.6 1.6 0 0 1 1.6 1.6z" />
+                                    </svg>
+                                    <p
+                                        class="text-right hover:underline font-semibold text-md text-blue-600 hover:text-blue-800 ">
+                                        Klik untuk mengunduh formulir kerja</p>
+                                </div>
+                            </a>
                         </div>
                     @endif
                 @endforeach
                 {{-- tombol form --}}
             </div>
-
             {{-- akhir standar formulir --}}
 
-
-
-            <div class="overflow-x-auto rounded-md mb-10">
+            <div class="overflow-x-auto rounded-md mb-5 border">
                 <table class="w-full">
                     <thead class="bg-green-600 text-white">
                         <th class="py-2 w-[5%]">No.</th>
@@ -1434,9 +1412,6 @@
                                     target="blank" download="" class="hover:underline">
                                     {{ $koneksiar->dsgn_sheet_1 }}</a>
                                 {{-- == --}}
-
-
-
                             </td>
                             <td>
                                 @if ($koneksiar->up_dsgn_sheet_by_1 != '')
@@ -1545,41 +1520,38 @@
 
             {{--  DR Meeting --}}
             {{-- awal standar formulir --}}
-
-            <div class="flex space-x-2 items-center justify-between">
-                <p class="font-normal text-lg bg-teal-600 px-4 py-1 w-fit text-white mb-2 rounded"> DR Meeting
+            <div class="flex justify-between">
+                <p class="font-normal text-lg bg-teal-600 px-4 py-1 w-fit text-white mb-2 rounded"> Design Review (DR) Meeting
                 </p>
                 @foreach ($standar_project as $spt)
                     @if ($spt->file_dr_meeting_form != '')
-                        {{-- tombol form --}}
-                        <div class="mb-1">
-                            <p class="text-right font-light text-sm">Harap Menggunakan Standar formulir:</p>
-                            <div class="flex items-center justify-end">
-                                <a href="{{ asset('storage/supervisor/standarproject/' . $spt->file_dr_meeting_form) }}"
-                                    download="">
-                                    <div class="w-fit items-center space-x-2 flex">
-                                        <svg width="10" height="auto" viewBox="0 0 31 39" class="fill-blue-700"
-                                            xmlns="http://www.w3.org/2000/svg">
-                                            <path
-                                                d="M17.4375 13.5625H28.0938L17.4375 2.90625V13.5625ZM3.875 0H19.375L31 11.625V34.875C31 35.9027 30.5917 36.8883 29.865 37.615C29.1383 38.3417 28.1527 38.75 27.125 38.75H3.875C1.72438 38.75 0 37.0062 0 34.875V3.875C0 1.72438 1.72438 0 3.875 0ZM5.8125 34.875H9.6875V23.25H5.8125V34.875ZM13.5625 34.875H17.4375V19.375H13.5625V34.875ZM21.3125 34.875H25.1875V27.125H21.3125V34.875Z" />
-                                        </svg>
-                                        <p class="text-right hover:underline font-normal text-sm text-blue-700  ">
-                                            Klik untuk mulai mengunduh</p>
+                        <div class="flex justify-end mr-1 mt-4">
+                            <a href="{{ asset('storage/supervisor/standarproject/' . $spt->file_dr_meeting_form) }}"
+                                download="">
+                                <div class="w-fit items-center space-x-1 flex fill-blue-600 hover:fill-blue-800">
+                                    <svg width="15" height="" viewBox="0 0 52 52"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="m36.4 14.8h8.48a1.09 1.09 0 0 0 1.12-1.12 1 1 0 0 0 -.32-.8l-10.56-10.56a1 1 0 0 0 -.8-.32 1.09 1.09 0 0 0 -1.12 1.12v8.48a3.21 3.21 0 0 0 3.2 3.2z" />
 
-                                    </div>
-                                </a>
-                            </div>
+                                        <path
+                                            d="m44.4 19.6h-11.2a4.81 4.81 0 0 1 -4.8-4.8v-11.2a1.6 1.6 0 0 0 -1.6-1.6h-16a4.81 4.81 0 0 0 -4.8 4.8v38.4a4.81 4.81 0 0 0 4.8 4.8h30.4a4.81 4.81 0 0 0 4.8-4.8v-24a1.6 1.6 0 0 0 -1.6-1.6zm-32-1.6a1.62 1.62 0 0 1 1.6-1.55h6.55a1.56 1.56 0 0 1 1.57 1.55v1.59a1.63 1.63 0 0 1 -1.59 1.58h-6.53a1.55 1.55 0 0 1 -1.58-1.58zm24 20.77a1.6 1.6 0 0 1 -1.6 1.6h-20.8a1.6 1.6 0 0 1 -1.6-1.6v-1.57a1.6 1.6 0 0 1 1.6-1.6h20.8a1.6 1.6 0 0 1 1.6 1.6zm3.2-9.6a1.6 1.6 0 0 1 -1.6 1.63h-24a1.6 1.6 0 0 1 -1.6-1.6v-1.6a1.6 1.6 0 0 1 1.6-1.6h24a1.6 1.6 0 0 1 1.6 1.6z" />
+                                    </svg>
+                                    <p
+                                        class="text-right hover:underline font-semibold text-md text-blue-600 hover:text-blue-800 ">
+                                        Klik untuk mengunduh formulir kerja</p>
+                                </div>
+                            </a>
                         </div>
                     @endif
                 @endforeach
                 {{-- tombol form --}}
             </div>
-
             {{-- akhir standar formulir --}}
 
 
 
-            <div class="overflow-x-auto rounded-md mb-10">
+            <div class="overflow-x-auto rounded-md mb-5 border">
                 <table class="w-full">
                     <thead class="bg-green-600 text-white">
                         <th class="py-2 w-[5%]">No.</th>
@@ -1907,40 +1879,35 @@
             </div>
             {{-- Akhir dr meeting --}}
 
+
             {{-- Estimasi Budget --}}
-
             {{-- awal standar formulir --}}
-
-            <div class="flex space-x-2 items-center justify-between">
-                <p class="font-normal text-lg bg-teal-600 px-4 py-1 w-fit text-white mb-2 rounded"> Estimasi
-                    Budget
-                </p>
+            <div class="flex justify-between">
+                <p class="font-normal text-lg bg-teal-600 px-4 py-1 w-fit text-white mb-2 rounded"> Estimasi Budget
                 @foreach ($standar_project as $spt)
                     @if ($spt->file_est_budget_form != '')
-                        {{-- tombol form --}}
-                        <div class="mb-1">
-                            <p class="text-right font-light text-sm">Harap Menggunakan Standar formulir:</p>
-                            <div class="flex items-center justify-end">
-                                <a href="{{ asset('storage/supervisor/standarproject/' . $spt->file_est_budget_form) }}"
-                                    download="">
-                                    <div class="w-fit items-center space-x-2 flex">
-                                        <svg width="10" height="auto" viewBox="0 0 31 39"
-                                            class="fill-blue-700" xmlns="http://www.w3.org/2000/svg">
-                                            <path
-                                                d="M17.4375 13.5625H28.0938L17.4375 2.90625V13.5625ZM3.875 0H19.375L31 11.625V34.875C31 35.9027 30.5917 36.8883 29.865 37.615C29.1383 38.3417 28.1527 38.75 27.125 38.75H3.875C1.72438 38.75 0 37.0062 0 34.875V3.875C0 1.72438 1.72438 0 3.875 0ZM5.8125 34.875H9.6875V23.25H5.8125V34.875ZM13.5625 34.875H17.4375V19.375H13.5625V34.875ZM21.3125 34.875H25.1875V27.125H21.3125V34.875Z" />
-                                        </svg>
-                                        <p class="text-right hover:underline font-normal text-sm text-blue-700  ">
-                                            Klik untuk mulai mengunduh</p>
+                        <div class="flex justify-end mr-1 mt-4">
+                            <a href="{{ asset('storage/supervisor/standarproject/' . $spt->file_est_budget_form) }}"
+                                download="">
+                                <div class="w-fit items-center space-x-1 flex fill-blue-600 hover:fill-blue-800">
+                                    <svg width="15" height="" viewBox="0 0 52 52"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="m36.4 14.8h8.48a1.09 1.09 0 0 0 1.12-1.12 1 1 0 0 0 -.32-.8l-10.56-10.56a1 1 0 0 0 -.8-.32 1.09 1.09 0 0 0 -1.12 1.12v8.48a3.21 3.21 0 0 0 3.2 3.2z" />
 
-                                    </div>
-                                </a>
-                            </div>
+                                        <path
+                                            d="m44.4 19.6h-11.2a4.81 4.81 0 0 1 -4.8-4.8v-11.2a1.6 1.6 0 0 0 -1.6-1.6h-16a4.81 4.81 0 0 0 -4.8 4.8v38.4a4.81 4.81 0 0 0 4.8 4.8h30.4a4.81 4.81 0 0 0 4.8-4.8v-24a1.6 1.6 0 0 0 -1.6-1.6zm-32-1.6a1.62 1.62 0 0 1 1.6-1.55h6.55a1.56 1.56 0 0 1 1.57 1.55v1.59a1.63 1.63 0 0 1 -1.59 1.58h-6.53a1.55 1.55 0 0 1 -1.58-1.58zm24 20.77a1.6 1.6 0 0 1 -1.6 1.6h-20.8a1.6 1.6 0 0 1 -1.6-1.6v-1.57a1.6 1.6 0 0 1 1.6-1.6h20.8a1.6 1.6 0 0 1 1.6 1.6zm3.2-9.6a1.6 1.6 0 0 1 -1.6 1.63h-24a1.6 1.6 0 0 1 -1.6-1.6v-1.6a1.6 1.6 0 0 1 1.6-1.6h24a1.6 1.6 0 0 1 1.6 1.6z" />
+                                    </svg>
+                                    <p
+                                        class="text-right hover:underline font-semibold text-md text-blue-600 hover:text-blue-800 ">
+                                        Klik untuk mengunduh formulir kerja</p>
+                                </div>
+                            </a>
                         </div>
                     @endif
                 @endforeach
                 {{-- tombol form --}}
             </div>
-
             {{-- akhir standar formulir --}}
 
 
@@ -2128,7 +2095,8 @@
                     $koneksiar->est_budget_2 != '')
             @else
                 <button type="submit"
-                    class="bg-orange-500 w-full hover:bg-orange-600 text-white font-bold py-2 rounded-lg mt-3 shadow-md">Klik untuk submit dokumen</button>
+                    class="bg-orange-500 w-full hover:bg-orange-600 text-white font-bold py-2 rounded-lg mt-3 shadow-md">Klik
+                    untuk submit dokumen</button>
             @endif
 
             {{-- modal ubah --}}

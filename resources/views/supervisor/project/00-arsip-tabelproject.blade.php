@@ -11,7 +11,7 @@
                 {{-- kiri --}}
                 <div class="w-3.5/6 flex space-x-3">
                     {{-- dashboard status --}}
-                    <div class="flex items-center bg-emerald-700 text-white px-4">
+                    <div class="flex items-center bg-emerald-700 text-white px-4 py-3">
                         <div class="font-bold text-3xl p-1">
                             {{ $totalproject }}
                         </div>
@@ -24,21 +24,7 @@
                 {{-- kanan --}}
                 <div class="w-2.5/ mt-3">
 
-                    <form class="" action="" method="get">
-                        <div class="flex">
-                            <input type="search" id="keyword" name="keyword"
-                                class="p-2 py-3 text-sm text-gray-900 bg-gray-50 border rounded-l border-gray-300  focus:ring-orange-500 focus:border-orange-500"
-                                style="width: 350px;" placeholder="Type your search here" required>
-                            <button type="submit"
-                                class="text-white right-2.5 bottom-2.5 bg-orange-500 hover:bg-orange-600 focus:ring-4 focus:outline-none focus:ring-orange-300 font-medium rounded-r-lg text-sm px-3 py-2">
-                                <svg aria-hidden="true" class="w-5 h-5 text-white" fill="none" stroke="currentColor"
-                                    viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
-                                </svg>
-                            </button>
-                        </div>
-                    </form>
+
 
                 </div>
 
@@ -654,7 +640,7 @@
                                                     </svg>
 
 
-                                                    <p>Restore</p>
+                                                    <p>Pulihkan</p>
                                                 </div>
                                             </button></a>
 

@@ -8,9 +8,10 @@
         <div>
             <h1 class=" text-2xl font-bold font-mono tracking-tight text-gray-900  text-left">
                 Kelola Akun Engineering Design
+            </h1>
                 <p class="text-base font-normal text-gray-500 ">
                     Seluruh Akun yang ada pada sistem.</p>
-            </h1>
+
 
         </div>
 

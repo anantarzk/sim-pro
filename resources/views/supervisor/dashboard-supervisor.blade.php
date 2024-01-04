@@ -32,7 +32,7 @@
                     <li
                         class="w-full py-2 font-semibold text-gray-800 rounded-lg opacity-50 hover:bg-gray-200 flex justify-center ">
                         <a href="#second" class="hover:text-gray-500">
-                            Progress Approval ({{ $totalprojectapproval }} Menunggu)
+                            Ajuan kemajuan proyek ({{ $totalprojectapproval }} Menunggu)
                         </a>
                     </li>
                 </ul>
@@ -129,8 +129,6 @@
                                                         </a>
                                                     </div>
                                                 </span>
-
-
                                                 <p class="font-light text-lg mt-2">Planned Target Payment:</p>
                                                 <p class="font-semibold text-base">
                                                     Rp{{ number_format($sum_planned, 0, ',', '.') }}</p>
@@ -151,26 +149,17 @@
                                                     Rp{{ number_format($total_sisa_budget_ob, 0, ',', '.') }}</p>
                                                 </p>
                                                 <hr>
-
                                             </div>
-
                                         </div>
                                     </div>
                                     <div class="bg-white border shadow-md rounded px-2 py-3">
-
                                         <p class="text-xl font-light">Financial Tracker - All Projects</p>
                                         <hr>
                                         <canvas id="finance" class="max-h-60"></canvas>
-
-
                                     </div>
-
                                 </div>
-
                             </div>
-
                         </div>
-
                     </div>
                     {{-- dua --}}
                     <div id="second" class="hidden p-1">
@@ -191,10 +180,10 @@
                                         <form class="" action="" method="get">
                                             <div class="flex">
                                                 <input type="search" id="keyword" name="keyword"
-                                                    class="p-2 py-3 text-sm text-gray-900 bg-gray-50 border rounded-l border-gray-300  focus:ring-orange-500 focus:border-orange-500"
+                                                    class="p-2 py-3 text-sm text-gray-900 bg-gray-50 border rounded-l border-gray-300  focus:ring-orange-400 focus:border-orange-400"
                                                     style="width: 350px;" placeholder="Type your search here" required>
                                                 <button type="submit"
-                                                    class="text-white right-2.5 bottom-2.5 bg-orange-500 hover:bg-orange-600 focus:ring-4 focus:outline-none focus:ring-orange-300 font-medium rounded-r-lg text-sm px-3 py-2">
+                                                    class="text-white right-2.5 bottom-2.5 bg-orange-400 hover:bg-orange-500 focus:ring-4 focus:outline-none focus:ring-orange-300 font-medium rounded-r-lg text-sm px-3 py-2">
                                                     <svg aria-hidden="true" class="w-5 h-5 text-white" fill="none"
                                                         stroke="currentColor" viewBox="0 0 24 24"
                                                         xmlns="http://www.w3.org/2000/svg">
@@ -225,7 +214,7 @@
                                                     class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border">
                                                     {{-- Loop i++ --}}
                                                     <td
-                                                        class="p-2 font-medium text-center text-nite bg-teal-600 whitespace-nowrap">
+                                                        class="p-2 font-medium text-center text-nite bg-teal-600 whitespace-nowrap text-white">
                                                         {{ $loop->iteration }}
                                                     </td>
                                                     <td class="p-2 text-left">

@@ -41,7 +41,7 @@
     <div class="container mb-20">
 
         <nav
-            class="bg-black px-2 sm:px-2 py-2.5 dark:bg-gray-900 fixed w-full z-20 top-0 left-0 border-b-4 dark:border-gray-600 border-red-600 ">
+            class="bg-gray-600 px-2 sm:px-2 py-2.5  fixed w-full z-20 top-0 left-0 border-b-4 border-orange-600 ">
             <div class=" flex flex-wrap justify-between items-center mx-auto">
 
                 <div class="ml-6 flex text-center">

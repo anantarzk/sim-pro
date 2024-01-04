@@ -86,7 +86,7 @@ class SpvProjectController extends Controller
         $project->update($request->all());
         if ($project) {
             Session::flash('statusedited', 'sukses');
-            Session::flash('message', 'Data Project berhasil diedit!');
+            Session::flash('message', 'Proyek berhasil diubah!');
         }
         return redirect()->action([
             SpvProjectController::class,
@@ -102,7 +102,7 @@ class SpvProjectController extends Controller
 
         if ($project) {
             Session::flash('statushapus', 'sukses');
-            Session::flash('messagedeleted', 'Data Project berhasil dihapus!');
+            Session::flash('messagedeleted', 'Proyek berhasil dihapus!');
         }
         return redirect()->action([
             SpvProjectController::class,
@@ -149,7 +149,7 @@ class SpvProjectController extends Controller
 
         if ($project) {
             Session::flash('statusedited', 'sukses');
-            Session::flash('message', 'Data Project berhasil diarsipkan!');
+            Session::flash('message', 'Proyek berhasil diarsipkan!');
         }
         return redirect()->action([
             SpvProjectController::class,
@@ -195,7 +195,7 @@ class SpvProjectController extends Controller
 
         if ($project) {
             Session::flash('statusedited', 'sukses');
-            Session::flash('message', 'Data Project berhasil Restore!');
+            Session::flash('message', 'Proyek berhasil dipulihkan!');
         }
         return redirect()->action([
             SpvProjectController::class,
@@ -432,12 +432,23 @@ class SpvProjectController extends Controller
     }
     public function ArsipLandingProjectSupervisor(Request $request)
     {
-        $keyword = $request->keyword;
+        /* $keyword = $request->keyword; */
         $totalproject = CONTROLPROJECT::select('id')
             ->whereNotNull('archive_at')
             ->count('id');
-
-        if ($keyword != '') {
+            $project = CONTROLPROJECT::with(
+                'koneksikefr',
+                'koneksikear',
+                'koneksikepr01',
+                'koneksikepa02',
+                'koneksikepo03',
+                'koneksikepay04',
+                'koneksikemn',
+                'koneksikein',
+                'koneksikecl')
+            ->latest('updated_at')
+            ->paginate(20);
+        /* if ($keyword != '') {
             $project = CONTROLPROJECT::with(
                 'koneksikefr',
                 'koneksikear',
@@ -470,8 +481,7 @@ class SpvProjectController extends Controller
                 ->whereNotNull('archive_at')
                 ->latest('updated_at')
                 ->paginate(20);
-        }
-
+        } */
         $koneksifr = FRproject::select('id_fr_1')->get();
         $koneksiar = ARproject::select('id_ar_2')->get();
         $koneksipr = PRproject::select('id_pr_01_3')->get();
@@ -481,7 +491,6 @@ class SpvProjectController extends Controller
         $koneksimn = MNproject::select('id_mn_4')->get();
         $koneksiin = INproject::select('id_in_5')->get();
         $koneksicl = CLproject::select('id_cl_6')->get();
-
         return view('supervisor.project.00-arsip-tabelproject', [
             'project' => $project,
             'koneksifr' => $koneksifr,

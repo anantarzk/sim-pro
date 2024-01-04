@@ -3,6 +3,11 @@
 
 
 <div class="container my-20 mx-auto">
+    <br>
+    <div class="mb-2 ml-6">
+        <a href="/seluruh-proyek-supervisor-manager" class="hover:underline text-blue-600 hover:text-blue-800 text-lg"><-
+                Kembali ke halaman seluruh proyek</a>
+    </div>
     <div class="mx-6 px-8 pt-5 pb-3 bg-white shadow-md rounded">
 
         <p class="font-bold text-gray-800 text-3xl mb-3">Tambah Proyek:</p>
@@ -187,7 +192,7 @@
             </div>
 
             <p class="font-light text-gray-800 text-xl">
-                Person in Charge (PIC)
+                Penanggung jawab (PIC)
             </p>
             <div class="grid grid-cols-3 gap-6">
                 <div class="relative z-0 w-full group">

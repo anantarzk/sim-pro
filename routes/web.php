@@ -104,11 +104,6 @@ Route::get('/dashboard-supervisor', [
     'IndexSupervisor',
 ])->middleware(['auth', 'only-supervisor']);
 
-Route::get('/progress-approval-supervisor', [
-    SupervisorController::class,
-    'ApprovalProgress',
-])->middleware(['auth', 'only-supervisor']);
-
 Route::get('/budget-control-ob-supervisor', [
     SupervisorController::class,
     'BudgetControlOb',

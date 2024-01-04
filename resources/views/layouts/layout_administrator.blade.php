@@ -41,12 +41,12 @@
     <div class="container mb-20">
 
         <nav
-            class="bg-black px-2 sm:px-2 py-2.5 dark:bg-gray-900 fixed w-full z-20 top-0 left-0 border-b-4 dark:border-gray-600 border-red-600 ">
+            class="bg-gray-600 px-2 sm:px-2 py-2.5 fixed w-full z-20 top-0 left-0 border-b-4 border-orange-500 ">
             <div class=" flex flex-wrap justify-between items-center mx-auto">
 
                 <div class="ml-6 flex text-center">
                     {{-- awal Button sidebar --}}
-                    <button class="mr-4 p-0 text-sm  hover:bg-red-600 rounded" data-drawer-target="sidebar"
+                    <button class="mr-4 p-0 text-sm  hover:bg-orange-500 rounded" data-drawer-target="sidebar"
                         data-drawer-show="sidebar" type="button" aria-controls="sidebar">
                         <svg class="h-6 w-6" fill="#ffffff" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd"
@@ -56,10 +56,13 @@
                     </button>
                     {{-- akhir Button sidebar --}}
 
-                    {{-- Logo Bridgestone --}}
+                    {{-- Logo --}}
                     <span class="self-center whitespace-nowrap text-xl font-semibold">
-                        <img src="{{ asset('/image/logo/02-logo-white-bridgestone.svg') }}" class="w-1/4"
-                            alt="tidak ada gambar">
+                        {{-- <img src="{{ asset('/image/logo/02-logo-white-bridgestone.svg') }}" class="w-1/4"
+                            alt="tidak ada gambar"> --}}
+                        <p class="text-white">
+                            SIM Pro
+                        </p>
                     </span>
                     {{-- Akhir Logo --}}
                 </div>
@@ -112,7 +115,7 @@
                                                 value="{{ Auth::user()->first_name }} - Telah Logout">
                                             <input type="text" hidden name="waktu" value="{{ date('d-m-Y H:i') }}">
                                             <button type="submit"
-                                                class="flex w-full items-center py-2 px-4 text-sm text-gray-700 text-left hover:bg-red-600 hover:text-white fill-gray-600 hover:fill-white hover:font-medium space-x-2">
+                                                class="flex w-full items-center py-2 px-4 text-sm text-gray-700 text-left hover:bg-orange-500 hover:text-white fill-gray-600 hover:fill-white hover:font-medium space-x-2">
                                                 <svg width="14" height="14" viewBox="0 0 14 14" class=""
                                                     xmlns="http://www.w3.org/2000/svg">
                                                     <path
@@ -140,7 +143,7 @@
     {{--  Sidebar --}}
     <!-- drawer component -->
     <div id="sidebar"
-        class="fixed z-40 h-screen p-2 overflow-y-auto bg-black border-r-4 border-red-600 w-80 dark:bg-gray-800 transition-transform left-0 top-0 -translate-x-full"
+        class="fixed z-40 h-screen p-2 overflow-y-auto bg-gray-600 border-r-4 border-orange-500 w-80 transition-transform left-0 top-0 -translate-x-full"
         tabindex="-1" aria-labelledby="sidebar-label" aria-hidden="true">
 
         <div class="p-2">
@@ -151,7 +154,7 @@
                 <hr class="mt-2">
             </div>
             <button type="button" data-drawer-dismiss="sidebar" aria-controls="sidebar"
-                class="text-white bg-transparent hover:bg-red-600 hover:text-white rounded-lg text-sm p-1.5 absolute top-2.5 right-2.5 inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white">
+                class="text-white bg-transparent hover:bg-orange-500 hover:text-white rounded-lg text-sm p-1.5 absolute top-2.5 right-2.5 inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white">
                 <svg aria-hidden="true" class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"
                     xmlns="http://www.w3.org/2000/svg">
                     <path fill-rule="evenodd"
@@ -163,24 +166,20 @@
         </div>
         <div class="py-4 overflow-y-auto">
             <ul class="space-y-2">
-
                 {{-- Konten Menu Staff --}}
-
                 <li class="">
                     <a href="/dashboard-administrator"
-                        class="flex items-center rounded-lg p-2 text-base font-semibold text-white hover:bg-red-600 decoration-red-600">
-
+                        class="flex items-center rounded-lg p-2 text-base font-semibold text-white hover:bg-orange-500">
                         <svg width="17" height="35" viewBox="0 0 31 35" fill="none"
                             xmlns="http://www.w3.org/2000/svg">
                             <path d="M15.5 0L0 11.625V34.875H9.6875V21.3125H21.3125V34.875H31V11.625L15.5 0Z"
                                 fill="white" />
                         </svg>
-
                         <span class="ml-8 flex-1">Beranda</span>
                     </a>
                 </li>
 
-                <li class="flex items-center rounded-lg p-2 font-semibold hover:bg-red-600 decoration-red-600">
+                <li class="flex items-center rounded-lg p-2 font-semibold hover:bg-orange-500">
                     <svg width="22" height="auto" viewBox="0 0 33 25" fill="none"
                         xmlns="http://www.w3.org/2000/svg">
                         <path
@@ -199,8 +198,8 @@
 
 
 
-                    <a class="group flex w-full items-center  p-2 pl-4 text-white"
-                        href="/registrasi-account">Tambah Akun</a>
+                    <a class="group flex w-full items-center  p-2 pl-4 text-white" href="/registrasi-account">Tambah
+                        Akun</a>
                 </li>
 
 

@@ -1,6 +1,178 @@
 @extends('layouts.layout_staff')
 @section('title_page', 'Proyek Saya')
 
+<div id="cari" tabindex="-1" aria-hidden="true"
+    class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 inset-0 justify-center items-center w-full max-h-full">
+    <div class="relative w-full max-w-2xl max-h-full">
+        <!-- Modal content -->
+        <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+            <!-- Modal header -->
+            <div class="flex items-center justify-between px-5 py-3 border-b rounded-t">
+                <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
+                    Pencarian proyek berdasarkan:
+                </h3>
+                <button type="button"
+                    class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
+                    onclick="simulateEscape()">
+                    <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                        viewBox="0 0 14 14">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+                    </svg>
+                    <span class="sr-only">Close modal</span>
+                </button>
+            </div>
+            <!-- Modal body -->
+            <div class="p-4 md:p-5 space-y-4">
+                <form class="" action="" method="get">
+                    <div>
+                        <p class="text-md font-semibold">PIC proyek</p>
+                        <input type="hidden" name="abc" value=123>
+                        <div class="grid grid-cols-3 gap-4">
+                            {{-- pic 1 --}}
+                            <div class="relative z-0 w-full group">
+                                <select id="pic1_select" name="pic_1_me"
+                                    class="block py-2.5 px-0 w-full text-sm text-gray-500 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-gray-400 focus:outline-none focus:ring-0 focus:border-orange-500 peer"><!-- Add your classes here -->
+                                    <option disabled selected value="">Mechanical</option>
+                                    <option disabled value="">Pilih PIC : </option>
+                                    @foreach ($users as $pic)
+                                        @if ($pic->section == 'Mechanical')
+                                            <option value="{{ $pic->first_name }}">
+                                                {{ $pic->first_name }}
+                                            </option>
+                                        @endif
+                                    @endforeach
+                                    <option value="">None</option>
+                                </select>
+                            </div>
+
+                            {{-- pic 2 --}}
+                            <div class="relative z-0 w-full group">
+                                <select id="pic2_select" name="pic_2_el"
+                                    class="block py-2.5 px-0 w-full text-sm text-gray-500 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-gray-400 focus:outline-none focus:ring-0 focus:border-orange-500 peer"><!-- Add your classes here -->
+                                    <option disabled selected value="">Electrical</option>
+                                    <option disabled value="">Pilih PIC : </option>
+                                    @foreach ($users as $pic)
+                                        @if ($pic->section == 'Electrical')
+                                            <option value="{{ $pic->first_name }}">
+                                                {{ $pic->first_name }}
+                                            </option>
+                                        @endif
+                                    @endforeach
+                                    <option value="">None</option>
+                                </select>
+                            </div>
+
+                            {{-- pic 3 --}}
+                            <div class="relative z-0 w-full group">
+                                <select id="pic3_select" name="pic_3_mit"
+                                    class="block py-2.5 px-0 w-full text-sm text-gray-500 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-gray-400 focus:outline-none focus:ring-0 focus:border-orange-500 peer"><!-- Add your classes here -->
+                                    <option disabled selected value="">Manufacturing IT</option>
+                                    <option disabled value="">Pilih PIC : </option>
+                                    @foreach ($users as $pic)
+                                        @if ($pic->section == 'Manufacturing IT')
+                                            <option value="{{ $pic->first_name }}">
+                                                {{ $pic->first_name }}
+                                            </option>
+                                        @endif
+                                    @endforeach
+                                    <option value="">None</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="mt-3 mb-2 text-md font-semibold">Nilai Proyek </p>
+                    <div class="grid grid-cols-4">
+                        <div class="flex items-center p-4 border border-gray-200 rounded">
+                            <input id="rb1" type="radio" value=1 name="nilai_proyek_type"
+                                class="w-4 h-4 text-orange-500 bg-gray-100 border-gray-300 focus:ring-orange-500">
+                            <label for="rb1" class="w-full ml-4 text-sm font-medium text-gray-900">
+                                < Rp100 Juta</label>
+                        </div>
+                        <div class="flex items-center p-4 border border-gray-200 rounded">
+                            <input id="rb2" type="radio" value=2 name="nilai_proyek_type"
+                                class="w-4 h-4 text-orange-500 bg-gray-100 border-gray-300 focus:ring-orange-500">
+                            <label for="rb2" class="w-full ml-4 text-sm font-medium text-gray-900">Rp100 Juta -
+                                Rp1 Milyar</label>
+                        </div>
+                        <div class="flex items-center p-4 border border-gray-200 rounded">
+                            <input id="rb3" type="radio" value=3 name="nilai_proyek_type"
+                                class="w-4 h-4 text-orange-500 bg-gray-100 border-gray-300 focus:ring-orange-500">
+                            <label for="rb3" class="w-full ml-4 text-sm font-medium text-gray-900">Rp1 Milyar -
+                                Rp10 Milyar</label>
+                        </div>
+                        <div class="flex items-center p-4 border border-gray-200 rounded">
+                            <input id="rb4" type="radio" value=4 name="nilai_proyek_type"
+                                class="w-4 h-4 text-orange-500 bg-gray-100 border-gray-300 focus:ring-orange-500">
+                            <label for="rb4" class="w-full ml-4 text-sm font-medium text-gray-900">> Rp10
+                                Milyar</label>
+                        </div>
+                    </div>
+                    <div class="justify-between flex space-x-5 mt-2">
+                        <div class="relative z-0 w-full group">
+                            <input type="text" name="budget_amount_min" id="floating_company"
+                                oninput="formatAngka(this)"
+                                class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300  [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none  focus:outline-none focus:ring-0 focus:border-orange-500 peer"
+                                placeholder="">
+                            <label for="floating_company"
+                                class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-orange-500 peer-focus:dark:text-orange-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
+                                Min Budget
+                            </label>
+                        </div>
+                        <p class="font-bold mt-2"> - </p>
+                        <div class="relative z-0 w-full group">
+                            <input type="text" name="budget_amount_max" id="floating_company"
+                                oninput="formatAngka(this)"
+                                class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300  [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none  focus:outline-none focus:ring-0 focus:border-orange-500 peer"
+                                placeholder="">
+                            <label for="floating_company"
+                                class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-orange-500 peer-focus:dark:text-orange-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
+                                Max Budget
+                            </label>
+                        </div>
+                    </div>
+                    <p class="mt-3 mb-2 text-md font-semibold">Parameter waktu</p>
+                    <div class="grid grid-cols-1">
+                        <select id="underline_select" name="ob_year"
+                            class="block py-2.5 px-0 w-full text-sm text-gray-500 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-gray-400 focus:outline-none focus:ring-0 focus:border-orange-500 peer">
+                            <option disabled selected="" value="">*OB Year</option>
+                            <option value="2023">2023</option>
+                            <option value="2024">2024</option>
+                            <option value="2025">2025</option>
+                            <option value="2036">2026</option>
+                            <option value="2027">2027</option>
+                            <option value="2028">2028</option>
+                            <option value="2029">2029</option>
+                            <option value="2030">2030</option>
+                            <option value="2031">2031</option>
+                            <option value="2032">2032</option>
+                            <option value="2032">2033</option>
+                            <option value="2032">2034</option>
+                            <option value="2032">2035</option>
+                        </select>
+                    </div>
+            </div>
+            <!-- Modal footer -->
+            <div class="flex items-center p-4 md:p-5 border-t border-gray-200">
+                <input type="search" id="keyword" name="keyword"
+                    class="p-2 py-3 text-sm text-gray-900 bg-gray-50 border rounded border-gray-300  focus:ring-orange-500 focus:border-orange-500 w-full"
+                    placeholder="Judul Proyek; IO Number; ">
+            </div>
+            <div class="p-5 border-t border-gray-200 rounded-b">
+                <button type="submit"
+                    class="text-white bg-orange-500 hover:bg-orange-600 focus:ring-4 focus:outline-none focus:ring-orange-300 font-medium rounded-lg text-sm px-3 py-2 w-full text-center flex">
+                    <svg aria-hidden="true" class="w-5 h-5 text-white" fill="none" stroke="currentColor"
+                        viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                    </svg>
+                    <p class="tracking-widest">Cari!</p>
+                </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
 
 <div class="my-20 mx-10">
     {{-- header --}}
@@ -40,27 +212,20 @@
                 </div>
 
                 {{-- kanan --}}
-                {{-- Tombol Pencarian --}}
-                <div class="w-2.5/ mt-3">
-
-                    <form class="" action="" method="get">
-                        <div class="flex">
-                            <input type="search" id="keyword" name="keyword"
-                                class="p-2 py-3 text-sm text-gray-900 bg-gray-50 border rounded-l border-gray-300  focus:ring-orange-500 focus:border-orange-500"
-                                style="width: 350px;" placeholder="Type your search here" required>
-                            <button type="submit"
-                                class="text-white right-2.5 bottom-2.5 bg-orange-500 hover:bg-orange-600 focus:ring-4 focus:outline-none focus:ring-orange-300 font-medium rounded-r-lg text-sm px-3 py-2">
-                                <svg aria-hidden="true" class="w-5 h-5 text-white" fill="none" stroke="currentColor"
-                                    viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
-                                </svg>
-                            </button>
-                        </div>
-                    </form>
-
-                </div>
-                {{-- Akhir Tombol Pencarian --}}
+                {{-- tombol cari --}}
+                <button type="button"
+                    class=" text-white bg-orange-500 hover:bg-orange-600 p-3 rounded-md cursor-pointer"
+                    data-modal-target="cari" data-modal-show="cari" data-modal-toggle="cari">
+                    <div class="flex space-x-2 text-center">
+                        <svg aria-hidden="true" class="w-5 h-5 text-white" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                        </svg>
+                        <p>Tekan untuk melakukan pencarian</p>
+                    </div>
+                </button>
+                {{-- tombol pencarian --}}
             </div>
 
 
@@ -213,8 +378,8 @@
 
                                                 <div class="w-full bg-gray-200 rounded-full my-2">
                                                     <div class="bg-orange-500 hover:bg-orange-600 text-xs font-medium text-blue-100 text-center leading-none rounded-lg hover:cursor-default"
-                                                        data-popover-target="popover-2" data-popover-placement="bottom"
-                                                        style="width: 5%">
+                                                        data-popover-target="popover-2"
+                                                        data-popover-placement="bottom" style="width: 5%">
                                                         <p>05%</p>
 
                                                     </div>
@@ -235,8 +400,8 @@
 
                                                 <div class="w-full bg-gray-200 rounded-full my-2">
                                                     <div class="bg-orange-500 hover:bg-orange-600 text-xs font-medium text-blue-100 text-center leading-none rounded-lg hover:cursor-default"
-                                                        data-popover-target="popover-3" data-popover-placement="bottom"
-                                                        style="width: 05%">
+                                                        data-popover-target="popover-3"
+                                                        data-popover-placement="bottom" style="width: 05%">
                                                         <p>05%</p>
 
                                                     </div>
@@ -664,3 +829,57 @@
         </div>
     </div>
 </div>
+
+<script>
+    function simulateEscape() {
+        // Create a new KeyboardEvent for the "Escape" key
+        const escapeEvent = new KeyboardEvent('keydown', {
+            key: 'Escape',
+            code: 'Escape',
+            keyCode: 27,
+            which: 27,
+        });
+        document.dispatchEvent(escapeEvent);
+    }
+
+    // Your JavaScript code to add search functionality
+    document.addEventListener('DOMContentLoaded', function() {
+        function filterOptions(selectId, filterValue) {
+            const select = document.getElementById(selectId);
+            const options = select.getElementsByTagName('option');
+
+            for (let i = 0; i < options.length; i++) {
+                const option = options[i];
+                if (option.value.toLowerCase().includes(filterValue.toLowerCase())) {
+                    option.style.display = 'block';
+                } else {
+                    option.style.display = 'none';
+                }
+            }
+        }
+
+        // Add event listeners for each dropdown
+        document.getElementById('pic1_select').addEventListener('input', function() {
+            filterOptions('pic1_select', this.value);
+        });
+
+        document.getElementById('pic2_select').addEventListener('input', function() {
+            filterOptions('pic2_select', this.value);
+        });
+
+        document.getElementById('pic3_select').addEventListener('input', function() {
+            filterOptions('pic3_select', this.value);
+        });
+    });
+
+    function formatAngka(input) {
+        // Menghilangkan karakter selain angka
+        let angka = input.value.replace(/[^\d]/g, '');
+
+        // Menambahkan tanda titik setiap ribuan
+        angka = angka.replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+
+        // Update nilai input
+        input.value = angka;
+    }
+</script>

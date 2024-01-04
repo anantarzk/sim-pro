@@ -1159,7 +1159,7 @@
         }
     </script>
 
-    {{-- fungsional hapus FR --}}
+    {{-- Hapus FR --}}
     @php
         $num = range(1, 5);
     @endphp

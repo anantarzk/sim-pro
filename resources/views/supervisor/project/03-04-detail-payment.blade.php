@@ -8559,7 +8559,7 @@
         }
     </script>
 
-    {{-- hapus pa --}}
+    {{-- hapus PAY --}}
     @php
         $num = range(1, 50);
     @endphp

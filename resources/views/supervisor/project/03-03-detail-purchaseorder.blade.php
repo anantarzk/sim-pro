@@ -8641,7 +8641,7 @@
         }
     </script>
 
-    {{-- hapus pa --}}
+    {{-- hapus PO --}}
     @php
         $num = range(1, 50);
     @endphp

@@ -331,7 +331,8 @@
                                 </div>
 
                                 <div>
-                                    <div class="items-center pt-1 pr-4 text-xs font-medium  text-gray-500">Last updated:
+                                    <div class="items-center pt-1 pr-4 text-xs font-medium  text-gray-500">Last
+                                        updated:
                                     </div>
                                     <div class="items-center pr-4 text-sm font-medium">
                                         {{ $viewdataproject->last_update_name }},
@@ -340,7 +341,8 @@
                                     </div>
                                 </div>
                                 <div>
-                                    <div class="items-center pt-1 pr-4 text-xs font-medium  text-gray-500">Tahap Project:
+                                    <div class="items-center pt-1 pr-4 text-xs font-medium  text-gray-500">Tahap
+                                        Project:
                                     </div>
                                     <div class="items-center pr-4 text-sm font-medium">
                                         {{ $viewdataproject->progress }}
@@ -702,32 +704,32 @@
 
 
             <hr class="mb-2 mt-2 w-full border">
-        <div class="flex justify-between">
-            <p class="font-normal text-lg bg-teal-600 px-4 py-1 w-fit text-white mb-2 rounded"> Fund Request
-            </p>
-            @foreach ($standar_project as $spt)
-                @if ($spt->file_fr_sheet_form != '')
-                    <div class="flex justify-end mr-1 mt-4">
-                        <a href="{{ asset('storage/supervisor/standarproject/' . $spt->file_fr_sheet_form) }}"
-                            download="">
-                            <div class="w-fit items-center space-x-1 flex fill-blue-600 hover:fill-blue-800">
-                                <svg width="15" height="" viewBox="0 0 52 52"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="m36.4 14.8h8.48a1.09 1.09 0 0 0 1.12-1.12 1 1 0 0 0 -.32-.8l-10.56-10.56a1 1 0 0 0 -.8-.32 1.09 1.09 0 0 0 -1.12 1.12v8.48a3.21 3.21 0 0 0 3.2 3.2z" />
-                                    <path
-                                        d="m44.4 19.6h-11.2a4.81 4.81 0 0 1 -4.8-4.8v-11.2a1.6 1.6 0 0 0 -1.6-1.6h-16a4.81 4.81 0 0 0 -4.8 4.8v38.4a4.81 4.81 0 0 0 4.8 4.8h30.4a4.81 4.81 0 0 0 4.8-4.8v-24a1.6 1.6 0 0 0 -1.6-1.6zm-32-1.6a1.62 1.62 0 0 1 1.6-1.55h6.55a1.56 1.56 0 0 1 1.57 1.55v1.59a1.63 1.63 0 0 1 -1.59 1.58h-6.53a1.55 1.55 0 0 1 -1.58-1.58zm24 20.77a1.6 1.6 0 0 1 -1.6 1.6h-20.8a1.6 1.6 0 0 1 -1.6-1.6v-1.57a1.6 1.6 0 0 1 1.6-1.6h20.8a1.6 1.6 0 0 1 1.6 1.6zm3.2-9.6a1.6 1.6 0 0 1 -1.6 1.63h-24a1.6 1.6 0 0 1 -1.6-1.6v-1.6a1.6 1.6 0 0 1 1.6-1.6h24a1.6 1.6 0 0 1 1.6 1.6z" />
-                                </svg>
-                                <p
-                                    class="text-right hover:underline font-semibold text-md text-blue-600 hover:text-blue-800 ">
-                                    Klik untuk mengunduh formulir kerja</p>
-                            </div>
-                        </a>
-                    </div>
-                @endif
-            @endforeach
-            {{-- tombol form --}}
-        </div>
+            <div class="flex justify-between">
+                <p class="font-normal text-lg bg-teal-600 px-4 py-1 w-fit text-white mb-2 rounded"> Fund Request
+                </p>
+                @foreach ($standar_project as $spt)
+                    @if ($spt->file_fr_sheet_form != '')
+                        <div class="flex justify-end mr-1 mt-4">
+                            <a href="{{ asset('storage/supervisor/standarproject/' . $spt->file_fr_sheet_form) }}"
+                                download="">
+                                <div class="w-fit items-center space-x-1 flex fill-blue-600 hover:fill-blue-800">
+                                    <svg width="15" height="" viewBox="0 0 52 52"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="m36.4 14.8h8.48a1.09 1.09 0 0 0 1.12-1.12 1 1 0 0 0 -.32-.8l-10.56-10.56a1 1 0 0 0 -.8-.32 1.09 1.09 0 0 0 -1.12 1.12v8.48a3.21 3.21 0 0 0 3.2 3.2z" />
+                                        <path
+                                            d="m44.4 19.6h-11.2a4.81 4.81 0 0 1 -4.8-4.8v-11.2a1.6 1.6 0 0 0 -1.6-1.6h-16a4.81 4.81 0 0 0 -4.8 4.8v38.4a4.81 4.81 0 0 0 4.8 4.8h30.4a4.81 4.81 0 0 0 4.8-4.8v-24a1.6 1.6 0 0 0 -1.6-1.6zm-32-1.6a1.62 1.62 0 0 1 1.6-1.55h6.55a1.56 1.56 0 0 1 1.57 1.55v1.59a1.63 1.63 0 0 1 -1.59 1.58h-6.53a1.55 1.55 0 0 1 -1.58-1.58zm24 20.77a1.6 1.6 0 0 1 -1.6 1.6h-20.8a1.6 1.6 0 0 1 -1.6-1.6v-1.57a1.6 1.6 0 0 1 1.6-1.6h20.8a1.6 1.6 0 0 1 1.6 1.6zm3.2-9.6a1.6 1.6 0 0 1 -1.6 1.63h-24a1.6 1.6 0 0 1 -1.6-1.6v-1.6a1.6 1.6 0 0 1 1.6-1.6h24a1.6 1.6 0 0 1 1.6 1.6z" />
+                                    </svg>
+                                    <p
+                                        class="text-right hover:underline font-semibold text-md text-blue-600 hover:text-blue-800 ">
+                                        Klik untuk mengunduh formulir kerja</p>
+                                </div>
+                            </a>
+                        </div>
+                    @endif
+                @endforeach
+                {{-- tombol form --}}
+            </div>
             {{-- akhir standar formulir --}}
             {{-- approval abu2 slesai --}}
 

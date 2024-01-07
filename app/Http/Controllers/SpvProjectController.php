@@ -3688,22 +3688,6 @@ class SpvProjectController extends Controller
                 'id_cl_6' => $koneksicl->id_cl_6,
             ]
         );
-
-        /* return redirect()->action(
-            [SpvProjectController::class, 'TigaTitikSatuFormProgress'],
-            [
-                'id' => $viewdataproject->id,
-                'id_fr_1' => $koneksifr->id_fr_1,
-                'id_ar_2' => $koneksiar->id_ar_2,
-                'id_pr_01_3' => $koneksipr->id_pr_01_3,
-                'id_pa_02_3' => $koneksipa->id_pa_02_3,
-                'id_po_03_3' => $koneksipo->id_po_03_3,
-                'id_pay_04_3' => $koneksipay->id_pay_04_3,
-                'id_mn_4' => $koneksimn->id_mn_4,
-                'id_in_5' => $koneksiin->id_in_5,
-                'id_cl_6' => $koneksicl->id_cl_6,
-            ]
-        ); */
     }
 
     // tahap 3 PR
@@ -3721,7 +3705,6 @@ class SpvProjectController extends Controller
         $id_cl_6
     ) {
         $viewdataproject = CONTROLPROJECT::findOrFail($id);
-
         // Seluruh tabel dan tahap control project
         $koneksifr = FRproject::select(
             'id_fr_1',
@@ -4494,7 +4477,6 @@ class SpvProjectController extends Controller
         $id_cl_6
     ) {
         $viewdataproject = CONTROLPROJECT::findOrFail($id);
-
         // Seluruh tabel dan tahap control project
         $koneksifr = FRproject::select(
             'id_fr_1',
@@ -4738,11 +4720,12 @@ class SpvProjectController extends Controller
 
         // inputan disimpan
         // inputan 1
+        /* dd($request->all()); */
         if ($request->file('as_pr_parts_1')) {
             // Menyimpan nama asli dan ekstensi
             $ori_name = $request
                 ->file('as_pr_parts_1')
-                ->getClientOriginalName();
+                ->getClientOriginalName(); 
 
             // Mengambil waktu sekarang
             $waktu = now()->timestamp;

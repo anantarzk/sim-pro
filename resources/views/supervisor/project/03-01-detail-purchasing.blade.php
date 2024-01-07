@@ -2,7 +2,7 @@
 @section('title_page', 'Purchasing - PR - Project')
 
 
-
+{{-- @dd($koneksipr); --}}
 <a href="#submit-1">
     <button class="fixed right-0 bottom-0 m-2 z-10 bg-orange-400 rounded-lg p-2 opacity-70 hover:opacity-90">
         <svg width="10" height="auto" viewBox="0 0 39 42" fill="none" xmlns="http://www.w3.org/2000/svg"
@@ -938,11 +938,11 @@
                                                 </div>
                                             @endif
                                         </td>
+                                        <input type="text" name="keren" value="123" hidden>
                                         <input type="text" hidden name="as_up_by_parts_pr_1"
                                             value="{{ Auth::user()->first_name }}">
                                         <input type="date" hidden name="as_date_pr_parts_1"
                                             value="{{ date('Y-m-d') }}">
-
                                     </tr>
                                     {{-- 2 --}}
                                     <tr

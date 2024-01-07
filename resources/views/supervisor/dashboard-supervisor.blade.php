@@ -261,7 +261,8 @@
             </div>
         </div>
     </div>
-
+   {{--  @dd($request->all()); --}}
+   {{-- @dd($jan_mny_pay, $feb_mny_pay, $mar_mny_pay); --}}
     {{-- <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> --}}
 
     <script type="module" src="{{ asset('./chart.js/chart.js') }}"></script>

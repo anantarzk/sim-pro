@@ -460,3 +460,75 @@ Revisi Progress
 </div>
 </button>
 </form>
+
+<script>
+document.addEventListener('DOMContentLoaded', function(){
+const obp = {
+labels: ['Not Started', 'Cancelled', 'In Progress', 'Finished'],
+datasets: [{data: ['{{ $not_started }}', '{{ $cancel }}', '{{ $in_progress }}',
+'{{ $finished }}'],fill: true,backgroundColor: ['#314751',
+'rgba(255, 99, 132, 1)',
+'rgba(54, 162, 235, 1)',
+'rgba(255, 206, 86, 1)',
+'rgba(75, 192, 192, 1)',
+'rgba(153, 102, 255, 1)',
+'#09FA5E',],
+borderWidth: 4}, ],};
+const configobp = {type: "doughnut",data: obp,
+options: {plugins: {legend: {position: 'bottom',align: 'center',}}},};
+new Chart(document.getElementById("obproject"),configobp);
+// FR Status
+const dtFR = {labels: ['Approved', 'Waiting Approval',],
+datasets: [{data: ['{{ $approved_fr }}', '{{ $on_progress_fr }}'],fill: true backgroundColor: [
+'rgba(255, 99, 132, 1)',
+'rgba(54, 162, 235, 1)',
+'rgba(255, 206, 86, 1)',
+'rgba(75, 192, 192, 1)',
+'rgba(153, 102, 255, 1)',],
+borderWidth: 4}, ],};
+const configFR = {type: "doughnut",data: dtFR,options: {plugins: {legend: {
+position: 'bottom',align: 'center',}}},};
+new Chart(
+document.getElementById("FR"),configFR);
+// Budget control chart
+//  payment per month
+const dtbcontrol = {datasets: [{
+label: "Planned Target Payment",type: "bar",backgroundColor: "#4A93F7",
+data: ['{{ $planned->planned_1 }}', '{{ $planned->planned_2 }}',
+'{{ $planned->planned_3 }}',
+'{{ $planned->planned_4 }}', '{{ $planned->planned_5 }}',
+'{{ $planned->planned_6 }}', '{{ $planned->planned_7 }}',
+'{{ $planned->planned_8 }}', '{{ $planned->planned_9 }}',
+'{{ $planned->planned_10 }}', '{{ $planned->planned_11 }}',
+'{{ $planned->planned_12 }}'
+],}, {label: "Actual Payment",type: "bar",backgroundColor: "#F0172D",backgroundColorHover: "#3e95cd",
+data: ['{{ $jan_mny_pay }}', '{{ $feb_mny_pay }}', '{{ $mar_mny_pay }}',
+'{{ $apr_mny_pay }}', '{{ $mei_mny_pay }}', '{{ $jun_mny_pay }}',
+'{{ $jul_mny_pay }}', '{{ $agu_mny_pay }}', '{{ $sep_mny_pay }}',
+'{{ $okt_mny_pay }}', '{{ $nov_mny_pay }}', '{{ $des_mny_pay }}']}],
+labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],}
+const configbcontrol = {data: dtbcontrol,options: {plugins: {legend: {
+display: true},tooltip: {callbacks: {label: (uang) => {const Operasi = uang.raw;
+const Display = Operasi.toLocaleString("id-ID");return `Rp${Display}`}}},}},};
+new Chart(document.getElementById("bcontrol"),configbcontrol);
+// Financial info semua proyek
+const dtfinance = {labels: ['PR', 'PA', 'PO', 'Payment'],
+datasets: [{type: 'line',label: 'Target (Based on Target Payments)',
+// data ini sama dengan sum planned payments
+data: ['{{ $sum_planned }}', '{{ $sum_planned }}', '{{ $sum_planned }}',
+'{{ $sum_planned }}'],
+fill: false,borderColor: 'purple'}, {
+data: ['{{ $mny_pr }}', '{{ $mny_pa }}', '{{ $mny_po }}','{{ $mny_pay }}',],
+fill: true,label: 'Actual PR PA PO Payment',
+backgroundColor: ['orange','skyblue','#1BF286','#2F97DE',],
+borderWidth: 2}, ],};
+const configfinance = {type: "bar",data: dtfinance,options: {plugins: {legend: {
+display: true,labels: {color: "",},},
+tooltip: {callbacks: {label: (uang) => {const Operasi = uang.raw;
+const Display = Operasi.toLocaleString("id-ID")
+const today = new Date().toLocaleString().slice(0, 10)
+return `Total ${today} Rp${Display}`}}},}},};
+new Chart(
+document.getElementById("finance"),
+configfinance);},true);
+</script>

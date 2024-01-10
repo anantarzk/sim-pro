@@ -8907,6 +8907,139 @@ class SpvProjectController extends Controller
             'totalprojectapproval' => $totalprojectapproval,
         ]);
     }
+
+
+
+public function BudgetControlOb()
+{
+$pl = PlannedPayment::all()
+->where('marking', 'Planned-1')
+->first();
+$pyCount = PlannedPayment::all()->count('id');
+$planned_1 = PlannedPayment::select('planned_1')->sum('planned_1');
+$planned_2 = PlannedPayment::select('planned_2')->sum('planned_2');
+$planned_3 = PlannedPayment::select('planned_3')->sum('planned_3');
+$planned_4 = PlannedPayment::select('planned_4')->sum('planned_4');
+$planned_5 = PlannedPayment::select('planned_5')->sum('planned_5');
+$planned_6 = PlannedPayment::select('planned_6')->sum('planned_6');
+$planned_7 = PlannedPayment::select('planned_7')->sum('planned_7');
+$planned_8 = PlannedPayment::select('planned_8')->sum('planned_8');
+$planned_9 = PlannedPayment::select('planned_9')->sum('planned_9');
+$planned_10 = PlannedPayment::select('planned_10')->sum('planned_10');
+$planned_11 = PlannedPayment::select('planned_11')->sum('planned_11');
+$planned_12 = PlannedPayment::select('planned_12')->sum('planned_12');
+$sum_planned =
+$planned_1 +
+$planned_2 +
+$planned_3 +
+$planned_4 +
+$planned_5 +
+$planned_6 +
+$planned_7 +
+$planned_8 +
+$planned_9 +
+$planned_10 +
+$planned_11 +
+$planned_12;
+return view('supervisor.planned-payment', [
+'pl' => $pl,
+'pyCount' => $pyCount,
+'sum_planned' => $sum_planned,
+]);
+}
+
+
+
+
+public function ProcessEditBudgetControlOb(Request $request)
+    {
+        $planned = PlannedPayment::all()
+            ->where('marking', 'Planned-1')
+            ->first();
+
+        if ($request['as_year'] != '') {
+            $request['year'] = $request['as_year'];
+        }
+        if ($request['as_planned_1'] != '') {
+            $request['planned_1'] = $request['as_planned_1'];
+        }
+        if ($request['as_planned_2'] != '') {
+            $request['planned_2'] = $request['as_planned_2'];
+        }
+        if ($request['as_planned_3'] != '') {
+            $request['planned_3'] = $request['as_planned_3'];
+        }
+        if ($request['as_planned_4'] != '') {
+            $request['planned_4'] = $request['as_planned_4'];
+        }
+        if ($request['as_planned_5'] != '') {
+            $request['planned_5'] = $request['as_planned_5'];
+        }
+        if ($request['as_planned_6'] != '') {
+            $request['planned_6'] = $request['as_planned_6'];
+        }
+        if ($request['as_planned_7'] != '') {
+            $request['planned_7'] = $request['as_planned_7'];
+        }
+        if ($request['as_planned_8'] != '') {
+            $request['planned_8'] = $request['as_planned_8'];
+        }
+        if ($request['as_planned_9'] != '') {
+            $request['planned_9'] = $request['as_planned_9'];
+        }
+        if ($request['as_planned_10'] != '') {
+            $request['planned_10'] = $request['as_planned_10'];
+        }
+        if ($request['as_planned_11'] != '') {
+            $request['planned_11'] = $request['as_planned_11'];
+        }
+        if ($request['as_planned_12'] != '') {
+            $request['planned_12'] = $request['as_planned_12'];
+        }
+        if ($request['as_date_planned_1'] != '') {
+            $request['date_planned_1'] = $request['as_date_planned_1'];
+        }
+        if ($request['as_date_planned_2'] != '') {
+            $request['date_planned_2'] = $request['as_date_planned_2'];
+        }
+        if ($request['as_date_planned_3'] != '') {
+            $request['date_planned_3'] = $request['as_date_planned_3'];
+        }
+        if ($request['as_date_planned_4'] != '') {
+            $request['date_planned_4'] = $request['as_date_planned_4'];
+        }
+        if ($request['as_date_planned_5'] != '') {
+            $request['date_planned_5'] = $request['as_date_planned_5'];
+        }
+        if ($request['as_date_planned_6'] != '') {
+            $request['date_planned_6'] = $request['as_date_planned_6'];
+        }
+        if ($request['as_date_planned_7'] != '') {
+            $request['date_planned_7'] = $request['as_date_planned_7'];
+        }
+        if ($request['as_date_planned_8'] != '') {
+            $request['date_planned_8'] = $request['as_date_planned_8'];
+        }
+        if ($request['as_date_planned_9'] != '') {
+            $request['date_planned_9'] = $request['as_date_planned_9'];
+        }
+        if ($request['as_date_planned_10'] != '') {
+            $request['date_planned_10'] = $request['as_date_planned_10'];
+        }
+        if ($request['as_date_planned_11'] != '') {
+            $request['date_planned_11'] = $request['as_date_planned_11'];
+        }
+        if ($request['as_date_planned_12'] != '') {
+            $request['date_planned_12'] = $request['as_date_planned_12'];
+        }
+        $planned->update($request->all());
+        return redirect()->action([
+            SupervisorController::class,
+            'BudgetControlOb',
+        ]);
+    }
+
+
 }
 
 

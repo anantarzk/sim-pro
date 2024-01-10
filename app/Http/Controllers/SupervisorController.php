@@ -7854,7 +7854,6 @@ class SupervisorController extends Controller
             ->where('marking', 'Planned-1')
             ->first();
         $pyCount = PlannedPayment::all()->count('id');
-
         $planned_1 = PlannedPayment::select('planned_1')->sum('planned_1');
         $planned_2 = PlannedPayment::select('planned_2')->sum('planned_2');
         $planned_3 = PlannedPayment::select('planned_3')->sum('planned_3');
@@ -7867,7 +7866,6 @@ class SupervisorController extends Controller
         $planned_10 = PlannedPayment::select('planned_10')->sum('planned_10');
         $planned_11 = PlannedPayment::select('planned_11')->sum('planned_11');
         $planned_12 = PlannedPayment::select('planned_12')->sum('planned_12');
-
         $sum_planned =
             $planned_1 +
             $planned_2 +
@@ -7881,7 +7879,6 @@ class SupervisorController extends Controller
             $planned_10 +
             $planned_11 +
             $planned_12;
-
         return view('supervisor.planned-payment', [
             'pl' => $pl,
             'pyCount' => $pyCount,

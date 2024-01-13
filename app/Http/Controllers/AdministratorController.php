@@ -67,7 +67,7 @@ class AdministratorController extends Controller
         $user = User::create($request->all());
 
         // jika berhasil akan menampilkan berikut
-        Session::flash('status', 'succses');
+        Session::flash('status', 'success');
         Session::flash('message', 'Registrasi Berhasil! Silakan Gunakan Akun.');
 
         // melanjutkan ke halaman registrasi

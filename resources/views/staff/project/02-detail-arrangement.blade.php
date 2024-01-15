@@ -574,1847 +574,1813 @@
 
 
     {{-- Awal progress file --}}
-
-    <div class="bg-white mt-3 w-full rounded-md shadow-md p-3">
-        <div class="flex justify-between items-center mb-3">
-            <div class="flex">
-                <p>Checked by: &nbsp;
-                <div class="items-center py-1 px-2 text-sm font-medium text-center text-white bg-red-700 mr-2 rounded">
-                    {{ $koneksiar->approval_by }}
+    @if ($koneksifr->status_fr == 'Complete')
+        <div class="bg-white mt-3 w-full rounded-md shadow-md p-3">
+            <div class="flex justify-between items-center mb-3">
+                <div class="flex">
+                    <p>Checked by: &nbsp;
+                    <div
+                        class="items-center py-1 px-2 text-sm font-medium text-center text-white bg-red-700 mr-2 rounded">
+                        {{ $koneksiar->approval_by }}
+                    </div>
+                    </p>
+                    &nbsp;&nbsp;
+                    <p>On: &nbsp;
+                    <p class="font-semibold">
+                        {{ $koneksiar->approval_date }}
+                    </p>
+                    </p>
                 </div>
-                </p>
-                &nbsp;&nbsp;
-                <p>On: &nbsp;
-                <p class="font-semibold">
-                    {{ $koneksiar->approval_date }}
-                </p>
-                </p>
-            </div>
 
 
-            @if ($koneksiar->status_ar == 'Complete')
-                {{-- approval ijo --}}
-                <div class="bg-green-600 flex  py-1 px-2   items-center rounded">
-                    <div class="">
-                        <svg width="18" height="auto" viewBox="0 0 24 24" fill="none"
-                            xmlns="http://www.w3.org/2000/svg">
+                @if ($koneksiar->status_ar == 'Complete')
+                    {{-- approval ijo --}}
+                    <div class="bg-green-600 flex  py-1 px-2   items-center rounded">
+                        <div class="">
+                            <svg width="18" height="auto" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
 
-                            <path
-                                d="M12 0C5.376 0 0 5.376 0 12C0 18.624 5.376 24 12 24C18.624 24 24 18.624 24 12C24 5.376 18.624 0 12 0ZM9.6 18L3.6 12L5.292 10.308L9.6 14.604L18.708 5.496L20.4 7.2L9.6 18Z"
-                                fill="white" />
+                                <path
+                                    d="M12 0C5.376 0 0 5.376 0 12C0 18.624 5.376 24 12 24C18.624 24 24 18.624 24 12C24 5.376 18.624 0 12 0ZM9.6 18L3.6 12L5.292 10.308L9.6 14.604L18.708 5.496L20.4 7.2L9.6 18Z"
+                                    fill="white" />
 
-                        </svg>
-                    </div>
-                    <div class="text-white font-medium ml-3">
-                        <p>
-                            {{ $koneksiar->status_ar }}
-                        </p>
-                    </div>
-                </div>
-            @elseif ($koneksiar->status_ar == '-')
-                {{-- approval abu2 --}}
-                <div class="bg-gray-400 flex  py-1 px-2   items-center rounded">
-                    <div class="">
-                        <svg width="18" height="auto" viewBox="0 0 24 24" fill="none"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                d="M10.6667 18.6667C10.6667 19.4 11.2667 20 12 20C12.7333 20 13.3333 19.4 13.3333 18.6667C13.3333 17.9333 12.7333 17.3333 12 17.3333C11.2667 17.3333 10.6667 17.9333 10.6667 18.6667ZM10.6667 0V5.33333H13.3333V2.77333C17.8533 3.42667 21.3333 7.29333 21.3333 12C21.3333 17.16 17.16 21.3333 12 21.3333C6.84 21.3333 2.66667 17.16 2.66667 12C2.66667 9.76 3.45333 7.70667 4.77333 6.10667L12 13.3333L13.88 11.4533L4.81333 2.38667V2.41333C1.89333 4.6 0 8.06667 0 12C0 18.6267 5.36 24 12 24C18.6267 24 24 18.6267 24 12C24 5.37333 18.6267 0 12 0H10.6667ZM20 12C20 11.2667 19.4 10.6667 18.6667 10.6667C17.9333 10.6667 17.3333 11.2667 17.3333 12C17.3333 12.7333 17.9333 13.3333 18.6667 13.3333C19.4 13.3333 20 12.7333 20 12ZM4 12C4 12.7333 4.6 13.3333 5.33333 13.3333C6.06667 13.3333 6.66667 12.7333 6.66667 12C6.66667 11.2667 6.06667 10.6667 5.33333 10.6667C4.6 10.6667 4 11.2667 4 12Z"
-                                fill="white" />
-                        </svg>
-                    </div>
-                    <div class="text-white font-medium ml-3">
-                        <p>
-                            {{ $koneksiar->status_ar }}
-                        </p>
-                    </div>
-                </div>
-            @elseif ($koneksiar->status_ar == 'Waiting Approval')
-                {{-- approval abu2 --}}
-                <div class="bg-gray-400 flex  py-1 px-2   items-center rounded">
-                    <div class="">
-                        <svg width="18" height="auto" viewBox="0 0 24 24" fill="none"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                d="M10.6667 18.6667C10.6667 19.4 11.2667 20 12 20C12.7333 20 13.3333 19.4 13.3333 18.6667C13.3333 17.9333 12.7333 17.3333 12 17.3333C11.2667 17.3333 10.6667 17.9333 10.6667 18.6667ZM10.6667 0V5.33333H13.3333V2.77333C17.8533 3.42667 21.3333 7.29333 21.3333 12C21.3333 17.16 17.16 21.3333 12 21.3333C6.84 21.3333 2.66667 17.16 2.66667 12C2.66667 9.76 3.45333 7.70667 4.77333 6.10667L12 13.3333L13.88 11.4533L4.81333 2.38667V2.41333C1.89333 4.6 0 8.06667 0 12C0 18.6267 5.36 24 12 24C18.6267 24 24 18.6267 24 12C24 5.37333 18.6267 0 12 0H10.6667ZM20 12C20 11.2667 19.4 10.6667 18.6667 10.6667C17.9333 10.6667 17.3333 11.2667 17.3333 12C17.3333 12.7333 17.9333 13.3333 18.6667 13.3333C19.4 13.3333 20 12.7333 20 12ZM4 12C4 12.7333 4.6 13.3333 5.33333 13.3333C6.06667 13.3333 6.66667 12.7333 6.66667 12C6.66667 11.2667 6.06667 10.6667 5.33333 10.6667C4.6 10.6667 4 11.2667 4 12Z"
-                                fill="white" />
-                        </svg>
-                    </div>
-                    <div class="text-white font-medium ml-3">
-                        <p>
-                            {{ $koneksiar->status_ar }}
-                        </p>
-                    </div>
-                </div>
-            @elseif ($koneksiar->status_ar == 'Revisi Arrangement')
-                {{-- menunggu approval abu abu --}}
-                <div class="bg-yellow-300 flex py-1 px-2 items-center rounded border-red-500 border-4">
-                    <div class="">
-                        <svg width="20" height="auto" viewBox="0 0 80 80" fill="none"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                d="M40 0C17.92 0 0 17.92 0 40C0 62.08 17.92 80 40 80C62.08 80 80 62.08 80 40C80 17.92 62.08 0 40 0ZM44 60H36V52H44V60ZM44 44H36V20H44V44Z"
-                                fill="black" />
-                        </svg>
-                    </div>
-                    <div class="text-black font-medium ml-3">
-                        <p>
-                            {{ $koneksiar->status_ar }}
-                        </p>
-                    </div>
-                </div>
-            @endif
-
-        </div>
-        <br>
-
-        {{-- approval abu2 slesai --}}
-
-        {{-- Yang diganti pertahapnya --}}
-        <form action="" method="post" enctype="multipart/form-data">
-            @csrf
-            @method('PUT')
-            {{-- atas form --}}
-            {{-- awal standar formulir --}}
-            <div class="flex justify-between">
-                <p class="font-normal text-lg bg-teal-600 px-4 py-1 w-fit text-white mb-2 rounded"> Drawing Mechanical
-                </p>
-                @foreach ($standar_project as $spt)
-                    @if ($spt->file_dr_m_sheet_form != '')
-                        <div class="flex justify-end mr-1 mt-4">
-                            <a href="{{ asset('storage/supervisor/standarproject/' . $spt->file_dr_m_sheet_form) }}"
-                                download="">
-                                <div class="w-fit items-center space-x-1 flex fill-blue-600 hover:fill-blue-800">
-                                    <svg width="15" height="" viewBox="0 0 52 52"
-                                        xmlns="http://www.w3.org/2000/svg">
-                                        <path
-                                            d="m36.4 14.8h8.48a1.09 1.09 0 0 0 1.12-1.12 1 1 0 0 0 -.32-.8l-10.56-10.56a1 1 0 0 0 -.8-.32 1.09 1.09 0 0 0 -1.12 1.12v8.48a3.21 3.21 0 0 0 3.2 3.2z" />
-
-                                        <path
-                                            d="m44.4 19.6h-11.2a4.81 4.81 0 0 1 -4.8-4.8v-11.2a1.6 1.6 0 0 0 -1.6-1.6h-16a4.81 4.81 0 0 0 -4.8 4.8v38.4a4.81 4.81 0 0 0 4.8 4.8h30.4a4.81 4.81 0 0 0 4.8-4.8v-24a1.6 1.6 0 0 0 -1.6-1.6zm-32-1.6a1.62 1.62 0 0 1 1.6-1.55h6.55a1.56 1.56 0 0 1 1.57 1.55v1.59a1.63 1.63 0 0 1 -1.59 1.58h-6.53a1.55 1.55 0 0 1 -1.58-1.58zm24 20.77a1.6 1.6 0 0 1 -1.6 1.6h-20.8a1.6 1.6 0 0 1 -1.6-1.6v-1.57a1.6 1.6 0 0 1 1.6-1.6h20.8a1.6 1.6 0 0 1 1.6 1.6zm3.2-9.6a1.6 1.6 0 0 1 -1.6 1.63h-24a1.6 1.6 0 0 1 -1.6-1.6v-1.6a1.6 1.6 0 0 1 1.6-1.6h24a1.6 1.6 0 0 1 1.6 1.6z" />
-                                    </svg>
-                                    <p
-                                        class="text-right hover:underline font-semibold text-md text-blue-600 hover:text-blue-800 ">
-                                        Klik untuk mengunduh formulir kerja</p>
-                                </div>
-                            </a>
+                            </svg>
                         </div>
-                    @endif
-                @endforeach
-                {{-- tombol form --}}
+                        <div class="text-white font-medium ml-3">
+                            <p>
+                                {{ $koneksiar->status_ar }}
+                            </p>
+                        </div>
+                    </div>
+                @elseif ($koneksiar->status_ar == '-')
+                    {{-- approval abu2 --}}
+                    <div class="bg-gray-400 flex  py-1 px-2   items-center rounded">
+                        <div class="">
+                            <svg width="18" height="auto" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M10.6667 18.6667C10.6667 19.4 11.2667 20 12 20C12.7333 20 13.3333 19.4 13.3333 18.6667C13.3333 17.9333 12.7333 17.3333 12 17.3333C11.2667 17.3333 10.6667 17.9333 10.6667 18.6667ZM10.6667 0V5.33333H13.3333V2.77333C17.8533 3.42667 21.3333 7.29333 21.3333 12C21.3333 17.16 17.16 21.3333 12 21.3333C6.84 21.3333 2.66667 17.16 2.66667 12C2.66667 9.76 3.45333 7.70667 4.77333 6.10667L12 13.3333L13.88 11.4533L4.81333 2.38667V2.41333C1.89333 4.6 0 8.06667 0 12C0 18.6267 5.36 24 12 24C18.6267 24 24 18.6267 24 12C24 5.37333 18.6267 0 12 0H10.6667ZM20 12C20 11.2667 19.4 10.6667 18.6667 10.6667C17.9333 10.6667 17.3333 11.2667 17.3333 12C17.3333 12.7333 17.9333 13.3333 18.6667 13.3333C19.4 13.3333 20 12.7333 20 12ZM4 12C4 12.7333 4.6 13.3333 5.33333 13.3333C6.06667 13.3333 6.66667 12.7333 6.66667 12C6.66667 11.2667 6.06667 10.6667 5.33333 10.6667C4.6 10.6667 4 11.2667 4 12Z"
+                                    fill="white" />
+                            </svg>
+                        </div>
+                        <div class="text-white font-medium ml-3">
+                            <p>
+                                {{ $koneksiar->status_ar }}
+                            </p>
+                        </div>
+                    </div>
+                @elseif ($koneksiar->status_ar == 'Waiting Approval')
+                    {{-- approval abu2 --}}
+                    <div class="bg-gray-400 flex  py-1 px-2   items-center rounded">
+                        <div class="">
+                            <svg width="18" height="auto" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M10.6667 18.6667C10.6667 19.4 11.2667 20 12 20C12.7333 20 13.3333 19.4 13.3333 18.6667C13.3333 17.9333 12.7333 17.3333 12 17.3333C11.2667 17.3333 10.6667 17.9333 10.6667 18.6667ZM10.6667 0V5.33333H13.3333V2.77333C17.8533 3.42667 21.3333 7.29333 21.3333 12C21.3333 17.16 17.16 21.3333 12 21.3333C6.84 21.3333 2.66667 17.16 2.66667 12C2.66667 9.76 3.45333 7.70667 4.77333 6.10667L12 13.3333L13.88 11.4533L4.81333 2.38667V2.41333C1.89333 4.6 0 8.06667 0 12C0 18.6267 5.36 24 12 24C18.6267 24 24 18.6267 24 12C24 5.37333 18.6267 0 12 0H10.6667ZM20 12C20 11.2667 19.4 10.6667 18.6667 10.6667C17.9333 10.6667 17.3333 11.2667 17.3333 12C17.3333 12.7333 17.9333 13.3333 18.6667 13.3333C19.4 13.3333 20 12.7333 20 12ZM4 12C4 12.7333 4.6 13.3333 5.33333 13.3333C6.06667 13.3333 6.66667 12.7333 6.66667 12C6.66667 11.2667 6.06667 10.6667 5.33333 10.6667C4.6 10.6667 4 11.2667 4 12Z"
+                                    fill="white" />
+                            </svg>
+                        </div>
+                        <div class="text-white font-medium ml-3">
+                            <p>
+                                {{ $koneksiar->status_ar }}
+                            </p>
+                        </div>
+                    </div>
+                @elseif ($koneksiar->status_ar == 'Revisi Arrangement')
+                    {{-- menunggu approval abu abu --}}
+                    <div class="bg-yellow-300 flex py-1 px-2 items-center rounded border-red-500 border-4">
+                        <div class="">
+                            <svg width="20" height="auto" viewBox="0 0 80 80" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M40 0C17.92 0 0 17.92 0 40C0 62.08 17.92 80 40 80C62.08 80 80 62.08 80 40C80 17.92 62.08 0 40 0ZM44 60H36V52H44V60ZM44 44H36V20H44V44Z"
+                                    fill="black" />
+                            </svg>
+                        </div>
+                        <div class="text-black font-medium ml-3">
+                            <p>
+                                {{ $koneksiar->status_ar }}
+                            </p>
+                        </div>
+                    </div>
+                @endif
+
             </div>
-            {{-- akhir standar formulir --}}
-            {{-- mechanical --}}
+            <br>
 
-            <div class="overflow-x-auto rounded-md mb-5 border">
-                <table class="w-full">
-                    <thead class="bg-green-600 text-white">
-                        <th class="py-2 w-[5%]">No.</th>
-                        <th class="w-[57%]">Nama File</th>
-                        <th class="w-[10%]">Uploaded by</th>
-                        <th class="w-[13%]">Last Update</th>
-                        <th class="w-[15%]">Aksi</th>
-                    </thead>
-                    <tbody class="text-left border">
+            {{-- approval abu2 slesai --}}
 
-                        <tr class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
-                            <td class="py-4 font-bold text-center">1.</td>
-                            <td class="flex justify-start py-4 items-center">
+            {{-- Yang diganti pertahapnya --}}
+            <form action="" method="post" enctype="multipart/form-data">
+                @csrf
+                @method('PUT')
+                {{-- atas form --}}
+                {{-- awal standar formulir --}}
+                <div class="flex justify-between">
+                    <p class="font-normal text-lg bg-teal-600 px-4 py-1 w-fit text-white mb-2 rounded"> Drawing
+                        Mechanical
+                    </p>
+                    @foreach ($standar_project as $spt)
+                        @if ($spt->file_dr_m_sheet_form != '')
+                            <div class="flex justify-end mr-1 mt-4">
+                                <a href="{{ asset('storage/supervisor/standarproject/' . $spt->file_dr_m_sheet_form) }}"
+                                    download="">
+                                    <div class="w-fit items-center space-x-1 flex fill-blue-600 hover:fill-blue-800">
+                                        <svg width="15" height="" viewBox="0 0 52 52"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="m36.4 14.8h8.48a1.09 1.09 0 0 0 1.12-1.12 1 1 0 0 0 -.32-.8l-10.56-10.56a1 1 0 0 0 -.8-.32 1.09 1.09 0 0 0 -1.12 1.12v8.48a3.21 3.21 0 0 0 3.2 3.2z" />
 
-                                @if ($koneksiar->draw_me_1 != '')
+                                            <path
+                                                d="m44.4 19.6h-11.2a4.81 4.81 0 0 1 -4.8-4.8v-11.2a1.6 1.6 0 0 0 -1.6-1.6h-16a4.81 4.81 0 0 0 -4.8 4.8v38.4a4.81 4.81 0 0 0 4.8 4.8h30.4a4.81 4.81 0 0 0 4.8-4.8v-24a1.6 1.6 0 0 0 -1.6-1.6zm-32-1.6a1.62 1.62 0 0 1 1.6-1.55h6.55a1.56 1.56 0 0 1 1.57 1.55v1.59a1.63 1.63 0 0 1 -1.59 1.58h-6.53a1.55 1.55 0 0 1 -1.58-1.58zm24 20.77a1.6 1.6 0 0 1 -1.6 1.6h-20.8a1.6 1.6 0 0 1 -1.6-1.6v-1.57a1.6 1.6 0 0 1 1.6-1.6h20.8a1.6 1.6 0 0 1 1.6 1.6zm3.2-9.6a1.6 1.6 0 0 1 -1.6 1.63h-24a1.6 1.6 0 0 1 -1.6-1.6v-1.6a1.6 1.6 0 0 1 1.6-1.6h24a1.6 1.6 0 0 1 1.6 1.6z" />
+                                        </svg>
+                                        <p
+                                            class="text-right hover:underline font-semibold text-md text-blue-600 hover:text-blue-800 ">
+                                            Klik untuk mengunduh formulir kerja</p>
+                                    </div>
+                                </a>
+                            </div>
+                        @endif
+                    @endforeach
+                    {{-- tombol form --}}
+                </div>
+                {{-- akhir standar formulir --}}
+                {{-- mechanical --}}
+
+                <div class="overflow-x-auto rounded-md mb-5 border">
+                    <table class="w-full">
+                        <thead class="bg-green-600 text-white">
+                            <th class="py-2 w-[5%]">No.</th>
+                            <th class="w-[57%]">Nama File</th>
+                            <th class="w-[10%]">Uploaded by</th>
+                            <th class="w-[13%]">Last Update</th>
+                            <th class="w-[15%]">Aksi</th>
+                        </thead>
+                        <tbody class="text-left border">
+
+                            <tr class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
+                                <td class="py-4 font-bold text-center">1.</td>
+                                <td class="flex justify-start py-4 items-center">
+
+                                    @if ($koneksiar->draw_me_1 != '')
+                                        <a href="{{ asset('storage/supervisor/project/02_AR/' . $koneksiar->draw_me_1) }}"
+                                            target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
+                                            <svg width="22" height="17" viewBox="0 0 22 17" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M11 0C6 0 1.73 3.11 0 7.5C1.73 11.89 6 15 11 15C11.36 15 11.72 15 12.08 14.95C12.03 14.63 12 14.32 12 14C12 13.44 12.08 12.88 12.24 12.34C11.83 12.44 11.42 12.5 11 12.5C8.24 12.5 6 10.26 6 7.5C6 4.74 8.24 2.5 11 2.5C13.76 2.5 16 4.74 16 7.5C16 7.79 15.97 8.09 15.92 8.38C16.58 8.13 17.29 8 18 8C19.17 8 20.31 8.34 21.29 9C21.56 8.5 21.8 8 22 7.5C20.27 3.11 16 0 11 0ZM11 4.5C9.34 4.5 8 5.84 8 7.5C8 9.16 9.34 10.5 11 10.5C12.66 10.5 14 9.16 14 7.5C14 5.84 12.66 4.5 11 4.5ZM17 10.5V12.5H21V14.5H17V16.5L14 13.5L17 10.5Z"
+                                                    fill="black" />
+                                            </svg>
+                                        </a>
+
+                                        &emsp;
+                                    @endif
+                                    {{--  --}}
                                     <a href="{{ asset('storage/supervisor/project/02_AR/' . $koneksiar->draw_me_1) }}"
-                                        target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
-                                        <svg width="22" height="17" viewBox="0 0 22 17" fill="none"
-                                            xmlns="http://www.w3.org/2000/svg">
-                                            <path
-                                                d="M11 0C6 0 1.73 3.11 0 7.5C1.73 11.89 6 15 11 15C11.36 15 11.72 15 12.08 14.95C12.03 14.63 12 14.32 12 14C12 13.44 12.08 12.88 12.24 12.34C11.83 12.44 11.42 12.5 11 12.5C8.24 12.5 6 10.26 6 7.5C6 4.74 8.24 2.5 11 2.5C13.76 2.5 16 4.74 16 7.5C16 7.79 15.97 8.09 15.92 8.38C16.58 8.13 17.29 8 18 8C19.17 8 20.31 8.34 21.29 9C21.56 8.5 21.8 8 22 7.5C20.27 3.11 16 0 11 0ZM11 4.5C9.34 4.5 8 5.84 8 7.5C8 9.16 9.34 10.5 11 10.5C12.66 10.5 14 9.16 14 7.5C14 5.84 12.66 4.5 11 4.5ZM17 10.5V12.5H21V14.5H17V16.5L14 13.5L17 10.5Z"
-                                                fill="black" />
-                                        </svg>
-                                    </a>
+                                        target="blank" download="" class="hover:underline">
+                                        {{ $koneksiar->draw_me_1 }}</a>
+                                    {{-- == --}}
 
-                                    &emsp;
-                                @endif
-                                {{--  --}}
-                                <a href="{{ asset('storage/supervisor/project/02_AR/' . $koneksiar->draw_me_1) }}"
-                                    target="blank" download="" class="hover:underline">
-                                    {{ $koneksiar->draw_me_1 }}</a>
-                                {{-- == --}}
+                                </td>
+                                <td>
+                                    @if ($koneksiar->up_draw_me_by_1 != '')
+                                        <div
+                                            class="items-center py-1 px-2 text-sm font-medium text-center text-white bg-orange-500 w-[100] mx-auto rounded">
+                                            {{ $koneksiar->up_draw_me_by_1 }}
+                                        </div>
+                                    @endif
+                                </td>
+                                <td class="text-center">{{ $koneksiar->date_draw_me_1 }}</td>
+                                <td>
+                                    @if ($koneksiar->draw_me_1 != '')
+                                        <div class="justify-center flex space-x-2">
+                                            <button type="button"
+                                                class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                data-modal-target="modal11" data-modal-show="modal11"
+                                                data-modal-toggle="modal11">
+                                                Ubah
+                                            </button>
+                                        </div>
+                                    @else
+                                        <input type="file" name="as_draw_me_1" id="">
+                                    @endif
+                                </td>
+                                <input type="text" hidden name="as_up_draw_me_by_1"
+                                    value="{{ Auth::user()->first_name }}">
+                                <input type="date" hidden name="as_date_draw_me_1" value="{{ date('Y-m-d') }}">
 
-                            </td>
-                            <td>
-                                @if ($koneksiar->up_draw_me_by_1 != '')
-                                    <div
-                                        class="items-center py-1 px-2 text-sm font-medium text-center text-white bg-orange-500 w-[100] mx-auto rounded">
-                                        {{ $koneksiar->up_draw_me_by_1 }}
-                                    </div>
-                                @endif
-                            </td>
-                            <td class="text-center">{{ $koneksiar->date_draw_me_1 }}</td>
-                            <td>
-                                @if ($koneksiar->draw_me_1 != '')
-                                    <div class="justify-center flex space-x-2">
-                                        <button type="button"
-                                            class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
-                                            data-modal-target="modal11" data-modal-show="modal11"
-                                            data-modal-toggle="modal11">
-                                            Ubah
-                                        </button>
-                                    </div>
-                                @else
-                                    <input type="file" name="as_draw_me_1" id="">
-                                @endif
-                            </td>
-                            <input type="text" hidden name="as_up_draw_me_by_1"
-                                value="{{ Auth::user()->first_name }}">
-                            <input type="date" hidden name="as_date_draw_me_1" value="{{ date('Y-m-d') }}">
+                            </tr>
 
-                        </tr>
+                            <tr class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
+                                <td class="py-4 font-bold text-center">2.</td>
+                                <td class="flex justify-start py-4 items-center">
 
-                        <tr class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
-                            <td class="py-4 font-bold text-center">2.</td>
-                            <td class="flex justify-start py-4 items-center">
+                                    @if ($koneksiar->draw_me_2 != '')
+                                        <a href="{{ asset('storage/supervisor/project/02_AR/' . $koneksiar->draw_me_2) }}"
+                                            target="blank" class="py-2 px-1 rounded hover:bg-gray-200 ">
+                                            <svg width="22" height="17" viewBox="0 0 22 17" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M11 0C6 0 1.73 3.11 0 7.5C1.73 11.89 6 15 11 15C11.36 15 11.72 15 12.08 14.95C12.03 14.63 12 14.32 12 14C12 13.44 12.08 12.88 12.24 12.34C11.83 12.44 11.42 12.5 11 12.5C8.24 12.5 6 10.26 6 7.5C6 4.74 8.24 2.5 11 2.5C13.76 2.5 16 4.74 16 7.5C16 7.79 15.97 8.09 15.92 8.38C16.58 8.13 17.29 8 18 8C19.17 8 20.31 8.34 21.29 9C21.56 8.5 21.8 8 22 7.5C20.27 3.11 16 0 11 0ZM11 4.5C9.34 4.5 8 5.84 8 7.5C8 9.16 9.34 10.5 11 10.5C12.66 10.5 14 9.16 14 7.5C14 5.84 12.66 4.5 11 4.5ZM17 10.5V12.5H21V14.5H17V16.5L14 13.5L17 10.5Z"
+                                                    fill="black" />
+                                            </svg>
+                                        </a>
 
-                                @if ($koneksiar->draw_me_2 != '')
+                                        &emsp;
+                                    @endif
+                                    {{--  --}}
                                     <a href="{{ asset('storage/supervisor/project/02_AR/' . $koneksiar->draw_me_2) }}"
-                                        target="blank" class="py-2 px-1 rounded hover:bg-gray-200 ">
-                                        <svg width="22" height="17" viewBox="0 0 22 17" fill="none"
+                                        target="blank" download="" class="hover:underline ">
+                                        {{ $koneksiar->draw_me_2 }}</a>
+                                    {{-- == --}}
+
+
+                                </td>
+                                <td>
+                                    @if ($koneksiar->up_draw_me_by_2 != '')
+                                        <div
+                                            class="items-center py-1 px-2 text-sm font-medium text-center text-white bg-orange-500 w-[100] mx-auto rounded">
+                                            {{ $koneksiar->up_draw_me_by_2 }}
+                                        </div>
+                                    @endif
+                                </td>
+                                <td class="text-center">{{ $koneksiar->date_draw_me_2 }}</td>
+                                <td>
+                                    @if ($koneksiar->draw_me_2 != '')
+                                        <div class="justify-center flex space-x-2">
+                                            <button type="button"
+                                                class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                data-modal-target="modal12" data-modal-show="modal12"
+                                                data-modal-toggle="modal12">
+                                                Ubah
+                                            </button>
+                                        </div>
+                                    @else
+                                        <input type="file" name="as_draw_me_2" id="">
+                                    @endif
+                                </td>
+                                <input type="text" hidden name="as_up_draw_me_by_2"
+                                    value="{{ Auth::user()->first_name }}">
+                                <input type="date" hidden name="as_date_draw_me_2" value="{{ date('Y-m-d') }}">
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+                {{-- Akhir mechanical --}}
+
+                {{-- electrical --}}
+                {{-- awal standar formulir --}}
+                <div class="flex justify-between">
+                    <p class="font-normal text-lg bg-teal-600 px-4 py-1 w-fit text-white mb-2 rounded"> Drawing
+                        Electrical
+                    </p>
+                    @foreach ($standar_project as $spt)
+                        @if ($spt->file_dr_e_sheet_form != '')
+                            <div class="flex justify-end mr-1 mt-4">
+                                <a href="{{ asset('storage/supervisor/standarproject/' . $spt->file_dr_e_sheet_form) }}"
+                                    download="">
+                                    <div class="w-fit items-center space-x-1 flex fill-blue-600 hover:fill-blue-800">
+                                        <svg width="15" height="" viewBox="0 0 52 52"
                                             xmlns="http://www.w3.org/2000/svg">
                                             <path
-                                                d="M11 0C6 0 1.73 3.11 0 7.5C1.73 11.89 6 15 11 15C11.36 15 11.72 15 12.08 14.95C12.03 14.63 12 14.32 12 14C12 13.44 12.08 12.88 12.24 12.34C11.83 12.44 11.42 12.5 11 12.5C8.24 12.5 6 10.26 6 7.5C6 4.74 8.24 2.5 11 2.5C13.76 2.5 16 4.74 16 7.5C16 7.79 15.97 8.09 15.92 8.38C16.58 8.13 17.29 8 18 8C19.17 8 20.31 8.34 21.29 9C21.56 8.5 21.8 8 22 7.5C20.27 3.11 16 0 11 0ZM11 4.5C9.34 4.5 8 5.84 8 7.5C8 9.16 9.34 10.5 11 10.5C12.66 10.5 14 9.16 14 7.5C14 5.84 12.66 4.5 11 4.5ZM17 10.5V12.5H21V14.5H17V16.5L14 13.5L17 10.5Z"
-                                                fill="black" />
+                                                d="m36.4 14.8h8.48a1.09 1.09 0 0 0 1.12-1.12 1 1 0 0 0 -.32-.8l-10.56-10.56a1 1 0 0 0 -.8-.32 1.09 1.09 0 0 0 -1.12 1.12v8.48a3.21 3.21 0 0 0 3.2 3.2z" />
+
+                                            <path
+                                                d="m44.4 19.6h-11.2a4.81 4.81 0 0 1 -4.8-4.8v-11.2a1.6 1.6 0 0 0 -1.6-1.6h-16a4.81 4.81 0 0 0 -4.8 4.8v38.4a4.81 4.81 0 0 0 4.8 4.8h30.4a4.81 4.81 0 0 0 4.8-4.8v-24a1.6 1.6 0 0 0 -1.6-1.6zm-32-1.6a1.62 1.62 0 0 1 1.6-1.55h6.55a1.56 1.56 0 0 1 1.57 1.55v1.59a1.63 1.63 0 0 1 -1.59 1.58h-6.53a1.55 1.55 0 0 1 -1.58-1.58zm24 20.77a1.6 1.6 0 0 1 -1.6 1.6h-20.8a1.6 1.6 0 0 1 -1.6-1.6v-1.57a1.6 1.6 0 0 1 1.6-1.6h20.8a1.6 1.6 0 0 1 1.6 1.6zm3.2-9.6a1.6 1.6 0 0 1 -1.6 1.63h-24a1.6 1.6 0 0 1 -1.6-1.6v-1.6a1.6 1.6 0 0 1 1.6-1.6h24a1.6 1.6 0 0 1 1.6 1.6z" />
                                         </svg>
-                                    </a>
-
-                                    &emsp;
-                                @endif
-                                {{--  --}}
-                                <a href="{{ asset('storage/supervisor/project/02_AR/' . $koneksiar->draw_me_2) }}"
-                                    target="blank" download="" class="hover:underline ">
-                                    {{ $koneksiar->draw_me_2 }}</a>
-                                {{-- == --}}
-
-
-                            </td>
-                            <td>
-                                @if ($koneksiar->up_draw_me_by_2 != '')
-                                    <div
-                                        class="items-center py-1 px-2 text-sm font-medium text-center text-white bg-orange-500 w-[100] mx-auto rounded">
-                                        {{ $koneksiar->up_draw_me_by_2 }}
+                                        <p
+                                            class="text-right hover:underline font-semibold text-md text-blue-600 hover:text-blue-800 ">
+                                            Klik untuk mengunduh formulir kerja</p>
                                     </div>
-                                @endif
-                            </td>
-                            <td class="text-center">{{ $koneksiar->date_draw_me_2 }}</td>
-                            <td>
-                                @if ($koneksiar->draw_me_2 != '')
-                                    <div class="justify-center flex space-x-2">
-                                        <button type="button"
-                                            class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
-                                            data-modal-target="modal12" data-modal-show="modal12"
-                                            data-modal-toggle="modal12">
-                                            Ubah
-                                        </button>
-                                    </div>
-                                @else
-                                    <input type="file" name="as_draw_me_2" id="">
-                                @endif
-                            </td>
-                            <input type="text" hidden name="as_up_draw_me_by_2"
-                                value="{{ Auth::user()->first_name }}">
-                            <input type="date" hidden name="as_date_draw_me_2" value="{{ date('Y-m-d') }}">
-                        </tr>
+                                </a>
+                            </div>
+                        @endif
+                    @endforeach
+                    {{-- tombol form --}}
+                </div>
+                {{-- akhir standar formulir --}}
 
-                    </tbody>
-                </table>
-            </div>
-            {{-- Akhir mechanical --}}
+                <div class="overflow-x-auto rounded-md mb-5 border">
+                    <table class="w-full">
+                        <thead class="bg-green-600 text-white">
+                            <th class="py-2 w-[5%]">No.</th>
+                            <th class="w-[57%]">Nama File</th>
+                            <th class="w-[10%]">Uploaded by</th>
+                            <th class="w-[13%]">Last Update</th>
+                            <th class="w-[15%]">Aksi</th>
+                        </thead>
+                        <tbody class="text-left border">
 
-            {{-- electrical --}}
-            {{-- awal standar formulir --}}
-            <div class="flex justify-between">
-                <p class="font-normal text-lg bg-teal-600 px-4 py-1 w-fit text-white mb-2 rounded"> Drawing Electrical
-                </p>
-                @foreach ($standar_project as $spt)
-                    @if ($spt->file_dr_e_sheet_form != '')
-                        <div class="flex justify-end mr-1 mt-4">
-                            <a href="{{ asset('storage/supervisor/standarproject/' . $spt->file_dr_e_sheet_form) }}"
-                                download="">
-                                <div class="w-fit items-center space-x-1 flex fill-blue-600 hover:fill-blue-800">
-                                    <svg width="15" height="" viewBox="0 0 52 52"
-                                        xmlns="http://www.w3.org/2000/svg">
-                                        <path
-                                            d="m36.4 14.8h8.48a1.09 1.09 0 0 0 1.12-1.12 1 1 0 0 0 -.32-.8l-10.56-10.56a1 1 0 0 0 -.8-.32 1.09 1.09 0 0 0 -1.12 1.12v8.48a3.21 3.21 0 0 0 3.2 3.2z" />
+                            <tr class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
+                                <td class="py-4 font-bold text-center">1.</td>
+                                <td class="flex justify-start py-4 items-center">
 
-                                        <path
-                                            d="m44.4 19.6h-11.2a4.81 4.81 0 0 1 -4.8-4.8v-11.2a1.6 1.6 0 0 0 -1.6-1.6h-16a4.81 4.81 0 0 0 -4.8 4.8v38.4a4.81 4.81 0 0 0 4.8 4.8h30.4a4.81 4.81 0 0 0 4.8-4.8v-24a1.6 1.6 0 0 0 -1.6-1.6zm-32-1.6a1.62 1.62 0 0 1 1.6-1.55h6.55a1.56 1.56 0 0 1 1.57 1.55v1.59a1.63 1.63 0 0 1 -1.59 1.58h-6.53a1.55 1.55 0 0 1 -1.58-1.58zm24 20.77a1.6 1.6 0 0 1 -1.6 1.6h-20.8a1.6 1.6 0 0 1 -1.6-1.6v-1.57a1.6 1.6 0 0 1 1.6-1.6h20.8a1.6 1.6 0 0 1 1.6 1.6zm3.2-9.6a1.6 1.6 0 0 1 -1.6 1.63h-24a1.6 1.6 0 0 1 -1.6-1.6v-1.6a1.6 1.6 0 0 1 1.6-1.6h24a1.6 1.6 0 0 1 1.6 1.6z" />
-                                    </svg>
-                                    <p
-                                        class="text-right hover:underline font-semibold text-md text-blue-600 hover:text-blue-800 ">
-                                        Klik untuk mengunduh formulir kerja</p>
-                                </div>
-                            </a>
-                        </div>
-                    @endif
-                @endforeach
-                {{-- tombol form --}}
-            </div>
-            {{-- akhir standar formulir --}}
+                                    @if ($koneksiar->draw_el_1 != '')
+                                        <a href="{{ asset('storage/supervisor/project/02_AR/' . $koneksiar->draw_el_1) }}"
+                                            target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
+                                            <svg width="22" height="17" viewBox="0 0 22 17" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M11 0C6 0 1.73 3.11 0 7.5C1.73 11.89 6 15 11 15C11.36 15 11.72 15 12.08 14.95C12.03 14.63 12 14.32 12 14C12 13.44 12.08 12.88 12.24 12.34C11.83 12.44 11.42 12.5 11 12.5C8.24 12.5 6 10.26 6 7.5C6 4.74 8.24 2.5 11 2.5C13.76 2.5 16 4.74 16 7.5C16 7.79 15.97 8.09 15.92 8.38C16.58 8.13 17.29 8 18 8C19.17 8 20.31 8.34 21.29 9C21.56 8.5 21.8 8 22 7.5C20.27 3.11 16 0 11 0ZM11 4.5C9.34 4.5 8 5.84 8 7.5C8 9.16 9.34 10.5 11 10.5C12.66 10.5 14 9.16 14 7.5C14 5.84 12.66 4.5 11 4.5ZM17 10.5V12.5H21V14.5H17V16.5L14 13.5L17 10.5Z"
+                                                    fill="black" />
+                                            </svg>
+                                        </a>
 
-            <div class="overflow-x-auto rounded-md mb-5 border">
-                <table class="w-full">
-                    <thead class="bg-green-600 text-white">
-                        <th class="py-2 w-[5%]">No.</th>
-                        <th class="w-[57%]">Nama File</th>
-                        <th class="w-[10%]">Uploaded by</th>
-                        <th class="w-[13%]">Last Update</th>
-                        <th class="w-[15%]">Aksi</th>
-                    </thead>
-                    <tbody class="text-left border">
-
-                        <tr class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
-                            <td class="py-4 font-bold text-center">1.</td>
-                            <td class="flex justify-start py-4 items-center">
-
-                                @if ($koneksiar->draw_el_1 != '')
+                                        &emsp;
+                                    @endif
+                                    {{--  --}}
                                     <a href="{{ asset('storage/supervisor/project/02_AR/' . $koneksiar->draw_el_1) }}"
-                                        target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
-                                        <svg width="22" height="17" viewBox="0 0 22 17" fill="none"
-                                            xmlns="http://www.w3.org/2000/svg">
-                                            <path
-                                                d="M11 0C6 0 1.73 3.11 0 7.5C1.73 11.89 6 15 11 15C11.36 15 11.72 15 12.08 14.95C12.03 14.63 12 14.32 12 14C12 13.44 12.08 12.88 12.24 12.34C11.83 12.44 11.42 12.5 11 12.5C8.24 12.5 6 10.26 6 7.5C6 4.74 8.24 2.5 11 2.5C13.76 2.5 16 4.74 16 7.5C16 7.79 15.97 8.09 15.92 8.38C16.58 8.13 17.29 8 18 8C19.17 8 20.31 8.34 21.29 9C21.56 8.5 21.8 8 22 7.5C20.27 3.11 16 0 11 0ZM11 4.5C9.34 4.5 8 5.84 8 7.5C8 9.16 9.34 10.5 11 10.5C12.66 10.5 14 9.16 14 7.5C14 5.84 12.66 4.5 11 4.5ZM17 10.5V12.5H21V14.5H17V16.5L14 13.5L17 10.5Z"
-                                                fill="black" />
-                                        </svg>
-                                    </a>
+                                        target="blank" download="" class="hover:underline">
+                                        {{ $koneksiar->draw_el_1 }}</a>
+                                    {{-- == --}}
+                                </td>
+                                <td>
+                                    @if ($koneksiar->up_draw_el_by_1 != '')
+                                        <div
+                                            class="items-center py-1 px-2 text-sm font-medium text-center text-white bg-orange-500 w-[100] mx-auto rounded">
+                                            {{ $koneksiar->up_draw_el_by_1 }}
+                                        </div>
+                                    @endif
+                                </td>
+                                <td class="text-center">{{ $koneksiar->date_draw_el_1 }}</td>
+                                <td>
+                                    @if ($koneksiar->draw_el_1 != '')
+                                        <div class="justify-center flex space-x-2">
+                                            <button type="button"
+                                                class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                data-modal-target="modal21" data-modal-show="modal21"
+                                                data-modal-toggle="modal21">
+                                                Ubah
+                                            </button>
+                                        </div>
+                                    @else
+                                        <input type="file" name="as_draw_el_1" id="">
+                                    @endif
+                                </td>
+                                <input type="text" hidden name="as_up_draw_el_by_1"
+                                    value="{{ Auth::user()->first_name }}">
+                                <input type="date" hidden name="as_date_draw_el_1" value="{{ date('Y-m-d') }}">
 
-                                    &emsp;
-                                @endif
-                                {{--  --}}
-                                <a href="{{ asset('storage/supervisor/project/02_AR/' . $koneksiar->draw_el_1) }}"
-                                    target="blank" download="" class="hover:underline">
-                                    {{ $koneksiar->draw_el_1 }}</a>
-                                {{-- == --}}
-                            </td>
-                            <td>
-                                @if ($koneksiar->up_draw_el_by_1 != '')
-                                    <div
-                                        class="items-center py-1 px-2 text-sm font-medium text-center text-white bg-orange-500 w-[100] mx-auto rounded">
-                                        {{ $koneksiar->up_draw_el_by_1 }}
-                                    </div>
-                                @endif
-                            </td>
-                            <td class="text-center">{{ $koneksiar->date_draw_el_1 }}</td>
-                            <td>
-                                @if ($koneksiar->draw_el_1 != '')
-                                    <div class="justify-center flex space-x-2">
-                                        <button type="button"
-                                            class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
-                                            data-modal-target="modal21" data-modal-show="modal21"
-                                            data-modal-toggle="modal21">
-                                            Ubah
-                                        </button>
-                                    </div>
-                                @else
-                                    <input type="file" name="as_draw_el_1" id="">
-                                @endif
-                            </td>
-                            <input type="text" hidden name="as_up_draw_el_by_1"
-                                value="{{ Auth::user()->first_name }}">
-                            <input type="date" hidden name="as_date_draw_el_1" value="{{ date('Y-m-d') }}">
+                            </tr>
 
-                        </tr>
+                            <tr class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
+                                <td class="py-4 font-bold text-center">2.</td>
+                                <td class="flex justify-start py-4 items-center">
 
-                        <tr class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
-                            <td class="py-4 font-bold text-center">2.</td>
-                            <td class="flex justify-start py-4 items-center">
+                                    @if ($koneksiar->draw_el_2 != '')
+                                        <a href="{{ asset('storage/supervisor/project/02_AR/' . $koneksiar->draw_el_2) }}"
+                                            target="blank" class="py-2 px-1 rounded hover:bg-gray-200 ">
+                                            <svg width="22" height="17" viewBox="0 0 22 17" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M11 0C6 0 1.73 3.11 0 7.5C1.73 11.89 6 15 11 15C11.36 15 11.72 15 12.08 14.95C12.03 14.63 12 14.32 12 14C12 13.44 12.08 12.88 12.24 12.34C11.83 12.44 11.42 12.5 11 12.5C8.24 12.5 6 10.26 6 7.5C6 4.74 8.24 2.5 11 2.5C13.76 2.5 16 4.74 16 7.5C16 7.79 15.97 8.09 15.92 8.38C16.58 8.13 17.29 8 18 8C19.17 8 20.31 8.34 21.29 9C21.56 8.5 21.8 8 22 7.5C20.27 3.11 16 0 11 0ZM11 4.5C9.34 4.5 8 5.84 8 7.5C8 9.16 9.34 10.5 11 10.5C12.66 10.5 14 9.16 14 7.5C14 5.84 12.66 4.5 11 4.5ZM17 10.5V12.5H21V14.5H17V16.5L14 13.5L17 10.5Z"
+                                                    fill="black" />
+                                            </svg>
+                                        </a>
 
-                                @if ($koneksiar->draw_el_2 != '')
+                                        &emsp;
+                                    @endif
+                                    {{--  --}}
                                     <a href="{{ asset('storage/supervisor/project/02_AR/' . $koneksiar->draw_el_2) }}"
-                                        target="blank" class="py-2 px-1 rounded hover:bg-gray-200 ">
-                                        <svg width="22" height="17" viewBox="0 0 22 17" fill="none"
-                                            xmlns="http://www.w3.org/2000/svg">
-                                            <path
-                                                d="M11 0C6 0 1.73 3.11 0 7.5C1.73 11.89 6 15 11 15C11.36 15 11.72 15 12.08 14.95C12.03 14.63 12 14.32 12 14C12 13.44 12.08 12.88 12.24 12.34C11.83 12.44 11.42 12.5 11 12.5C8.24 12.5 6 10.26 6 7.5C6 4.74 8.24 2.5 11 2.5C13.76 2.5 16 4.74 16 7.5C16 7.79 15.97 8.09 15.92 8.38C16.58 8.13 17.29 8 18 8C19.17 8 20.31 8.34 21.29 9C21.56 8.5 21.8 8 22 7.5C20.27 3.11 16 0 11 0ZM11 4.5C9.34 4.5 8 5.84 8 7.5C8 9.16 9.34 10.5 11 10.5C12.66 10.5 14 9.16 14 7.5C14 5.84 12.66 4.5 11 4.5ZM17 10.5V12.5H21V14.5H17V16.5L14 13.5L17 10.5Z"
-                                                fill="black" />
-                                        </svg>
-                                    </a>
-
-                                    &emsp;
-                                @endif
-                                {{--  --}}
-                                <a href="{{ asset('storage/supervisor/project/02_AR/' . $koneksiar->draw_el_2) }}"
-                                    target="blank" download="" class="hover:underline ">
-                                    {{ $koneksiar->draw_el_2 }}</a>
-                                {{-- == --}}
+                                        target="blank" download="" class="hover:underline ">
+                                        {{ $koneksiar->draw_el_2 }}</a>
+                                    {{-- == --}}
 
 
-                            </td>
-                            <td>
-                                @if ($koneksiar->up_draw_el_by_2 != '')
-                                    <div
-                                        class="items-center py-1 px-2 text-sm font-medium text-center text-white bg-orange-500 w-[100] mx-auto rounded">
-                                        {{ $koneksiar->up_draw_el_by_2 }}
-                                    </div>
-                                @endif
-                            </td>
-                            <td class="text-center">{{ $koneksiar->date_draw_el_2 }}</td>
-                            <td>
-                                @if ($koneksiar->draw_el_2 != '')
-                                    <div class="justify-center flex space-x-2">
-                                        <button type="button"
-                                            class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
-                                            data-modal-target="modal22" data-modal-show="modal22"
-                                            data-modal-toggle="modal22">
-                                            Ubah
-                                        </button>
-                                    </div>
-                                @else
-                                    <input type="file" name="as_draw_el_2" id="">
-                            </td>
-                            @endif
-                            <input type="text" hidden name="as_up_draw_el_by_2"
-                                value="{{ Auth::user()->first_name }}">
-                            <input type="date" hidden name="as_date_draw_el_2" value="{{ date('Y-m-d') }}">
-                        </tr>
+                                </td>
+                                <td>
+                                    @if ($koneksiar->up_draw_el_by_2 != '')
+                                        <div
+                                            class="items-center py-1 px-2 text-sm font-medium text-center text-white bg-orange-500 w-[100] mx-auto rounded">
+                                            {{ $koneksiar->up_draw_el_by_2 }}
+                                        </div>
+                                    @endif
+                                </td>
+                                <td class="text-center">{{ $koneksiar->date_draw_el_2 }}</td>
+                                <td>
+                                    @if ($koneksiar->draw_el_2 != '')
+                                        <div class="justify-center flex space-x-2">
+                                            <button type="button"
+                                                class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                data-modal-target="modal22" data-modal-show="modal22"
+                                                data-modal-toggle="modal22">
+                                                Ubah
+                                            </button>
+                                        </div>
+                                    @else
+                                        <input type="file" name="as_draw_el_2" id="">
+                                </td>
+    @endif
+    <input type="text" hidden name="as_up_draw_el_by_2" value="{{ Auth::user()->first_name }}">
+    <input type="date" hidden name="as_date_draw_el_2" value="{{ date('Y-m-d') }}">
+    </tr>
 
-                    </tbody>
-                </table>
+    </tbody>
+    </table>
+</div>
+{{-- Akhir electrical --}}
+
+{{-- layout approval --}}
+{{-- awal standar formulir --}}
+<div class="flex justify-between">
+    <p class="font-normal text-lg bg-teal-600 px-4 py-1 w-fit text-white mb-2 rounded"> Layout Approval
+    </p>
+    @foreach ($standar_project as $spt)
+        @if ($spt->file_lay_aprvl_sheet_form != '')
+            <div class="flex justify-end mr-1 mt-4">
+                <a href="{{ asset('storage/supervisor/standarproject/' . $spt->file_lay_aprvl_sheet_form) }}"
+                    download="">
+                    <div class="w-fit items-center space-x-1 flex fill-blue-600 hover:fill-blue-800">
+                        <svg width="15" height="" viewBox="0 0 52 52" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="m36.4 14.8h8.48a1.09 1.09 0 0 0 1.12-1.12 1 1 0 0 0 -.32-.8l-10.56-10.56a1 1 0 0 0 -.8-.32 1.09 1.09 0 0 0 -1.12 1.12v8.48a3.21 3.21 0 0 0 3.2 3.2z" />
+
+                            <path
+                                d="m44.4 19.6h-11.2a4.81 4.81 0 0 1 -4.8-4.8v-11.2a1.6 1.6 0 0 0 -1.6-1.6h-16a4.81 4.81 0 0 0 -4.8 4.8v38.4a4.81 4.81 0 0 0 4.8 4.8h30.4a4.81 4.81 0 0 0 4.8-4.8v-24a1.6 1.6 0 0 0 -1.6-1.6zm-32-1.6a1.62 1.62 0 0 1 1.6-1.55h6.55a1.56 1.56 0 0 1 1.57 1.55v1.59a1.63 1.63 0 0 1 -1.59 1.58h-6.53a1.55 1.55 0 0 1 -1.58-1.58zm24 20.77a1.6 1.6 0 0 1 -1.6 1.6h-20.8a1.6 1.6 0 0 1 -1.6-1.6v-1.57a1.6 1.6 0 0 1 1.6-1.6h20.8a1.6 1.6 0 0 1 1.6 1.6zm3.2-9.6a1.6 1.6 0 0 1 -1.6 1.63h-24a1.6 1.6 0 0 1 -1.6-1.6v-1.6a1.6 1.6 0 0 1 1.6-1.6h24a1.6 1.6 0 0 1 1.6 1.6z" />
+                        </svg>
+                        <p class="text-right hover:underline font-semibold text-md text-blue-600 hover:text-blue-800 ">
+                            Klik untuk mengunduh formulir kerja</p>
+                    </div>
+                </a>
             </div>
-            {{-- Akhir electrical --}}
+        @endif
+    @endforeach
+    {{-- tombol form --}}
+</div>
+{{-- akhir standar formulir --}}
 
-            {{-- layout approval --}}
-            {{-- awal standar formulir --}}
-            <div class="flex justify-between">
-                <p class="font-normal text-lg bg-teal-600 px-4 py-1 w-fit text-white mb-2 rounded"> Layout Approval
-                </p>
-                @foreach ($standar_project as $spt)
-                    @if ($spt->file_lay_aprvl_sheet_form != '')
-                        <div class="flex justify-end mr-1 mt-4">
-                            <a href="{{ asset('storage/supervisor/standarproject/' . $spt->file_lay_aprvl_sheet_form) }}"
-                                download="">
-                                <div class="w-fit items-center space-x-1 flex fill-blue-600 hover:fill-blue-800">
-                                    <svg width="15" height="" viewBox="0 0 52 52"
-                                        xmlns="http://www.w3.org/2000/svg">
-                                        <path
-                                            d="m36.4 14.8h8.48a1.09 1.09 0 0 0 1.12-1.12 1 1 0 0 0 -.32-.8l-10.56-10.56a1 1 0 0 0 -.8-.32 1.09 1.09 0 0 0 -1.12 1.12v8.48a3.21 3.21 0 0 0 3.2 3.2z" />
+<div class="overflow-x-auto rounded-md mb-5 border">
+    <table class="w-full">
+        <thead class="bg-green-600 text-white">
+            <th class="py-2 w-[5%]">No.</th>
+            <th class="w-[57%]">Nama File</th>
+            <th class="w-[10%]">Uploaded by</th>
+            <th class="w-[13%]">Last Update</th>
+            <th class="w-[15%]">Upload</th>
+        </thead>
+        <tbody class="text-left border">
 
-                                        <path
-                                            d="m44.4 19.6h-11.2a4.81 4.81 0 0 1 -4.8-4.8v-11.2a1.6 1.6 0 0 0 -1.6-1.6h-16a4.81 4.81 0 0 0 -4.8 4.8v38.4a4.81 4.81 0 0 0 4.8 4.8h30.4a4.81 4.81 0 0 0 4.8-4.8v-24a1.6 1.6 0 0 0 -1.6-1.6zm-32-1.6a1.62 1.62 0 0 1 1.6-1.55h6.55a1.56 1.56 0 0 1 1.57 1.55v1.59a1.63 1.63 0 0 1 -1.59 1.58h-6.53a1.55 1.55 0 0 1 -1.58-1.58zm24 20.77a1.6 1.6 0 0 1 -1.6 1.6h-20.8a1.6 1.6 0 0 1 -1.6-1.6v-1.57a1.6 1.6 0 0 1 1.6-1.6h20.8a1.6 1.6 0 0 1 1.6 1.6zm3.2-9.6a1.6 1.6 0 0 1 -1.6 1.63h-24a1.6 1.6 0 0 1 -1.6-1.6v-1.6a1.6 1.6 0 0 1 1.6-1.6h24a1.6 1.6 0 0 1 1.6 1.6z" />
-                                    </svg>
-                                    <p
-                                        class="text-right hover:underline font-semibold text-md text-blue-600 hover:text-blue-800 ">
-                                        Klik untuk mengunduh formulir kerja</p>
-                                </div>
-                            </a>
+            <tr class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
+                <td class="py-4 font-bold text-center">1.</td>
+                <td class="flex justify-start py-4 items-center">
+
+                    @if ($koneksiar->approval_lay_1 != '')
+                        <a href="{{ asset('storage/supervisor/project/02_AR/' . $koneksiar->approval_lay_1) }}"
+                            target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
+                            <svg width="22" height="17" viewBox="0 0 22 17" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M11 0C6 0 1.73 3.11 0 7.5C1.73 11.89 6 15 11 15C11.36 15 11.72 15 12.08 14.95C12.03 14.63 12 14.32 12 14C12 13.44 12.08 12.88 12.24 12.34C11.83 12.44 11.42 12.5 11 12.5C8.24 12.5 6 10.26 6 7.5C6 4.74 8.24 2.5 11 2.5C13.76 2.5 16 4.74 16 7.5C16 7.79 15.97 8.09 15.92 8.38C16.58 8.13 17.29 8 18 8C19.17 8 20.31 8.34 21.29 9C21.56 8.5 21.8 8 22 7.5C20.27 3.11 16 0 11 0ZM11 4.5C9.34 4.5 8 5.84 8 7.5C8 9.16 9.34 10.5 11 10.5C12.66 10.5 14 9.16 14 7.5C14 5.84 12.66 4.5 11 4.5ZM17 10.5V12.5H21V14.5H17V16.5L14 13.5L17 10.5Z"
+                                    fill="black" />
+                            </svg>
+                        </a>
+
+                        &emsp;
+                    @endif
+                    {{--  --}}
+                    <a href="{{ asset('storage/supervisor/project/02_AR/' . $koneksiar->approval_lay_1) }}"
+                        target="blank" download="" class="hover:underline">
+                        {{ $koneksiar->approval_lay_1 }}</a>
+                    {{-- == --}}
+                </td>
+                <td>
+                    @if ($koneksiar->up_approval_lay_by_1 != '')
+                        <div
+                            class="items-center py-1 px-2 text-sm font-medium text-center text-white bg-orange-500 w-[100] mx-auto rounded">
+                            {{ $koneksiar->up_approval_lay_by_1 }}
                         </div>
                     @endif
-                @endforeach
-                {{-- tombol form --}}
-            </div>
-            {{-- akhir standar formulir --}}
+                </td>
+                <td class="text-center">{{ $koneksiar->date_approval_lay_1 }}</td>
+                <td>
+                    @if ($koneksiar->approval_lay_1 != '')
+                        <div class="justify-center flex space-x-2">
+                            <button type="button"
+                                class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                data-modal-target="modal31" data-modal-show="modal31" data-modal-toggle="modal31">
+                                Ubah
+                            </button>
+                        </div>
+                    @else
+                        <input type="file" name="as_approval_lay_1" id="">
+                </td>
+                @endif
+                <input type="text" hidden name="as_up_approval_lay_by_1" value="{{ Auth::user()->first_name }}">
+                <input type="date" hidden name="as_date_approval_lay_1" value="{{ date('Y-m-d') }}">
+            </tr>
 
-            <div class="overflow-x-auto rounded-md mb-5 border">
-                <table class="w-full">
-                    <thead class="bg-green-600 text-white">
-                        <th class="py-2 w-[5%]">No.</th>
-                        <th class="w-[57%]">Nama File</th>
-                        <th class="w-[10%]">Uploaded by</th>
-                        <th class="w-[13%]">Last Update</th>
-                        <th class="w-[15%]">Upload</th>
-                    </thead>
-                    <tbody class="text-left border">
+            <tr class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
+                <td class="py-4 font-bold text-center">2.</td>
+                <td class="flex justify-start py-4 items-center">
 
-                        <tr class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
-                            <td class="py-4 font-bold text-center">1.</td>
-                            <td class="flex justify-start py-4 items-center">
+                    @if ($koneksiar->approval_lay_2 != '')
+                        <a href="{{ asset('storage/supervisor/project/02_AR/' . $koneksiar->approval_lay_2) }}"
+                            target="blank" class="py-2 px-1 rounded hover:bg-gray-200 ">
+                            <svg width="22" height="17" viewBox="0 0 22 17" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M11 0C6 0 1.73 3.11 0 7.5C1.73 11.89 6 15 11 15C11.36 15 11.72 15 12.08 14.95C12.03 14.63 12 14.32 12 14C12 13.44 12.08 12.88 12.24 12.34C11.83 12.44 11.42 12.5 11 12.5C8.24 12.5 6 10.26 6 7.5C6 4.74 8.24 2.5 11 2.5C13.76 2.5 16 4.74 16 7.5C16 7.79 15.97 8.09 15.92 8.38C16.58 8.13 17.29 8 18 8C19.17 8 20.31 8.34 21.29 9C21.56 8.5 21.8 8 22 7.5C20.27 3.11 16 0 11 0ZM11 4.5C9.34 4.5 8 5.84 8 7.5C8 9.16 9.34 10.5 11 10.5C12.66 10.5 14 9.16 14 7.5C14 5.84 12.66 4.5 11 4.5ZM17 10.5V12.5H21V14.5H17V16.5L14 13.5L17 10.5Z"
+                                    fill="black" />
+                            </svg>
+                        </a>
 
-                                @if ($koneksiar->approval_lay_1 != '')
-                                    <a href="{{ asset('storage/supervisor/project/02_AR/' . $koneksiar->approval_lay_1) }}"
-                                        target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
-                                        <svg width="22" height="17" viewBox="0 0 22 17" fill="none"
-                                            xmlns="http://www.w3.org/2000/svg">
-                                            <path
-                                                d="M11 0C6 0 1.73 3.11 0 7.5C1.73 11.89 6 15 11 15C11.36 15 11.72 15 12.08 14.95C12.03 14.63 12 14.32 12 14C12 13.44 12.08 12.88 12.24 12.34C11.83 12.44 11.42 12.5 11 12.5C8.24 12.5 6 10.26 6 7.5C6 4.74 8.24 2.5 11 2.5C13.76 2.5 16 4.74 16 7.5C16 7.79 15.97 8.09 15.92 8.38C16.58 8.13 17.29 8 18 8C19.17 8 20.31 8.34 21.29 9C21.56 8.5 21.8 8 22 7.5C20.27 3.11 16 0 11 0ZM11 4.5C9.34 4.5 8 5.84 8 7.5C8 9.16 9.34 10.5 11 10.5C12.66 10.5 14 9.16 14 7.5C14 5.84 12.66 4.5 11 4.5ZM17 10.5V12.5H21V14.5H17V16.5L14 13.5L17 10.5Z"
-                                                fill="black" />
-                                        </svg>
-                                    </a>
-
-                                    &emsp;
-                                @endif
-                                {{--  --}}
-                                <a href="{{ asset('storage/supervisor/project/02_AR/' . $koneksiar->approval_lay_1) }}"
-                                    target="blank" download="" class="hover:underline">
-                                    {{ $koneksiar->approval_lay_1 }}</a>
-                                {{-- == --}}
-                            </td>
-                            <td>
-                                @if ($koneksiar->up_approval_lay_by_1 != '')
-                                    <div
-                                        class="items-center py-1 px-2 text-sm font-medium text-center text-white bg-orange-500 w-[100] mx-auto rounded">
-                                        {{ $koneksiar->up_approval_lay_by_1 }}
-                                    </div>
-                                @endif
-                            </td>
-                            <td class="text-center">{{ $koneksiar->date_approval_lay_1 }}</td>
-                            <td>
-                                @if ($koneksiar->approval_lay_1 != '')
-                                    <div class="justify-center flex space-x-2">
-                                        <button type="button"
-                                            class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
-                                            data-modal-target="modal31" data-modal-show="modal31"
-                                            data-modal-toggle="modal31">
-                                            Ubah
-                                        </button>
-                                    </div>
-                                @else
-                                    <input type="file" name="as_approval_lay_1" id="">
-                            </td>
-                            @endif
-                            <input type="text" hidden name="as_up_approval_lay_by_1"
-                                value="{{ Auth::user()->first_name }}">
-                            <input type="date" hidden name="as_date_approval_lay_1" value="{{ date('Y-m-d') }}">
-                        </tr>
-
-                        <tr class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
-                            <td class="py-4 font-bold text-center">2.</td>
-                            <td class="flex justify-start py-4 items-center">
-
-                                @if ($koneksiar->approval_lay_2 != '')
-                                    <a href="{{ asset('storage/supervisor/project/02_AR/' . $koneksiar->approval_lay_2) }}"
-                                        target="blank" class="py-2 px-1 rounded hover:bg-gray-200 ">
-                                        <svg width="22" height="17" viewBox="0 0 22 17" fill="none"
-                                            xmlns="http://www.w3.org/2000/svg">
-                                            <path
-                                                d="M11 0C6 0 1.73 3.11 0 7.5C1.73 11.89 6 15 11 15C11.36 15 11.72 15 12.08 14.95C12.03 14.63 12 14.32 12 14C12 13.44 12.08 12.88 12.24 12.34C11.83 12.44 11.42 12.5 11 12.5C8.24 12.5 6 10.26 6 7.5C6 4.74 8.24 2.5 11 2.5C13.76 2.5 16 4.74 16 7.5C16 7.79 15.97 8.09 15.92 8.38C16.58 8.13 17.29 8 18 8C19.17 8 20.31 8.34 21.29 9C21.56 8.5 21.8 8 22 7.5C20.27 3.11 16 0 11 0ZM11 4.5C9.34 4.5 8 5.84 8 7.5C8 9.16 9.34 10.5 11 10.5C12.66 10.5 14 9.16 14 7.5C14 5.84 12.66 4.5 11 4.5ZM17 10.5V12.5H21V14.5H17V16.5L14 13.5L17 10.5Z"
-                                                fill="black" />
-                                        </svg>
-                                    </a>
-
-                                    &emsp;
-                                @endif
-                                {{--  --}}
-                                <a href="{{ asset('storage/supervisor/project/02_AR/' . $koneksiar->approval_lay_2) }}"
-                                    target="blank" download="" class="hover:underline ">
-                                    {{ $koneksiar->approval_lay_2 }}</a>
-                                {{-- == --}}
+                        &emsp;
+                    @endif
+                    {{--  --}}
+                    <a href="{{ asset('storage/supervisor/project/02_AR/' . $koneksiar->approval_lay_2) }}"
+                        target="blank" download="" class="hover:underline ">
+                        {{ $koneksiar->approval_lay_2 }}</a>
+                    {{-- == --}}
 
 
-                            </td>
-                            <td>
-                                @if ($koneksiar->up_approval_lay_by_2 != '')
-                                    <div
-                                        class="items-center py-1 px-2 text-sm font-medium text-center text-white bg-orange-500 w-[100] mx-auto rounded">
-                                        {{ $koneksiar->up_approval_lay_by_2 }}
-                                    </div>
-                                @endif
-                            </td>
-                            <td class="text-center">{{ $koneksiar->date_approval_lay_2 }}</td>
-                            <td>
-                                @if ($koneksiar->approval_lay_2 != '')
-                                    <div class="justify-center flex space-x-2">
-                                        <button type="button"
-                                            class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
-                                            data-modal-target="modal32" data-modal-show="modal32"
-                                            data-modal-toggle="modal32">
-                                            Ubah
-                                        </button>
-                                    </div>
-                                @else
-                                    <input type="file" name="as_approval_lay_2" id="">
-                            </td>
-                            @endif
-                            <input type="text" hidden name="as_up_approval_lay_by_2"
-                                value="{{ Auth::user()->first_name }}">
-                            <input type="date" hidden name="as_date_approval_lay_2" value="{{ date('Y-m-d') }}">
-                        </tr>
-
-                    </tbody>
-                </table>
-            </div>
-            {{-- Akhir layout approval --}}
-
-            {{-- drawing approval --}}
-            {{-- awal standar formulir --}}
-            <div class="flex justify-between">
-                <p class="font-normal text-lg bg-teal-600 px-4 py-1 w-fit text-white mb-2 rounded"> Drawing Approval
-                </p>
-                @foreach ($standar_project as $spt)
-                    @if ($spt->file_dr_aprvl_sheet_form != '')
-                        <div class="flex justify-end mr-1 mt-4">
-                            <a href="{{ asset('storage/supervisor/standarproject/' . $spt->file_dr_aprvl_sheet_form) }}"
-                                download="">
-                                <div class="w-fit items-center space-x-1 flex fill-blue-600 hover:fill-blue-800">
-                                    <svg width="15" height="" viewBox="0 0 52 52"
-                                        xmlns="http://www.w3.org/2000/svg">
-                                        <path
-                                            d="m36.4 14.8h8.48a1.09 1.09 0 0 0 1.12-1.12 1 1 0 0 0 -.32-.8l-10.56-10.56a1 1 0 0 0 -.8-.32 1.09 1.09 0 0 0 -1.12 1.12v8.48a3.21 3.21 0 0 0 3.2 3.2z" />
-
-                                        <path
-                                            d="m44.4 19.6h-11.2a4.81 4.81 0 0 1 -4.8-4.8v-11.2a1.6 1.6 0 0 0 -1.6-1.6h-16a4.81 4.81 0 0 0 -4.8 4.8v38.4a4.81 4.81 0 0 0 4.8 4.8h30.4a4.81 4.81 0 0 0 4.8-4.8v-24a1.6 1.6 0 0 0 -1.6-1.6zm-32-1.6a1.62 1.62 0 0 1 1.6-1.55h6.55a1.56 1.56 0 0 1 1.57 1.55v1.59a1.63 1.63 0 0 1 -1.59 1.58h-6.53a1.55 1.55 0 0 1 -1.58-1.58zm24 20.77a1.6 1.6 0 0 1 -1.6 1.6h-20.8a1.6 1.6 0 0 1 -1.6-1.6v-1.57a1.6 1.6 0 0 1 1.6-1.6h20.8a1.6 1.6 0 0 1 1.6 1.6zm3.2-9.6a1.6 1.6 0 0 1 -1.6 1.63h-24a1.6 1.6 0 0 1 -1.6-1.6v-1.6a1.6 1.6 0 0 1 1.6-1.6h24a1.6 1.6 0 0 1 1.6 1.6z" />
-                                    </svg>
-                                    <p
-                                        class="text-right hover:underline font-semibold text-md text-blue-600 hover:text-blue-800 ">
-                                        Klik untuk mengunduh formulir kerja</p>
-                                </div>
-                            </a>
+                </td>
+                <td>
+                    @if ($koneksiar->up_approval_lay_by_2 != '')
+                        <div
+                            class="items-center py-1 px-2 text-sm font-medium text-center text-white bg-orange-500 w-[100] mx-auto rounded">
+                            {{ $koneksiar->up_approval_lay_by_2 }}
                         </div>
                     @endif
-                @endforeach
-                {{-- tombol form --}}
+                </td>
+                <td class="text-center">{{ $koneksiar->date_approval_lay_2 }}</td>
+                <td>
+                    @if ($koneksiar->approval_lay_2 != '')
+                        <div class="justify-center flex space-x-2">
+                            <button type="button"
+                                class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                data-modal-target="modal32" data-modal-show="modal32" data-modal-toggle="modal32">
+                                Ubah
+                            </button>
+                        </div>
+                    @else
+                        <input type="file" name="as_approval_lay_2" id="">
+                </td>
+                @endif
+                <input type="text" hidden name="as_up_approval_lay_by_2" value="{{ Auth::user()->first_name }}">
+                <input type="date" hidden name="as_date_approval_lay_2" value="{{ date('Y-m-d') }}">
+            </tr>
+
+        </tbody>
+    </table>
+</div>
+{{-- Akhir layout approval --}}
+
+{{-- drawing approval --}}
+{{-- awal standar formulir --}}
+<div class="flex justify-between">
+    <p class="font-normal text-lg bg-teal-600 px-4 py-1 w-fit text-white mb-2 rounded"> Drawing Approval
+    </p>
+    @foreach ($standar_project as $spt)
+        @if ($spt->file_dr_aprvl_sheet_form != '')
+            <div class="flex justify-end mr-1 mt-4">
+                <a href="{{ asset('storage/supervisor/standarproject/' . $spt->file_dr_aprvl_sheet_form) }}"
+                    download="">
+                    <div class="w-fit items-center space-x-1 flex fill-blue-600 hover:fill-blue-800">
+                        <svg width="15" height="" viewBox="0 0 52 52" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="m36.4 14.8h8.48a1.09 1.09 0 0 0 1.12-1.12 1 1 0 0 0 -.32-.8l-10.56-10.56a1 1 0 0 0 -.8-.32 1.09 1.09 0 0 0 -1.12 1.12v8.48a3.21 3.21 0 0 0 3.2 3.2z" />
+
+                            <path
+                                d="m44.4 19.6h-11.2a4.81 4.81 0 0 1 -4.8-4.8v-11.2a1.6 1.6 0 0 0 -1.6-1.6h-16a4.81 4.81 0 0 0 -4.8 4.8v38.4a4.81 4.81 0 0 0 4.8 4.8h30.4a4.81 4.81 0 0 0 4.8-4.8v-24a1.6 1.6 0 0 0 -1.6-1.6zm-32-1.6a1.62 1.62 0 0 1 1.6-1.55h6.55a1.56 1.56 0 0 1 1.57 1.55v1.59a1.63 1.63 0 0 1 -1.59 1.58h-6.53a1.55 1.55 0 0 1 -1.58-1.58zm24 20.77a1.6 1.6 0 0 1 -1.6 1.6h-20.8a1.6 1.6 0 0 1 -1.6-1.6v-1.57a1.6 1.6 0 0 1 1.6-1.6h20.8a1.6 1.6 0 0 1 1.6 1.6zm3.2-9.6a1.6 1.6 0 0 1 -1.6 1.63h-24a1.6 1.6 0 0 1 -1.6-1.6v-1.6a1.6 1.6 0 0 1 1.6-1.6h24a1.6 1.6 0 0 1 1.6 1.6z" />
+                        </svg>
+                        <p class="text-right hover:underline font-semibold text-md text-blue-600 hover:text-blue-800 ">
+                            Klik untuk mengunduh formulir kerja</p>
+                    </div>
+                </a>
             </div>
-            {{-- akhir standar formulir --}}
+        @endif
+    @endforeach
+    {{-- tombol form --}}
+</div>
+{{-- akhir standar formulir --}}
 
-            <div class="overflow-x-auto rounded-md mb-5 border">
-                <table class="w-full">
-                    <thead class="bg-green-600 text-white">
-                        <th class="py-2 w-[5%]">No.</th>
-                        <th class="w-[57%]">Nama File</th>
-                        <th class="w-[10%]">Uploaded by</th>
-                        <th class="w-[13%]">Last Update</th>
-                        <th class="w-[15%]">Upload</th>
-                    </thead>
-                    <tbody class="text-left border">
+<div class="overflow-x-auto rounded-md mb-5 border">
+    <table class="w-full">
+        <thead class="bg-green-600 text-white">
+            <th class="py-2 w-[5%]">No.</th>
+            <th class="w-[57%]">Nama File</th>
+            <th class="w-[10%]">Uploaded by</th>
+            <th class="w-[13%]">Last Update</th>
+            <th class="w-[15%]">Upload</th>
+        </thead>
+        <tbody class="text-left border">
 
-                        <tr class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
-                            <td class="py-4 font-bold text-center">1.</td>
-                            <td class="flex justify-start py-4 items-center">
+            <tr class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
+                <td class="py-4 font-bold text-center">1.</td>
+                <td class="flex justify-start py-4 items-center">
 
-                                @if ($koneksiar->approval_draw_1 != '')
-                                    <a href="{{ asset('storage/supervisor/project/02_AR/' . $koneksiar->approval_draw_1) }}"
-                                        target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
-                                        <svg width="22" height="17" viewBox="0 0 22 17" fill="none"
-                                            xmlns="http://www.w3.org/2000/svg">
-                                            <path
-                                                d="M11 0C6 0 1.73 3.11 0 7.5C1.73 11.89 6 15 11 15C11.36 15 11.72 15 12.08 14.95C12.03 14.63 12 14.32 12 14C12 13.44 12.08 12.88 12.24 12.34C11.83 12.44 11.42 12.5 11 12.5C8.24 12.5 6 10.26 6 7.5C6 4.74 8.24 2.5 11 2.5C13.76 2.5 16 4.74 16 7.5C16 7.79 15.97 8.09 15.92 8.38C16.58 8.13 17.29 8 18 8C19.17 8 20.31 8.34 21.29 9C21.56 8.5 21.8 8 22 7.5C20.27 3.11 16 0 11 0ZM11 4.5C9.34 4.5 8 5.84 8 7.5C8 9.16 9.34 10.5 11 10.5C12.66 10.5 14 9.16 14 7.5C14 5.84 12.66 4.5 11 4.5ZM17 10.5V12.5H21V14.5H17V16.5L14 13.5L17 10.5Z"
-                                                fill="black" />
-                                        </svg>
-                                    </a>
+                    @if ($koneksiar->approval_draw_1 != '')
+                        <a href="{{ asset('storage/supervisor/project/02_AR/' . $koneksiar->approval_draw_1) }}"
+                            target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
+                            <svg width="22" height="17" viewBox="0 0 22 17" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M11 0C6 0 1.73 3.11 0 7.5C1.73 11.89 6 15 11 15C11.36 15 11.72 15 12.08 14.95C12.03 14.63 12 14.32 12 14C12 13.44 12.08 12.88 12.24 12.34C11.83 12.44 11.42 12.5 11 12.5C8.24 12.5 6 10.26 6 7.5C6 4.74 8.24 2.5 11 2.5C13.76 2.5 16 4.74 16 7.5C16 7.79 15.97 8.09 15.92 8.38C16.58 8.13 17.29 8 18 8C19.17 8 20.31 8.34 21.29 9C21.56 8.5 21.8 8 22 7.5C20.27 3.11 16 0 11 0ZM11 4.5C9.34 4.5 8 5.84 8 7.5C8 9.16 9.34 10.5 11 10.5C12.66 10.5 14 9.16 14 7.5C14 5.84 12.66 4.5 11 4.5ZM17 10.5V12.5H21V14.5H17V16.5L14 13.5L17 10.5Z"
+                                    fill="black" />
+                            </svg>
+                        </a>
 
-                                    &emsp;
-                                @endif
-                                {{--  --}}
-                                <a href="{{ asset('storage/supervisor/project/02_AR/' . $koneksiar->approval_draw_1) }}"
-                                    target="blank" download="" class="hover:underline">
-                                    {{ $koneksiar->approval_draw_1 }}</a>
-                                {{-- == --}}
-                            </td>
-                            <td>
-                                @if ($koneksiar->up_approval_draw_by_1 != '')
-                                    <div
-                                        class="items-center py-1 px-2 text-sm font-medium text-center text-white bg-orange-500 w-[100] mx-auto rounded">
-                                        {{ $koneksiar->up_approval_draw_by_1 }}
-                                    </div>
-                                @endif
-                            </td>
-                            <td class="text-center">{{ $koneksiar->date_approval_draw_1 }}</td>
-                            <td>
-                                @if ($koneksiar->approval_draw_1 != '')
-                                    <div class="justify-center flex space-x-2">
-                                        <button type="button"
-                                            class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
-                                            data-modal-target="modal41" data-modal-show="modal41"
-                                            data-modal-toggle="modal41">
-                                            Ubah
-                                        </button>
-                                    </div>
-                                @else
-                                    <input type="file" name="as_approval_draw_1" id="">
-                                @endif
-                            </td>
-                            <input type="text" hidden name="as_up_approval_draw_by_1"
-                                value="{{ Auth::user()->first_name }}">
-                            <input type="date" hidden name="as_date_approval_draw_1"
-                                value="{{ date('Y-m-d') }}">
-
-                        </tr>
-
-                        <tr class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
-                            <td class="py-4 font-bold text-center">2.</td>
-                            <td class="flex justify-start py-4 items-center">
-
-                                @if ($koneksiar->approval_draw_2 != '')
-                                    <a href="{{ asset('storage/supervisor/project/02_AR/' . $koneksiar->approval_draw_2) }}"
-                                        target="blank" class="py-2 px-1 rounded hover:bg-gray-200 ">
-                                        <svg width="22" height="17" viewBox="0 0 22 17" fill="none"
-                                            xmlns="http://www.w3.org/2000/svg">
-                                            <path
-                                                d="M11 0C6 0 1.73 3.11 0 7.5C1.73 11.89 6 15 11 15C11.36 15 11.72 15 12.08 14.95C12.03 14.63 12 14.32 12 14C12 13.44 12.08 12.88 12.24 12.34C11.83 12.44 11.42 12.5 11 12.5C8.24 12.5 6 10.26 6 7.5C6 4.74 8.24 2.5 11 2.5C13.76 2.5 16 4.74 16 7.5C16 7.79 15.97 8.09 15.92 8.38C16.58 8.13 17.29 8 18 8C19.17 8 20.31 8.34 21.29 9C21.56 8.5 21.8 8 22 7.5C20.27 3.11 16 0 11 0ZM11 4.5C9.34 4.5 8 5.84 8 7.5C8 9.16 9.34 10.5 11 10.5C12.66 10.5 14 9.16 14 7.5C14 5.84 12.66 4.5 11 4.5ZM17 10.5V12.5H21V14.5H17V16.5L14 13.5L17 10.5Z"
-                                                fill="black" />
-                                        </svg>
-                                    </a>
-
-                                    &emsp;
-                                @endif
-                                {{--  --}}
-                                <a href="{{ asset('storage/supervisor/project/02_AR/' . $koneksiar->approval_draw_2) }}"
-                                    target="blank" download="" class="hover:underline ">
-                                    {{ $koneksiar->approval_draw_2 }}</a>
-                                {{-- == --}}
-
-
-                            </td>
-                            <td>
-                                @if ($koneksiar->up_approval_draw_by_2 != '')
-                                    <div
-                                        class="items-center py-1 px-2 text-sm font-medium text-center text-white bg-orange-500 w-[100] mx-auto rounded">
-                                        {{ $koneksiar->up_approval_draw_by_2 }}
-                                    </div>
-                                @endif
-                            </td>
-                            <td class="text-center">{{ $koneksiar->date_approval_draw_2 }}</td>
-                            <td>
-                                @if ($koneksiar->approval_draw_2 != '')
-                                    <div class="justify-center flex space-x-2">
-                                        <button type="button"
-                                            class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
-                                            data-modal-target="modal42" data-modal-show="modal42"
-                                            data-modal-toggle="modal42">
-                                            Ubah
-                                        </button>
-                                    </div>
-                                @else
-                                    <input type="file" name="as_approval_draw_2" id="">
-                                @endif
-                            </td>
-                            <input type="text" hidden name="as_up_approval_draw_by_2"
-                                value="{{ Auth::user()->first_name }}">
-                            <input type="date" hidden name="as_date_approval_draw_2"
-                                value="{{ date('Y-m-d') }}">
-                        </tr>
-
-                    </tbody>
-                </table>
-            </div>
-            {{-- Akhir drawing approval --}}
-
-            {{-- Design Sheet --}}
-            {{-- awal standar formulir --}}
-            <div class="flex justify-between">
-                <p class="font-normal text-lg bg-teal-600 px-4 py-1 w-fit text-white mb-2 rounded"> Design Sheet
-                </p>
-                @foreach ($standar_project as $spt)
-                    @if ($spt->file_design_sheet_form != '')
-                        <div class="flex justify-end mr-1 mt-4">
-                            <a href="{{ asset('storage/supervisor/standarproject/' . $spt->file_design_sheet_form) }}"
-                                download="">
-                                <div class="w-fit items-center space-x-1 flex fill-blue-600 hover:fill-blue-800">
-                                    <svg width="15" height="" viewBox="0 0 52 52"
-                                        xmlns="http://www.w3.org/2000/svg">
-                                        <path
-                                            d="m36.4 14.8h8.48a1.09 1.09 0 0 0 1.12-1.12 1 1 0 0 0 -.32-.8l-10.56-10.56a1 1 0 0 0 -.8-.32 1.09 1.09 0 0 0 -1.12 1.12v8.48a3.21 3.21 0 0 0 3.2 3.2z" />
-
-                                        <path
-                                            d="m44.4 19.6h-11.2a4.81 4.81 0 0 1 -4.8-4.8v-11.2a1.6 1.6 0 0 0 -1.6-1.6h-16a4.81 4.81 0 0 0 -4.8 4.8v38.4a4.81 4.81 0 0 0 4.8 4.8h30.4a4.81 4.81 0 0 0 4.8-4.8v-24a1.6 1.6 0 0 0 -1.6-1.6zm-32-1.6a1.62 1.62 0 0 1 1.6-1.55h6.55a1.56 1.56 0 0 1 1.57 1.55v1.59a1.63 1.63 0 0 1 -1.59 1.58h-6.53a1.55 1.55 0 0 1 -1.58-1.58zm24 20.77a1.6 1.6 0 0 1 -1.6 1.6h-20.8a1.6 1.6 0 0 1 -1.6-1.6v-1.57a1.6 1.6 0 0 1 1.6-1.6h20.8a1.6 1.6 0 0 1 1.6 1.6zm3.2-9.6a1.6 1.6 0 0 1 -1.6 1.63h-24a1.6 1.6 0 0 1 -1.6-1.6v-1.6a1.6 1.6 0 0 1 1.6-1.6h24a1.6 1.6 0 0 1 1.6 1.6z" />
-                                    </svg>
-                                    <p
-                                        class="text-right hover:underline font-semibold text-md text-blue-600 hover:text-blue-800 ">
-                                        Klik untuk mengunduh formulir kerja</p>
-                                </div>
-                            </a>
+                        &emsp;
+                    @endif
+                    {{--  --}}
+                    <a href="{{ asset('storage/supervisor/project/02_AR/' . $koneksiar->approval_draw_1) }}"
+                        target="blank" download="" class="hover:underline">
+                        {{ $koneksiar->approval_draw_1 }}</a>
+                    {{-- == --}}
+                </td>
+                <td>
+                    @if ($koneksiar->up_approval_draw_by_1 != '')
+                        <div
+                            class="items-center py-1 px-2 text-sm font-medium text-center text-white bg-orange-500 w-[100] mx-auto rounded">
+                            {{ $koneksiar->up_approval_draw_by_1 }}
                         </div>
                     @endif
-                @endforeach
-                {{-- tombol form --}}
-            </div>
-            {{-- akhir standar formulir --}}
+                </td>
+                <td class="text-center">{{ $koneksiar->date_approval_draw_1 }}</td>
+                <td>
+                    @if ($koneksiar->approval_draw_1 != '')
+                        <div class="justify-center flex space-x-2">
+                            <button type="button"
+                                class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                data-modal-target="modal41" data-modal-show="modal41" data-modal-toggle="modal41">
+                                Ubah
+                            </button>
+                        </div>
+                    @else
+                        <input type="file" name="as_approval_draw_1" id="">
+                    @endif
+                </td>
+                <input type="text" hidden name="as_up_approval_draw_by_1"
+                    value="{{ Auth::user()->first_name }}">
+                <input type="date" hidden name="as_date_approval_draw_1" value="{{ date('Y-m-d') }}">
+
+            </tr>
+
+            <tr class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
+                <td class="py-4 font-bold text-center">2.</td>
+                <td class="flex justify-start py-4 items-center">
+
+                    @if ($koneksiar->approval_draw_2 != '')
+                        <a href="{{ asset('storage/supervisor/project/02_AR/' . $koneksiar->approval_draw_2) }}"
+                            target="blank" class="py-2 px-1 rounded hover:bg-gray-200 ">
+                            <svg width="22" height="17" viewBox="0 0 22 17" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M11 0C6 0 1.73 3.11 0 7.5C1.73 11.89 6 15 11 15C11.36 15 11.72 15 12.08 14.95C12.03 14.63 12 14.32 12 14C12 13.44 12.08 12.88 12.24 12.34C11.83 12.44 11.42 12.5 11 12.5C8.24 12.5 6 10.26 6 7.5C6 4.74 8.24 2.5 11 2.5C13.76 2.5 16 4.74 16 7.5C16 7.79 15.97 8.09 15.92 8.38C16.58 8.13 17.29 8 18 8C19.17 8 20.31 8.34 21.29 9C21.56 8.5 21.8 8 22 7.5C20.27 3.11 16 0 11 0ZM11 4.5C9.34 4.5 8 5.84 8 7.5C8 9.16 9.34 10.5 11 10.5C12.66 10.5 14 9.16 14 7.5C14 5.84 12.66 4.5 11 4.5ZM17 10.5V12.5H21V14.5H17V16.5L14 13.5L17 10.5Z"
+                                    fill="black" />
+                            </svg>
+                        </a>
+
+                        &emsp;
+                    @endif
+                    {{--  --}}
+                    <a href="{{ asset('storage/supervisor/project/02_AR/' . $koneksiar->approval_draw_2) }}"
+                        target="blank" download="" class="hover:underline ">
+                        {{ $koneksiar->approval_draw_2 }}</a>
+                    {{-- == --}}
 
 
-
-            <div class="overflow-x-auto rounded-md mb-5 border">
-                <table class="w-full">
-                    <thead class="bg-green-600 text-white">
-                        <th class="py-2 w-[5%]">No.</th>
-                        <th class="w-[57%]">Nama File</th>
-                        <th class="w-[10%]">Uploaded by</th>
-                        <th class="w-[13%]">Last Update</th>
-                        <th class="w-[15%]">Upload</th>
-                    </thead>
-                    <tbody class="text-left border">
-
-                        <tr class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
-                            <td class="py-4 font-bold text-center">1.</td>
-                            <td class="flex justify-start py-4 items-center">
-
-                                @if ($koneksiar->dsgn_sheet_1 != '')
-                                    <a href="{{ asset('storage/supervisor/project/02_AR/' . $koneksiar->dsgn_sheet_1) }}"
-                                        target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
-                                        <svg width="22" height="17" viewBox="0 0 22 17" fill="none"
-                                            xmlns="http://www.w3.org/2000/svg">
-                                            <path
-                                                d="M11 0C6 0 1.73 3.11 0 7.5C1.73 11.89 6 15 11 15C11.36 15 11.72 15 12.08 14.95C12.03 14.63 12 14.32 12 14C12 13.44 12.08 12.88 12.24 12.34C11.83 12.44 11.42 12.5 11 12.5C8.24 12.5 6 10.26 6 7.5C6 4.74 8.24 2.5 11 2.5C13.76 2.5 16 4.74 16 7.5C16 7.79 15.97 8.09 15.92 8.38C16.58 8.13 17.29 8 18 8C19.17 8 20.31 8.34 21.29 9C21.56 8.5 21.8 8 22 7.5C20.27 3.11 16 0 11 0ZM11 4.5C9.34 4.5 8 5.84 8 7.5C8 9.16 9.34 10.5 11 10.5C12.66 10.5 14 9.16 14 7.5C14 5.84 12.66 4.5 11 4.5ZM17 10.5V12.5H21V14.5H17V16.5L14 13.5L17 10.5Z"
-                                                fill="black" />
-                                        </svg>
-                                    </a>
-
-                                    &emsp;
-                                @endif
-                                {{--  --}}
-                                <a href="{{ asset('storage/supervisor/project/02_AR/' . $koneksiar->dsgn_sheet_1) }}"
-                                    target="blank" download="" class="hover:underline">
-                                    {{ $koneksiar->dsgn_sheet_1 }}</a>
-                                {{-- == --}}
-
-
-
-                            </td>
-                            <td>
-                                @if ($koneksiar->up_dsgn_sheet_by_1 != '')
-                                    <div
-                                        class="items-center py-1 px-2 text-sm font-medium text-center text-white bg-orange-500 w-[100] mx-auto rounded">
-                                        {{ $koneksiar->up_dsgn_sheet_by_1 }}
-                                    </div>
-                                @endif
-                            </td>
-                            <td class="text-center">{{ $koneksiar->date_dsgn_sheet_1 }}</td>
-                            <td>
-                                @if ($koneksiar->dsgn_sheet_1 != '')
-                                    <div class="justify-center flex space-x-2">
-                                        <button type="button"
-                                            class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
-                                            data-modal-target="modal51" data-modal-show="modal51"
-                                            data-modal-toggle="modal51">
-                                            Ubah
-                                        </button>
-                                    </div>
-                                @else
-                                    <input type="file" name="as_dsgn_sheet_1" id="">
-                                @endif
-                            </td>
-                            <input type="text" hidden name="as_up_dsgn_sheet_by_1"
-                                value="{{ Auth::user()->first_name }}">
-                            <input type="date" hidden name="as_date_dsgn_sheet_1" value="{{ date('Y-m-d') }}">
-
-                        </tr>
-
-                        <tr class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
-                            <td class="py-4 font-bold text-center">2.</td>
-                            <td class="flex justify-start py-4 items-center">
-
-                                @if ($koneksiar->dsgn_sheet_2 != '')
-                                    <a href="{{ asset('storage/supervisor/project/02_AR/' . $koneksiar->dsgn_sheet_2) }}"
-                                        target="blank" class="py-2 px-1 rounded hover:bg-gray-200 ">
-                                        <svg width="22" height="17" viewBox="0 0 22 17" fill="none"
-                                            xmlns="http://www.w3.org/2000/svg">
-                                            <path
-                                                d="M11 0C6 0 1.73 3.11 0 7.5C1.73 11.89 6 15 11 15C11.36 15 11.72 15 12.08 14.95C12.03 14.63 12 14.32 12 14C12 13.44 12.08 12.88 12.24 12.34C11.83 12.44 11.42 12.5 11 12.5C8.24 12.5 6 10.26 6 7.5C6 4.74 8.24 2.5 11 2.5C13.76 2.5 16 4.74 16 7.5C16 7.79 15.97 8.09 15.92 8.38C16.58 8.13 17.29 8 18 8C19.17 8 20.31 8.34 21.29 9C21.56 8.5 21.8 8 22 7.5C20.27 3.11 16 0 11 0ZM11 4.5C9.34 4.5 8 5.84 8 7.5C8 9.16 9.34 10.5 11 10.5C12.66 10.5 14 9.16 14 7.5C14 5.84 12.66 4.5 11 4.5ZM17 10.5V12.5H21V14.5H17V16.5L14 13.5L17 10.5Z"
-                                                fill="black" />
-                                        </svg>
-                                    </a>
-
-                                    &emsp;
-                                @endif
-                                {{--  --}}
-                                <a href="{{ asset('storage/supervisor/project/02_AR/' . $koneksiar->dsgn_sheet_2) }}"
-                                    target="blank" download="" class="hover:underline ">
-                                    {{ $koneksiar->dsgn_sheet_2 }}</a>
-                                {{-- == --}}
-
-
-                            </td>
-                            <td>
-                                @if ($koneksiar->up_dsgn_sheet_by_2 != '')
-                                    <div
-                                        class="items-center py-1 px-2 text-sm font-medium text-center text-white bg-orange-500 w-[100] mx-auto rounded">
-                                        {{ $koneksiar->up_dsgn_sheet_by_2 }}
-                                    </div>
-                                @endif
-                            </td>
-                            <td class="text-center">{{ $koneksiar->date_dsgn_sheet_2 }}</td>
-                            <td>
-                                @if ($koneksiar->dsgn_sheet_2 != '')
-                                    <div class="justify-center flex space-x-2">
-                                        <button type="button"
-                                            class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
-                                            data-modal-target="modal52" data-modal-show="modal52"
-                                            data-modal-toggle="modal52">
-                                            Ubah
-                                        </button>
-                                    </div>
-                                @else
-                                    <input type="file" name="as_dsgn_sheet_2" id="">
-                                @endif
-                            </td>
-                            <input type="text" hidden name="as_up_dsgn_sheet_by_2"
-                                value="{{ Auth::user()->first_name }}">
-                            <input type="date" hidden name="as_date_dsgn_sheet_2" value="{{ date('Y-m-d') }}">
-                        </tr>
-
-                    </tbody>
-                </table>
-            </div>
-            {{-- Akhir design sheet --}}
-
-            {{--  DR Meeting --}}
-            {{-- awal standar formulir --}}
-            <div class="flex justify-between">
-                <p class="font-normal text-lg bg-teal-600 px-4 py-1 w-fit text-white mb-2 rounded"> Design Review (DR) Meeting
-                </p>
-                @foreach ($standar_project as $spt)
-                    @if ($spt->file_dr_meeting_form != '')
-                        <div class="flex justify-end mr-1 mt-4">
-                            <a href="{{ asset('storage/supervisor/standarproject/' . $spt->file_dr_meeting_form) }}"
-                                download="">
-                                <div class="w-fit items-center space-x-1 flex fill-blue-600 hover:fill-blue-800">
-                                    <svg width="15" height="" viewBox="0 0 52 52"
-                                        xmlns="http://www.w3.org/2000/svg">
-                                        <path
-                                            d="m36.4 14.8h8.48a1.09 1.09 0 0 0 1.12-1.12 1 1 0 0 0 -.32-.8l-10.56-10.56a1 1 0 0 0 -.8-.32 1.09 1.09 0 0 0 -1.12 1.12v8.48a3.21 3.21 0 0 0 3.2 3.2z" />
-
-                                        <path
-                                            d="m44.4 19.6h-11.2a4.81 4.81 0 0 1 -4.8-4.8v-11.2a1.6 1.6 0 0 0 -1.6-1.6h-16a4.81 4.81 0 0 0 -4.8 4.8v38.4a4.81 4.81 0 0 0 4.8 4.8h30.4a4.81 4.81 0 0 0 4.8-4.8v-24a1.6 1.6 0 0 0 -1.6-1.6zm-32-1.6a1.62 1.62 0 0 1 1.6-1.55h6.55a1.56 1.56 0 0 1 1.57 1.55v1.59a1.63 1.63 0 0 1 -1.59 1.58h-6.53a1.55 1.55 0 0 1 -1.58-1.58zm24 20.77a1.6 1.6 0 0 1 -1.6 1.6h-20.8a1.6 1.6 0 0 1 -1.6-1.6v-1.57a1.6 1.6 0 0 1 1.6-1.6h20.8a1.6 1.6 0 0 1 1.6 1.6zm3.2-9.6a1.6 1.6 0 0 1 -1.6 1.63h-24a1.6 1.6 0 0 1 -1.6-1.6v-1.6a1.6 1.6 0 0 1 1.6-1.6h24a1.6 1.6 0 0 1 1.6 1.6z" />
-                                    </svg>
-                                    <p
-                                        class="text-right hover:underline font-semibold text-md text-blue-600 hover:text-blue-800 ">
-                                        Klik untuk mengunduh formulir kerja</p>
-                                </div>
-                            </a>
+                </td>
+                <td>
+                    @if ($koneksiar->up_approval_draw_by_2 != '')
+                        <div
+                            class="items-center py-1 px-2 text-sm font-medium text-center text-white bg-orange-500 w-[100] mx-auto rounded">
+                            {{ $koneksiar->up_approval_draw_by_2 }}
                         </div>
                     @endif
-                @endforeach
-                {{-- tombol form --}}
+                </td>
+                <td class="text-center">{{ $koneksiar->date_approval_draw_2 }}</td>
+                <td>
+                    @if ($koneksiar->approval_draw_2 != '')
+                        <div class="justify-center flex space-x-2">
+                            <button type="button"
+                                class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                data-modal-target="modal42" data-modal-show="modal42" data-modal-toggle="modal42">
+                                Ubah
+                            </button>
+                        </div>
+                    @else
+                        <input type="file" name="as_approval_draw_2" id="">
+                    @endif
+                </td>
+                <input type="text" hidden name="as_up_approval_draw_by_2"
+                    value="{{ Auth::user()->first_name }}">
+                <input type="date" hidden name="as_date_approval_draw_2" value="{{ date('Y-m-d') }}">
+            </tr>
+
+        </tbody>
+    </table>
+</div>
+{{-- Akhir drawing approval --}}
+
+{{-- Design Sheet --}}
+{{-- awal standar formulir --}}
+<div class="flex justify-between">
+    <p class="font-normal text-lg bg-teal-600 px-4 py-1 w-fit text-white mb-2 rounded"> Design Sheet
+    </p>
+    @foreach ($standar_project as $spt)
+        @if ($spt->file_design_sheet_form != '')
+            <div class="flex justify-end mr-1 mt-4">
+                <a href="{{ asset('storage/supervisor/standarproject/' . $spt->file_design_sheet_form) }}"
+                    download="">
+                    <div class="w-fit items-center space-x-1 flex fill-blue-600 hover:fill-blue-800">
+                        <svg width="15" height="" viewBox="0 0 52 52" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="m36.4 14.8h8.48a1.09 1.09 0 0 0 1.12-1.12 1 1 0 0 0 -.32-.8l-10.56-10.56a1 1 0 0 0 -.8-.32 1.09 1.09 0 0 0 -1.12 1.12v8.48a3.21 3.21 0 0 0 3.2 3.2z" />
+
+                            <path
+                                d="m44.4 19.6h-11.2a4.81 4.81 0 0 1 -4.8-4.8v-11.2a1.6 1.6 0 0 0 -1.6-1.6h-16a4.81 4.81 0 0 0 -4.8 4.8v38.4a4.81 4.81 0 0 0 4.8 4.8h30.4a4.81 4.81 0 0 0 4.8-4.8v-24a1.6 1.6 0 0 0 -1.6-1.6zm-32-1.6a1.62 1.62 0 0 1 1.6-1.55h6.55a1.56 1.56 0 0 1 1.57 1.55v1.59a1.63 1.63 0 0 1 -1.59 1.58h-6.53a1.55 1.55 0 0 1 -1.58-1.58zm24 20.77a1.6 1.6 0 0 1 -1.6 1.6h-20.8a1.6 1.6 0 0 1 -1.6-1.6v-1.57a1.6 1.6 0 0 1 1.6-1.6h20.8a1.6 1.6 0 0 1 1.6 1.6zm3.2-9.6a1.6 1.6 0 0 1 -1.6 1.63h-24a1.6 1.6 0 0 1 -1.6-1.6v-1.6a1.6 1.6 0 0 1 1.6-1.6h24a1.6 1.6 0 0 1 1.6 1.6z" />
+                        </svg>
+                        <p class="text-right hover:underline font-semibold text-md text-blue-600 hover:text-blue-800 ">
+                            Klik untuk mengunduh formulir kerja</p>
+                    </div>
+                </a>
             </div>
-            {{-- akhir standar formulir --}}
+        @endif
+    @endforeach
+    {{-- tombol form --}}
+</div>
+{{-- akhir standar formulir --}}
 
 
 
-            <div class="overflow-x-auto rounded-md mb-5 border">
-                <table class="w-full">
-                    <thead class="bg-green-600 text-white">
-                        <th class="py-2 w-[5%]">No.</th>
-                        <th class="w-[57%]">Nama File</th>
-                        <th class="w-[10%]">Uploaded by</th>
-                        <th class="w-[13%]">Last Update</th>
-                        <th class="w-[15%]">Upload</th>
-                    </thead>
-                    <tbody class="text-left border">
+<div class="overflow-x-auto rounded-md mb-5 border">
+    <table class="w-full">
+        <thead class="bg-green-600 text-white">
+            <th class="py-2 w-[5%]">No.</th>
+            <th class="w-[57%]">Nama File</th>
+            <th class="w-[10%]">Uploaded by</th>
+            <th class="w-[13%]">Last Update</th>
+            <th class="w-[15%]">Upload</th>
+        </thead>
+        <tbody class="text-left border">
 
-                        <tr class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
-                            <td class="py-4 font-bold text-center">1.</td>
-                            <td class="flex justify-start py-4 items-center">
+            <tr class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
+                <td class="py-4 font-bold text-center">1.</td>
+                <td class="flex justify-start py-4 items-center">
 
-                                @if ($koneksiar->dr_meet_1 != '')
-                                    <a href="{{ asset('storage/supervisor/project/02_AR/' . $koneksiar->dr_meet_1) }}"
-                                        target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
-                                        <svg width="22" height="17" viewBox="0 0 22 17" fill="none"
-                                            xmlns="http://www.w3.org/2000/svg">
-                                            <path
-                                                d="M11 0C6 0 1.73 3.11 0 7.5C1.73 11.89 6 15 11 15C11.36 15 11.72 15 12.08 14.95C12.03 14.63 12 14.32 12 14C12 13.44 12.08 12.88 12.24 12.34C11.83 12.44 11.42 12.5 11 12.5C8.24 12.5 6 10.26 6 7.5C6 4.74 8.24 2.5 11 2.5C13.76 2.5 16 4.74 16 7.5C16 7.79 15.97 8.09 15.92 8.38C16.58 8.13 17.29 8 18 8C19.17 8 20.31 8.34 21.29 9C21.56 8.5 21.8 8 22 7.5C20.27 3.11 16 0 11 0ZM11 4.5C9.34 4.5 8 5.84 8 7.5C8 9.16 9.34 10.5 11 10.5C12.66 10.5 14 9.16 14 7.5C14 5.84 12.66 4.5 11 4.5ZM17 10.5V12.5H21V14.5H17V16.5L14 13.5L17 10.5Z"
-                                                fill="black" />
-                                        </svg>
-                                    </a>
+                    @if ($koneksiar->dsgn_sheet_1 != '')
+                        <a href="{{ asset('storage/supervisor/project/02_AR/' . $koneksiar->dsgn_sheet_1) }}"
+                            target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
+                            <svg width="22" height="17" viewBox="0 0 22 17" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M11 0C6 0 1.73 3.11 0 7.5C1.73 11.89 6 15 11 15C11.36 15 11.72 15 12.08 14.95C12.03 14.63 12 14.32 12 14C12 13.44 12.08 12.88 12.24 12.34C11.83 12.44 11.42 12.5 11 12.5C8.24 12.5 6 10.26 6 7.5C6 4.74 8.24 2.5 11 2.5C13.76 2.5 16 4.74 16 7.5C16 7.79 15.97 8.09 15.92 8.38C16.58 8.13 17.29 8 18 8C19.17 8 20.31 8.34 21.29 9C21.56 8.5 21.8 8 22 7.5C20.27 3.11 16 0 11 0ZM11 4.5C9.34 4.5 8 5.84 8 7.5C8 9.16 9.34 10.5 11 10.5C12.66 10.5 14 9.16 14 7.5C14 5.84 12.66 4.5 11 4.5ZM17 10.5V12.5H21V14.5H17V16.5L14 13.5L17 10.5Z"
+                                    fill="black" />
+                            </svg>
+                        </a>
 
-                                    &emsp;
-                                @endif
-                                {{--  --}}
-                                <a href="{{ asset('storage/supervisor/project/02_AR/' . $koneksiar->dr_meet_1) }}"
-                                    target="blank" download="" class="hover:underline">
-                                    {{ $koneksiar->dr_meet_1 }}</a>
-                                {{-- == --}}
-
-
-
-                            </td>
-                            <td>
-                                @if ($koneksiar->up_dr_meet_by_1 != '')
-                                    <div
-                                        class="items-center py-1 px-2 text-sm font-medium text-center text-white bg-orange-500 w-[100] mx-auto rounded">
-                                        {{ $koneksiar->up_dr_meet_by_1 }}
-                                    </div>
-                                @endif
-                            </td>
-                            <td class="text-center">{{ $koneksiar->date_dr_meet_1 }}</td>
-                            <td>
-                                @if ($koneksiar->dr_meet_1 != '')
-                                    <div class="justify-center flex space-x-2">
-                                        <button type="button"
-                                            class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
-                                            data-modal-target="modal61" data-modal-show="modal61"
-                                            data-modal-toggle="modal61">
-                                            Ubah
-                                        </button>
-                                    </div>
-                                @else
-                                    <input type="file" name="as_dr_meet_1" id="">
-                                @endif
-                            </td>
-                            <input type="text" hidden name="as_up_dr_meet_by_1"
-                                value="{{ Auth::user()->first_name }}">
-                            <input type="date" hidden name="as_date_dr_meet_1" value="{{ date('Y-m-d') }}">
-
-                        </tr>
-
-                        <tr class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
-                            <td class="py-4 font-bold text-center">2.</td>
-                            <td class="flex justify-start py-4 items-center">
-
-                                @if ($koneksiar->dr_meet_2 != '')
-                                    <a href="{{ asset('storage/supervisor/project/02_AR/' . $koneksiar->dr_meet_2) }}"
-                                        target="blank" class="py-2 px-1 rounded hover:bg-gray-200 ">
-                                        <svg width="22" height="17" viewBox="0 0 22 17" fill="none"
-                                            xmlns="http://www.w3.org/2000/svg">
-                                            <path
-                                                d="M11 0C6 0 1.73 3.11 0 7.5C1.73 11.89 6 15 11 15C11.36 15 11.72 15 12.08 14.95C12.03 14.63 12 14.32 12 14C12 13.44 12.08 12.88 12.24 12.34C11.83 12.44 11.42 12.5 11 12.5C8.24 12.5 6 10.26 6 7.5C6 4.74 8.24 2.5 11 2.5C13.76 2.5 16 4.74 16 7.5C16 7.79 15.97 8.09 15.92 8.38C16.58 8.13 17.29 8 18 8C19.17 8 20.31 8.34 21.29 9C21.56 8.5 21.8 8 22 7.5C20.27 3.11 16 0 11 0ZM11 4.5C9.34 4.5 8 5.84 8 7.5C8 9.16 9.34 10.5 11 10.5C12.66 10.5 14 9.16 14 7.5C14 5.84 12.66 4.5 11 4.5ZM17 10.5V12.5H21V14.5H17V16.5L14 13.5L17 10.5Z"
-                                                fill="black" />
-                                        </svg>
-                                    </a>
-
-                                    &emsp;
-                                @endif
-                                {{--  --}}
-                                <a href="{{ asset('storage/supervisor/project/02_AR/' . $koneksiar->dr_meet_2) }}"
-                                    target="blank" download="" class="hover:underline ">
-                                    {{ $koneksiar->dr_meet_2 }}</a>
-                                {{-- == --}}
-
-
-                            </td>
-                            <td>
-                                @if ($koneksiar->up_dr_meet_by_2 != '')
-                                    <div
-                                        class="items-center py-1 px-2 text-sm font-medium text-center text-white bg-orange-500 w-[100] mx-auto rounded">
-                                        {{ $koneksiar->up_dr_meet_by_2 }}
-                                    </div>
-                                @endif
-                            </td>
-                            <td class="text-center">{{ $koneksiar->date_dr_meet_2 }}</td>
-                            <td>
-                                @if ($koneksiar->dr_meet_2 != '')
-                                    <div class="justify-center flex space-x-2">
-                                        <button type="button"
-                                            class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
-                                            data-modal-target="modal62" data-modal-show="modal62"
-                                            data-modal-toggle="modal62">
-                                            Ubah
-                                        </button>
-                                    </div>
-                                @else
-                                    <input type="file" name="as_dr_meet_2" id="">
-                                @endif
-                            </td>
-                            <input type="text" hidden name="as_up_dr_meet_by_2"
-                                value="{{ Auth::user()->first_name }}">
-                            <input type="date" hidden name="as_date_dr_meet_2" value="{{ date('Y-m-d') }}">
-                        </tr>
-                        <tr class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
-                            <td class="py-4 font-bold text-center">3.</td>
-                            <td class="flex justify-start py-4 items-center">
-
-                                @if ($koneksiar->dr_meet_3 != '')
-                                    <a href="{{ asset('storage/supervisor/project/02_AR/' . $koneksiar->dr_meet_3) }}"
-                                        target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
-                                        <svg width="22" height="17" viewBox="0 0 22 17" fill="none"
-                                            xmlns="http://www.w3.org/2000/svg">
-                                            <path
-                                                d="M11 0C6 0 1.73 3.11 0 7.5C1.73 11.89 6 15 11 15C11.36 15 11.72 15 12.08 14.95C12.03 14.63 12 14.32 12 14C12 13.44 12.08 12.88 12.24 12.34C11.83 12.44 11.42 12.5 11 12.5C8.24 12.5 6 10.26 6 7.5C6 4.74 8.24 2.5 11 2.5C13.76 2.5 16 4.74 16 7.5C16 7.79 15.97 8.09 15.92 8.38C16.58 8.13 17.29 8 18 8C19.17 8 20.31 8.34 21.29 9C21.56 8.5 21.8 8 22 7.5C20.27 3.11 16 0 11 0ZM11 4.5C9.34 4.5 8 5.84 8 7.5C8 9.16 9.34 10.5 11 10.5C12.66 10.5 14 9.16 14 7.5C14 5.84 12.66 4.5 11 4.5ZM17 10.5V12.5H21V14.5H17V16.5L14 13.5L17 10.5Z"
-                                                fill="black" />
-                                        </svg>
-                                    </a>
-
-                                    &emsp;
-                                @endif
-                                {{--  --}}
-                                <a href="{{ asset('storage/supervisor/project/02_AR/' . $koneksiar->dr_meet_3) }}"
-                                    target="blank" download="" class="hover:underline">
-                                    {{ $koneksiar->dr_meet_3 }}</a>
-                                {{-- == --}}
+                        &emsp;
+                    @endif
+                    {{--  --}}
+                    <a href="{{ asset('storage/supervisor/project/02_AR/' . $koneksiar->dsgn_sheet_1) }}"
+                        target="blank" download="" class="hover:underline">
+                        {{ $koneksiar->dsgn_sheet_1 }}</a>
+                    {{-- == --}}
 
 
 
-                            </td>
-                            <td>
-                                @if ($koneksiar->up_dr_meet_by_3 != '')
-                                    <div
-                                        class="items-center py-1 px-2 text-sm font-medium text-center text-white bg-orange-500 w-[100] mx-auto rounded">
-                                        {{ $koneksiar->up_dr_meet_by_3 }}
-                                    </div>
-                                @endif
-                            </td>
-                            <td class="text-center">{{ $koneksiar->date_dr_meet_3 }}</td>
-                            <td>
-                                @if ($koneksiar->dr_meet_3 != '')
-                                    <div class="justify-center flex space-x-2">
-                                        <button type="button"
-                                            class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
-                                            data-modal-target="modal63" data-modal-show="modal63"
-                                            data-modal-toggle="modal63">
-                                            Ubah
-                                        </button>
-                                    </div>
-                                @else
-                                    <input type="file" name="as_dr_meet_3" id="">
-                                @endif
-                            </td>
-                            <input type="text" hidden name="as_up_dr_meet_by_3"
-                                value="{{ Auth::user()->first_name }}">
-                            <input type="date" hidden name="as_date_dr_meet_3" value="{{ date('Y-m-d') }}">
-
-                        </tr>
-
-                        <tr class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
-                            <td class="py-4 font-bold text-center">4.</td>
-                            <td class="flex justify-start py-4 items-center">
-
-                                @if ($koneksiar->dr_meet_4 != '')
-                                    <a href="{{ asset('storage/supervisor/project/02_AR/' . $koneksiar->dr_meet_4) }}"
-                                        target="blank" class="py-2 px-1 rounded hover:bg-gray-200 ">
-                                        <svg width="22" height="17" viewBox="0 0 22 17" fill="none"
-                                            xmlns="http://www.w3.org/2000/svg">
-                                            <path
-                                                d="M11 0C6 0 1.73 3.11 0 7.5C1.73 11.89 6 15 11 15C11.36 15 11.72 15 12.08 14.95C12.03 14.63 12 14.32 12 14C12 13.44 12.08 12.88 12.24 12.34C11.83 12.44 11.42 12.5 11 12.5C8.24 12.5 6 10.26 6 7.5C6 4.74 8.24 2.5 11 2.5C13.76 2.5 16 4.74 16 7.5C16 7.79 15.97 8.09 15.92 8.38C16.58 8.13 17.29 8 18 8C19.17 8 20.31 8.34 21.29 9C21.56 8.5 21.8 8 22 7.5C20.27 3.11 16 0 11 0ZM11 4.5C9.34 4.5 8 5.84 8 7.5C8 9.16 9.34 10.5 11 10.5C12.66 10.5 14 9.16 14 7.5C14 5.84 12.66 4.5 11 4.5ZM17 10.5V12.5H21V14.5H17V16.5L14 13.5L17 10.5Z"
-                                                fill="black" />
-                                        </svg>
-                                    </a>
-
-                                    &emsp;
-                                @endif
-                                {{--  --}}
-                                <a href="{{ asset('storage/supervisor/project/02_AR/' . $koneksiar->dr_meet_4) }}"
-                                    target="blank" download="" class="hover:underline ">
-                                    {{ $koneksiar->dr_meet_4 }}</a>
-                                {{-- == --}}
-
-
-                            </td>
-                            <td>
-                                @if ($koneksiar->up_dr_meet_by_4 != '')
-                                    <div
-                                        class="items-center py-1 px-2 text-sm font-medium text-center text-white bg-orange-500 w-[100] mx-auto rounded">
-                                        {{ $koneksiar->up_dr_meet_by_4 }}
-                                    </div>
-                                @endif
-                            </td>
-                            <td class="text-center">{{ $koneksiar->date_dr_meet_4 }}</td>
-                            <td>
-                                @if ($koneksiar->dr_meet_4 != '')
-                                    <div class="justify-center flex space-x-2">
-                                        <button type="button"
-                                            class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
-                                            data-modal-target="modal64" data-modal-show="modal64"
-                                            data-modal-toggle="modal64">
-                                            Ubah
-                                        </button>
-                                    </div>
-                                @else
-                                    <input type="file" name="as_dr_meet_4" id="">
-                                @endif
-                            </td>
-                            <input type="text" hidden name="as_up_dr_meet_by_4"
-                                value="{{ Auth::user()->first_name }}">
-                            <input type="date" hidden name="as_date_dr_meet_4" value="{{ date('Y-m-d') }}">
-                        </tr>
-                        <tr class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
-                            <td class="py-4 font-bold text-center">5.</td>
-                            <td class="flex justify-start py-4 items-center">
-
-                                @if ($koneksiar->dr_meet_5 != '')
-                                    <a href="{{ asset('storage/supervisor/project/02_AR/' . $koneksiar->dr_meet_5) }}"
-                                        target="blank" class="py-2 px-1 rounded hover:bg-gray-200 ">
-                                        <svg width="22" height="17" viewBox="0 0 22 17" fill="none"
-                                            xmlns="http://www.w3.org/2000/svg">
-                                            <path
-                                                d="M11 0C6 0 1.73 3.11 0 7.5C1.73 11.89 6 15 11 15C11.36 15 11.72 15 12.08 14.95C12.03 14.63 12 14.32 12 14C12 13.44 12.08 12.88 12.24 12.34C11.83 12.44 11.42 12.5 11 12.5C8.24 12.5 6 10.26 6 7.5C6 4.74 8.24 2.5 11 2.5C13.76 2.5 16 4.74 16 7.5C16 7.79 15.97 8.09 15.92 8.38C16.58 8.13 17.29 8 18 8C19.17 8 20.31 8.34 21.29 9C21.56 8.5 21.8 8 22 7.5C20.27 3.11 16 0 11 0ZM11 4.5C9.34 4.5 8 5.84 8 7.5C8 9.16 9.34 10.5 11 10.5C12.66 10.5 14 9.16 14 7.5C14 5.84 12.66 4.5 11 4.5ZM17 10.5V12.5H21V14.5H17V16.5L14 13.5L17 10.5Z"
-                                                fill="black" />
-                                        </svg>
-                                    </a>
-
-                                    &emsp;
-                                @endif
-                                {{--  --}}
-                                <a href="{{ asset('storage/supervisor/project/02_AR/' . $koneksiar->dr_meet_5) }}"
-                                    target="blank" download="" class="hover:underline ">
-                                    {{ $koneksiar->dr_meet_5 }}</a>
-                                {{-- == --}}
-
-
-                            </td>
-                            <td>
-                                @if ($koneksiar->up_dr_meet_by_5 != '')
-                                    <div
-                                        class="items-center py-1 px-2 text-sm font-medium text-center text-white bg-orange-500 w-[100] mx-auto rounded">
-                                        {{ $koneksiar->up_dr_meet_by_5 }}
-                                    </div>
-                                @endif
-                            </td>
-                            <td class="text-center">{{ $koneksiar->date_dr_meet_5 }}</td>
-                            <td>
-                                @if ($koneksiar->dr_meet_5 != '')
-                                    <div class="justify-center flex space-x-2">
-                                        <button type="button"
-                                            class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
-                                            data-modal-target="modal65" data-modal-show="modal65"
-                                            data-modal-toggle="modal65">
-                                            Ubah
-                                        </button>
-                                    </div>
-                                @else
-                                    <input type="file" name="as_dr_meet_5" id="">
-                                @endif
-                            </td>
-                            <input type="text" hidden name="as_up_dr_meet_by_5"
-                                value="{{ Auth::user()->first_name }}">
-                            <input type="date" hidden name="as_date_dr_meet_5" value="{{ date('Y-m-d') }}">
-                        </tr>
-
-                    </tbody>
-                </table>
-            </div>
-            {{-- Akhir dr meeting --}}
-
-            {{-- Estimasi Budget --}}
-            {{-- awal standar formulir --}}
-            <div class="flex justify-between">
-                <p class="font-normal text-lg bg-teal-600 px-4 py-1 w-fit text-white mb-2 rounded"> Estimasi Budget
-                @foreach ($standar_project as $spt)
-                    @if ($spt->file_est_budget_form != '')
-                        <div class="flex justify-end mr-1 mt-4">
-                            <a href="{{ asset('storage/supervisor/standarproject/' . $spt->file_est_budget_form) }}"
-                                download="">
-                                <div class="w-fit items-center space-x-1 flex fill-blue-600 hover:fill-blue-800">
-                                    <svg width="15" height="" viewBox="0 0 52 52"
-                                        xmlns="http://www.w3.org/2000/svg">
-                                        <path
-                                            d="m36.4 14.8h8.48a1.09 1.09 0 0 0 1.12-1.12 1 1 0 0 0 -.32-.8l-10.56-10.56a1 1 0 0 0 -.8-.32 1.09 1.09 0 0 0 -1.12 1.12v8.48a3.21 3.21 0 0 0 3.2 3.2z" />
-
-                                        <path
-                                            d="m44.4 19.6h-11.2a4.81 4.81 0 0 1 -4.8-4.8v-11.2a1.6 1.6 0 0 0 -1.6-1.6h-16a4.81 4.81 0 0 0 -4.8 4.8v38.4a4.81 4.81 0 0 0 4.8 4.8h30.4a4.81 4.81 0 0 0 4.8-4.8v-24a1.6 1.6 0 0 0 -1.6-1.6zm-32-1.6a1.62 1.62 0 0 1 1.6-1.55h6.55a1.56 1.56 0 0 1 1.57 1.55v1.59a1.63 1.63 0 0 1 -1.59 1.58h-6.53a1.55 1.55 0 0 1 -1.58-1.58zm24 20.77a1.6 1.6 0 0 1 -1.6 1.6h-20.8a1.6 1.6 0 0 1 -1.6-1.6v-1.57a1.6 1.6 0 0 1 1.6-1.6h20.8a1.6 1.6 0 0 1 1.6 1.6zm3.2-9.6a1.6 1.6 0 0 1 -1.6 1.63h-24a1.6 1.6 0 0 1 -1.6-1.6v-1.6a1.6 1.6 0 0 1 1.6-1.6h24a1.6 1.6 0 0 1 1.6 1.6z" />
-                                    </svg>
-                                    <p
-                                        class="text-right hover:underline font-semibold text-md text-blue-600 hover:text-blue-800 ">
-                                        Klik untuk mengunduh formulir kerja</p>
-                                </div>
-                            </a>
+                </td>
+                <td>
+                    @if ($koneksiar->up_dsgn_sheet_by_1 != '')
+                        <div
+                            class="items-center py-1 px-2 text-sm font-medium text-center text-white bg-orange-500 w-[100] mx-auto rounded">
+                            {{ $koneksiar->up_dsgn_sheet_by_1 }}
                         </div>
                     @endif
-                @endforeach
-                {{-- tombol form --}}
+                </td>
+                <td class="text-center">{{ $koneksiar->date_dsgn_sheet_1 }}</td>
+                <td>
+                    @if ($koneksiar->dsgn_sheet_1 != '')
+                        <div class="justify-center flex space-x-2">
+                            <button type="button"
+                                class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                data-modal-target="modal51" data-modal-show="modal51" data-modal-toggle="modal51">
+                                Ubah
+                            </button>
+                        </div>
+                    @else
+                        <input type="file" name="as_dsgn_sheet_1" id="">
+                    @endif
+                </td>
+                <input type="text" hidden name="as_up_dsgn_sheet_by_1" value="{{ Auth::user()->first_name }}">
+                <input type="date" hidden name="as_date_dsgn_sheet_1" value="{{ date('Y-m-d') }}">
+
+            </tr>
+
+            <tr class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
+                <td class="py-4 font-bold text-center">2.</td>
+                <td class="flex justify-start py-4 items-center">
+
+                    @if ($koneksiar->dsgn_sheet_2 != '')
+                        <a href="{{ asset('storage/supervisor/project/02_AR/' . $koneksiar->dsgn_sheet_2) }}"
+                            target="blank" class="py-2 px-1 rounded hover:bg-gray-200 ">
+                            <svg width="22" height="17" viewBox="0 0 22 17" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M11 0C6 0 1.73 3.11 0 7.5C1.73 11.89 6 15 11 15C11.36 15 11.72 15 12.08 14.95C12.03 14.63 12 14.32 12 14C12 13.44 12.08 12.88 12.24 12.34C11.83 12.44 11.42 12.5 11 12.5C8.24 12.5 6 10.26 6 7.5C6 4.74 8.24 2.5 11 2.5C13.76 2.5 16 4.74 16 7.5C16 7.79 15.97 8.09 15.92 8.38C16.58 8.13 17.29 8 18 8C19.17 8 20.31 8.34 21.29 9C21.56 8.5 21.8 8 22 7.5C20.27 3.11 16 0 11 0ZM11 4.5C9.34 4.5 8 5.84 8 7.5C8 9.16 9.34 10.5 11 10.5C12.66 10.5 14 9.16 14 7.5C14 5.84 12.66 4.5 11 4.5ZM17 10.5V12.5H21V14.5H17V16.5L14 13.5L17 10.5Z"
+                                    fill="black" />
+                            </svg>
+                        </a>
+
+                        &emsp;
+                    @endif
+                    {{--  --}}
+                    <a href="{{ asset('storage/supervisor/project/02_AR/' . $koneksiar->dsgn_sheet_2) }}"
+                        target="blank" download="" class="hover:underline ">
+                        {{ $koneksiar->dsgn_sheet_2 }}</a>
+                    {{-- == --}}
+
+
+                </td>
+                <td>
+                    @if ($koneksiar->up_dsgn_sheet_by_2 != '')
+                        <div
+                            class="items-center py-1 px-2 text-sm font-medium text-center text-white bg-orange-500 w-[100] mx-auto rounded">
+                            {{ $koneksiar->up_dsgn_sheet_by_2 }}
+                        </div>
+                    @endif
+                </td>
+                <td class="text-center">{{ $koneksiar->date_dsgn_sheet_2 }}</td>
+                <td>
+                    @if ($koneksiar->dsgn_sheet_2 != '')
+                        <div class="justify-center flex space-x-2">
+                            <button type="button"
+                                class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                data-modal-target="modal52" data-modal-show="modal52" data-modal-toggle="modal52">
+                                Ubah
+                            </button>
+                        </div>
+                    @else
+                        <input type="file" name="as_dsgn_sheet_2" id="">
+                    @endif
+                </td>
+                <input type="text" hidden name="as_up_dsgn_sheet_by_2" value="{{ Auth::user()->first_name }}">
+                <input type="date" hidden name="as_date_dsgn_sheet_2" value="{{ date('Y-m-d') }}">
+            </tr>
+
+        </tbody>
+    </table>
+</div>
+{{-- Akhir design sheet --}}
+
+{{--  DR Meeting --}}
+{{-- awal standar formulir --}}
+<div class="flex justify-between">
+    <p class="font-normal text-lg bg-teal-600 px-4 py-1 w-fit text-white mb-2 rounded"> Design Review (DR) Meeting
+    </p>
+    @foreach ($standar_project as $spt)
+        @if ($spt->file_dr_meeting_form != '')
+            <div class="flex justify-end mr-1 mt-4">
+                <a href="{{ asset('storage/supervisor/standarproject/' . $spt->file_dr_meeting_form) }}"
+                    download="">
+                    <div class="w-fit items-center space-x-1 flex fill-blue-600 hover:fill-blue-800">
+                        <svg width="15" height="" viewBox="0 0 52 52" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="m36.4 14.8h8.48a1.09 1.09 0 0 0 1.12-1.12 1 1 0 0 0 -.32-.8l-10.56-10.56a1 1 0 0 0 -.8-.32 1.09 1.09 0 0 0 -1.12 1.12v8.48a3.21 3.21 0 0 0 3.2 3.2z" />
+
+                            <path
+                                d="m44.4 19.6h-11.2a4.81 4.81 0 0 1 -4.8-4.8v-11.2a1.6 1.6 0 0 0 -1.6-1.6h-16a4.81 4.81 0 0 0 -4.8 4.8v38.4a4.81 4.81 0 0 0 4.8 4.8h30.4a4.81 4.81 0 0 0 4.8-4.8v-24a1.6 1.6 0 0 0 -1.6-1.6zm-32-1.6a1.62 1.62 0 0 1 1.6-1.55h6.55a1.56 1.56 0 0 1 1.57 1.55v1.59a1.63 1.63 0 0 1 -1.59 1.58h-6.53a1.55 1.55 0 0 1 -1.58-1.58zm24 20.77a1.6 1.6 0 0 1 -1.6 1.6h-20.8a1.6 1.6 0 0 1 -1.6-1.6v-1.57a1.6 1.6 0 0 1 1.6-1.6h20.8a1.6 1.6 0 0 1 1.6 1.6zm3.2-9.6a1.6 1.6 0 0 1 -1.6 1.63h-24a1.6 1.6 0 0 1 -1.6-1.6v-1.6a1.6 1.6 0 0 1 1.6-1.6h24a1.6 1.6 0 0 1 1.6 1.6z" />
+                        </svg>
+                        <p class="text-right hover:underline font-semibold text-md text-blue-600 hover:text-blue-800 ">
+                            Klik untuk mengunduh formulir kerja</p>
+                    </div>
+                </a>
             </div>
-            {{-- akhir standar formulir --}}
-
-
-            <div class="overflow-x-auto rounded-md mb-1">
-                <table class="w-full">
-                    <thead class="bg-green-600 text-white">
-                        <th class="py-2 w-[5%]">No.</th>
-                        <th class="w-[57%]">Nama File</th>
-                        <th class="w-[10%]">Uploaded by</th>
-                        <th class="w-[13%]">Last Update</th>
-                        <th class="w-[15%]">Upload</th>
-                    </thead>
-                    <tbody class="text-left border">
-
-                        <tr class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
-                            <td class="py-4 font-bold text-center">1.</td>
-                            <td class="flex justify-start py-4 items-center">
-
-                                @if ($koneksiar->est_budget_1 != '')
-                                    <a href="{{ asset('storage/supervisor/project/02_AR/' . $koneksiar->est_budget_1) }}"
-                                        target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
-                                        <svg width="22" height="17" viewBox="0 0 22 17" fill="none"
-                                            xmlns="http://www.w3.org/2000/svg">
-                                            <path
-                                                d="M11 0C6 0 1.73 3.11 0 7.5C1.73 11.89 6 15 11 15C11.36 15 11.72 15 12.08 14.95C12.03 14.63 12 14.32 12 14C12 13.44 12.08 12.88 12.24 12.34C11.83 12.44 11.42 12.5 11 12.5C8.24 12.5 6 10.26 6 7.5C6 4.74 8.24 2.5 11 2.5C13.76 2.5 16 4.74 16 7.5C16 7.79 15.97 8.09 15.92 8.38C16.58 8.13 17.29 8 18 8C19.17 8 20.31 8.34 21.29 9C21.56 8.5 21.8 8 22 7.5C20.27 3.11 16 0 11 0ZM11 4.5C9.34 4.5 8 5.84 8 7.5C8 9.16 9.34 10.5 11 10.5C12.66 10.5 14 9.16 14 7.5C14 5.84 12.66 4.5 11 4.5ZM17 10.5V12.5H21V14.5H17V16.5L14 13.5L17 10.5Z"
-                                                fill="black" />
-                                        </svg>
-                                    </a>
-
-                                    &emsp;
-                                @endif
-                                {{--  --}}
-                                <a href="{{ asset('storage/supervisor/project/02_AR/' . $koneksiar->est_budget_1) }}"
-                                    target="blank" download="" class="hover:underline">
-                                    {{ $koneksiar->est_budget_1 }}</a>
-                                {{-- == --}}
+        @endif
+    @endforeach
+    {{-- tombol form --}}
+</div>
+{{-- akhir standar formulir --}}
 
 
 
-                            </td>
-                            <td>
-                                @if ($koneksiar->up_est_budget_by_1 != '')
-                                    <div
-                                        class="items-center py-1 px-2 text-sm font-medium text-center text-white bg-orange-500 w-[100] mx-auto rounded">
-                                        {{ $koneksiar->up_est_budget_by_1 }}
-                                    </div>
-                                @endif
-                            </td>
-                            <td class="text-center">{{ $koneksiar->date_est_budget_1 }}</td>
-                            <td>
-                                @if ($koneksiar->est_budget_1 != '')
-                                    <div class="justify-center flex space-x-2">
-                                        <button type="button"
-                                            class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
-                                            data-modal-target="modal71" data-modal-show="modal71"
-                                            data-modal-toggle="modal71">
-                                            Ubah
-                                        </button>
-                                    </div>
-                                @else
-                                    <input type="file" name="as_est_budget_1" id="">
-                                @endif
-                            </td>
-                            <input type="text" hidden name="as_up_est_budget_by_1"
-                                value="{{ Auth::user()->first_name }}">
-                            <input type="date" hidden name="as_date_est_budget_1"
-                                value="{{ date('Y-m-d') }}">
-                        </tr>
+<div class="overflow-x-auto rounded-md mb-5 border">
+    <table class="w-full">
+        <thead class="bg-green-600 text-white">
+            <th class="py-2 w-[5%]">No.</th>
+            <th class="w-[57%]">Nama File</th>
+            <th class="w-[10%]">Uploaded by</th>
+            <th class="w-[13%]">Last Update</th>
+            <th class="w-[15%]">Upload</th>
+        </thead>
+        <tbody class="text-left border">
 
-                        <tr class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
-                            <td class="py-4 font-bold text-center">2.</td>
-                            <td class="flex justify-start py-4 items-center">
+            <tr class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
+                <td class="py-4 font-bold text-center">1.</td>
+                <td class="flex justify-start py-4 items-center">
 
-                                @if ($koneksiar->est_budget_2 != '')
-                                    <a href="{{ asset('storage/supervisor/project/02_AR/' . $koneksiar->est_budget_2) }}"
-                                        target="blank" class="py-2 px-1 rounded hover:bg-gray-200 ">
-                                        <svg width="22" height="17" viewBox="0 0 22 17" fill="none"
-                                            xmlns="http://www.w3.org/2000/svg">
-                                            <path
-                                                d="M11 0C6 0 1.73 3.11 0 7.5C1.73 11.89 6 15 11 15C11.36 15 11.72 15 12.08 14.95C12.03 14.63 12 14.32 12 14C12 13.44 12.08 12.88 12.24 12.34C11.83 12.44 11.42 12.5 11 12.5C8.24 12.5 6 10.26 6 7.5C6 4.74 8.24 2.5 11 2.5C13.76 2.5 16 4.74 16 7.5C16 7.79 15.97 8.09 15.92 8.38C16.58 8.13 17.29 8 18 8C19.17 8 20.31 8.34 21.29 9C21.56 8.5 21.8 8 22 7.5C20.27 3.11 16 0 11 0ZM11 4.5C9.34 4.5 8 5.84 8 7.5C8 9.16 9.34 10.5 11 10.5C12.66 10.5 14 9.16 14 7.5C14 5.84 12.66 4.5 11 4.5ZM17 10.5V12.5H21V14.5H17V16.5L14 13.5L17 10.5Z"
-                                                fill="black" />
-                                        </svg>
-                                    </a>
+                    @if ($koneksiar->dr_meet_1 != '')
+                        <a href="{{ asset('storage/supervisor/project/02_AR/' . $koneksiar->dr_meet_1) }}"
+                            target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
+                            <svg width="22" height="17" viewBox="0 0 22 17" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M11 0C6 0 1.73 3.11 0 7.5C1.73 11.89 6 15 11 15C11.36 15 11.72 15 12.08 14.95C12.03 14.63 12 14.32 12 14C12 13.44 12.08 12.88 12.24 12.34C11.83 12.44 11.42 12.5 11 12.5C8.24 12.5 6 10.26 6 7.5C6 4.74 8.24 2.5 11 2.5C13.76 2.5 16 4.74 16 7.5C16 7.79 15.97 8.09 15.92 8.38C16.58 8.13 17.29 8 18 8C19.17 8 20.31 8.34 21.29 9C21.56 8.5 21.8 8 22 7.5C20.27 3.11 16 0 11 0ZM11 4.5C9.34 4.5 8 5.84 8 7.5C8 9.16 9.34 10.5 11 10.5C12.66 10.5 14 9.16 14 7.5C14 5.84 12.66 4.5 11 4.5ZM17 10.5V12.5H21V14.5H17V16.5L14 13.5L17 10.5Z"
+                                    fill="black" />
+                            </svg>
+                        </a>
 
-                                    &emsp;
-                                @endif
-                                {{--  --}}
-                                <a href="{{ asset('storage/supervisor/project/02_AR/' . $koneksiar->est_budget_2) }}"
-                                    target="blank" download="" class="hover:underline ">
-                                    {{ $koneksiar->est_budget_2 }}</a>
-                                {{-- == --}}
-
-
-                            </td>
-                            <td>
-                                @if ($koneksiar->up_est_budget_by_2 != '')
-                                    <div
-                                        class="items-center py-1 px-2 text-sm font-medium text-center text-white bg-orange-500 w-[100] mx-auto rounded">
-                                        {{ $koneksiar->up_est_budget_by_2 }}
-                                    </div>
-                                @endif
-                            </td>
-                            <td class="text-center">{{ $koneksiar->date_est_budget_2 }}</td>
-                            <td>
-                                @if ($koneksiar->est_budget_2 != '')
-                                    <div class="justify-center flex space-x-2">
-                                        <button type="button"
-                                            class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
-                                            data-modal-target="modal72" data-modal-show="modal72"
-                                            data-modal-toggle="modal72">
-                                            Ubah
-                                        </button>
-                                    </div>
-                                @else
-                                    <input type="file" name="as_est_budget_2" id="">
-                                @endif
-                            </td>
-                            <input type="text" hidden name="as_up_est_budget_by_2"
-                                value="{{ Auth::user()->first_name }}">
-                            <input type="date" hidden name="as_date_est_budget_2"
-                                value="{{ date('Y-m-d') }}">
-                        </tr>
-
-                    </tbody>
-                </table>
-            </div>
-            {{-- Akhir estimasi budget --}}
+                        &emsp;
+                    @endif
+                    {{--  --}}
+                    <a href="{{ asset('storage/supervisor/project/02_AR/' . $koneksiar->dr_meet_1) }}"
+                        target="blank" download="" class="hover:underline">
+                        {{ $koneksiar->dr_meet_1 }}</a>
+                    {{-- == --}}
 
 
 
-            <input type="text" name="status_ar" value="Waiting Approval" hidden>
-            <input type="date" hidden name="status_ar_date" value="{{ date('Y-m-d') }}">
-            {{-- table project --}}
-            <input type="text" name="check" value="needcheck" hidden>
-            <input type="text" name="progress" value="Waiting Approval Arrangement" hidden>
-            <input type="text" name="last_update_name" value="{{ Auth::user()->first_name }}" hidden>
-            <input type="text" name="last_update_date" value="{{ date('d-M-Y') }}" hidden>
+                </td>
+                <td>
+                    @if ($koneksiar->up_dr_meet_by_1 != '')
+                        <div
+                            class="items-center py-1 px-2 text-sm font-medium text-center text-white bg-orange-500 w-[100] mx-auto rounded">
+                            {{ $koneksiar->up_dr_meet_by_1 }}
+                        </div>
+                    @endif
+                </td>
+                <td class="text-center">{{ $koneksiar->date_dr_meet_1 }}</td>
+                <td>
+                    @if ($koneksiar->dr_meet_1 != '')
+                        <div class="justify-center flex space-x-2">
+                            <button type="button"
+                                class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                data-modal-target="modal61" data-modal-show="modal61" data-modal-toggle="modal61">
+                                Ubah
+                            </button>
+                        </div>
+                    @else
+                        <input type="file" name="as_dr_meet_1" id="">
+                    @endif
+                </td>
+                <input type="text" hidden name="as_up_dr_meet_by_1" value="{{ Auth::user()->first_name }}">
+                <input type="date" hidden name="as_date_dr_meet_1" value="{{ date('Y-m-d') }}">
+
+            </tr>
+
+            <tr class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
+                <td class="py-4 font-bold text-center">2.</td>
+                <td class="flex justify-start py-4 items-center">
+
+                    @if ($koneksiar->dr_meet_2 != '')
+                        <a href="{{ asset('storage/supervisor/project/02_AR/' . $koneksiar->dr_meet_2) }}"
+                            target="blank" class="py-2 px-1 rounded hover:bg-gray-200 ">
+                            <svg width="22" height="17" viewBox="0 0 22 17" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M11 0C6 0 1.73 3.11 0 7.5C1.73 11.89 6 15 11 15C11.36 15 11.72 15 12.08 14.95C12.03 14.63 12 14.32 12 14C12 13.44 12.08 12.88 12.24 12.34C11.83 12.44 11.42 12.5 11 12.5C8.24 12.5 6 10.26 6 7.5C6 4.74 8.24 2.5 11 2.5C13.76 2.5 16 4.74 16 7.5C16 7.79 15.97 8.09 15.92 8.38C16.58 8.13 17.29 8 18 8C19.17 8 20.31 8.34 21.29 9C21.56 8.5 21.8 8 22 7.5C20.27 3.11 16 0 11 0ZM11 4.5C9.34 4.5 8 5.84 8 7.5C8 9.16 9.34 10.5 11 10.5C12.66 10.5 14 9.16 14 7.5C14 5.84 12.66 4.5 11 4.5ZM17 10.5V12.5H21V14.5H17V16.5L14 13.5L17 10.5Z"
+                                    fill="black" />
+                            </svg>
+                        </a>
+
+                        &emsp;
+                    @endif
+                    {{--  --}}
+                    <a href="{{ asset('storage/supervisor/project/02_AR/' . $koneksiar->dr_meet_2) }}"
+                        target="blank" download="" class="hover:underline ">
+                        {{ $koneksiar->dr_meet_2 }}</a>
+                    {{-- == --}}
+
+
+                </td>
+                <td>
+                    @if ($koneksiar->up_dr_meet_by_2 != '')
+                        <div
+                            class="items-center py-1 px-2 text-sm font-medium text-center text-white bg-orange-500 w-[100] mx-auto rounded">
+                            {{ $koneksiar->up_dr_meet_by_2 }}
+                        </div>
+                    @endif
+                </td>
+                <td class="text-center">{{ $koneksiar->date_dr_meet_2 }}</td>
+                <td>
+                    @if ($koneksiar->dr_meet_2 != '')
+                        <div class="justify-center flex space-x-2">
+                            <button type="button"
+                                class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                data-modal-target="modal62" data-modal-show="modal62" data-modal-toggle="modal62">
+                                Ubah
+                            </button>
+                        </div>
+                    @else
+                        <input type="file" name="as_dr_meet_2" id="">
+                    @endif
+                </td>
+                <input type="text" hidden name="as_up_dr_meet_by_2" value="{{ Auth::user()->first_name }}">
+                <input type="date" hidden name="as_date_dr_meet_2" value="{{ date('Y-m-d') }}">
+            </tr>
+            <tr class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
+                <td class="py-4 font-bold text-center">3.</td>
+                <td class="flex justify-start py-4 items-center">
+
+                    @if ($koneksiar->dr_meet_3 != '')
+                        <a href="{{ asset('storage/supervisor/project/02_AR/' . $koneksiar->dr_meet_3) }}"
+                            target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
+                            <svg width="22" height="17" viewBox="0 0 22 17" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M11 0C6 0 1.73 3.11 0 7.5C1.73 11.89 6 15 11 15C11.36 15 11.72 15 12.08 14.95C12.03 14.63 12 14.32 12 14C12 13.44 12.08 12.88 12.24 12.34C11.83 12.44 11.42 12.5 11 12.5C8.24 12.5 6 10.26 6 7.5C6 4.74 8.24 2.5 11 2.5C13.76 2.5 16 4.74 16 7.5C16 7.79 15.97 8.09 15.92 8.38C16.58 8.13 17.29 8 18 8C19.17 8 20.31 8.34 21.29 9C21.56 8.5 21.8 8 22 7.5C20.27 3.11 16 0 11 0ZM11 4.5C9.34 4.5 8 5.84 8 7.5C8 9.16 9.34 10.5 11 10.5C12.66 10.5 14 9.16 14 7.5C14 5.84 12.66 4.5 11 4.5ZM17 10.5V12.5H21V14.5H17V16.5L14 13.5L17 10.5Z"
+                                    fill="black" />
+                            </svg>
+                        </a>
+
+                        &emsp;
+                    @endif
+                    {{--  --}}
+                    <a href="{{ asset('storage/supervisor/project/02_AR/' . $koneksiar->dr_meet_3) }}"
+                        target="blank" download="" class="hover:underline">
+                        {{ $koneksiar->dr_meet_3 }}</a>
+                    {{-- == --}}
 
 
 
-            @if (
-                /* 1m */
-                $koneksiar->draw_me_1 &&
-                    $koneksiar->draw_me_2 &&
-                    /* 2n */
-                    $koneksiar->draw_el_1 &&
-                    $koneksiar->draw_el_2 &&
-                    /* 3o */
-                    $koneksiar->approval_lay_1 &&
-                    $koneksiar->approval_lay_2 &&
-                    /* 4p */
-                    $koneksiar->approval_draw_1 &&
-                    $koneksiar->approval_draw_2 &&
-                    /* 5q */
-                    $koneksiar->dsgn_sheet_1 &&
-                    $koneksiar->dsgn_sheet_2 &&
-                    /* 6r */
-                    $koneksiar->dr_meet_1 &&
-                    $koneksiar->dr_meet_2 &&
-                    $koneksiar->dr_meet_3 &&
-                    $koneksiar->dr_meet_4 &&
-                    $koneksiar->dr_meet_5 &&
-                    /* 7s */
-                    $koneksiar->est_budget_1 &&
-                    $koneksiar->est_budget_2 != '')
-            @else
-                <button type="submit" id="submit-1"
-                    class="bg-orange-500 w-full hover:bg-orange-600 text-white font-bold py-2 rounded-lg mt-3 shadow-md">Klik untuk submit dokumen</button>
+                </td>
+                <td>
+                    @if ($koneksiar->up_dr_meet_by_3 != '')
+                        <div
+                            class="items-center py-1 px-2 text-sm font-medium text-center text-white bg-orange-500 w-[100] mx-auto rounded">
+                            {{ $koneksiar->up_dr_meet_by_3 }}
+                        </div>
+                    @endif
+                </td>
+                <td class="text-center">{{ $koneksiar->date_dr_meet_3 }}</td>
+                <td>
+                    @if ($koneksiar->dr_meet_3 != '')
+                        <div class="justify-center flex space-x-2">
+                            <button type="button"
+                                class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                data-modal-target="modal63" data-modal-show="modal63" data-modal-toggle="modal63">
+                                Ubah
+                            </button>
+                        </div>
+                    @else
+                        <input type="file" name="as_dr_meet_3" id="">
+                    @endif
+                </td>
+                <input type="text" hidden name="as_up_dr_meet_by_3" value="{{ Auth::user()->first_name }}">
+                <input type="date" hidden name="as_date_dr_meet_3" value="{{ date('Y-m-d') }}">
+
+            </tr>
+
+            <tr class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
+                <td class="py-4 font-bold text-center">4.</td>
+                <td class="flex justify-start py-4 items-center">
+
+                    @if ($koneksiar->dr_meet_4 != '')
+                        <a href="{{ asset('storage/supervisor/project/02_AR/' . $koneksiar->dr_meet_4) }}"
+                            target="blank" class="py-2 px-1 rounded hover:bg-gray-200 ">
+                            <svg width="22" height="17" viewBox="0 0 22 17" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M11 0C6 0 1.73 3.11 0 7.5C1.73 11.89 6 15 11 15C11.36 15 11.72 15 12.08 14.95C12.03 14.63 12 14.32 12 14C12 13.44 12.08 12.88 12.24 12.34C11.83 12.44 11.42 12.5 11 12.5C8.24 12.5 6 10.26 6 7.5C6 4.74 8.24 2.5 11 2.5C13.76 2.5 16 4.74 16 7.5C16 7.79 15.97 8.09 15.92 8.38C16.58 8.13 17.29 8 18 8C19.17 8 20.31 8.34 21.29 9C21.56 8.5 21.8 8 22 7.5C20.27 3.11 16 0 11 0ZM11 4.5C9.34 4.5 8 5.84 8 7.5C8 9.16 9.34 10.5 11 10.5C12.66 10.5 14 9.16 14 7.5C14 5.84 12.66 4.5 11 4.5ZM17 10.5V12.5H21V14.5H17V16.5L14 13.5L17 10.5Z"
+                                    fill="black" />
+                            </svg>
+                        </a>
+
+                        &emsp;
+                    @endif
+                    {{--  --}}
+                    <a href="{{ asset('storage/supervisor/project/02_AR/' . $koneksiar->dr_meet_4) }}"
+                        target="blank" download="" class="hover:underline ">
+                        {{ $koneksiar->dr_meet_4 }}</a>
+                    {{-- == --}}
+
+
+                </td>
+                <td>
+                    @if ($koneksiar->up_dr_meet_by_4 != '')
+                        <div
+                            class="items-center py-1 px-2 text-sm font-medium text-center text-white bg-orange-500 w-[100] mx-auto rounded">
+                            {{ $koneksiar->up_dr_meet_by_4 }}
+                        </div>
+                    @endif
+                </td>
+                <td class="text-center">{{ $koneksiar->date_dr_meet_4 }}</td>
+                <td>
+                    @if ($koneksiar->dr_meet_4 != '')
+                        <div class="justify-center flex space-x-2">
+                            <button type="button"
+                                class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                data-modal-target="modal64" data-modal-show="modal64" data-modal-toggle="modal64">
+                                Ubah
+                            </button>
+                        </div>
+                    @else
+                        <input type="file" name="as_dr_meet_4" id="">
+                    @endif
+                </td>
+                <input type="text" hidden name="as_up_dr_meet_by_4" value="{{ Auth::user()->first_name }}">
+                <input type="date" hidden name="as_date_dr_meet_4" value="{{ date('Y-m-d') }}">
+            </tr>
+            <tr class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
+                <td class="py-4 font-bold text-center">5.</td>
+                <td class="flex justify-start py-4 items-center">
+
+                    @if ($koneksiar->dr_meet_5 != '')
+                        <a href="{{ asset('storage/supervisor/project/02_AR/' . $koneksiar->dr_meet_5) }}"
+                            target="blank" class="py-2 px-1 rounded hover:bg-gray-200 ">
+                            <svg width="22" height="17" viewBox="0 0 22 17" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M11 0C6 0 1.73 3.11 0 7.5C1.73 11.89 6 15 11 15C11.36 15 11.72 15 12.08 14.95C12.03 14.63 12 14.32 12 14C12 13.44 12.08 12.88 12.24 12.34C11.83 12.44 11.42 12.5 11 12.5C8.24 12.5 6 10.26 6 7.5C6 4.74 8.24 2.5 11 2.5C13.76 2.5 16 4.74 16 7.5C16 7.79 15.97 8.09 15.92 8.38C16.58 8.13 17.29 8 18 8C19.17 8 20.31 8.34 21.29 9C21.56 8.5 21.8 8 22 7.5C20.27 3.11 16 0 11 0ZM11 4.5C9.34 4.5 8 5.84 8 7.5C8 9.16 9.34 10.5 11 10.5C12.66 10.5 14 9.16 14 7.5C14 5.84 12.66 4.5 11 4.5ZM17 10.5V12.5H21V14.5H17V16.5L14 13.5L17 10.5Z"
+                                    fill="black" />
+                            </svg>
+                        </a>
+
+                        &emsp;
+                    @endif
+                    {{--  --}}
+                    <a href="{{ asset('storage/supervisor/project/02_AR/' . $koneksiar->dr_meet_5) }}"
+                        target="blank" download="" class="hover:underline ">
+                        {{ $koneksiar->dr_meet_5 }}</a>
+                    {{-- == --}}
+
+
+                </td>
+                <td>
+                    @if ($koneksiar->up_dr_meet_by_5 != '')
+                        <div
+                            class="items-center py-1 px-2 text-sm font-medium text-center text-white bg-orange-500 w-[100] mx-auto rounded">
+                            {{ $koneksiar->up_dr_meet_by_5 }}
+                        </div>
+                    @endif
+                </td>
+                <td class="text-center">{{ $koneksiar->date_dr_meet_5 }}</td>
+                <td>
+                    @if ($koneksiar->dr_meet_5 != '')
+                        <div class="justify-center flex space-x-2">
+                            <button type="button"
+                                class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                data-modal-target="modal65" data-modal-show="modal65" data-modal-toggle="modal65">
+                                Ubah
+                            </button>
+                        </div>
+                    @else
+                        <input type="file" name="as_dr_meet_5" id="">
+                    @endif
+                </td>
+                <input type="text" hidden name="as_up_dr_meet_by_5" value="{{ Auth::user()->first_name }}">
+                <input type="date" hidden name="as_date_dr_meet_5" value="{{ date('Y-m-d') }}">
+            </tr>
+
+        </tbody>
+    </table>
+</div>
+{{-- Akhir dr meeting --}}
+
+{{-- Estimasi Budget --}}
+{{-- awal standar formulir --}}
+<div class="flex justify-between">
+    <p class="font-normal text-lg bg-teal-600 px-4 py-1 w-fit text-white mb-2 rounded"> Estimasi Budget
+        @foreach ($standar_project as $spt)
+            @if ($spt->file_est_budget_form != '')
+                <div class="flex justify-end mr-1 mt-4">
+                    <a href="{{ asset('storage/supervisor/standarproject/' . $spt->file_est_budget_form) }}"
+                        download="">
+                        <div class="w-fit items-center space-x-1 flex fill-blue-600 hover:fill-blue-800">
+                            <svg width="15" height="" viewBox="0 0 52 52"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="m36.4 14.8h8.48a1.09 1.09 0 0 0 1.12-1.12 1 1 0 0 0 -.32-.8l-10.56-10.56a1 1 0 0 0 -.8-.32 1.09 1.09 0 0 0 -1.12 1.12v8.48a3.21 3.21 0 0 0 3.2 3.2z" />
+
+                                <path
+                                    d="m44.4 19.6h-11.2a4.81 4.81 0 0 1 -4.8-4.8v-11.2a1.6 1.6 0 0 0 -1.6-1.6h-16a4.81 4.81 0 0 0 -4.8 4.8v38.4a4.81 4.81 0 0 0 4.8 4.8h30.4a4.81 4.81 0 0 0 4.8-4.8v-24a1.6 1.6 0 0 0 -1.6-1.6zm-32-1.6a1.62 1.62 0 0 1 1.6-1.55h6.55a1.56 1.56 0 0 1 1.57 1.55v1.59a1.63 1.63 0 0 1 -1.59 1.58h-6.53a1.55 1.55 0 0 1 -1.58-1.58zm24 20.77a1.6 1.6 0 0 1 -1.6 1.6h-20.8a1.6 1.6 0 0 1 -1.6-1.6v-1.57a1.6 1.6 0 0 1 1.6-1.6h20.8a1.6 1.6 0 0 1 1.6 1.6zm3.2-9.6a1.6 1.6 0 0 1 -1.6 1.63h-24a1.6 1.6 0 0 1 -1.6-1.6v-1.6a1.6 1.6 0 0 1 1.6-1.6h24a1.6 1.6 0 0 1 1.6 1.6z" />
+                            </svg>
+                            <p
+                                class="text-right hover:underline font-semibold text-md text-blue-600 hover:text-blue-800 ">
+                                Klik untuk mengunduh formulir kerja</p>
+                        </div>
+                    </a>
+                </div>
             @endif
+        @endforeach
+        {{-- tombol form --}}
+</div>
+{{-- akhir standar formulir --}}
 
-            {{-- modal ubah --}}
-            @php
-                $m = range(1, 2);
-            @endphp
 
-            @foreach ($m as $index => $number)
-                <div id="modal1{{ $number }}"
-                    class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 inset-0 justify-center items-center w-full max-h-full">
-                    <div class="relative p-4 w-full max-w-2xl max-h-full">
-                        <!-- Modal content -->
-                        <div class="relative bg-white rounded-lg shadow">
-                            <!-- Modal header -->
-                            <div class="flex items-center justify-between px-5 py-3 border-b rounded-t">
-                                <p class="text-2xl font-semibold text-gray-900 font-mono">
-                                    Ubah dokumen unggahan
-                                </p>
-                                <button type="button"
-                                    class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center"
-                                    onclick="simulateEscape()">
-                                    <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                                        fill="none" viewBox="0 0 14 14">
-                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                            stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
-                                    </svg>
-                                    <span class="sr-only">Close modal</span>
-                                </button>
-                            </div>
-                            <!-- Modal body -->
-                            <div class="py-2 px-5">
-                                <p class="font-light text-lg mb-2">Dokumen sebelumnya</p>
-                                <div class="grid grid-cols-2 space-x-2">
-                                    <div>
-                                        <p class="text-base leading-relaxed text-gray-600">
-                                            Nama dokumen:
-                                        </p>
-                                        <p class="text-gray-900">
-                                            {{ $koneksiar->{'draw_me_' . $number} }}
-                                        </p>
-                                    </div>
-                                    <div>
-                                        <p class="text-base leading-relaxed text-gray-600">
-                                            Oleh:
-                                        </p>
-                                        <p class="text-gray-900">
-                                            {{ $koneksiar->{'up_draw_me_by_' . $number} }}
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Modal footer -->
-                            <div class="items-center px-5 py-2 border-t border-gray-200 rounded-b">
-                                <p class="font-light text-lg">
-                                    Unggah dokumen baru
-                                </p>
-                                <div class="items-center justify-center w-full border my-4">
-                                    @if ($koneksiar->{'draw_me_' . $number} != '')
-                                        <input type="file"name="as_draw_me_{{ $number }}" id="">
-                                    @else()
-                                    @endif
-                                </div>
-                            </div>
-                            <button type="submit"
-                                class="bg-orange-500 w-full hover:bg-orange-600 text-white font-bold py-2 rounded-b-lg shadow-md">Submit</button>
+<div class="overflow-x-auto rounded-md mb-1">
+    <table class="w-full">
+        <thead class="bg-green-600 text-white">
+            <th class="py-2 w-[5%]">No.</th>
+            <th class="w-[57%]">Nama File</th>
+            <th class="w-[10%]">Uploaded by</th>
+            <th class="w-[13%]">Last Update</th>
+            <th class="w-[15%]">Upload</th>
+        </thead>
+        <tbody class="text-left border">
+
+            <tr class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
+                <td class="py-4 font-bold text-center">1.</td>
+                <td class="flex justify-start py-4 items-center">
+
+                    @if ($koneksiar->est_budget_1 != '')
+                        <a href="{{ asset('storage/supervisor/project/02_AR/' . $koneksiar->est_budget_1) }}"
+                            target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
+                            <svg width="22" height="17" viewBox="0 0 22 17" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M11 0C6 0 1.73 3.11 0 7.5C1.73 11.89 6 15 11 15C11.36 15 11.72 15 12.08 14.95C12.03 14.63 12 14.32 12 14C12 13.44 12.08 12.88 12.24 12.34C11.83 12.44 11.42 12.5 11 12.5C8.24 12.5 6 10.26 6 7.5C6 4.74 8.24 2.5 11 2.5C13.76 2.5 16 4.74 16 7.5C16 7.79 15.97 8.09 15.92 8.38C16.58 8.13 17.29 8 18 8C19.17 8 20.31 8.34 21.29 9C21.56 8.5 21.8 8 22 7.5C20.27 3.11 16 0 11 0ZM11 4.5C9.34 4.5 8 5.84 8 7.5C8 9.16 9.34 10.5 11 10.5C12.66 10.5 14 9.16 14 7.5C14 5.84 12.66 4.5 11 4.5ZM17 10.5V12.5H21V14.5H17V16.5L14 13.5L17 10.5Z"
+                                    fill="black" />
+                            </svg>
+                        </a>
+
+                        &emsp;
+                    @endif
+                    {{--  --}}
+                    <a href="{{ asset('storage/supervisor/project/02_AR/' . $koneksiar->est_budget_1) }}"
+                        target="blank" download="" class="hover:underline">
+                        {{ $koneksiar->est_budget_1 }}</a>
+                    {{-- == --}}
+
+
+
+                </td>
+                <td>
+                    @if ($koneksiar->up_est_budget_by_1 != '')
+                        <div
+                            class="items-center py-1 px-2 text-sm font-medium text-center text-white bg-orange-500 w-[100] mx-auto rounded">
+                            {{ $koneksiar->up_est_budget_by_1 }}
+                        </div>
+                    @endif
+                </td>
+                <td class="text-center">{{ $koneksiar->date_est_budget_1 }}</td>
+                <td>
+                    @if ($koneksiar->est_budget_1 != '')
+                        <div class="justify-center flex space-x-2">
+                            <button type="button"
+                                class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                data-modal-target="modal71" data-modal-show="modal71" data-modal-toggle="modal71">
+                                Ubah
+                            </button>
+                        </div>
+                    @else
+                        <input type="file" name="as_est_budget_1" id="">
+                    @endif
+                </td>
+                <input type="text" hidden name="as_up_est_budget_by_1" value="{{ Auth::user()->first_name }}">
+                <input type="date" hidden name="as_date_est_budget_1" value="{{ date('Y-m-d') }}">
+            </tr>
+
+            <tr class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
+                <td class="py-4 font-bold text-center">2.</td>
+                <td class="flex justify-start py-4 items-center">
+
+                    @if ($koneksiar->est_budget_2 != '')
+                        <a href="{{ asset('storage/supervisor/project/02_AR/' . $koneksiar->est_budget_2) }}"
+                            target="blank" class="py-2 px-1 rounded hover:bg-gray-200 ">
+                            <svg width="22" height="17" viewBox="0 0 22 17" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M11 0C6 0 1.73 3.11 0 7.5C1.73 11.89 6 15 11 15C11.36 15 11.72 15 12.08 14.95C12.03 14.63 12 14.32 12 14C12 13.44 12.08 12.88 12.24 12.34C11.83 12.44 11.42 12.5 11 12.5C8.24 12.5 6 10.26 6 7.5C6 4.74 8.24 2.5 11 2.5C13.76 2.5 16 4.74 16 7.5C16 7.79 15.97 8.09 15.92 8.38C16.58 8.13 17.29 8 18 8C19.17 8 20.31 8.34 21.29 9C21.56 8.5 21.8 8 22 7.5C20.27 3.11 16 0 11 0ZM11 4.5C9.34 4.5 8 5.84 8 7.5C8 9.16 9.34 10.5 11 10.5C12.66 10.5 14 9.16 14 7.5C14 5.84 12.66 4.5 11 4.5ZM17 10.5V12.5H21V14.5H17V16.5L14 13.5L17 10.5Z"
+                                    fill="black" />
+                            </svg>
+                        </a>
+
+                        &emsp;
+                    @endif
+                    {{--  --}}
+                    <a href="{{ asset('storage/supervisor/project/02_AR/' . $koneksiar->est_budget_2) }}"
+                        target="blank" download="" class="hover:underline ">
+                        {{ $koneksiar->est_budget_2 }}</a>
+                    {{-- == --}}
+
+
+                </td>
+                <td>
+                    @if ($koneksiar->up_est_budget_by_2 != '')
+                        <div
+                            class="items-center py-1 px-2 text-sm font-medium text-center text-white bg-orange-500 w-[100] mx-auto rounded">
+                            {{ $koneksiar->up_est_budget_by_2 }}
+                        </div>
+                    @endif
+                </td>
+                <td class="text-center">{{ $koneksiar->date_est_budget_2 }}</td>
+                <td>
+                    @if ($koneksiar->est_budget_2 != '')
+                        <div class="justify-center flex space-x-2">
+                            <button type="button"
+                                class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                data-modal-target="modal72" data-modal-show="modal72" data-modal-toggle="modal72">
+                                Ubah
+                            </button>
+                        </div>
+                    @else
+                        <input type="file" name="as_est_budget_2" id="">
+                    @endif
+                </td>
+                <input type="text" hidden name="as_up_est_budget_by_2" value="{{ Auth::user()->first_name }}">
+                <input type="date" hidden name="as_date_est_budget_2" value="{{ date('Y-m-d') }}">
+            </tr>
+
+        </tbody>
+    </table>
+</div>
+{{-- Akhir estimasi budget --}}
+
+
+
+<input type="text" name="status_ar" value="Waiting Approval" hidden>
+<input type="date" hidden name="status_ar_date" value="{{ date('Y-m-d') }}">
+{{-- table project --}}
+<input type="text" name="check" value="needcheck" hidden>
+<input type="text" name="progress" value="Waiting Approval Arrangement" hidden>
+<input type="text" name="last_update_name" value="{{ Auth::user()->first_name }}" hidden>
+<input type="text" name="last_update_date" value="{{ date('d-M-Y') }}" hidden>
+
+
+
+@if (
+    /* 1m */
+    $koneksiar->draw_me_1 &&
+        $koneksiar->draw_me_2 &&
+        /* 2n */
+        $koneksiar->draw_el_1 &&
+        $koneksiar->draw_el_2 &&
+        /* 3o */
+        $koneksiar->approval_lay_1 &&
+        $koneksiar->approval_lay_2 &&
+        /* 4p */
+        $koneksiar->approval_draw_1 &&
+        $koneksiar->approval_draw_2 &&
+        /* 5q */
+        $koneksiar->dsgn_sheet_1 &&
+        $koneksiar->dsgn_sheet_2 &&
+        /* 6r */
+        $koneksiar->dr_meet_1 &&
+        $koneksiar->dr_meet_2 &&
+        $koneksiar->dr_meet_3 &&
+        $koneksiar->dr_meet_4 &&
+        $koneksiar->dr_meet_5 &&
+        /* 7s */
+        $koneksiar->est_budget_1 &&
+        $koneksiar->est_budget_2 != '')
+@else
+    <button type="submit" id="submit-1"
+        class="bg-orange-500 w-full hover:bg-orange-600 text-white font-bold py-2 rounded-lg mt-3 shadow-md">Klik
+        untuk submit dokumen</button>
+@endif
+
+{{-- modal ubah --}}
+@php
+    $m = range(1, 2);
+@endphp
+
+@foreach ($m as $index => $number)
+    <div id="modal1{{ $number }}"
+        class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 inset-0 justify-center items-center w-full max-h-full">
+        <div class="relative p-4 w-full max-w-2xl max-h-full">
+            <!-- Modal content -->
+            <div class="relative bg-white rounded-lg shadow">
+                <!-- Modal header -->
+                <div class="flex items-center justify-between px-5 py-3 border-b rounded-t">
+                    <p class="text-2xl font-semibold text-gray-900 font-mono">
+                        Ubah dokumen unggahan
+                    </p>
+                    <button type="button"
+                        class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center"
+                        onclick="simulateEscape()">
+                        <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                            fill="none" viewBox="0 0 14 14">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+                        </svg>
+                        <span class="sr-only">Close modal</span>
+                    </button>
+                </div>
+                <!-- Modal body -->
+                <div class="py-2 px-5">
+                    <p class="font-light text-lg mb-2">Dokumen sebelumnya</p>
+                    <div class="grid grid-cols-2 space-x-2">
+                        <div>
+                            <p class="text-base leading-relaxed text-gray-600">
+                                Nama dokumen:
+                            </p>
+                            <p class="text-gray-900">
+                                {{ $koneksiar->{'draw_me_' . $number} }}
+                            </p>
+                        </div>
+                        <div>
+                            <p class="text-base leading-relaxed text-gray-600">
+                                Oleh:
+                            </p>
+                            <p class="text-gray-900">
+                                {{ $koneksiar->{'up_draw_me_by_' . $number} }}
+                            </p>
                         </div>
                     </div>
                 </div>
-            @endforeach
+                <!-- Modal footer -->
+                <div class="items-center px-5 py-2 border-t border-gray-200 rounded-b">
+                    <p class="font-light text-lg">
+                        Unggah dokumen baru
+                    </p>
+                    <div class="items-center justify-center w-full border my-4">
+                        @if ($koneksiar->{'draw_me_' . $number} != '')
+                            <input type="file"name="as_draw_me_{{ $number }}" id="">
+                        @else()
+                        @endif
+                    </div>
+                </div>
+                <button type="submit"
+                    class="bg-orange-500 w-full hover:bg-orange-600 text-white font-bold py-2 rounded-b-lg shadow-md">Submit</button>
+            </div>
+        </div>
+    </div>
+@endforeach
 
-            @foreach ($m as $index => $number)
-                <div id="modal2{{ $number }}"
-                    class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 inset-0 justify-center items-center w-full max-h-full">
-                    <div class="relative p-4 w-full max-w-2xl max-h-full">
-                        <!-- Modal content -->
-                        <div class="relative bg-white rounded-lg shadow">
-                            <!-- Modal header -->
-                            <div class="flex items-center justify-between px-5 py-3 border-b rounded-t">
-                                <p class="text-2xl font-semibold text-gray-900 font-mono">
-                                    Ubah dokumen unggahan
-                                </p>
-                                <button type="button"
-                                    class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center"
-                                    onclick="simulateEscape()">
-                                    <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                                        fill="none" viewBox="0 0 14 14">
-                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                            stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
-                                    </svg>
-                                    <span class="sr-only">Close modal</span>
-                                </button>
-                            </div>
-                            <!-- Modal body -->
-                            <div class="py-2 px-5">
-                                <p class="font-light text-lg mb-2">Dokumen sebelumnya</p>
-                                <div class="grid grid-cols-2 space-x-2">
-                                    <div>
-                                        <p class="text-base leading-relaxed text-gray-600">
-                                            Nama dokumen:
-                                        </p>
-                                        <p class="text-gray-900">
-                                            {{ $koneksiar->{'draw_el_' . $number} }}
-                                        </p>
-                                    </div>
-                                    <div>
-                                        <p class="text-base leading-relaxed text-gray-600">
-                                            Oleh:
-                                        </p>
-                                        <p class="text-gray-900">
-                                            {{ $koneksiar->{'up_draw_el_by_' . $number} }}
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Modal footer -->
-                            <div class="items-center px-5 py-2 border-t border-gray-200 rounded-b">
-                                <p class="font-light text-lg">
-                                    Unggah dokumen baru
-                                </p>
-                                <div class="items-center justify-center w-full border my-4">
-                                    @if ($koneksiar->{'draw_el_' . $number} != '')
-                                        <input type="file"name="as_draw_el_{{ $number }}" id="">
-                                    @else()
-                                    @endif
-                                </div>
-                            </div>
-                            <button type="submit"
-                                class="bg-orange-500 w-full hover:bg-orange-600 text-white font-bold py-2 rounded-b-lg shadow-md">Submit</button>
+@foreach ($m as $index => $number)
+    <div id="modal2{{ $number }}"
+        class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 inset-0 justify-center items-center w-full max-h-full">
+        <div class="relative p-4 w-full max-w-2xl max-h-full">
+            <!-- Modal content -->
+            <div class="relative bg-white rounded-lg shadow">
+                <!-- Modal header -->
+                <div class="flex items-center justify-between px-5 py-3 border-b rounded-t">
+                    <p class="text-2xl font-semibold text-gray-900 font-mono">
+                        Ubah dokumen unggahan
+                    </p>
+                    <button type="button"
+                        class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center"
+                        onclick="simulateEscape()">
+                        <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                            fill="none" viewBox="0 0 14 14">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+                        </svg>
+                        <span class="sr-only">Close modal</span>
+                    </button>
+                </div>
+                <!-- Modal body -->
+                <div class="py-2 px-5">
+                    <p class="font-light text-lg mb-2">Dokumen sebelumnya</p>
+                    <div class="grid grid-cols-2 space-x-2">
+                        <div>
+                            <p class="text-base leading-relaxed text-gray-600">
+                                Nama dokumen:
+                            </p>
+                            <p class="text-gray-900">
+                                {{ $koneksiar->{'draw_el_' . $number} }}
+                            </p>
+                        </div>
+                        <div>
+                            <p class="text-base leading-relaxed text-gray-600">
+                                Oleh:
+                            </p>
+                            <p class="text-gray-900">
+                                {{ $koneksiar->{'up_draw_el_by_' . $number} }}
+                            </p>
                         </div>
                     </div>
                 </div>
-            @endforeach
+                <!-- Modal footer -->
+                <div class="items-center px-5 py-2 border-t border-gray-200 rounded-b">
+                    <p class="font-light text-lg">
+                        Unggah dokumen baru
+                    </p>
+                    <div class="items-center justify-center w-full border my-4">
+                        @if ($koneksiar->{'draw_el_' . $number} != '')
+                            <input type="file"name="as_draw_el_{{ $number }}" id="">
+                        @else()
+                        @endif
+                    </div>
+                </div>
+                <button type="submit"
+                    class="bg-orange-500 w-full hover:bg-orange-600 text-white font-bold py-2 rounded-b-lg shadow-md">Submit</button>
+            </div>
+        </div>
+    </div>
+@endforeach
 
-            @foreach ($m as $index => $number)
-                <div id="modal3{{ $number }}"
-                    class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 inset-0 justify-center items-center w-full max-h-full">
-                    <div class="relative p-4 w-full max-w-2xl max-h-full">
-                        <!-- Modal content -->
-                        <div class="relative bg-white rounded-lg shadow">
-                            <!-- Modal header -->
-                            <div class="flex items-center justify-between px-5 py-3 border-b rounded-t">
-                                <p class="text-2xl font-semibold text-gray-900 font-mono">
-                                    Ubah dokumen unggahan
-                                </p>
-                                <button type="button"
-                                    class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center"
-                                    onclick="simulateEscape()">
-                                    <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                                        fill="none" viewBox="0 0 14 14">
-                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                            stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
-                                    </svg>
-                                    <span class="sr-only">Close modal</span>
-                                </button>
-                            </div>
-                            <!-- Modal body -->
-                            <div class="py-2 px-5">
-                                <p class="font-light text-lg mb-2">Dokumen sebelumnya</p>
-                                <div class="grid grid-cols-2 space-x-2">
-                                    <div>
-                                        <p class="text-base leading-relaxed text-gray-600">
-                                            Nama dokumen:
-                                        </p>
-                                        <p class="text-gray-900">
-                                            {{ $koneksiar->{'approval_lay_' . $number} }}
-                                        </p>
-                                    </div>
-                                    <div>
-                                        <p class="text-base leading-relaxed text-gray-600">
-                                            Oleh:
-                                        </p>
-                                        <p class="text-gray-900">
-                                            {{ $koneksiar->{'up_approval_lay_by_' . $number} }}
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Modal footer -->
-                            <div class="items-center px-5 py-2 border-t border-gray-200 rounded-b">
-                                <p class="font-light text-lg">
-                                    Unggah dokumen baru
-                                </p>
-                                <div class="items-center justify-center w-full border my-4">
-                                    @if ($koneksiar->{'approval_lay_' . $number} != '')
-                                        <input type="file"name="as_approval_lay_{{ $number }}"
-                                            id="">
-                                    @else()
-                                    @endif
-                                </div>
-                            </div>
-                            <button type="submit"
-                                class="bg-orange-500 w-full hover:bg-orange-600 text-white font-bold py-2 rounded-b-lg shadow-md">Submit</button>
+@foreach ($m as $index => $number)
+    <div id="modal3{{ $number }}"
+        class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 inset-0 justify-center items-center w-full max-h-full">
+        <div class="relative p-4 w-full max-w-2xl max-h-full">
+            <!-- Modal content -->
+            <div class="relative bg-white rounded-lg shadow">
+                <!-- Modal header -->
+                <div class="flex items-center justify-between px-5 py-3 border-b rounded-t">
+                    <p class="text-2xl font-semibold text-gray-900 font-mono">
+                        Ubah dokumen unggahan
+                    </p>
+                    <button type="button"
+                        class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center"
+                        onclick="simulateEscape()">
+                        <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                            fill="none" viewBox="0 0 14 14">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+                        </svg>
+                        <span class="sr-only">Close modal</span>
+                    </button>
+                </div>
+                <!-- Modal body -->
+                <div class="py-2 px-5">
+                    <p class="font-light text-lg mb-2">Dokumen sebelumnya</p>
+                    <div class="grid grid-cols-2 space-x-2">
+                        <div>
+                            <p class="text-base leading-relaxed text-gray-600">
+                                Nama dokumen:
+                            </p>
+                            <p class="text-gray-900">
+                                {{ $koneksiar->{'approval_lay_' . $number} }}
+                            </p>
+                        </div>
+                        <div>
+                            <p class="text-base leading-relaxed text-gray-600">
+                                Oleh:
+                            </p>
+                            <p class="text-gray-900">
+                                {{ $koneksiar->{'up_approval_lay_by_' . $number} }}
+                            </p>
                         </div>
                     </div>
                 </div>
-            @endforeach
+                <!-- Modal footer -->
+                <div class="items-center px-5 py-2 border-t border-gray-200 rounded-b">
+                    <p class="font-light text-lg">
+                        Unggah dokumen baru
+                    </p>
+                    <div class="items-center justify-center w-full border my-4">
+                        @if ($koneksiar->{'approval_lay_' . $number} != '')
+                            <input type="file"name="as_approval_lay_{{ $number }}" id="">
+                        @else()
+                        @endif
+                    </div>
+                </div>
+                <button type="submit"
+                    class="bg-orange-500 w-full hover:bg-orange-600 text-white font-bold py-2 rounded-b-lg shadow-md">Submit</button>
+            </div>
+        </div>
+    </div>
+@endforeach
 
-            @foreach ($m as $index => $number)
-                <div id="modal4{{ $number }}"
-                    class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 inset-0 justify-center items-center w-full max-h-full">
-                    <div class="relative p-4 w-full max-w-2xl max-h-full">
-                        <!-- Modal content -->
-                        <div class="relative bg-white rounded-lg shadow">
-                            <!-- Modal header -->
-                            <div class="flex items-center justify-between px-5 py-3 border-b rounded-t">
-                                <p class="text-2xl font-semibold text-gray-900 font-mono">
-                                    Ubah dokumen unggahan
-                                </p>
-                                <button type="button"
-                                    class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center"
-                                    onclick="simulateEscape()">
-                                    <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                                        fill="none" viewBox="0 0 14 14">
-                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                            stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
-                                    </svg>
-                                    <span class="sr-only">Close modal</span>
-                                </button>
-                            </div>
-                            <!-- Modal body -->
-                            <div class="py-2 px-5">
-                                <p class="font-light text-lg mb-2">Dokumen sebelumnya</p>
-                                <div class="grid grid-cols-2 space-x-2">
-                                    <div>
-                                        <p class="text-base leading-relaxed text-gray-600">
-                                            Nama dokumen:
-                                        </p>
-                                        <p class="text-gray-900">
-                                            {{ $koneksiar->{'approval_draw_' . $number} }}
-                                        </p>
-                                    </div>
-                                    <div>
-                                        <p class="text-base leading-relaxed text-gray-600">
-                                            Oleh:
-                                        </p>
-                                        <p class="text-gray-900">
-                                            {{ $koneksiar->{'up_approval_draw_by_' . $number} }}
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Modal footer -->
-                            <div class="items-center px-5 py-2 border-t border-gray-200 rounded-b">
-                                <p class="font-light text-lg">
-                                    Unggah dokumen baru
-                                </p>
-                                <div class="items-center justify-center w-full border my-4">
-                                    @if ($koneksiar->{'approval_draw_' . $number} != '')
-                                        <input type="file"name="as_approval_draw_{{ $number }}"
-                                            id="">
-                                    @else()
-                                    @endif
-                                </div>
-                            </div>
-                            <button type="submit"
-                                class="bg-orange-500 w-full hover:bg-orange-600 text-white font-bold py-2 rounded-b-lg shadow-md">Submit</button>
+@foreach ($m as $index => $number)
+    <div id="modal4{{ $number }}"
+        class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 inset-0 justify-center items-center w-full max-h-full">
+        <div class="relative p-4 w-full max-w-2xl max-h-full">
+            <!-- Modal content -->
+            <div class="relative bg-white rounded-lg shadow">
+                <!-- Modal header -->
+                <div class="flex items-center justify-between px-5 py-3 border-b rounded-t">
+                    <p class="text-2xl font-semibold text-gray-900 font-mono">
+                        Ubah dokumen unggahan
+                    </p>
+                    <button type="button"
+                        class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center"
+                        onclick="simulateEscape()">
+                        <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                            fill="none" viewBox="0 0 14 14">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+                        </svg>
+                        <span class="sr-only">Close modal</span>
+                    </button>
+                </div>
+                <!-- Modal body -->
+                <div class="py-2 px-5">
+                    <p class="font-light text-lg mb-2">Dokumen sebelumnya</p>
+                    <div class="grid grid-cols-2 space-x-2">
+                        <div>
+                            <p class="text-base leading-relaxed text-gray-600">
+                                Nama dokumen:
+                            </p>
+                            <p class="text-gray-900">
+                                {{ $koneksiar->{'approval_draw_' . $number} }}
+                            </p>
+                        </div>
+                        <div>
+                            <p class="text-base leading-relaxed text-gray-600">
+                                Oleh:
+                            </p>
+                            <p class="text-gray-900">
+                                {{ $koneksiar->{'up_approval_draw_by_' . $number} }}
+                            </p>
                         </div>
                     </div>
                 </div>
-            @endforeach
+                <!-- Modal footer -->
+                <div class="items-center px-5 py-2 border-t border-gray-200 rounded-b">
+                    <p class="font-light text-lg">
+                        Unggah dokumen baru
+                    </p>
+                    <div class="items-center justify-center w-full border my-4">
+                        @if ($koneksiar->{'approval_draw_' . $number} != '')
+                            <input type="file"name="as_approval_draw_{{ $number }}" id="">
+                        @else()
+                        @endif
+                    </div>
+                </div>
+                <button type="submit"
+                    class="bg-orange-500 w-full hover:bg-orange-600 text-white font-bold py-2 rounded-b-lg shadow-md">Submit</button>
+            </div>
+        </div>
+    </div>
+@endforeach
 
-            @foreach ($m as $index => $number)
-                <div id="modal5{{ $number }}"
-                    class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 inset-0 justify-center items-center w-full max-h-full">
-                    <div class="relative p-4 w-full max-w-2xl max-h-full">
-                        <!-- Modal content -->
-                        <div class="relative bg-white rounded-lg shadow">
-                            <!-- Modal header -->
-                            <div class="flex items-center justify-between px-5 py-3 border-b rounded-t">
-                                <p class="text-2xl font-semibold text-gray-900 font-mono">
-                                    Ubah dokumen unggahan
-                                </p>
-                                <button type="button"
-                                    class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center"
-                                    onclick="simulateEscape()">
-                                    <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                                        fill="none" viewBox="0 0 14 14">
-                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                            stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
-                                    </svg>
-                                    <span class="sr-only">Close modal</span>
-                                </button>
-                            </div>
-                            <!-- Modal body -->
-                            <div class="py-2 px-5">
-                                <p class="font-light text-lg mb-2">Dokumen sebelumnya</p>
-                                <div class="grid grid-cols-2 space-x-2">
-                                    <div>
-                                        <p class="text-base leading-relaxed text-gray-600">
-                                            Nama dokumen:
-                                        </p>
-                                        <p class="text-gray-900">
-                                            {{ $koneksiar->{'dsgn_sheet_' . $number} }}
-                                        </p>
-                                    </div>
-                                    <div>
-                                        <p class="text-base leading-relaxed text-gray-600">
-                                            Oleh:
-                                        </p>
-                                        <p class="text-gray-900">
-                                            {{ $koneksiar->{'up_dsgn_sheet_by_' . $number} }}
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Modal footer -->
-                            <div class="items-center px-5 py-2 border-t border-gray-200 rounded-b">
-                                <p class="font-light text-lg">
-                                    Unggah dokumen baru
-                                </p>
-                                <div class="items-center justify-center w-full border my-4">
-                                    @if ($koneksiar->{'dsgn_sheet_' . $number} != '')
-                                        <input type="file"name="as_dsgn_sheet_{{ $number }}"
-                                            id="">
-                                    @else()
-                                    @endif
-                                </div>
-                            </div>
-                            <button type="submit"
-                                class="bg-orange-500 w-full hover:bg-orange-600 text-white font-bold py-2 rounded-b-lg shadow-md">Submit</button>
+@foreach ($m as $index => $number)
+    <div id="modal5{{ $number }}"
+        class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 inset-0 justify-center items-center w-full max-h-full">
+        <div class="relative p-4 w-full max-w-2xl max-h-full">
+            <!-- Modal content -->
+            <div class="relative bg-white rounded-lg shadow">
+                <!-- Modal header -->
+                <div class="flex items-center justify-between px-5 py-3 border-b rounded-t">
+                    <p class="text-2xl font-semibold text-gray-900 font-mono">
+                        Ubah dokumen unggahan
+                    </p>
+                    <button type="button"
+                        class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center"
+                        onclick="simulateEscape()">
+                        <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                            fill="none" viewBox="0 0 14 14">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+                        </svg>
+                        <span class="sr-only">Close modal</span>
+                    </button>
+                </div>
+                <!-- Modal body -->
+                <div class="py-2 px-5">
+                    <p class="font-light text-lg mb-2">Dokumen sebelumnya</p>
+                    <div class="grid grid-cols-2 space-x-2">
+                        <div>
+                            <p class="text-base leading-relaxed text-gray-600">
+                                Nama dokumen:
+                            </p>
+                            <p class="text-gray-900">
+                                {{ $koneksiar->{'dsgn_sheet_' . $number} }}
+                            </p>
+                        </div>
+                        <div>
+                            <p class="text-base leading-relaxed text-gray-600">
+                                Oleh:
+                            </p>
+                            <p class="text-gray-900">
+                                {{ $koneksiar->{'up_dsgn_sheet_by_' . $number} }}
+                            </p>
                         </div>
                     </div>
                 </div>
-            @endforeach
+                <!-- Modal footer -->
+                <div class="items-center px-5 py-2 border-t border-gray-200 rounded-b">
+                    <p class="font-light text-lg">
+                        Unggah dokumen baru
+                    </p>
+                    <div class="items-center justify-center w-full border my-4">
+                        @if ($koneksiar->{'dsgn_sheet_' . $number} != '')
+                            <input type="file"name="as_dsgn_sheet_{{ $number }}" id="">
+                        @else()
+                        @endif
+                    </div>
+                </div>
+                <button type="submit"
+                    class="bg-orange-500 w-full hover:bg-orange-600 text-white font-bold py-2 rounded-b-lg shadow-md">Submit</button>
+            </div>
+        </div>
+    </div>
+@endforeach
 
 
-            @php
-                $p = range(1, 5);
-            @endphp
+@php
+    $p = range(1, 5);
+@endphp
 
-            @foreach ($p as $index => $number)
-                <div id="modal6{{ $number }}"
-                    class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 inset-0 justify-center items-center w-full max-h-full">
-                    <div class="relative p-4 w-full max-w-2xl max-h-full">
-                        <!-- Modal content -->
-                        <div class="relative bg-white rounded-lg shadow">
-                            <!-- Modal header -->
-                            <div class="flex items-center justify-between px-5 py-3 border-b rounded-t">
-                                <p class="text-2xl font-semibold text-gray-900 font-mono">
-                                    Ubah dokumen unggahan
-                                </p>
-                                <button type="button"
-                                    class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center"
-                                    onclick="simulateEscape()">
-                                    <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                                        fill="none" viewBox="0 0 14 14">
-                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                            stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
-                                    </svg>
-                                    <span class="sr-only">Close modal</span>
-                                </button>
-                            </div>
-                            <!-- Modal body -->
-                            <div class="py-2 px-5">
-                                <p class="font-light text-lg mb-2">Dokumen sebelumnya</p>
-                                <div class="grid grid-cols-2 space-x-2">
-                                    <div>
-                                        <p class="text-base leading-relaxed text-gray-600">
-                                            Nama dokumen:
-                                        </p>
-                                        <p class="text-gray-900">
-                                            {{ $koneksiar->{'dr_meet_' . $number} }}
-                                        </p>
-                                    </div>
-                                    <div>
-                                        <p class="text-base leading-relaxed text-gray-600">
-                                            Oleh:
-                                        </p>
-                                        <p class="text-gray-900">
-                                            {{ $koneksiar->{'up_dr_meet_by_' . $number} }}
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Modal footer -->
-                            <div class="items-center px-5 py-2 border-t border-gray-200 rounded-b">
-                                <p class="font-light text-lg">
-                                    Unggah dokumen baru
-                                </p>
-                                <div class="items-center justify-center w-full border my-4">
-                                    @if ($koneksiar->{'dr_meet_' . $number} != '')
-                                        <input type="file"name="as_dr_meet_{{ $number }}" id="">
-                                    @else()
-                                    @endif
-                                </div>
-                            </div>
-                            <button type="submit"
-                                class="bg-orange-500 w-full hover:bg-orange-600 text-white font-bold py-2 rounded-b-lg shadow-md">Submit</button>
+@foreach ($p as $index => $number)
+    <div id="modal6{{ $number }}"
+        class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 inset-0 justify-center items-center w-full max-h-full">
+        <div class="relative p-4 w-full max-w-2xl max-h-full">
+            <!-- Modal content -->
+            <div class="relative bg-white rounded-lg shadow">
+                <!-- Modal header -->
+                <div class="flex items-center justify-between px-5 py-3 border-b rounded-t">
+                    <p class="text-2xl font-semibold text-gray-900 font-mono">
+                        Ubah dokumen unggahan
+                    </p>
+                    <button type="button"
+                        class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center"
+                        onclick="simulateEscape()">
+                        <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                            fill="none" viewBox="0 0 14 14">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+                        </svg>
+                        <span class="sr-only">Close modal</span>
+                    </button>
+                </div>
+                <!-- Modal body -->
+                <div class="py-2 px-5">
+                    <p class="font-light text-lg mb-2">Dokumen sebelumnya</p>
+                    <div class="grid grid-cols-2 space-x-2">
+                        <div>
+                            <p class="text-base leading-relaxed text-gray-600">
+                                Nama dokumen:
+                            </p>
+                            <p class="text-gray-900">
+                                {{ $koneksiar->{'dr_meet_' . $number} }}
+                            </p>
+                        </div>
+                        <div>
+                            <p class="text-base leading-relaxed text-gray-600">
+                                Oleh:
+                            </p>
+                            <p class="text-gray-900">
+                                {{ $koneksiar->{'up_dr_meet_by_' . $number} }}
+                            </p>
                         </div>
                     </div>
                 </div>
-            @endforeach
+                <!-- Modal footer -->
+                <div class="items-center px-5 py-2 border-t border-gray-200 rounded-b">
+                    <p class="font-light text-lg">
+                        Unggah dokumen baru
+                    </p>
+                    <div class="items-center justify-center w-full border my-4">
+                        @if ($koneksiar->{'dr_meet_' . $number} != '')
+                            <input type="file"name="as_dr_meet_{{ $number }}" id="">
+                        @else()
+                        @endif
+                    </div>
+                </div>
+                <button type="submit"
+                    class="bg-orange-500 w-full hover:bg-orange-600 text-white font-bold py-2 rounded-b-lg shadow-md">Submit</button>
+            </div>
+        </div>
+    </div>
+@endforeach
 
-            @foreach ($m as $index => $number)
-                <div id="modal7{{ $number }}"
-                    class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 inset-0 justify-center items-center w-full max-h-full">
-                    <div class="relative p-4 w-full max-w-2xl max-h-full">
-                        <!-- Modal content -->
-                        <div class="relative bg-white rounded-lg shadow">
-                            <!-- Modal header -->
-                            <div class="flex items-center justify-between px-5 py-3 border-b rounded-t">
-                                <p class="text-2xl font-semibold text-gray-900 font-mono">
-                                    Ubah dokumen unggahan
-                                </p>
-                                <button type="button"
-                                    class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center"
-                                    onclick="simulateEscape()">
-                                    <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                                        fill="none" viewBox="0 0 14 14">
-                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                            stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
-                                    </svg>
-                                    <span class="sr-only">Close modal</span>
-                                </button>
-                            </div>
-                            <!-- Modal body -->
-                            <div class="py-2 px-5">
-                                <p class="font-light text-lg mb-2">Dokumen sebelumnya</p>
-                                <div class="grid grid-cols-2 space-x-2">
-                                    <div>
-                                        <p class="text-base leading-relaxed text-gray-600">
-                                            Nama dokumen:
-                                        </p>
-                                        <p class="text-gray-900">
-                                            {{ $koneksiar->{'est_budget_' . $number} }}
-                                        </p>
-                                    </div>
-                                    <div>
-                                        <p class="text-base leading-relaxed text-gray-600">
-                                            Oleh:
-                                        </p>
-                                        <p class="text-gray-900">
-                                            {{ $koneksiar->{'up_est_budget_by_' . $number} }}
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Modal footer -->
-                            <div class="items-center px-5 py-2 border-t border-gray-200 rounded-b">
-                                <p class="font-light text-lg">
-                                    Unggah dokumen baru
-                                </p>
-                                <div class="items-center justify-center w-full border my-4">
-                                    @if ($koneksiar->{'est_budget_' . $number} != '')
-                                        <input type="file"name="as_est_budget_{{ $number }}"
-                                            id="">
-                                    @else()
-                                    @endif
-                                </div>
-                            </div>
-                            <button type="submit"
-                                class="bg-orange-500 w-full hover:bg-orange-600 text-white font-bold py-2 rounded-b-lg shadow-md">Submit</button>
+@foreach ($m as $index => $number)
+    <div id="modal7{{ $number }}"
+        class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 inset-0 justify-center items-center w-full max-h-full">
+        <div class="relative p-4 w-full max-w-2xl max-h-full">
+            <!-- Modal content -->
+            <div class="relative bg-white rounded-lg shadow">
+                <!-- Modal header -->
+                <div class="flex items-center justify-between px-5 py-3 border-b rounded-t">
+                    <p class="text-2xl font-semibold text-gray-900 font-mono">
+                        Ubah dokumen unggahan
+                    </p>
+                    <button type="button"
+                        class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center"
+                        onclick="simulateEscape()">
+                        <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                            fill="none" viewBox="0 0 14 14">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+                        </svg>
+                        <span class="sr-only">Close modal</span>
+                    </button>
+                </div>
+                <!-- Modal body -->
+                <div class="py-2 px-5">
+                    <p class="font-light text-lg mb-2">Dokumen sebelumnya</p>
+                    <div class="grid grid-cols-2 space-x-2">
+                        <div>
+                            <p class="text-base leading-relaxed text-gray-600">
+                                Nama dokumen:
+                            </p>
+                            <p class="text-gray-900">
+                                {{ $koneksiar->{'est_budget_' . $number} }}
+                            </p>
+                        </div>
+                        <div>
+                            <p class="text-base leading-relaxed text-gray-600">
+                                Oleh:
+                            </p>
+                            <p class="text-gray-900">
+                                {{ $koneksiar->{'up_est_budget_by_' . $number} }}
+                            </p>
                         </div>
                     </div>
                 </div>
-            @endforeach
-            {{-- selesai modal ubah --}}
+                <!-- Modal footer -->
+                <div class="items-center px-5 py-2 border-t border-gray-200 rounded-b">
+                    <p class="font-light text-lg">
+                        Unggah dokumen baru
+                    </p>
+                    <div class="items-center justify-center w-full border my-4">
+                        @if ($koneksiar->{'est_budget_' . $number} != '')
+                            <input type="file"name="as_est_budget_{{ $number }}" id="">
+                        @else()
+                        @endif
+                    </div>
+                </div>
+                <button type="submit"
+                    class="bg-orange-500 w-full hover:bg-orange-600 text-white font-bold py-2 rounded-b-lg shadow-md">Submit</button>
+            </div>
+        </div>
+    </div>
+@endforeach
+{{-- selesai modal ubah --}}
 
-        </form>
+</form>
 
 </div>
 {{-- Akhir progress file --}}
+@else
+<p class="bg-gray-600 p-3 mt-2 text-center font-bold text-white">Tahap Fund Request belum disetujui</p>
+@endif
 
 <script>
     function simulateEscape() {

@@ -5,8 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>@yield('title_page') | Supervisor</title>
+    {{-- <meta http-equiv="refresh" content="5"> --}}
 
-
+    @yield('custom_head')
     <!-- Tailwind CSS -->
     @vite('resources/css/app.css')
 
@@ -33,7 +34,6 @@
         }
     </style>
 
-
 </head>
 
 <body class="{{-- bg-[url('image/BSIN-K.jpg')] bg-no-repeat bg-cover bg-center --}} bg-gray-200">
@@ -41,8 +41,7 @@
     {{-- Navbar --}}
     <div class="container mb-20">
 
-        <nav
-            class="bg-gray-600 px-2 sm:px-2 py-2.5 fixed w-full z-20 top-0 left-0 border-b-4 border-orange-500 ">
+        <nav class="bg-gray-600 px-2 sm:px-2 py-2.5 fixed w-full z-20 top-0 left-0 border-b-4 border-orange-500 ">
             <div class=" flex flex-wrap justify-between items-center mx-auto">
 
                 <div class="ml-6 flex text-center">
@@ -59,11 +58,11 @@
 
                     {{-- Logo  --}}
                     <span class="self-center whitespace-nowrap text-xl font-semibold">
-                       {{--  <img src="{{ asset('/image/logo/02-logo-white-bridgestone.svg') }}" class="w-1/4"
+                        {{--  <img src="{{ asset('/image/logo/02-logo-white-bridgestone.svg') }}" class="w-1/4"
                             alt="tidak ada gambar"> --}}
-                            <p class="text-white">
-                                SIM Pro
-                            </p>
+                        <p class="text-white">
+                            SIM Pro
+                        </p>
                     </span>
                     {{-- Akhir Logo --}}
                 </div>
@@ -280,7 +279,7 @@
                     <div class="font-regular text-sm">
                         <ul id="dropdown-2" class="hidden space-y-2 py-2 pl-14">
                             {{-- tombol formulir umum --}}
-                           {{--  <li class="px-2 rounded-lg flex items-center  hover:bg-orange-500 decoration-red-600 ">
+                            {{--  <li class="px-2 rounded-lg flex items-center  hover:bg-orange-500 decoration-red-600 ">
                                 <svg width="20" height="auto" viewBox="0 0 52 56" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
                                     <path

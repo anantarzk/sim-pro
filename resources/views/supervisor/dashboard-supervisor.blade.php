@@ -2,7 +2,16 @@
 
 @section('title_page', 'Dashboard OB')
 
-
+@section('custom_head')
+    <meta http-equiv="refresh" content="30">
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            setTimeout(function() {
+                location.reload();
+            }, 5000); // Reload every 30 seconds
+        });
+    </script>
+@endsection
 {{-- trim --}}
 
 @section('konten')
@@ -86,7 +95,7 @@
                                         {{-- <p class="font-light text-lg">Not Approved FR:</p>
                                         <p class="font-semibold text-base">{{ $cancel }} Projects</p>
                                          --}}
-                                            <p class="font-light text-lg">&nbsp;</p>
+                                        <p class="font-light text-lg">&nbsp;</p>
                                         <p class="font-semibold text-base">&nbsp;</p>
                                         <br>
 
@@ -218,15 +227,16 @@
                                                         {{ $loop->iteration }}
                                                     </td>
                                                     <td class="p-2 text-left">
-                                                        @if ($object->id == $object->koneksikefr->id_fr_1 &&
-                                                            $object->id == $object->koneksikear->id_ar_2 &&
-                                                            $object->id == $object->koneksikepr01->id_pr_01_3 &&
-                                                            $object->id == $object->koneksikepa02->id_pa_02_3 &&
-                                                            $object->id == $object->koneksikepo03->id_po_03_3 &&
-                                                            $object->id == $object->koneksikepay04->id_pay_04_3 &&
-                                                            $object->id == $object->koneksikemn->id_mn_4 &&
-                                                            $object->id == $object->koneksikein->id_in_5 &&
-                                                            $object->id == $object->koneksikecl->id_cl_6)
+                                                        @if (
+                                                            $object->id == $object->koneksikefr->id_fr_1 &&
+                                                                $object->id == $object->koneksikear->id_ar_2 &&
+                                                                $object->id == $object->koneksikepr01->id_pr_01_3 &&
+                                                                $object->id == $object->koneksikepa02->id_pa_02_3 &&
+                                                                $object->id == $object->koneksikepo03->id_po_03_3 &&
+                                                                $object->id == $object->koneksikepay04->id_pay_04_3 &&
+                                                                $object->id == $object->koneksikemn->id_mn_4 &&
+                                                                $object->id == $object->koneksikein->id_in_5 &&
+                                                                $object->id == $object->koneksikecl->id_cl_6)
                                                             <a
                                                                 href="/redirect-proyek/{{ $object->id }}/{{ $object->koneksikefr->id_fr_1 }}/{{ $object->koneksikear->id_ar_2 }}/{{ $object->koneksikepr01->id_pr_01_3 }}/{{ $object->koneksikepa02->id_pa_02_3 }}/{{ $object->koneksikepo03->id_po_03_3 }}/{{ $object->koneksikepay04->id_pay_04_3 }}/{{ $object->koneksikemn->id_mn_4 }}/{{ $object->koneksikein->id_in_5 }}/{{ $object->koneksikecl->id_cl_6 }}">
                                                                 <p
@@ -261,8 +271,8 @@
             </div>
         </div>
     </div>
-   {{--  @dd($request->all()); --}}
-   {{-- @dd($jan_mny_pay, $feb_mny_pay, $mar_mny_pay); --}}
+    {{--  @dd($request->all()); --}}
+    {{-- @dd($jan_mny_pay, $feb_mny_pay, $mar_mny_pay); --}}
     {{-- <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> --}}
 
     <script type="module" src="{{ asset('./chart.js/chart.js') }}"></script>
@@ -298,7 +308,7 @@
         document.getElementById("default-tab").click();
 
 
-        document.addEventListener('DOMContentLoaded', function(){
+        document.addEventListener('DOMContentLoaded', function() {
             const obp = {
                 labels: [
                     'Not Started', 'Cancelled', 'In Progress', 'Finished'
@@ -374,38 +384,39 @@
             //  payment per month
             const dtbcontrol = {
                 datasets: [
-                //     {
-                //     label: "Accumulative Payment",
-                //     type: "line",
-                //     borderColor: "purple",
-                //     borderWidth: "4",
-                //     pointBorderColor: "orange",
-                //     data: [133, 221, 783, 2478, 4590],
-                //     fill: false
-                // },
-                {
-                    label: "Planned Target Payment",
-                    type: "bar",
-                    backgroundColor: "#4A93F7",
-                    data: ['{{ $planned->planned_1 }}', '{{ $planned->planned_2 }}',
-                        '{{ $planned->planned_3 }}',
-                        '{{ $planned->planned_4 }}', '{{ $planned->planned_5 }}',
-                        '{{ $planned->planned_6 }}', '{{ $planned->planned_7 }}',
-                        '{{ $planned->planned_8 }}', '{{ $planned->planned_9 }}',
-                        '{{ $planned->planned_10 }}', '{{ $planned->planned_11 }}',
-                        '{{ $planned->planned_12 }}'
-                    ],
-                }, {
-                    label: "Actual Payment",
-                    type: "bar",
-                    backgroundColor: "#F0172D",
-                    backgroundColorHover: "#3e95cd",
-                    data: ['{{ $jan_mny_pay }}', '{{ $feb_mny_pay }}', '{{ $mar_mny_pay }}',
-                        '{{ $apr_mny_pay }}', '{{ $mei_mny_pay }}', '{{ $jun_mny_pay }}',
-                        '{{ $jul_mny_pay }}', '{{ $agu_mny_pay }}', '{{ $sep_mny_pay }}',
-                        '{{ $okt_mny_pay }}', '{{ $nov_mny_pay }}', '{{ $des_mny_pay }}'
-                    ]
-                }],
+                    //     {
+                    //     label: "Accumulative Payment",
+                    //     type: "line",
+                    //     borderColor: "purple",
+                    //     borderWidth: "4",
+                    //     pointBorderColor: "orange",
+                    //     data: [133, 221, 783, 2478, 4590],
+                    //     fill: false
+                    // },
+                    {
+                        label: "Planned Target Payment",
+                        type: "bar",
+                        backgroundColor: "#4A93F7",
+                        data: ['{{ $planned->planned_1 }}', '{{ $planned->planned_2 }}',
+                            '{{ $planned->planned_3 }}',
+                            '{{ $planned->planned_4 }}', '{{ $planned->planned_5 }}',
+                            '{{ $planned->planned_6 }}', '{{ $planned->planned_7 }}',
+                            '{{ $planned->planned_8 }}', '{{ $planned->planned_9 }}',
+                            '{{ $planned->planned_10 }}', '{{ $planned->planned_11 }}',
+                            '{{ $planned->planned_12 }}'
+                        ],
+                    }, {
+                        label: "Actual Payment",
+                        type: "bar",
+                        backgroundColor: "#F0172D",
+                        backgroundColorHover: "#3e95cd",
+                        data: ['{{ $jan_mny_pay }}', '{{ $feb_mny_pay }}', '{{ $mar_mny_pay }}',
+                            '{{ $apr_mny_pay }}', '{{ $mei_mny_pay }}', '{{ $jun_mny_pay }}',
+                            '{{ $jul_mny_pay }}', '{{ $agu_mny_pay }}', '{{ $sep_mny_pay }}',
+                            '{{ $okt_mny_pay }}', '{{ $nov_mny_pay }}', '{{ $des_mny_pay }}'
+                        ]
+                    }
+                ],
                 labels: [
                     'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'
                 ],
@@ -491,6 +502,6 @@
                 document.getElementById("finance"),
                 configfinance
             );
-        },true);
+        }, true);
     </script>
 @endsection

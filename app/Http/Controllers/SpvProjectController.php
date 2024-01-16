@@ -4725,7 +4725,7 @@ class SpvProjectController extends Controller
             // Menyimpan nama asli dan ekstensi
             $ori_name = $request
                 ->file('as_pr_parts_1')
-                ->getClientOriginalName(); 
+                ->getClientOriginalName();
 
             // Mengambil waktu sekarang
             $waktu = now()->timestamp;

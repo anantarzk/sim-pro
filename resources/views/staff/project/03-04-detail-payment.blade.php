@@ -49,7 +49,7 @@
                     <div class="">
                         {{-- IO number --}}
                         <div class="container text-right">
-                            <div class=" text-red-500  font-semibold text-lg">IO Number:</div>
+                            <div class="font-semibold text-lg text-gray-600">IO Number:</div>
                             <p class="text-3xl font-bold text-gray-700">
                                 {{ $viewdataproject->io_number }}
                             </p>
@@ -86,27 +86,27 @@
                     <div>
                         <div class="flex justify-between max-w-xl text-right space-x-10 auto-cols-auto">
                             <div>
-                                <p class="text-md font-medium text-gray-500">Section:</p>
+                                <p class="text-md font-medium text-gray-600">Section:</p>
                                 <p class="text-lg font-semibold">
                                     {{ $viewdataproject->section }}
                                 </p>
                             </div>
                             <div>
-                                <p class="text-md font-medium text-gray-500">Cost Dept:</p>
+                                <p class="text-md font-medium text-gray-600">Cost Dept:</p>
                                 <p class="text-lg font-semibold">
                                     {{ $viewdataproject->cost_dept }}
                                 </p>
                             </div>
                             @if ($viewdataproject->remarks != '')
                                 <div>
-                                    <p class="text-md font-medium text-gray-500">Remarks:</p>
+                                    <p class="text-md font-medium text-gray-600">Remarks:</p>
                                     <p class="text-lg font-semibold">
                                         {{ $viewdataproject->remarks }}
                                     </p>
                                 </div>
                             @endif
                             <div>
-                                <p class="text-md font-medium text-gray-500">OB Year:</p>
+                                <p class="text-md font-medium text-gray-600">OB Year:</p>
                                 <p class="text-lg font-semibold">
                                     {{ $viewdataproject->ob_year }}
                                 </p>
@@ -123,24 +123,24 @@
                     <hr class="mb-2 w-full border">
                     {{-- progress bar --}}
                     @if ($viewdataproject->progress == 'Not Started')
-                        <div class="w-full bg-gray-200 rounded-full my-2 text-xs font-medium text-black text-center"
+                        <div class="w-full bg-gray-200 rounded-full my-2 text-sm font-medium text-black text-center"
                             data-popover-target="popover-0" data-popover-placement="bottom">
                             <p class="">0%</p>
-                            <div class="bg-orange-500  text-xs font-medium text-blue-100 text-center leading-none rounded-lg hover:cursor-default"
+                            <div class="bg-orange-500  text-sm font-medium text-blue-100 text-center leading-none rounded-lg hover:cursor-default"
                                 style="width: 0%">
                             </div>
                         </div>
                     @elseif ($viewdataproject->progress == 'Waiting Approval Fund Request')
-                        <div class="w-full bg-gray-200 rounded-full my-2 text-xs font-medium text-black text-center"
+                        <div class="w-full bg-gray-200 rounded-full my-2 text-sm font-medium text-black text-center"
                             data-popover-target="popover-0" data-popover-placement="bottom">
                             <p class="">0%</p>
-                            <div class="bg-orange-500  text-xs font-medium text-blue-100 text-center leading-none rounded-lg hover:cursor-default"
+                            <div class="bg-orange-500  text-sm font-medium text-blue-100 text-center leading-none rounded-lg hover:cursor-default"
                                 style="width: 0%">
                             </div>
                         </div>
                     @elseif ($viewdataproject->progress == 'Fund Request')
                         <div class="w-full bg-gray-200 rounded-full my-2">
-                            <div class="bg-orange-500  text-xs font-medium text-blue-100 text-center leading-none rounded-lg hover:cursor-default"
+                            <div class="bg-orange-500  text-sm font-medium text-blue-100 text-center leading-none rounded-lg hover:cursor-default"
                                 data-popover-target="popover-2" data-popover-placement="bottom" style="width: 5%">
                                 <p>05%</p>
 
@@ -148,7 +148,7 @@
                         </div>
                     @elseif ($viewdataproject->progress == 'Waiting Approval Arrangement')
                         <div class="w-full bg-gray-200 rounded-full my-2">
-                            <div class="bg-orange-500  text-xs font-medium text-blue-100 text-center leading-none rounded-lg hover:cursor-default"
+                            <div class="bg-orange-500  text-sm font-medium text-blue-100 text-center leading-none rounded-lg hover:cursor-default"
                                 data-popover-target="popover-3" data-popover-placement="bottom" style="width: 05%">
                                 <p>05%</p>
 
@@ -156,7 +156,7 @@
                         </div>
                     @elseif ($viewdataproject->progress == 'Arrangement')
                         <div class="w-full bg-gray-200 rounded-full my-2">
-                            <div class="bg-orange-500  text-xs font-medium text-blue-100 text-center leading-none rounded-lg hover:cursor-default"
+                            <div class="bg-orange-500  text-sm font-medium text-blue-100 text-center leading-none rounded-lg hover:cursor-default"
                                 data-popover-target="popover-4" data-popover-placement="bottom" style="width: 10%">
                                 <p>10%</p>
 
@@ -164,7 +164,7 @@
                         </div>
                     @elseif ($viewdataproject->progress == 'Waiting Approval Purchasing - PR')
                         <div class="w-full bg-gray-200 rounded-full my-2">
-                            <div class="bg-orange-500  text-xs font-medium text-blue-100 text-center leading-none rounded-lg hover:cursor-default"
+                            <div class="bg-orange-500  text-sm font-medium text-blue-100 text-center leading-none rounded-lg hover:cursor-default"
                                 data-popover-target="popover-5" data-popover-placement="bottom" style="width: 10%">
                                 <p>10%</p>
 
@@ -172,7 +172,7 @@
                         </div>
                     @elseif ($viewdataproject->progress == 'Purchasing - PR')
                         <div class="w-full bg-gray-200 rounded-full my-2">
-                            <div class="bg-orange-500  text-xs font-medium text-blue-100 text-center leading-none rounded-lg hover:cursor-default"
+                            <div class="bg-orange-500  text-sm font-medium text-blue-100 text-center leading-none rounded-lg hover:cursor-default"
                                 data-popover-target="popover-6" data-popover-placement="bottom" style="width: 15%">
                                 <p>15%</p>
 
@@ -180,7 +180,7 @@
                         </div>
                     @elseif ($viewdataproject->progress == 'Waiting Approval Purchasing - PA')
                         <div class="w-full bg-gray-200 rounded-full my-2">
-                            <div class="bg-orange-500  text-xs font-medium text-blue-100 text-center leading-none rounded-lg hover:cursor-default"
+                            <div class="bg-orange-500  text-sm font-medium text-blue-100 text-center leading-none rounded-lg hover:cursor-default"
                                 data-popover-target="popover-7" data-popover-placement="bottom" style="width: 15%">
                                 <p>15%</p>
 
@@ -188,7 +188,7 @@
                         </div>
                     @elseif ($viewdataproject->progress == 'Purchasing - PA')
                         <div class="w-full bg-gray-200 rounded-full my-2">
-                            <div class="bg-orange-500  text-xs font-medium text-blue-100 text-center leading-none rounded-lg hover:cursor-default"
+                            <div class="bg-orange-500  text-sm font-medium text-blue-100 text-center leading-none rounded-lg hover:cursor-default"
                                 data-popover-target="popover-8" data-popover-placement="bottom" style="width: 20%">
                                 <p>20%</p>
 
@@ -196,7 +196,7 @@
                         </div>
                     @elseif ($viewdataproject->progress == 'Waiting Approval Purchasing - PO')
                         <div class="w-full bg-gray-200 rounded-full my-2">
-                            <div class="bg-orange-500  text-xs font-medium text-blue-100 text-center leading-none rounded-lg hover:cursor-default"
+                            <div class="bg-orange-500  text-sm font-medium text-blue-100 text-center leading-none rounded-lg hover:cursor-default"
                                 data-popover-target="popover-9" data-popover-placement="bottom" style="width: 20%">
                                 <p>20%</p>
 
@@ -204,7 +204,7 @@
                         </div>
                     @elseif ($viewdataproject->progress == 'Purchasing - PO')
                         <div class="w-full bg-gray-200 rounded-full my-2">
-                            <div class="bg-orange-500  text-xs font-medium text-blue-100 text-center leading-none rounded-lg hover:cursor-default"
+                            <div class="bg-orange-500  text-sm font-medium text-blue-100 text-center leading-none rounded-lg hover:cursor-default"
                                 data-popover-target="popover-10" data-popover-placement="bottom" style="width: 25%">
                                 <p>25%</p>
 
@@ -212,7 +212,7 @@
                         </div>
                     @elseif ($viewdataproject->progress == 'Waiting Approval Purchasing - PAY')
                         <div class="w-full bg-gray-200 rounded-full my-2">
-                            <div class="bg-orange-500  text-xs font-medium text-blue-100 text-center leading-none rounded-lg hover:cursor-default"
+                            <div class="bg-orange-500  text-sm font-medium text-blue-100 text-center leading-none rounded-lg hover:cursor-default"
                                 data-popover-target="popover-11" data-popover-placement="bottom" style="width: 25%">
                                 <p>25%</p>
 
@@ -220,7 +220,7 @@
                         </div>
                     @elseif ($viewdataproject->progress == 'Purchasing - PAY')
                         <div class="w-full bg-gray-200 rounded-full my-2">
-                            <div class="bg-orange-500  text-xs font-medium text-blue-100 text-center leading-none rounded-lg hover:cursor-default"
+                            <div class="bg-orange-500  text-sm font-medium text-blue-100 text-center leading-none rounded-lg hover:cursor-default"
                                 data-popover-target="popover-12" data-popover-placement="bottom" style="width: 30%">
                                 <p>30%</p>
 
@@ -228,7 +228,7 @@
                         </div>
                     @elseif ($viewdataproject->progress == 'Purchasing')
                         <div class="w-full bg-gray-200 rounded-full my-2">
-                            <div class="bg-orange-500  text-xs font-medium text-blue-100 text-center leading-none rounded-lg hover:cursor-default"
+                            <div class="bg-orange-500  text-sm font-medium text-blue-100 text-center leading-none rounded-lg hover:cursor-default"
                                 data-popover-target="popover-13" data-popover-placement="bottom" style="width: 30%">
                                 <p>30%</p>
 
@@ -236,7 +236,7 @@
                         </div>
                     @elseif ($viewdataproject->progress == 'Waiting Approval Manufacturing')
                         <div class="w-full bg-gray-200 rounded-full my-2">
-                            <div class="bg-orange-500  text-xs font-medium text-blue-100 text-center leading-none rounded-lg hover:cursor-default"
+                            <div class="bg-orange-500  text-sm font-medium text-blue-100 text-center leading-none rounded-lg hover:cursor-default"
                                 data-popover-target="popover-14" data-popover-placement="bottom" style="width: 30%">
                                 <p>30%</p>
 
@@ -244,7 +244,7 @@
                         </div>
                     @elseif ($viewdataproject->progress == 'Manufacturing')
                         <div class="w-full bg-gray-200 rounded-full my-2">
-                            <div class="bg-orange-500  text-xs font-medium text-blue-100 text-center leading-none rounded-lg hover:cursor-default"
+                            <div class="bg-orange-500  text-sm font-medium text-blue-100 text-center leading-none rounded-lg hover:cursor-default"
                                 data-popover-target="popover-15" data-popover-placement="bottom" style="width: 60%">
                                 <p>60%</p>
 
@@ -252,7 +252,7 @@
                         </div>
                     @elseif ($viewdataproject->progress == 'Waiting Approval Installation')
                         <div class="w-full bg-gray-200 rounded-full my-2">
-                            <div class="bg-orange-500  text-xs font-medium text-blue-100 text-center leading-none rounded-lg hover:cursor-default"
+                            <div class="bg-orange-500  text-sm font-medium text-blue-100 text-center leading-none rounded-lg hover:cursor-default"
                                 data-popover-target="popover-16" data-popover-placement="bottom" style="width: 60%">
                                 <p>60%</p>
 
@@ -260,7 +260,7 @@
                         </div>
                     @elseif ($viewdataproject->progress == 'Installation')
                         <div class="w-full bg-gray-200 rounded-full my-2">
-                            <div class="bg-orange-500  text-xs font-medium text-blue-100 text-center leading-none rounded-lg hover:cursor-default"
+                            <div class="bg-orange-500  text-sm font-medium text-blue-100 text-center leading-none rounded-lg hover:cursor-default"
                                 data-popover-target="popover-17" data-popover-placement="bottom" style="width: 95%">
                                 <p>95%</p>
 
@@ -268,7 +268,7 @@
                         </div>
                     @elseif ($viewdataproject->progress == 'Waiting Approval Closed')
                         <div class="w-full bg-gray-200 rounded-full my-2">
-                            <div class="bg-orange-500  text-xs font-medium text-blue-100 text-center leading-none rounded-lg hover:cursor-default"
+                            <div class="bg-orange-500  text-sm font-medium text-blue-100 text-center leading-none rounded-lg hover:cursor-default"
                                 data-popover-target="popover-18" data-popover-placement="bottom" style="width: 95%">
                                 <p>95%</p>
 
@@ -276,7 +276,7 @@
                         </div>
                     @elseif ($viewdataproject->progress == 'Closed')
                         <div class="w-full bg-gray-200 rounded-full my-2">
-                            <div class="bg-orange-500  text-xs font-medium text-blue-100 text-center leading-none rounded-lg hover:cursor-default"
+                            <div class="bg-orange-500  text-sm font-medium text-blue-100 text-center leading-none rounded-lg hover:cursor-default"
                                 data-popover-target="popover-19" data-popover-placement="bottom" style="width: 100%">
                                 <p>100%</p>
 
@@ -290,14 +290,15 @@
                     <div class="flex justify-between">
                         <div class="flex">
                             <div>
-                                <div class="items-center pt-1 pr-4 text-xs font-medium  text-gray-500">Keterangan :
+                                <div class="items-center pt-1 pr-4 text-sm font-medium  text-gray-600">Keterangan
+                                    FR:
                                 </div>
                                 <div class="items-center pr-4 text-sm font-medium">
                                     {{ $viewdataproject->status_project }}
                                 </div>
                             </div>
                             <div>
-                                <div class="items-center pt-1 pr-4 text-xs font-medium  text-gray-500">Budget
+                                <div class="items-center pt-1 pr-4 text-sm font-medium  text-gray-600">Budget
                                     Amount :
                                 </div>
                                 <div class="items-center pr-4 text-sm font-medium">
@@ -306,7 +307,7 @@
                             </div>
 
                             <div>
-                                <div class="items-center pt-1 pr-4 text-xs font-medium  text-gray-500">Last
+                                <div class="items-center pt-1 pr-4 text-sm font-medium  text-gray-600">Last
                                     updated:
                                 </div>
                                 <div class="items-center pr-4 text-sm font-medium">
@@ -316,7 +317,7 @@
                                 </div>
                             </div>
                             <div>
-                                <div class="items-center pt-1 pr-4 text-xs font-medium  text-gray-500">Tahap
+                                <div class="items-center pt-1 pr-4 text-sm font-medium  text-gray-600">Tahap
                                     Project:
                                 </div>
                                 <div class="items-center pr-4 text-sm font-medium">
@@ -332,21 +333,19 @@
 
                             <div class="flex items-center space-x-2">
                                 {{-- Menampilkan PIC project --}}
-                                <p class="font-semibold">Start :</p>
+                                <p class="font-semibold text-gray-600">Start :</p>
                                 <div
-                                    class="items-center py-1 px-2 text-sm font-medium text-center text-white bg-sky-400 rounded drop-shadow-md ">
+                                    class="items-center py-1 px-2 text-lg font-medium text-center text-gray-900 rounded drop-shadow-md ">
                                     {{ $viewdataproject->date_start }}
                                 </div>
 
-                                <p class="font-semibold">End :</p>
+                                <p class="font-semibold text-gray-600">End :</p>
                                 <div
-                                    class="items-center py-1 px-2 text-sm font-medium text-center text-white bg-red-600 rounded drop-shadow-md">
+                                    class="items-center py-1 px-2 text-lg font-medium text-center text-gray-900 rounded drop-shadow-md">
                                     {{ $viewdataproject->date_end }}
                                 </div>
 
                             </div>
-
-
                         </div>
                     </div>
                 </div>
@@ -354,8 +353,63 @@
             </div>
         </div>
 
-        {{-- awal stepper --}}
-        <div class="max-w-4xl mx-auto mt-8">
+        {{-- financial status --}}
+        <div class="mt-3 w-full ">
+            <hr class="w-full border">
+            <div class="overflow-x-auto rounded">
+                <div class="grid grid-cols-1 my-1">
+                    <div class="text-lg text-center font-medium tracking-wider">
+                        Status Finansial Proyek
+                    </div>
+                </div>
+                <div class="grid grid-cols-6 gap-1 bg-gray-500 text-gray-900 text-left">
+                    <div class="bg-gray-300 px-1 text-lg ">
+                        Total budget
+                    </div>
+                    <div class="bg-gray-300 px-1 ">
+                        PR
+                    </div>
+                    <div class="bg-gray-300 px-1 ">
+                        PA
+                    </div>
+                    <div class="bg-gray-300 px-1 ">
+                        PO
+                    </div>
+                    <div class="bg-gray-300 px-1 ">
+                        PAYMENT
+                    </div>
+                    <div class="bg-gray-800 text-gray-200 px-1 ">
+                        BALANCE
+                    </div>
+                </div>
+                <div class="grid grid-cols-6 gap-1 text-gray-900 text-left text-md bg-gray-500">
+                    <div class="bg-gray-300 px-1 font-bold">
+                        Rp{{ number_format($viewdataproject->budget_amount, 0, ',', '.') }}
+                    </div>
+                    <div class="bg-gray-300 px-1 font-bold">
+                        Rp{{ number_format($sum_pr, 0, ',', '.') }}
+                    </div>
+                    <div class="bg-gray-300 px-1 font-bold">
+                        Rp{{ number_format($sum_pa, 0, ',', '.') }}
+                    </div>
+                    <div class="bg-gray-300 px-1 font-bold">
+                        Rp{{ number_format($sum_po, 0, ',', '.') }}
+                    </div>
+                    <div class="bg-gray-300 px-1 font-bold">
+                        Rp{{ number_format($sum_pay, 0, ',', '.') }}
+                    </div>
+                    <div class="bg-gray-800 px-1 text-gray-200 font-bold">
+                        {{-- initial kondisi, balance = budget amount sebelum ada oprasi perhitungan --}}
+                        Rp{{ number_format($balance, 0, ',', '.') }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {{-- awal stepper --}}
+    <div class="bg-white mt-3 h-40 pt-3 rounded-lg shadow-md">
+        <div class="max-w-5xl mx-auto">
             <div class="flex items-center">
                 <div class="flex items-center relative">
                     @if ($koneksifr->status_fr == 'Complete')
@@ -372,14 +426,14 @@
                         </div>
                     @endif
 
-                    <div class="absolute top-0 -ml-10 text-center mt-14 w-36 text-xs font-medium">
+                    <div class="absolute top-0 -ml-10 text-center mt-14 w-36 text-sm font-medium">
                         <a
                             href="/staff-01-fundrequest-proyek/{{ $viewdataproject->id }}/{{ $koneksifr->id_fr_1 }}/{{ $koneksiar->id_ar_2 }}/{{ $koneksipr->id_pr_01_3 }}/{{ $koneksipa->id_pa_02_3 }}/{{ $koneksipo->id_po_03_3 }}/{{ $koneksipay->id_pay_04_3 }}/{{ $koneksimn->id_mn_4 }}/{{ $koneksiin->id_in_5 }}/{{ $koneksicl->id_cl_6 }}">
                             <p class="font-semibold text-lg text-gray-900 hover:underline">
-                                Fund Request
+                                Fund Request<span class="text-red-600">*</span>
                             </p>
                         </a>
-                        <p class="uppercase">{{ $koneksifr->status_fr }}</p>
+                        <p class="uppercase text-xs">{{ $koneksifr->status_fr }}</p>
                         <p>{{ $koneksifr->status_fr_date }}</p>
                     </div>
                 </div>
@@ -400,13 +454,13 @@
                             <p class="font-bold text-md text-white">AR</p>
                         </div>
                     @endif
-                    <div class="absolute top-0 -ml-10 text-center mt-14 w-32 text-xs font-medium">
+                    <div class="absolute top-0 -ml-10 text-center mt-14 w-32 text-sm font-medium">
                         <a
                             href="/staff-02-arrangement-proyek/{{ $viewdataproject->id }}/{{ $koneksifr->id_fr_1 }}/{{ $koneksiar->id_ar_2 }}/{{ $koneksipr->id_pr_01_3 }}/{{ $koneksipa->id_pa_02_3 }}/{{ $koneksipo->id_po_03_3 }}/{{ $koneksipay->id_pay_04_3 }}/{{ $koneksimn->id_mn_4 }}/{{ $koneksiin->id_in_5 }}/{{ $koneksicl->id_cl_6 }}">
                             <p class="font-semibold text-lg text-gray-900 hover:underline">Arrangement
                             </p>
                         </a>
-                        <p class="uppercase">{{ $koneksiar->status_ar }}</p>
+                        <p class="uppercase text-xs">{{ $koneksiar->status_ar }}</p>
                         <p>{{ $koneksiar->status_ar_date }}</p>
                     </div>
                 </div>
@@ -431,13 +485,13 @@
                             <p class="font-bold text-md text-white">PR</p>
                         </div>
                     @endif
-                    <div class="absolute top-0 -ml-10 text-center mt-14 w-32 text-xs font-medium">
+                    <div class="absolute top-0 -ml-10 text-center mt-14 w-32 text-sm font-medium">
                         <a
                             href="/staff-03-01-PR-purchasing-proyek/{{ $viewdataproject->id }}/{{ $koneksifr->id_fr_1 }}/{{ $koneksiar->id_ar_2 }}/{{ $koneksipr->id_pr_01_3 }}/{{ $koneksipa->id_pa_02_3 }}/{{ $koneksipo->id_po_03_3 }}/{{ $koneksipay->id_pay_04_3 }}/{{ $koneksimn->id_mn_4 }}/{{ $koneksiin->id_in_5 }}/{{ $koneksicl->id_cl_6 }}">
-                            <p class="font-semibold text-lg text-gray-900 hover:underline">Purchasing
+                            <p class="font-semibold text-lg text-gray-900 hover:underline">Purchasing<span class="text-red-600">*</span>
                             </p>
                         </a>
-                        <p class="uppercase">{{ $koneksipr->status_purchasing }}</p>
+                        <p class="uppercase text-xs">{{ $koneksipr->status_purchasing }}</p>
                         <p>{{ $koneksipr->status_purchasing_date }}</p>
                     </div>
                 </div>
@@ -458,13 +512,13 @@
                             <p class="font-bold text-md text-white">MN</p>
                         </div>
                     @endif
-                    <div class="absolute top-0 -ml-10 text-center mt-14 w-32 text-xs font-medium">
+                    <div class="absolute top-0 -ml-10 text-center mt-14 w-32 text-sm font-medium">
                         <a
                             href="/staff-04-manufacturing-proyek/{{ $viewdataproject->id }}/{{ $koneksifr->id_fr_1 }}/{{ $koneksiar->id_ar_2 }}/{{ $koneksipr->id_pr_01_3 }}/{{ $koneksipa->id_pa_02_3 }}/{{ $koneksipo->id_po_03_3 }}/{{ $koneksipay->id_pay_04_3 }}/{{ $koneksimn->id_mn_4 }}/{{ $koneksiin->id_in_5 }}/{{ $koneksicl->id_cl_6 }}">
                             <p class="font-semibold text-lg text-gray-900 hover:underline">Manufacturing
                             </p>
                         </a>
-                        <p class="uppercase">{{ $koneksimn->status_mn }}</p>
+                        <p class="uppercase text-xs">{{ $koneksimn->status_mn }}</p>
                         <p>{{ $koneksimn->status_mn_date }}</p>
                     </div>
                 </div>
@@ -485,13 +539,13 @@
                             <p class="font-bold text-md text-white">IN</p>
                         </div>
                     @endif
-                    <div class="absolute top-0 -ml-10 text-center mt-14 w-32 text-xs font-medium">
+                    <div class="absolute top-0 -ml-10 text-center mt-14 w-32 text-sm font-medium">
                         <a
                             href="/staff-05-installation-proyek/{{ $viewdataproject->id }}/{{ $koneksifr->id_fr_1 }}/{{ $koneksiar->id_ar_2 }}/{{ $koneksipr->id_pr_01_3 }}/{{ $koneksipa->id_pa_02_3 }}/{{ $koneksipo->id_po_03_3 }}/{{ $koneksipay->id_pay_04_3 }}/{{ $koneksimn->id_mn_4 }}/{{ $koneksiin->id_in_5 }}/{{ $koneksicl->id_cl_6 }}">
-                            <p class="font-semibold text-lg text-gray-900 hover:underline">Installation
+                            <p class="font-semibold text-lg text-gray-900 hover:underline">Installation<span class="text-red-600">*</span>
                             </p>
                         </a>
-                        <p class="uppercase">{{ $koneksiin->status_in }}</p>
+                        <p class="uppercase text-xs">{{ $koneksiin->status_in }}</p>
                         <p>{{ $koneksiin->status_in_date }}</p>
                     </div>
                 </div>
@@ -512,83 +566,27 @@
                             <p class="font-bold text-md text-white">HOV</p>
                         </div>
                     @endif
-                    <div class="absolute top-0 -ml-10 text-center mt-14 w-32 text-xs font-medium">
+                    <div class="absolute top-0 -ml-10 text-center mt-14 w-32 text-sm font-medium">
                         <a
                             href="/staff-06-closed-proyek/{{ $viewdataproject->id }}/{{ $koneksifr->id_fr_1 }}/{{ $koneksiar->id_ar_2 }}/{{ $koneksipr->id_pr_01_3 }}/{{ $koneksipa->id_pa_02_3 }}/{{ $koneksipo->id_po_03_3 }}/{{ $koneksipay->id_pay_04_3 }}/{{ $koneksimn->id_mn_4 }}/{{ $koneksiin->id_in_5 }}/{{ $koneksicl->id_cl_6 }}">
-                            <p class="font-semibold text-lg text-gray-900 hover:underline">Handover
+                            <p class="font-semibold text-lg text-gray-900 hover:underline">Handover<span class="text-red-600">*</span>
                             </p>
                         </a>
-                        <p class="uppercase">{{ $koneksicl->status_cl }}</p>
+                        <p class="uppercase text-xs">{{ $koneksicl->status_cl }}</p>
                         <p>{{ $koneksicl->status_cl_date }}</p>
                     </div>
                 </div>
             </div>
         </div>
-        {{-- akhir stepper --}}
-
-        {{-- financial status --}}
-        <div class="mt-24 w-full ">
-            <hr class="mb-2 w-full border">
-            <div class=" bg-gray-300 overflow-x-auto rounded">
-                <div class="grid grid-cols-1 gap-1">
-                    <div class="bg-gray-300 p-1 text-lg text-center font-bold text-pink-600 tracking-wider font-mono">
-                        Status Finansial:
-                    </div>
-                </div>
-                <div class="grid grid-cols-6 gap-1 text-white text-left pt-1 text-base font-thin ">
-                    <div class="bg-pink-600 font-mono px-1 text-lg ">
-                        Total budget
-                    </div>
-                    <div class="bg-pink-600 font-mono px-1 text-lg">
-                        PR
-                    </div>
-                    <div class="bg-pink-600 font-mono px-1 text-lg">
-                        PA
-                    </div>
-                    <div class="bg-pink-600 font-mono px-1 text-lg">
-                        PO
-                    </div>
-                    <div class="bg-pink-600 font-mono px-1 text-lg">
-                        PAYMENT
-                    </div>
-                    <div class="bg-blue-800 font-mono px-1 text-lg">
-                        BALANCE
-                    </div>
-                </div>
-                <div class="grid grid-cols-6 gap-1 text-white text-left font-semibold text-base">
-                    <div class="bg-pink-600 px-1">
-                        Rp{{ number_format($viewdataproject->budget_amount, 0, ',', '.') }}
-                    </div>
-                    <div class="bg-pink-600 px-1">
-                        Rp{{ number_format($sum_pr, 0, ',', '.') }}
-                    </div>
-                    <div class="bg-pink-600 px-1">
-                        Rp{{ number_format($sum_pa, 0, ',', '.') }}
-                    </div>
-                    <div class="bg-pink-600 px-1">
-                        Rp{{ number_format($sum_po, 0, ',', '.') }}
-                    </div>
-                    <div class="bg-pink-600 px-1">
-                        Rp{{ number_format($sum_pay, 0, ',', '.') }}
-                    </div>
-                    <div class="bg-blue-800 px-1">
-                        {{-- initial kondisi, balance = budget amount sebelum ada oprasi perhitungan --}}
-                        Rp{{ number_format($balance, 0, ',', '.') }}
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        {{-- selesai financial status --}}
     </div>
+    {{-- akhir stepper --}}
 
 
-
+    @if ($koneksifr->status_fr != 'Complete')
+    <p class="bg-gray-600 uppercase p-3 mt-2 text-center font-bold text-white">Tahapan wajib sebelumnya belum disetujui</p>
+    @else
     {{-- Awal progress file --}}
     <div class="bg-white mt-3 w-full rounded-md shadow-md p-3">
-
-
-
         {{-- awal stepper khusus purchasing --}}
         <div class="max-w-2xl mx-auto mb-16 mt-2">
 
@@ -610,7 +608,7 @@
                     <div class="absolute top-0 -ml-10 text-center mt-14 w-32 text-xs font-medium">
                         <a
                             href="/staff-03-01-PR-purchasing-proyek/{{ $viewdataproject->id }}/{{ $koneksifr->id_fr_1 }}/{{ $koneksiar->id_ar_2 }}/{{ $koneksipr->id_pr_01_3 }}/{{ $koneksipa->id_pa_02_3 }}/{{ $koneksipo->id_po_03_3 }}/{{ $koneksipay->id_pay_04_3 }}/{{ $koneksimn->id_mn_4 }}/{{ $koneksiin->id_in_5 }}/{{ $koneksicl->id_cl_6 }}">
-                            <p class="font-semibold text-lg text-gray-900 hover:underline">Pur. Request
+                            <p class="font-semibold text-lg text-gray-900 hover:underline">Pur. Request<span class="text-red-600">*</span>
                             </p>
                         </a>
                         <p class="uppercase">{{ $koneksipr->status_pr_01 }}</p>
@@ -637,7 +635,7 @@
                     <div class="absolute top-0 -ml-10 text-center mt-14 w-32 text-xs font-medium">
                         <a
                             href="/staff-03-02-PA-purchase-approval-proyek/{{ $viewdataproject->id }}/{{ $koneksifr->id_fr_1 }}/{{ $koneksiar->id_ar_2 }}/{{ $koneksipr->id_pr_01_3 }}/{{ $koneksipa->id_pa_02_3 }}/{{ $koneksipo->id_po_03_3 }}/{{ $koneksipay->id_pay_04_3 }}/{{ $koneksimn->id_mn_4 }}/{{ $koneksiin->id_in_5 }}/{{ $koneksicl->id_cl_6 }}">
-                            <p class="font-semibold text-lg text-gray-900 hover:underline">Pur. Approval
+                            <p class="font-semibold text-lg text-gray-900 hover:underline">Pur. Approval<span class="text-red-600">*</span>
                             </p>
                         </a>
                         <p class="uppercase">{{ $koneksipa->status_pa_02 }}</p>
@@ -664,7 +662,7 @@
                     <div class="absolute top-0 -ml-10 text-center mt-14 w-32 text-xs font-medium">
                         <a
                             href="/staff-03-03-PO-purchase-order-proyek/{{ $viewdataproject->id }}/{{ $koneksifr->id_fr_1 }}/{{ $koneksiar->id_ar_2 }}/{{ $koneksipr->id_pr_01_3 }}/{{ $koneksipa->id_pa_02_3 }}/{{ $koneksipo->id_po_03_3 }}/{{ $koneksipay->id_pay_04_3 }}/{{ $koneksimn->id_mn_4 }}/{{ $koneksiin->id_in_5 }}/{{ $koneksicl->id_cl_6 }}">
-                            <p class="font-semibold text-lg text-gray-900 hover:underline">Pur. Order
+                            <p class="font-semibold text-lg text-gray-900 hover:underline">Pur. Order<span class="text-red-600">*</span>
                             </p>
                         </a>
                         <p class="uppercase">{{ $koneksipo->status_po_03 }}</p>
@@ -691,7 +689,7 @@
                     <div class="absolute top-0 -ml-10 text-center mt-14 w-32 text-xs font-medium">
                         <a
                             href="/staff-03-04-PAY-payment-purchasing-proyek/{{ $viewdataproject->id }}/{{ $koneksifr->id_fr_1 }}/{{ $koneksiar->id_ar_2 }}/{{ $koneksipr->id_pr_01_3 }}/{{ $koneksipa->id_pa_02_3 }}/{{ $koneksipo->id_po_03_3 }}/{{ $koneksipay->id_pay_04_3 }}/{{ $koneksimn->id_mn_4 }}/{{ $koneksiin->id_in_5 }}/{{ $koneksicl->id_cl_6 }}">
-                            <p class="font-semibold text-lg text-gray-900 hover:underline">Actual Payment
+                            <p class="font-semibold text-lg text-gray-900 hover:underline">Act. Payment<span class="text-red-600">*</span>
                             </p>
                         </a>
                         <p class="uppercase">{{ $koneksipay->status_pay_04 }}</p>
@@ -702,19 +700,17 @@
         </div>
         {{-- akhir stepper --}}
 
-        <br>
-        <br>
         <div class="flex justify-between items-center mb-3">
 
             {{-- status approval row --}}
             <div class="flex">
-                <p>Checked by: &nbsp;
-                <div class="items-center py-1 px-2 text-sm font-medium text-center text-white bg-red-700 mr-2 rounded">
+                <p>Diperiksa oleh: &nbsp;
+                <div class="items-center py-1 px-2 text-sm font-medium text-center text-white bg-orange-500 mr-2 rounded">
                     {{ $koneksipay->approval_by }}
                 </div>
                 </p>
                 &nbsp;&nbsp;
-                <p>On: &nbsp;
+                <p>Pada: &nbsp;
                 <p class="font-semibold">
                     {{ $koneksipay->approval_date }}
                 </p>
@@ -797,7 +793,7 @@
         </div>
         {{-- approval abu2 slesai --}}
         {{-- selesai status approval row --}}
-
+        <hr>
         {{-- Yang diganti pertahapnya --}}
         <form action="" method="post" enctype="multipart/form-data">
             @csrf
@@ -831,7 +827,7 @@
                         {{-- PR Parts & Material --}}
                         {{-- awal standar formulir --}}
                         <div class="flex justify-between">
-                            <p class="font-normal text-lg bg-teal-600 px-4 py-1 w-fit text-white mb-2 rounded"> PAY Parts & Material
+                            <p class="font-medium text-lg bg-gray-800 px-4 py-1 w-fit text-white mb-2 rounded"> PAY Parts & Material
                             @foreach ($standar_project as $spt)
                                 @if ($spt->file_pr_parts_material_form != '')
                                     <div class="flex justify-end mr-1 mt-4">
@@ -860,13 +856,13 @@
 
                         <div class="overflow-x-auto rounded-md mb-5 max-h-screen overflow-y-auto border">
                             <table class="w-full ">
-                                <thead class="bg-green-600 text-white sticky top-0">
-                                    <th class="py-2 w-[5%]">No.</th>
-                                    <th class="w-[45%]">Nama File</th>
-                                    <th class="w-[12%]">Uploaded by</th>
-                                    <th class="w-[12%]">Last Update</th>
-                                    <th class="w-[11%]">PAY Amount</th>
-                                    <th class="w-[15%]">Aksi</th>
+                                <thead class="bg-gray-300 text-gray-700 sticky top-0">
+                                    <th class="py-2 w-[5%] font-medium">No.</th>
+                                    <th class="w-[45%] font-medium">Nama File</th>
+                                    <th class="w-[12%] font-medium">Uploaded by</th>
+                                    <th class="w-[12%] font-medium">Last Update</th>
+                                    <th class="w-[11%] font-medium">PAY Amount</th>
+                                    <th class="w-[15%] font-medium">Aksi</th>
                                 </thead>
                                 <tbody class="text-left border">
                                     {{-- 1 --}}
@@ -4279,7 +4275,7 @@
                         {{-- PR Pekerjaan/Jasa --}}
                         {{-- awal standar formulir --}}
                         <div class="flex justify-between">
-                            <p class="font-normal text-lg bg-teal-600 px-4 py-1 w-fit text-white mb-2 rounded"> PAY Pekerjaan/Jasa
+                            <p class="font-medium text-lg bg-gray-800 px-4 py-1 w-fit text-white mb-2 rounded"> PAY Pekerjaan/Jasa
                             @foreach ($standar_project as $spt)
                                 @if ($spt->file_pr_pekerjaan_jasa_form != '')
                                     <div class="flex justify-end mr-1 mt-4">
@@ -4308,13 +4304,13 @@
 
                         <div class="overflow-x-auto rounded-md mb-5 max-h-screen overflow-y-auto border">
                             <table class="w-full">
-                                <thead class="bg-green-600 text-white">
-                                    <th class="py-2 w-[5%]">No.</th>
-                                    <th class="w-[45%]">Nama File</th>
-                                    <th class="w-[12%]">Uploaded by</th>
-                                    <th class="w-[12%]">Last Update</th>
-                                    <th class="w-[11%]">PAY Amount</th>
-                                    <th class="w-[15%]">Aksi</th>
+                                <thead class="bg-gray-300 text-gray-700">
+                                    <th class="py-2 w-[5%] font-medium">No.</th>
+                                    <th class="w-[45%] font-medium">Nama File</th>
+                                    <th class="w-[12%] font-medium">Uploaded by</th>
+                                    <th class="w-[12%] font-medium">Last Update</th>
+                                    <th class="w-[11%] font-medium">PAY Amount</th>
+                                    <th class="w-[15%] font-medium">Aksi</th>
                                 </thead>
                                 <tbody class="text-left border">
                                     {{-- 1 --}}
@@ -6332,7 +6328,7 @@
                         {{-- PR Manufaktur --}}
                         {{-- awal standar formulir --}}
                         <div class="flex justify-between">
-                            <p class="font-normal text-lg bg-teal-600 px-4 py-1 w-fit text-white mb-2 rounded"> PAY Manufaktur
+                            <p class="font-medium text-lg bg-gray-800 px-4 py-1 w-fit text-white mb-2 rounded"> PAY Manufaktur
                             @foreach ($standar_project as $spt)
                                 @if ($spt->file_pr_manufaktur_form != '')
                                     <div class="flex justify-end mr-1 mt-4">
@@ -6361,13 +6357,13 @@
 
                         <div class="overflow-x-auto rounded-t-md max-h-screen overflow-y-auto border">
                             <table class="w-full">
-                                <thead class="bg-green-600 text-white">
-                                    <th class="py-2 w-[5%]">No.</th>
-                                    <th class="w-[45%]">Nama File</th>
-                                    <th class="w-[12%]">Uploaded by</th>
-                                    <th class="w-[12%]">Last Update</th>
-                                    <th class="w-[11%]">PAY Amount</th>
-                                    <th class="w-[15%]">Aksi</th>
+                                <thead class="bg-gray-300 text-gray-700">
+                                    <th class="py-2 w-[5%] font-medium">No.</th>
+                                    <th class="w-[45%] font-medium">Nama File</th>
+                                    <th class="w-[12%] font-medium">Uploaded by</th>
+                                    <th class="w-[12%] font-medium">Last Update</th>
+                                    <th class="w-[11%] font-medium">PAY Amount</th>
+                                    <th class="w-[15%] font-medium">Aksi</th>
                                 </thead>
                                 <tbody class="text-left border">
                                     {{-- 1 --}}
@@ -7059,7 +7055,7 @@
                         {{-- PA EPQ --}}
                         {{-- awal standar formulir --}}
                         <div class="flex space-x-2 items-center justify-between">
-                            <p class="font-normal text-lg bg-teal-600 px-4 py-1 w-fit text-white mb-2 rounded">
+                            <p class="font-medium text-lg bg-gray-800 px-4 py-1 w-fit text-white mb-2 rounded">
                                 DA (Delivery Advice)
                             </p>
                             {{-- tombol form --}}
@@ -7068,12 +7064,12 @@
 
                         <div class="overflow-x-auto rounded-md mb-5">
                             <table class="w-full">
-                                <thead class="bg-green-600 text-white">
-                                    <th class="py-2 w-[5%]">No.</th>
-                                    <th class="w-[50%]">Nama File</th>
-                                    <th class="w-[15%]">Uploaded by</th>
-                                    <th class="w-[15%]">Last Update</th>
-                                    <th class="w-[15%]">Aksi</th>
+                                <thead class="bg-gray-300 text-gray-700">
+                                    <th class="py-2 w-[5%] font-medium">No.</th>
+                                    <th class="w-[50%] font-medium">Nama File</th>
+                                    <th class="w-[15%] font-medium">Uploaded by</th>
+                                    <th class="w-[15%] font-medium">Last Update</th>
+                                    <th class="w-[15%] font-medium">Aksi</th>
                                 </thead>
                                 <tbody class="text-left border">
                                     {{-- 1 --}}
@@ -7702,6 +7698,7 @@
     </div>
 
     {{-- Akhir progress file --}}
+    @endif
     <script>
         function simulateEscape() {
             // Create a new KeyboardEvent for the "Escape" key
@@ -7713,6 +7710,23 @@
             });
             document.dispatchEvent(escapeEvent);
         }
+
+        function openFileInput(namaVariabel) {
+        // Temukan elemen file input berdasarkan nama variabel
+        const fileInput = document.getElementById('fileInput_' + namaVariabel);
+
+        // Klik pada elemen file input
+        fileInput.click();
+
+        // Tambahkan event listener untuk menangani perubahan file
+        fileInput.addEventListener('change', function (event) {
+            const selectedFile = event.target.files[0];
+            console.log('File yang dipilih untuk ' + namaVariabel + ':', selectedFile.name);
+
+            // Sekarang, kirim formulir
+            document.getElementById('uploadForm').submit();
+        });
+    }
     </script>
 </div>
 {{-- tutup bungkus --}}

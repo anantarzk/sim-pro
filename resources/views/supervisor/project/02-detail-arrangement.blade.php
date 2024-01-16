@@ -580,13 +580,13 @@
     <div class="bg-white mt-3 w-full rounded-md shadow-md p-2">
         <div class="flex justify-between items-center">
             <div class="flex">
-                <p>Checked by: &nbsp;
-                <div class="items-center py-1 px-2 text-sm font-medium text-center text-white bg-red-700 mr-2 rounded">
+                <p>Diperiksa oleh: &nbsp;
+                <div class="items-center py-1 px-2 text-sm font-medium text-center text-white bg-orange-500 mr-2 rounded">
                     {{ $koneksiar->approval_by }}
                 </div>
                 </p>
                 &nbsp;&nbsp;
-                <p>On: &nbsp;
+                <p>Pada: &nbsp;
                 <p class="font-semibold">
                     {{ $koneksiar->approval_date }}
                 </p>
@@ -673,7 +673,7 @@
             {{-- atas form --}}
             {{-- awal standar formulir --}}
             <div class="flex justify-between">
-                <p class="font-normal text-lg bg-teal-600 px-4 py-1 w-fit text-white mb-2 rounded"> Drawing Mechanical
+                <p class="font-medium text-lg bg-gray-800 px-4 py-1 w-fit text-white mb-2 rounded"> Drawing Mechanical
                 </p>
                 @foreach ($standar_project as $spt)
                     @if ($spt->file_dr_m_sheet_form != '')
@@ -704,12 +704,12 @@
 
             <div class="overflow-x-auto rounded-md mb-5 border">
                 <table class="w-full">
-                    <thead class="bg-green-600 text-white">
-                        <th class="py-2 w-[5%]">No.</th>
-                        <th class="w-[57%]">Nama File</th>
-                        <th class="w-[10%]">Uploaded by</th>
-                        <th class="w-[13%]">Last Update</th>
-                        <th class="w-[15%]">Aksi</th>
+                    <thead class="bg-gray-300 text-gray-700">
+                        <th class="py-2 w-[5%] font-medium">No.</th>
+                        <th class="w-[57%] font-medium">Nama File</th>
+                        <th class="w-[10%] font-medium">Uploaded by</th>
+                        <th class="w-[13%] font-medium">Last Update</th>
+                        <th class="w-[15%] font-medium">Aksi</th>
                     </thead>
                     <tbody class="text-left border">
 
@@ -845,7 +845,7 @@
             {{-- electrical --}}
             {{-- awal standar formulir --}}
             <div class="flex justify-between">
-                <p class="font-normal text-lg bg-teal-600 px-4 py-1 w-fit text-white mb-2 rounded"> Drawing Electrical
+                <p class="font-medium text-lg bg-gray-800 px-4 py-1 w-fit text-white mb-2 rounded"> Drawing Electrical
                 </p>
                 @foreach ($standar_project as $spt)
                     @if ($spt->file_dr_e_sheet_form != '')
@@ -875,12 +875,12 @@
 
             <div class="overflow-x-auto rounded-md mb-5 border">
                 <table class="w-full">
-                    <thead class="bg-green-600 text-white">
-                        <th class="py-2 w-[5%]">No.</th>
-                        <th class="w-[57%]">Nama File</th>
-                        <th class="w-[10%]">Uploaded by</th>
-                        <th class="w-[13%]">Last Update</th>
-                        <th class="w-[15%]">Aksi</th>
+                    <thead class="bg-gray-300 text-gray-700">
+                        <th class="py-2 w-[5%] font-medium">No.</th>
+                        <th class="w-[57%] font-medium">Nama File</th>
+                        <th class="w-[10%] font-medium">Uploaded by</th>
+                        <th class="w-[13%] font-medium">Last Update</th>
+                        <th class="w-[15%] font-medium">Aksi</th>
                     </thead>
                     <tbody class="text-left border">
 
@@ -1015,7 +1015,7 @@
             {{-- layout approval --}}
             {{-- awal standar formulir --}}
             <div class="flex justify-between">
-                <p class="font-normal text-lg bg-teal-600 px-4 py-1 w-fit text-white mb-2 rounded"> Layout Approval
+                <p class="font-medium text-lg bg-gray-800 px-4 py-1 w-fit text-white mb-2 rounded"> Layout Approval
                 </p>
                 @foreach ($standar_project as $spt)
                     @if ($spt->file_lay_aprvl_sheet_form != '')
@@ -1045,12 +1045,12 @@
 
             <div class="overflow-x-auto rounded-md mb-5 border">
                 <table class="w-full">
-                    <thead class="bg-green-600 text-white">
-                        <th class="py-2 w-[5%]">No.</th>
-                        <th class="w-[57%]">Nama File</th>
-                        <th class="w-[10%]">Uploaded by</th>
-                        <th class="w-[13%]">Last Update</th>
-                        <th class="w-[15%]">Upload</th>
+                    <thead class="bg-gray-300 text-gray-700">
+                        <th class="py-2 w-[5%] font-medium">No.</th>
+                        <th class="w-[57%] font-medium">Nama File</th>
+                        <th class="w-[10%] font-medium">Uploaded by</th>
+                        <th class="w-[13%] font-medium">Last Update</th>
+                        <th class="w-[15%] font-medium">Upload</th>
                     </thead>
                     <tbody class="text-left border">
 
@@ -1184,7 +1184,7 @@
             {{-- drawing approval --}}
             {{-- awal standar formulir --}}
             <div class="flex justify-between">
-                <p class="font-normal text-lg bg-teal-600 px-4 py-1 w-fit text-white mb-2 rounded"> Drawing Approval
+                <p class="font-medium text-lg bg-gray-800 px-4 py-1 w-fit text-white mb-2 rounded"> Drawing Approval
                 </p>
                 @foreach ($standar_project as $spt)
                     @if ($spt->file_dr_aprvl_sheet_form != '')
@@ -1214,12 +1214,12 @@
 
             <div class="overflow-x-auto rounded-md mb-5 border">
                 <table class="w-full">
-                    <thead class="bg-green-600 text-white">
-                        <th class="py-2 w-[5%]">No.</th>
-                        <th class="w-[57%]">Nama File</th>
-                        <th class="w-[10%]">Uploaded by</th>
-                        <th class="w-[13%]">Last Update</th>
-                        <th class="w-[15%]">Upload</th>
+                    <thead class="bg-gray-300 text-gray-700">
+                        <th class="py-2 w-[5%] font-medium">No.</th>
+                        <th class="w-[57%] font-medium">Nama File</th>
+                        <th class="w-[10%] font-medium">Uploaded by</th>
+                        <th class="w-[13%] font-medium">Last Update</th>
+                        <th class="w-[15%] font-medium">Upload</th>
                     </thead>
                     <tbody class="text-left border">
 
@@ -1356,7 +1356,7 @@
             {{-- Design Sheet --}}
             {{-- awal standar formulir --}}
             <div class="flex justify-between">
-                <p class="font-normal text-lg bg-teal-600 px-4 py-1 w-fit text-white mb-2 rounded"> Design Sheet
+                <p class="font-medium text-lg bg-gray-800 px-4 py-1 w-fit text-white mb-2 rounded"> Design Sheet
                 </p>
                 @foreach ($standar_project as $spt)
                     @if ($spt->file_design_sheet_form != '')
@@ -1386,12 +1386,12 @@
 
             <div class="overflow-x-auto rounded-md mb-5 border">
                 <table class="w-full">
-                    <thead class="bg-green-600 text-white">
-                        <th class="py-2 w-[5%]">No.</th>
-                        <th class="w-[57%]">Nama File</th>
-                        <th class="w-[10%]">Uploaded by</th>
-                        <th class="w-[13%]">Last Update</th>
-                        <th class="w-[15%]">Upload</th>
+                    <thead class="bg-gray-300 text-gray-700">
+                        <th class="py-2 w-[5%] font-medium">No.</th>
+                        <th class="w-[57%] font-medium">Nama File</th>
+                        <th class="w-[10%] font-medium">Uploaded by</th>
+                        <th class="w-[13%] font-medium">Last Update</th>
+                        <th class="w-[15%] font-medium">Upload</th>
                     </thead>
                     <tbody class="text-left border">
 
@@ -1526,7 +1526,7 @@
             {{--  DR Meeting --}}
             {{-- awal standar formulir --}}
             <div class="flex justify-between">
-                <p class="font-normal text-lg bg-teal-600 px-4 py-1 w-fit text-white mb-2 rounded"> Design Review (DR) Meeting
+                <p class="font-medium text-lg bg-gray-800 px-4 py-1 w-fit text-white mb-2 rounded"> Design Review (DR) Meeting
                 </p>
                 @foreach ($standar_project as $spt)
                     @if ($spt->file_dr_meeting_form != '')
@@ -1558,12 +1558,12 @@
 
             <div class="overflow-x-auto rounded-md mb-5 border">
                 <table class="w-full">
-                    <thead class="bg-green-600 text-white">
-                        <th class="py-2 w-[5%]">No.</th>
-                        <th class="w-[57%]">Nama File</th>
-                        <th class="w-[10%]">Uploaded by</th>
-                        <th class="w-[13%]">Last Update</th>
-                        <th class="w-[15%]">Upload</th>
+                    <thead class="bg-gray-300 text-gray-700">
+                        <th class="py-2 w-[5%] font-medium">No.</th>
+                        <th class="w-[57%] font-medium">Nama File</th>
+                        <th class="w-[10%] font-medium">Uploaded by</th>
+                        <th class="w-[13%] font-medium">Last Update</th>
+                        <th class="w-[15%] font-medium">Upload</th>
                     </thead>
                     <tbody class="text-left border">
 
@@ -1888,7 +1888,7 @@
             {{-- Estimasi Budget --}}
             {{-- awal standar formulir --}}
             <div class="flex justify-between">
-                <p class="font-normal text-lg bg-teal-600 px-4 py-1 w-fit text-white mb-2 rounded"> Estimasi Budget
+                <p class="font-medium text-lg bg-gray-800 px-4 py-1 w-fit text-white mb-2 rounded"> Estimasi Budget
                 @foreach ($standar_project as $spt)
                     @if ($spt->file_est_budget_form != '')
                         <div class="flex justify-end mr-1 mt-4">
@@ -1918,12 +1918,12 @@
 
             <div class="overflow-x-auto rounded-md mb-1">
                 <table class="w-full">
-                    <thead class="bg-green-600 text-white">
-                        <th class="py-2 w-[5%]">No.</th>
-                        <th class="w-[57%]">Nama File</th>
-                        <th class="w-[10%]">Uploaded by</th>
-                        <th class="w-[13%]">Last Update</th>
-                        <th class="w-[15%]">Upload</th>
+                    <thead class="bg-gray-300 text-gray-700">
+                        <th class="py-2 w-[5%] font-medium">No.</th>
+                        <th class="w-[57%] font-medium">Nama File</th>
+                        <th class="w-[10%] font-medium">Uploaded by</th>
+                        <th class="w-[13%] font-medium">Last Update</th>
+                        <th class="w-[15%] font-medium">Upload</th>
                     </thead>
                     <tbody class="text-left border">
 

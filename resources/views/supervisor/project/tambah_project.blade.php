@@ -58,7 +58,7 @@
                         placeholder=" " required />
                     <label for="floating_email"
                         class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-orange-500 peer-focus:dark:text-orange-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
-                        *Project Name
+                        Judul Proyek<span class="text-red-600">*</span>
                     </label>
                 </div>
                 <div class="relative z-0 mb-6 w-full group">
@@ -67,7 +67,7 @@
                         placeholder=" " required="">
                     <label for="floating_company"
                         class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-orange-500 peer-focus:dark:text-orange-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
-                        *IO Number
+                        IO Number<span class="text-red-600">*</span>
                     </label>
                 </div>
                 <div class="relative z-0 mb-6 w-full group">
@@ -76,7 +76,7 @@
                         placeholder=" ">
                     <label for="floating_company"
                         class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-orange-500 peer-focus:dark:text-orange-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
-                        *Budget (Rp)
+                        Budget (Rp)<span class="text-red-600">*</span>
                     </label>
                 </div>
             </div>
@@ -85,7 +85,7 @@
                 <div class="relative z-0 mb-6 w-full group">
                     <select id="underline_select" name="section" required
                         class="block py-2.5 px-0 w-full text-sm text-gray-500 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-gray-400 focus:outline-none focus:ring-0 focus:border-orange-500 peer">
-                        <option disabled selected="" value="">*Section</option>
+                        <option disabled selected="" value="">Section<span class="text-red-600">*</span></option>
                         <option value="Design">Design</option>
                         <option value="IE">IE</option>
                         <option value="Eng">Maintenance</option>
@@ -99,7 +99,7 @@
                 <div class="relative z-0 mb-6 w-full group">
                     <select id="underline_select" name="cost_dept" required
                         class="block py-2.5 px-0 w-full text-sm text-gray-500 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-gray-400 focus:outline-none focus:ring-0 focus:border-orange-500 peer">
-                        <option disabled selected="" value="">*Cost Dept</option>
+                        <option disabled selected="" value="">Cost Dept<span class="text-red-600">*</span></option>
                         <option value="P1.K">P1.K</option>
                         <option value="P2.K">P2.K</option>
                         <option value="P3.K">P3.K</option>
@@ -142,7 +142,7 @@
                 <div class="relative z-0 mb-6 w-full group">
                     <select id="underline_select" name="status_project" required
                         class="block py-2.5 px-0 w-full text-sm text-gray-500 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-gray-400 focus:outline-none focus:ring-0 focus:border-orange-500 peer">
-                        <option disabled selected="" value="">*Status Fund Request</option>
+                        <option disabled selected="" value="">Status Fund Request<span class="text-red-600">*</span></option>
                         <option value="Approval">Approval</option>
                         <option value="Cancel">Cancel</option>
                         <option value="On Progress">On Progress</option>
@@ -156,7 +156,7 @@
                 <div class="relative z-0 mb-6 w-full group">
                     <select id="underline_select" name="ob_year" required
                         class="block py-2.5 px-0 w-full text-sm text-gray-500 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-gray-400 focus:outline-none focus:ring-0 focus:border-orange-500 peer">
-                        <option disabled selected="" value="">*OB Year</option>
+                        <option disabled selected="" value="">OB Year<span class="text-red-600">*</span></option>
                         <option value="2023">2023</option>
                         <option value="2024">2024</option>
                         <option value="2025">2025</option>
@@ -192,13 +192,13 @@
             </div>
 
             <p class="font-light text-gray-800 text-xl">
-                Penanggung jawab (PIC)
+                Penanggung jawab (PIC)<span class="text-red-600">*</span>
             </p>
             <div class="grid grid-cols-3 gap-6">
                 <div class="relative z-0 w-full group">
                     <select id="underline_select" name="pic_1_me"
                         class="block py-2.5 px-0 w-full text-sm text-gray-500 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-gray-400 focus:outline-none focus:ring-0 focus:border-orange-500 peer">
-                        <option disabled selected="" value="">Mechanical</option>
+                        <option disabled selected="" value="">Mechanical<span class="text-red-600">*</span></option>
                         <option disabled value="">Pilih PIC : </option>
                         @foreach ($users as $pic2)
                             @if ($pic2->section == 'Mechanical')
@@ -214,7 +214,7 @@
                 <div class="relative z-0 w-full group">
                     <select id="underline_select" name="pic_2_el"
                         class="block py-2.5 px-0 w-full text-sm text-gray-500 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-gray-400 focus:outline-none focus:ring-0 focus:border-orange-500 peer">
-                        <option disabled selected="" value="">Electrical</option>
+                        <option disabled selected="" value="">Electrical<span class="text-red-600">*</span></option>
                         <option disabled value="">Pilih PIC : </option>
                         @foreach ($users as $pic2)
                             @if ($pic2->section == 'Electrical')
@@ -230,7 +230,7 @@
                 <div class="relative z-0 w-full group">
                     <select id="underline_select" name="pic_3_mit"
                         class="block py-2.5 px-0 w-full text-sm text-gray-500 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-gray-400 focus:outline-none focus:ring-0 focus:border-orange-500 peer">
-                        <option disabled selected="" value="">Manufacturing IT</option>
+                        <option disabled selected="" value="">Manufacturing IT<span class="text-red-600">*</span></option>
                         <option disabled value="">Pilih PIC : </option>
                         @foreach ($users as $pic2)
                             @if ($pic2->section == 'Manufacturing IT')
@@ -246,7 +246,7 @@
             <br>
 
             <button type="submit"
-                class="text-white bg-orange-500 hover:bg-orange-600 focus:ring-4 focus:outline-none focus:ring-orange-500 font-bold rounded text-xl w-full py-2 text-center">
+                class="text-white bg-orange-500 hover:bg-orange-600 focus:ring-4 focus:outline-none focus:ring-orange-500 font-bold rounded text-lg w-full py-2 text-center">
                 Tambah proyek
             </button>
         </form>

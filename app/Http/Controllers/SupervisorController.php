@@ -7683,7 +7683,6 @@ class SupervisorController extends Controller
             $planned->planned_12;
 
         // kondisi untuk mencari
-
         if ($keyword != '') {
             $project = CONTROLPROJECT::with(
                 'koneksikefr',

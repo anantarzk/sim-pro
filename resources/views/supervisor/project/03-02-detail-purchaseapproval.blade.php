@@ -706,13 +706,13 @@
         <div class="flex justify-between items-center mb-3">
             {{-- status approval row --}}
             <div class="flex">
-                <p>Checked by: &nbsp;
-                <div class="items-center py-1 px-2 text-sm font-medium text-center text-white bg-red-700 mr-2 rounded">
+                <p>Diperiksa oleh: &nbsp;
+                <div class="items-center py-1 px-2 text-sm font-medium text-center text-white bg-orange-500 mr-2 rounded">
                     {{ $koneksipa->approval_by }}
                 </div>
                 </p>
                 &nbsp;&nbsp;
-                <p>On: &nbsp;
+                <p>Pada: &nbsp;
                 <p class="font-semibold">
                     {{ $koneksipa->approval_date }}
                 </p>
@@ -829,7 +829,7 @@
                         {{-- awal standar formulir --}}
 
                         <div class="flex justify-between">
-                            <p class="font-normal text-lg bg-teal-600 px-4 py-1 w-fit text-white mb-2 rounded"> PA Parts & Material
+                            <p class="font-medium text-lg bg-gray-800 px-4 py-1 w-fit text-white mb-2 rounded"> PA Parts & Material
                             @foreach ($standar_project as $spt)
                                 @if ($spt->file_pr_parts_material_form != '')
                                     <div class="flex justify-end mr-1 mt-4">
@@ -858,13 +858,13 @@
 
                         <div class="overflow-x-auto rounded-md mb-5 max-h-screen overflow-y-auto border">
                             <table class="w-full ">
-                                <thead class="bg-green-600 text-white sticky top-0">
-                                    <th class="py-2 w-[5%]">No.</th>
-                                    <th class="w-[45%]">Nama File</th>
-                                    <th class="w-[12%]">Uploaded by</th>
-                                    <th class="w-[12%]">Last Update</th>
-                                    <th class="w-[11%]">PA Amount</th>
-                                    <th class="w-[15%]">Aksi</th>
+                                <thead class="bg-gray-300 text-gray-700 sticky top-0">
+                                    <th class="py-2 w-[5%] font-medium">No.</th>
+                                    <th class="w-[45%] font-medium">Nama File</th>
+                                    <th class="w-[12%] font-medium">Uploaded by</th>
+                                    <th class="w-[12%] font-medium">Last Update</th>
+                                    <th class="w-[11%] font-medium">PA Amount</th>
+                                    <th class="w-[15%] font-medium">Aksi</th>
                                 </thead>
                                 <tbody class="text-left border">
                                     {{-- 1 --}}
@@ -4691,7 +4691,7 @@
                         {{-- PR Pekerjaan/Jasa --}}
                         {{-- awal standar formulir --}}
                         <div class="flex justify-between">
-                            <p class="font-normal text-lg bg-teal-600 px-4 py-1 w-fit text-white mb-2 rounded"> PA Pekerjaan/Jasa
+                            <p class="font-medium text-lg bg-gray-800 px-4 py-1 w-fit text-white mb-2 rounded"> PA Pekerjaan/Jasa
                             @foreach ($standar_project as $spt)
                                 @if ($spt->file_pr_pekerjaan_jasa_form != '')
                                     <div class="flex justify-end mr-1 mt-4">
@@ -4720,13 +4720,13 @@
 
                         <div class="overflow-x-auto rounded-md mb-5 max-h-screen overflow-y-auto border">
                             <table class="w-full">
-                                <thead class="bg-green-600 text-white">
-                                    <th class="py-2 w-[5%]">No.</th>
-                                    <th class="w-[45%]">Nama File</th>
-                                    <th class="w-[12%]">Uploaded by</th>
-                                    <th class="w-[12%]">Last Update</th>
-                                    <th class="w-[11%]">PR Amount</th>
-                                    <th class="w-[15%]">Aksi</th>
+                                <thead class="bg-gray-300 text-gray-700">
+                                    <th class="py-2 w-[5%] font-medium">No.</th>
+                                    <th class="w-[45%] font-medium">Nama File</th>
+                                    <th class="w-[12%] font-medium">Uploaded by</th>
+                                    <th class="w-[12%] font-medium">Last Update</th>
+                                    <th class="w-[11%] font-medium">PR Amount</th>
+                                    <th class="w-[15%] font-medium">Aksi</th>
                                 </thead>
                                 <tbody class="text-left border">
                                     {{-- 1 --}}
@@ -6984,7 +6984,7 @@
                         {{-- PR Manufaktur --}}
                         {{-- awal standar formulir --}}
                         <div class="flex justify-between">
-                            <p class="font-normal text-lg bg-teal-600 px-4 py-1 w-fit text-white mb-2 rounded"> PA Manufaktur
+                            <p class="font-medium text-lg bg-gray-800 px-4 py-1 w-fit text-white mb-2 rounded"> PA Manufaktur
                             @foreach ($standar_project as $spt)
                                 @if ($spt->file_pr_manufaktur_form != '')
                                     <div class="flex justify-end mr-1 mt-4">
@@ -7013,13 +7013,13 @@
 
                         <div class="overflow-x-auto rounded-t-md max-h-screen overflow-y-auto border">
                             <table class="w-full">
-                                <thead class="bg-green-600 text-white">
-                                    <th class="py-2 w-[5%]">No.</th>
-                                    <th class="w-[45%]">Nama File</th>
-                                    <th class="w-[12%]">Uploaded by</th>
-                                    <th class="w-[12%]">Last Update</th>
-                                    <th class="w-[11%]">PR Amount</th>
-                                    <th class="w-[15%]">Aksi</th>
+                                <thead class="bg-gray-300 text-gray-700">
+                                    <th class="py-2 w-[5%] font-medium">No.</th>
+                                    <th class="w-[45%] font-medium">Nama File</th>
+                                    <th class="w-[12%] font-medium">Uploaded by</th>
+                                    <th class="w-[12%] font-medium">Last Update</th>
+                                    <th class="w-[11%] font-medium">PR Amount</th>
+                                    <th class="w-[15%] font-medium">Aksi</th>
                                 </thead>
                                 <tbody class="text-left border">
                                     {{-- 1 --}}
@@ -7791,7 +7791,7 @@
                         {{-- PA EPQ --}}
                         {{-- awal standar formulir --}}
                         <div class="flex space-x-2 items-center justify-between">
-                            <p class="font-normal text-lg bg-teal-600 px-4 py-1 w-fit text-white mb-2 rounded">
+                            <p class="font-medium text-lg bg-gray-800 px-4 py-1 w-fit text-white mb-2 rounded">
                                 EPQ (Estimate Price Quotation)
                             </p>
                             {{-- tombol form --}}
@@ -7800,12 +7800,12 @@
 
                         <div class="overflow-x-auto rounded-md mb-5">
                             <table class="w-full">
-                                <thead class="bg-green-600 text-white">
-                                    <th class="py-2 w-[5%]">No.</th>
-                                    <th class="w-[50%]">Nama File</th>
-                                    <th class="w-[15%]">Uploaded by</th>
-                                    <th class="w-[15%]">Last Update</th>
-                                    <th class="w-[15%]">Aksi</th>
+                                <thead class="bg-gray-300 text-gray-700">
+                                    <th class="py-2 w-[5%] font-medium">No.</th>
+                                    <th class="w-[50%] font-medium">Nama File</th>
+                                    <th class="w-[15%] font-medium">Uploaded by</th>
+                                    <th class="w-[15%] font-medium">Last Update</th>
+                                    <th class="w-[15%] font-medium">Aksi</th>
                                 </thead>
                                 <tbody class="text-left border">
                                     {{-- 1 --}}

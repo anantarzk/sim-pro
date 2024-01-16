@@ -45,7 +45,7 @@ class StaffProjectController extends Controller
             ->OrWhere('pic_3_mit', Auth::user()->first_name)
             ->count('id');
 
-            /* kode cari */
+            /* kode cari search */
             if ($request->abc == '123' && $request->keyword == '' && $request->nilai_proyek_type == '' && $request->budget_amount_max == '' && $request->budget_amount_min == ''){
                 $project = CONTROLPROJECT::with(
                     'koneksikefr',
@@ -63,6 +63,7 @@ class StaffProjectController extends Controller
                     ->Where('pic_2_el', 'LIKE', "%". $request->pic_2_el ."%")
                     ->Where('pic_3_mit', 'LIKE', "%". $request->pic_3_mit ."%")
                     ->Where('ob_year', 'LIKE', "%". $request->ob_year ."%")
+                    ->Where('section', 'LIKE', "%". $request->section ."%")
                     ->latest('updated_at')
                     ->paginate(20);
             } else if ($request->abc == '123' && $request->keyword != ''&& $request->budget_amount_max == '' && $request->budget_amount_min == ''){
@@ -196,6 +197,8 @@ class StaffProjectController extends Controller
                     ->latest('updated_at')
                     ->paginate(20);
             }
+            //dd($project);
+/* selesai kode cari */
 
         // dd(DB::getQueryLog());
         $koneksifr = FRproject::select('id_fr_1')->get();

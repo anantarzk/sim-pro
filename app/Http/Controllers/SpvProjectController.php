@@ -251,6 +251,7 @@ class SpvProjectController extends Controller
         $totalproject = CONTROLPROJECT::select('id')
             ->whereNull('archive_at')
             ->count('id');
+
             /* kode cari search */
             if ($request->abc == '123' && $request->keyword == '' && $request->nilai_proyek_type == '' && $request->budget_amount_max == '' && $request->budget_amount_min == ''){
                 $project = CONTROLPROJECT::with(
@@ -269,6 +270,7 @@ class SpvProjectController extends Controller
                     ->Where('pic_2_el', 'LIKE', "%". $request->pic_2_el ."%")
                     ->Where('pic_3_mit', 'LIKE', "%". $request->pic_3_mit ."%")
                     ->Where('ob_year', 'LIKE', "%". $request->ob_year ."%")
+                    ->Where('section', 'LIKE', "%". $request->section ."%")
                     ->latest('updated_at')
                     ->paginate(20);
             } else if ($request->abc == '123' && $request->keyword != ''&& $request->budget_amount_max == '' && $request->budget_amount_min == ''){
@@ -402,7 +404,7 @@ class SpvProjectController extends Controller
                     ->latest('updated_at')
                     ->paginate(20);
             }
-                // dd($project);
+            //dd($project);
 /* selesai kode cari */
 
         $koneksifr = FRproject::select('id_fr_1')->get();

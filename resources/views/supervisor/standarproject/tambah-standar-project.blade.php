@@ -3,7 +3,7 @@
 
 <div class="my-20 mx-10">
     <p class="text-3xl font-bold font-mono mt-4">Formulir Kerja Standar</p>
-    <p class="text-base font-normal text-gray-500 mb-3">Formulir kerja untuk tahapan proyek.</p>
+    <p class="text-base font-normal text-gray-500 mb-3">Kelola formulir kerja untuk tahapan proyek.</p>
     @if (Session::has('status'))
         <div id="alert-3" class="flex p-4 mb-4 bg-green-100 rounded-lg dark:bg-green-200" role="alert">
             <svg aria-hidden="true" class="flex-shrink-0 w-5 h-5 text-green-700 dark:text-green-800" fill="currentColor"
@@ -19,9 +19,9 @@
                 {{ Session::get('message') }}
             </div>
 
-            
+
             <button type="button"
-                class="ml-auto -mx-1.5 -my-1.5 bg-green-100 text-green-500 rounded-lg focus:ring-2 focus:ring-green-400 p-1.5 hover:bg-green-200 inline-flex h-8 w-8 dark:bg-green-200 dark:text-green-600 dark:hover:bg-green-300"
+                class="ml-auto -mx-1.5 -my-1.5 bg-green-100 text-green-500 rounded-lg focus:ring-2 focus:ring-green-400 p-1.5 hover:bg-green-200 inline-flex h-8 w-8 dark:bg-green-200"
                 data-dismiss-target="#alert-3" aria-label="Close">
                 <span class="sr-only">Close</span>
                 <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
@@ -84,19 +84,19 @@
                             {{-- awal tabel --}}
                             <div class=" font-light  overflow-x-auto rounded-md">
                                 <table class="w-full ">
-                                    <thead class="bg-emerald-600 text-white ">
-                                        <th class="py-2 w-[15%]">Kategori Formulir</th>
-                                        <th class="w-[45%]">Nama File</th>
-                                        <th class="w-[10%]">Uploaded by</th>
-                                        <th class="w-[10%]">Last Update</th>
-                                        <th class="w-[10%]">Upload</th>
+                                    <thead class="bg-gray-300 text-gray-700">
+                                        <th class="py-2 w-[15%] font-medium">Kategori Formulir</th>
+                                        <th class="w-[45%] font-medium">Nama File</th>
+                                        <th class="w-[10%] font-medium">Uploaded by</th>
+                                        <th class="w-[10%] font-medium">Last Update</th>
+                                        <th class="w-[10%] font-medium">Upload</th>
                                     </thead>
                                     <tbody class="text-left">
                                         {{-- 1 --}}
                                         <tr
                                             class="  hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 bg-white duration-200 ">
-                                            <td class="py-4 font-bold bg-teal-600 rounded-b-md">
-                                                <p class="font-normal py-1 px-2 text-md text-center  text-white">
+                                            <td class="py-4 font-bold bg-gray-700 rounded-b-md">
+                                                <p class="font-medium py-1 px-2 text-md text-center  text-white">
                                                     Fund Request
                                                 </p>
                                             </td>
@@ -170,19 +170,19 @@
                             {{-- awal tabel --}}
                             <div class=" font-light  overflow-x-auto rounded-md">
                                 <table class="w-full ">
-                                    <thead class="bg-emerald-600 text-white ">
-                                        <th class="py-2 w-[15%]">Kategori Formulir</th>
-                                        <th class="w-[45%]">Nama File</th>
-                                        <th class="w-[10%]">Uploaded by</th>
-                                        <th class="w-[10%]">Last Update</th>
-                                        <th class="w-[10%]">Upload</th>
+                                    <thead class="bg-gray-300 text-gray-700">
+                                        <th class="py-2 w-[15%] font-medium">Kategori Formulir</th>
+                                        <th class="w-[45%] font-medium">Nama File</th>
+                                        <th class="w-[10%] font-medium">Uploaded by</th>
+                                        <th class="w-[10%] font-medium">Last Update</th>
+                                        <th class="w-[10%] font-medium">Upload</th>
                                     </thead>
                                     <tbody class="text-left">
                                         {{-- 1 --}}
                                         <tr
                                             class="  hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 bg-white duration-200 border-b ">
-                                            <td class="py-4 font-bold bg-teal-600 ">
-                                                <p class="font-normal py-1 px-2 text-md text-center  text-white">
+                                            <td class="py-4 font-bold bg-gray-700 ">
+                                                <p class="font-medium py-1 px-2 text-md text-center  text-white">
                                                     Drawing - Mechanical
                                                 </p>
                                             </td>
@@ -247,8 +247,8 @@
                                         {{-- 2 --}}
                                         <tr
                                             class="  hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 bg-white duration-200 border-b ">
-                                            <td class="py-4 font-bold bg-teal-600 ">
-                                                <p class="font-normal py-1 px-2 text-md text-center  text-white">
+                                            <td class="py-4 font-bold bg-gray-700 ">
+                                                <p class="font-medium py-1 px-2 text-md text-center  text-white">
                                                     Drawing Electrical
                                                 </p>
                                             </td>
@@ -314,8 +314,8 @@
                                         {{-- 3 --}}
                                         <tr
                                             class="  hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 bg-white duration-200 border-b ">
-                                            <td class="py-4 font-bold bg-teal-600 ">
-                                                <p class="font-normal py-1 px-2 text-md text-center  text-white">
+                                            <td class="py-4 font-bold bg-gray-700 ">
+                                                <p class="font-medium py-1 px-2 text-md text-center  text-white">
                                                     Layout Approval
                                                 </p>
                                             </td>
@@ -381,8 +381,8 @@
                                         {{-- 4 --}}
                                         <tr
                                             class="  hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 bg-white duration-200 border-b ">
-                                            <td class="py-4 font-bold bg-teal-600 ">
-                                                <p class="font-normal py-1 px-2 text-md text-center  text-white">
+                                            <td class="py-4 font-bold bg-gray-700 ">
+                                                <p class="font-medium py-1 px-2 text-md text-center  text-white">
                                                     Drawing Approval
                                                 </p>
                                             </td>
@@ -447,8 +447,8 @@
                                         {{-- 5 --}}
                                         <tr
                                             class="  hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 bg-white duration-200 border-b ">
-                                            <td class="py-4 font-bold bg-teal-600 ">
-                                                <p class="font-normal py-1 px-2 text-md text-center  text-white">
+                                            <td class="py-4 font-bold bg-gray-700 ">
+                                                <p class="font-medium py-1 px-2 text-md text-center  text-white">
                                                     Design Sheet
                                                 </p>
                                             </td>
@@ -515,8 +515,8 @@
                                         {{-- 6 --}}
                                         <tr
                                             class="  hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 bg-white duration-200 border-b ">
-                                            <td class="py-4 font-bold bg-teal-600 ">
-                                                <p class="font-normal py-1 px-2 text-md text-center  text-white">
+                                            <td class="py-4 font-bold bg-gray-700 ">
+                                                <p class="font-medium py-1 px-2 text-md text-center  text-white">
                                                     DR Meeting
                                                 </p>
                                             </td>
@@ -582,8 +582,8 @@
                                         {{-- 7 --}}
                                         <tr
                                             class="  hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 bg-white duration-200 border-b ">
-                                            <td class="py-4 font-bold bg-teal-600 rounded-b-md">
-                                                <p class="font-normal py-1 px-2 text-md text-center  text-white">
+                                            <td class="py-4 font-bold bg-gray-700 rounded-b-md">
+                                                <p class="font-medium py-1 px-2 text-md text-center  text-white">
                                                     Estimasi Budget
                                                 </p>
                                             </td>
@@ -659,19 +659,19 @@
                             {{-- awal tabel --}}
                             <div class=" font-light  overflow-x-auto rounded-md">
                                 <table class="w-full ">
-                                    <thead class="bg-emerald-600 text-white ">
-                                        <th class="py-2 w-[15%]">Kategori Formulir</th>
-                                        <th class="w-[45%]">Nama File</th>
-                                        <th class="w-[10%]">Uploaded by</th>
-                                        <th class="w-[10%]">Last Update</th>
-                                        <th class="w-[10%]">Upload</th>
+                                    <thead class="bg-gray-300 text-gray-700">
+                                        <th class="py-2 w-[15%] font-medium">Kategori Formulir</th>
+                                        <th class="w-[45%] font-medium">Nama File</th>
+                                        <th class="w-[10%] font-medium">Uploaded by</th>
+                                        <th class="w-[10%] font-medium">Last Update</th>
+                                        <th class="w-[10%] font-medium">Upload</th>
                                     </thead>
                                     <tbody class="text-left">
                                         {{-- 1 --}}
                                         <tr
                                             class="  hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 bg-white duration-200 border-b ">
-                                            <td class="py-4 font-bold bg-teal-600 ">
-                                                <p class="font-normal py-1 px-2 text-md text-center  text-white">
+                                            <td class="py-4 font-bold bg-gray-700 ">
+                                                <p class="font-medium py-1 px-2 text-md text-center  text-white">
                                                     PR Parts & Material
                                                 </p>
                                             </td>
@@ -737,8 +737,8 @@
                                         {{-- 2 --}}
                                         <tr
                                             class="  hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 bg-white duration-200 border-b ">
-                                            <td class="py-4 font-bold bg-teal-600 ">
-                                                <p class="font-normal py-1 px-2 text-md text-center  text-white">
+                                            <td class="py-4 font-bold bg-gray-700 ">
+                                                <p class="font-medium py-1 px-2 text-md text-center  text-white">
                                                     PR Pekerjaan/Jasa
                                                 </p>
                                             </td>
@@ -804,8 +804,8 @@
                                         {{-- 3 --}}
                                         <tr
                                             class="  hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 bg-white duration-200 border-b ">
-                                            <td class="py-4 font-bold bg-teal-600 ">
-                                                <p class="font-normal py-1 px-2 text-md text-center  text-white">
+                                            <td class="py-4 font-bold bg-gray-700 ">
+                                                <p class="font-medium py-1 px-2 text-md text-center  text-white">
                                                     PR Manufaktur
                                                 </p>
                                             </td>
@@ -870,8 +870,8 @@
                                         {{-- 4 --}}
                                         <tr
                                             class="  hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 bg-white duration-200 border-b ">
-                                            <td class="py-4 font-bold bg-teal-600 ">
-                                                <p class="font-normal py-1 px-2 text-md text-center  text-white">
+                                            <td class="py-4 font-bold bg-gray-700 ">
+                                                <p class="font-medium py-1 px-2 text-md text-center  text-white">
                                                     PER (Preliminary Estimate Request)
                                                 </p>
                                             </td>
@@ -936,8 +936,8 @@
                                         {{-- 5 --}}
                                         <tr
                                             class="  hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 bg-white duration-200 border-b ">
-                                            <td class="py-4 font-bold bg-teal-600 rounded-b-md ">
-                                                <p class="font-normal py-1 px-2 text-md text-center  text-white ">
+                                            <td class="py-4 font-bold bg-gray-700 rounded-b-md ">
+                                                <p class="font-medium py-1 px-2 text-md text-center  text-white ">
                                                     Request For Quotation
                                                 </p>
                                             </td>
@@ -1014,19 +1014,19 @@
                             {{-- awal tabel --}}
                             <div class=" font-light  overflow-x-auto rounded-md">
                                 <table class="w-full ">
-                                    <thead class="bg-emerald-600 text-white ">
-                                        <th class="py-2 w-[15%]">Kategori Formulir</th>
-                                        <th class="w-[45%]">Nama File</th>
-                                        <th class="w-[10%]">Uploaded by</th>
-                                        <th class="w-[10%]">Last Update</th>
-                                        <th class="w-[10%]">Upload</th>
+                                    <thead class="bg-gray-300 text-gray-700">
+                                        <th class="py-2 w-[15%] font-medium">Kategori Formulir</th>
+                                        <th class="w-[45%] font-medium">Nama File</th>
+                                        <th class="w-[10%] font-medium">Uploaded by</th>
+                                        <th class="w-[10%] font-medium">Last Update</th>
+                                        <th class="w-[10%] font-medium">Upload</th>
                                     </thead>
                                     <tbody class="text-left">
                                         {{-- 1 --}}
                                         <tr
                                             class="  hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 bg-white duration-200 ">
-                                            <td class="py-4 font-bold bg-teal-600 rounded-b-md ">
-                                                <p class="font-normal py-1 px-2 text-md text-center  text-white">
+                                            <td class="py-4 font-bold bg-gray-700 rounded-b-md ">
+                                                <p class="font-medium py-1 px-2 text-md text-center  text-white">
                                                     Inspection Report and others
                                                 </p>
                                             </td>
@@ -1102,19 +1102,19 @@
                             {{-- awal tabel --}}
                             <div class=" font-light  overflow-x-auto rounded-md">
                                 <table class="w-full ">
-                                    <thead class="bg-emerald-600 text-white ">
-                                        <th class="py-2 w-[15%]">Kategori Formulir</th>
-                                        <th class="w-[45%]">Nama File</th>
-                                        <th class="w-[10%]">Uploaded by</th>
-                                        <th class="w-[10%]">Last Update</th>
-                                        <th class="w-[10%]">Upload</th>
+                                    <thead class="bg-gray-300 text-gray-700">
+                                        <th class="py-2 w-[15%] font-medium">Kategori Formulir</th>
+                                        <th class="w-[45%] font-medium">Nama File</th>
+                                        <th class="w-[10%] font-medium">Uploaded by</th>
+                                        <th class="w-[10%] font-medium">Last Update</th>
+                                        <th class="w-[10%] font-medium">Upload</th>
                                     </thead>
                                     <tbody class="text-left">
                                         {{-- 1 --}}
                                         <tr
                                             class="  hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 bg-white duration-200 border-b ">
-                                            <td class="py-4 font-bold bg-teal-600 ">
-                                                <p class="font-normal py-1 px-2 text-md text-center  text-white">
+                                            <td class="py-4 font-bold bg-gray-700 ">
+                                                <p class="font-medium py-1 px-2 text-md text-center  text-white">
                                                     Izin Power On
                                                 </p>
                                             </td>
@@ -1179,8 +1179,8 @@
                                         {{-- 2 --}}
                                         <tr
                                             class="  hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 bg-white duration-200 border-b ">
-                                            <td class="py-4 font-bold bg-teal-600 ">
-                                                <p class="font-normal py-1 px-2 text-md text-center  text-white">
+                                            <td class="py-4 font-bold bg-gray-700 ">
+                                                <p class="font-medium py-1 px-2 text-md text-center  text-white">
                                                     Equipment Check Report - Electrical & Mechanical
                                                 </p>
                                             </td>
@@ -1245,8 +1245,8 @@
                                         {{-- 3 --}}
                                         <tr
                                             class="  hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 bg-white duration-200 border-b ">
-                                            <td class="py-4 font-bold bg-teal-600 ">
-                                                <p class="font-normal py-1 px-2 text-md text-center  text-white">
+                                            <td class="py-4 font-bold bg-gray-700 ">
+                                                <p class="font-medium py-1 px-2 text-md text-center  text-white">
                                                     Safety Check
                                                 </p>
                                             </td>
@@ -1311,8 +1311,8 @@
                                         {{-- 4 --}}
                                         <tr
                                             class="  hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 bg-white duration-200 border-b ">
-                                            <td class="py-4 font-bold bg-teal-600 ">
-                                                <p class="font-normal py-1 px-2 text-md text-center  text-white">
+                                            <td class="py-4 font-bold bg-gray-700 ">
+                                                <p class="font-medium py-1 px-2 text-md text-center  text-white">
                                                     Safety Completeness Check
                                                 </p>
                                             </td>
@@ -1376,8 +1376,8 @@
                                         {{-- 5 --}}
                                         <tr
                                             class="  hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 bg-white duration-200 border-b ">
-                                            <td class="py-4 font-bold bg-teal-600 rounded-b-md ">
-                                                <p class="font-normal py-1 px-2 text-md text-center  text-white ">
+                                            <td class="py-4 font-bold bg-gray-700 rounded-b-md ">
+                                                <p class="font-medium py-1 px-2 text-md text-center  text-white ">
                                                     Inspection Report
                                                 </p>
                                             </td>
@@ -1452,19 +1452,19 @@
                             {{-- awal tabel --}}
                             <div class=" font-light  overflow-x-auto rounded-md">
                                 <table class="w-full ">
-                                    <thead class="bg-emerald-600 text-white ">
-                                        <th class="py-2 w-[15%]">Kategori Formulir</th>
-                                        <th class="w-[45%]">Nama File</th>
-                                        <th class="w-[10%]">Uploaded by</th>
-                                        <th class="w-[10%]">Last Update</th>
-                                        <th class="w-[10%]">Upload</th>
+                                    <thead class="bg-gray-300 text-gray-700">
+                                        <th class="py-2 w-[15%] font-medium">Kategori Formulir</th>
+                                        <th class="w-[45%] font-medium">Nama File</th>
+                                        <th class="w-[10%] font-medium">Uploaded by</th>
+                                        <th class="w-[10%] font-medium">Last Update</th>
+                                        <th class="w-[10%] font-medium">Upload</th>
                                     </thead>
                                     <tbody class="text-left">
                                         {{-- 1 --}}
                                         <tr
                                             class="  hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 bg-white duration-200 border-b ">
-                                            <td class="py-4 font-bold bg-teal-600 ">
-                                                <p class="font-normal py-1 px-2 text-md text-center  text-white">
+                                            <td class="py-4 font-bold bg-gray-700 ">
+                                                <p class="font-medium py-1 px-2 text-md text-center  text-white">
                                                     Izin Pemeriksaan Mesin
                                                 </p>
                                             </td>
@@ -1530,8 +1530,8 @@
                                         {{-- 2 --}}
                                         <tr
                                             class="  hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 bg-white duration-200 border-b ">
-                                            <td class="py-4 font-bold bg-teal-600 ">
-                                                <p class="font-normal py-1 px-2 text-md text-center  text-white">
+                                            <td class="py-4 font-bold bg-gray-700 ">
+                                                <p class="font-medium py-1 px-2 text-md text-center  text-white">
                                                     System Quality Assurance
                                                 </p>
                                             </td>
@@ -1595,8 +1595,8 @@
                                         {{-- 3 --}}
                                         <tr
                                             class="  hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 bg-white duration-200 border-b ">
-                                            <td class="py-4 font-bold bg-teal-600 ">
-                                                <p class="font-normal py-1 px-2 text-md text-center  text-white">
+                                            <td class="py-4 font-bold bg-gray-700 ">
+                                                <p class="font-medium py-1 px-2 text-md text-center  text-white">
                                                     Izin Pakai Mesin
                                                 </p>
                                             </td>
@@ -1663,8 +1663,8 @@
                                         {{-- 4 --}}
                                         <tr
                                             class="  hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 bg-white duration-200 border-b ">
-                                            <td class="py-4 font-bold bg-teal-600 ">
-                                                <p class="font-normal py-1 px-2 text-md text-center  text-white">
+                                            <td class="py-4 font-bold bg-gray-700 ">
+                                                <p class="font-medium py-1 px-2 text-md text-center  text-white">
                                                     Dokumen Training
                                                 </p>
                                             </td>
@@ -1730,8 +1730,8 @@
                                         {{-- 5 --}}
                                         <tr
                                             class="  hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 bg-white duration-200 border-b ">
-                                            <td class="py-4 font-bold bg-teal-600  ">
-                                                <p class="font-normal py-1 px-2 text-md text-center  text-white ">
+                                            <td class="py-4 font-bold bg-gray-700  ">
+                                                <p class="font-medium py-1 px-2 text-md text-center  text-white ">
                                                     Listup Trouble
                                                 </p>
                                             </td>
@@ -1796,8 +1796,8 @@
                                         {{-- 6 --}}
                                         <tr
                                             class="  hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 bg-white duration-200 border-b ">
-                                            <td class="py-4 font-bold bg-teal-600  ">
-                                                <p class="font-normal py-1 px-2 text-md text-center  text-white ">
+                                            <td class="py-4 font-bold bg-gray-700  ">
+                                                <p class="font-medium py-1 px-2 text-md text-center  text-white ">
                                                     Control Awal Mesin Baru
                                                 </p>
                                             </td>
@@ -1862,8 +1862,8 @@
                                         {{-- 7 --}}
                                         <tr
                                             class="  hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 bg-white duration-200 border-b ">
-                                            <td class="py-4 font-bold bg-teal-600  ">
-                                                <p class="font-normal py-1 px-2 text-md text-center  text-white ">
+                                            <td class="py-4 font-bold bg-gray-700  ">
+                                                <p class="font-medium py-1 px-2 text-md text-center  text-white ">
                                                     Instruction Manual
                                                 </p>
                                             </td>
@@ -1928,8 +1928,8 @@
                                         {{-- 8 --}}
                                         <tr
                                             class="  hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 bg-white duration-200 border-b ">
-                                            <td class="py-4 font-bold bg-teal-600  rounded-b-md">
-                                                <p class="font-normal py-1 px-2 text-md text-center  text-white ">
+                                            <td class="py-4 font-bold bg-gray-700  rounded-b-md">
+                                                <p class="font-medium py-1 px-2 text-md text-center  text-white ">
                                                     Completion and Handover Report
                                                 </p>
                                             </td>

@@ -89,14 +89,14 @@
             <div class="rounded-lg overflow-auto">
                 <table class="w-full">
                     <thead
-                        class="text-md text-white uppercase bg-green-600 text-center table-fixed sticky top-0 border border-gray-500">
-                        <th class="p-2 w-[5%]">No.</th>
-                        <th class="w-[25%]">Nama Project</th>
-                        <th class="w-[10%]">IO Number</th>
-                        <th class="w-[15%]">PIC</th>
-                        <th class="w-[10%]">Budget</th>
-                        <th class="w-[20%]">Progress</th>
-                        <th class="w-[5%]">Aksi</th>
+                        class="text-md text-gray-700 bg-gray-300 text-center table-fixed sticky top-0 ">
+                        <th class="p-2 w-[5%] font-medium">No.</th>
+                        <th class="w-[25%] font-medium">Nama Project</th>
+                        <th class="w-[10%] font-medium">IO Number</th>
+                        <th class="w-[15%] font-medium">PIC</th>
+                        <th class="w-[10%] font-medium">Budget</th>
+                        <th class="w-[20%] font-medium">Progress</th>
+                        <th class="w-[5%] font-medium">Aksi</th>
                     </thead>
 
                     <tbody>
@@ -106,7 +106,7 @@
                                 <tr class="bg-white border border-gray-300 hover:bg-gray-100 text-center">
 
                                     {{-- Loop i++ --}}
-                                    <td class="p-2 font-medium text-white bg-teal-600 whitespace-nowrap">
+                                    <td class="p-2 font-medium whitespace-nowrap">
                                         {{ $loop->iteration }}
                                     </td>
 

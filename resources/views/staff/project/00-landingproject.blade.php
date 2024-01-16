@@ -8,11 +8,11 @@
         <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
             <!-- Modal header -->
             <div class="flex items-center justify-between px-5 py-3 border-b rounded-t">
-                <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
-                    Pencarian proyek berdasarkan:
+                <h3 class="text-xl font-semibold text-gray-900">
+                    Pencarian proyek:
                 </h3>
                 <button type="button"
-                    class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
+                    class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center"
                     onclick="simulateEscape()">
                     <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
                         viewBox="0 0 14 14">
@@ -23,150 +23,187 @@
                 </button>
             </div>
             <!-- Modal body -->
-            <div class="p-4 md:p-5 space-y-4">
+            <div class="px-4 md:px-5 space-y-4">
                 <form class="" action="" method="get">
-                    <div>
-                        <p class="text-md font-semibold">PIC proyek</p>
-                        <input type="hidden" name="abc" value=123>
-                        <div class="grid grid-cols-3 gap-4">
-                            {{-- pic 1 --}}
-                            <div class="relative z-0 w-full group">
-                                <select id="pic1_select" name="pic_1_me"
-                                    class="block py-2.5 px-0 w-full text-sm text-gray-500 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-gray-400 focus:outline-none focus:ring-0 focus:border-orange-500 peer"><!-- Add your classes here -->
-                                    <option disabled selected value="">Mechanical</option>
-                                    <option disabled value="">Pilih PIC : </option>
-                                    @foreach ($users as $pic)
-                                        @if ($pic->section == 'Mechanical')
-                                            <option value="{{ $pic->first_name }}">
-                                                {{ $pic->first_name }}
-                                            </option>
-                                        @endif
-                                    @endforeach
-                                    <option value="">None</option>
-                                </select>
-                            </div>
+                    <div class="items-center space-y-2 my-3">
+                        <p class="text-md font-semibold">Judul proyek atau IO Number</p>
+                        <div class="flex space-x-3">
+                            <input type="search" id="keyword" name="keyword"
+                                class="p-2 py-3 text-sm text-gray-900 bg-gray-50 border rounded border-gray-300  focus:ring-orange-500 focus:border-orange-500 w-full"
+                                placeholder="Ketik kata kunci di sini">
+                            <p class="flex items-center">atau</p>
+                            <a class="flex items-center bg-orange-500 rounded-lg hover:bg-orange-600 px-2 focus:ring-blue-500 focus:border-blue-500"
+                                data-collapse-toggle="dropdown" type="button" aria-controls="dropdown" href="#">
+                                <svg width="35" viewBox="0 0 24 24" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M21 6H19M21 12H16M21 18H16M7 20V13.5612C7 13.3532 7 13.2492 6.97958 13.1497C6.96147 13.0615 6.93151 12.9761 6.89052 12.8958C6.84431 12.8054 6.77934 12.7242 6.64939 12.5617L3.35061 8.43826C3.22066 8.27583 3.15569 8.19461 3.10948 8.10417C3.06849 8.02393 3.03853 7.93852 3.02042 7.85026C3 7.75078 3 7.64677 3 7.43875V5.6C3 5.03995 3 4.75992 3.10899 4.54601C3.20487 4.35785 3.35785 4.20487 3.54601 4.10899C3.75992 4 4.03995 4 4.6 4H13.4C13.9601 4 14.2401 4 14.454 4.10899C14.6422 4.20487 14.7951 4.35785 14.891 4.54601C15 4.75992 15 5.03995 15 5.6V7.43875C15 7.64677 15 7.75078 14.9796 7.85026C14.9615 7.93852 14.9315 8.02393 14.8905 8.10417C14.8443 8.19461 14.7793 8.27583 14.6494 8.43826L11.3506 12.5617C11.2207 12.7242 11.1557 12.8054 11.1095 12.8958C11.0685 12.9761 11.0385 13.0615 11.0204 13.1497C11 13.2492 11 13.3532 11 13.5612V17L7 20Z"
+                                        stroke="white" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                    <ul>
+                        <li>
+                            <div class="font-regular text-sm">
+                                <ul id="dropdown" class="hidden space-y-2">
+                                    <div>
+                                        <p class="text-md font-semibold">PIC proyek</p>
+                                        <div class="grid grid-cols-3 gap-4">
+                                            {{-- pic 1 --}}
+                                            <div class="relative z-0 w-full group">
+                                                <select id="pic1_select" name="pic_1_me"
+                                                    class="block py-2.5 px-0 w-full text-sm text-gray-500 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-gray-400 focus:outline-none focus:ring-0 focus:border-orange-500 peer"><!-- Add your classes here -->
+                                                    <option disabled selected value="">Mechanical</option>
+                                                    <option disabled value="">Pilih PIC : </option>
+                                                    @foreach ($users as $pic)
+                                                        @if ($pic->section == 'Mechanical')
+                                                            <option value="{{ $pic->first_name }}">
+                                                                {{ $pic->first_name }}
+                                                            </option>
+                                                        @endif
+                                                    @endforeach
+                                                    <option value="">None</option>
+                                                </select>
+                                            </div>
 
-                            {{-- pic 2 --}}
-                            <div class="relative z-0 w-full group">
-                                <select id="pic2_select" name="pic_2_el"
-                                    class="block py-2.5 px-0 w-full text-sm text-gray-500 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-gray-400 focus:outline-none focus:ring-0 focus:border-orange-500 peer"><!-- Add your classes here -->
-                                    <option disabled selected value="">Electrical</option>
-                                    <option disabled value="">Pilih PIC : </option>
-                                    @foreach ($users as $pic)
-                                        @if ($pic->section == 'Electrical')
-                                            <option value="{{ $pic->first_name }}">
-                                                {{ $pic->first_name }}
-                                            </option>
-                                        @endif
-                                    @endforeach
-                                    <option value="">None</option>
-                                </select>
-                            </div>
+                                            {{-- pic 2 --}}
+                                            <div class="relative z-0 w-full group">
+                                                <select id="pic2_select" name="pic_2_el"
+                                                    class="block py-2.5 px-0 w-full text-sm text-gray-500 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-gray-400 focus:outline-none focus:ring-0 focus:border-orange-500 peer"><!-- Add your classes here -->
+                                                    <option disabled selected value="">Electrical</option>
+                                                    <option disabled value="">Pilih PIC : </option>
+                                                    @foreach ($users as $pic)
+                                                        @if ($pic->section == 'Electrical')
+                                                            <option value="{{ $pic->first_name }}">
+                                                                {{ $pic->first_name }}
+                                                            </option>
+                                                        @endif
+                                                    @endforeach
+                                                    <option value="">None</option>
+                                                </select>
+                                            </div>
 
-                            {{-- pic 3 --}}
-                            <div class="relative z-0 w-full group">
-                                <select id="pic3_select" name="pic_3_mit"
-                                    class="block py-2.5 px-0 w-full text-sm text-gray-500 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-gray-400 focus:outline-none focus:ring-0 focus:border-orange-500 peer"><!-- Add your classes here -->
-                                    <option disabled selected value="">Manufacturing IT</option>
-                                    <option disabled value="">Pilih PIC : </option>
-                                    @foreach ($users as $pic)
-                                        @if ($pic->section == 'Manufacturing IT')
-                                            <option value="{{ $pic->first_name }}">
-                                                {{ $pic->first_name }}
-                                            </option>
-                                        @endif
-                                    @endforeach
-                                    <option value="">None</option>
-                                </select>
+                                            {{-- pic 3 --}}
+                                            <div class="relative z-0 w-full group">
+                                                <select id="pic3_select" name="pic_3_mit"
+                                                    class="block py-2.5 px-0 w-full text-sm text-gray-500 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-gray-400 focus:outline-none focus:ring-0 focus:border-orange-500 peer"><!-- Add your classes here -->
+                                                    <option disabled selected value="">Manufacturing IT</option>
+                                                    <option disabled value="">Pilih PIC : </option>
+                                                    @foreach ($users as $pic)
+                                                        @if ($pic->section == 'Manufacturing IT')
+                                                            <option value="{{ $pic->first_name }}">
+                                                                {{ $pic->first_name }}
+                                                            </option>
+                                                        @endif
+                                                    @endforeach
+                                                    <option value="">None</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <p class="mt-3 mb-2 text-md font-semibold">Nilai Proyek </p>
+                                    <div class="grid grid-cols-4">
+                                        <div class="flex items-center p-4 border border-gray-200 rounded">
+                                            <input id="rb1" type="radio" value=1 name="nilai_proyek_type"
+                                                class="w-4 h-4 text-orange-500 bg-gray-100 border-gray-300 focus:ring-orange-500">
+                                            <label for="rb1" class="w-full ml-4 text-sm font-medium text-gray-900">
+                                                < Rp100 Juta</label>
+                                        </div>
+                                        <div class="flex items-center p-4 border border-gray-200 rounded">
+                                            <input id="rb2" type="radio" value=2 name="nilai_proyek_type"
+                                                class="w-4 h-4 text-orange-500 bg-gray-100 border-gray-300 focus:ring-orange-500">
+                                            <label for="rb2"
+                                                class="w-full ml-4 text-sm font-medium text-gray-900">Rp100 Juta -
+                                                Rp1 Milyar</label>
+                                        </div>
+                                        <div class="flex items-center p-4 border border-gray-200 rounded">
+                                            <input id="rb3" type="radio" value=3 name="nilai_proyek_type"
+                                                class="w-4 h-4 text-orange-500 bg-gray-100 border-gray-300 focus:ring-orange-500">
+                                            <label for="rb3"
+                                                class="w-full ml-4 text-sm font-medium text-gray-900">Rp1 Milyar -
+                                                Rp10 Milyar</label>
+                                        </div>
+                                        <div class="flex items-center p-4 border border-gray-200 rounded">
+                                            <input id="rb4" type="radio" value=4 name="nilai_proyek_type"
+                                                class="w-4 h-4 text-orange-500 bg-gray-100 border-gray-300 focus:ring-orange-500">
+                                            <label for="rb4"
+                                                class="w-full ml-4 text-sm font-medium text-gray-900">> Rp10
+                                                Milyar</label>
+                                        </div>
+                                    </div>
+                                    <div class="justify-between flex space-x-5 mt-2">
+                                        <div class="relative z-0 w-full group">
+                                            <input type="text" name="budget_amount_min" id="floating_company"
+                                                oninput="formatAngka(this)"
+                                                class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300  [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none  focus:outline-none focus:ring-0 focus:border-orange-500 peer"
+                                                placeholder="">
+                                            <label for="floating_company"
+                                                class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-orange-500 peer-focus:dark:text-orange-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
+                                                Min Budget
+                                            </label>
+                                        </div>
+                                        <p class="font-bold mt-2"> - </p>
+                                        <div class="relative z-0 w-full group">
+                                            <input type="text" name="budget_amount_max" id="floating_company"
+                                                oninput="formatAngka(this)"
+                                                class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300  [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none  focus:outline-none focus:ring-0 focus:border-orange-500 peer"
+                                                placeholder="">
+                                            <label for="floating_company"
+                                                class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-orange-500 peer-focus:dark:text-orange-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
+                                                Max Budget
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <p class="mt-3 text-md font-semibold">Parameter Lainnya</p>
+                                    <div class="flex space-x-4">
+                                        <select id="underline_select" name="ob_year"
+                                            class="block py-2.5 px-0 w-full text-sm text-gray-500 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-gray-400 focus:outline-none focus:ring-0 focus:border-orange-500 peer">
+                                            <option disabled selected="" value="">OB Year</option>
+                                            <option value="2023">2023</option>
+                                            <option value="2024">2024</option>
+                                            <option value="2025">2025</option>
+                                            <option value="2036">2026</option>
+                                            <option value="2027">2027</option>
+                                            <option value="2028">2028</option>
+                                            <option value="2029">2029</option>
+                                            <option value="2030">2030</option>
+                                            <option value="2031">2031</option>
+                                            <option value="2032">2032</option>
+                                            <option value="2032">2033</option>
+                                            <option value="2032">2034</option>
+                                            <option value="2032">2035</option>
+                                        </select>
+                                        <select id="underline_select" name="section"
+                                            class="block py-2.5 px-0 w-full text-sm text-gray-500 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-gray-400 focus:outline-none focus:ring-0 focus:border-orange-500 peer">
+                                            <option disabled selected="" value="">Section</option>
+                                            <option value="Design">Design</option>
+                                            <option value="IE">IE</option>
+                                            <option value="Eng">Maintenance</option>
+                                            <option value="PC">PC</option>
+                                            <option value="Production">Production</option>
+                                            <option value="SHE">SHE</option>
+                                            <option value="Tech">Tech</option>
+                                            <option value="QA">QA</option>
+                                        </select>
+                                    </div>
+                                </ul>
                             </div>
-                        </div>
-                    </div>
-                    <p class="mt-3 mb-2 text-md font-semibold">Nilai Proyek </p>
-                    <div class="grid grid-cols-4">
-                        <div class="flex items-center p-4 border border-gray-200 rounded">
-                            <input id="rb1" type="radio" value=1 name="nilai_proyek_type"
-                                class="w-4 h-4 text-orange-500 bg-gray-100 border-gray-300 focus:ring-orange-500">
-                            <label for="rb1" class="w-full ml-4 text-sm font-medium text-gray-900">
-                                < Rp100 Juta</label>
-                        </div>
-                        <div class="flex items-center p-4 border border-gray-200 rounded">
-                            <input id="rb2" type="radio" value=2 name="nilai_proyek_type"
-                                class="w-4 h-4 text-orange-500 bg-gray-100 border-gray-300 focus:ring-orange-500">
-                            <label for="rb2" class="w-full ml-4 text-sm font-medium text-gray-900">Rp100 Juta -
-                                Rp1 Milyar</label>
-                        </div>
-                        <div class="flex items-center p-4 border border-gray-200 rounded">
-                            <input id="rb3" type="radio" value=3 name="nilai_proyek_type"
-                                class="w-4 h-4 text-orange-500 bg-gray-100 border-gray-300 focus:ring-orange-500">
-                            <label for="rb3" class="w-full ml-4 text-sm font-medium text-gray-900">Rp1 Milyar -
-                                Rp10 Milyar</label>
-                        </div>
-                        <div class="flex items-center p-4 border border-gray-200 rounded">
-                            <input id="rb4" type="radio" value=4 name="nilai_proyek_type"
-                                class="w-4 h-4 text-orange-500 bg-gray-100 border-gray-300 focus:ring-orange-500">
-                            <label for="rb4" class="w-full ml-4 text-sm font-medium text-gray-900">> Rp10
-                                Milyar</label>
-                        </div>
-                    </div>
-                    <div class="justify-between flex space-x-5 mt-2">
-                        <div class="relative z-0 w-full group">
-                            <input type="text" name="budget_amount_min" id="floating_company"
-                                oninput="formatAngka(this)"
-                                class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300  [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none  focus:outline-none focus:ring-0 focus:border-orange-500 peer"
-                                placeholder="">
-                            <label for="floating_company"
-                                class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-orange-500 peer-focus:dark:text-orange-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
-                                Min Budget
-                            </label>
-                        </div>
-                        <p class="font-bold mt-2"> - </p>
-                        <div class="relative z-0 w-full group">
-                            <input type="text" name="budget_amount_max" id="floating_company"
-                                oninput="formatAngka(this)"
-                                class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300  [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none  focus:outline-none focus:ring-0 focus:border-orange-500 peer"
-                                placeholder="">
-                            <label for="floating_company"
-                                class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-orange-500 peer-focus:dark:text-orange-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
-                                Max Budget
-                            </label>
-                        </div>
-                    </div>
-                    <p class="mt-3 mb-2 text-md font-semibold">Parameter waktu</p>
-                    <div class="grid grid-cols-1">
-                        <select id="underline_select" name="ob_year"
-                            class="block py-2.5 px-0 w-full text-sm text-gray-500 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-gray-400 focus:outline-none focus:ring-0 focus:border-orange-500 peer">
-                            <option disabled selected="" value="">*OB Year</option>
-                            <option value="2023">2023</option>
-                            <option value="2024">2024</option>
-                            <option value="2025">2025</option>
-                            <option value="2036">2026</option>
-                            <option value="2027">2027</option>
-                            <option value="2028">2028</option>
-                            <option value="2029">2029</option>
-                            <option value="2030">2030</option>
-                            <option value="2031">2031</option>
-                            <option value="2032">2032</option>
-                            <option value="2032">2033</option>
-                            <option value="2032">2034</option>
-                            <option value="2032">2035</option>
-                        </select>
-                    </div>
+                        </li>
+                    </ul>
             </div>
             <!-- Modal footer -->
-            <div class="flex items-center p-4 md:p-5 border-t border-gray-200">
-                <input type="search" id="keyword" name="keyword"
-                    class="p-2 py-3 text-sm text-gray-900 bg-gray-50 border rounded border-gray-300  focus:ring-orange-500 focus:border-orange-500 w-full"
-                    placeholder="Judul Proyek; IO Number; ">
-            </div>
+
             <div class="p-5 border-t border-gray-200 rounded-b">
                 <button type="submit"
-                    class="text-white bg-orange-500 hover:bg-orange-600 focus:ring-4 focus:outline-none focus:ring-orange-300 font-medium rounded-lg text-sm px-3 py-2 w-full text-center flex">
+                    class="text-white bg-orange-500 hover:bg-orange-600 focus:ring-4 focus:outline-none focus:ring-orange-300 font-medium rounded-lg text-lg py-2 w-full items-center flex justify-center space-x-1">
                     <svg aria-hidden="true" class="w-5 h-5 text-white" fill="none" stroke="currentColor"
                         viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
                     </svg>
-                    <p class="tracking-widest">Cari!</p>
+                    <p class="tracking-wide">Cari!</p>
                 </button>
                 </form>
             </div>
@@ -199,7 +236,7 @@
                 {{-- kiri --}}
                 <div class="w-3.5/6 flex space-x-3">
                     {{-- dashboard status --}}
-                    <div class="flex items-center bg-emerald-700 text-white px-2 rounded">
+                    <div class="flex items-center bg-gray-700 text-white px-2 rounded">
                         <div class="font-bold text-3xl p-1">
                             {{ $totalproject }}
                         </div>
@@ -280,9 +317,9 @@
                                             <div class="">
                                                 {{-- IO number --}}
                                                 <div class="container text-right">
-                                                    <div class=" text-red-500  font-semibold text-lg">IO Number:
+                                                    <div class=" text-gray-600 font-semibold text-lg">IO Number:
                                                     </div>
-                                                    <p class="text-3xl font-bold text-gray-700 uppercase">
+                                                    <p class="text-3xl font-bold text-gray-800 uppercase">
                                                         {{ $object->io_number }}
                                                     </p>
                                                 </div>
@@ -337,7 +374,7 @@
                                                 <div class="w-full bg-gray-200 rounded-full my-2 text-xs font-medium text-black text-center"
                                                     data-popover-target="popover-0" data-popover-placement="bottom">
                                                     <p class="">0%</p>
-                                                    <div class="bg-orange-500 hover:bg-orange-600 text-xs font-medium text-blue-100 text-center leading-none rounded-lg hover:cursor-default"
+                                                    <div class="bg-orange-500 hover:bg-orange-600 text-sm font-medium text-white text-center leading-none rounded-lg hover:cursor-default"
                                                         style="width: 0%">
                                                     </div>
                                                 </div>
@@ -358,7 +395,7 @@
                                                 <div class="w-full bg-gray-200 rounded-full my-2 text-xs font-medium text-black text-center"
                                                     data-popover-target="popover-0" data-popover-placement="bottom">
                                                     <p class="">0%</p>
-                                                    <div class="bg-orange-500 hover:bg-orange-600 text-xs font-medium text-blue-100 text-center leading-none rounded-lg hover:cursor-default"
+                                                    <div class="bg-orange-500 hover:bg-orange-600 text-sm font-medium text-white text-center leading-none rounded-lg hover:cursor-default"
                                                         style="width: 0%">
                                                     </div>
                                                 </div>
@@ -377,7 +414,7 @@
                                                 {{-- popover tooltip --}}
 
                                                 <div class="w-full bg-gray-200 rounded-full my-2">
-                                                    <div class="bg-orange-500 hover:bg-orange-600 text-xs font-medium text-blue-100 text-center leading-none rounded-lg hover:cursor-default"
+                                                    <div class="bg-orange-500 hover:bg-orange-600 text-sm font-medium text-white text-center leading-none rounded-lg hover:cursor-default"
                                                         data-popover-target="popover-2"
                                                         data-popover-placement="bottom" style="width: 5%">
                                                         <p>05%</p>
@@ -399,7 +436,7 @@
                                                 {{-- popover tooltip --}}
 
                                                 <div class="w-full bg-gray-200 rounded-full my-2">
-                                                    <div class="bg-orange-500 hover:bg-orange-600 text-xs font-medium text-blue-100 text-center leading-none rounded-lg hover:cursor-default"
+                                                    <div class="bg-orange-500 hover:bg-orange-600 text-sm font-medium text-white text-center leading-none rounded-lg hover:cursor-default"
                                                         data-popover-target="popover-3"
                                                         data-popover-placement="bottom" style="width: 05%">
                                                         <p>05%</p>
@@ -421,7 +458,7 @@
                                                 {{-- popover tooltip --}}
 
                                                 <div class="w-full bg-gray-200 rounded-full my-2">
-                                                    <div class="bg-orange-500 hover:bg-orange-600 text-xs font-medium text-blue-100 text-center leading-none rounded-lg hover:cursor-default"
+                                                    <div class="bg-orange-500 hover:bg-orange-600 text-sm font-medium text-white text-center leading-none rounded-lg hover:cursor-default"
                                                         data-popover-target="popover-4"
                                                         data-popover-placement="bottom" style="width: 10%">
                                                         <p>10%</p>
@@ -443,7 +480,7 @@
                                                 {{-- popover tooltip --}}
 
                                                 <div class="w-full bg-gray-200 rounded-full my-2">
-                                                    <div class="bg-orange-500 hover:bg-orange-600 text-xs font-medium text-blue-100 text-center leading-none rounded-lg hover:cursor-default"
+                                                    <div class="bg-orange-500 hover:bg-orange-600 text-sm font-medium text-white text-center leading-none rounded-lg hover:cursor-default"
                                                         data-popover-target="popover-5"
                                                         data-popover-placement="bottom" style="width: 10%">
                                                         <p>10%</p>
@@ -464,7 +501,7 @@
                                                 {{-- popover tooltip --}}
 
                                                 <div class="w-full bg-gray-200 rounded-full my-2">
-                                                    <div class="bg-orange-500 hover:bg-orange-600 text-xs font-medium text-blue-100 text-center leading-none rounded-lg hover:cursor-default"
+                                                    <div class="bg-orange-500 hover:bg-orange-600 text-sm font-medium text-white text-center leading-none rounded-lg hover:cursor-default"
                                                         data-popover-target="popover-6"
                                                         data-popover-placement="bottom" style="width: 15%">
                                                         <p>15%</p>
@@ -486,7 +523,7 @@
                                                 {{-- popover tooltip --}}
 
                                                 <div class="w-full bg-gray-200 rounded-full my-2">
-                                                    <div class="bg-orange-500 hover:bg-orange-600 text-xs font-medium text-blue-100 text-center leading-none rounded-lg hover:cursor-default"
+                                                    <div class="bg-orange-500 hover:bg-orange-600 text-sm font-medium text-white text-center leading-none rounded-lg hover:cursor-default"
                                                         data-popover-target="popover-7"
                                                         data-popover-placement="bottom" style="width: 15%">
                                                         <p>15%</p>
@@ -508,7 +545,7 @@
                                                 {{-- popover tooltip --}}
 
                                                 <div class="w-full bg-gray-200 rounded-full my-2">
-                                                    <div class="bg-orange-500 hover:bg-orange-600 text-xs font-medium text-blue-100 text-center leading-none rounded-lg hover:cursor-default"
+                                                    <div class="bg-orange-500 hover:bg-orange-600 text-sm font-medium text-white text-center leading-none rounded-lg hover:cursor-default"
                                                         data-popover-target="popover-8"
                                                         data-popover-placement="bottom" style="width: 20%">
                                                         <p>20%</p>
@@ -530,7 +567,7 @@
                                                 {{-- popover tooltip --}}
 
                                                 <div class="w-full bg-gray-200 rounded-full my-2">
-                                                    <div class="bg-orange-500 hover:bg-orange-600 text-xs font-medium text-blue-100 text-center leading-none rounded-lg hover:cursor-default"
+                                                    <div class="bg-orange-500 hover:bg-orange-600 text-sm font-medium text-white text-center leading-none rounded-lg hover:cursor-default"
                                                         data-popover-target="popover-9"
                                                         data-popover-placement="bottom" style="width: 20%">
                                                         <p>20%</p>
@@ -552,7 +589,7 @@
                                                 {{-- popover tooltip --}}
 
                                                 <div class="w-full bg-gray-200 rounded-full my-2">
-                                                    <div class="bg-orange-500 hover:bg-orange-600 text-xs font-medium text-blue-100 text-center leading-none rounded-lg hover:cursor-default"
+                                                    <div class="bg-orange-500 hover:bg-orange-600 text-sm font-medium text-white text-center leading-none rounded-lg hover:cursor-default"
                                                         data-popover-target="popover-10"
                                                         data-popover-placement="bottom" style="width: 25%">
                                                         <p>25%</p>
@@ -574,7 +611,7 @@
                                                 {{-- popover tooltip --}}
 
                                                 <div class="w-full bg-gray-200 rounded-full my-2">
-                                                    <div class="bg-orange-500 hover:bg-orange-600 text-xs font-medium text-blue-100 text-center leading-none rounded-lg hover:cursor-default"
+                                                    <div class="bg-orange-500 hover:bg-orange-600 text-sm font-medium text-white text-center leading-none rounded-lg hover:cursor-default"
                                                         data-popover-target="popover-11"
                                                         data-popover-placement="bottom" style="width: 25%">
                                                         <p>25%</p>
@@ -596,7 +633,7 @@
                                                 {{-- popover tooltip --}}
 
                                                 <div class="w-full bg-gray-200 rounded-full my-2">
-                                                    <div class="bg-orange-500 hover:bg-orange-600 text-xs font-medium text-blue-100 text-center leading-none rounded-lg hover:cursor-default"
+                                                    <div class="bg-orange-500 hover:bg-orange-600 text-sm font-medium text-white text-center leading-none rounded-lg hover:cursor-default"
                                                         data-popover-target="popover-12"
                                                         data-popover-placement="bottom" style="width: 30%">
                                                         <p>30%</p>
@@ -618,7 +655,7 @@
                                                 {{-- popover tooltip --}}
 
                                                 <div class="w-full bg-gray-200 rounded-full my-2">
-                                                    <div class="bg-orange-500 hover:bg-orange-600 text-xs font-medium text-blue-100 text-center leading-none rounded-lg hover:cursor-default"
+                                                    <div class="bg-orange-500 hover:bg-orange-600 text-sm font-medium text-white text-center leading-none rounded-lg hover:cursor-default"
                                                         data-popover-target="popover-13"
                                                         data-popover-placement="bottom" style="width: 30%">
                                                         <p>30%</p>
@@ -640,7 +677,7 @@
                                                 {{-- popover tooltip --}}
 
                                                 <div class="w-full bg-gray-200 rounded-full my-2">
-                                                    <div class="bg-orange-500 hover:bg-orange-600 text-xs font-medium text-blue-100 text-center leading-none rounded-lg hover:cursor-default"
+                                                    <div class="bg-orange-500 hover:bg-orange-600 text-sm font-medium text-white text-center leading-none rounded-lg hover:cursor-default"
                                                         data-popover-target="popover-14"
                                                         data-popover-placement="bottom" style="width: 30%">
                                                         <p>30%</p>
@@ -662,7 +699,7 @@
                                                 {{-- popover tooltip --}}
 
                                                 <div class="w-full bg-gray-200 rounded-full my-2">
-                                                    <div class="bg-orange-500 hover:bg-orange-600 text-xs font-medium text-blue-100 text-center leading-none rounded-lg hover:cursor-default"
+                                                    <div class="bg-orange-500 hover:bg-orange-600 text-sm font-medium text-white text-center leading-none rounded-lg hover:cursor-default"
                                                         data-popover-target="popover-15"
                                                         data-popover-placement="bottom" style="width: 60%">
                                                         <p>60%</p>
@@ -684,7 +721,7 @@
                                                 {{-- popover tooltip --}}
 
                                                 <div class="w-full bg-gray-200 rounded-full my-2">
-                                                    <div class="bg-orange-500 hover:bg-orange-600 text-xs font-medium text-blue-100 text-center leading-none rounded-lg hover:cursor-default"
+                                                    <div class="bg-orange-500 hover:bg-orange-600 text-sm font-medium text-white text-center leading-none rounded-lg hover:cursor-default"
                                                         data-popover-target="popover-16"
                                                         data-popover-placement="bottom" style="width: 60%">
                                                         <p>60%</p>
@@ -706,7 +743,7 @@
                                                 {{-- popover tooltip --}}
 
                                                 <div class="w-full bg-gray-200 rounded-full my-2">
-                                                    <div class="bg-orange-500 hover:bg-orange-600 text-xs font-medium text-blue-100 text-center leading-none rounded-lg hover:cursor-default"
+                                                    <div class="bg-orange-500 hover:bg-orange-600 text-sm font-medium text-white text-center leading-none rounded-lg hover:cursor-default"
                                                         data-popover-target="popover-17"
                                                         data-popover-placement="bottom" style="width: 95%">
                                                         <p>95%</p>
@@ -728,7 +765,7 @@
                                                 {{-- popover tooltip --}}
 
                                                 <div class="w-full bg-gray-200 rounded-full my-2">
-                                                    <div class="bg-orange-500 hover:bg-orange-600 text-xs font-medium text-blue-100 text-center leading-none rounded-lg hover:cursor-default"
+                                                    <div class="bg-orange-500 hover:bg-orange-600 text-sm font-medium text-white text-center leading-none rounded-lg hover:cursor-default"
                                                         data-popover-target="popover-18"
                                                         data-popover-placement="bottom" style="width: 95%">
                                                         <p>95%</p>
@@ -750,7 +787,7 @@
                                                 {{-- popover tooltip --}}
 
                                                 <div class="w-full bg-gray-200 rounded-full my-2">
-                                                    <div class="bg-orange-500 hover:bg-orange-600 text-xs font-medium text-blue-100 text-center leading-none rounded-lg hover:cursor-default"
+                                                    <div class="bg-orange-500 hover:bg-orange-600 text-sm font-medium text-white text-center leading-none rounded-lg hover:cursor-default"
                                                         data-popover-target="popover-19"
                                                         data-popover-placement="bottom" style="width: 100%">
                                                         <p>100%</p>
@@ -765,7 +802,7 @@
                                                 <div class="flex">
                                                     <div>
                                                         <div
-                                                            class="items-center pt-1 pr-4 text-xs font-medium  text-gray-500">
+                                                            class="items-center pt-1 pr-4 text-xs font-medium  text-gray-700">
                                                             Keterangan :
                                                         </div>
                                                         {{-- Memamnggil Budget amount dari project --}}
@@ -775,7 +812,7 @@
                                                     </div>
                                                     <div>
                                                         <div
-                                                            class="items-center pt-1 pr-4 text-xs font-medium  text-gray-500">
+                                                            class="items-center pt-1 pr-4 text-xs font-medium  text-gray-700">
                                                             Budget Amount :
                                                         </div>
                                                         {{-- Memamnggil Budget amount dari project --}}
@@ -785,7 +822,7 @@
                                                     </div>
                                                     <div>
                                                         <div
-                                                            class="items-center pt-1 pr-4 text-xs font-medium  text-gray-500">
+                                                            class="items-center pt-1 pr-4 text-xs font-medium  text-gray-700">
                                                             Last
                                                             updated:</div>
                                                         {{-- Memanggil nama serta tanggal diupdate --}}
@@ -802,13 +839,13 @@
                                                         {{-- Menampilkan PIC project --}}
                                                         <p class="font-semibold">Start :</p>
                                                         <div
-                                                            class="items-center py-1 px-2 text-sm font-medium text-center text-white bg-sky-400 rounded drop-shadow-md ">
+                                                            class="items-center py-1 px-2 font-medium text-center text-lg rounded drop-shadow-md ">
                                                             {{ $object->date_start }}
                                                         </div>
 
                                                         <p class="font-semibold">End :</p>
                                                         <div
-                                                            class="items-center py-1 px-2 text-sm font-medium text-center text-white bg-red-600 rounded drop-shadow-md">
+                                                            class="items-center py-1 px-2 font-medium text-center text-lg rounded drop-shadow-md">
                                                             {{ $object->date_end }}
                                                         </div>
                                                     </div>

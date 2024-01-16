@@ -987,10 +987,12 @@
                                 <td class="text-center">{{ $koneksiar->date_draw_el_2 }}</td>
                                 <td>
                                     @if (($koneksiar->status_ar == '-' || $koneksiar->status_ar == 'Revisi Arrangement') && $koneksiar->draw_el_2 == '')
-                                    <input type="file" name="as_draw_el_2" id="fileInput_draw_el_2" style="display: none;">
-                                    <button type="button" onclick="openFileInput('draw_el_2')" class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md">
-                                        + Tambah dokumen
-                                    </button>
+                                        <input type="file" name="as_draw_el_2" id="fileInput_draw_el_2"
+                                            style="display: none;">
+                                        <button type="button" onclick="openFileInput('draw_el_2')"
+                                            class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md">
+                                            + Tambah dokumen
+                                        </button>
                                     @elseif (
                                         ($koneksiar->status_ar == '-' || $koneksiar->status_ar == 'Revisi Arrangement') &&
                                             $koneksiar->draw_el_2 != '' &&
@@ -1090,12 +1092,14 @@
                                 <td class="text-center">{{ $koneksiar->date_approval_lay_1 }}</td>
                                 <td>
                                     @if (($koneksiar->status_ar == '-' || $koneksiar->status_ar == 'Revisi Arrangement') && $koneksiar->approval_lay_1 == '')
-                                    <div class="justify-center flex space-x-2">
-                                        <input type="file" name="as_approval_lay_1" id="fileInput_approval_lay_1" style="display: none;">
-                                        <button type="button" onclick="openFileInput('approval_lay_1')" class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md">
-                                            + Tambah dokumen
-                                        </button>
-                                    </div>
+                                        <div class="justify-center flex space-x-2">
+                                            <input type="file" name="as_approval_lay_1"
+                                                id="fileInput_approval_lay_1" style="display: none;">
+                                            <button type="button" onclick="openFileInput('approval_lay_1')"
+                                                class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md">
+                                                + Tambah dokumen
+                                            </button>
+                                        </div>
                                     @elseif (
                                         ($koneksiar->status_ar == '-' || $koneksiar->status_ar == 'Revisi Arrangement') &&
                                             $koneksiar->approval_lay_1 != '' &&
@@ -1110,59 +1114,62 @@
                                             </button>
                                         </div>
                                     @endif
-    <input type="text" hidden name="as_up_approval_lay_by_1" value="{{ Auth::user()->first_name }}">
-    <input type="date" hidden name="as_date_approval_lay_1" value="{{ date('Y-m-d') }}">
-    </tr>
+                                    <input type="text" hidden name="as_up_approval_lay_by_1"
+                                        value="{{ Auth::user()->first_name }}">
+                                    <input type="date" hidden name="as_date_approval_lay_1"
+                                        value="{{ date('Y-m-d') }}">
+                            </tr>
 
-    <tr class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
-        <td class="py-4 text-center">2.</td>
-        <td class="flex justify-start py-4 items-center">
+                            <tr class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
+                                <td class="py-4 text-center">2.</td>
+                                <td class="flex justify-start py-4 items-center">
 
-            @if ($koneksiar->approval_lay_2 != '')
-                <a href="{{ asset('storage/supervisor/project/02_AR/' . $koneksiar->approval_lay_2) }}"
-                    target="blank" class="py-2 px-1 rounded hover:bg-gray-200 ">
-                    <svg width="22" height="17" viewBox="0 0 22 17" fill="none"
-                        xmlns="http://www.w3.org/2000/svg">
-                        <path
-                            d="M11 0C6 0 1.73 3.11 0 7.5C1.73 11.89 6 15 11 15C11.36 15 11.72 15 12.08 14.95C12.03 14.63 12 14.32 12 14C12 13.44 12.08 12.88 12.24 12.34C11.83 12.44 11.42 12.5 11 12.5C8.24 12.5 6 10.26 6 7.5C6 4.74 8.24 2.5 11 2.5C13.76 2.5 16 4.74 16 7.5C16 7.79 15.97 8.09 15.92 8.38C16.58 8.13 17.29 8 18 8C19.17 8 20.31 8.34 21.29 9C21.56 8.5 21.8 8 22 7.5C20.27 3.11 16 0 11 0ZM11 4.5C9.34 4.5 8 5.84 8 7.5C8 9.16 9.34 10.5 11 10.5C12.66 10.5 14 9.16 14 7.5C14 5.84 12.66 4.5 11 4.5ZM17 10.5V12.5H21V14.5H17V16.5L14 13.5L17 10.5Z"
-                            fill="black" />
-                    </svg>
-                </a>
+                                    @if ($koneksiar->approval_lay_2 != '')
+                                        <a href="{{ asset('storage/supervisor/project/02_AR/' . $koneksiar->approval_lay_2) }}"
+                                            target="blank" class="py-2 px-1 rounded hover:bg-gray-200 ">
+                                            <svg width="22" height="17" viewBox="0 0 22 17" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M11 0C6 0 1.73 3.11 0 7.5C1.73 11.89 6 15 11 15C11.36 15 11.72 15 12.08 14.95C12.03 14.63 12 14.32 12 14C12 13.44 12.08 12.88 12.24 12.34C11.83 12.44 11.42 12.5 11 12.5C8.24 12.5 6 10.26 6 7.5C6 4.74 8.24 2.5 11 2.5C13.76 2.5 16 4.74 16 7.5C16 7.79 15.97 8.09 15.92 8.38C16.58 8.13 17.29 8 18 8C19.17 8 20.31 8.34 21.29 9C21.56 8.5 21.8 8 22 7.5C20.27 3.11 16 0 11 0ZM11 4.5C9.34 4.5 8 5.84 8 7.5C8 9.16 9.34 10.5 11 10.5C12.66 10.5 14 9.16 14 7.5C14 5.84 12.66 4.5 11 4.5ZM17 10.5V12.5H21V14.5H17V16.5L14 13.5L17 10.5Z"
+                                                    fill="black" />
+                                            </svg>
+                                        </a>
 
-                &emsp;
-            @endif
-            {{--  --}}
-            <a href="{{ asset('storage/supervisor/project/02_AR/' . $koneksiar->approval_lay_2) }}" target="blank"
-                download="" class="hover:underline ">
-                {{ $koneksiar->approval_lay_2 }}</a>
-            {{-- == --}}
+                                        &emsp;
+                                    @endif
+                                    {{--  --}}
+                                    <a href="{{ asset('storage/supervisor/project/02_AR/' . $koneksiar->approval_lay_2) }}"
+                                        target="blank" download="" class="hover:underline ">
+                                        {{ $koneksiar->approval_lay_2 }}</a>
+                                    {{-- == --}}
 
 
-        </td>
-        <td>
-            @if ($koneksiar->up_approval_lay_by_2 != '')
-                <div
-                    class="items-center py-1 px-2 text-sm font-medium text-center text-white bg-orange-500 w-[100] mx-auto rounded">
-                    {{ $koneksiar->up_approval_lay_by_2 }}
-                </div>
-            @endif
-        </td>
-        <td class="text-center">{{ $koneksiar->date_approval_lay_2 }}</td>
-        <td>
-            @if ($koneksiar->approval_lay_2 != '')
-                <div class="justify-center flex space-x-2">
-                    <button type="button"
-                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
-                        data-modal-target="modal32" data-modal-show="modal32" data-modal-toggle="modal32">
-                        Ubah
-                    </button>
-                </div>
-            @else
-                <input type="file" name="as_approval_lay_2" id="">
-        </td>
-        @endif
-        <input type="text" hidden name="as_up_approval_lay_by_2" value="{{ Auth::user()->first_name }}">
-        <input type="date" hidden name="as_date_approval_lay_2" value="{{ date('Y-m-d') }}">
+                                </td>
+                                <td>
+                                    @if ($koneksiar->up_approval_lay_by_2 != '')
+                                        <div
+                                            class="items-center py-1 px-2 text-sm font-medium text-center text-white bg-orange-500 w-[100] mx-auto rounded">
+                                            {{ $koneksiar->up_approval_lay_by_2 }}
+                                        </div>
+                                    @endif
+                                </td>
+                                <td class="text-center">{{ $koneksiar->date_approval_lay_2 }}</td>
+                                <td>
+                                    @if ($koneksiar->approval_lay_2 != '')
+                                        <div class="justify-center flex space-x-2">
+                                            <button type="button"
+                                                class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                data-modal-target="modal32" data-modal-show="modal32"
+                                                data-modal-toggle="modal32">
+                                                Ubah
+                                            </button>
+                                        </div>
+                                    @else
+                                        <input type="file" name="as_approval_lay_2" id="">
+                                </td>
+    @endif
+    <input type="text" hidden name="as_up_approval_lay_by_2" value="{{ Auth::user()->first_name }}">
+    <input type="date" hidden name="as_date_approval_lay_2" value="{{ date('Y-m-d') }}">
     </tr>
 
     </tbody>
@@ -2380,37 +2387,36 @@
 </form>
 </div>
 {{-- Akhir progress file --}}
-@endif
 
 
-@if ($koneksifr->status_fr != 'Revisi Fund Request')
-    @if ($koneksiar->status_ar == '-' || $koneksiar->status_ar == 'Revisi Arrangement')
-        <p class="mb-1 mt-3">
-            Pastikan unggahan dokumen sudah sesuai dengan proyek.
-        </p>
-        <form action="" method="post" enctype="multipart/form-data">
-            @csrf
-            @method('PUT')
-            <input type="text" name="status_ar" value="Waiting Approval" hidden>
-            <input type="date" hidden name="status_ar_date" value="{{ date('Y-m-d') }}">
-            {{-- table project --}}
-            <input type="text" name="check" value="needcheck" hidden>
-            <input type="text" name="progress" value="Waiting Approval Arrangement" hidden>
-            <button type="submit"
-                class="border-gray-500 border-2 w-full hover:bg-gray-600 text-gray-700 hover:text-white font-medium py-2 rounded-lg shadow-md mb-3 bg-white">
-                Klik untuk ajukan tahapan
-            </button>
-        </form>
-    @elseif($koneksiar->status_ar == 'Waiting Approval')
-        <p class="bg-gray-600 mt-3 py-3 text-center text-lg text-white font-medium uppercase tracking-wide">
-            Tahapan sedang menunggu persetujuan
-        </p>
-    @else
-        <p class="bg-green-700 text-white mt-3 py-3 text-center text-lg font-medium uppercase tracking-wide">
-            Tahapan telah disetujui
-        </p>
-    @endif
+@if ($koneksiar->status_ar == '-' || $koneksiar->status_ar == 'Revisi Arrangement')
+    <p class="mb-1 mt-3">
+        Pastikan unggahan dokumen sudah sesuai dengan proyek.
+    </p>
+    <form action="" method="post" enctype="multipart/form-data">
+        @csrf
+        @method('PUT')
+        <input type="text" name="status_ar" value="Waiting Approval" hidden>
+        <input type="date" hidden name="status_ar_date" value="{{ date('Y-m-d') }}">
+        {{-- table project --}}
+        <input type="text" name="check" value="needcheck" hidden>
+        <input type="text" name="progress" value="Waiting Approval Arrangement" hidden>
+        <button type="submit"
+            class="border-gray-500 border-2 w-full hover:bg-gray-600 text-gray-700 hover:text-white font-medium py-2 rounded-lg shadow-md mb-3 bg-white">
+            Klik untuk ajukan tahapan
+        </button>
+    </form>
+@elseif($koneksiar->status_ar == 'Waiting Approval')
+    <p class="bg-gray-600 mt-3 py-3 text-center text-lg text-white font-medium uppercase tracking-wide">
+        Tahapan sedang menunggu persetujuan
+    </p>
+@else
+    <p class="bg-green-700 text-white mt-3 py-3 text-center text-lg font-medium uppercase tracking-wide">
+        Tahapan telah disetujui
+    </p>
 @endif
+@endif
+
 
 
 <script>
@@ -2433,7 +2439,7 @@
         fileInput.click();
 
         // Tambahkan event listener untuk menangani perubahan file
-        fileInput.addEventListener('change', function (event) {
+        fileInput.addEventListener('change', function(event) {
             const selectedFile = event.target.files[0];
             console.log('File yang dipilih untuk ' + namaVariabel + ':', selectedFile.name);
 

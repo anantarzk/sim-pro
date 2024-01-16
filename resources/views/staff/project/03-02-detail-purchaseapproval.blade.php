@@ -699,6 +699,9 @@
         </div>
         {{-- akhir stepper --}}
 
+        <br>
+        <hr class="mb-2 w-full border">
+
         <div class="flex justify-between items-center mb-3">
 
             {{-- status approval row --}}

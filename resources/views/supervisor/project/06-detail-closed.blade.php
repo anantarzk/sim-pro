@@ -589,13 +589,13 @@
 
             {{-- status approval row --}}
             <div class="flex">
-                <p>Checked by: &nbsp;
-                <div class="items-center py-1 px-2 text-sm font-medium text-center text-white bg-red-700 mr-2 rounded">
+                <p>Diperiksa oleh: &nbsp;
+                <div class="items-center py-1 px-2 text-sm font-medium text-center text-white bg-orange-500 mr-2 rounded">
                     {{ $koneksicl->approval_by }}
                 </div>
                 </p>
                 &nbsp;&nbsp;
-                <p>On: &nbsp;
+                <p>Pada: &nbsp;
                 <p class="font-semibold">
                     {{ $koneksicl->approval_date }}
                 </p>
@@ -690,7 +690,7 @@
                     {{-- Izin Pemeriksaan Mesin --}}
                     {{-- awal standar formulir --}}
                     <div class="flex justify-between">
-                        <p class="font-normal text-lg bg-teal-600 px-4 py-1 w-fit text-white mb-2 rounded"> Izin Pemeriksaan Mesin
+                        <p class="font-medium text-lg bg-gray-800 px-4 py-1 w-fit text-white mb-2 rounded"> Izin Pemeriksaan Mesin
                         @foreach ($standar_project as $spt)
                             @if ($spt->file_iperiksam_form != '')
                                 <div class="flex justify-end mr-1 mt-4">
@@ -719,12 +719,12 @@
 
                     <div class="overflow-x-auto rounded-md mb-5 border">
                         <table class="w-full ">
-                            <thead class="bg-green-600 text-white sticky top-0">
-                                <th class="py-2 w-[5%]">No.</th>
-                                <th class="w-[57%]">Nama File</th>
-                                <th class="w-[10%]">Uploaded by</th>
-                                <th class="w-[13%]">Last Update</th>
-                                <th class="w-[15%]">Aksi</th>
+                            <thead class="bg-gray-300 text-gray-700 sticky top-0">
+                                <th class="py-2 w-[5%] font-medium">No.</th>
+                                <th class="w-[57%] font-medium">Nama File</th>
+                                <th class="w-[10%] font-medium">Uploaded by</th>
+                                <th class="w-[13%] font-medium">Last Update</th>
+                                <th class="w-[15%] font-medium">Aksi</th>
                             </thead>
                             <tbody class="text-left border">
                                 {{-- 1 --}}
@@ -924,7 +924,7 @@
                     {{-- System Quality Assurance --}}
                     {{-- awal standar formulir --}}
                     <div class="flex justify-between">
-                        <p class="font-normal text-lg bg-teal-600 px-4 py-1 w-fit text-white mb-2 rounded"> System Quality Assurance
+                        <p class="font-medium text-lg bg-gray-800 px-4 py-1 w-fit text-white mb-2 rounded"> System Quality Assurance
                         @foreach ($standar_project as $spt)
                             @if ($spt->file_qas_form != '')
                                 <div class="flex justify-end mr-1 mt-4">
@@ -953,12 +953,12 @@
 
                     <div class="overflow-x-auto rounded-md mb-5 border">
                         <table class="w-full ">
-                            <thead class="bg-green-600 text-white sticky top-0">
-                                <th class="py-2 w-[5%]">No.</th>
-                                <th class="w-[57%]">Nama File</th>
-                                <th class="w-[10%]">Uploaded by</th>
-                                <th class="w-[13%]">Last Update</th>
-                                <th class="w-[15%]">Upload</th>
+                            <thead class="bg-gray-300 text-gray-700 sticky top-0">
+                                <th class="py-2 w-[5%] font-medium">No.</th>
+                                <th class="w-[57%] font-medium">Nama File</th>
+                                <th class="w-[10%] font-medium">Uploaded by</th>
+                                <th class="w-[13%] font-medium">Last Update</th>
+                                <th class="w-[15%] font-medium">Upload</th>
                             </thead>
                             <tbody class="text-left border">
                                 {{-- 1 --}}
@@ -1092,7 +1092,7 @@
                     {{-- Izin Pakai Mesin --}}
                     {{-- awal standar formulir --}}
                     <div class="flex justify-between">
-                        <p class="font-normal text-lg bg-teal-600 px-4 py-1 w-fit text-white mb-2 rounded"> Izin Pakai Mesin
+                        <p class="font-medium text-lg bg-gray-800 px-4 py-1 w-fit text-white mb-2 rounded"> Izin Pakai Mesin
                         @foreach ($standar_project as $spt)
                             @if ($spt->file_ipakaim_form != '')
                                 <div class="flex justify-end mr-1 mt-4">
@@ -1121,12 +1121,12 @@
 
                     <div class="overflow-x-auto rounded-md mb-5 border">
                         <table class="w-full ">
-                            <thead class="bg-green-600 text-white sticky top-0">
-                                <th class="py-2 w-[5%]">No.</th>
-                                <th class="w-[57%]">Nama File</th>
-                                <th class="w-[10%]">Uploaded by</th>
-                                <th class="w-[13%]">Last Update</th>
-                                <th class="w-[15%]">Upload</th>
+                            <thead class="bg-gray-300 text-gray-700 sticky top-0">
+                                <th class="py-2 w-[5%] font-medium">No.</th>
+                                <th class="w-[57%] font-medium">Nama File</th>
+                                <th class="w-[10%] font-medium">Uploaded by</th>
+                                <th class="w-[13%] font-medium">Last Update</th>
+                                <th class="w-[15%] font-medium">Upload</th>
                             </thead>
                             <tbody class="text-left border">
                                 {{-- 1 --}}
@@ -1259,7 +1259,7 @@
                     {{-- Training Document --}}
                     {{-- awal standar formulir --}}
                     <div class="flex justify-between">
-                        <p class="font-normal text-lg bg-teal-600 px-4 py-1 w-fit text-white mb-2 rounded"> Dokumen Training
+                        <p class="font-medium text-lg bg-gray-800 px-4 py-1 w-fit text-white mb-2 rounded"> Dokumen Training
                         @foreach ($standar_project as $spt)
                             @if ($spt->file_training_form != '')
                                 <div class="flex justify-end mr-1 mt-4">
@@ -1288,12 +1288,12 @@
 
                     <div class="overflow-x-auto rounded-md mb-5 border">
                         <table class="w-full ">
-                            <thead class="bg-green-600 text-white sticky top-0">
-                                <th class="py-2 w-[5%]">No.</th>
-                                <th class="w-[57%]">Nama File</th>
-                                <th class="w-[10%]">Uploaded by</th>
-                                <th class="w-[13%]">Last Update</th>
-                                <th class="w-[15%]">Upload</th>
+                            <thead class="bg-gray-300 text-gray-700 sticky top-0">
+                                <th class="py-2 w-[5%] font-medium">No.</th>
+                                <th class="w-[57%] font-medium">Nama File</th>
+                                <th class="w-[10%] font-medium">Uploaded by</th>
+                                <th class="w-[13%] font-medium">Last Update</th>
+                                <th class="w-[15%] font-medium">Upload</th>
                             </thead>
                             <tbody class="text-left border">
                                 {{-- 1 --}}
@@ -1609,7 +1609,7 @@
                     {{-- Listup Trouble Listup --}}
                     {{-- awal standar formulir --}}
                     <div class="flex justify-between">
-                        <p class="font-normal text-lg bg-teal-600 px-4 py-1 w-fit text-white mb-2 rounded"> Trouble Listup
+                        <p class="font-medium text-lg bg-gray-800 px-4 py-1 w-fit text-white mb-2 rounded"> Trouble Listup
                         @foreach ($standar_project as $spt)
                             @if ($spt->file_lup_form != '')
                                 <div class="flex justify-end mr-1 mt-4">
@@ -1638,12 +1638,12 @@
 
                     <div class="overflow-x-auto rounded-md mb-5 border">
                         <table class="w-full ">
-                            <thead class="bg-green-600 text-white sticky top-0">
-                                <th class="py-2 w-[5%]">No.</th>
-                                <th class="w-[57%]">Nama File</th>
-                                <th class="w-[10%]">Uploaded by</th>
-                                <th class="w-[13%]">Last Update</th>
-                                <th class="w-[15%]">Upload</th>
+                            <thead class="bg-gray-300 text-gray-700 sticky top-0">
+                                <th class="py-2 w-[5%] font-medium">No.</th>
+                                <th class="w-[57%] font-medium">Nama File</th>
+                                <th class="w-[10%] font-medium">Uploaded by</th>
+                                <th class="w-[13%] font-medium">Last Update</th>
+                                <th class="w-[15%] font-medium">Upload</th>
                             </thead>
                             <tbody class="text-left border">
                                 {{-- 1 --}}
@@ -1778,7 +1778,7 @@
                     {{-- Control Kontrol Awal Mesin Baru --}}
                     {{-- awal standar formulir --}}
                     <div class="flex justify-between">
-                        <p class="font-normal text-lg bg-teal-600 px-4 py-1 w-fit text-white mb-2 rounded"> Kontrol Awal Mesin Baru
+                        <p class="font-medium text-lg bg-gray-800 px-4 py-1 w-fit text-white mb-2 rounded"> Kontrol Awal Mesin Baru
                         @foreach ($standar_project as $spt)
                             @if ($spt->file_camb_form != '')
                                 <div class="flex justify-end mr-1 mt-4">
@@ -1807,12 +1807,12 @@
 
                     <div class="overflow-x-auto rounded-md mb-5">
                         <table class="w-full">
-                            <thead class="bg-green-600 text-white">
-                                <th class="py-2 w-[5%]">No.</th>
-                                <th class="w-[57%]">Nama File</th>
-                                <th class="w-[10%]">Uploaded by</th>
-                                <th class="w-[13%]">Last Update</th>
-                                <th class="w-[15%]">Upload</th>
+                            <thead class="bg-gray-300 text-gray-700">
+                                <th class="py-2 w-[5%] font-medium">No.</th>
+                                <th class="w-[57%] font-medium">Nama File</th>
+                                <th class="w-[10%] font-medium">Uploaded by</th>
+                                <th class="w-[13%] font-medium">Last Update</th>
+                                <th class="w-[15%] font-medium">Upload</th>
                             </thead>
                             <tbody class="text-left border">
                                 {{-- 1 --}}
@@ -1945,7 +1945,7 @@
                     {{-- Instruction Manual --}}
                     {{-- awal standar formulir --}}
                     <div class="flex justify-between">
-                        <p class="font-normal text-lg bg-teal-600 px-4 py-1 w-fit text-white mb-2 rounded"> Instruction Manual
+                        <p class="font-medium text-lg bg-gray-800 px-4 py-1 w-fit text-white mb-2 rounded"> Instruction Manual
                         @foreach ($standar_project as $spt)
                             @if ($spt->file_cl_im_form != '')
                                 <div class="flex justify-end mr-1 mt-4">
@@ -1974,12 +1974,12 @@
 
                     <div class="overflow-x-auto rounded-md mb-5 border">
                         <table class="w-full">
-                            <thead class="bg-green-600 text-white sticky top-0">
-                                <th class="py-2 w-[5%]">No.</th>
-                                <th class="w-[57%]">Nama File</th>
-                                <th class="w-[10%]">Uploaded by</th>
-                                <th class="w-[13%]">Last Update</th>
-                                <th class="w-[15%]">Upload</th>
+                            <thead class="bg-gray-300 text-gray-700 sticky top-0">
+                                <th class="py-2 w-[5%] font-medium">No.</th>
+                                <th class="w-[57%] font-medium">Nama File</th>
+                                <th class="w-[10%] font-medium">Uploaded by</th>
+                                <th class="w-[13%] font-medium">Last Update</th>
+                                <th class="w-[15%] font-medium">Upload</th>
                             </thead>
                             <tbody class="text-left border">
                                 {{-- 1 --}}
@@ -2300,7 +2300,7 @@
                     {{-- Completion and Handover Report --}}
                     {{-- awal standar formulir --}}
                     <div class="flex justify-between">
-                        <p class="font-normal text-lg bg-teal-600 px-4 py-1 w-fit text-white mb-2 rounded"> Completion and Handover Report
+                        <p class="font-medium text-lg bg-gray-800 px-4 py-1 w-fit text-white mb-2 rounded"> Completion and Handover Report
                         @foreach ($standar_project as $spt)
                             @if ($spt->file_chor_form != '')
                                 <div class="flex justify-end mr-1 mt-4">
@@ -2328,12 +2328,12 @@
 
                     <div class="overflow-x-auto rounded-md mb-5">
                         <table class="w-full">
-                            <thead class="bg-green-600 text-white">
-                                <th class="py-2 w-[5%]">No.</th>
-                                <th class="w-[57%]">Nama File</th>
-                                <th class="w-[10%]">Uploaded by</th>
-                                <th class="w-[13%]">Last Update</th>
-                                <th class="w-[15%]">Upload</th>
+                            <thead class="bg-gray-300 text-gray-700">
+                                <th class="py-2 w-[5%] font-medium">No.</th>
+                                <th class="w-[57%] font-medium">Nama File</th>
+                                <th class="w-[10%] font-medium">Uploaded by</th>
+                                <th class="w-[13%] font-medium">Last Update</th>
+                                <th class="w-[15%] font-medium">Upload</th>
                             </thead>
                             <tbody class="text-left border">
                                 {{-- 1 --}}

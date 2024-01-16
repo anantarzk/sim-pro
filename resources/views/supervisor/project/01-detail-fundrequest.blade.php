@@ -565,13 +565,13 @@
     <div class="bg-white mt-3 w-full rounded-md shadow-md p-3">
         <div class="flex justify-between items-center">
             <div class="flex">
-                <p>Checked by: &nbsp;
-                <div class="items-center py-1 px-2 text-sm font-medium text-center text-white bg-red-700 mr-2 rounded">
+                <p>Diperiksa oleh: &nbsp;
+                <div class="items-center py-1 px-2 text-sm font-medium text-center text-white bg-orange-500 mr-2 rounded">
                     {{ $koneksifr->approval_by }}
                 </div>
                 </p>
                 &nbsp;&nbsp;
-                <p>On: &nbsp;
+                <p>Pada: &nbsp;
                 <p class="font-semibold">
                     {{ $koneksifr->approval_date }}
                 </p>
@@ -654,7 +654,7 @@
         {{-- awal standar formulir --}}
         <hr class="mb-2 mt-2 w-full border">
         <div class="flex justify-between">
-            <p class="font-normal text-lg bg-teal-600 px-4 py-1 w-fit text-white mb-2 rounded"> Fund Request
+            <p class="font-medium text-lg bg-gray-800 px-4 py-1 w-fit text-white mb-2 rounded"> Fund Request
             </p>
             @foreach ($standar_project as $spt)
                 @if ($spt->file_fr_sheet_form != '')
@@ -690,12 +690,12 @@
             @method('PUT')
             <div class="overflow-x-auto rounded-md">
                 <table class="w-full">
-                    <thead class="bg-green-600 text-white">
-                        <th class="py-2 w-[5%]">No.</th>
-                        <th class="w-[57%]">Nama File</th>
-                        <th class="w-[10%]">Uploaded by</th>
-                        <th class="w-[13%]">Last Update</th>
-                        <th class="w-[15%]">Aksi</th>
+                    <thead class="bg-gray-300 text-gray-700">
+                        <th class="py-2 w-[5%] font-medium">No.</th>
+                        <th class="w-[57%] font-medium">Nama File</th>
+                        <th class="w-[10%] font-medium">Uploaded by</th>
+                        <th class="w-[13%] font-medium">Last Update</th>
+                        <th class="w-[15%] font-medium">Aksi</th>
                     </thead>
                     <tbody class="text-left border">
 

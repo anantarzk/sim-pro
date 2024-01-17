@@ -1076,24 +1076,32 @@
 
 
     @if ($koneksifr->status_fr == '-' || $koneksifr->status_fr == 'Revisi Fund Request')
-        <p class="mb-1 mt-3">
-            Pastikan unggahan dokumen sudah sesuai dengan proyek.
-        </p>
-        <form action="" method="post" enctype="multipart/form-data">
-            @csrf
-            @method('PUT')
-            {{-- input ke table project --}}
-            <input type="text" name="status_fr" value="Waiting Approval" hidden>
-            <input type="date" hidden name="status_fr_date" value="{{ date('Y-m-d') }}">
-            {{-- table project --}}
-            <input type="text" name="check" value="needcheck" hidden>
-            <input type="text" name="progress" value="Waiting Approval Fund Request" hidden>
-
-            <button type="submit"
-                class="border-gray-500 border-2 w-full hover:bg-gray-600 text-gray-700 hover:text-white font-medium py-2 rounded-lg shadow-md mb-3 bg-white">
-                Klik untuk ajukan tahapan
-            </button>
-        </form>
+        @if (
+            $koneksifr->atribut_1 ||
+                $koneksifr->atribut_2 ||
+                $koneksifr->atribut_3 ||
+                $koneksifr->atribut_4 ||
+                $koneksifr->atribut_5 != '')
+            <p class="mb-1 mt-3">
+                Pastikan unggahan dokumen sudah sesuai dengan proyek.
+            </p>
+            <form action="" method="post" enctype="multipart/form-data">
+                @csrf
+                @method('PUT')
+                {{-- input ke table project --}}
+                <input type="text" name="status_fr" value="Waiting Approval" hidden>
+                <input type="date" hidden name="status_fr_date" value="{{ date('Y-m-d') }}">
+                {{-- table project --}}
+                <input type="text" name="check" value="needcheck" hidden>
+                <input type="text" name="progress" value="Waiting Approval Fund Request" hidden>
+                <input type="text" name="last_update_name" value="{{ Auth::user()->first_name }}" hidden>
+                <input type="text" name="last_update_date" value="{{ date('d-M-Y') }}" hidden>
+                <button type="submit"
+                    class="border-gray-500 border-2 w-full hover:bg-gray-600 text-gray-700 hover:text-white font-medium py-2 rounded-lg shadow-md mb-3 bg-white">
+                    Klik untuk ajukan tahapan
+                </button>
+            </form>
+        @endif
     @elseif($koneksifr->status_fr == 'Waiting Approval')
         <p class="bg-gray-600 mt-3 py-3 text-center text-lg text-white font-medium uppercase tracking-wide">
             Tahapan sedang menunggu persetujuan

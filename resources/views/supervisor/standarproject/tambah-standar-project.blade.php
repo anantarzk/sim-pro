@@ -148,7 +148,7 @@
                                                         </button>
                                                     </div>
                                                 @else
-                                                    <input type="file" name="as_file_fr_sheet_form" id="">
+                                                    <input type="file" accept=".docx, .xlsx, .dwg, .txt" name="as_file_fr_sheet_form" id="">
                                                 @endif
                                             </td>
                                             <input type="text" hidden name="as_up_fr_sheet_form"
@@ -235,7 +235,7 @@
                                                         </button>
                                                     </div>
                                                 @else
-                                                    <input type="file" name="as_file_dr_m_sheet_form"
+                                                    <input type="file" accept=".docx, .xlsx, .dwg, .txt" name="as_file_dr_m_sheet_form"
                                                         id="">
                                                 @endif
                                             </td>
@@ -302,7 +302,7 @@
                                                         </button>
                                                     </div>
                                                 @else
-                                                    <input type="file" name="as_file_dr_e_sheet_form"
+                                                    <input type="file" accept=".docx, .xlsx, .dwg, .txt" name="as_file_dr_e_sheet_form"
                                                         id="">
                                                 @endif
                                             </td>
@@ -369,7 +369,7 @@
                                                         </button>
                                                     </div>
                                                 @else
-                                                    <input type="file" name="as_file_lay_aprvl_sheet_form"
+                                                    <input type="file" accept=".docx, .xlsx, .dwg, .txt" name="as_file_lay_aprvl_sheet_form"
                                                         id="">
                                                 @endif
                                             </td>
@@ -435,7 +435,7 @@
                                                         </button>
                                                     </div>
                                                 @else
-                                                    <input type="file" name="as_file_dr_aprvl_sheet_form"
+                                                    <input type="file" accept=".docx, .xlsx, .dwg, .txt" name="as_file_dr_aprvl_sheet_form"
                                                         id="">
                                                 @endif
                                             </td>
@@ -502,7 +502,7 @@
                                                         </button>
                                                     </div>
                                                 @else
-                                                    <input type="file" name="as_file_design_sheet_form"
+                                                    <input type="file" accept=".docx, .xlsx, .dwg, .txt" name="as_file_design_sheet_form"
                                                         id="">
                                                 @endif
                                             </td>
@@ -570,7 +570,7 @@
                                                         </button>
                                                     </div>
                                                 @else
-                                                    <input type="file" name="as_file_dr_meeting_form"
+                                                    <input type="file" accept=".docx, .xlsx, .dwg, .txt" name="as_file_dr_meeting_form"
                                                         id="">
                                                 @endif
                                             </td>
@@ -636,7 +636,7 @@
                                                         </button>
                                                     </div>
                                                 @else
-                                                    <input type="file" name="as_file_est_budget_form"
+                                                    <input type="file" accept=".docx, .xlsx, .dwg, .txt" name="as_file_est_budget_form"
                                                         id="">
                                                 @endif
                                             </td>
@@ -725,7 +725,7 @@
                                                         </button>
                                                     </div>
                                                 @else
-                                                    <input type="file" name="as_file_pr_parts_material_form"
+                                                    <input type="file" accept=".docx, .xlsx, .dwg, .txt" name="as_file_pr_parts_material_form"
                                                         id="">
                                                 @endif
                                             </td>
@@ -792,7 +792,7 @@
                                                         </button>
                                                     </div>
                                                 @else
-                                                    <input type="file" name="as_file_pr_pekerjaan_jasa_form"
+                                                    <input type="file" accept=".docx, .xlsx, .dwg, .txt" name="as_file_pr_pekerjaan_jasa_form"
                                                         id="">
                                                 @endif
                                             </td>
@@ -858,7 +858,7 @@
                                                         </button>
                                                     </div>
                                                 @else
-                                                    <input type="file" name="as_file_pr_manufaktur_form"
+                                                    <input type="file" accept=".docx, .xlsx, .dwg, .txt" name="as_file_pr_manufaktur_form"
                                                         id="">
                                                 @endif
                                             </td>
@@ -925,7 +925,7 @@
                                                         </button>
                                                     </div>
                                                 @else
-                                                    <input type="file" name="as_file_pr_per_form" id="">
+                                                    <input type="file" accept=".docx, .xlsx, .dwg, .txt" name="as_file_pr_per_form" id="">
                                                 @endif
                                             </td>
                                             <input type="text" hidden name="as_up_pr_per_form"
@@ -991,7 +991,7 @@
                                                         </button>
                                                     </div>
                                                 @else
-                                                    <input type="file" name="as_file_pr_rfq_form" id="">
+                                                    <input type="file" accept=".docx, .xlsx, .dwg, .txt" name="as_file_pr_rfq_form" id="">
                                                 @endif
                                             </td>
                                             <input type="text" hidden name="as_up_pr_rfq_form"
@@ -1080,7 +1080,7 @@
                                                         </button>
                                                     </div>
                                                 @else
-                                                    <input type="file" name="as_file_mn_ir_form" id="">
+                                                    <input type="file" accept=".docx, .xlsx, .dwg, .txt" name="as_file_mn_ir_form" id="">
                                                 @endif
                                             </td>
                                             <input type="text" hidden name="as_up_mn_ir_form"
@@ -1168,7 +1168,7 @@
                                                         </button>
                                                     </div>
                                                 @else
-                                                    <input type="file" name="as_file_ipo_form" id="">
+                                                    <input type="file" accept=".docx, .xlsx, .dwg, .txt" name="as_file_ipo_form" id="">
                                                 @endif
                                             </td>
                                             <input type="text" hidden name="as_up_ipo_form"
@@ -1234,7 +1234,7 @@
                                                         </button>
                                                     </div>
                                                 @else
-                                                    <input type="file" name="as_file_ecr_form" id="">
+                                                    <input type="file" accept=".docx, .xlsx, .dwg, .txt" name="as_file_ecr_form" id="">
                                                 @endif
                                             </td>
                                             <input type="text" hidden name="as_up_ecr_form"
@@ -1300,7 +1300,7 @@
                                                         </button>
                                                     </div>
                                                 @else
-                                                    <input type="file" name="as_file_sc_form" id="">
+                                                    <input type="file" accept=".docx, .xlsx, .dwg, .txt" name="as_file_sc_form" id="">
                                                 @endif
                                             </td>
                                             <input type="text" hidden name="as_up_sc_form"
@@ -1365,7 +1365,7 @@
                                                         </button>
                                                     </div>
                                                 @else
-                                                    <input type="file" name="as_file_sccs_form" id="">
+                                                    <input type="file" accept=".docx, .xlsx, .dwg, .txt" name="as_file_sccs_form" id="">
                                                 @endif
                                             </td>
                                             <input type="text" hidden name="as_up_sccs_form"
@@ -1430,7 +1430,7 @@
                                                         </button>
                                                     </div>
                                                 @else
-                                                    <input type="file" name="as_file_in_ir_form" id="">
+                                                    <input type="file" accept=".docx, .xlsx, .dwg, .txt" name="as_file_in_ir_form" id="">
                                                 @endif
                                             </td>
                                             <input type="text" hidden name="as_up_in_ir_form"
@@ -1518,7 +1518,7 @@
                                                         </button>
                                                     </div>
                                                 @else
-                                                    <input type="file" name="as_file_iperiksam_form"
+                                                    <input type="file" accept=".docx, .xlsx, .dwg, .txt" name="as_file_iperiksam_form"
                                                         id="">
                                                 @endif
                                             </td>
@@ -1584,7 +1584,7 @@
                                                         </button>
                                                     </div>
                                                 @else
-                                                    <input type="file" name="as_file_qas_form" id="">
+                                                    <input type="file" accept=".docx, .xlsx, .dwg, .txt" name="as_file_qas_form" id="">
                                                 @endif
                                             </td>
                                             <input type="text" hidden name="as_up_qas_form"
@@ -1650,7 +1650,7 @@
                                                         </button>
                                                     </div>
                                                 @else
-                                                    <input type="file" name="as_file_ipakaim_form"
+                                                    <input type="file" accept=".docx, .xlsx, .dwg, .txt" name="as_file_ipakaim_form"
                                                         id="">
                                                 @endif
 
@@ -1718,7 +1718,7 @@
                                                         </button>
                                                     </div>
                                                 @else
-                                                    <input type="file" name="as_file_training_form"
+                                                    <input type="file" accept=".docx, .xlsx, .dwg, .txt" name="as_file_training_form"
                                                         id="">
                                                 @endif
                                             </td>
@@ -1785,7 +1785,7 @@
                                                         </button>
                                                     </div>
                                                 @else
-                                                    <input type="file" name="as_file_lup_form" id="">
+                                                    <input type="file" accept=".docx, .xlsx, .dwg, .txt" name="as_file_lup_form" id="">
                                                 @endif
                                             </td>
                                             <input type="text" hidden name="as_up_lup_form"
@@ -1851,7 +1851,7 @@
                                                         </button>
                                                     </div>
                                                 @else
-                                                    <input type="file" name="as_file_camb_form" id="">
+                                                    <input type="file" accept=".docx, .xlsx, .dwg, .txt" name="as_file_camb_form" id="">
                                                 @endif
                                             </td>
                                             <input type="text" hidden name="as_up_camb_form"
@@ -1916,7 +1916,7 @@
                                                         </button>
                                                     </div>
                                                 @else
-                                                    <input type="file" name="as_file_cl_im_form"
+                                                    <input type="file" accept=".docx, .xlsx, .dwg, .txt" name="as_file_cl_im_form"
                                                         id="">
                                                 @endif
                                             </td>
@@ -1982,7 +1982,7 @@
                                                         </button>
                                                     </div>
                                                 @else
-                                                    <input type="file" name="as_file_chor_form" id="">
+                                                    <input type="file" accept=".docx, .xlsx, .dwg, .txt" name="as_file_chor_form" id="">
                                                 @endif
                                             </td>
                                             <input type="text" hidden name="as_up_chor_form"
@@ -2093,7 +2093,7 @@
                         </p>
                         <div class="items-center justify-center w-full border my-4">
                             @if ($spt->file_fr_sheet_form != '')
-                                <input type="file"name="as_file_fr_sheet_form" id="">
+                                <input type="file" required accept=".docx, .xlsx, .dwg, .txt" name="as_file_fr_sheet_form" id="">
                                 <input type="text" hidden name="as_up_fr_sheet_form"
                                     value="{{ Auth::user()->first_name }}">
                                 <input type="date" hidden name="as_date_fr_sheet_form"
@@ -2164,7 +2164,7 @@
                             </p>
                             <div class="items-center justify-center w-full border my-4">
                                 @if ($spt->{'file_' . $word . '_form'} != '')
-                                    <input type="file" name="as_file_{{ $word }}_form"
+                                    <input type="file" required accept=".docx, .xlsx, .dwg, .txt" name="as_file_{{ $word }}_form"
                                         id="">
                                     <input type="text" hidden name="as_up_{{ $word }}_form"
                                         value="{{ Auth::user()->first_name }}">
@@ -2236,7 +2236,7 @@
                             </p>
                             <div class="items-center justify-center w-full border my-4">
                                 @if ($spt->{'file_' . $word . '_form'} != '')
-                                    <input type="file" name="as_file_{{ $word }}_form"
+                                    <input type="file" required accept=".docx, .xlsx, .dwg, .txt" name="as_file_{{ $word }}_form"
                                         id="">
                                     <input type="text" hidden name="as_up_{{ $word }}_form"
                                         value="{{ Auth::user()->first_name }}">
@@ -2304,7 +2304,7 @@
                         </p>
                         <div class="items-center justify-center w-full border my-4">
                             @if ($spt->file_fr_sheet_form != '')
-                                <input type="file"name="as_file_mn_ir_form" id="">
+                                <input type="file" required accept=".docx, .xlsx, .dwg, .txt"name="as_file_mn_ir_form" id="">
                                 <input type="text" hidden name="as_up_mn_ir_form"
                                     value="{{ Auth::user()->first_name }}">
                                 <input type="date" hidden name="as_mn_ir_form" value="{{ date('Y-m-d') }}">
@@ -2375,7 +2375,7 @@
                             </p>
                             <div class="items-center justify-center w-full border my-4">
                                 @if ($spt->{'file_' . $word . '_form'} != '')
-                                    <input type="file" name="as_file_{{ $word }}_form"
+                                    <input type="file" required accept=".docx, .xlsx, .dwg, .txt" name="as_file_{{ $word }}_form"
                                         id="">
                                     <input type="text" hidden name="as_up_{{ $word }}_form"
                                         value="{{ Auth::user()->first_name }}">
@@ -2447,7 +2447,7 @@
                             </p>
                             <div class="items-center justify-center w-full border my-4">
                                 @if ($spt->{'file_' . $word . '_form'} != '')
-                                    <input type="file" name="as_file_{{ $word }}_form"
+                                    <input type="file" required accept=".docx, .xlsx, .dwg, .txt" name="as_file_{{ $word }}_form"
                                         id="">
                                     <input type="text" hidden name="as_up_{{ $word }}_form"
                                         value="{{ Auth::user()->first_name }}">

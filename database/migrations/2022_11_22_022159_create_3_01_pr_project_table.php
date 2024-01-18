@@ -261,31 +261,6 @@ return new class extends Migration {
             $table->string('up_by_parts_pr_45', 20)->nullable();
             $table->date('date_pr_parts_45')->nullable();
 
-            $table->string('pr_parts_46', 120)->nullable();
-            $table->unsignedBigInteger('mny_parts_pr_46')->nullable();
-            $table->string('up_by_parts_pr_46', 20)->nullable();
-            $table->date('date_pr_parts_46')->nullable();
-
-            $table->string('pr_parts_47', 120)->nullable();
-            $table->unsignedBigInteger('mny_parts_pr_47')->nullable();
-            $table->string('up_by_parts_pr_47', 20)->nullable();
-            $table->date('date_pr_parts_47')->nullable();
-
-            $table->string('pr_parts_48', 120)->nullable();
-            $table->unsignedBigInteger('mny_parts_pr_48')->nullable();
-            $table->string('up_by_parts_pr_48', 20)->nullable();
-            $table->date('date_pr_parts_48')->nullable();
-
-            $table->string('pr_parts_49', 120)->nullable();
-            $table->unsignedBigInteger('mny_parts_pr_49')->nullable();
-            $table->string('up_by_parts_pr_49', 20)->nullable();
-            $table->date('date_pr_parts_49')->nullable();
-
-            $table->string('pr_parts_50', 120)->nullable();
-            $table->unsignedBigInteger('mny_parts_pr_50')->nullable();
-            $table->string('up_by_parts_pr_50', 20)->nullable();
-            $table->date('date_pr_parts_50')->nullable();
-
             $table->string('pr_jasa_1', 120)->nullable();
             $table->string('up_by_jasa_pr_1', 20)->nullable();
             $table->unsignedBigInteger('mny_jasa_pr_1')->nullable();
@@ -489,22 +464,27 @@ return new class extends Migration {
             // Impor
             $table->string('pr_rfq_1', 120)->nullable();
             $table->string('up_by_rfq_pr_1', 20)->nullable();
+            $table->unsignedBigInteger('mny_rfq_pr_1')->nullable();
             $table->date('date_pr_rfq_1')->nullable();
 
             $table->string('pr_rfq_2', 120)->nullable();
             $table->string('up_by_rfq_pr_2', 20)->nullable();
+            $table->unsignedBigInteger('mny_rfq_pr_2')->nullable();
             $table->date('date_pr_rfq_2')->nullable();
 
             $table->string('pr_rfq_3', 120)->nullable();
             $table->string('up_by_rfq_pr_3', 20)->nullable();
+            $table->unsignedBigInteger('mny_rfq_pr_3')->nullable();
             $table->date('date_pr_rfq_3')->nullable();
 
             $table->string('pr_rfq_4', 120)->nullable();
             $table->string('up_by_rfq_pr_4', 20)->nullable();
+            $table->unsignedBigInteger('mny_rfq_pr_4')->nullable();
             $table->date('date_pr_rfq_4')->nullable();
 
             $table->string('pr_rfq_5', 120)->nullable();
             $table->string('up_by_rfq_pr_5', 20)->nullable();
+            $table->unsignedBigInteger('mny_rfq_pr_5')->nullable();
             $table->date('date_pr_rfq_5')->nullable();
 
              $table->timestamp('archive_at', $precision = 0)->nullable();

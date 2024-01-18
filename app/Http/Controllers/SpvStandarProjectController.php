@@ -6,13 +6,14 @@ use Illuminate\Http\Request;
 use App\Models\StandarProject;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
+use Illuminate\support\facades\Validator;
 
 class SpvStandarProjectController extends Controller
 {
     public function StandarProject()
     {
-        $standarproject = StandarProject::all()->where('marking', 'Standar-1');
         $spCount = StandarProject::all()->count('id');
+        $standarproject = StandarProject::all()->where('marking', 'Standar-1');
         return view('supervisor.standarproject.tambah-standar-project', [
             'standarproject' => $standarproject,
             'spCount' => $spCount,
@@ -28,6 +29,19 @@ class SpvStandarProjectController extends Controller
     }
     public function ProcessEditStandarProject(Request $request)
     {
+        $validator = Validator::make($request->all(), [
+            'as_file_fr_sheet_form' => 'nullable|mimes:doc,docx,xls,xlsx,dwg,txt|max:4096',
+            'dr_m_sheet',
+            'dr_e_sheet',
+        ], [
+            'as_file_fr_sheet_form.mimes' => 'File harus berupa .docx, .xlsx, atau .dwg.',
+            'as_file_fr_sheet_form.max' => 'Ukuran file tidak boleh lebih dari 10 MB.',
+        ]);
+        if ($validator->fails()) {
+            return redirect()->back()
+                        ->withErrors($validator)
+                        ->withInput();
+        }
         $standarproject = StandarProject::all()
             ->where('marking', 'Standar-1')
             ->first();

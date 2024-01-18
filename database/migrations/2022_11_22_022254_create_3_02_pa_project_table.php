@@ -257,31 +257,6 @@ return new class extends Migration {
             $table->string('up_by_parts_pa_45', 20)->nullable();
             $table->date('date_pa_parts_45')->nullable();
 
-            $table->string('pa_parts_46', 120)->nullable();
-            $table->unsignedBigInteger('mny_parts_pa_46')->nullable();
-            $table->string('up_by_parts_pa_46', 20)->nullable();
-            $table->date('date_pa_parts_46')->nullable();
-
-            $table->string('pa_parts_47', 120)->nullable();
-            $table->unsignedBigInteger('mny_parts_pa_47')->nullable();
-            $table->string('up_by_parts_pa_47', 20)->nullable();
-            $table->date('date_pa_parts_47')->nullable();
-
-            $table->string('pa_parts_48', 120)->nullable();
-            $table->unsignedBigInteger('mny_parts_pa_48')->nullable();
-            $table->string('up_by_parts_pa_48', 20)->nullable();
-            $table->date('date_pa_parts_48')->nullable();
-
-            $table->string('pa_parts_49', 120)->nullable();
-            $table->unsignedBigInteger('mny_parts_pa_49')->nullable();
-            $table->string('up_by_parts_pa_49', 20)->nullable();
-            $table->date('date_pa_parts_49')->nullable();
-
-            $table->string('pa_parts_50', 120)->nullable();
-            $table->unsignedBigInteger('mny_parts_pa_50')->nullable();
-            $table->string('up_by_parts_pa_50', 20)->nullable();
-            $table->date('date_pa_parts_50')->nullable();
-
             $table->string('pa_jasa_1', 120)->nullable();
             $table->string('up_by_jasa_pa_1', 20)->nullable();
             $table->unsignedBigInteger('mny_jasa_pa_1')->nullable();

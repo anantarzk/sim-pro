@@ -13,8 +13,8 @@
 
     @if ($count_user == 0)
         <div class="flex flex-col items-center justify-center mt-44">
-            <p class="text-2xl font-bold mb-2">Selamat datang,</p>
-            <p class="font-mono text-1xl">Klik Tombol dibawah untuk mulai mengelola Website ENGINEERING DESIGN</p>
+            <p class="text-2xl font-bold mb-2 uppercase">Selamat datang</p>
+            <p class="text-1xl">Klik Tombol dibawah untuk memulai Website ENGINEERING DESIGN</p>
 
             <br>
             <form action="" method="post">

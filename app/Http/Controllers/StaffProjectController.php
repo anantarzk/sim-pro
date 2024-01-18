@@ -539,11 +539,7 @@ class StaffProjectController extends Controller
             'mny_parts_pr_43',
             'mny_parts_pr_44',
             'mny_parts_pr_45',
-            'mny_parts_pr_46',
-            'mny_parts_pr_47',
-            'mny_parts_pr_48',
-            'mny_parts_pr_49',
-            'mny_parts_pr_50',
+
             'mny_jasa_pr_1',
             'mny_jasa_pr_2',
             'mny_jasa_pr_3',
@@ -583,7 +579,12 @@ class StaffProjectController extends Controller
             'mny_mnftr_pr_7',
             'mny_mnftr_pr_8',
             'mny_mnftr_pr_9',
-            'mny_mnftr_pr_10'
+            'mny_mnftr_pr_10',
+            'mny_rfq_pr_1',
+            'mny_rfq_pr_2',
+            'mny_rfq_pr_3',
+            'mny_rfq_pr_4',
+            'mny_rfq_pr_5'
         )->findOrFail($id_pr_01_3);
 
         $koneksipa = PAproject::select(
@@ -635,11 +636,7 @@ class StaffProjectController extends Controller
             'mny_parts_pa_43',
             'mny_parts_pa_44',
             'mny_parts_pa_45',
-            'mny_parts_pa_46',
-            'mny_parts_pa_47',
-            'mny_parts_pa_48',
-            'mny_parts_pa_49',
-            'mny_parts_pa_50',
+
             'mny_jasa_pa_1',
             'mny_jasa_pa_2',
             'mny_jasa_pa_3',
@@ -737,11 +734,7 @@ class StaffProjectController extends Controller
             'mny_parts_po_43',
             'mny_parts_po_44',
             'mny_parts_po_45',
-            'mny_parts_po_46',
-            'mny_parts_po_47',
-            'mny_parts_po_48',
-            'mny_parts_po_49',
-            'mny_parts_po_50',
+
             'mny_jasa_po_1',
             'mny_jasa_po_2',
             'mny_jasa_po_3',
@@ -839,11 +832,7 @@ class StaffProjectController extends Controller
             'mny_parts_pay_43',
             'mny_parts_pay_44',
             'mny_parts_pay_45',
-            'mny_parts_pay_46',
-            'mny_parts_pay_47',
-            'mny_parts_pay_48',
-            'mny_parts_pay_49',
-            'mny_parts_pay_50',
+
             'mny_jasa_pay_1',
             'mny_jasa_pay_2',
             'mny_jasa_pay_3',
@@ -961,11 +950,7 @@ class StaffProjectController extends Controller
             $koneksipr->mny_parts_pr_43 +
             $koneksipr->mny_parts_pr_44 +
             $koneksipr->mny_parts_pr_45 +
-            $koneksipr->mny_parts_pr_46 +
-            $koneksipr->mny_parts_pr_47 +
-            $koneksipr->mny_parts_pr_48 +
-            $koneksipr->mny_parts_pr_49 +
-            $koneksipr->mny_parts_pr_50 +
+
             $koneksipr->mny_jasa_pr_1 +
             $koneksipr->mny_jasa_pr_2 +
             $koneksipr->mny_jasa_pr_3 +
@@ -1006,7 +991,12 @@ class StaffProjectController extends Controller
             $koneksipr->mny_mnftr_pr_7 +
             $koneksipr->mny_mnftr_pr_8 +
             $koneksipr->mny_mnftr_pr_9 +
-            $koneksipr->mny_mnftr_pr_10;
+            $koneksipr->mny_mnftr_pr_10 +
+            $koneksipr->mny_rfq_pr_1 +
+            $koneksipr->mny_rfq_pr_2 +
+            $koneksipr->mny_rfq_pr_3 +
+            $koneksipr->mny_rfq_pr_4 +
+            $koneksipr->mny_rfq_pr_5;
 
         $sum_pa =
             $koneksipa->mny_parts_pa_1 +
@@ -1054,11 +1044,7 @@ class StaffProjectController extends Controller
             $koneksipa->mny_parts_pa_43 +
             $koneksipa->mny_parts_pa_44 +
             $koneksipa->mny_parts_pa_45 +
-            $koneksipa->mny_parts_pa_46 +
-            $koneksipa->mny_parts_pa_47 +
-            $koneksipa->mny_parts_pa_48 +
-            $koneksipa->mny_parts_pa_49 +
-            $koneksipa->mny_parts_pa_50 +
+
             $koneksipa->mny_jasa_pa_1 +
             $koneksipa->mny_jasa_pa_2 +
             $koneksipa->mny_jasa_pa_3 +
@@ -1152,11 +1138,7 @@ class StaffProjectController extends Controller
             $koneksipo->mny_parts_po_43 +
             $koneksipo->mny_parts_po_44 +
             $koneksipo->mny_parts_po_45 +
-            $koneksipo->mny_parts_po_46 +
-            $koneksipo->mny_parts_po_47 +
-            $koneksipo->mny_parts_po_48 +
-            $koneksipo->mny_parts_po_49 +
-            $koneksipo->mny_parts_po_50 +
+
             $koneksipo->mny_jasa_po_1 +
             $koneksipo->mny_jasa_po_2 +
             $koneksipo->mny_jasa_po_3 +
@@ -1250,11 +1232,7 @@ class StaffProjectController extends Controller
             $koneksipay->mny_parts_pay_43 +
             $koneksipay->mny_parts_pay_44 +
             $koneksipay->mny_parts_pay_45 +
-            $koneksipay->mny_parts_pay_46 +
-            $koneksipay->mny_parts_pay_47 +
-            $koneksipay->mny_parts_pay_48 +
-            $koneksipay->mny_parts_pay_49 +
-            $koneksipay->mny_parts_pay_50 +
+
             $koneksipay->mny_jasa_pay_1 +
             $koneksipay->mny_jasa_pay_2 +
             $koneksipay->mny_jasa_pay_3 +
@@ -1708,11 +1686,7 @@ class StaffProjectController extends Controller
             'mny_parts_pr_43',
             'mny_parts_pr_44',
             'mny_parts_pr_45',
-            'mny_parts_pr_46',
-            'mny_parts_pr_47',
-            'mny_parts_pr_48',
-            'mny_parts_pr_49',
-            'mny_parts_pr_50',
+
             'mny_jasa_pr_1',
             'mny_jasa_pr_2',
             'mny_jasa_pr_3',
@@ -1752,7 +1726,12 @@ class StaffProjectController extends Controller
             'mny_mnftr_pr_7',
             'mny_mnftr_pr_8',
             'mny_mnftr_pr_9',
-            'mny_mnftr_pr_10'
+            'mny_mnftr_pr_10',
+            'mny_rfq_pr_1',
+            'mny_rfq_pr_2',
+            'mny_rfq_pr_3',
+            'mny_rfq_pr_4',
+            'mny_rfq_pr_5'
         )->findOrFail($id_pr_01_3);
 
         $koneksipa = PAproject::select(
@@ -1804,11 +1783,7 @@ class StaffProjectController extends Controller
             'mny_parts_pa_43',
             'mny_parts_pa_44',
             'mny_parts_pa_45',
-            'mny_parts_pa_46',
-            'mny_parts_pa_47',
-            'mny_parts_pa_48',
-            'mny_parts_pa_49',
-            'mny_parts_pa_50',
+
             'mny_jasa_pa_1',
             'mny_jasa_pa_2',
             'mny_jasa_pa_3',
@@ -1906,11 +1881,7 @@ class StaffProjectController extends Controller
             'mny_parts_po_43',
             'mny_parts_po_44',
             'mny_parts_po_45',
-            'mny_parts_po_46',
-            'mny_parts_po_47',
-            'mny_parts_po_48',
-            'mny_parts_po_49',
-            'mny_parts_po_50',
+
             'mny_jasa_po_1',
             'mny_jasa_po_2',
             'mny_jasa_po_3',
@@ -2008,11 +1979,7 @@ class StaffProjectController extends Controller
             'mny_parts_pay_43',
             'mny_parts_pay_44',
             'mny_parts_pay_45',
-            'mny_parts_pay_46',
-            'mny_parts_pay_47',
-            'mny_parts_pay_48',
-            'mny_parts_pay_49',
-            'mny_parts_pay_50',
+
             'mny_jasa_pay_1',
             'mny_jasa_pay_2',
             'mny_jasa_pay_3',
@@ -2135,11 +2102,7 @@ class StaffProjectController extends Controller
             $koneksipr->mny_parts_pr_43 +
             $koneksipr->mny_parts_pr_44 +
             $koneksipr->mny_parts_pr_45 +
-            $koneksipr->mny_parts_pr_46 +
-            $koneksipr->mny_parts_pr_47 +
-            $koneksipr->mny_parts_pr_48 +
-            $koneksipr->mny_parts_pr_49 +
-            $koneksipr->mny_parts_pr_50 +
+
             $koneksipr->mny_jasa_pr_1 +
             $koneksipr->mny_jasa_pr_2 +
             $koneksipr->mny_jasa_pr_3 +
@@ -2180,7 +2143,12 @@ class StaffProjectController extends Controller
             $koneksipr->mny_mnftr_pr_7 +
             $koneksipr->mny_mnftr_pr_8 +
             $koneksipr->mny_mnftr_pr_9 +
-            $koneksipr->mny_mnftr_pr_10;
+            $koneksipr->mny_mnftr_pr_10 +
+            $koneksipr->mny_rfq_pr_1 +
+            $koneksipr->mny_rfq_pr_2 +
+            $koneksipr->mny_rfq_pr_3 +
+            $koneksipr->mny_rfq_pr_4 +
+            $koneksipr->mny_rfq_pr_5;
 
         $sum_pa =
             $koneksipa->mny_parts_pa_1 +
@@ -2228,11 +2196,7 @@ class StaffProjectController extends Controller
             $koneksipa->mny_parts_pa_43 +
             $koneksipa->mny_parts_pa_44 +
             $koneksipa->mny_parts_pa_45 +
-            $koneksipa->mny_parts_pa_46 +
-            $koneksipa->mny_parts_pa_47 +
-            $koneksipa->mny_parts_pa_48 +
-            $koneksipa->mny_parts_pa_49 +
-            $koneksipa->mny_parts_pa_50 +
+
             $koneksipa->mny_jasa_pa_1 +
             $koneksipa->mny_jasa_pa_2 +
             $koneksipa->mny_jasa_pa_3 +
@@ -2326,11 +2290,7 @@ class StaffProjectController extends Controller
             $koneksipo->mny_parts_po_43 +
             $koneksipo->mny_parts_po_44 +
             $koneksipo->mny_parts_po_45 +
-            $koneksipo->mny_parts_po_46 +
-            $koneksipo->mny_parts_po_47 +
-            $koneksipo->mny_parts_po_48 +
-            $koneksipo->mny_parts_po_49 +
-            $koneksipo->mny_parts_po_50 +
+
             $koneksipo->mny_jasa_po_1 +
             $koneksipo->mny_jasa_po_2 +
             $koneksipo->mny_jasa_po_3 +
@@ -2424,11 +2384,7 @@ class StaffProjectController extends Controller
             $koneksipay->mny_parts_pay_43 +
             $koneksipay->mny_parts_pay_44 +
             $koneksipay->mny_parts_pay_45 +
-            $koneksipay->mny_parts_pay_46 +
-            $koneksipay->mny_parts_pay_47 +
-            $koneksipay->mny_parts_pay_48 +
-            $koneksipay->mny_parts_pay_49 +
-            $koneksipay->mny_parts_pay_50 +
+
             $koneksipay->mny_jasa_pay_1 +
             $koneksipay->mny_jasa_pay_2 +
             $koneksipay->mny_jasa_pay_3 +
@@ -3488,11 +3444,7 @@ class StaffProjectController extends Controller
             'mny_parts_pa_43',
             'mny_parts_pa_44',
             'mny_parts_pa_45',
-            'mny_parts_pa_46',
-            'mny_parts_pa_47',
-            'mny_parts_pa_48',
-            'mny_parts_pa_49',
-            'mny_parts_pa_50',
+
             'mny_jasa_pa_1',
             'mny_jasa_pa_2',
             'mny_jasa_pa_3',
@@ -3591,11 +3543,7 @@ class StaffProjectController extends Controller
             'mny_parts_po_43',
             'mny_parts_po_44',
             'mny_parts_po_45',
-            'mny_parts_po_46',
-            'mny_parts_po_47',
-            'mny_parts_po_48',
-            'mny_parts_po_49',
-            'mny_parts_po_50',
+
             'mny_jasa_po_1',
             'mny_jasa_po_2',
             'mny_jasa_po_3',
@@ -3694,11 +3642,7 @@ class StaffProjectController extends Controller
             'mny_parts_pay_43',
             'mny_parts_pay_44',
             'mny_parts_pay_45',
-            'mny_parts_pay_46',
-            'mny_parts_pay_47',
-            'mny_parts_pay_48',
-            'mny_parts_pay_49',
-            'mny_parts_pay_50',
+
             'mny_jasa_pay_1',
             'mny_jasa_pay_2',
             'mny_jasa_pay_3',
@@ -3818,11 +3762,7 @@ class StaffProjectController extends Controller
             $koneksipr->mny_parts_pr_43 +
             $koneksipr->mny_parts_pr_44 +
             $koneksipr->mny_parts_pr_45 +
-            $koneksipr->mny_parts_pr_46 +
-            $koneksipr->mny_parts_pr_47 +
-            $koneksipr->mny_parts_pr_48 +
-            $koneksipr->mny_parts_pr_49 +
-            $koneksipr->mny_parts_pr_50 +
+
             $koneksipr->mny_jasa_pr_1 +
             $koneksipr->mny_jasa_pr_2 +
             $koneksipr->mny_jasa_pr_3 +
@@ -3863,7 +3803,12 @@ class StaffProjectController extends Controller
             $koneksipr->mny_mnftr_pr_7 +
             $koneksipr->mny_mnftr_pr_8 +
             $koneksipr->mny_mnftr_pr_9 +
-            $koneksipr->mny_mnftr_pr_10;
+            $koneksipr->mny_mnftr_pr_10 +
+            $koneksipr->mny_rfq_pr_1 +
+            $koneksipr->mny_rfq_pr_2 +
+            $koneksipr->mny_rfq_pr_3 +
+            $koneksipr->mny_rfq_pr_4 +
+            $koneksipr->mny_rfq_pr_5;
 
         $sum_pa =
             $koneksipa->mny_parts_pa_1 +
@@ -3911,11 +3856,7 @@ class StaffProjectController extends Controller
             $koneksipa->mny_parts_pa_43 +
             $koneksipa->mny_parts_pa_44 +
             $koneksipa->mny_parts_pa_45 +
-            $koneksipa->mny_parts_pa_46 +
-            $koneksipa->mny_parts_pa_47 +
-            $koneksipa->mny_parts_pa_48 +
-            $koneksipa->mny_parts_pa_49 +
-            $koneksipa->mny_parts_pa_50 +
+
             $koneksipa->mny_jasa_pa_1 +
             $koneksipa->mny_jasa_pa_2 +
             $koneksipa->mny_jasa_pa_3 +
@@ -4009,11 +3950,7 @@ class StaffProjectController extends Controller
             $koneksipo->mny_parts_po_43 +
             $koneksipo->mny_parts_po_44 +
             $koneksipo->mny_parts_po_45 +
-            $koneksipo->mny_parts_po_46 +
-            $koneksipo->mny_parts_po_47 +
-            $koneksipo->mny_parts_po_48 +
-            $koneksipo->mny_parts_po_49 +
-            $koneksipo->mny_parts_po_50 +
+
             $koneksipo->mny_jasa_po_1 +
             $koneksipo->mny_jasa_po_2 +
             $koneksipo->mny_jasa_po_3 +
@@ -4107,11 +4044,7 @@ class StaffProjectController extends Controller
             $koneksipay->mny_parts_pay_43 +
             $koneksipay->mny_parts_pay_44 +
             $koneksipay->mny_parts_pay_45 +
-            $koneksipay->mny_parts_pay_46 +
-            $koneksipay->mny_parts_pay_47 +
-            $koneksipay->mny_parts_pay_48 +
-            $koneksipay->mny_parts_pay_49 +
-            $koneksipay->mny_parts_pay_50 +
+
             $koneksipay->mny_jasa_pay_1 +
             $koneksipay->mny_jasa_pay_2 +
             $koneksipay->mny_jasa_pay_3 +
@@ -4284,11 +4217,6 @@ class StaffProjectController extends Controller
         $oldnamepr_parts43 = $koneksipr->pr_parts_43;
         $oldnamepr_parts44 = $koneksipr->pr_parts_44;
         $oldnamepr_parts45 = $koneksipr->pr_parts_45;
-        $oldnamepr_parts46 = $koneksipr->pr_parts_46;
-        $oldnamepr_parts47 = $koneksipr->pr_parts_47;
-        $oldnamepr_parts48 = $koneksipr->pr_parts_48;
-        $oldnamepr_parts49 = $koneksipr->pr_parts_49;
-        $oldnamepr_parts50 = $koneksipr->pr_parts_50;
 
         $oldnamepr_jasa1 = $koneksipr->pr_jasa_1;
         $oldnamepr_jasa2 = $koneksipr->pr_jasa_2;
@@ -4384,11 +4312,6 @@ class StaffProjectController extends Controller
         $newnamepr_parts43 = $koneksipr->pr_parts_43;
         $newnamepr_parts44 = $koneksipr->pr_parts_44;
         $newnamepr_parts45 = $koneksipr->pr_parts_45;
-        $newnamepr_parts46 = $koneksipr->pr_parts_46;
-        $newnamepr_parts47 = $koneksipr->pr_parts_47;
-        $newnamepr_parts48 = $koneksipr->pr_parts_48;
-        $newnamepr_parts49 = $koneksipr->pr_parts_49;
-        $newnamepr_parts50 = $koneksipr->pr_parts_50;
 
         $newnamepr_jasa1 = $koneksipr->pr_jasa_1;
         $newnamepr_jasa2 = $koneksipr->pr_jasa_2;
@@ -6168,166 +6091,6 @@ class StaffProjectController extends Controller
             $request
                 ->file('as_pr_parts_45')
                 ->storeAs('supervisor/project/03_01_PR', $newnamepr_parts45);
-        }
-        if ($request->file('as_pr_parts_46')) {
-            // Menyimpan nama asli dan ekstensi
-            $ori_name = $request
-                ->file('as_pr_parts_46')
-                ->getClientOriginalName();
-            // Mengambil waktu sekarang
-            $waktu = now()->timestamp;
-            $tgl = date('d-M-Y');
-            // membuat kode unik berdasarkan data waktu
-            $kodeunik = substr(str_shuffle("$waktu"), 0, 3);
-            // Mengambil nama saja tidak berikut ektensi
-            $filename = pathinfo($ori_name, PATHINFO_FILENAME);
-            // Mengambil extensi file
-            $extension = $request
-                ->file('as_pr_parts_46')
-                ->getClientOriginalExtension();
-            // Membuat format penamaan file
-            $newnamepr_parts46 =
-                $id .
-                '_' .
-                $filename .
-                '_' .
-                $tgl .
-                '_' .
-                $kodeunik .
-                '.' .
-                $extension;
-            // Menyimpan nama file
-            $request
-                ->file('as_pr_parts_46')
-                ->storeAs('supervisor/project/03_01_PR', $newnamepr_parts46);
-        }
-        if ($request->file('as_pr_parts_47')) {
-            // Menyimpan nama asli dan ekstensi
-            $ori_name = $request
-                ->file('as_pr_parts_47')
-                ->getClientOriginalName();
-            // Mengambil waktu sekarang
-            $waktu = now()->timestamp;
-            $tgl = date('d-M-Y');
-            // membuat kode unik berdasarkan data waktu
-            $kodeunik = substr(str_shuffle("$waktu"), 0, 3);
-            // Mengambil nama saja tidak berikut ektensi
-            $filename = pathinfo($ori_name, PATHINFO_FILENAME);
-            // Mengambil extensi file
-            $extension = $request
-                ->file('as_pr_parts_47')
-                ->getClientOriginalExtension();
-            // Membuat format penamaan file
-            $newnamepr_parts47 =
-                $id .
-                '_' .
-                $filename .
-                '_' .
-                $tgl .
-                '_' .
-                $kodeunik .
-                '.' .
-                $extension;
-            // Menyimpan nama file
-            $request
-                ->file('as_pr_parts_47')
-                ->storeAs('supervisor/project/03_01_PR', $newnamepr_parts47);
-        }
-        if ($request->file('as_pr_parts_48')) {
-            // Menyimpan nama asli dan ekstensi
-            $ori_name = $request
-                ->file('as_pr_parts_48')
-                ->getClientOriginalName();
-            // Mengambil waktu sekarang
-            $waktu = now()->timestamp;
-            $tgl = date('d-M-Y');
-            // membuat kode unik berdasarkan data waktu
-            $kodeunik = substr(str_shuffle("$waktu"), 0, 3);
-            // Mengambil nama saja tidak berikut ektensi
-            $filename = pathinfo($ori_name, PATHINFO_FILENAME);
-            // Mengambil extensi file
-            $extension = $request
-                ->file('as_pr_parts_48')
-                ->getClientOriginalExtension();
-            // Membuat format penamaan file
-            $newnamepr_parts48 =
-                $id .
-                '_' .
-                $filename .
-                '_' .
-                $tgl .
-                '_' .
-                $kodeunik .
-                '.' .
-                $extension;
-            // Menyimpan nama file
-            $request
-                ->file('as_pr_parts_48')
-                ->storeAs('supervisor/project/03_01_PR', $newnamepr_parts48);
-        }
-        if ($request->file('as_pr_parts_49')) {
-            // Menyimpan nama asli dan ekstensi
-            $ori_name = $request
-                ->file('as_pr_parts_49')
-                ->getClientOriginalName();
-            // Mengambil waktu sekarang
-            $waktu = now()->timestamp;
-            $tgl = date('d-M-Y');
-            // membuat kode unik berdasarkan data waktu
-            $kodeunik = substr(str_shuffle("$waktu"), 0, 3);
-            // Mengambil nama saja tidak berikut ektensi
-            $filename = pathinfo($ori_name, PATHINFO_FILENAME);
-            // Mengambil extensi file
-            $extension = $request
-                ->file('as_pr_parts_49')
-                ->getClientOriginalExtension();
-            // Membuat format penamaan file
-            $newnamepr_parts49 =
-                $id .
-                '_' .
-                $filename .
-                '_' .
-                $tgl .
-                '_' .
-                $kodeunik .
-                '.' .
-                $extension;
-            // Menyimpan nama file
-            $request
-                ->file('as_pr_parts_49')
-                ->storeAs('supervisor/project/03_01_PR', $newnamepr_parts49);
-        }
-        if ($request->file('as_pr_parts_50')) {
-            // Menyimpan nama asli dan ekstensi
-            $ori_name = $request
-                ->file('as_pr_parts_50')
-                ->getClientOriginalName();
-            // Mengambil waktu sekarang
-            $waktu = now()->timestamp;
-            $tgl = date('d-M-Y');
-            // membuat kode unik berdasarkan data waktu
-            $kodeunik = substr(str_shuffle("$waktu"), 0, 3);
-            // Mengambil nama saja tidak berikut ektensi
-            $filename = pathinfo($ori_name, PATHINFO_FILENAME);
-            // Mengambil extensi file
-            $extension = $request
-                ->file('as_pr_parts_50')
-                ->getClientOriginalExtension();
-            // Membuat format penamaan file
-            $newnamepr_parts50 =
-                $id .
-                '_' .
-                $filename .
-                '_' .
-                $tgl .
-                '_' .
-                $kodeunik .
-                '.' .
-                $extension;
-            // Menyimpan nama file
-            $request
-                ->file('as_pr_parts_50')
-                ->storeAs('supervisor/project/03_01_PR', $newnamepr_parts50);
         }
 
         // inputan jasa
@@ -8270,36 +8033,6 @@ class StaffProjectController extends Controller
             $request['mny_parts_pr_45'] = $request['as_mny_parts_pr_45'];
             $request['date_pr_parts_45'] = $request['as_date_pr_parts_45'];
         }
-        if ($oldnamepr_parts46 != $newnamepr_parts46) {
-            $request['pr_parts_46'] = $newnamepr_parts46;
-            $request['up_by_parts_pr_46'] = $request['as_up_by_parts_pr_46'];
-            $request['mny_parts_pr_46'] = $request['as_mny_parts_pr_46'];
-            $request['date_pr_parts_46'] = $request['as_date_pr_parts_46'];
-        }
-        if ($oldnamepr_parts47 != $newnamepr_parts47) {
-            $request['pr_parts_47'] = $newnamepr_parts47;
-            $request['up_by_parts_pr_47'] = $request['as_up_by_parts_pr_47'];
-            $request['mny_parts_pr_47'] = $request['as_mny_parts_pr_47'];
-            $request['date_pr_parts_47'] = $request['as_date_pr_parts_47'];
-        }
-        if ($oldnamepr_parts48 != $newnamepr_parts48) {
-            $request['pr_parts_48'] = $newnamepr_parts48;
-            $request['up_by_parts_pr_48'] = $request['as_up_by_parts_pr_48'];
-            $request['mny_parts_pr_48'] = $request['as_mny_parts_pr_48'];
-            $request['date_pr_parts_48'] = $request['as_date_pr_parts_48'];
-        }
-        if ($oldnamepr_parts49 != $newnamepr_parts49) {
-            $request['pr_parts_49'] = $newnamepr_parts49;
-            $request['up_by_parts_pr_49'] = $request['as_up_by_parts_pr_49'];
-            $request['mny_parts_pr_49'] = $request['as_mny_parts_pr_49'];
-            $request['date_pr_parts_49'] = $request['as_date_pr_parts_49'];
-        }
-        if ($oldnamepr_parts50 != $newnamepr_parts50) {
-            $request['pr_parts_50'] = $newnamepr_parts50;
-            $request['up_by_parts_pr_50'] = $request['as_up_by_parts_pr_50'];
-            $request['mny_parts_pr_50'] = $request['as_mny_parts_pr_50'];
-            $request['date_pr_parts_50'] = $request['as_date_pr_parts_50'];
-        }
 
         if ($oldnamepr_jasa1 != $newnamepr_jasa1) {
             $request['pr_jasa_1'] = $newnamepr_jasa1;
@@ -8545,33 +8278,38 @@ class StaffProjectController extends Controller
         if ($oldnamepr_rfq1 != $newnamepr_rfq1) {
             $request['pr_rfq_1'] = $newnamepr_rfq1;
             $request['up_by_rfq_pr_1'] = $request['as_up_by_rfq_pr_1'];
+            $request['mny_rfq_pr_1'] = $request['as_mny_rfq_pr_1'];
             $request['date_pr_rfq_1'] = $request['as_date_pr_rfq_1'];
         }
         if ($oldnamepr_rfq2 != $newnamepr_rfq2) {
             $request['pr_rfq_2'] = $newnamepr_rfq2;
             $request['up_by_rfq_pr_2'] = $request['as_up_by_rfq_pr_2'];
+            $request['mny_rfq_pr_2'] = $request['as_mny_rfq_pr_2'];
             $request['date_pr_rfq_2'] = $request['as_date_pr_rfq_2'];
         }
         if ($oldnamepr_rfq3 != $newnamepr_rfq3) {
             $request['pr_rfq_3'] = $newnamepr_rfq3;
             $request['up_by_rfq_pr_3'] = $request['as_up_by_rfq_pr_3'];
+            $request['mny_rfq_pr_3'] = $request['as_mny_rfq_pr_3'];
             $request['date_pr_rfq_3'] = $request['as_date_pr_rfq_3'];
         }
         if ($oldnamepr_rfq4 != $newnamepr_rfq4) {
             $request['pr_rfq_4'] = $newnamepr_rfq4;
             $request['up_by_rfq_pr_4'] = $request['as_up_by_rfq_pr_4'];
+            $request['mny_rfq_pr_4'] = $request['as_mny_rfq_pr_4'];
             $request['date_pr_rfq_4'] = $request['as_date_pr_rfq_4'];
         }
         if ($oldnamepr_rfq5 != $newnamepr_rfq5) {
             $request['pr_rfq_5'] = $newnamepr_rfq5;
             $request['up_by_rfq_pr_5'] = $request['as_up_by_rfq_pr_5'];
+            $request['mny_rfq_pr_5'] = $request['as_mny_rfq_pr_5'];
             $request['date_pr_rfq_5'] = $request['as_date_pr_rfq_5'];
         }
-
+        /* dd($request->as_pr_parts_3, $request->mny_parts_pr_3); */
+       /*  dd($request->as_pr_rfq_3, $request->mny_rfq_pr_3); */
         // menyimpan seluruh ke table purchasing 01
         $viewdataproject->update($request->all());
         $koneksipr->update($request->all());
-
 
         return redirect()->action(
             [StaffProjectController::class, 'TigaTitikSatuFormProgress'],
@@ -8668,11 +8406,7 @@ class StaffProjectController extends Controller
             'mny_parts_pr_43',
             'mny_parts_pr_44',
             'mny_parts_pr_45',
-            'mny_parts_pr_46',
-            'mny_parts_pr_47',
-            'mny_parts_pr_48',
-            'mny_parts_pr_49',
-            'mny_parts_pr_50',
+
             'mny_jasa_pr_1',
             'mny_jasa_pr_2',
             'mny_jasa_pr_3',
@@ -8712,7 +8446,12 @@ class StaffProjectController extends Controller
             'mny_mnftr_pr_7',
             'mny_mnftr_pr_8',
             'mny_mnftr_pr_9',
-            'mny_mnftr_pr_10'
+            'mny_mnftr_pr_10',
+            'mny_rfq_pr_1',
+            'mny_rfq_pr_2',
+            'mny_rfq_pr_3',
+            'mny_rfq_pr_4',
+            'mny_rfq_pr_5'
         )->findOrFail($id_pr_01_3);
 
         $koneksipa = PAproject::findOrFail($id_pa_02_3);
@@ -8767,11 +8506,7 @@ class StaffProjectController extends Controller
             'mny_parts_po_43',
             'mny_parts_po_44',
             'mny_parts_po_45',
-            'mny_parts_po_46',
-            'mny_parts_po_47',
-            'mny_parts_po_48',
-            'mny_parts_po_49',
-            'mny_parts_po_50',
+
             'mny_jasa_po_1',
             'mny_jasa_po_2',
             'mny_jasa_po_3',
@@ -8870,11 +8605,7 @@ class StaffProjectController extends Controller
             'mny_parts_pay_43',
             'mny_parts_pay_44',
             'mny_parts_pay_45',
-            'mny_parts_pay_46',
-            'mny_parts_pay_47',
-            'mny_parts_pay_48',
-            'mny_parts_pay_49',
-            'mny_parts_pay_50',
+
             'mny_jasa_pay_1',
             'mny_jasa_pay_2',
             'mny_jasa_pay_3',
@@ -8994,11 +8725,7 @@ class StaffProjectController extends Controller
             $koneksipr->mny_parts_pr_43 +
             $koneksipr->mny_parts_pr_44 +
             $koneksipr->mny_parts_pr_45 +
-            $koneksipr->mny_parts_pr_46 +
-            $koneksipr->mny_parts_pr_47 +
-            $koneksipr->mny_parts_pr_48 +
-            $koneksipr->mny_parts_pr_49 +
-            $koneksipr->mny_parts_pr_50 +
+
             $koneksipr->mny_jasa_pr_1 +
             $koneksipr->mny_jasa_pr_2 +
             $koneksipr->mny_jasa_pr_3 +
@@ -9039,7 +8766,12 @@ class StaffProjectController extends Controller
             $koneksipr->mny_mnftr_pr_7 +
             $koneksipr->mny_mnftr_pr_8 +
             $koneksipr->mny_mnftr_pr_9 +
-            $koneksipr->mny_mnftr_pr_10;
+            $koneksipr->mny_mnftr_pr_10 +
+            $koneksipr->mny_rfq_pr_1 +
+            $koneksipr->mny_rfq_pr_2 +
+            $koneksipr->mny_rfq_pr_3 +
+            $koneksipr->mny_rfq_pr_4 +
+            $koneksipr->mny_rfq_pr_5;
 
         $sum_pa =
             $koneksipa->mny_parts_pa_1 +
@@ -9087,11 +8819,7 @@ class StaffProjectController extends Controller
             $koneksipa->mny_parts_pa_43 +
             $koneksipa->mny_parts_pa_44 +
             $koneksipa->mny_parts_pa_45 +
-            $koneksipa->mny_parts_pa_46 +
-            $koneksipa->mny_parts_pa_47 +
-            $koneksipa->mny_parts_pa_48 +
-            $koneksipa->mny_parts_pa_49 +
-            $koneksipa->mny_parts_pa_50 +
+
             $koneksipa->mny_jasa_pa_1 +
             $koneksipa->mny_jasa_pa_2 +
             $koneksipa->mny_jasa_pa_3 +
@@ -9185,11 +8913,7 @@ class StaffProjectController extends Controller
             $koneksipo->mny_parts_po_43 +
             $koneksipo->mny_parts_po_44 +
             $koneksipo->mny_parts_po_45 +
-            $koneksipo->mny_parts_po_46 +
-            $koneksipo->mny_parts_po_47 +
-            $koneksipo->mny_parts_po_48 +
-            $koneksipo->mny_parts_po_49 +
-            $koneksipo->mny_parts_po_50 +
+
             $koneksipo->mny_jasa_po_1 +
             $koneksipo->mny_jasa_po_2 +
             $koneksipo->mny_jasa_po_3 +
@@ -9283,11 +9007,7 @@ class StaffProjectController extends Controller
             $koneksipay->mny_parts_pay_43 +
             $koneksipay->mny_parts_pay_44 +
             $koneksipay->mny_parts_pay_45 +
-            $koneksipay->mny_parts_pay_46 +
-            $koneksipay->mny_parts_pay_47 +
-            $koneksipay->mny_parts_pay_48 +
-            $koneksipay->mny_parts_pay_49 +
-            $koneksipay->mny_parts_pay_50 +
+
             $koneksipay->mny_jasa_pay_1 +
             $koneksipay->mny_jasa_pay_2 +
             $koneksipay->mny_jasa_pay_3 +
@@ -9453,11 +9173,6 @@ class StaffProjectController extends Controller
         $oldnamepa_parts43 = $koneksipa->pa_parts_43;
         $oldnamepa_parts44 = $koneksipa->pa_parts_44;
         $oldnamepa_parts45 = $koneksipa->pa_parts_45;
-        $oldnamepa_parts46 = $koneksipa->pa_parts_46;
-        $oldnamepa_parts47 = $koneksipa->pa_parts_47;
-        $oldnamepa_parts48 = $koneksipa->pa_parts_48;
-        $oldnamepa_parts49 = $koneksipa->pa_parts_49;
-        $oldnamepa_parts50 = $koneksipa->pa_parts_50;
 
         $oldnamepa_jasa1 = $koneksipa->pa_jasa_1;
         $oldnamepa_jasa2 = $koneksipa->pa_jasa_2;
@@ -9553,11 +9268,6 @@ class StaffProjectController extends Controller
         $newnamepa_parts43 = $koneksipa->pa_parts_43;
         $newnamepa_parts44 = $koneksipa->pa_parts_44;
         $newnamepa_parts45 = $koneksipa->pa_parts_45;
-        $newnamepa_parts46 = $koneksipa->pa_parts_46;
-        $newnamepa_parts47 = $koneksipa->pa_parts_47;
-        $newnamepa_parts48 = $koneksipa->pa_parts_48;
-        $newnamepa_parts49 = $koneksipa->pa_parts_49;
-        $newnamepa_parts50 = $koneksipa->pa_parts_50;
 
         $newnamepa_jasa1 = $koneksipa->pa_jasa_1;
         $newnamepa_jasa2 = $koneksipa->pa_jasa_2;
@@ -11400,201 +11110,6 @@ class StaffProjectController extends Controller
             $request
                 ->file('as_pa_parts_45')
                 ->storeAs('supervisor/project/03_02_PR', $newnamepa_parts45);
-        }
-        if ($request->file('as_pa_parts_46')) {
-            // Menyimpan nama asli dan ekstensi
-            $ori_name = $request
-                ->file('as_pa_parts_46')
-                ->getClientOriginalName();
-
-            // Mengambil waktu sekarang
-            $waktu = now()->timestamp;
-
-            $tgl = date('d-M-Y');
-
-            // membuat kode unik berdasarkan data waktu
-            $kodeunik = substr(str_shuffle("$waktu"), 0, 3);
-
-            // Mengambil nama saja tidak berikut ektensi
-            $filename = pathinfo($ori_name, PATHINFO_FILENAME);
-
-            // Mengambil extensi file
-            $extension = $request
-                ->file('as_pa_parts_46')
-                ->getClientOriginalExtension();
-
-            // Membuat format penamaan file
-            $newnamepa_parts46 =
-                $id .
-                '_' .
-                $filename .
-                '_' .
-                $tgl .
-                '_' .
-                $kodeunik .
-                '.' .
-                $extension;
-
-            // Menyimpan nama file
-            $request
-                ->file('as_pa_parts_46')
-                ->storeAs('supervisor/project/03_02_PR', $newnamepa_parts46);
-        }
-        if ($request->file('as_pa_parts_47')) {
-            // Menyimpan nama asli dan ekstensi
-            $ori_name = $request
-                ->file('as_pa_parts_47')
-                ->getClientOriginalName();
-
-            // Mengambil waktu sekarang
-            $waktu = now()->timestamp;
-
-            $tgl = date('d-M-Y');
-
-            // membuat kode unik berdasarkan data waktu
-            $kodeunik = substr(str_shuffle("$waktu"), 0, 3);
-
-            // Mengambil nama saja tidak berikut ektensi
-            $filename = pathinfo($ori_name, PATHINFO_FILENAME);
-
-            // Mengambil extensi file
-            $extension = $request
-                ->file('as_pa_parts_47')
-                ->getClientOriginalExtension();
-
-            // Membuat format penamaan file
-            $newnamepa_parts47 =
-                $id .
-                '_' .
-                $filename .
-                '_' .
-                $tgl .
-                '_' .
-                $kodeunik .
-                '.' .
-                $extension;
-
-            // Menyimpan nama file
-            $request
-                ->file('as_pa_parts_47')
-                ->storeAs('supervisor/project/03_02_PR', $newnamepa_parts47);
-        }
-        if ($request->file('as_pa_parts_48')) {
-            // Menyimpan nama asli dan ekstensi
-            $ori_name = $request
-                ->file('as_pa_parts_48')
-                ->getClientOriginalName();
-
-            // Mengambil waktu sekarang
-            $waktu = now()->timestamp;
-
-            $tgl = date('d-M-Y');
-
-            // membuat kode unik berdasarkan data waktu
-            $kodeunik = substr(str_shuffle("$waktu"), 0, 3);
-
-            // Mengambil nama saja tidak berikut ektensi
-            $filename = pathinfo($ori_name, PATHINFO_FILENAME);
-
-            // Mengambil extensi file
-            $extension = $request
-                ->file('as_pa_parts_48')
-                ->getClientOriginalExtension();
-
-            // Membuat format penamaan file
-            $newnamepa_parts48 =
-                $id .
-                '_' .
-                $filename .
-                '_' .
-                $tgl .
-                '_' .
-                $kodeunik .
-                '.' .
-                $extension;
-
-            // Menyimpan nama file
-            $request
-                ->file('as_pa_parts_48')
-                ->storeAs('supervisor/project/03_02_PR', $newnamepa_parts48);
-        }
-        if ($request->file('as_pa_parts_49')) {
-            // Menyimpan nama asli dan ekstensi
-            $ori_name = $request
-                ->file('as_pa_parts_49')
-                ->getClientOriginalName();
-
-            // Mengambil waktu sekarang
-            $waktu = now()->timestamp;
-
-            $tgl = date('d-M-Y');
-
-            // membuat kode unik berdasarkan data waktu
-            $kodeunik = substr(str_shuffle("$waktu"), 0, 3);
-
-            // Mengambil nama saja tidak berikut ektensi
-            $filename = pathinfo($ori_name, PATHINFO_FILENAME);
-
-            // Mengambil extensi file
-            $extension = $request
-                ->file('as_pa_parts_49')
-                ->getClientOriginalExtension();
-
-            // Membuat format penamaan file
-            $newnamepa_parts49 =
-                $id .
-                '_' .
-                $filename .
-                '_' .
-                $tgl .
-                '_' .
-                $kodeunik .
-                '.' .
-                $extension;
-
-            // Menyimpan nama file
-            $request
-                ->file('as_pa_parts_49')
-                ->storeAs('supervisor/project/03_02_PR', $newnamepa_parts49);
-        }
-        if ($request->file('as_pa_parts_50')) {
-            // Menyimpan nama asli dan ekstensi
-            $ori_name = $request
-                ->file('as_pa_parts_50')
-                ->getClientOriginalName();
-
-            // Mengambil waktu sekarang
-            $waktu = now()->timestamp;
-
-            $tgl = date('d-M-Y');
-
-            // membuat kode unik berdasarkan data waktu
-            $kodeunik = substr(str_shuffle("$waktu"), 0, 3);
-
-            // Mengambil nama saja tidak berikut ektensi
-            $filename = pathinfo($ori_name, PATHINFO_FILENAME);
-
-            // Mengambil extensi file
-            $extension = $request
-                ->file('as_pa_parts_50')
-                ->getClientOriginalExtension();
-
-            // Membuat format penamaan file
-            $newnamepa_parts50 =
-                $id .
-                '_' .
-                $filename .
-                '_' .
-                $tgl .
-                '_' .
-                $kodeunik .
-                '.' .
-                $extension;
-
-            // Menyimpan nama file
-            $request
-                ->file('as_pa_parts_50')
-                ->storeAs('supervisor/project/03_02_PR', $newnamepa_parts50);
         }
 
         // inputan jasa
@@ -13637,36 +13152,6 @@ class StaffProjectController extends Controller
             $request['mny_parts_pa_45'] = $request['as_mny_parts_pa_45'];
             $request['date_pa_parts_45'] = $request['as_date_pa_parts_45'];
         }
-        if ($oldnamepa_parts46 != $newnamepa_parts46) {
-            $request['pa_parts_46'] = $newnamepa_parts46;
-            $request['up_by_parts_pa_46'] = $request['as_up_by_parts_pa_46'];
-            $request['mny_parts_pa_46'] = $request['as_mny_parts_pa_46'];
-            $request['date_pa_parts_46'] = $request['as_date_pa_parts_46'];
-        }
-        if ($oldnamepa_parts47 != $newnamepa_parts47) {
-            $request['pa_parts_47'] = $newnamepa_parts47;
-            $request['up_by_parts_pa_47'] = $request['as_up_by_parts_pa_47'];
-            $request['mny_parts_pa_47'] = $request['as_mny_parts_pa_47'];
-            $request['date_pa_parts_47'] = $request['as_date_pa_parts_47'];
-        }
-        if ($oldnamepa_parts48 != $newnamepa_parts48) {
-            $request['pa_parts_48'] = $newnamepa_parts48;
-            $request['up_by_parts_pa_48'] = $request['as_up_by_parts_pa_48'];
-            $request['mny_parts_pa_48'] = $request['as_mny_parts_pa_48'];
-            $request['date_pa_parts_48'] = $request['as_date_pa_parts_48'];
-        }
-        if ($oldnamepa_parts49 != $newnamepa_parts49) {
-            $request['pa_parts_49'] = $newnamepa_parts49;
-            $request['up_by_parts_pa_49'] = $request['as_up_by_parts_pa_49'];
-            $request['mny_parts_pa_49'] = $request['as_mny_parts_pa_49'];
-            $request['date_pa_parts_49'] = $request['as_date_pa_parts_49'];
-        }
-        if ($oldnamepa_parts50 != $newnamepa_parts50) {
-            $request['pa_parts_50'] = $newnamepa_parts50;
-            $request['up_by_parts_pa_50'] = $request['as_up_by_parts_pa_50'];
-            $request['mny_parts_pa_50'] = $request['as_mny_parts_pa_50'];
-            $request['date_pa_parts_50'] = $request['as_date_pa_parts_50'];
-        }
 
         if ($oldnamepa_jasa1 != $newnamepa_jasa1) {
             $request['pa_jasa_1'] = $newnamepa_jasa1;
@@ -14045,11 +13530,7 @@ class StaffProjectController extends Controller
             'mny_parts_pr_43',
             'mny_parts_pr_44',
             'mny_parts_pr_45',
-            'mny_parts_pr_46',
-            'mny_parts_pr_47',
-            'mny_parts_pr_48',
-            'mny_parts_pr_49',
-            'mny_parts_pr_50',
+
             'mny_jasa_pr_1',
             'mny_jasa_pr_2',
             'mny_jasa_pr_3',
@@ -14089,7 +13570,12 @@ class StaffProjectController extends Controller
             'mny_mnftr_pr_7',
             'mny_mnftr_pr_8',
             'mny_mnftr_pr_9',
-            'mny_mnftr_pr_10'
+            'mny_mnftr_pr_10',
+            'mny_rfq_pr_1',
+            'mny_rfq_pr_2',
+            'mny_rfq_pr_3',
+            'mny_rfq_pr_4',
+            'mny_rfq_pr_5'
         )->findOrFail($id_pr_01_3);
 
         $koneksipa = PAproject::select(
@@ -14142,11 +13628,7 @@ class StaffProjectController extends Controller
             'mny_parts_pa_43',
             'mny_parts_pa_44',
             'mny_parts_pa_45',
-            'mny_parts_pa_46',
-            'mny_parts_pa_47',
-            'mny_parts_pa_48',
-            'mny_parts_pa_49',
-            'mny_parts_pa_50',
+
             'mny_jasa_pa_1',
             'mny_jasa_pa_2',
             'mny_jasa_pa_3',
@@ -14247,11 +13729,7 @@ class StaffProjectController extends Controller
             'mny_parts_pay_43',
             'mny_parts_pay_44',
             'mny_parts_pay_45',
-            'mny_parts_pay_46',
-            'mny_parts_pay_47',
-            'mny_parts_pay_48',
-            'mny_parts_pay_49',
-            'mny_parts_pay_50',
+
             'mny_jasa_pay_1',
             'mny_jasa_pay_2',
             'mny_jasa_pay_3',
@@ -14371,11 +13849,7 @@ class StaffProjectController extends Controller
             $koneksipr->mny_parts_pr_43 +
             $koneksipr->mny_parts_pr_44 +
             $koneksipr->mny_parts_pr_45 +
-            $koneksipr->mny_parts_pr_46 +
-            $koneksipr->mny_parts_pr_47 +
-            $koneksipr->mny_parts_pr_48 +
-            $koneksipr->mny_parts_pr_49 +
-            $koneksipr->mny_parts_pr_50 +
+
             $koneksipr->mny_jasa_pr_1 +
             $koneksipr->mny_jasa_pr_2 +
             $koneksipr->mny_jasa_pr_3 +
@@ -14416,7 +13890,12 @@ class StaffProjectController extends Controller
             $koneksipr->mny_mnftr_pr_7 +
             $koneksipr->mny_mnftr_pr_8 +
             $koneksipr->mny_mnftr_pr_9 +
-            $koneksipr->mny_mnftr_pr_10;
+            $koneksipr->mny_mnftr_pr_10 +
+            $koneksipr->mny_rfq_pr_1 +
+            $koneksipr->mny_rfq_pr_2 +
+            $koneksipr->mny_rfq_pr_3 +
+            $koneksipr->mny_rfq_pr_4 +
+            $koneksipr->mny_rfq_pr_5;
 
         $sum_pa =
             $koneksipa->mny_parts_pa_1 +
@@ -14464,11 +13943,7 @@ class StaffProjectController extends Controller
             $koneksipa->mny_parts_pa_43 +
             $koneksipa->mny_parts_pa_44 +
             $koneksipa->mny_parts_pa_45 +
-            $koneksipa->mny_parts_pa_46 +
-            $koneksipa->mny_parts_pa_47 +
-            $koneksipa->mny_parts_pa_48 +
-            $koneksipa->mny_parts_pa_49 +
-            $koneksipa->mny_parts_pa_50 +
+
             $koneksipa->mny_jasa_pa_1 +
             $koneksipa->mny_jasa_pa_2 +
             $koneksipa->mny_jasa_pa_3 +
@@ -14562,11 +14037,7 @@ class StaffProjectController extends Controller
             $koneksipo->mny_parts_po_43 +
             $koneksipo->mny_parts_po_44 +
             $koneksipo->mny_parts_po_45 +
-            $koneksipo->mny_parts_po_46 +
-            $koneksipo->mny_parts_po_47 +
-            $koneksipo->mny_parts_po_48 +
-            $koneksipo->mny_parts_po_49 +
-            $koneksipo->mny_parts_po_50 +
+
             $koneksipo->mny_jasa_po_1 +
             $koneksipo->mny_jasa_po_2 +
             $koneksipo->mny_jasa_po_3 +
@@ -14660,11 +14131,7 @@ class StaffProjectController extends Controller
             $koneksipay->mny_parts_pay_43 +
             $koneksipay->mny_parts_pay_44 +
             $koneksipay->mny_parts_pay_45 +
-            $koneksipay->mny_parts_pay_46 +
-            $koneksipay->mny_parts_pay_47 +
-            $koneksipay->mny_parts_pay_48 +
-            $koneksipay->mny_parts_pay_49 +
-            $koneksipay->mny_parts_pay_50 +
+
             $koneksipay->mny_jasa_pay_1 +
             $koneksipay->mny_jasa_pay_2 +
             $koneksipay->mny_jasa_pay_3 +
@@ -14832,11 +14299,6 @@ class StaffProjectController extends Controller
         $oldnamepo_parts43 = $koneksipo->po_parts_43;
         $oldnamepo_parts44 = $koneksipo->po_parts_44;
         $oldnamepo_parts45 = $koneksipo->po_parts_45;
-        $oldnamepo_parts46 = $koneksipo->po_parts_46;
-        $oldnamepo_parts47 = $koneksipo->po_parts_47;
-        $oldnamepo_parts48 = $koneksipo->po_parts_48;
-        $oldnamepo_parts49 = $koneksipo->po_parts_49;
-        $oldnamepo_parts50 = $koneksipo->po_parts_50;
 
         $oldnamepo_jasa1 = $koneksipo->po_jasa_1;
         $oldnamepo_jasa2 = $koneksipo->po_jasa_2;
@@ -14932,11 +14394,6 @@ class StaffProjectController extends Controller
         $newnamepo_parts43 = $koneksipo->po_parts_43;
         $newnamepo_parts44 = $koneksipo->po_parts_44;
         $newnamepo_parts45 = $koneksipo->po_parts_45;
-        $newnamepo_parts46 = $koneksipo->po_parts_46;
-        $newnamepo_parts47 = $koneksipo->po_parts_47;
-        $newnamepo_parts48 = $koneksipo->po_parts_48;
-        $newnamepo_parts49 = $koneksipo->po_parts_49;
-        $newnamepo_parts50 = $koneksipo->po_parts_50;
 
         $newnamepo_jasa1 = $koneksipo->po_jasa_1;
         $newnamepo_jasa2 = $koneksipo->po_jasa_2;
@@ -16779,201 +16236,6 @@ class StaffProjectController extends Controller
             $request
                 ->file('as_po_parts_45')
                 ->storeAs('supervisor/project/03_03_PR', $newnamepo_parts45);
-        }
-        if ($request->file('as_po_parts_46')) {
-            // Menyimpan nama asli dan ekstensi
-            $ori_name = $request
-                ->file('as_po_parts_46')
-                ->getClientOriginalName();
-
-            // Mengambil waktu sekarang
-            $waktu = now()->timestamp;
-
-            $tgl = date('d-M-Y');
-
-            // membuat kode unik berdasarkan data waktu
-            $kodeunik = substr(str_shuffle("$waktu"), 0, 3);
-
-            // Mengambil nama saja tidak berikut ektensi
-            $filename = pathinfo($ori_name, PATHINFO_FILENAME);
-
-            // Mengambil extensi file
-            $extension = $request
-                ->file('as_po_parts_46')
-                ->getClientOriginalExtension();
-
-            // Membuat format penamaan file
-            $newnamepo_parts46 =
-                $id .
-                '_' .
-                $filename .
-                '_' .
-                $tgl .
-                '_' .
-                $kodeunik .
-                '.' .
-                $extension;
-
-            // Menyimpan nama file
-            $request
-                ->file('as_po_parts_46')
-                ->storeAs('supervisor/project/03_03_PR', $newnamepo_parts46);
-        }
-        if ($request->file('as_po_parts_47')) {
-            // Menyimpan nama asli dan ekstensi
-            $ori_name = $request
-                ->file('as_po_parts_47')
-                ->getClientOriginalName();
-
-            // Mengambil waktu sekarang
-            $waktu = now()->timestamp;
-
-            $tgl = date('d-M-Y');
-
-            // membuat kode unik berdasarkan data waktu
-            $kodeunik = substr(str_shuffle("$waktu"), 0, 3);
-
-            // Mengambil nama saja tidak berikut ektensi
-            $filename = pathinfo($ori_name, PATHINFO_FILENAME);
-
-            // Mengambil extensi file
-            $extension = $request
-                ->file('as_po_parts_47')
-                ->getClientOriginalExtension();
-
-            // Membuat format penamaan file
-            $newnamepo_parts47 =
-                $id .
-                '_' .
-                $filename .
-                '_' .
-                $tgl .
-                '_' .
-                $kodeunik .
-                '.' .
-                $extension;
-
-            // Menyimpan nama file
-            $request
-                ->file('as_po_parts_47')
-                ->storeAs('supervisor/project/03_03_PR', $newnamepo_parts47);
-        }
-        if ($request->file('as_po_parts_48')) {
-            // Menyimpan nama asli dan ekstensi
-            $ori_name = $request
-                ->file('as_po_parts_48')
-                ->getClientOriginalName();
-
-            // Mengambil waktu sekarang
-            $waktu = now()->timestamp;
-
-            $tgl = date('d-M-Y');
-
-            // membuat kode unik berdasarkan data waktu
-            $kodeunik = substr(str_shuffle("$waktu"), 0, 3);
-
-            // Mengambil nama saja tidak berikut ektensi
-            $filename = pathinfo($ori_name, PATHINFO_FILENAME);
-
-            // Mengambil extensi file
-            $extension = $request
-                ->file('as_po_parts_48')
-                ->getClientOriginalExtension();
-
-            // Membuat format penamaan file
-            $newnamepo_parts48 =
-                $id .
-                '_' .
-                $filename .
-                '_' .
-                $tgl .
-                '_' .
-                $kodeunik .
-                '.' .
-                $extension;
-
-            // Menyimpan nama file
-            $request
-                ->file('as_po_parts_48')
-                ->storeAs('supervisor/project/03_03_PR', $newnamepo_parts48);
-        }
-        if ($request->file('as_po_parts_49')) {
-            // Menyimpan nama asli dan ekstensi
-            $ori_name = $request
-                ->file('as_po_parts_49')
-                ->getClientOriginalName();
-
-            // Mengambil waktu sekarang
-            $waktu = now()->timestamp;
-
-            $tgl = date('d-M-Y');
-
-            // membuat kode unik berdasarkan data waktu
-            $kodeunik = substr(str_shuffle("$waktu"), 0, 3);
-
-            // Mengambil nama saja tidak berikut ektensi
-            $filename = pathinfo($ori_name, PATHINFO_FILENAME);
-
-            // Mengambil extensi file
-            $extension = $request
-                ->file('as_po_parts_49')
-                ->getClientOriginalExtension();
-
-            // Membuat format penamaan file
-            $newnamepo_parts49 =
-                $id .
-                '_' .
-                $filename .
-                '_' .
-                $tgl .
-                '_' .
-                $kodeunik .
-                '.' .
-                $extension;
-
-            // Menyimpan nama file
-            $request
-                ->file('as_po_parts_49')
-                ->storeAs('supervisor/project/03_03_PR', $newnamepo_parts49);
-        }
-        if ($request->file('as_po_parts_50')) {
-            // Menyimpan nama asli dan ekstensi
-            $ori_name = $request
-                ->file('as_po_parts_50')
-                ->getClientOriginalName();
-
-            // Mengambil waktu sekarang
-            $waktu = now()->timestamp;
-
-            $tgl = date('d-M-Y');
-
-            // membuat kode unik berdasarkan data waktu
-            $kodeunik = substr(str_shuffle("$waktu"), 0, 3);
-
-            // Mengambil nama saja tidak berikut ektensi
-            $filename = pathinfo($ori_name, PATHINFO_FILENAME);
-
-            // Mengambil extensi file
-            $extension = $request
-                ->file('as_po_parts_50')
-                ->getClientOriginalExtension();
-
-            // Membuat format penamaan file
-            $newnamepo_parts50 =
-                $id .
-                '_' .
-                $filename .
-                '_' .
-                $tgl .
-                '_' .
-                $kodeunik .
-                '.' .
-                $extension;
-
-            // Menyimpan nama file
-            $request
-                ->file('as_po_parts_50')
-                ->storeAs('supervisor/project/03_03_PR', $newnamepo_parts50);
         }
 
         // inputan jasa
@@ -19017,36 +18279,6 @@ class StaffProjectController extends Controller
             $request['mny_parts_po_45'] = $request['as_mny_parts_po_45'];
             $request['date_po_parts_45'] = $request['as_date_po_parts_45'];
         }
-        if ($oldnamepo_parts46 != $newnamepo_parts46) {
-            $request['po_parts_46'] = $newnamepo_parts46;
-            $request['up_by_parts_po_46'] = $request['as_up_by_parts_po_46'];
-            $request['mny_parts_po_46'] = $request['as_mny_parts_po_46'];
-            $request['date_po_parts_46'] = $request['as_date_po_parts_46'];
-        }
-        if ($oldnamepo_parts47 != $newnamepo_parts47) {
-            $request['po_parts_47'] = $newnamepo_parts47;
-            $request['up_by_parts_po_47'] = $request['as_up_by_parts_po_47'];
-            $request['mny_parts_po_47'] = $request['as_mny_parts_po_47'];
-            $request['date_po_parts_47'] = $request['as_date_po_parts_47'];
-        }
-        if ($oldnamepo_parts48 != $newnamepo_parts48) {
-            $request['po_parts_48'] = $newnamepo_parts48;
-            $request['up_by_parts_po_48'] = $request['as_up_by_parts_po_48'];
-            $request['mny_parts_po_48'] = $request['as_mny_parts_po_48'];
-            $request['date_po_parts_48'] = $request['as_date_po_parts_48'];
-        }
-        if ($oldnamepo_parts49 != $newnamepo_parts49) {
-            $request['po_parts_49'] = $newnamepo_parts49;
-            $request['up_by_parts_po_49'] = $request['as_up_by_parts_po_49'];
-            $request['mny_parts_po_49'] = $request['as_mny_parts_po_49'];
-            $request['date_po_parts_49'] = $request['as_date_po_parts_49'];
-        }
-        if ($oldnamepo_parts50 != $newnamepo_parts50) {
-            $request['po_parts_50'] = $newnamepo_parts50;
-            $request['up_by_parts_po_50'] = $request['as_up_by_parts_po_50'];
-            $request['mny_parts_po_50'] = $request['as_mny_parts_po_50'];
-            $request['date_po_parts_50'] = $request['as_date_po_parts_50'];
-        }
 
         if ($oldnamepo_jasa1 != $newnamepo_jasa1) {
             $request['po_jasa_1'] = $newnamepo_jasa1;
@@ -19424,11 +18656,7 @@ class StaffProjectController extends Controller
             'mny_parts_pr_43',
             'mny_parts_pr_44',
             'mny_parts_pr_45',
-            'mny_parts_pr_46',
-            'mny_parts_pr_47',
-            'mny_parts_pr_48',
-            'mny_parts_pr_49',
-            'mny_parts_pr_50',
+
             'mny_jasa_pr_1',
             'mny_jasa_pr_2',
             'mny_jasa_pr_3',
@@ -19468,7 +18696,12 @@ class StaffProjectController extends Controller
             'mny_mnftr_pr_7',
             'mny_mnftr_pr_8',
             'mny_mnftr_pr_9',
-            'mny_mnftr_pr_10'
+            'mny_mnftr_pr_10',
+            'mny_rfq_pr_1',
+            'mny_rfq_pr_2',
+            'mny_rfq_pr_3',
+            'mny_rfq_pr_4',
+            'mny_rfq_pr_5'
         )->findOrFail($id_pr_01_3);
 
         $koneksipa = PAproject::select(
@@ -19521,11 +18754,7 @@ class StaffProjectController extends Controller
             'mny_parts_pa_43',
             'mny_parts_pa_44',
             'mny_parts_pa_45',
-            'mny_parts_pa_46',
-            'mny_parts_pa_47',
-            'mny_parts_pa_48',
-            'mny_parts_pa_49',
-            'mny_parts_pa_50',
+
             'mny_jasa_pa_1',
             'mny_jasa_pa_2',
             'mny_jasa_pa_3',
@@ -19624,11 +18853,7 @@ class StaffProjectController extends Controller
             'mny_parts_po_43',
             'mny_parts_po_44',
             'mny_parts_po_45',
-            'mny_parts_po_46',
-            'mny_parts_po_47',
-            'mny_parts_po_48',
-            'mny_parts_po_49',
-            'mny_parts_po_50',
+
             'mny_jasa_po_1',
             'mny_jasa_po_2',
             'mny_jasa_po_3',
@@ -19749,11 +18974,7 @@ class StaffProjectController extends Controller
             $koneksipr->mny_parts_pr_43 +
             $koneksipr->mny_parts_pr_44 +
             $koneksipr->mny_parts_pr_45 +
-            $koneksipr->mny_parts_pr_46 +
-            $koneksipr->mny_parts_pr_47 +
-            $koneksipr->mny_parts_pr_48 +
-            $koneksipr->mny_parts_pr_49 +
-            $koneksipr->mny_parts_pr_50 +
+
             $koneksipr->mny_jasa_pr_1 +
             $koneksipr->mny_jasa_pr_2 +
             $koneksipr->mny_jasa_pr_3 +
@@ -19794,7 +19015,12 @@ class StaffProjectController extends Controller
             $koneksipr->mny_mnftr_pr_7 +
             $koneksipr->mny_mnftr_pr_8 +
             $koneksipr->mny_mnftr_pr_9 +
-            $koneksipr->mny_mnftr_pr_10;
+            $koneksipr->mny_mnftr_pr_10 +
+            $koneksipr->mny_rfq_pr_1 +
+            $koneksipr->mny_rfq_pr_2 +
+            $koneksipr->mny_rfq_pr_3 +
+            $koneksipr->mny_rfq_pr_4 +
+            $koneksipr->mny_rfq_pr_5;
 
         $sum_pa =
             $koneksipa->mny_parts_pa_1 +
@@ -19842,11 +19068,7 @@ class StaffProjectController extends Controller
             $koneksipa->mny_parts_pa_43 +
             $koneksipa->mny_parts_pa_44 +
             $koneksipa->mny_parts_pa_45 +
-            $koneksipa->mny_parts_pa_46 +
-            $koneksipa->mny_parts_pa_47 +
-            $koneksipa->mny_parts_pa_48 +
-            $koneksipa->mny_parts_pa_49 +
-            $koneksipa->mny_parts_pa_50 +
+
             $koneksipa->mny_jasa_pa_1 +
             $koneksipa->mny_jasa_pa_2 +
             $koneksipa->mny_jasa_pa_3 +
@@ -19940,11 +19162,7 @@ class StaffProjectController extends Controller
             $koneksipo->mny_parts_po_43 +
             $koneksipo->mny_parts_po_44 +
             $koneksipo->mny_parts_po_45 +
-            $koneksipo->mny_parts_po_46 +
-            $koneksipo->mny_parts_po_47 +
-            $koneksipo->mny_parts_po_48 +
-            $koneksipo->mny_parts_po_49 +
-            $koneksipo->mny_parts_po_50 +
+
             $koneksipo->mny_jasa_po_1 +
             $koneksipo->mny_jasa_po_2 +
             $koneksipo->mny_jasa_po_3 +
@@ -20038,11 +19256,7 @@ class StaffProjectController extends Controller
             $koneksipay->mny_parts_pay_43 +
             $koneksipay->mny_parts_pay_44 +
             $koneksipay->mny_parts_pay_45 +
-            $koneksipay->mny_parts_pay_46 +
-            $koneksipay->mny_parts_pay_47 +
-            $koneksipay->mny_parts_pay_48 +
-            $koneksipay->mny_parts_pay_49 +
-            $koneksipay->mny_parts_pay_50 +
+
             $koneksipay->mny_jasa_pay_1 +
             $koneksipay->mny_jasa_pay_2 +
             $koneksipay->mny_jasa_pay_3 +
@@ -20214,11 +19428,6 @@ class StaffProjectController extends Controller
         $oldnamepay_parts43 = $koneksipay->pay_parts_43;
         $oldnamepay_parts44 = $koneksipay->pay_parts_44;
         $oldnamepay_parts45 = $koneksipay->pay_parts_45;
-        $oldnamepay_parts46 = $koneksipay->pay_parts_46;
-        $oldnamepay_parts47 = $koneksipay->pay_parts_47;
-        $oldnamepay_parts48 = $koneksipay->pay_parts_48;
-        $oldnamepay_parts49 = $koneksipay->pay_parts_49;
-        $oldnamepay_parts50 = $koneksipay->pay_parts_50;
 
         $oldnamepay_jasa1 = $koneksipay->pay_jasa_1;
         $oldnamepay_jasa2 = $koneksipay->pay_jasa_2;
@@ -20314,11 +19523,6 @@ class StaffProjectController extends Controller
         $newnamepay_parts43 = $koneksipay->pay_parts_43;
         $newnamepay_parts44 = $koneksipay->pay_parts_44;
         $newnamepay_parts45 = $koneksipay->pay_parts_45;
-        $newnamepay_parts46 = $koneksipay->pay_parts_46;
-        $newnamepay_parts47 = $koneksipay->pay_parts_47;
-        $newnamepay_parts48 = $koneksipay->pay_parts_48;
-        $newnamepay_parts49 = $koneksipay->pay_parts_49;
-        $newnamepay_parts50 = $koneksipay->pay_parts_50;
 
         $newnamepay_jasa1 = $koneksipay->pay_jasa_1;
         $newnamepay_jasa2 = $koneksipay->pay_jasa_2;
@@ -22161,201 +21365,6 @@ class StaffProjectController extends Controller
             $request
                 ->file('as_pay_parts_45')
                 ->storeAs('supervisor/project/03_04_PR', $newnamepay_parts45);
-        }
-        if ($request->file('as_pay_parts_46')) {
-            // Menyimpan nama asli dan ekstensi
-            $ori_name = $request
-                ->file('as_pay_parts_46')
-                ->getClientOriginalName();
-
-            // Mengambil waktu sekarang
-            $waktu = now()->timestamp;
-
-            $tgl = date('d-M-Y');
-
-            // membuat kode unik berdasarkan data waktu
-            $kodeunik = substr(str_shuffle("$waktu"), 0, 3);
-
-            // Mengambil nama saja tidak berikut ektensi
-            $filename = pathinfo($ori_name, PATHINFO_FILENAME);
-
-            // Mengambil extensi file
-            $extension = $request
-                ->file('as_pay_parts_46')
-                ->getClientOriginalExtension();
-
-            // Membuat format penamaan file
-            $newnamepay_parts46 =
-                $id .
-                '_' .
-                $filename .
-                '_' .
-                $tgl .
-                '_' .
-                $kodeunik .
-                '.' .
-                $extension;
-
-            // Menyimpan nama file
-            $request
-                ->file('as_pay_parts_46')
-                ->storeAs('supervisor/project/03_04_PR', $newnamepay_parts46);
-        }
-        if ($request->file('as_pay_parts_47')) {
-            // Menyimpan nama asli dan ekstensi
-            $ori_name = $request
-                ->file('as_pay_parts_47')
-                ->getClientOriginalName();
-
-            // Mengambil waktu sekarang
-            $waktu = now()->timestamp;
-
-            $tgl = date('d-M-Y');
-
-            // membuat kode unik berdasarkan data waktu
-            $kodeunik = substr(str_shuffle("$waktu"), 0, 3);
-
-            // Mengambil nama saja tidak berikut ektensi
-            $filename = pathinfo($ori_name, PATHINFO_FILENAME);
-
-            // Mengambil extensi file
-            $extension = $request
-                ->file('as_pay_parts_47')
-                ->getClientOriginalExtension();
-
-            // Membuat format penamaan file
-            $newnamepay_parts47 =
-                $id .
-                '_' .
-                $filename .
-                '_' .
-                $tgl .
-                '_' .
-                $kodeunik .
-                '.' .
-                $extension;
-
-            // Menyimpan nama file
-            $request
-                ->file('as_pay_parts_47')
-                ->storeAs('supervisor/project/03_04_PR', $newnamepay_parts47);
-        }
-        if ($request->file('as_pay_parts_48')) {
-            // Menyimpan nama asli dan ekstensi
-            $ori_name = $request
-                ->file('as_pay_parts_48')
-                ->getClientOriginalName();
-
-            // Mengambil waktu sekarang
-            $waktu = now()->timestamp;
-
-            $tgl = date('d-M-Y');
-
-            // membuat kode unik berdasarkan data waktu
-            $kodeunik = substr(str_shuffle("$waktu"), 0, 3);
-
-            // Mengambil nama saja tidak berikut ektensi
-            $filename = pathinfo($ori_name, PATHINFO_FILENAME);
-
-            // Mengambil extensi file
-            $extension = $request
-                ->file('as_pay_parts_48')
-                ->getClientOriginalExtension();
-
-            // Membuat format penamaan file
-            $newnamepay_parts48 =
-                $id .
-                '_' .
-                $filename .
-                '_' .
-                $tgl .
-                '_' .
-                $kodeunik .
-                '.' .
-                $extension;
-
-            // Menyimpan nama file
-            $request
-                ->file('as_pay_parts_48')
-                ->storeAs('supervisor/project/03_04_PR', $newnamepay_parts48);
-        }
-        if ($request->file('as_pay_parts_49')) {
-            // Menyimpan nama asli dan ekstensi
-            $ori_name = $request
-                ->file('as_pay_parts_49')
-                ->getClientOriginalName();
-
-            // Mengambil waktu sekarang
-            $waktu = now()->timestamp;
-
-            $tgl = date('d-M-Y');
-
-            // membuat kode unik berdasarkan data waktu
-            $kodeunik = substr(str_shuffle("$waktu"), 0, 3);
-
-            // Mengambil nama saja tidak berikut ektensi
-            $filename = pathinfo($ori_name, PATHINFO_FILENAME);
-
-            // Mengambil extensi file
-            $extension = $request
-                ->file('as_pay_parts_49')
-                ->getClientOriginalExtension();
-
-            // Membuat format penamaan file
-            $newnamepay_parts49 =
-                $id .
-                '_' .
-                $filename .
-                '_' .
-                $tgl .
-                '_' .
-                $kodeunik .
-                '.' .
-                $extension;
-
-            // Menyimpan nama file
-            $request
-                ->file('as_pay_parts_49')
-                ->storeAs('supervisor/project/03_04_PR', $newnamepay_parts49);
-        }
-        if ($request->file('as_pay_parts_50')) {
-            // Menyimpan nama asli dan ekstensi
-            $ori_name = $request
-                ->file('as_pay_parts_50')
-                ->getClientOriginalName();
-
-            // Mengambil waktu sekarang
-            $waktu = now()->timestamp;
-
-            $tgl = date('d-M-Y');
-
-            // membuat kode unik berdasarkan data waktu
-            $kodeunik = substr(str_shuffle("$waktu"), 0, 3);
-
-            // Mengambil nama saja tidak berikut ektensi
-            $filename = pathinfo($ori_name, PATHINFO_FILENAME);
-
-            // Mengambil extensi file
-            $extension = $request
-                ->file('as_pay_parts_50')
-                ->getClientOriginalExtension();
-
-            // Membuat format penamaan file
-            $newnamepay_parts50 =
-                $id .
-                '_' .
-                $filename .
-                '_' .
-                $tgl .
-                '_' .
-                $kodeunik .
-                '.' .
-                $extension;
-
-            // Menyimpan nama file
-            $request
-                ->file('as_pay_parts_50')
-                ->storeAs('supervisor/project/03_04_PR', $newnamepay_parts50);
         }
 
         // inputan jasa
@@ -24416,36 +23425,6 @@ class StaffProjectController extends Controller
             $request['mny_parts_pay_45'] = $request['as_mny_parts_pay_45'];
             $request['date_pay_parts_45'] = $request['as_date_pay_parts_45'];
         }
-        if ($oldnamepay_parts46 != $newnamepay_parts46) {
-            $request['pay_parts_46'] = $newnamepay_parts46;
-            $request['up_by_parts_pay_46'] = $request['as_up_by_parts_pay_46'];
-            $request['mny_parts_pay_46'] = $request['as_mny_parts_pay_46'];
-            $request['date_pay_parts_46'] = $request['as_date_pay_parts_46'];
-        }
-        if ($oldnamepay_parts47 != $newnamepay_parts47) {
-            $request['pay_parts_47'] = $newnamepay_parts47;
-            $request['up_by_parts_pay_47'] = $request['as_up_by_parts_pay_47'];
-            $request['mny_parts_pay_47'] = $request['as_mny_parts_pay_47'];
-            $request['date_pay_parts_47'] = $request['as_date_pay_parts_47'];
-        }
-        if ($oldnamepay_parts48 != $newnamepay_parts48) {
-            $request['pay_parts_48'] = $newnamepay_parts48;
-            $request['up_by_parts_pay_48'] = $request['as_up_by_parts_pay_48'];
-            $request['mny_parts_pay_48'] = $request['as_mny_parts_pay_48'];
-            $request['date_pay_parts_48'] = $request['as_date_pay_parts_48'];
-        }
-        if ($oldnamepay_parts49 != $newnamepay_parts49) {
-            $request['pay_parts_49'] = $newnamepay_parts49;
-            $request['up_by_parts_pay_49'] = $request['as_up_by_parts_pay_49'];
-            $request['mny_parts_pay_49'] = $request['as_mny_parts_pay_49'];
-            $request['date_pay_parts_49'] = $request['as_date_pay_parts_49'];
-        }
-        if ($oldnamepay_parts50 != $newnamepay_parts50) {
-            $request['pay_parts_50'] = $newnamepay_parts50;
-            $request['up_by_parts_pay_50'] = $request['as_up_by_parts_pay_50'];
-            $request['mny_parts_pay_50'] = $request['as_mny_parts_pay_50'];
-            $request['date_pay_parts_50'] = $request['as_date_pay_parts_50'];
-        }
 
         if ($oldnamepay_jasa1 != $newnamepay_jasa1) {
             $request['pay_jasa_1'] = $newnamepay_jasa1;
@@ -24691,31 +23670,31 @@ class StaffProjectController extends Controller
 
         if ($oldnamepay_da1 != $newnamepay_da1) {
             $request['pay_da_1'] = $newnamepay_da1;
-            $request['up_by_da_pay_1'] = $request['as_up_by_da_pay_1'];
+            $request['up_by_pay_da_1'] = $request['as_up_by_pay_da_1'];
             $request['mny_da_pay_1'] = $request['as_mny_da_pay_1'];
             $request['date_pay_da_1'] = $request['as_date_pay_da_1'];
         }
         if ($oldnamepay_da2 != $newnamepay_da2) {
             $request['pay_da_2'] = $newnamepay_da2;
-            $request['up_by_da_pay_2'] = $request['as_up_by_da_pay_2'];
+            $request['up_by_pay_da_2'] = $request['as_up_by_pay_da_2'];
             $request['mny_da_pay_2'] = $request['as_mny_da_pay_2'];
             $request['date_pay_da_2'] = $request['as_date_pay_da_2'];
         }
         if ($oldnamepay_da3 != $newnamepay_da3) {
             $request['pay_da_3'] = $newnamepay_da3;
-            $request['up_by_da_pay_3'] = $request['as_up_by_da_pay_3'];
+            $request['up_by_pay_da_3'] = $request['as_up_by_pay_da_3'];
             $request['mny_da_pay_3'] = $request['as_mny_da_pay_3'];
             $request['date_pay_da_3'] = $request['as_date_pay_da_3'];
         }
         if ($oldnamepay_da4 != $newnamepay_da4) {
             $request['pay_da_4'] = $newnamepay_da4;
-            $request['up_by_da_pay_4'] = $request['as_up_by_da_pay_4'];
+            $request['up_by_pay_da_4'] = $request['as_up_by_pay_da_4'];
             $request['mny_da_pay_4'] = $request['as_mny_da_pay_4'];
             $request['date_pay_da_4'] = $request['as_date_pay_da_4'];
         }
         if ($oldnamepay_da5 != $newnamepay_da5) {
             $request['pay_da_5'] = $newnamepay_da5;
-            $request['up_by_da_pay_5'] = $request['as_up_by_da_pay_5'];
+            $request['up_by_pay_da_5'] = $request['as_up_by_pay_da_5'];
             $request['mny_da_pay_5'] = $request['as_mny_da_pay_5'];
             $request['date_pay_da_5'] = $request['as_date_pay_da_5'];
         }
@@ -24823,11 +23802,7 @@ class StaffProjectController extends Controller
             'mny_parts_pr_43',
             'mny_parts_pr_44',
             'mny_parts_pr_45',
-            'mny_parts_pr_46',
-            'mny_parts_pr_47',
-            'mny_parts_pr_48',
-            'mny_parts_pr_49',
-            'mny_parts_pr_50',
+
             'mny_jasa_pr_1',
             'mny_jasa_pr_2',
             'mny_jasa_pr_3',
@@ -24867,7 +23842,12 @@ class StaffProjectController extends Controller
             'mny_mnftr_pr_7',
             'mny_mnftr_pr_8',
             'mny_mnftr_pr_9',
-            'mny_mnftr_pr_10'
+            'mny_mnftr_pr_10',
+            'mny_rfq_pr_1',
+            'mny_rfq_pr_2',
+            'mny_rfq_pr_3',
+            'mny_rfq_pr_4',
+            'mny_rfq_pr_5'
         )->findOrFail($id_pr_01_3);
 
         $koneksipa = PAproject::select(
@@ -24919,11 +23899,7 @@ class StaffProjectController extends Controller
             'mny_parts_pa_43',
             'mny_parts_pa_44',
             'mny_parts_pa_45',
-            'mny_parts_pa_46',
-            'mny_parts_pa_47',
-            'mny_parts_pa_48',
-            'mny_parts_pa_49',
-            'mny_parts_pa_50',
+
             'mny_jasa_pa_1',
             'mny_jasa_pa_2',
             'mny_jasa_pa_3',
@@ -25021,11 +23997,7 @@ class StaffProjectController extends Controller
             'mny_parts_po_43',
             'mny_parts_po_44',
             'mny_parts_po_45',
-            'mny_parts_po_46',
-            'mny_parts_po_47',
-            'mny_parts_po_48',
-            'mny_parts_po_49',
-            'mny_parts_po_50',
+
             'mny_jasa_po_1',
             'mny_jasa_po_2',
             'mny_jasa_po_3',
@@ -25123,11 +24095,7 @@ class StaffProjectController extends Controller
             'mny_parts_pay_43',
             'mny_parts_pay_44',
             'mny_parts_pay_45',
-            'mny_parts_pay_46',
-            'mny_parts_pay_47',
-            'mny_parts_pay_48',
-            'mny_parts_pay_49',
-            'mny_parts_pay_50',
+
             'mny_jasa_pay_1',
             'mny_jasa_pay_2',
             'mny_jasa_pay_3',
@@ -25237,11 +24205,7 @@ class StaffProjectController extends Controller
             $koneksipr->mny_parts_pr_43 +
             $koneksipr->mny_parts_pr_44 +
             $koneksipr->mny_parts_pr_45 +
-            $koneksipr->mny_parts_pr_46 +
-            $koneksipr->mny_parts_pr_47 +
-            $koneksipr->mny_parts_pr_48 +
-            $koneksipr->mny_parts_pr_49 +
-            $koneksipr->mny_parts_pr_50 +
+
             $koneksipr->mny_jasa_pr_1 +
             $koneksipr->mny_jasa_pr_2 +
             $koneksipr->mny_jasa_pr_3 +
@@ -25282,7 +24246,12 @@ class StaffProjectController extends Controller
             $koneksipr->mny_mnftr_pr_7 +
             $koneksipr->mny_mnftr_pr_8 +
             $koneksipr->mny_mnftr_pr_9 +
-            $koneksipr->mny_mnftr_pr_10;
+            $koneksipr->mny_mnftr_pr_10 +
+            $koneksipr->mny_rfq_pr_1 +
+            $koneksipr->mny_rfq_pr_2 +
+            $koneksipr->mny_rfq_pr_3 +
+            $koneksipr->mny_rfq_pr_4 +
+            $koneksipr->mny_rfq_pr_5;
 
         $sum_pa =
             $koneksipa->mny_parts_pa_1 +
@@ -25330,11 +24299,7 @@ class StaffProjectController extends Controller
             $koneksipa->mny_parts_pa_43 +
             $koneksipa->mny_parts_pa_44 +
             $koneksipa->mny_parts_pa_45 +
-            $koneksipa->mny_parts_pa_46 +
-            $koneksipa->mny_parts_pa_47 +
-            $koneksipa->mny_parts_pa_48 +
-            $koneksipa->mny_parts_pa_49 +
-            $koneksipa->mny_parts_pa_50 +
+
             $koneksipa->mny_jasa_pa_1 +
             $koneksipa->mny_jasa_pa_2 +
             $koneksipa->mny_jasa_pa_3 +
@@ -25428,11 +24393,7 @@ class StaffProjectController extends Controller
             $koneksipo->mny_parts_po_43 +
             $koneksipo->mny_parts_po_44 +
             $koneksipo->mny_parts_po_45 +
-            $koneksipo->mny_parts_po_46 +
-            $koneksipo->mny_parts_po_47 +
-            $koneksipo->mny_parts_po_48 +
-            $koneksipo->mny_parts_po_49 +
-            $koneksipo->mny_parts_po_50 +
+
             $koneksipo->mny_jasa_po_1 +
             $koneksipo->mny_jasa_po_2 +
             $koneksipo->mny_jasa_po_3 +
@@ -25526,11 +24487,7 @@ class StaffProjectController extends Controller
             $koneksipay->mny_parts_pay_43 +
             $koneksipay->mny_parts_pay_44 +
             $koneksipay->mny_parts_pay_45 +
-            $koneksipay->mny_parts_pay_46 +
-            $koneksipay->mny_parts_pay_47 +
-            $koneksipay->mny_parts_pay_48 +
-            $koneksipay->mny_parts_pay_49 +
-            $koneksipay->mny_parts_pay_50 +
+
             $koneksipay->mny_jasa_pay_1 +
             $koneksipay->mny_jasa_pay_2 +
             $koneksipay->mny_jasa_pay_3 +
@@ -26228,11 +25185,7 @@ class StaffProjectController extends Controller
             'mny_parts_pr_43',
             'mny_parts_pr_44',
             'mny_parts_pr_45',
-            'mny_parts_pr_46',
-            'mny_parts_pr_47',
-            'mny_parts_pr_48',
-            'mny_parts_pr_49',
-            'mny_parts_pr_50',
+
             'mny_jasa_pr_1',
             'mny_jasa_pr_2',
             'mny_jasa_pr_3',
@@ -26272,7 +25225,12 @@ class StaffProjectController extends Controller
             'mny_mnftr_pr_7',
             'mny_mnftr_pr_8',
             'mny_mnftr_pr_9',
-            'mny_mnftr_pr_10'
+            'mny_mnftr_pr_10',
+            'mny_rfq_pr_1',
+            'mny_rfq_pr_2',
+            'mny_rfq_pr_3',
+            'mny_rfq_pr_4',
+            'mny_rfq_pr_5'
         )->findOrFail($id_pr_01_3);
 
         $koneksipa = PAproject::select(
@@ -26324,11 +25282,7 @@ class StaffProjectController extends Controller
             'mny_parts_pa_43',
             'mny_parts_pa_44',
             'mny_parts_pa_45',
-            'mny_parts_pa_46',
-            'mny_parts_pa_47',
-            'mny_parts_pa_48',
-            'mny_parts_pa_49',
-            'mny_parts_pa_50',
+
             'mny_jasa_pa_1',
             'mny_jasa_pa_2',
             'mny_jasa_pa_3',
@@ -26426,11 +25380,7 @@ class StaffProjectController extends Controller
             'mny_parts_po_43',
             'mny_parts_po_44',
             'mny_parts_po_45',
-            'mny_parts_po_46',
-            'mny_parts_po_47',
-            'mny_parts_po_48',
-            'mny_parts_po_49',
-            'mny_parts_po_50',
+
             'mny_jasa_po_1',
             'mny_jasa_po_2',
             'mny_jasa_po_3',
@@ -26528,11 +25478,7 @@ class StaffProjectController extends Controller
             'mny_parts_pay_43',
             'mny_parts_pay_44',
             'mny_parts_pay_45',
-            'mny_parts_pay_46',
-            'mny_parts_pay_47',
-            'mny_parts_pay_48',
-            'mny_parts_pay_49',
-            'mny_parts_pay_50',
+
             'mny_jasa_pay_1',
             'mny_jasa_pay_2',
             'mny_jasa_pay_3',
@@ -26649,11 +25595,7 @@ class StaffProjectController extends Controller
             $koneksipr->mny_parts_pr_43 +
             $koneksipr->mny_parts_pr_44 +
             $koneksipr->mny_parts_pr_45 +
-            $koneksipr->mny_parts_pr_46 +
-            $koneksipr->mny_parts_pr_47 +
-            $koneksipr->mny_parts_pr_48 +
-            $koneksipr->mny_parts_pr_49 +
-            $koneksipr->mny_parts_pr_50 +
+
             $koneksipr->mny_jasa_pr_1 +
             $koneksipr->mny_jasa_pr_2 +
             $koneksipr->mny_jasa_pr_3 +
@@ -26694,7 +25636,12 @@ class StaffProjectController extends Controller
             $koneksipr->mny_mnftr_pr_7 +
             $koneksipr->mny_mnftr_pr_8 +
             $koneksipr->mny_mnftr_pr_9 +
-            $koneksipr->mny_mnftr_pr_10;
+            $koneksipr->mny_mnftr_pr_10 +
+            $koneksipr->mny_rfq_pr_1 +
+            $koneksipr->mny_rfq_pr_2 +
+            $koneksipr->mny_rfq_pr_3 +
+            $koneksipr->mny_rfq_pr_4 +
+            $koneksipr->mny_rfq_pr_5;
 
         $sum_pa =
             $koneksipa->mny_parts_pa_1 +
@@ -26742,11 +25689,7 @@ class StaffProjectController extends Controller
             $koneksipa->mny_parts_pa_43 +
             $koneksipa->mny_parts_pa_44 +
             $koneksipa->mny_parts_pa_45 +
-            $koneksipa->mny_parts_pa_46 +
-            $koneksipa->mny_parts_pa_47 +
-            $koneksipa->mny_parts_pa_48 +
-            $koneksipa->mny_parts_pa_49 +
-            $koneksipa->mny_parts_pa_50 +
+
             $koneksipa->mny_jasa_pa_1 +
             $koneksipa->mny_jasa_pa_2 +
             $koneksipa->mny_jasa_pa_3 +
@@ -26840,11 +25783,7 @@ class StaffProjectController extends Controller
             $koneksipo->mny_parts_po_43 +
             $koneksipo->mny_parts_po_44 +
             $koneksipo->mny_parts_po_45 +
-            $koneksipo->mny_parts_po_46 +
-            $koneksipo->mny_parts_po_47 +
-            $koneksipo->mny_parts_po_48 +
-            $koneksipo->mny_parts_po_49 +
-            $koneksipo->mny_parts_po_50 +
+
             $koneksipo->mny_jasa_po_1 +
             $koneksipo->mny_jasa_po_2 +
             $koneksipo->mny_jasa_po_3 +
@@ -26938,11 +25877,7 @@ class StaffProjectController extends Controller
             $koneksipay->mny_parts_pay_43 +
             $koneksipay->mny_parts_pay_44 +
             $koneksipay->mny_parts_pay_45 +
-            $koneksipay->mny_parts_pay_46 +
-            $koneksipay->mny_parts_pay_47 +
-            $koneksipay->mny_parts_pay_48 +
-            $koneksipay->mny_parts_pay_49 +
-            $koneksipay->mny_parts_pay_50 +
+
             $koneksipay->mny_jasa_pay_1 +
             $koneksipay->mny_jasa_pay_2 +
             $koneksipay->mny_jasa_pay_3 +
@@ -27820,11 +26755,7 @@ class StaffProjectController extends Controller
             'mny_parts_pr_43',
             'mny_parts_pr_44',
             'mny_parts_pr_45',
-            'mny_parts_pr_46',
-            'mny_parts_pr_47',
-            'mny_parts_pr_48',
-            'mny_parts_pr_49',
-            'mny_parts_pr_50',
+
             'mny_jasa_pr_1',
             'mny_jasa_pr_2',
             'mny_jasa_pr_3',
@@ -27864,7 +26795,12 @@ class StaffProjectController extends Controller
             'mny_mnftr_pr_7',
             'mny_mnftr_pr_8',
             'mny_mnftr_pr_9',
-            'mny_mnftr_pr_10'
+            'mny_mnftr_pr_10',
+            'mny_rfq_pr_1',
+            'mny_rfq_pr_2',
+            'mny_rfq_pr_3',
+            'mny_rfq_pr_4',
+            'mny_rfq_pr_5'
         )->findOrFail($id_pr_01_3);
 
         $koneksipa = PAproject::select(
@@ -27916,11 +26852,7 @@ class StaffProjectController extends Controller
             'mny_parts_pa_43',
             'mny_parts_pa_44',
             'mny_parts_pa_45',
-            'mny_parts_pa_46',
-            'mny_parts_pa_47',
-            'mny_parts_pa_48',
-            'mny_parts_pa_49',
-            'mny_parts_pa_50',
+
             'mny_jasa_pa_1',
             'mny_jasa_pa_2',
             'mny_jasa_pa_3',
@@ -28018,11 +26950,7 @@ class StaffProjectController extends Controller
             'mny_parts_po_43',
             'mny_parts_po_44',
             'mny_parts_po_45',
-            'mny_parts_po_46',
-            'mny_parts_po_47',
-            'mny_parts_po_48',
-            'mny_parts_po_49',
-            'mny_parts_po_50',
+
             'mny_jasa_po_1',
             'mny_jasa_po_2',
             'mny_jasa_po_3',
@@ -28120,11 +27048,7 @@ class StaffProjectController extends Controller
             'mny_parts_pay_43',
             'mny_parts_pay_44',
             'mny_parts_pay_45',
-            'mny_parts_pay_46',
-            'mny_parts_pay_47',
-            'mny_parts_pay_48',
-            'mny_parts_pay_49',
-            'mny_parts_pay_50',
+
             'mny_jasa_pay_1',
             'mny_jasa_pay_2',
             'mny_jasa_pay_3',
@@ -28244,11 +27168,7 @@ class StaffProjectController extends Controller
             $koneksipr->mny_parts_pr_43 +
             $koneksipr->mny_parts_pr_44 +
             $koneksipr->mny_parts_pr_45 +
-            $koneksipr->mny_parts_pr_46 +
-            $koneksipr->mny_parts_pr_47 +
-            $koneksipr->mny_parts_pr_48 +
-            $koneksipr->mny_parts_pr_49 +
-            $koneksipr->mny_parts_pr_50 +
+
             $koneksipr->mny_jasa_pr_1 +
             $koneksipr->mny_jasa_pr_2 +
             $koneksipr->mny_jasa_pr_3 +
@@ -28289,7 +27209,12 @@ class StaffProjectController extends Controller
             $koneksipr->mny_mnftr_pr_7 +
             $koneksipr->mny_mnftr_pr_8 +
             $koneksipr->mny_mnftr_pr_9 +
-            $koneksipr->mny_mnftr_pr_10;
+            $koneksipr->mny_mnftr_pr_10 +
+            $koneksipr->mny_rfq_pr_1 +
+            $koneksipr->mny_rfq_pr_2 +
+            $koneksipr->mny_rfq_pr_3 +
+            $koneksipr->mny_rfq_pr_4 +
+            $koneksipr->mny_rfq_pr_5;
 
         $sum_pa =
             $koneksipa->mny_parts_pa_1 +
@@ -28337,11 +27262,7 @@ class StaffProjectController extends Controller
             $koneksipa->mny_parts_pa_43 +
             $koneksipa->mny_parts_pa_44 +
             $koneksipa->mny_parts_pa_45 +
-            $koneksipa->mny_parts_pa_46 +
-            $koneksipa->mny_parts_pa_47 +
-            $koneksipa->mny_parts_pa_48 +
-            $koneksipa->mny_parts_pa_49 +
-            $koneksipa->mny_parts_pa_50 +
+
             $koneksipa->mny_jasa_pa_1 +
             $koneksipa->mny_jasa_pa_2 +
             $koneksipa->mny_jasa_pa_3 +
@@ -28435,11 +27356,7 @@ class StaffProjectController extends Controller
             $koneksipo->mny_parts_po_43 +
             $koneksipo->mny_parts_po_44 +
             $koneksipo->mny_parts_po_45 +
-            $koneksipo->mny_parts_po_46 +
-            $koneksipo->mny_parts_po_47 +
-            $koneksipo->mny_parts_po_48 +
-            $koneksipo->mny_parts_po_49 +
-            $koneksipo->mny_parts_po_50 +
+
             $koneksipo->mny_jasa_po_1 +
             $koneksipo->mny_jasa_po_2 +
             $koneksipo->mny_jasa_po_3 +
@@ -28533,11 +27450,7 @@ class StaffProjectController extends Controller
             $koneksipay->mny_parts_pay_43 +
             $koneksipay->mny_parts_pay_44 +
             $koneksipay->mny_parts_pay_45 +
-            $koneksipay->mny_parts_pay_46 +
-            $koneksipay->mny_parts_pay_47 +
-            $koneksipay->mny_parts_pay_48 +
-            $koneksipay->mny_parts_pay_49 +
-            $koneksipay->mny_parts_pay_50 +
+
             $koneksipay->mny_jasa_pay_1 +
             $koneksipay->mny_jasa_pay_2 +
             $koneksipay->mny_jasa_pay_3 +

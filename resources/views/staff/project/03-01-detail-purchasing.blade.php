@@ -872,9 +872,9 @@
                                     <thead class="bg-gray-300 text-gray-700 sticky top-0">
                                         <th class="py-2 w-[5%] font-medium">No.</th>
                                         <th class="w-[45%]  font-medium">Nama File</th>
-                                        <th class="w-[11%]  font-medium">Uploaded by</th>
-                                        <th class="w-[10%]  font-medium">Last Update</th>
-                                        <th class="w-[14%]  font-medium">PR Amount</th>
+                                        <th class="w-[11%]  font-medium">Diunggah oleh</th>
+                                        <th class="w-[10%]  font-medium">Terakhir diubah</th>
+                                        <th class="w-[14%]  font-medium">Jumlah PR</th>
                                         <th class="w-[14%]  font-medium">Aksi</th>
                                     </thead>
                                     <tbody class="text-left border">
@@ -4098,361 +4098,6 @@
                                                 value="{{ date('Y-m-d') }}">
 
                                         </tr>
-                                        {{-- parts 46 --}}
-                                        <tr
-                                            class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
-                                            <td class="py-4 font-bold text-center">46.</td>
-                                            <td class="flex items-center my-4">
-
-                                                @if ($koneksipr->pr_parts_46 != '')
-                                                    <a href="{{ asset('storage/supervisor/project/03_01_PR/' . $koneksipr->pr_parts_46) }}"
-                                                        target="blank"
-                                                        class=" py-2 px-1 rounded  hover:bg-gray-200   ">
-                                                        <svg width="22" height="17" viewBox="0 0 22 17"
-                                                            fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                            <path
-                                                                d="M11 0C6 0 1.73 3.11 0 7.5C1.73 11.89 6 15 11 15C11.36 15 11.72 15 12.08 14.95C12.03 14.63 12 14.32 12 14C12 13.44 12.08 12.88 12.24 12.34C11.83 12.44 11.42 12.5 11 12.5C8.24 12.5 6 10.26 6 7.5C6 4.74 8.24 2.5 11 2.5C13.76 2.5 16 4.74 16 7.5C16 7.79 15.97 8.09 15.92 8.38C16.58 8.13 17.29 8 18 8C19.17 8 20.31 8.34 21.29 9C21.56 8.5 21.8 8 22 7.5C20.27 3.11 16 0 11 0ZM11 4.5C9.34 4.5 8 5.84 8 7.5C8 9.16 9.34 10.5 11 10.5C12.66 10.5 14 9.16 14 7.5C14 5.84 12.66 4.5 11 4.5ZM17 10.5V12.5H21V14.5H17V16.5L14 13.5L17 10.5Z"
-                                                                fill="black" />
-                                                        </svg>
-                                                    </a>
-
-                                                    &emsp;
-                                                @endif
-                                                {{--  --}}
-                                                <a href="{{ asset('storage/supervisor/project/03_01_PR/' . $koneksipr->pr_parts_46) }}"
-                                                    target="blank" download="" class="hover:underline">
-                                                    {{ $koneksipr->pr_parts_46 }}</a>
-                                                {{-- == --}}
-
-                                            </td>
-                                            <td>
-                                                @if ($koneksipr->up_by_parts_pr_46 != '')
-                                                    <div
-                                                        class="items-center py-1 px-2 text-sm font-medium text-center text-white bg-orange-500 w-[100] mx-auto rounded">
-                                                        {{ $koneksipr->up_by_parts_pr_46 }}
-                                                    </div>
-                                                @endif
-                                            </td>
-                                            <td class="text-center">{{ $koneksipr->date_pr_parts_46 }}</td>
-                                            <td>
-                                                @if ($koneksipr->mny_parts_pr_46 != '')
-                                                    Rp{{ number_format($koneksipr->mny_parts_pr_46, 0, ',', '.') }}
-                                                @endif
-                                            </td>
-
-                                            <td>
-                                                @if (
-                                                    ($koneksipr->status_pr_01 == '-' || $koneksipr->status_pr_01 == 'Revisi Purchasing - PR') &&
-                                                        $koneksipr->pr_parts_46 == '')
-                                                    <button type="button"
-                                                        class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
-                                                        data-modal-target="modala146" data-modal-show="modala146"
-                                                        data-modal-toggle="modala146">
-                                                        + Tambah dokumen
-                                                    </button>
-                                                @elseif (
-                                                    ($koneksipr->status_pr_01 == '-' || $koneksipr->status_pr_01 == 'Revisi Purchasing - PR') &&
-                                                        $koneksipr->pr_parts_46 != '' &&
-                                                        $koneksipr->status_pr_01 != 'Complete' &&
-                                                        $koneksipr->status_pr_01 != 'Waiting Approval')
-                                                    <div class="justify-center flex space-x-2">
-                                                        <button type="button"
-                                                            class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
-                                                            data-modal-target="modal146" data-modal-show="modal146"
-                                                            data-modal-toggle="modal146">Ubah</button>
-                                                    </div>
-                                                @endif
-                                            </td>
-                                            <input type="text" hidden name="as_up_by_parts_pr_46"
-                                                value="{{ Auth::user()->first_name }}">
-                                            <input type="date" hidden name="as_date_pr_parts_46"
-                                                value="{{ date('Y-m-d') }}">
-
-                                        </tr>
-                                        {{-- akhir batas 30-36 --}}
-                                        {{-- parts 47 parts --}}
-                                        <tr
-                                            class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
-                                            <td class="py-4 font-bold text-center">47.</td>
-                                            <td class="flex items-center my-4">
-
-                                                @if ($koneksipr->pr_parts_47 != '')
-                                                    <a href="{{ asset('storage/supervisor/project/03_01_PR/' . $koneksipr->pr_parts_47) }}"
-                                                        target="blank"
-                                                        class=" py-2 px-1 rounded  hover:bg-gray-200   ">
-                                                        <svg width="22" height="17" viewBox="0 0 22 17"
-                                                            fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                            <path
-                                                                d="M11 0C6 0 1.73 3.11 0 7.5C1.73 11.89 6 15 11 15C11.36 15 11.72 15 12.08 14.95C12.03 14.63 12 14.32 12 14C12 13.44 12.08 12.88 12.24 12.34C11.83 12.44 11.42 12.5 11 12.5C8.24 12.5 6 10.26 6 7.5C6 4.74 8.24 2.5 11 2.5C13.76 2.5 16 4.74 16 7.5C16 7.79 15.97 8.09 15.92 8.38C16.58 8.13 17.29 8 18 8C19.17 8 20.31 8.34 21.29 9C21.56 8.5 21.8 8 22 7.5C20.27 3.11 16 0 11 0ZM11 4.5C9.34 4.5 8 5.84 8 7.5C8 9.16 9.34 10.5 11 10.5C12.66 10.5 14 9.16 14 7.5C14 5.84 12.66 4.5 11 4.5ZM17 10.5V12.5H21V14.5H17V16.5L14 13.5L17 10.5Z"
-                                                                fill="black" />
-                                                        </svg>
-                                                    </a>
-
-                                                    &emsp;
-                                                @endif
-                                                {{--  --}}
-                                                <a href="{{ asset('storage/supervisor/project/03_01_PR/' . $koneksipr->pr_parts_47) }}"
-                                                    target="blank" download="" class="hover:underline">
-                                                    {{ $koneksipr->pr_parts_47 }}</a>
-                                                {{-- == --}}
-
-                                            </td>
-                                            <td>
-                                                @if ($koneksipr->up_by_parts_pr_47 != '')
-                                                    <div
-                                                        class="items-center py-1 px-2 text-sm font-medium text-center text-white bg-orange-500 w-[100] mx-auto rounded">
-                                                        {{ $koneksipr->up_by_parts_pr_47 }}
-                                                    </div>
-                                                @endif
-                                            </td>
-                                            <td class="text-center">{{ $koneksipr->date_pr_parts_47 }}</td>
-                                            <td>
-                                                @if ($koneksipr->mny_parts_pr_47 != '')
-                                                    Rp{{ number_format($koneksipr->mny_parts_pr_47, 0, ',', '.') }}
-                                                @endif
-                                            </td>
-
-                                            <td>
-                                                @if (
-                                                    ($koneksipr->status_pr_01 == '-' || $koneksipr->status_pr_01 == 'Revisi Purchasing - PR') &&
-                                                        $koneksipr->pr_parts_47 == '')
-                                                    <button type="button"
-                                                        class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
-                                                        data-modal-target="modala147" data-modal-show="modala147"
-                                                        data-modal-toggle="modala147">
-                                                        + Tambah dokumen
-                                                    </button>
-                                                @elseif (
-                                                    ($koneksipr->status_pr_01 == '-' || $koneksipr->status_pr_01 == 'Revisi Purchasing - PR') &&
-                                                        $koneksipr->pr_parts_47 != '' &&
-                                                        $koneksipr->status_pr_01 != 'Complete' &&
-                                                        $koneksipr->status_pr_01 != 'Waiting Approval')
-                                                    <div class="justify-center flex space-x-2">
-                                                        <button type="button"
-                                                            class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
-                                                            data-modal-target="modal147" data-modal-show="modal147"
-                                                            data-modal-toggle="modal147">Ubah</button>
-                                                    </div>
-                                                @endif
-                                            </td>
-                                            <input type="text" hidden name="as_up_by_parts_pr_47"
-                                                value="{{ Auth::user()->first_name }}">
-                                            <input type="date" hidden name="as_date_pr_parts_47"
-                                                value="{{ date('Y-m-d') }}">
-
-                                        </tr>
-                                        {{-- parts 48 parts --}}
-                                        <tr
-                                            class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
-                                            <td class="py-4 font-bold text-center">48.</td>
-                                            <td class="flex items-center my-4">
-
-                                                @if ($koneksipr->pr_parts_48 != '')
-                                                    <a href="{{ asset('storage/supervisor/project/03_01_PR/' . $koneksipr->pr_parts_48) }}"
-                                                        target="blank"
-                                                        class=" py-2 px-1 rounded  hover:bg-gray-200   ">
-                                                        <svg width="22" height="17" viewBox="0 0 22 17"
-                                                            fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                            <path
-                                                                d="M11 0C6 0 1.73 3.11 0 7.5C1.73 11.89 6 15 11 15C11.36 15 11.72 15 12.08 14.95C12.03 14.63 12 14.32 12 14C12 13.44 12.08 12.88 12.24 12.34C11.83 12.44 11.42 12.5 11 12.5C8.24 12.5 6 10.26 6 7.5C6 4.74 8.24 2.5 11 2.5C13.76 2.5 16 4.74 16 7.5C16 7.79 15.97 8.09 15.92 8.38C16.58 8.13 17.29 8 18 8C19.17 8 20.31 8.34 21.29 9C21.56 8.5 21.8 8 22 7.5C20.27 3.11 16 0 11 0ZM11 4.5C9.34 4.5 8 5.84 8 7.5C8 9.16 9.34 10.5 11 10.5C12.66 10.5 14 9.16 14 7.5C14 5.84 12.66 4.5 11 4.5ZM17 10.5V12.5H21V14.5H17V16.5L14 13.5L17 10.5Z"
-                                                                fill="black" />
-                                                        </svg>
-                                                    </a>
-
-                                                    &emsp;
-                                                @endif
-                                                {{--  --}}
-                                                <a href="{{ asset('storage/supervisor/project/03_01_PR/' . $koneksipr->pr_parts_48) }}"
-                                                    target="blank" download="" class="hover:underline">
-                                                    {{ $koneksipr->pr_parts_48 }}</a>
-                                                {{-- == --}}
-
-                                            </td>
-                                            <td>
-                                                @if ($koneksipr->up_by_parts_pr_48 != '')
-                                                    <div
-                                                        class="items-center py-1 px-2 text-sm font-medium text-center text-white bg-orange-500 w-[100] mx-auto rounded">
-                                                        {{ $koneksipr->up_by_parts_pr_48 }}
-                                                    </div>
-                                                @endif
-                                            </td>
-                                            <td class="text-center">{{ $koneksipr->date_pr_parts_48 }}</td>
-                                            <td>
-                                                @if ($koneksipr->mny_parts_pr_48 != '')
-                                                    Rp{{ number_format($koneksipr->mny_parts_pr_48, 0, ',', '.') }}
-                                                @endif
-                                            </td>
-
-                                            <td>
-                                                @if (
-                                                    ($koneksipr->status_pr_01 == '-' || $koneksipr->status_pr_01 == 'Revisi Purchasing - PR') &&
-                                                        $koneksipr->pr_parts_48 == '')
-                                                    <button type="button"
-                                                        class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
-                                                        data-modal-target="modala148" data-modal-show="modala148"
-                                                        data-modal-toggle="modala148">
-                                                        + Tambah dokumen
-                                                    </button>
-                                                @elseif (
-                                                    ($koneksipr->status_pr_01 == '-' || $koneksipr->status_pr_01 == 'Revisi Purchasing - PR') &&
-                                                        $koneksipr->pr_parts_48 != '' &&
-                                                        $koneksipr->status_pr_01 != 'Complete' &&
-                                                        $koneksipr->status_pr_01 != 'Waiting Approval')
-                                                    <div class="justify-center flex space-x-2">
-                                                        <button type="button"
-                                                            class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
-                                                            data-modal-target="modal148" data-modal-show="modal148"
-                                                            data-modal-toggle="modal148">Ubah</button>
-                                                    </div>
-                                                @endif
-                                            </td>
-                                            <input type="text" hidden name="as_up_by_parts_pr_48"
-                                                value="{{ Auth::user()->first_name }}">
-                                            <input type="date" hidden name="as_date_pr_parts_48"
-                                                value="{{ date('Y-m-d') }}">
-
-                                        </tr>
-                                        {{-- parts 49 parts --}}
-                                        <tr
-                                            class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
-                                            <td class="py-4 font-bold text-center">49.</td>
-                                            <td class="flex items-center my-4">
-
-                                                @if ($koneksipr->pr_parts_49 != '')
-                                                    <a href="{{ asset('storage/supervisor/project/03_01_PR/' . $koneksipr->pr_parts_49) }}"
-                                                        target="blank"
-                                                        class=" py-2 px-1 rounded  hover:bg-gray-200   ">
-                                                        <svg width="22" height="17" viewBox="0 0 22 17"
-                                                            fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                            <path
-                                                                d="M11 0C6 0 1.73 3.11 0 7.5C1.73 11.89 6 15 11 15C11.36 15 11.72 15 12.08 14.95C12.03 14.63 12 14.32 12 14C12 13.44 12.08 12.88 12.24 12.34C11.83 12.44 11.42 12.5 11 12.5C8.24 12.5 6 10.26 6 7.5C6 4.74 8.24 2.5 11 2.5C13.76 2.5 16 4.74 16 7.5C16 7.79 15.97 8.09 15.92 8.38C16.58 8.13 17.29 8 18 8C19.17 8 20.31 8.34 21.29 9C21.56 8.5 21.8 8 22 7.5C20.27 3.11 16 0 11 0ZM11 4.5C9.34 4.5 8 5.84 8 7.5C8 9.16 9.34 10.5 11 10.5C12.66 10.5 14 9.16 14 7.5C14 5.84 12.66 4.5 11 4.5ZM17 10.5V12.5H21V14.5H17V16.5L14 13.5L17 10.5Z"
-                                                                fill="black" />
-                                                        </svg>
-                                                    </a>
-
-                                                    &emsp;
-                                                @endif
-                                                {{--  --}}
-                                                <a href="{{ asset('storage/supervisor/project/03_01_PR/' . $koneksipr->pr_parts_49) }}"
-                                                    target="blank" download="" class="hover:underline">
-                                                    {{ $koneksipr->pr_parts_49 }}</a>
-                                                {{-- == --}}
-
-                                            </td>
-                                            <td>
-                                                @if ($koneksipr->up_by_parts_pr_49 != '')
-                                                    <div
-                                                        class="items-center py-1 px-2 text-sm font-medium text-center text-white bg-orange-500 w-[100] mx-auto rounded">
-                                                        {{ $koneksipr->up_by_parts_pr_49 }}
-                                                    </div>
-                                                @endif
-                                            </td>
-                                            <td class="text-center">{{ $koneksipr->date_pr_parts_49 }}</td>
-                                            <td>
-                                                @if ($koneksipr->mny_parts_pr_49 != '')
-                                                    Rp{{ number_format($koneksipr->mny_parts_pr_49, 0, ',', '.') }}
-                                                @endif
-                                            </td>
-
-                                            <td>
-                                                @if (
-                                                    ($koneksipr->status_pr_01 == '-' || $koneksipr->status_pr_01 == 'Revisi Purchasing - PR') &&
-                                                        $koneksipr->pr_parts_49 == '')
-                                                    <button type="button"
-                                                        class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
-                                                        data-modal-target="modala149" data-modal-show="modala149"
-                                                        data-modal-toggle="modala149">
-                                                        + Tambah dokumen
-                                                    </button>
-                                                @elseif (
-                                                    ($koneksipr->status_pr_01 == '-' || $koneksipr->status_pr_01 == 'Revisi Purchasing - PR') &&
-                                                        $koneksipr->pr_parts_49 != '' &&
-                                                        $koneksipr->status_pr_01 != 'Complete' &&
-                                                        $koneksipr->status_pr_01 != 'Waiting Approval')
-                                                    <div class="justify-center flex space-x-2">
-                                                        <button type="button"
-                                                            class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
-                                                            data-modal-target="modal149" data-modal-show="modal149"
-                                                            data-modal-toggle="modal149">Ubah</button>
-                                                    </div>
-                                                @endif
-                                            </td>
-                                            <input type="text" hidden name="as_up_by_parts_pr_49"
-                                                value="{{ Auth::user()->first_name }}">
-                                            <input type="date" hidden name="as_date_pr_parts_49"
-                                                value="{{ date('Y-m-d') }}">
-
-                                        </tr>
-                                        {{-- 50 parts --}}
-                                        <tr
-                                            class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
-                                            <td class="py-4 font-bold text-center">50.</td>
-                                            <td class="flex items-center my-4">
-
-                                                @if ($koneksipr->pr_parts_50 != '')
-                                                    <a href="{{ asset('storage/supervisor/project/03_01_PR/' . $koneksipr->pr_parts_50) }}"
-                                                        target="blank"
-                                                        class=" py-2 px-1 rounded  hover:bg-gray-200   ">
-                                                        <svg width="22" height="17" viewBox="0 0 22 17"
-                                                            fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                            <path
-                                                                d="M11 0C6 0 1.73 3.11 0 7.5C1.73 11.89 6 15 11 15C11.36 15 11.72 15 12.08 14.95C12.03 14.63 12 14.32 12 14C12 13.44 12.08 12.88 12.24 12.34C11.83 12.44 11.42 12.5 11 12.5C8.24 12.5 6 10.26 6 7.5C6 4.74 8.24 2.5 11 2.5C13.76 2.5 16 4.74 16 7.5C16 7.79 15.97 8.09 15.92 8.38C16.58 8.13 17.29 8 18 8C19.17 8 20.31 8.34 21.29 9C21.56 8.5 21.8 8 22 7.5C20.27 3.11 16 0 11 0ZM11 4.5C9.34 4.5 8 5.84 8 7.5C8 9.16 9.34 10.5 11 10.5C12.66 10.5 14 9.16 14 7.5C14 5.84 12.66 4.5 11 4.5ZM17 10.5V12.5H21V14.5H17V16.5L14 13.5L17 10.5Z"
-                                                                fill="black" />
-                                                        </svg>
-                                                    </a>
-
-                                                    &emsp;
-                                                @endif
-                                                {{--  --}}
-                                                <a href="{{ asset('storage/supervisor/project/03_01_PR/' . $koneksipr->pr_parts_50) }}"
-                                                    target="blank" download="" class="hover:underline">
-                                                    {{ $koneksipr->pr_parts_50 }}</a>
-                                                {{-- == --}}
-
-                                            </td>
-                                            <td>
-                                                @if ($koneksipr->up_by_parts_pr_50 != '')
-                                                    <div
-                                                        class="items-center py-1 px-2 text-sm font-medium text-center text-white bg-orange-500 w-[100] mx-auto rounded">
-                                                        {{ $koneksipr->up_by_parts_pr_50 }}
-                                                    </div>
-                                                @endif
-                                            </td>
-                                            <td class="text-center">{{ $koneksipr->date_pr_parts_50 }}</td>
-                                            <td>
-                                                @if ($koneksipr->mny_parts_pr_50 != '')
-                                                    Rp{{ number_format($koneksipr->mny_parts_pr_50, 0, ',', '.') }}
-                                                @endif
-                                            </td>
-
-                                            <td>
-                                                @if (
-                                                    ($koneksipr->status_pr_01 == '-' || $koneksipr->status_pr_01 == 'Revisi Purchasing - PR') &&
-                                                        $koneksipr->pr_parts_50 == '')
-                                                    <button type="button"
-                                                        class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
-                                                        data-modal-target="modala150" data-modal-show="modala150"
-                                                        data-modal-toggle="modala150">
-                                                        + Tambah dokumen
-                                                    </button>
-                                                @elseif (
-                                                    ($koneksipr->status_pr_01 == '-' || $koneksipr->status_pr_01 == 'Revisi Purchasing - PR') &&
-                                                        $koneksipr->pr_parts_50 != '' &&
-                                                        $koneksipr->status_pr_01 != 'Complete' &&
-                                                        $koneksipr->status_pr_01 != 'Waiting Approval')
-                                                    <div class="justify-center flex space-x-2">
-                                                        <button type="button"
-                                                            class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
-                                                            data-modal-target="modal150" data-modal-show="modal150"
-                                                            data-modal-toggle="modal150">Ubah</button>
-                                                    </div>
-                                                @endif
-                                            </td>
-                                            <input type="text" hidden name="as_up_by_parts_pr_50"
-                                                value="{{ Auth::user()->first_name }}">
-                                            <input type="date" hidden name="as_date_pr_parts_50"
-                                                value="{{ date('Y-m-d') }}">
-                                        </tr>
                                     </tbody>
                                 </table>
                             </div>
@@ -4495,9 +4140,9 @@
                                     <thead class="bg-gray-300 text-gray-700">
                                         <th class="py-2 w-[5%] font-medium">No.</th>
                                         <th class="w-[45%]  font-medium">Nama File</th>
-                                        <th class="w-[11%]  font-medium">Uploaded by</th>
-                                        <th class="w-[10%]  font-medium">Last Update</th>
-                                        <th class="w-[14%]  font-medium">PR Amount</th>
+                                        <th class="w-[11%]  font-medium">Diunggah oleh</th>
+                                        <th class="w-[10%]  font-medium">Terakhir diubah</th>
+                                        <th class="w-[14%]  font-medium">Jumlah PR</th>
                                         <th class="w-[14%]  font-medium">Aksi</th>
                                     </thead>
                                     <tbody class="text-left border">
@@ -6645,9 +6290,9 @@
                                     <thead class="bg-gray-300 text-gray-700">
                                         <th class="py-2 w-[5%] font-medium">No.</th>
                                         <th class="w-[45%]  font-medium">Nama File</th>
-                                        <th class="w-[11%]  font-medium">Uploaded by</th>
-                                        <th class="w-[10%]  font-medium">Last Update</th>
-                                        <th class="w-[14%]  font-medium">PR Amount</th>
+                                        <th class="w-[11%]  font-medium">Diunggah oleh</th>
+                                        <th class="w-[10%]  font-medium">Terakhir diubah</th>
+                                        <th class="w-[14%]  font-medium">Jumlah PR</th>
                                         <th class="w-[14%]  font-medium">Aksi</th>
                                     </thead>
                                     <tbody class="text-left border">
@@ -7419,8 +7064,9 @@
         <thead class="bg-gray-300 text-gray-700">
             <th class="py-2 w-[5%] font-medium">No.</th>
             <th class="w-[45%]  font-medium">Nama File</th>
-            <th class="w-[11%]  font-medium">Uploaded by</th>
-            <th class="w-[10%]  font-medium">Last Update</th>
+            <th class="w-[11%]  font-medium">Diunggah oleh</th>
+            <th class="w-[10%]  font-medium">Terakhir diubah</th>
+            <th class="w-[14%]  font-medium">Jumlah PR</th>
             <th class="w-[14%]  font-medium">Aksi</th>
         </thead>
         <tbody class="text-left border">
@@ -7459,12 +7105,18 @@
                 </td>
                 <td class="text-center">{{ $koneksipr->date_pr_rfq_1 }}</td>
                 <td>
+                    @if ($koneksipr->mny_rfq_pr_1 != '')
+                        Rp{{ number_format($koneksipr->mny_rfq_pr_1, 0, ',', '.') }}
+                    @endif
+                </td>
+                <td>
                     @if (
                         ($koneksipr->status_pr_01 == '-' || $koneksipr->status_pr_01 == 'Revisi Purchasing - PR') &&
                             $koneksipr->pr_rfq_1 == '')
-                        <input type="file" name="as_pr_rfq_1" id="fileInput_pr_rfq_1" style="display: none;">
-                        <button type="button" onclick="openFileInput('pr_rfq_1')"
-                            class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md">
+                        <button type="button"
+                            class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
+                            data-modal-target="modala41" data-modal-show="modala41"
+                            data-modal-toggle="modala41">
                             + Tambah dokumen
                         </button>
                     @elseif (
@@ -7474,16 +7126,14 @@
                             $koneksipr->status_pr_01 != 'Waiting Approval')
                         <div class="justify-center flex space-x-2">
                             <button type="button"
-                                class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
-                                data-modal-target="modal41" data-modal-show="modal41" data-modal-toggle="modal41">
-                                Ubah
-                            </button>
+                                class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                data-modal-target="modal41" data-modal-show="modal41"
+                                data-modal-toggle="modal41">Ubah</button>
                         </div>
                     @endif
                 </td>
                 <input type="text" hidden name="as_up_by_rfq_pr_1" value="{{ Auth::user()->first_name }}">
                 <input type="date" hidden name="as_date_pr_rfq_1" value="{{ date('Y-m-d') }}">
-
             </tr>
             {{-- 2 --}}
             <tr class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
@@ -7517,14 +7167,19 @@
                     @endif
                 </td>
                 <td class="text-center">{{ $koneksipr->date_pr_rfq_2 }}</td>
-
+                <td>
+                    @if ($koneksipr->mny_rfq_pr_2 != '')
+                        Rp{{ number_format($koneksipr->mny_rfq_pr_2, 0, ',', '.') }}
+                    @endif
+                </td>
                 <td>
                     @if (
                         ($koneksipr->status_pr_01 == '-' || $koneksipr->status_pr_01 == 'Revisi Purchasing - PR') &&
                             $koneksipr->pr_rfq_2 == '')
-                        <input type="file" name="as_pr_rfq_2" id="fileInput_pr_rfq_2" style="display: none;">
-                        <button type="button" onclick="openFileInput('pr_rfq_2')"
-                            class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md">
+                        <button type="button"
+                            class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
+                            data-modal-target="modala42" data-modal-show="modala42"
+                            data-modal-toggle="modala42">
                             + Tambah dokumen
                         </button>
                     @elseif (
@@ -7534,10 +7189,9 @@
                             $koneksipr->status_pr_01 != 'Waiting Approval')
                         <div class="justify-center flex space-x-2">
                             <button type="button"
-                                class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
-                                data-modal-target="modal42" data-modal-show="modal42" data-modal-toggle="modal42">
-                                Ubah
-                            </button>
+                                class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                data-modal-target="modal42" data-modal-show="modal42"
+                                data-modal-toggle="modal42">Ubah</button>
                         </div>
                     @endif
                 </td>
@@ -7580,14 +7234,19 @@
                     @endif
                 </td>
                 <td class="text-center">{{ $koneksipr->date_pr_rfq_3 }}</td>
-
+                <td>
+                    @if ($koneksipr->mny_rfq_pr_3 != '')
+                        Rp{{ number_format($koneksipr->mny_rfq_pr_3, 0, ',', '.') }}
+                    @endif
+                </td>
                 <td>
                     @if (
                         ($koneksipr->status_pr_01 == '-' || $koneksipr->status_pr_01 == 'Revisi Purchasing - PR') &&
                             $koneksipr->pr_rfq_3 == '')
-                        <input type="file" name="as_pr_rfq_3" id="fileInput_pr_rfq_3" style="display: none;">
-                        <button type="button" onclick="openFileInput('pr_rfq_3')"
-                            class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md">
+                        <button type="button"
+                            class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
+                            data-modal-target="modala43" data-modal-show="modala43"
+                            data-modal-toggle="modala43">
                             + Tambah dokumen
                         </button>
                     @elseif (
@@ -7597,10 +7256,9 @@
                             $koneksipr->status_pr_01 != 'Waiting Approval')
                         <div class="justify-center flex space-x-2">
                             <button type="button"
-                                class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
-                                data-modal-target="modal43" data-modal-show="modal43" data-modal-toggle="modal43">
-                                Ubah
-                            </button>
+                                class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                data-modal-target="modal43" data-modal-show="modal43"
+                                data-modal-toggle="modal43">Ubah</button>
                         </div>
                     @endif
                 </td>
@@ -7642,14 +7300,19 @@
                     @endif
                 </td>
                 <td class="text-center">{{ $koneksipr->date_pr_rfq_4 }}</td>
-
+                <td>
+                    @if ($koneksipr->mny_rfq_pr_4 != '')
+                        Rp{{ number_format($koneksipr->mny_rfq_pr_4, 0, ',', '.') }}
+                    @endif
+                </td>
                 <td>
                     @if (
                         ($koneksipr->status_pr_01 == '-' || $koneksipr->status_pr_01 == 'Revisi Purchasing - PR') &&
                             $koneksipr->pr_rfq_4 == '')
-                        <input type="file" name="as_pr_rfq_4" id="fileInput_pr_rfq_4" style="display: none;">
-                        <button type="button" onclick="openFileInput('pr_rfq_4')"
-                            class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md">
+                        <button type="button"
+                            class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
+                            data-modal-target="modala44" data-modal-show="modala44"
+                            data-modal-toggle="modala44">
                             + Tambah dokumen
                         </button>
                     @elseif (
@@ -7659,10 +7322,9 @@
                             $koneksipr->status_pr_01 != 'Waiting Approval')
                         <div class="justify-center flex space-x-2">
                             <button type="button"
-                                class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
-                                data-modal-target="modal44" data-modal-show="modal44" data-modal-toggle="modal44">
-                                Ubah
-                            </button>
+                                class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                data-modal-target="modal44" data-modal-show="modal44"
+                                data-modal-toggle="modal44">Ubah</button>
                         </div>
                     @endif
                 </td>
@@ -7704,14 +7366,19 @@
                     @endif
                 </td>
                 <td class="text-center">{{ $koneksipr->date_pr_rfq_5 }}</td>
-
+                <td>
+                    @if ($koneksipr->mny_rfq_pr_5 != '')
+                        Rp{{ number_format($koneksipr->mny_rfq_pr_5, 0, ',', '.') }}
+                    @endif
+                </td>
                 <td>
                     @if (
                         ($koneksipr->status_pr_01 == '-' || $koneksipr->status_pr_01 == 'Revisi Purchasing - PR') &&
                             $koneksipr->pr_rfq_5 == '')
-                        <input type="file" name="as_pr_rfq_5" id="fileInput_pr_rfq_5" style="display: none;">
-                        <button type="button" onclick="openFileInput('pr_rfq_5')"
-                            class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md">
+                        <button type="button"
+                            class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
+                            data-modal-target="modala45" data-modal-show="modala45"
+                            data-modal-toggle="modala45">
                             + Tambah dokumen
                         </button>
                     @elseif (
@@ -7721,16 +7388,14 @@
                             $koneksipr->status_pr_01 != 'Waiting Approval')
                         <div class="justify-center flex space-x-2">
                             <button type="button"
-                                class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
-                                data-modal-target="modal45" data-modal-show="modal45" data-modal-toggle="modal45">
-                                Ubah
-                            </button>
+                                class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                data-modal-target="modal45" data-modal-show="modal45"
+                                data-modal-toggle="modal45">Ubah</button>
                         </div>
                     @endif
                 </td>
                 <input type="text" hidden name="as_up_by_rfq_pr_5" value="{{ Auth::user()->first_name }}">
                 <input type="date" hidden name="as_date_pr_rfq_5" value="{{ date('Y-m-d') }}">
-
             </tr>
         </tbody>
     </table>
@@ -7880,6 +7545,50 @@
     </div>
 @endforeach
 
+{{-- tambah rfq per --}}
+@foreach ($t as $index => $number)
+    <div id="modala4{{ $number }}"
+        class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 inset-0 justify-center items-center w-full max-h-full">
+        <div class="relative p-4 w-full max-w-2xl max-h-full">
+            <!-- Modal content -->
+            <div class="relative bg-white rounded-lg shadow">
+                <!-- Modal header -->
+                <div class="flex items-center justify-between px-5 py-3 border-b rounded-t">
+                    <p class="text-2xl font-semibold text-gray-900 font-mono">
+                        Tambah dokumen dan nilai finansial - RFQ PER
+                    </p>
+                    <button type="button"
+                        class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center"
+                        onclick="simulateEscape()">
+                        <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                            fill="none" viewBox="0 0 14 14">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+                        </svg>
+                        <span class="sr-only">Close modal</span>
+                    </button>
+                </div>
+                <div class="items-center px-5 py-2 border-t border-gray-200 rounded-b">
+                    <div class="items-center justify-center w-full border my-4">
+                        <div class="grid grid-cols-2">
+                            <input type="file"name="as_pr_rfq_{{ $number }}" id="">
+                            <div class="">
+                                <input type="number" id="base-input"
+                                    class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
+                                    placeholder="Rp{{ number_format($koneksipr->{'as_mny_rfq_pr_' . $number}, 0, ',', '.') }}"
+                                    min="0" max="999999999999" oninput="validity.valid||(value='');"
+                                    name="as_mny_rfq_pr_{{ $number }}">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button type="submit"
+                    class="bg-orange-500 w-full hover:bg-orange-600 text-white font-bold py-2 rounded-b-lg shadow-md">Submit</button>
+            </div>
+        </div>
+    </div>
+@endforeach
+
 
 {{-- modal ubah --}}
 @php
@@ -7953,7 +7662,8 @@
                                 <div class="">
                                     <input type="number" id="base-input"
                                         class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                        placeholder="Rp{{ number_format($koneksipr->{'mny_parts_pr_' . $number}, 0, ',', '.') }}"
+                                        {{-- placeholder="Rp{{ number_format($koneksipr->{'mny_parts_pr_' . $number}, 0, ',', '.') }}" --}}
+                                        value="{{$koneksipr->{'mny_parts_pr_' . $number}?? ''}}"
                                         min="0" max="999999999999" oninput="validity.valid||(value='');"
                                         name="as_mny_parts_pr_{{ $number }}">
                                 </div>
@@ -8036,7 +7746,8 @@
                                 <div class="">
                                     <input type="number" id="base-input"
                                         class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                        placeholder="Rp{{ number_format($koneksipr->{'mny_jasa_pr_' . $number}, 0, ',', '.') }}"
+                                        {{-- placeholder="Rp{{ number_format($koneksipr->{'mny_jasa_pr_' . $number}, 0, ',', '.') }}" --}}
+                                        value="{{$koneksipr->{'mny_jasa_pr_' . $number}?? ''}}"
                                         min="0" max="999999999999" oninput="validity.valid||(value='');"
                                         name="as_mny_jasa_pr_{{ $number }}">
                                 </div>
@@ -8117,7 +7828,8 @@
                                 <div class="">
                                     <input type="number" id="base-input"
                                         class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                        placeholder="Rp{{ number_format($koneksipr->{'mny_mnftr_pr_' . $number}, 0, ',', '.') }}"
+                                        {{-- placeholder="Rp{{ number_format($koneksipr->{'mny_mnftr_pr_' . $number}, 0, ',', '.') }}" --}}
+                                        value="{{$koneksipr->{'mny_mnftr_pr_' . $number}?? ''}}"
                                         min="0" max="999999999999" oninput="validity.valid||(value='');"
                                         name="as_mny_mnftr_pr_{{ $number }}">
                                 </div>
@@ -8142,7 +7854,7 @@
                 <!-- Modal header -->
                 <div class="flex items-center justify-between px-5 py-3 border-b rounded-t">
                     <p class="text-2xl font-semibold text-gray-900 font-mono">
-                        Ubah dokumen unggahan - PER
+                        Ubah dokumen unggahan - RFQ PER
                     </p>
                     <button type="button"
                         class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center"
@@ -8158,13 +7870,21 @@
                 <!-- Modal body -->
                 <div class="py-2 px-5">
                     <p class="font-light text-lg mb-2">Dokumen sebelumnya</p>
-                    <div class="grid grid-cols-2 space-x-2">
+                    <div class="grid grid-cols-3 space-x-2">
                         <div>
                             <p class="text-base leading-relaxed text-gray-600">
                                 Nama dokumen:
                             </p>
                             <p class="text-gray-900">
                                 {{ $koneksipr->{'pr_rfq_' . $number} }}
+                            </p>
+                        </div>
+                        <div>
+                            <p class="text-base leading-relaxed text-gray-600">
+                                Jumlah:
+                            </p>
+                            <p class="text-gray-900">
+                                Rp{{ number_format($koneksipr->{'mny_rfq_pr_' . $number}, 0, ',', '.') }}
                             </p>
                         </div>
                         <div>
@@ -8186,7 +7906,15 @@
                         untuk dapat mengubah ajuan</p>
                     <div class="items-center justify-center w-full border my-4">
                         @if ($koneksipr->{'pr_rfq_' . $number} != '')
+                        <div class="grid grid-cols-2">
                             <input type="file"name="as_pr_rfq_{{ $number }}" id="">
+                            <input type="number" id="base-input"
+                                    class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
+                                    {{-- placeholder="Rp{{ number_format($koneksipr->{'mny_rfq_pr_' . $number}, 0, ',', '.') }}" --}}
+                                    value="{{$koneksipr->{'mny_rfq_pr_' . $number}?? ''}}"
+                                    min="0" max="999999999999" oninput="validity.valid||(value='');"
+                                    name="as_mny_rfq_pr_{{ $number }}">
+                        </div>
                         @else()
                         @endif
                     </div>
@@ -8256,6 +7984,7 @@
             $koneksipr->pr_parts_48 ||
             $koneksipr->pr_parts_49 ||
             $koneksipr->pr_parts_50 ||
+
             // pekerjaan jasa
             $koneksipr->pr_jasa_1 ||
             $koneksipr->pr_jasa_2 ||
@@ -8288,22 +8017,22 @@
             $koneksipr->pr_jasa_29 ||
             $koneksipr->pr_jasa_30 ||
             //manufaktur
-            $koneksipr->pr_jasa_1 ||
-            $koneksipr->pr_jasa_2 ||
-            $koneksipr->pr_jasa_3 ||
-            $koneksipr->pr_jasa_4 ||
-            $koneksipr->pr_jasa_5 ||
-            $koneksipr->pr_jasa_6 ||
-            $koneksipr->pr_jasa_7 ||
-            $koneksipr->pr_jasa_8 ||
-            $koneksipr->pr_jasa_9 ||
-            $koneksipr->pr_jasa_10 ||
+            $koneksipr->pr_mnftr_1 ||
+            $koneksipr->pr_mnftr_2 ||
+            $koneksipr->pr_mnftr_3 ||
+            $koneksipr->pr_mnftr_4 ||
+            $koneksipr->pr_mnftr_5 ||
+            $koneksipr->pr_mnftr_6 ||
+            $koneksipr->pr_mnftr_7 ||
+            $koneksipr->pr_mnftr_8 ||
+            $koneksipr->pr_mnftr_9 ||
+            $koneksipr->pr_mnftr_10 ||
             //rfq per
-            $koneksipr->pr_jasa_1 ||
-            $koneksipr->pr_jasa_2 ||
-            $koneksipr->pr_jasa_3 ||
-            $koneksipr->pr_jasa_4 ||
-            $koneksipr->pr_jasa_5 != '')
+            $koneksipr->pr_rfq_1 ||
+            $koneksipr->pr_rfq_2 ||
+            $koneksipr->pr_rfq_3 ||
+            $koneksipr->pr_rfq_4 ||
+            $koneksipr->pr_rfq_5 != '')
         <p class="mb-1 mt-3">
             Pastikan unggahan dokumen sudah sesuai dengan proyek.
         </p>

@@ -4,6 +4,16 @@
 <div class="my-20 mx-10">
     <p class="text-3xl font-bold font-mono mt-4">Formulir Kerja Standar</p>
     <p class="text-base font-normal text-gray-500 mb-3">Kelola formulir kerja untuk tahapan proyek.</p>
+    @if ($errors->any())
+        <div
+            class="flex p-4 mb-4 text-sm text-red-700 bg-red-100 rounded-lg  alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li class="font-bold">{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
     @if (Session::has('status'))
         <div id="alert-3" class="flex p-4 mb-4 bg-green-100 rounded-lg dark:bg-green-200" role="alert">
             <svg aria-hidden="true" class="flex-shrink-0 w-5 h-5 text-green-700 dark:text-green-800" fill="currentColor"
@@ -12,14 +22,10 @@
                     d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"
                     clip-rule="evenodd"></path>
             </svg>
-
-
             <div class="ml-3 text-sm font-medium text-green-700 dark:text-green-800">
                 {{-- Tampilkan isi teks message --}}
                 {{ Session::get('message') }}
             </div>
-
-
             <button type="button"
                 class="ml-auto -mx-1.5 -my-1.5 bg-green-100 text-green-500 rounded-lg focus:ring-2 focus:ring-green-400 p-1.5 hover:bg-green-200 inline-flex h-8 w-8 dark:bg-green-200"
                 data-dismiss-target="#alert-3" aria-label="Close">
@@ -34,7 +40,6 @@
         </div>
     @endif
     {{-- end notifikasi --}}
-
     @if ($spCount == 0)
         <div class="flex flex-col items-center justify-center mt-44">
             <p>Klik Tombol dibawah untuk mulai mengelola Formulir Kerja Standar 6 Step Project</p>
@@ -148,7 +153,7 @@
                                                         </button>
                                                     </div>
                                                 @else
-                                                    <input type="file" accept=".docx, .xlsx, .dwg, .txt" name="as_file_fr_sheet_form" id="">
+                                                    <input type="file" accept=".docx, .xlsx, .dwg, .txt" name="as_file_fr_sheet_form" id="fr">
                                                 @endif
                                             </td>
                                             <input type="text" hidden name="as_up_fr_sheet_form"

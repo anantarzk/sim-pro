@@ -244,31 +244,6 @@ class PAYproject extends Model
         'up_by_parts_pay_45',
         'date_pay_parts_45',
 
-        'pay_parts_46',
-        'mny_parts_pay_46',
-        'up_by_parts_pay_46',
-        'date_pay_parts_46',
-
-        'pay_parts_47',
-        'mny_parts_pay_47',
-        'up_by_parts_pay_47',
-        'date_pay_parts_47',
-
-        'pay_parts_48',
-        'mny_parts_pay_48',
-        'up_by_parts_pay_48',
-        'date_pay_parts_48',
-
-        'pay_parts_49',
-        'mny_parts_pay_49',
-        'up_by_parts_pay_49',
-        'date_pay_parts_49',
-
-        'pay_parts_50',
-        'mny_parts_pay_50',
-        'up_by_parts_pay_50',
-        'date_pay_parts_50',
-
         // jasa
         'pay_jasa_1',
         'up_by_jasa_pay_1',

@@ -1,5 +1,5 @@
 @extends('layouts.layout_supervisor')
-@section('title_page', 'Input Proyek')
+@section('title_page', 'Tambah Proyek')
 
 
 <div class="container my-20 mx-auto">
@@ -10,10 +10,19 @@
     </div>
     <div class="mx-6 px-8 pt-5 pb-3 bg-white shadow-md rounded">
 
-        <p class="font-bold text-gray-800 text-3xl mb-3">Tambah Proyek:</p>
+        <p class="font-semibold text-gray-800 text-3xl mb-3">Tambah Proyek:</p>
 
         {{-- Notifikasi --}}
-
+        @if ($errors->any())
+        <div
+            class="flex p-4 mb-4 text-sm text-red-700 bg-red-100 rounded-lg  alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li class="font-bold">{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
         {{-- Notifikasi sukses --}}
         {{-- Mengambil sesion status --}}
         @if (Session::has('status'))
@@ -67,11 +76,11 @@
                         placeholder=" " required="">
                     <label for="floating_company"
                         class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-orange-500 peer-focus:dark:text-orange-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
-                        IO Number<span class="text-red-600">*</span>
+                        IO Number (harus tepat 12 digit)<span class="text-red-600">*</span>
                     </label>
                 </div>
                 <div class="relative z-0 mb-6 w-full group">
-                    <input type="number" name="budget_amount" id="floating_company" {{-- oninput="formatAngka(this)" --}}
+                    <input type="text" name="budget_amount" id="floating_company" oninput="formatAngka(this)"
                         class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300  [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none  focus:outline-none focus:ring-0 focus:border-orange-500 peer"
                         placeholder=" ">
                     <label for="floating_company"
@@ -198,7 +207,7 @@
                 <div class="relative z-0 w-full group">
                     <select id="underline_select" name="pic_1_me"
                         class="block py-2.5 px-0 w-full text-sm text-gray-500 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-gray-400 focus:outline-none focus:ring-0 focus:border-orange-500 peer">
-                        <option disabled selected="" value="">Mechanical<span class="text-red-600">*</span></option>
+                        <option disabled selected="" value="">Mechanical</option>
                         <option disabled value="">Pilih PIC : </option>
                         @foreach ($users as $pic2)
                             @if ($pic2->section == 'Mechanical')
@@ -214,7 +223,7 @@
                 <div class="relative z-0 w-full group">
                     <select id="underline_select" name="pic_2_el"
                         class="block py-2.5 px-0 w-full text-sm text-gray-500 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-gray-400 focus:outline-none focus:ring-0 focus:border-orange-500 peer">
-                        <option disabled selected="" value="">Electrical<span class="text-red-600">*</span></option>
+                        <option disabled selected="" value="">Electrical</option>
                         <option disabled value="">Pilih PIC : </option>
                         @foreach ($users as $pic2)
                             @if ($pic2->section == 'Electrical')
@@ -230,7 +239,7 @@
                 <div class="relative z-0 w-full group">
                     <select id="underline_select" name="pic_3_mit"
                         class="block py-2.5 px-0 w-full text-sm text-gray-500 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-gray-400 focus:outline-none focus:ring-0 focus:border-orange-500 peer">
-                        <option disabled selected="" value="">Manufacturing IT<span class="text-red-600">*</span></option>
+                        <option disabled selected="" value="">Manufacturing IT</option>
                         <option disabled value="">Pilih PIC : </option>
                         @foreach ($users as $pic2)
                             @if ($pic2->section == 'Manufacturing IT')
@@ -256,14 +265,14 @@
 
     <script>
      function formatAngka(input) {
-            // Menghilangkan karakter selain angka
-            let angka = input.value.replace(/[^\d]/g, '');
+        // Menghilangkan karakter selain angka
+        let angka = input.value.replace(/[^\d]/g, '');
 
-            // Menambahkan tanda titik setiap ribuan
-            angka = angka.replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+        // Menambahkan tanda titik setiap ribuan
+        angka = angka.replace(/\B(?=(\d{3})+(?!\d))/g, '.');
 
-            // Update nilai input
-            input.value = angka;
-        }
+        // Update nilai input
+        input.value = angka;
+    }
     </script>
 </div>

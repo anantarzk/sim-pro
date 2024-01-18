@@ -587,9 +587,6 @@
     @else
     {{-- Awal progress file --}}
     <div class="bg-white mt-3 w-full rounded-md shadow-md p-3">
-
-
-
         {{-- awal stepper khusus purchasing --}}
         <div class="max-w-2xl mx-auto mb-16 mt-2">
 
@@ -712,7 +709,8 @@
             {{-- status approval row --}}
             <div class="flex">
                 <p>Diperiksa oleh: &nbsp;
-                <div class="items-center py-1 px-2 text-sm font-medium text-center text-white bg-orange-500 mr-2 rounded">
+                <div
+                    class="items-center py-1 px-2 text-sm font-medium text-center text-white bg-orange-500 mr-2 rounded">
                     {{ $koneksipo->approval_by }}
                 </div>
                 </p>
@@ -802,7 +800,7 @@
         {{-- selesai status approval row --}}
 
         {{-- Yang diganti pertahapnya --}}
-        <form action="" method="post" enctype="multipart/form-data">
+        <form action="" method="post" enctype="multipart/form-data" id="uploadForm">
             @csrf
             @method('PUT')
             {{-- atas form --}}
@@ -864,23 +862,19 @@
                         <div class="overflow-x-auto rounded-md mb-5 max-h-screen overflow-y-auto border">
                             <table class="w-full ">
                                 <thead class="bg-gray-300 text-gray-700 sticky top-0">
-                                    <th class="py-2 w-[5%]  font-medium">No.</th>
-                                    <th class="w-[45%]  font-medium">Nama File</th>
-                                    <th class="w-[12%]  font-medium">Uploaded by</th>
-                                    <th class="w-[12%]  font-medium">Last Update</th>
-                                    <th class="w-[11%]  font-medium">PA Amount</th>
-                                    <th class="w-[15%]  font-medium">Aksi</th>
+                                    <th class="py-2 w-[5%] font-medium">No.</th>
+                                        <th class="w-[45%]  font-medium">Nama File</th>
+                                        <th class="w-[11%]  font-medium">Uploaded by</th>
+                                        <th class="w-[10%]  font-medium">Last Update</th>
+                                        <th class="w-[14%]  font-medium">PO Amount</th>
+                                        <th class="w-[14%]  font-medium">Aksi</th>
                                 </thead>
                                 <tbody class="text-left border">
                                     {{-- 1 --}}
                                     <tr
                                         class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
                                         <td class="py-4 font-bold text-center">1.</td>
-                                        @if ($koneksipo->po_parts_1 != '')
-                                            <td class="flex items-center my-4">
-                                            @else
-                                            <td class="flex items-center my-10">
-                                        @endif
+                                        <td class="flex items-center my-4">
                                         @if ($koneksipo->po_parts_1 != '')
                                             <a href="{{ asset('storage/supervisor/project/03_03_PR/' . $koneksipo->po_parts_1) }}"
                                                 target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
@@ -891,7 +885,6 @@
                                                         fill="black" />
                                                 </svg>
                                             </a>
-
                                             &emsp;
                                         @endif
                                         {{--  --}}
@@ -917,23 +910,29 @@
                                         </td>
 
                                         <td class="space-y-2 py-3 px-2">
-                                            @if ($koneksipo->po_parts_1 != '')
-                                                <div class="justify-center flex space-x-2">
+                                            @if (
+                                                    ($koneksipo->status_po_03 == '-' || $koneksipo->status_po_03 == 'Revisi Purchasing - PO') &&
+                                                        $koneksipo->po_parts_1 == '')
                                                     <button type="button"
-                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
-                                                        data-modal-target="modal11" data-modal-show="modal11"
-                                                        data-modal-toggle="modal11">Ubah</button>
-                                                </div>
-                                            @else
-                                                <input type="file" name="as_po_parts_1" id="">
-                                                <div class="">
-                                                    <input type="number"
-                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PO)" min="0"
-                                                        max="999999999999" oninput="validity.valid||(value='');"
-                                                        name="as_mny_parts_po_1">
-                                                </div>
-                                            @endif
+                                                        class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
+                                                        data-modal-target="modala11" data-modal-show="modala11"
+                                                        data-modal-toggle="modala11">
+                                                        + Tambah dokumen
+                                                    </button>
+                                                @elseif (
+                                                    ($koneksipo->status_po_03 == '-' || $koneksipo->status_po_03 == 'Revisi Purchasing - PO') &&
+                                                        $koneksipo->po_parts_1 != '' &&
+                                                        $koneksipo->status_po_03 != 'Complete' &&
+                                                        $koneksipo->status_po_03 != 'Waiting Approval')
+                                                    <div class="justify-center flex space-x-2">
+                                                        <button type="button"
+                                                            class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                            data-modal-target="modal11" data-modal-show="modal11"
+                                                            data-modal-toggle="modal11">
+                                                            Ubah
+                                                        </button>
+                                                    </div>
+                                                @endif
                                         </td>
                                         <input type="text" hidden name="as_up_by_parts_po_1"
                                             value="{{ Auth::user()->first_name }}">
@@ -945,11 +944,7 @@
                                     <tr
                                         class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
                                         <td class="py-4 font-bold text-center">2.</td>
-                                        @if ($koneksipo->po_parts_2 != '')
-                                            <td class="flex items-center my-4">
-                                            @else
-                                            <td class="flex items-center my-10">
-                                        @endif
+                                        <td class="flex items-center my-4">
                                         @if ($koneksipo->po_parts_2 != '')
                                             <a href="{{ asset('storage/supervisor/project/03_03_PR/' . $koneksipo->po_parts_2) }}"
                                                 target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
@@ -986,23 +981,29 @@
                                         </td>
 
                                         <td class="space-y-2 py-3 px-2">
-                                            @if ($koneksipo->po_parts_2 != '')
-                                                <div class="justify-center flex space-x-2">
+                                            @if (
+                                                    ($koneksipo->status_po_03 == '-' || $koneksipo->status_po_03 == 'Revisi Purchasing - PO') &&
+                                                        $koneksipo->po_parts_2 == '')
                                                     <button type="button"
-                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
-                                                        data-modal-target="modal12" data-modal-show="modal12"
-                                                        data-modal-toggle="modal12">Ubah</button>
-                                                </div>
-                                            @else
-                                                <input type="file" name="as_po_parts_2" id="">
-                                                <div class="">
-                                                    <input type="number" id="base-input"
-                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PO)" min="0"
-                                                        max="999999999999" oninput="validity.valid||(value='');"
-                                                        name="as_mny_parts_po_2">
-                                                </div>
-                                            @endif
+                                                        class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
+                                                        data-modal-target="modala12" data-modal-show="modala12"
+                                                        data-modal-toggle="modala12">
+                                                        + Tambah dokumen
+                                                    </button>
+                                                @elseif (
+                                                    ($koneksipo->status_po_03 == '-' || $koneksipo->status_po_03 == 'Revisi Purchasing - PO') &&
+                                                        $koneksipo->po_parts_2 != '' &&
+                                                        $koneksipo->status_po_03 != 'Complete' &&
+                                                        $koneksipo->status_po_03 != 'Waiting Approval')
+                                                    <div class="justify-center flex space-x-2">
+                                                        <button type="button"
+                                                            class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                            data-modal-target="modal12" data-modal-show="modal12"
+                                                            data-modal-toggle="modal12">
+                                                            Ubah
+                                                        </button>
+                                                    </div>
+                                                @endif
                                         </td>
                                         <input type="text" hidden name="as_up_by_parts_po_2"
                                             value="{{ Auth::user()->first_name }}">
@@ -1015,7 +1016,7 @@
                                     <tr
                                         class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
                                         <td class="py-4 font-bold text-center">3.</td>
-                                        <td class="flex items-center my-10">
+                                        <td class="flex items-center my-4">
 
                                             @if ($koneksipo->po_parts_3 != '')
                                                 <a href="{{ asset('storage/supervisor/project/03_03_PR/' . $koneksipo->po_parts_3) }}"
@@ -1053,21 +1054,27 @@
                                         </td>
 
                                         <td class="space-y-2 py-3 px-2">
-                                            @if ($koneksipo->po_parts_3 != '')
+                                            @if (
+                                                ($koneksipo->status_po_03 == '-' || $koneksipo->status_po_03 == 'Revisi Purchasing - PO') &&
+                                                    $koneksipo->po_parts_3 == '')
+                                                <button type="button"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
+                                                    data-modal-target="modala13" data-modal-show="modala13"
+                                                    data-modal-toggle="modala13">
+                                                    + Tambah dokumen
+                                                </button>
+                                            @elseif (
+                                                ($koneksipo->status_po_03 == '-' || $koneksipo->status_po_03 == 'Revisi Purchasing - PO') &&
+                                                    $koneksipo->po_parts_3 != '' &&
+                                                    $koneksipo->status_po_03 != 'Complete' &&
+                                                    $koneksipo->status_po_03 != 'Waiting Approval')
                                                 <div class="justify-center flex space-x-2">
                                                     <button type="button"
-                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                         data-modal-target="modal13" data-modal-show="modal13"
-                                                        data-modal-toggle="modal13">Ubah</button>
-                                                </div>
-                                            @else
-                                                <input type="file" name="as_po_parts_3" id="">
-                                                <div class="">
-                                                    <input type="number" id="base-input"
-                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PO)" min="0"
-                                                        max="999999999999" oninput="validity.valid||(value='');"
-                                                        name="as_mny_parts_po_3">
+                                                        data-modal-toggle="modal13">
+                                                        Ubah
+                                                    </button>
                                                 </div>
                                             @endif
                                         </td>
@@ -1082,7 +1089,7 @@
                                     <tr
                                         class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
                                         <td class="py-4 font-bold text-center">4.</td>
-                                        <td class="flex items-center my-10">
+                                        <td class="flex items-center my-4">
 
                                             @if ($koneksipo->po_parts_4 != '')
                                                 <a href="{{ asset('storage/supervisor/project/03_03_PR/' . $koneksipo->po_parts_4) }}"
@@ -1120,21 +1127,27 @@
                                         </td>
 
                                         <td class="space-y-2 py-3 px-2">
-                                            @if ($koneksipo->po_parts_4 != '')
+                                            @if (
+                                                ($koneksipo->status_po_03 == '-' || $koneksipo->status_po_03 == 'Revisi Purchasing - PO') &&
+                                                    $koneksipo->po_parts_4 == '')
+                                                <button type="button"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
+                                                    data-modal-target="modala14" data-modal-show="modala14"
+                                                    data-modal-toggle="modala14">
+                                                    + Tambah dokumen
+                                                </button>
+                                            @elseif (
+                                                ($koneksipo->status_po_03 == '-' || $koneksipo->status_po_03 == 'Revisi Purchasing - PO') &&
+                                                    $koneksipo->po_parts_4 != '' &&
+                                                    $koneksipo->status_po_03 != 'Complete' &&
+                                                    $koneksipo->status_po_03 != 'Waiting Approval')
                                                 <div class="justify-center flex space-x-2">
                                                     <button type="button"
-                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                         data-modal-target="modal14" data-modal-show="modal14"
-                                                        data-modal-toggle="modal14">Ubah</button>
-                                                </div>
-                                            @else
-                                                <input type="file" name="as_po_parts_4" id="">
-                                                <div class="">
-                                                    <input type="number" id="base-input"
-                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PO)" min="0"
-                                                        max="999999999999" oninput="validity.valid||(value='');"
-                                                        name="as_mny_parts_po_4">
+                                                        data-modal-toggle="modal14">
+                                                        Ubah
+                                                    </button>
                                                 </div>
                                             @endif
                                         </td>
@@ -1149,7 +1162,7 @@
                                     <tr
                                         class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
                                         <td class="py-4 font-bold text-center">5.</td>
-                                        <td class="flex items-center my-10">
+                                        <td class="flex items-center my-4">
 
                                             @if ($koneksipo->po_parts_5 != '')
                                                 <a href="{{ asset('storage/supervisor/project/03_03_PR/' . $koneksipo->po_parts_5) }}"
@@ -1187,21 +1200,27 @@
                                         </td>
 
                                         <td class="space-y-2 py-3 px-2">
-                                            @if ($koneksipo->po_parts_5 != '')
+                                            @if (
+                                                ($koneksipo->status_po_03 == '-' || $koneksipo->status_po_03 == 'Revisi Purchasing - PO') &&
+                                                    $koneksipo->po_parts_5 == '')
+                                                <button type="button"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
+                                                    data-modal-target="modala15" data-modal-show="modala15"
+                                                    data-modal-toggle="modala15">
+                                                    + Tambah dokumen
+                                                </button>
+                                            @elseif (
+                                                ($koneksipo->status_po_03 == '-' || $koneksipo->status_po_03 == 'Revisi Purchasing - PO') &&
+                                                    $koneksipo->po_parts_5 != '' &&
+                                                    $koneksipo->status_po_03 != 'Complete' &&
+                                                    $koneksipo->status_po_03 != 'Waiting Approval')
                                                 <div class="justify-center flex space-x-2">
                                                     <button type="button"
-                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                         data-modal-target="modal15" data-modal-show="modal15"
-                                                        data-modal-toggle="modal15">Ubah</button>
-                                                </div>
-                                            @else
-                                                <input type="file" name="as_po_parts_5" id="">
-                                                <div class="">
-                                                    <input type="number" id="base-input"
-                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PO)" min="0"
-                                                        max="999999999999" oninput="validity.valid||(value='');"
-                                                        name="as_mny_parts_po_5">
+                                                        data-modal-toggle="modal15">
+                                                        Ubah
+                                                    </button>
                                                 </div>
                                             @endif
                                         </td>
@@ -1217,7 +1236,7 @@
                                     <tr
                                         class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
                                         <td class="py-4 font-bold text-center">6.</td>
-                                        <td class="flex items-center my-10">
+                                        <td class="flex items-center my-4">
 
                                             @if ($koneksipo->po_parts_6 != '')
                                                 <a href="{{ asset('storage/supervisor/project/03_03_PR/' . $koneksipo->po_parts_6) }}"
@@ -1255,21 +1274,27 @@
                                         </td>
 
                                         <td class="space-y-2 py-3 px-2">
-                                            @if ($koneksipo->po_parts_6 != '')
+                                            @if (
+                                                ($koneksipo->status_po_03 == '-' || $koneksipo->status_po_03 == 'Revisi Purchasing - PO') &&
+                                                    $koneksipo->po_parts_6 == '')
+                                                <button type="button"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
+                                                    data-modal-target="modala16" data-modal-show="modala16"
+                                                    data-modal-toggle="modala16">
+                                                    + Tambah dokumen
+                                                </button>
+                                            @elseif (
+                                                ($koneksipo->status_po_03 == '-' || $koneksipo->status_po_03 == 'Revisi Purchasing - PO') &&
+                                                    $koneksipo->po_parts_6 != '' &&
+                                                    $koneksipo->status_po_03 != 'Complete' &&
+                                                    $koneksipo->status_po_03 != 'Waiting Approval')
                                                 <div class="justify-center flex space-x-2">
                                                     <button type="button"
-                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                         data-modal-target="modal16" data-modal-show="modal16"
-                                                        data-modal-toggle="modal16">Ubah</button>
-                                                </div>
-                                            @else
-                                                <input type="file" name="as_po_parts_6" id="">
-                                                <div class="">
-                                                    <input type="number" id="base-input"
-                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PO)" min="0"
-                                                        max="999999999999" oninput="validity.valid||(value='');"
-                                                        name="as_mny_parts_po_6">
+                                                        data-modal-toggle="modal16">
+                                                        Ubah
+                                                    </button>
                                                 </div>
                                             @endif
                                         </td>
@@ -1283,7 +1308,7 @@
                                     <tr
                                         class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
                                         <td class="py-4 font-bold text-center">7.</td>
-                                        <td class="flex items-center my-10">
+                                        <td class="flex items-center my-4">
 
                                             @if ($koneksipo->po_parts_7 != '')
                                                 <a href="{{ asset('storage/supervisor/project/03_03_PR/' . $koneksipo->po_parts_7) }}"
@@ -1321,21 +1346,27 @@
                                         </td>
 
                                         <td class="space-y-2 py-3 px-2">
-                                            @if ($koneksipo->po_parts_7 != '')
+                                            @if (
+                                                ($koneksipo->status_po_03 == '-' || $koneksipo->status_po_03 == 'Revisi Purchasing - PO') &&
+                                                    $koneksipo->po_parts_7 == '')
+                                                <button type="button"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
+                                                    data-modal-target="modala17" data-modal-show="modala17"
+                                                    data-modal-toggle="modala17">
+                                                    + Tambah dokumen
+                                                </button>
+                                            @elseif (
+                                                ($koneksipo->status_po_03 == '-' || $koneksipo->status_po_03 == 'Revisi Purchasing - PO') &&
+                                                    $koneksipo->po_parts_7 != '' &&
+                                                    $koneksipo->status_po_03 != 'Complete' &&
+                                                    $koneksipo->status_po_03 != 'Waiting Approval')
                                                 <div class="justify-center flex space-x-2">
                                                     <button type="button"
-                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                         data-modal-target="modal17" data-modal-show="modal17"
-                                                        data-modal-toggle="modal17">Ubah</button>
-                                                </div>
-                                            @else
-                                                <input type="file" name="as_po_parts_7" id="">
-                                                <div class="">
-                                                    <input type="number" id="base-input"
-                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PO)" min="0"
-                                                        max="999999999999" oninput="validity.valid||(value='');"
-                                                        name="as_mny_parts_po_7">
+                                                        data-modal-toggle="modal17">
+                                                        Ubah
+                                                    </button>
                                                 </div>
                                             @endif
                                         </td>
@@ -1350,7 +1381,7 @@
                                     <tr
                                         class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
                                         <td class="py-4 font-bold text-center">8.</td>
-                                        <td class="flex items-center my-10">
+                                        <td class="flex items-center my-4">
 
                                             @if ($koneksipo->po_parts_8 != '')
                                                 <a href="{{ asset('storage/supervisor/project/03_03_PR/' . $koneksipo->po_parts_8) }}"
@@ -1388,24 +1419,29 @@
                                         </td>
 
                                         <td class="space-y-2 py-3 px-2">
-                                            @if ($koneksipo->po_parts_8 != '')
+                                            @if (
+                                                ($koneksipo->status_po_03 == '-' || $koneksipo->status_po_03 == 'Revisi Purchasing - PO') &&
+                                                    $koneksipo->po_parts_8 == '')
+                                                <button type="button"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
+                                                    data-modal-target="modala18" data-modal-show="modala18"
+                                                    data-modal-toggle="modala18">
+                                                    + Tambah dokumen
+                                                </button>
+                                            @elseif (
+                                                ($koneksipo->status_po_03 == '-' || $koneksipo->status_po_03 == 'Revisi Purchasing - PO') &&
+                                                    $koneksipo->po_parts_8 != '' &&
+                                                    $koneksipo->status_po_03 != 'Complete' &&
+                                                    $koneksipo->status_po_03 != 'Waiting Approval')
                                                 <div class="justify-center flex space-x-2">
                                                     <button type="button"
-                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                         data-modal-target="modal18" data-modal-show="modal18"
-                                                        data-modal-toggle="modal18">Ubah</button>
-                                                </div>
-                                            @else
-                                                <input type="file" name="as_po_parts_8" id="">
-                                                <div class="">
-                                                    <input type="number" id="base-input"
-                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PO)" min="0"
-                                                        max="999999999999" oninput="validity.valid||(value='');"
-                                                        name="as_mny_parts_po_8">
+                                                        data-modal-toggle="modal18">
+                                                        Ubah
+                                                    </button>
                                                 </div>
                                             @endif
-
                                         </td>
                                         <input type="text" hidden name="as_up_by_parts_po_8"
                                             value="{{ Auth::user()->first_name }}">
@@ -1418,7 +1454,7 @@
                                     <tr
                                         class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
                                         <td class="py-4 font-bold text-center">9.</td>
-                                        <td class="flex items-center my-10">
+                                        <td class="flex items-center my-4">
 
                                             @if ($koneksipo->po_parts_9 != '')
                                                 <a href="{{ asset('storage/supervisor/project/03_03_PR/' . $koneksipo->po_parts_9) }}"
@@ -1456,21 +1492,27 @@
                                         </td>
 
                                         <td class="space-y-2 py-3 px-2">
-                                            @if ($koneksipo->po_parts_9 != '')
+                                            @if (
+                                                ($koneksipo->status_po_03 == '-' || $koneksipo->status_po_03 == 'Revisi Purchasing - PO') &&
+                                                    $koneksipo->po_parts_9 == '')
+                                                <button type="button"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
+                                                    data-modal-target="modala19" data-modal-show="modala19"
+                                                    data-modal-toggle="modala19">
+                                                    + Tambah dokumen
+                                                </button>
+                                            @elseif (
+                                                ($koneksipo->status_po_03 == '-' || $koneksipo->status_po_03 == 'Revisi Purchasing - PO') &&
+                                                    $koneksipo->po_parts_9 != '' &&
+                                                    $koneksipo->status_po_03 != 'Complete' &&
+                                                    $koneksipo->status_po_03 != 'Waiting Approval')
                                                 <div class="justify-center flex space-x-2">
                                                     <button type="button"
-                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                         data-modal-target="modal19" data-modal-show="modal19"
-                                                        data-modal-toggle="modal19">Ubah</button>
-                                                </div>
-                                            @else
-                                                <input type="file" name="as_po_parts_9" id="">
-                                                <div class="">
-                                                    <input type="number" id="base-input"
-                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PO)" min="0"
-                                                        max="999999999999" oninput="validity.valid||(value='');"
-                                                        name="as_mny_parts_po_9">
+                                                        data-modal-toggle="modal19">
+                                                        Ubah
+                                                    </button>
                                                 </div>
                                             @endif
                                         </td>
@@ -1485,7 +1527,7 @@
                                     <tr
                                         class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
                                         <td class="py-4 font-bold text-center">10.</td>
-                                        <td class="flex items-center my-10">
+                                        <td class="flex items-center my-4">
 
                                             @if ($koneksipo->po_parts_10 != '')
                                                 <a href="{{ asset('storage/supervisor/project/03_03_PR/' . $koneksipo->po_parts_10) }}"
@@ -1523,21 +1565,27 @@
                                         </td>
 
                                         <td class="space-y-2 py-3 px-2">
-                                            @if ($koneksipo->po_parts_10 != '')
+                                            @if (
+                                                ($koneksipo->status_po_03 == '-' || $koneksipo->status_po_03 == 'Revisi Purchasing - PO') &&
+                                                    $koneksipo->po_parts_10 == '')
+                                                <button type="button"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
+                                                    data-modal-target="modala110" data-modal-show="modala110"
+                                                    data-modal-toggle="modala110">
+                                                    + Tambah dokumen
+                                                </button>
+                                            @elseif (
+                                                ($koneksipo->status_po_03 == '-' || $koneksipo->status_po_03 == 'Revisi Purchasing - PO') &&
+                                                    $koneksipo->po_parts_10 != '' &&
+                                                    $koneksipo->status_po_03 != 'Complete' &&
+                                                    $koneksipo->status_po_03 != 'Waiting Approval')
                                                 <div class="justify-center flex space-x-2">
                                                     <button type="button"
-                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                         data-modal-target="modal110" data-modal-show="modal110"
-                                                        data-modal-toggle="modal110">Ubah</button>
-                                                </div>
-                                            @else
-                                                <input type="file" name="as_po_parts_10" id="">
-                                                <div class="">
-                                                    <input type="number" id="base-input"
-                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PO)" min="0"
-                                                        max="999999999999" oninput="validity.valid||(value='');"
-                                                        name="as_mny_parts_po_10">
+                                                        data-modal-toggle="modal110">
+                                                        Ubah
+                                                    </button>
                                                 </div>
                                             @endif
                                         </td>
@@ -1553,7 +1601,7 @@
                                     <tr
                                         class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
                                         <td class="py-4 font-bold text-center">11.</td>
-                                        <td class="flex items-center my-10">
+                                        <td class="flex items-center my-4">
 
                                             @if ($koneksipo->po_parts_11 != '')
                                                 <a href="{{ asset('storage/supervisor/project/03_03_PR/' . $koneksipo->po_parts_11) }}"
@@ -1591,21 +1639,27 @@
                                         </td>
 
                                         <td class="space-y-2 py-3 px-2">
-                                            @if ($koneksipo->po_parts_11 != '')
+                                            @if (
+                                                ($koneksipo->status_po_03 == '-' || $koneksipo->status_po_03 == 'Revisi Purchasing - PO') &&
+                                                    $koneksipo->po_parts_11 == '')
+                                                <button type="button"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
+                                                    data-modal-target="modala111" data-modal-show="modala111"
+                                                    data-modal-toggle="modala111">
+                                                    + Tambah dokumen
+                                                </button>
+                                            @elseif (
+                                                ($koneksipo->status_po_03 == '-' || $koneksipo->status_po_03 == 'Revisi Purchasing - PO') &&
+                                                    $koneksipo->po_parts_11 != '' &&
+                                                    $koneksipo->status_po_03 != 'Complete' &&
+                                                    $koneksipo->status_po_03 != 'Waiting Approval')
                                                 <div class="justify-center flex space-x-2">
                                                     <button type="button"
-                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                         data-modal-target="modal111" data-modal-show="modal111"
-                                                        data-modal-toggle="modal111">Ubah</button>
-                                                </div>
-                                            @else
-                                                <input type="file" name="as_po_parts_11" id="">
-                                                <div class="">
-                                                    <input type="number" id="base-input"
-                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PO)" min="0"
-                                                        max="999999999999" oninput="validity.valid||(value='');"
-                                                        name="as_mny_parts_po_11">
+                                                        data-modal-toggle="modal111">
+                                                        Ubah
+                                                    </button>
                                                 </div>
                                             @endif
                                         </td>
@@ -1619,7 +1673,7 @@
                                     <tr
                                         class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
                                         <td class="py-4 font-bold text-center">12.</td>
-                                        <td class="flex items-center my-10">
+                                        <td class="flex items-center my-4">
 
                                             @if ($koneksipo->po_parts_12 != '')
                                                 <a href="{{ asset('storage/supervisor/project/03_03_PR/' . $koneksipo->po_parts_12) }}"
@@ -1657,21 +1711,27 @@
                                         </td>
 
                                         <td class="space-y-2 py-3 px-2">
-                                            @if ($koneksipo->po_parts_12 != '')
+                                            @if (
+                                                ($koneksipo->status_po_03 == '-' || $koneksipo->status_po_03 == 'Revisi Purchasing - PO') &&
+                                                    $koneksipo->po_parts_12 == '')
+                                                <button type="button"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
+                                                    data-modal-target="modala112" data-modal-show="modala112"
+                                                    data-modal-toggle="modala112">
+                                                    + Tambah dokumen
+                                                </button>
+                                            @elseif (
+                                                ($koneksipo->status_po_03 == '-' || $koneksipo->status_po_03 == 'Revisi Purchasing - PO') &&
+                                                    $koneksipo->po_parts_12 != '' &&
+                                                    $koneksipo->status_po_03 != 'Complete' &&
+                                                    $koneksipo->status_po_03 != 'Waiting Approval')
                                                 <div class="justify-center flex space-x-2">
                                                     <button type="button"
-                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                         data-modal-target="modal112" data-modal-show="modal112"
-                                                        data-modal-toggle="modal112">Ubah</button>
-                                                </div>
-                                            @else
-                                                <input type="file" name="as_po_parts_12" id="">
-                                                <div class="">
-                                                    <input type="number" id="base-input"
-                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PO)" min="0"
-                                                        max="999999999999" oninput="validity.valid||(value='');"
-                                                        name="as_mny_parts_po_12">
+                                                        data-modal-toggle="modal112">
+                                                        Ubah
+                                                    </button>
                                                 </div>
                                             @endif
                                         </td>
@@ -1686,7 +1746,7 @@
                                     <tr
                                         class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
                                         <td class="py-4 font-bold text-center">13.</td>
-                                        <td class="flex items-center my-10">
+                                        <td class="flex items-center my-4">
 
                                             @if ($koneksipo->po_parts_13 != '')
                                                 <a href="{{ asset('storage/supervisor/project/03_03_PR/' . $koneksipo->po_parts_13) }}"
@@ -1724,21 +1784,27 @@
                                         </td>
 
                                         <td class="space-y-2 py-3 px-2">
-                                            @if ($koneksipo->po_parts_13 != '')
+                                            @if (
+                                                ($koneksipo->status_po_03 == '-' || $koneksipo->status_po_03 == 'Revisi Purchasing - PO') &&
+                                                    $koneksipo->po_parts_13 == '')
+                                                <button type="button"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
+                                                    data-modal-target="modala113" data-modal-show="modala113"
+                                                    data-modal-toggle="modala113">
+                                                    + Tambah dokumen
+                                                </button>
+                                            @elseif (
+                                                ($koneksipo->status_po_03 == '-' || $koneksipo->status_po_03 == 'Revisi Purchasing - PO') &&
+                                                    $koneksipo->po_parts_13 != '' &&
+                                                    $koneksipo->status_po_03 != 'Complete' &&
+                                                    $koneksipo->status_po_03 != 'Waiting Approval')
                                                 <div class="justify-center flex space-x-2">
                                                     <button type="button"
-                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                         data-modal-target="modal113" data-modal-show="modal113"
-                                                        data-modal-toggle="modal113">Ubah</button>
-                                                </div>
-                                            @else
-                                                <input type="file" name="as_po_parts_13" id="">
-                                                <div class="">
-                                                    <input type="number" id="base-input"
-                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PO)" min="0"
-                                                        max="999999999999" oninput="validity.valid||(value='');"
-                                                        name="as_mny_parts_po_13">
+                                                        data-modal-toggle="modal113">
+                                                        Ubah
+                                                    </button>
                                                 </div>
                                             @endif
                                         </td>
@@ -1753,7 +1819,7 @@
                                     <tr
                                         class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
                                         <td class="py-4 font-bold text-center">14.</td>
-                                        <td class="flex items-center my-10">
+                                        <td class="flex items-center my-4">
 
                                             @if ($koneksipo->po_parts_14 != '')
                                                 <a href="{{ asset('storage/supervisor/project/03_03_PR/' . $koneksipo->po_parts_14) }}"
@@ -1791,21 +1857,27 @@
                                         </td>
 
                                         <td class="space-y-2 py-3 px-2">
-                                            @if ($koneksipo->po_parts_14 != '')
+                                            @if (
+                                                ($koneksipo->status_po_03 == '-' || $koneksipo->status_po_03 == 'Revisi Purchasing - PO') &&
+                                                    $koneksipo->po_parts_14 == '')
+                                                <button type="button"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
+                                                    data-modal-target="modala114" data-modal-show="modala114"
+                                                    data-modal-toggle="modala114">
+                                                    + Tambah dokumen
+                                                </button>
+                                            @elseif (
+                                                ($koneksipo->status_po_03 == '-' || $koneksipo->status_po_03 == 'Revisi Purchasing - PO') &&
+                                                    $koneksipo->po_parts_14 != '' &&
+                                                    $koneksipo->status_po_03 != 'Complete' &&
+                                                    $koneksipo->status_po_03 != 'Waiting Approval')
                                                 <div class="justify-center flex space-x-2">
                                                     <button type="button"
-                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                         data-modal-target="modal114" data-modal-show="modal114"
-                                                        data-modal-toggle="modal114">Ubah</button>
-                                                </div>
-                                            @else
-                                                <input type="file" name="as_po_parts_14" id="">
-                                                <div class="">
-                                                    <input type="number" id="base-input"
-                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PO)" min="0"
-                                                        max="999999999999" oninput="validity.valid||(value='');"
-                                                        name="as_mny_parts_po_14">
+                                                        data-modal-toggle="modal114">
+                                                        Ubah
+                                                    </button>
                                                 </div>
                                             @endif
                                         </td>
@@ -1820,7 +1892,7 @@
                                     <tr
                                         class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
                                         <td class="py-4 font-bold text-center">15.</td>
-                                        <td class="flex items-center my-10">
+                                        <td class="flex items-center my-4">
 
                                             @if ($koneksipo->po_parts_15 != '')
                                                 <a href="{{ asset('storage/supervisor/project/03_03_PR/' . $koneksipo->po_parts_15) }}"
@@ -1858,22 +1930,27 @@
                                         </td>
 
                                         <td class="space-y-2 py-3 px-2">
-                                            @if ($koneksipo->po_parts_15 != '')
+                                            @if (
+                                                ($koneksipo->status_po_03 == '-' || $koneksipo->status_po_03 == 'Revisi Purchasing - PO') &&
+                                                    $koneksipo->po_parts_15 == '')
+                                                <button type="button"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
+                                                    data-modal-target="modala115" data-modal-show="modala115"
+                                                    data-modal-toggle="modala115">
+                                                    + Tambah dokumen
+                                                </button>
+                                            @elseif (
+                                                ($koneksipo->status_po_03 == '-' || $koneksipo->status_po_03 == 'Revisi Purchasing - PO') &&
+                                                    $koneksipo->po_parts_15 != '' &&
+                                                    $koneksipo->status_po_03 != 'Complete' &&
+                                                    $koneksipo->status_po_03 != 'Waiting Approval')
                                                 <div class="justify-center flex space-x-2">
                                                     <button type="button"
-                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                         data-modal-target="modal115" data-modal-show="modal115"
-                                                        data-modal-toggle="modal115">Ubah</button>
-                                                </div>
-                                            @else
-                                                <input type="file" name="as_po_parts_15" id="">
-                                                <div class="">
-                                                    <input type="number" id="base-input"
-                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PO)"
-                                                        min="0" max="999999999999"
-                                                        oninput="validity.valid||(value='');"
-                                                        name="as_mny_parts_po_15">
+                                                        data-modal-toggle="modal115">
+                                                        Ubah
+                                                    </button>
                                                 </div>
                                             @endif
                                         </td>
@@ -1889,7 +1966,7 @@
                                     <tr
                                         class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
                                         <td class="py-4 font-bold text-center">16.</td>
-                                        <td class="flex items-center my-10">
+                                        <td class="flex items-center my-4">
 
                                             @if ($koneksipo->po_parts_16 != '')
                                                 <a href="{{ asset('storage/supervisor/project/03_03_PR/' . $koneksipo->po_parts_16) }}"
@@ -1927,25 +2004,29 @@
                                         </td>
 
                                         <td class="space-y-2 py-3 px-2">
-                                            @if ($koneksipo->po_parts_16 != '')
+                                            @if (
+                                                ($koneksipo->status_po_03 == '-' || $koneksipo->status_po_03 == 'Revisi Purchasing - PO') &&
+                                                    $koneksipo->po_parts_16 == '')
+                                                <button type="button"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
+                                                    data-modal-target="modala116" data-modal-show="modala116"
+                                                    data-modal-toggle="modala116">
+                                                    + Tambah dokumen
+                                                </button>
+                                            @elseif (
+                                                ($koneksipo->status_po_03 == '-' || $koneksipo->status_po_03 == 'Revisi Purchasing - PO') &&
+                                                    $koneksipo->po_parts_16 != '' &&
+                                                    $koneksipo->status_po_03 != 'Complete' &&
+                                                    $koneksipo->status_po_03 != 'Waiting Approval')
                                                 <div class="justify-center flex space-x-2">
                                                     <button type="button"
-                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                         data-modal-target="modal116" data-modal-show="modal116"
-                                                        data-modal-toggle="modal116">Ubah</button>
-                                                </div>
-                                            @else
-                                                <input type="file" name="as_po_parts_16" id="">
-                                                <div class="">
-                                                    <input type="number" id="base-input"
-                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PO)"
-                                                        min="0" max="999999999999"
-                                                        oninput="validity.valid||(value='');"
-                                                        name="as_mny_parts_po_16">
+                                                        data-modal-toggle="modal116">
+                                                        Ubah
+                                                    </button>
                                                 </div>
                                             @endif
-
                                         </td>
                                         <input type="text" hidden name="as_up_by_parts_po_16"
                                             value="{{ Auth::user()->first_name }}">
@@ -1957,7 +2038,7 @@
                                     <tr
                                         class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
                                         <td class="py-4 font-bold text-center">17.</td>
-                                        <td class="flex items-center my-10">
+                                        <td class="flex items-center my-4">
 
                                             @if ($koneksipo->po_parts_17 != '')
                                                 <a href="{{ asset('storage/supervisor/project/03_03_PR/' . $koneksipo->po_parts_17) }}"
@@ -1995,38 +2076,41 @@
                                         </td>
 
                                         <td class="space-y-2 py-3 px-2">
-                                            @if ($koneksipo->po_parts_17 != '')
+                                            @if (
+                                                ($koneksipo->status_po_03 == '-' || $koneksipo->status_po_03 == 'Revisi Purchasing - PO') &&
+                                                    $koneksipo->po_parts_17 == '')
+                                                <button type="button"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
+                                                    data-modal-target="modala117" data-modal-show="modala117"
+                                                    data-modal-toggle="modala117">
+                                                    + Tambah dokumen
+                                                </button>
+                                            @elseif (
+                                                ($koneksipo->status_po_03 == '-' || $koneksipo->status_po_03 == 'Revisi Purchasing - PO') &&
+                                                    $koneksipo->po_parts_17 != '' &&
+                                                    $koneksipo->status_po_03 != 'Complete' &&
+                                                    $koneksipo->status_po_03 != 'Waiting Approval')
                                                 <div class="justify-center flex space-x-2">
                                                     <button type="button"
-                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                         data-modal-target="modal117" data-modal-show="modal117"
-                                                        data-modal-toggle="modal117">Ubah</button>
-                                                </div>
-                                            @else
-                                                <input type="file" name="as_po_parts_17" id="">
-                                                <div class="">
-                                                    <input type="number" id="base-input"
-                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PO)"
-                                                        min="0" max="999999999999"
-                                                        oninput="validity.valid||(value='');"
-                                                        name="as_mny_parts_po_17">
+                                                        data-modal-toggle="modal117">
+                                                        Ubah
+                                                    </button>
                                                 </div>
                                             @endif
-
                                         </td>
                                         <input type="text" hidden name="as_up_by_parts_po_17"
                                             value="{{ Auth::user()->first_name }}">
                                         <input type="date" hidden name="as_date_po_parts_17"
                                             value="{{ date('Y-m-d') }}">
-
                                     </tr>
 
                                     {{-- 18 --}}
                                     <tr
                                         class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
                                         <td class="py-4 font-bold text-center">18.</td>
-                                        <td class="flex items-center my-10">
+                                        <td class="flex items-center my-4">
 
                                             @if ($koneksipo->po_parts_18 != '')
                                                 <a href="{{ asset('storage/supervisor/project/03_03_PR/' . $koneksipo->po_parts_18) }}"
@@ -2064,22 +2148,27 @@
                                         </td>
 
                                         <td class="space-y-2 py-3 px-2">
-                                            @if ($koneksipo->po_parts_18 != '')
+                                            @if (
+                                                ($koneksipo->status_po_03 == '-' || $koneksipo->status_po_03 == 'Revisi Purchasing - PO') &&
+                                                    $koneksipo->po_parts_18 == '')
+                                                <button type="button"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
+                                                    data-modal-target="modala118" data-modal-show="modala118"
+                                                    data-modal-toggle="modala118">
+                                                    + Tambah dokumen
+                                                </button>
+                                            @elseif (
+                                                ($koneksipo->status_po_03 == '-' || $koneksipo->status_po_03 == 'Revisi Purchasing - PO') &&
+                                                    $koneksipo->po_parts_18 != '' &&
+                                                    $koneksipo->status_po_03 != 'Complete' &&
+                                                    $koneksipo->status_po_03 != 'Waiting Approval')
                                                 <div class="justify-center flex space-x-2">
                                                     <button type="button"
-                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                         data-modal-target="modal118" data-modal-show="modal118"
-                                                        data-modal-toggle="modal118">Ubah</button>
-                                                </div>
-                                            @else
-                                                <input type="file" name="as_po_parts_18" id="">
-                                                <div class="">
-                                                    <input type="number" id="base-input"
-                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PO)"
-                                                        min="0" max="999999999999"
-                                                        oninput="validity.valid||(value='');"
-                                                        name="as_mny_parts_po_18">
+                                                        data-modal-toggle="modal118">
+                                                        Ubah
+                                                    </button>
                                                 </div>
                                             @endif
                                         </td>
@@ -2096,7 +2185,7 @@
                                     <tr
                                         class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
                                         <td class="py-4 font-bold text-center">19.</td>
-                                        <td class="flex items-center my-10">
+                                        <td class="flex items-center my-4">
 
                                             @if ($koneksipo->po_parts_19 != '')
                                                 <a href="{{ asset('storage/supervisor/project/03_03_PR/' . $koneksipo->po_parts_19) }}"
@@ -2134,25 +2223,29 @@
                                         </td>
 
                                         <td class="space-y-2 py-3 px-2">
-                                            @if ($koneksipo->po_parts_19 != '')
+                                            @if (
+                                                ($koneksipo->status_po_03 == '-' || $koneksipo->status_po_03 == 'Revisi Purchasing - PO') &&
+                                                    $koneksipo->po_parts_19 == '')
+                                                <button type="button"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
+                                                    data-modal-target="modala119" data-modal-show="modala119"
+                                                    data-modal-toggle="modala119">
+                                                    + Tambah dokumen
+                                                </button>
+                                            @elseif (
+                                                ($koneksipo->status_po_03 == '-' || $koneksipo->status_po_03 == 'Revisi Purchasing - PO') &&
+                                                    $koneksipo->po_parts_19 != '' &&
+                                                    $koneksipo->status_po_03 != 'Complete' &&
+                                                    $koneksipo->status_po_03 != 'Waiting Approval')
                                                 <div class="justify-center flex space-x-2">
                                                     <button type="button"
-                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                         data-modal-target="modal119" data-modal-show="modal119"
-                                                        data-modal-toggle="modal119">Ubah</button>
-                                                </div>
-                                            @else
-                                                <input type="file" name="as_po_parts_19" id="">
-                                                <div class="">
-                                                    <input type="number" id="base-input"
-                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PO)"
-                                                        min="0" max="999999999999"
-                                                        oninput="validity.valid||(value='');"
-                                                        name="as_mny_parts_po_19">
+                                                        data-modal-toggle="modal119">
+                                                        Ubah
+                                                    </button>
                                                 </div>
                                             @endif
-
                                         </td>
                                         <input type="text" hidden name="as_up_by_parts_po_19"
                                             value="{{ Auth::user()->first_name }}">
@@ -2164,7 +2257,7 @@
                                     <tr
                                         class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
                                         <td class="py-4 font-bold text-center">20.</td>
-                                        <td class="flex items-center my-10">
+                                        <td class="flex items-center my-4">
 
                                             @if ($koneksipo->po_parts_20 != '')
                                                 <a href="{{ asset('storage/supervisor/project/03_03_PR/' . $koneksipo->po_parts_20) }}"
@@ -2202,25 +2295,29 @@
                                         </td>
 
                                         <td class="space-y-2 py-3 px-2">
-                                            @if ($koneksipo->po_parts_20 != '')
+                                            @if (
+                                                ($koneksipo->status_po_03 == '-' || $koneksipo->status_po_03 == 'Revisi Purchasing - PO') &&
+                                                    $koneksipo->po_parts_20 == '')
+                                                <button type="button"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
+                                                    data-modal-target="modala120" data-modal-show="modala120"
+                                                    data-modal-toggle="modala120">
+                                                    + Tambah dokumen
+                                                </button>
+                                            @elseif (
+                                                ($koneksipo->status_po_03 == '-' || $koneksipo->status_po_03 == 'Revisi Purchasing - PO') &&
+                                                    $koneksipo->po_parts_20 != '' &&
+                                                    $koneksipo->status_po_03 != 'Complete' &&
+                                                    $koneksipo->status_po_03 != 'Waiting Approval')
                                                 <div class="justify-center flex space-x-2">
                                                     <button type="button"
-                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                         data-modal-target="modal120" data-modal-show="modal120"
-                                                        data-modal-toggle="modal120">Ubah</button>
-                                                </div>
-                                            @else
-                                                <input type="file" name="as_po_parts_20" id="">
-                                                <div class="">
-                                                    <input type="number" id="base-input"
-                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PO)"
-                                                        min="0" max="999999999999"
-                                                        oninput="validity.valid||(value='');"
-                                                        name="as_mny_parts_po_20">
+                                                        data-modal-toggle="modal120">
+                                                        Ubah
+                                                    </button>
                                                 </div>
                                             @endif
-
                                         </td>
                                         <input type="text" hidden name="as_up_by_parts_po_20"
                                             value="{{ Auth::user()->first_name }}">
@@ -2235,7 +2332,7 @@
                                     <tr
                                         class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
                                         <td class="py-4 font-bold text-center">21.</td>
-                                        <td class="flex items-center my-10">
+                                        <td class="flex items-center my-4">
 
                                             @if ($koneksipo->po_parts_21 != '')
                                                 <a href="{{ asset('storage/supervisor/project/03_03_PR/' . $koneksipo->po_parts_21) }}"
@@ -2273,25 +2370,29 @@
                                         </td>
 
                                         <td class="space-y-2 py-3 px-2">
-                                            @if ($koneksipo->po_parts_21 != '')
+                                            @if (
+                                                ($koneksipo->status_po_03 == '-' || $koneksipo->status_po_03 == 'Revisi Purchasing - PO') &&
+                                                    $koneksipo->po_parts_21 == '')
+                                                <button type="button"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
+                                                    data-modal-target="modala121" data-modal-show="modala121"
+                                                    data-modal-toggle="modala121">
+                                                    + Tambah dokumen
+                                                </button>
+                                            @elseif (
+                                                ($koneksipo->status_po_03 == '-' || $koneksipo->status_po_03 == 'Revisi Purchasing - PO') &&
+                                                    $koneksipo->po_parts_21 != '' &&
+                                                    $koneksipo->status_po_03 != 'Complete' &&
+                                                    $koneksipo->status_po_03 != 'Waiting Approval')
                                                 <div class="justify-center flex space-x-2">
                                                     <button type="button"
-                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                         data-modal-target="modal121" data-modal-show="modal121"
-                                                        data-modal-toggle="modal121">Ubah</button>
-                                                </div>
-                                            @else
-                                                <input type="file" name="as_po_parts_21" id="">
-                                                <div class="">
-                                                    <input type="number" id="base-input"
-                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PO)"
-                                                        min="0" max="999999999999"
-                                                        oninput="validity.valid||(value='');"
-                                                        name="as_mny_parts_po_21">
+                                                        data-modal-toggle="modal121">
+                                                        Ubah
+                                                    </button>
                                                 </div>
                                             @endif
-
                                         </td>
                                         <input type="text" hidden name="as_up_by_parts_po_21"
                                             value="{{ Auth::user()->first_name }}">
@@ -2303,7 +2404,7 @@
                                     <tr
                                         class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
                                         <td class="py-4 font-bold text-center">22.</td>
-                                        <td class="flex items-center my-10">
+                                        <td class="flex items-center my-4">
 
                                             @if ($koneksipo->po_parts_22 != '')
                                                 <a href="{{ asset('storage/supervisor/project/03_03_PR/' . $koneksipo->po_parts_22) }}"
@@ -2341,25 +2442,29 @@
                                         </td>
 
                                         <td class="space-y-2 py-3 px-2">
-                                            @if ($koneksipo->po_parts_22 != '')
+                                            @if (
+                                                ($koneksipo->status_po_03 == '-' || $koneksipo->status_po_03 == 'Revisi Purchasing - PO') &&
+                                                    $koneksipo->po_parts_22 == '')
+                                                <button type="button"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
+                                                    data-modal-target="modala122" data-modal-show="modala122"
+                                                    data-modal-toggle="modala122">
+                                                    + Tambah dokumen
+                                                </button>
+                                            @elseif (
+                                                ($koneksipo->status_po_03 == '-' || $koneksipo->status_po_03 == 'Revisi Purchasing - PO') &&
+                                                    $koneksipo->po_parts_22 != '' &&
+                                                    $koneksipo->status_po_03 != 'Complete' &&
+                                                    $koneksipo->status_po_03 != 'Waiting Approval')
                                                 <div class="justify-center flex space-x-2">
                                                     <button type="button"
-                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                         data-modal-target="modal122" data-modal-show="modal122"
-                                                        data-modal-toggle="modal122">Ubah</button>
-                                                </div>
-                                            @else
-                                                <input type="file" name="as_po_parts_22" id="">
-                                                <div class="">
-                                                    <input type="number" id="base-input"
-                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PO)"
-                                                        min="0" max="999999999999"
-                                                        oninput="validity.valid||(value='');"
-                                                        name="as_mny_parts_po_22">
+                                                        data-modal-toggle="modal122">
+                                                        Ubah
+                                                    </button>
                                                 </div>
                                             @endif
-
                                         </td>
                                         <input type="text" hidden name="as_up_by_parts_po_22"
                                             value="{{ Auth::user()->first_name }}">
@@ -2371,7 +2476,7 @@
                                     <tr
                                         class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
                                         <td class="py-4 font-bold text-center">23.</td>
-                                        <td class="flex items-center my-10">
+                                        <td class="flex items-center my-4">
 
                                             @if ($koneksipo->po_parts_23 != '')
                                                 <a href="{{ asset('storage/supervisor/project/03_03_PR/' . $koneksipo->po_parts_23) }}"
@@ -2409,25 +2514,29 @@
                                         </td>
 
                                         <td class="space-y-2 py-3 px-2">
-                                            @if ($koneksipo->po_parts_23 != '')
+                                            @if (
+                                                ($koneksipo->status_po_03 == '-' || $koneksipo->status_po_03 == 'Revisi Purchasing - PO') &&
+                                                    $koneksipo->po_parts_23 == '')
+                                                <button type="button"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
+                                                    data-modal-target="modala123" data-modal-show="modala123"
+                                                    data-modal-toggle="modala123">
+                                                    + Tambah dokumen
+                                                </button>
+                                            @elseif (
+                                                ($koneksipo->status_po_03 == '-' || $koneksipo->status_po_03 == 'Revisi Purchasing - PO') &&
+                                                    $koneksipo->po_parts_23 != '' &&
+                                                    $koneksipo->status_po_03 != 'Complete' &&
+                                                    $koneksipo->status_po_03 != 'Waiting Approval')
                                                 <div class="justify-center flex space-x-2">
                                                     <button type="button"
-                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                         data-modal-target="modal123" data-modal-show="modal123"
-                                                        data-modal-toggle="modal123">Ubah</button>
-                                                </div>
-                                            @else
-                                                <input type="file" name="as_po_parts_23" id="">
-                                                <div class="">
-                                                    <input type="number" id="base-input"
-                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PO)"
-                                                        min="0" max="999999999999"
-                                                        oninput="validity.valid||(value='');"
-                                                        name="as_mny_parts_po_23">
+                                                        data-modal-toggle="modal123">
+                                                        Ubah
+                                                    </button>
                                                 </div>
                                             @endif
-
                                         </td>
                                         <input type="text" hidden name="as_up_by_parts_po_23"
                                             value="{{ Auth::user()->first_name }}">
@@ -2439,7 +2548,7 @@
                                     <tr
                                         class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
                                         <td class="py-4 font-bold text-center">24.</td>
-                                        <td class="flex items-center my-10">
+                                        <td class="flex items-center my-4">
 
                                             @if ($koneksipo->po_parts_24 != '')
                                                 <a href="{{ asset('storage/supervisor/project/03_03_PR/' . $koneksipo->po_parts_24) }}"
@@ -2477,25 +2586,29 @@
                                         </td>
 
                                         <td class="space-y-2 py-3 px-2">
-                                            @if ($koneksipo->po_parts_24 != '')
+                                            @if (
+                                                ($koneksipo->status_po_03 == '-' || $koneksipo->status_po_03 == 'Revisi Purchasing - PO') &&
+                                                    $koneksipo->po_parts_24 == '')
+                                                <button type="button"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
+                                                    data-modal-target="modala124" data-modal-show="modala124"
+                                                    data-modal-toggle="modala124">
+                                                    + Tambah dokumen
+                                                </button>
+                                            @elseif (
+                                                ($koneksipo->status_po_03 == '-' || $koneksipo->status_po_03 == 'Revisi Purchasing - PO') &&
+                                                    $koneksipo->po_parts_24 != '' &&
+                                                    $koneksipo->status_po_03 != 'Complete' &&
+                                                    $koneksipo->status_po_03 != 'Waiting Approval')
                                                 <div class="justify-center flex space-x-2">
                                                     <button type="button"
-                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                         data-modal-target="modal124" data-modal-show="modal124"
-                                                        data-modal-toggle="modal124">Ubah</button>
-                                                </div>
-                                            @else
-                                                <input type="file" name="as_po_parts_24" id="">
-                                                <div class="">
-                                                    <input type="number" id="base-input"
-                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PO)"
-                                                        min="0" max="999999999999"
-                                                        oninput="validity.valid||(value='');"
-                                                        name="as_mny_parts_po_24">
+                                                        data-modal-toggle="modal124">
+                                                        Ubah
+                                                    </button>
                                                 </div>
                                             @endif
-
                                         </td>
                                         <input type="text" hidden name="as_up_by_parts_po_24"
                                             value="{{ Auth::user()->first_name }}">
@@ -2507,7 +2620,7 @@
                                     <tr
                                         class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
                                         <td class="py-4 font-bold text-center">25.</td>
-                                        <td class="flex items-center my-10">
+                                        <td class="flex items-center my-4">
 
                                             @if ($koneksipo->po_parts_25 != '')
                                                 <a href="{{ asset('storage/supervisor/project/03_03_PR/' . $koneksipo->po_parts_25) }}"
@@ -2545,22 +2658,27 @@
                                         </td>
 
                                         <td class="space-y-2 py-3 px-2">
-                                            @if ($koneksipo->po_parts_25 != '')
+                                            @if (
+                                                ($koneksipo->status_po_03 == '-' || $koneksipo->status_po_03 == 'Revisi Purchasing - PO') &&
+                                                    $koneksipo->po_parts_25 == '')
+                                                <button type="button"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
+                                                    data-modal-target="modala125" data-modal-show="modala125"
+                                                    data-modal-toggle="modala125">
+                                                    + Tambah dokumen
+                                                </button>
+                                            @elseif (
+                                                ($koneksipo->status_po_03 == '-' || $koneksipo->status_po_03 == 'Revisi Purchasing - PO') &&
+                                                    $koneksipo->po_parts_25 != '' &&
+                                                    $koneksipo->status_po_03 != 'Complete' &&
+                                                    $koneksipo->status_po_03 != 'Waiting Approval')
                                                 <div class="justify-center flex space-x-2">
                                                     <button type="button"
-                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                         data-modal-target="modal125" data-modal-show="modal125"
-                                                        data-modal-toggle="modal125">Ubah</button>
-                                                </div>
-                                            @else
-                                                <input type="file" name="as_po_parts_25" id="">
-                                                <div class="">
-                                                    <input type="number" id="base-input"
-                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PO)"
-                                                        min="0" max="999999999999"
-                                                        oninput="validity.valid||(value='');"
-                                                        name="as_mny_parts_po_25">
+                                                        data-modal-toggle="modal125">
+                                                        Ubah
+                                                    </button>
                                                 </div>
                                             @endif
                                         </td>
@@ -2574,7 +2692,7 @@
                                     <tr
                                         class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
                                         <td class="py-4 font-bold text-center">26.</td>
-                                        <td class="flex items-center my-10">
+                                        <td class="flex items-center my-4">
 
                                             @if ($koneksipo->po_parts_26 != '')
                                                 <a href="{{ asset('storage/supervisor/project/03_03_PR/' . $koneksipo->po_parts_26) }}"
@@ -2612,22 +2730,27 @@
                                         </td>
 
                                         <td class="space-y-2 py-3 px-2">
-                                            @if ($koneksipo->po_parts_26 != '')
+                                            @if (
+                                                ($koneksipo->status_po_03 == '-' || $koneksipo->status_po_03 == 'Revisi Purchasing - PO') &&
+                                                    $koneksipo->po_parts_26 == '')
+                                                <button type="button"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
+                                                    data-modal-target="modala126" data-modal-show="modala126"
+                                                    data-modal-toggle="modala126">
+                                                    + Tambah dokumen
+                                                </button>
+                                            @elseif (
+                                                ($koneksipo->status_po_03 == '-' || $koneksipo->status_po_03 == 'Revisi Purchasing - PO') &&
+                                                    $koneksipo->po_parts_26 != '' &&
+                                                    $koneksipo->status_po_03 != 'Complete' &&
+                                                    $koneksipo->status_po_03 != 'Waiting Approval')
                                                 <div class="justify-center flex space-x-2">
                                                     <button type="button"
-                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                         data-modal-target="modal126" data-modal-show="modal126"
-                                                        data-modal-toggle="modal126">Ubah</button>
-                                                </div>
-                                            @else
-                                                <input type="file" name="as_po_parts_26" id="">
-                                                <div class="">
-                                                    <input type="number" id="base-input"
-                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PO)"
-                                                        min="0" max="999999999999"
-                                                        oninput="validity.valid||(value='');"
-                                                        name="as_mny_parts_po_26">
+                                                        data-modal-toggle="modal126">
+                                                        Ubah
+                                                    </button>
                                                 </div>
                                             @endif
                                         </td>
@@ -2641,7 +2764,7 @@
                                     <tr
                                         class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
                                         <td class="py-4 font-bold text-center">27.</td>
-                                        <td class="flex items-center my-10">
+                                        <td class="flex items-center my-4">
 
                                             @if ($koneksipo->po_parts_27 != '')
                                                 <a href="{{ asset('storage/supervisor/project/03_03_PR/' . $koneksipo->po_parts_27) }}"
@@ -2679,25 +2802,29 @@
                                         </td>
 
                                         <td class="space-y-2 py-3 px-2">
-                                            @if ($koneksipo->po_parts_27 != '')
+                                            @if (
+                                                ($koneksipo->status_po_03 == '-' || $koneksipo->status_po_03 == 'Revisi Purchasing - PO') &&
+                                                    $koneksipo->po_parts_27 == '')
+                                                <button type="button"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
+                                                    data-modal-target="modala127" data-modal-show="modala127"
+                                                    data-modal-toggle="modala127">
+                                                    + Tambah dokumen
+                                                </button>
+                                            @elseif (
+                                                ($koneksipo->status_po_03 == '-' || $koneksipo->status_po_03 == 'Revisi Purchasing - PO') &&
+                                                    $koneksipo->po_parts_27 != '' &&
+                                                    $koneksipo->status_po_03 != 'Complete' &&
+                                                    $koneksipo->status_po_03 != 'Waiting Approval')
                                                 <div class="justify-center flex space-x-2">
                                                     <button type="button"
-                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                         data-modal-target="modal127" data-modal-show="modal127"
-                                                        data-modal-toggle="modal127">Ubah</button>
-                                                </div>
-                                            @else
-                                                <input type="file" name="as_po_parts_27" id="">
-                                                <div class="">
-                                                    <input type="number" id="base-input"
-                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PO)"
-                                                        min="0" max="999999999999"
-                                                        oninput="validity.valid||(value='');"
-                                                        name="as_mny_parts_po_27">
+                                                        data-modal-toggle="modal127">
+                                                        Ubah
+                                                    </button>
                                                 </div>
                                             @endif
-
                                         </td>
                                         <input type="text" hidden name="as_up_by_parts_po_27"
                                             value="{{ Auth::user()->first_name }}">
@@ -2709,7 +2836,7 @@
                                     <tr
                                         class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
                                         <td class="py-4 font-bold text-center">28.</td>
-                                        <td class="flex items-center my-10">
+                                        <td class="flex items-center my-4">
 
                                             @if ($koneksipo->po_parts_28 != '')
                                                 <a href="{{ asset('storage/supervisor/project/03_03_PR/' . $koneksipo->po_parts_28) }}"
@@ -2747,25 +2874,29 @@
                                         </td>
 
                                         <td class="space-y-2 py-3 px-2">
-                                            @if ($koneksipo->po_parts_28 != '')
+                                            @if (
+                                                ($koneksipo->status_po_03 == '-' || $koneksipo->status_po_03 == 'Revisi Purchasing - PO') &&
+                                                    $koneksipo->po_parts_28 == '')
+                                                <button type="button"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
+                                                    data-modal-target="modala128" data-modal-show="modala128"
+                                                    data-modal-toggle="modala128">
+                                                    + Tambah dokumen
+                                                </button>
+                                            @elseif (
+                                                ($koneksipo->status_po_03 == '-' || $koneksipo->status_po_03 == 'Revisi Purchasing - PO') &&
+                                                    $koneksipo->po_parts_28 != '' &&
+                                                    $koneksipo->status_po_03 != 'Complete' &&
+                                                    $koneksipo->status_po_03 != 'Waiting Approval')
                                                 <div class="justify-center flex space-x-2">
                                                     <button type="button"
-                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                         data-modal-target="modal128" data-modal-show="modal128"
-                                                        data-modal-toggle="modal128">Ubah</button>
-                                                </div>
-                                            @else
-                                                <input type="file" name="as_po_parts_28" id="">
-                                                <div class="">
-                                                    <input type="number" id="base-input"
-                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PO)"
-                                                        min="0" max="999999999999"
-                                                        oninput="validity.valid||(value='');"
-                                                        name="as_mny_parts_po_28">
+                                                        data-modal-toggle="modal128">
+                                                        Ubah
+                                                    </button>
                                                 </div>
                                             @endif
-
                                         </td>
                                         <input type="text" hidden name="as_up_by_parts_po_28"
                                             value="{{ Auth::user()->first_name }}">
@@ -2777,7 +2908,7 @@
                                     <tr
                                         class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
                                         <td class="py-4 font-bold text-center">29.</td>
-                                        <td class="flex items-center my-10">
+                                        <td class="flex items-center my-4">
 
                                             @if ($koneksipo->po_parts_29 != '')
                                                 <a href="{{ asset('storage/supervisor/project/03_03_PR/' . $koneksipo->po_parts_29) }}"
@@ -2815,25 +2946,29 @@
                                         </td>
 
                                         <td class="space-y-2 py-3 px-2">
-                                            @if ($koneksipo->po_parts_29 != '')
+                                            @if (
+                                                ($koneksipo->status_po_03 == '-' || $koneksipo->status_po_03 == 'Revisi Purchasing - PO') &&
+                                                    $koneksipo->po_parts_29 == '')
+                                                <button type="button"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
+                                                    data-modal-target="modala129" data-modal-show="modala129"
+                                                    data-modal-toggle="modala129">
+                                                    + Tambah dokumen
+                                                </button>
+                                            @elseif (
+                                                ($koneksipo->status_po_03 == '-' || $koneksipo->status_po_03 == 'Revisi Purchasing - PO') &&
+                                                    $koneksipo->po_parts_29 != '' &&
+                                                    $koneksipo->status_po_03 != 'Complete' &&
+                                                    $koneksipo->status_po_03 != 'Waiting Approval')
                                                 <div class="justify-center flex space-x-2">
                                                     <button type="button"
-                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                         data-modal-target="modal129" data-modal-show="modal129"
-                                                        data-modal-toggle="modal129">Ubah</button>
-                                                </div>
-                                            @else
-                                                <input type="file" name="as_po_parts_29" id="">
-                                                <div class="">
-                                                    <input type="number" id="base-input"
-                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PO)"
-                                                        min="0" max="999999999999"
-                                                        oninput="validity.valid||(value='');"
-                                                        name="as_mny_parts_po_29">
+                                                        data-modal-toggle="modal129">
+                                                        Ubah
+                                                    </button>
                                                 </div>
                                             @endif
-
                                         </td>
                                         <input type="text" hidden name="as_up_by_parts_po_29"
                                             value="{{ Auth::user()->first_name }}">
@@ -2845,7 +2980,7 @@
                                     <tr
                                         class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
                                         <td class="py-4 font-bold text-center">30.</td>
-                                        <td class="flex items-center my-10">
+                                        <td class="flex items-center my-4">
 
                                             @if ($koneksipo->po_parts_30 != '')
                                                 <a href="{{ asset('storage/supervisor/project/03_03_PR/' . $koneksipo->po_parts_30) }}"
@@ -2883,25 +3018,29 @@
                                         </td>
 
                                         <td class="space-y-2 py-3 px-2">
-                                            @if ($koneksipo->po_parts_30 != '')
+                                            @if (
+                                                ($koneksipo->status_po_03 == '-' || $koneksipo->status_po_03 == 'Revisi Purchasing - PO') &&
+                                                    $koneksipo->po_parts_30 == '')
+                                                <button type="button"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
+                                                    data-modal-target="modala130" data-modal-show="modala130"
+                                                    data-modal-toggle="modala130">
+                                                    + Tambah dokumen
+                                                </button>
+                                            @elseif (
+                                                ($koneksipo->status_po_03 == '-' || $koneksipo->status_po_03 == 'Revisi Purchasing - PO') &&
+                                                    $koneksipo->po_parts_30 != '' &&
+                                                    $koneksipo->status_po_03 != 'Complete' &&
+                                                    $koneksipo->status_po_03 != 'Waiting Approval')
                                                 <div class="justify-center flex space-x-2">
                                                     <button type="button"
-                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                         data-modal-target="modal130" data-modal-show="modal130"
-                                                        data-modal-toggle="modal130">Ubah</button>
-                                                </div>
-                                            @else
-                                                <input type="file" name="as_po_parts_30" id="">
-                                                <div class="">
-                                                    <input type="number" id="base-input"
-                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PO)"
-                                                        min="0" max="999999999999"
-                                                        oninput="validity.valid||(value='');"
-                                                        name="as_mny_parts_po_30">
+                                                        data-modal-toggle="modal130">
+                                                        Ubah
+                                                    </button>
                                                 </div>
                                             @endif
-
                                         </td>
                                         <input type="text" hidden name="as_up_by_parts_po_30"
                                             value="{{ Auth::user()->first_name }}">
@@ -2915,7 +3054,7 @@
                                     <tr
                                         class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
                                         <td class="py-4 font-bold text-center">31.</td>
-                                        <td class="flex items-center my-10">
+                                        <td class="flex items-center my-4">
 
                                             @if ($koneksipo->po_parts_31 != '')
                                                 <a href="{{ asset('storage/supervisor/project/03_03_PR/' . $koneksipo->po_parts_31) }}"
@@ -2953,25 +3092,29 @@
                                         </td>
 
                                         <td class="space-y-2 py-3 px-2">
-                                            @if ($koneksipo->po_parts_31 != '')
+                                            @if (
+                                                ($koneksipo->status_po_03 == '-' || $koneksipo->status_po_03 == 'Revisi Purchasing - PO') &&
+                                                    $koneksipo->po_parts_31 == '')
+                                                <button type="button"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
+                                                    data-modal-target="modala131" data-modal-show="modala131"
+                                                    data-modal-toggle="modala131">
+                                                    + Tambah dokumen
+                                                </button>
+                                            @elseif (
+                                                ($koneksipo->status_po_03 == '-' || $koneksipo->status_po_03 == 'Revisi Purchasing - PO') &&
+                                                    $koneksipo->po_parts_31 != '' &&
+                                                    $koneksipo->status_po_03 != 'Complete' &&
+                                                    $koneksipo->status_po_03 != 'Waiting Approval')
                                                 <div class="justify-center flex space-x-2">
                                                     <button type="button"
-                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                         data-modal-target="modal131" data-modal-show="modal131"
-                                                        data-modal-toggle="modal131">Ubah</button>
-                                                </div>
-                                            @else
-                                                <input type="file" name="as_po_parts_31" id="">
-                                                <div class="">
-                                                    <input type="number" id="base-input"
-                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PO)"
-                                                        min="0" max="999999999999"
-                                                        oninput="validity.valid||(value='');"
-                                                        name="as_mny_parts_po_31">
+                                                        data-modal-toggle="modal131">
+                                                        Ubah
+                                                    </button>
                                                 </div>
                                             @endif
-
                                         </td>
                                         <input type="text" hidden name="as_up_by_parts_po_31"
                                             value="{{ Auth::user()->first_name }}">
@@ -2983,7 +3126,7 @@
                                     <tr
                                         class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
                                         <td class="py-4 font-bold text-center">32.</td>
-                                        <td class="flex items-center my-10">
+                                        <td class="flex items-center my-4">
 
                                             @if ($koneksipo->po_parts_32 != '')
                                                 <a href="{{ asset('storage/supervisor/project/03_03_PR/' . $koneksipo->po_parts_32) }}"
@@ -3021,25 +3164,29 @@
                                         </td>
 
                                         <td class="space-y-2 py-3 px-2">
-                                            @if ($koneksipo->po_parts_32 != '')
+                                            @if (
+                                                ($koneksipo->status_po_03 == '-' || $koneksipo->status_po_03 == 'Revisi Purchasing - PO') &&
+                                                    $koneksipo->po_parts_32 == '')
+                                                <button type="button"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
+                                                    data-modal-target="modala132" data-modal-show="modala132"
+                                                    data-modal-toggle="modala132">
+                                                    + Tambah dokumen
+                                                </button>
+                                            @elseif (
+                                                ($koneksipo->status_po_03 == '-' || $koneksipo->status_po_03 == 'Revisi Purchasing - PO') &&
+                                                    $koneksipo->po_parts_32 != '' &&
+                                                    $koneksipo->status_po_03 != 'Complete' &&
+                                                    $koneksipo->status_po_03 != 'Waiting Approval')
                                                 <div class="justify-center flex space-x-2">
                                                     <button type="button"
-                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                         data-modal-target="modal132" data-modal-show="modal132"
-                                                        data-modal-toggle="modal132">Ubah</button>
-                                                </div>
-                                            @else
-                                                <input type="file" name="as_po_parts_32" id="">
-                                                <div class="">
-                                                    <input type="number" id="base-input"
-                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PO)"
-                                                        min="0" max="999999999999"
-                                                        oninput="validity.valid||(value='');"
-                                                        name="as_mny_parts_po_32">
+                                                        data-modal-toggle="modal132">
+                                                        Ubah
+                                                    </button>
                                                 </div>
                                             @endif
-
                                         </td>
                                         <input type="text" hidden name="as_up_by_parts_po_32"
                                             value="{{ Auth::user()->first_name }}">
@@ -3051,7 +3198,7 @@
                                     <tr
                                         class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
                                         <td class="py-4 font-bold text-center">33.</td>
-                                        <td class="flex items-center my-10">
+                                        <td class="flex items-center my-4">
 
                                             @if ($koneksipo->po_parts_33 != '')
                                                 <a href="{{ asset('storage/supervisor/project/03_03_PR/' . $koneksipo->po_parts_33) }}"
@@ -3089,25 +3236,29 @@
                                         </td>
 
                                         <td class="space-y-2 py-3 px-2">
-                                            @if ($koneksipo->po_parts_33 != '')
+                                            @if (
+                                                ($koneksipo->status_po_03 == '-' || $koneksipo->status_po_03 == 'Revisi Purchasing - PO') &&
+                                                    $koneksipo->po_parts_33 == '')
+                                                <button type="button"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
+                                                    data-modal-target="modala133" data-modal-show="modala133"
+                                                    data-modal-toggle="modala133">
+                                                    + Tambah dokumen
+                                                </button>
+                                            @elseif (
+                                                ($koneksipo->status_po_03 == '-' || $koneksipo->status_po_03 == 'Revisi Purchasing - PO') &&
+                                                    $koneksipo->po_parts_33 != '' &&
+                                                    $koneksipo->status_po_03 != 'Complete' &&
+                                                    $koneksipo->status_po_03 != 'Waiting Approval')
                                                 <div class="justify-center flex space-x-2">
                                                     <button type="button"
-                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                         data-modal-target="modal133" data-modal-show="modal133"
-                                                        data-modal-toggle="modal133">Ubah</button>
-                                                </div>
-                                            @else
-                                                <input type="file" name="as_po_parts_33" id="">
-                                                <div class="">
-                                                    <input type="number" id="base-input"
-                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PO)"
-                                                        min="0" max="999999999999"
-                                                        oninput="validity.valid||(value='');"
-                                                        name="as_mny_parts_po_33">
+                                                        data-modal-toggle="modal133">
+                                                        Ubah
+                                                    </button>
                                                 </div>
                                             @endif
-
                                         </td>
                                         <input type="text" hidden name="as_up_by_parts_po_33"
                                             value="{{ Auth::user()->first_name }}">
@@ -3119,7 +3270,7 @@
                                     <tr
                                         class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
                                         <td class="py-4 font-bold text-center">34.</td>
-                                        <td class="flex items-center my-10">
+                                        <td class="flex items-center my-4">
 
                                             @if ($koneksipo->po_parts_34 != '')
                                                 <a href="{{ asset('storage/supervisor/project/03_03_PR/' . $koneksipo->po_parts_34) }}"
@@ -3157,25 +3308,29 @@
                                         </td>
 
                                         <td class="space-y-2 py-3 px-2">
-                                            @if ($koneksipo->po_parts_34 != '')
+                                            @if (
+                                                ($koneksipo->status_po_03 == '-' || $koneksipo->status_po_03 == 'Revisi Purchasing - PO') &&
+                                                    $koneksipo->po_parts_34 == '')
+                                                <button type="button"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
+                                                    data-modal-target="modala134" data-modal-show="modala134"
+                                                    data-modal-toggle="modala134">
+                                                    + Tambah dokumen
+                                                </button>
+                                            @elseif (
+                                                ($koneksipo->status_po_03 == '-' || $koneksipo->status_po_03 == 'Revisi Purchasing - PO') &&
+                                                    $koneksipo->po_parts_34 != '' &&
+                                                    $koneksipo->status_po_03 != 'Complete' &&
+                                                    $koneksipo->status_po_03 != 'Waiting Approval')
                                                 <div class="justify-center flex space-x-2">
                                                     <button type="button"
-                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                         data-modal-target="modal134" data-modal-show="modal134"
-                                                        data-modal-toggle="modal134">Ubah</button>
-                                                </div>
-                                            @else
-                                                <input type="file" name="as_po_parts_34" id="">
-                                                <div class="">
-                                                    <input type="number" id="base-input"
-                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PO)"
-                                                        min="0" max="999999999999"
-                                                        oninput="validity.valid||(value='');"
-                                                        name="as_mny_parts_po_34">
+                                                        data-modal-toggle="modal134">
+                                                        Ubah
+                                                    </button>
                                                 </div>
                                             @endif
-
                                         </td>
                                         <input type="text" hidden name="as_up_by_parts_po_34"
                                             value="{{ Auth::user()->first_name }}">
@@ -3187,7 +3342,7 @@
                                     <tr
                                         class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
                                         <td class="py-4 font-bold text-center">35.</td>
-                                        <td class="flex items-center my-10">
+                                        <td class="flex items-center my-4">
 
                                             @if ($koneksipo->po_parts_35 != '')
                                                 <a href="{{ asset('storage/supervisor/project/03_03_PR/' . $koneksipo->po_parts_35) }}"
@@ -3225,25 +3380,29 @@
                                         </td>
 
                                         <td class="space-y-2 py-3 px-2">
-                                            @if ($koneksipo->po_parts_35 != '')
+                                            @if (
+                                                ($koneksipo->status_po_03 == '-' || $koneksipo->status_po_03 == 'Revisi Purchasing - PO') &&
+                                                    $koneksipo->po_parts_35 == '')
+                                                <button type="button"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
+                                                    data-modal-target="modala135" data-modal-show="modala135"
+                                                    data-modal-toggle="modala135">
+                                                    + Tambah dokumen
+                                                </button>
+                                            @elseif (
+                                                ($koneksipo->status_po_03 == '-' || $koneksipo->status_po_03 == 'Revisi Purchasing - PO') &&
+                                                    $koneksipo->po_parts_35 != '' &&
+                                                    $koneksipo->status_po_03 != 'Complete' &&
+                                                    $koneksipo->status_po_03 != 'Waiting Approval')
                                                 <div class="justify-center flex space-x-2">
                                                     <button type="button"
-                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                         data-modal-target="modal135" data-modal-show="modal135"
-                                                        data-modal-toggle="modal135">Ubah</button>
-                                                </div>
-                                            @else
-                                                <input type="file" name="as_po_parts_35" id="">
-                                                <div class="">
-                                                    <input type="number" id="base-input"
-                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PO)"
-                                                        min="0" max="999999999999"
-                                                        oninput="validity.valid||(value='');"
-                                                        name="as_mny_parts_po_35">
+                                                        data-modal-toggle="modal135">
+                                                        Ubah
+                                                    </button>
                                                 </div>
                                             @endif
-
                                         </td>
                                         <input type="text" hidden name="as_up_by_parts_po_35"
                                             value="{{ Auth::user()->first_name }}">
@@ -3255,7 +3414,7 @@
                                     <tr
                                         class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
                                         <td class="py-4 font-bold text-center">36.</td>
-                                        <td class="flex items-center my-10">
+                                        <td class="flex items-center my-4">
 
                                             @if ($koneksipo->po_parts_36 != '')
                                                 <a href="{{ asset('storage/supervisor/project/03_03_PR/' . $koneksipo->po_parts_36) }}"
@@ -3293,25 +3452,29 @@
                                         </td>
 
                                         <td class="space-y-2 py-3 px-2">
-                                            @if ($koneksipo->po_parts_36 != '')
+                                            @if (
+                                                ($koneksipo->status_po_03 == '-' || $koneksipo->status_po_03 == 'Revisi Purchasing - PO') &&
+                                                    $koneksipo->po_parts_36 == '')
+                                                <button type="button"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
+                                                    data-modal-target="modala136" data-modal-show="modala136"
+                                                    data-modal-toggle="modala136">
+                                                    + Tambah dokumen
+                                                </button>
+                                            @elseif (
+                                                ($koneksipo->status_po_03 == '-' || $koneksipo->status_po_03 == 'Revisi Purchasing - PO') &&
+                                                    $koneksipo->po_parts_36 != '' &&
+                                                    $koneksipo->status_po_03 != 'Complete' &&
+                                                    $koneksipo->status_po_03 != 'Waiting Approval')
                                                 <div class="justify-center flex space-x-2">
                                                     <button type="button"
-                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                         data-modal-target="modal136" data-modal-show="modal136"
-                                                        data-modal-toggle="modal136">Ubah</button>
-                                                </div>
-                                            @else
-                                                <input type="file" name="as_po_parts_36" id="">
-                                                <div class="">
-                                                    <input type="number" id="base-input"
-                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PO)"
-                                                        min="0" max="999999999999"
-                                                        oninput="validity.valid||(value='');"
-                                                        name="as_mny_parts_po_36">
+                                                        data-modal-toggle="modal136">
+                                                        Ubah
+                                                    </button>
                                                 </div>
                                             @endif
-
                                         </td>
                                         <input type="text" hidden name="as_up_by_parts_po_36"
                                             value="{{ Auth::user()->first_name }}">
@@ -3324,7 +3487,7 @@
                                     <tr
                                         class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
                                         <td class="py-4 font-bold text-center">37.</td>
-                                        <td class="flex items-center my-10">
+                                        <td class="flex items-center my-4">
 
                                             @if ($koneksipo->po_parts_37 != '')
                                                 <a href="{{ asset('storage/supervisor/project/03_03_PR/' . $koneksipo->po_parts_37) }}"
@@ -3362,25 +3525,29 @@
                                         </td>
 
                                         <td class="space-y-2 py-3 px-2">
-                                            @if ($koneksipo->po_parts_37 != '')
+                                            @if (
+                                                ($koneksipo->status_po_03 == '-' || $koneksipo->status_po_03 == 'Revisi Purchasing - PO') &&
+                                                    $koneksipo->po_parts_37 == '')
+                                                <button type="button"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
+                                                    data-modal-target="modala137" data-modal-show="modala137"
+                                                    data-modal-toggle="modala137">
+                                                    + Tambah dokumen
+                                                </button>
+                                            @elseif (
+                                                ($koneksipo->status_po_03 == '-' || $koneksipo->status_po_03 == 'Revisi Purchasing - PO') &&
+                                                    $koneksipo->po_parts_37 != '' &&
+                                                    $koneksipo->status_po_03 != 'Complete' &&
+                                                    $koneksipo->status_po_03 != 'Waiting Approval')
                                                 <div class="justify-center flex space-x-2">
                                                     <button type="button"
-                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                         data-modal-target="modal137" data-modal-show="modal137"
-                                                        data-modal-toggle="modal137">Ubah</button>
-                                                </div>
-                                            @else
-                                                <input type="file" name="as_po_parts_37" id="">
-                                                <div class="">
-                                                    <input type="number" id="base-input"
-                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PO)"
-                                                        min="0" max="999999999999"
-                                                        oninput="validity.valid||(value='');"
-                                                        name="as_mny_parts_po_37">
+                                                        data-modal-toggle="modal137">
+                                                        Ubah
+                                                    </button>
                                                 </div>
                                             @endif
-
                                         </td>
                                         <input type="text" hidden name="as_up_by_parts_po_37"
                                             value="{{ Auth::user()->first_name }}">
@@ -3392,7 +3559,7 @@
                                     <tr
                                         class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
                                         <td class="py-4 font-bold text-center">38.</td>
-                                        <td class="flex items-center my-10">
+                                        <td class="flex items-center my-4">
 
                                             @if ($koneksipo->po_parts_38 != '')
                                                 <a href="{{ asset('storage/supervisor/project/03_03_PR/' . $koneksipo->po_parts_38) }}"
@@ -3430,25 +3597,29 @@
                                         </td>
 
                                         <td class="space-y-2 py-3 px-2">
-                                            @if ($koneksipo->po_parts_38 != '')
+                                            @if (
+                                                ($koneksipo->status_po_03 == '-' || $koneksipo->status_po_03 == 'Revisi Purchasing - PO') &&
+                                                    $koneksipo->po_parts_38 == '')
+                                                <button type="button"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
+                                                    data-modal-target="modala138" data-modal-show="modala138"
+                                                    data-modal-toggle="modala138">
+                                                    + Tambah dokumen
+                                                </button>
+                                            @elseif (
+                                                ($koneksipo->status_po_03 == '-' || $koneksipo->status_po_03 == 'Revisi Purchasing - PO') &&
+                                                    $koneksipo->po_parts_38 != '' &&
+                                                    $koneksipo->status_po_03 != 'Complete' &&
+                                                    $koneksipo->status_po_03 != 'Waiting Approval')
                                                 <div class="justify-center flex space-x-2">
                                                     <button type="button"
-                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                         data-modal-target="modal138" data-modal-show="modal138"
-                                                        data-modal-toggle="modal138">Ubah</button>
-                                                </div>
-                                            @else
-                                                <input type="file" name="as_po_parts_38" id="">
-                                                <div class="">
-                                                    <input type="number" id="base-input"
-                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PO)"
-                                                        min="0" max="999999999999"
-                                                        oninput="validity.valid||(value='');"
-                                                        name="as_mny_parts_po_38">
+                                                        data-modal-toggle="modal138">
+                                                        Ubah
+                                                    </button>
                                                 </div>
                                             @endif
-
                                         </td>
                                         <input type="text" hidden name="as_up_by_parts_po_38"
                                             value="{{ Auth::user()->first_name }}">
@@ -3460,7 +3631,7 @@
                                     <tr
                                         class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
                                         <td class="py-4 font-bold text-center">39.</td>
-                                        <td class="flex items-center my-10">
+                                        <td class="flex items-center my-4">
 
                                             @if ($koneksipo->po_parts_39 != '')
                                                 <a href="{{ asset('storage/supervisor/project/03_03_PR/' . $koneksipo->po_parts_39) }}"
@@ -3498,25 +3669,29 @@
                                         </td>
 
                                         <td class="space-y-2 py-3 px-2">
-                                            @if ($koneksipo->po_parts_39 != '')
+                                            @if (
+                                                ($koneksipo->status_po_03 == '-' || $koneksipo->status_po_03 == 'Revisi Purchasing - PO') &&
+                                                    $koneksipo->po_parts_39 == '')
+                                                <button type="button"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
+                                                    data-modal-target="modala139" data-modal-show="modala139"
+                                                    data-modal-toggle="modala139">
+                                                    + Tambah dokumen
+                                                </button>
+                                            @elseif (
+                                                ($koneksipo->status_po_03 == '-' || $koneksipo->status_po_03 == 'Revisi Purchasing - PO') &&
+                                                    $koneksipo->po_parts_39 != '' &&
+                                                    $koneksipo->status_po_03 != 'Complete' &&
+                                                    $koneksipo->status_po_03 != 'Waiting Approval')
                                                 <div class="justify-center flex space-x-2">
                                                     <button type="button"
-                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                         data-modal-target="modal139" data-modal-show="modal139"
-                                                        data-modal-toggle="modal139">Ubah</button>
-                                                </div>
-                                            @else
-                                                <input type="file" name="as_po_parts_39" id="">
-                                                <div class="">
-                                                    <input type="number" id="base-input"
-                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PO)"
-                                                        min="0" max="999999999999"
-                                                        oninput="validity.valid||(value='');"
-                                                        name="as_mny_parts_po_39">
+                                                        data-modal-toggle="modal139">
+                                                        Ubah
+                                                    </button>
                                                 </div>
                                             @endif
-
                                         </td>
                                         <input type="text" hidden name="as_up_by_parts_po_39"
                                             value="{{ Auth::user()->first_name }}">
@@ -3528,7 +3703,7 @@
                                     <tr
                                         class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
                                         <td class="py-4 font-bold text-center">40.</td>
-                                        <td class="flex items-center my-10">
+                                        <td class="flex items-center my-4">
 
                                             @if ($koneksipo->po_parts_40 != '')
                                                 <a href="{{ asset('storage/supervisor/project/03_03_PR/' . $koneksipo->po_parts_40) }}"
@@ -3566,25 +3741,29 @@
                                         </td>
 
                                         <td class="space-y-2 py-3 px-2">
-                                            @if ($koneksipo->po_parts_40 != '')
+                                            @if (
+                                                ($koneksipo->status_po_03 == '-' || $koneksipo->status_po_03 == 'Revisi Purchasing - PO') &&
+                                                    $koneksipo->po_parts_40 == '')
+                                                <button type="button"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
+                                                    data-modal-target="modala140" data-modal-show="modala140"
+                                                    data-modal-toggle="modala140">
+                                                    + Tambah dokumen
+                                                </button>
+                                            @elseif (
+                                                ($koneksipo->status_po_03 == '-' || $koneksipo->status_po_03 == 'Revisi Purchasing - PO') &&
+                                                    $koneksipo->po_parts_40 != '' &&
+                                                    $koneksipo->status_po_03 != 'Complete' &&
+                                                    $koneksipo->status_po_03 != 'Waiting Approval')
                                                 <div class="justify-center flex space-x-2">
                                                     <button type="button"
-                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                         data-modal-target="modal140" data-modal-show="modal140"
-                                                        data-modal-toggle="modal140">Ubah</button>
-                                                </div>
-                                            @else
-                                                <input type="file" name="as_po_parts_40" id="">
-                                                <div class="">
-                                                    <input type="number" id="base-input"
-                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PO)"
-                                                        min="0" max="999999999999"
-                                                        oninput="validity.valid||(value='');"
-                                                        name="as_mny_parts_po_40">
+                                                        data-modal-toggle="modal140">
+                                                        Ubah
+                                                    </button>
                                                 </div>
                                             @endif
-
                                         </td>
                                         <input type="text" hidden name="as_up_by_parts_po_40"
                                             value="{{ Auth::user()->first_name }}">
@@ -3597,7 +3776,7 @@
                                     <tr
                                         class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
                                         <td class="py-4 font-bold text-center">41.</td>
-                                        <td class="flex items-center my-10">
+                                        <td class="flex items-center my-4">
 
                                             @if ($koneksipo->po_parts_41 != '')
                                                 <a href="{{ asset('storage/supervisor/project/03_03_PR/' . $koneksipo->po_parts_41) }}"
@@ -3635,25 +3814,29 @@
                                         </td>
 
                                         <td class="space-y-2 py-3 px-2">
-                                            @if ($koneksipo->po_parts_41 != '')
+                                            @if (
+                                                ($koneksipo->status_po_03 == '-' || $koneksipo->status_po_03 == 'Revisi Purchasing - PO') &&
+                                                    $koneksipo->po_parts_41 == '')
+                                                <button type="button"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
+                                                    data-modal-target="modala141" data-modal-show="modala141"
+                                                    data-modal-toggle="modala141">
+                                                    + Tambah dokumen
+                                                </button>
+                                            @elseif (
+                                                ($koneksipo->status_po_03 == '-' || $koneksipo->status_po_03 == 'Revisi Purchasing - PO') &&
+                                                    $koneksipo->po_parts_41 != '' &&
+                                                    $koneksipo->status_po_03 != 'Complete' &&
+                                                    $koneksipo->status_po_03 != 'Waiting Approval')
                                                 <div class="justify-center flex space-x-2">
                                                     <button type="button"
-                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                         data-modal-target="modal141" data-modal-show="modal141"
-                                                        data-modal-toggle="modal141">Ubah</button>
-                                                </div>
-                                            @else
-                                                <input type="file" name="as_po_parts_41" id="">
-                                                <div class="">
-                                                    <input type="number" id="base-input"
-                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PO)"
-                                                        min="0" max="999999999999"
-                                                        oninput="validity.valid||(value='');"
-                                                        name="as_mny_parts_po_41">
+                                                        data-modal-toggle="modal141">
+                                                        Ubah
+                                                    </button>
                                                 </div>
                                             @endif
-
                                         </td>
                                         <input type="text" hidden name="as_up_by_parts_po_41"
                                             value="{{ Auth::user()->first_name }}">
@@ -3665,7 +3848,7 @@
                                     <tr
                                         class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
                                         <td class="py-4 font-bold text-center">42.</td>
-                                        <td class="flex items-center my-10">
+                                        <td class="flex items-center my-4">
 
                                             @if ($koneksipo->po_parts_42 != '')
                                                 <a href="{{ asset('storage/supervisor/project/03_03_PR/' . $koneksipo->po_parts_42) }}"
@@ -3703,25 +3886,29 @@
                                         </td>
 
                                         <td class="space-y-2 py-3 px-2">
-                                            @if ($koneksipo->po_parts_42 != '')
+                                            @if (
+                                                ($koneksipo->status_po_03 == '-' || $koneksipo->status_po_03 == 'Revisi Purchasing - PO') &&
+                                                    $koneksipo->po_parts_42 == '')
+                                                <button type="button"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
+                                                    data-modal-target="modala142" data-modal-show="modala142"
+                                                    data-modal-toggle="modala142">
+                                                    + Tambah dokumen
+                                                </button>
+                                            @elseif (
+                                                ($koneksipo->status_po_03 == '-' || $koneksipo->status_po_03 == 'Revisi Purchasing - PO') &&
+                                                    $koneksipo->po_parts_42 != '' &&
+                                                    $koneksipo->status_po_03 != 'Complete' &&
+                                                    $koneksipo->status_po_03 != 'Waiting Approval')
                                                 <div class="justify-center flex space-x-2">
                                                     <button type="button"
-                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                         data-modal-target="modal142" data-modal-show="modal142"
-                                                        data-modal-toggle="modal142">Ubah</button>
-                                                </div>
-                                            @else
-                                                <input type="file" name="as_po_parts_42" id="">
-                                                <div class="">
-                                                    <input type="number" id="base-input"
-                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PO)"
-                                                        min="0" max="999999999999"
-                                                        oninput="validity.valid||(value='');"
-                                                        name="as_mny_parts_po_42">
+                                                        data-modal-toggle="modal142">
+                                                        Ubah
+                                                    </button>
                                                 </div>
                                             @endif
-
                                         </td>
                                         <input type="text" hidden name="as_up_by_parts_po_42"
                                             value="{{ Auth::user()->first_name }}">
@@ -3733,7 +3920,7 @@
                                     <tr
                                         class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
                                         <td class="py-4 font-bold text-center">43.</td>
-                                        <td class="flex items-center my-10">
+                                        <td class="flex items-center my-4">
 
                                             @if ($koneksipo->po_parts_43 != '')
                                                 <a href="{{ asset('storage/supervisor/project/03_03_PR/' . $koneksipo->po_parts_43) }}"
@@ -3771,25 +3958,29 @@
                                         </td>
 
                                         <td class="space-y-2 py-3 px-2">
-                                            @if ($koneksipo->po_parts_43 != '')
+                                            @if (
+                                                ($koneksipo->status_po_03 == '-' || $koneksipo->status_po_03 == 'Revisi Purchasing - PO') &&
+                                                    $koneksipo->po_parts_43 == '')
+                                                <button type="button"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
+                                                    data-modal-target="modala143" data-modal-show="modala143"
+                                                    data-modal-toggle="modala143">
+                                                    + Tambah dokumen
+                                                </button>
+                                            @elseif (
+                                                ($koneksipo->status_po_03 == '-' || $koneksipo->status_po_03 == 'Revisi Purchasing - PO') &&
+                                                    $koneksipo->po_parts_43 != '' &&
+                                                    $koneksipo->status_po_03 != 'Complete' &&
+                                                    $koneksipo->status_po_03 != 'Waiting Approval')
                                                 <div class="justify-center flex space-x-2">
                                                     <button type="button"
-                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                         data-modal-target="modal143" data-modal-show="modal143"
-                                                        data-modal-toggle="modal143">Ubah</button>
-                                                </div>
-                                            @else
-                                                <input type="file" name="as_po_parts_43" id="">
-                                                <div class="">
-                                                    <input type="number" id="base-input"
-                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PO)"
-                                                        min="0" max="999999999999"
-                                                        oninput="validity.valid||(value='');"
-                                                        name="as_mny_parts_po_43">
+                                                        data-modal-toggle="modal143">
+                                                        Ubah
+                                                    </button>
                                                 </div>
                                             @endif
-
                                         </td>
                                         <input type="text" hidden name="as_up_by_parts_po_43"
                                             value="{{ Auth::user()->first_name }}">
@@ -3801,7 +3992,7 @@
                                     <tr
                                         class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
                                         <td class="py-4 font-bold text-center">44.</td>
-                                        <td class="flex items-center my-10">
+                                        <td class="flex items-center my-4">
 
                                             @if ($koneksipo->po_parts_44 != '')
                                                 <a href="{{ asset('storage/supervisor/project/03_03_PR/' . $koneksipo->po_parts_44) }}"
@@ -3839,25 +4030,29 @@
                                         </td>
 
                                         <td class="space-y-2 py-3 px-2">
-                                            @if ($koneksipo->po_parts_44 != '')
+                                            @if (
+                                                ($koneksipo->status_po_03 == '-' || $koneksipo->status_po_03 == 'Revisi Purchasing - PO') &&
+                                                    $koneksipo->po_parts_44 == '')
+                                                <button type="button"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
+                                                    data-modal-target="modala144" data-modal-show="modala144"
+                                                    data-modal-toggle="modala144">
+                                                    + Tambah dokumen
+                                                </button>
+                                            @elseif (
+                                                ($koneksipo->status_po_03 == '-' || $koneksipo->status_po_03 == 'Revisi Purchasing - PO') &&
+                                                    $koneksipo->po_parts_44 != '' &&
+                                                    $koneksipo->status_po_03 != 'Complete' &&
+                                                    $koneksipo->status_po_03 != 'Waiting Approval')
                                                 <div class="justify-center flex space-x-2">
                                                     <button type="button"
-                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                         data-modal-target="modal144" data-modal-show="modal144"
-                                                        data-modal-toggle="modal144">Ubah</button>
-                                                </div>
-                                            @else
-                                                <input type="file" name="as_po_parts_44" id="">
-                                                <div class="">
-                                                    <input type="number" id="base-input"
-                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PO)"
-                                                        min="0" max="999999999999"
-                                                        oninput="validity.valid||(value='');"
-                                                        name="as_mny_parts_po_44">
+                                                        data-modal-toggle="modal144">
+                                                        Ubah
+                                                    </button>
                                                 </div>
                                             @endif
-
                                         </td>
                                         <input type="text" hidden name="as_up_by_parts_po_44"
                                             value="{{ Auth::user()->first_name }}">
@@ -3869,7 +4064,7 @@
                                     <tr
                                         class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
                                         <td class="py-4 font-bold text-center">45.</td>
-                                        <td class="flex items-center my-10">
+                                        <td class="flex items-center my-4">
 
                                             @if ($koneksipo->po_parts_45 != '')
                                                 <a href="{{ asset('storage/supervisor/project/03_03_PR/' . $koneksipo->po_parts_45) }}"
@@ -3907,22 +4102,27 @@
                                         </td>
 
                                         <td class="space-y-2 py-3 px-2">
-                                            @if ($koneksipo->po_parts_45 != '')
+                                            @if (
+                                                ($koneksipo->status_po_03 == '-' || $koneksipo->status_po_03 == 'Revisi Purchasing - PO') &&
+                                                    $koneksipo->po_parts_45 == '')
+                                                <button type="button"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
+                                                    data-modal-target="modala145" data-modal-show="modala145"
+                                                    data-modal-toggle="modala145">
+                                                    + Tambah dokumen
+                                                </button>
+                                            @elseif (
+                                                ($koneksipo->status_po_03 == '-' || $koneksipo->status_po_03 == 'Revisi Purchasing - PO') &&
+                                                    $koneksipo->po_parts_45 != '' &&
+                                                    $koneksipo->status_po_03 != 'Complete' &&
+                                                    $koneksipo->status_po_03 != 'Waiting Approval')
                                                 <div class="justify-center flex space-x-2">
                                                     <button type="button"
-                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                         data-modal-target="modal145" data-modal-show="modal145"
-                                                        data-modal-toggle="modal145">Ubah</button>
-                                                </div>
-                                            @else
-                                                <input type="file" name="as_po_parts_45" id="">
-                                                <div class="">
-                                                    <input type="number" id="base-input"
-                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PO)"
-                                                        min="0" max="999999999999"
-                                                        oninput="validity.valid||(value='');"
-                                                        name="as_mny_parts_po_45">
+                                                        data-modal-toggle="modal145">
+                                                        Ubah
+                                                    </button>
                                                 </div>
                                             @endif
                                         </td>
@@ -3932,348 +4132,7 @@
                                             value="{{ date('Y-m-d') }}">
 
                                     </tr>
-                                    {{-- parts 46 --}}
-                                    <tr
-                                        class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
-                                        <td class="py-4 font-bold text-center">46.</td>
-                                        <td class="flex items-center my-10">
-
-                                            @if ($koneksipo->po_parts_46 != '')
-                                                <a href="{{ asset('storage/supervisor/project/03_03_PR/' . $koneksipo->po_parts_46) }}"
-                                                    target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
-                                                    <svg width="22" height="17" viewBox="0 0 22 17"
-                                                        fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                        <path
-                                                            d="M11 0C6 0 1.73 3.11 0 7.5C1.73 11.89 6 15 11 15C11.36 15 11.72 15 12.08 14.95C12.03 14.63 12 14.32 12 14C12 13.44 12.08 12.88 12.24 12.34C11.83 12.44 11.42 12.5 11 12.5C8.24 12.5 6 10.26 6 7.5C6 4.74 8.24 2.5 11 2.5C13.76 2.5 16 4.74 16 7.5C16 7.79 15.97 8.09 15.92 8.38C16.58 8.13 17.29 8 18 8C19.17 8 20.31 8.34 21.29 9C21.56 8.5 21.8 8 22 7.5C20.27 3.11 16 0 11 0ZM11 4.5C9.34 4.5 8 5.84 8 7.5C8 9.16 9.34 10.5 11 10.5C12.66 10.5 14 9.16 14 7.5C14 5.84 12.66 4.5 11 4.5ZM17 10.5V12.5H21V14.5H17V16.5L14 13.5L17 10.5Z"
-                                                            fill="black" />
-                                                    </svg>
-                                                </a>
-
-                                                &emsp;
-                                            @endif
-                                            {{--  --}}
-                                            <a href="{{ asset('storage/supervisor/project/03_03_PR/' . $koneksipo->po_parts_46) }}"
-                                                target="blank" download="" class="hover:underline">
-                                                {{ $koneksipo->po_parts_46 }}</a>
-                                            {{-- == --}}
-
-                                        </td>
-                                        <td>
-                                            @if ($koneksipo->up_by_parts_po_46 != '')
-                                                <div
-                                                    class="items-center py-1 px-2 text-sm font-medium text-center text-white bg-orange-500 w-[100] mx-auto rounded">
-                                                    {{ $koneksipo->up_by_parts_po_46 }}
-                                                </div>
-                                            @endif
-                                        </td>
-                                        <td class="text-center">{{ $koneksipo->date_po_parts_46 }}</td>
-                                        <td>
-                                            @if ($koneksipo->mny_parts_po_46 != '')
-                                                Rp{{ number_format($koneksipo->mny_parts_po_46, 0, ',', '.') }}
-                                            @endif
-                                        </td>
-
-                                        <td class="space-y-2 py-3 px-2">
-                                            @if ($koneksipo->po_parts_46 != '')
-                                                <div class="justify-center flex space-x-2">
-                                                    <button type="button"
-                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
-                                                        data-modal-target="modal146" data-modal-show="modal146"
-                                                        data-modal-toggle="modal146">Ubah</button>
-                                                </div>
-                                            @else
-                                                <input type="file" name="as_po_parts_46" id="">
-                                                <div class="">
-                                                    <input type="number" id="base-input"
-                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PO)"
-                                                        min="0" max="999999999999"
-                                                        oninput="validity.valid||(value='');"
-                                                        name="as_mny_parts_po_46">
-                                                </div>
-                                            @endif
-
-                                        </td>
-                                        <input type="text" hidden name="as_up_by_parts_po_46"
-                                            value="{{ Auth::user()->first_name }}">
-                                        <input type="date" hidden name="as_date_po_parts_46"
-                                            value="{{ date('Y-m-d') }}">
-
-                                    </tr>
-                                    {{-- akhir batas 30-36 --}}
-                                    {{-- parts 47 parts --}}
-                                    <tr
-                                        class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
-                                        <td class="py-4 font-bold text-center">47.</td>
-                                        <td class="flex items-center my-10">
-
-                                            @if ($koneksipo->po_parts_47 != '')
-                                                <a href="{{ asset('storage/supervisor/project/03_03_PR/' . $koneksipo->po_parts_47) }}"
-                                                    target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
-                                                    <svg width="22" height="17" viewBox="0 0 22 17"
-                                                        fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                        <path
-                                                            d="M11 0C6 0 1.73 3.11 0 7.5C1.73 11.89 6 15 11 15C11.36 15 11.72 15 12.08 14.95C12.03 14.63 12 14.32 12 14C12 13.44 12.08 12.88 12.24 12.34C11.83 12.44 11.42 12.5 11 12.5C8.24 12.5 6 10.26 6 7.5C6 4.74 8.24 2.5 11 2.5C13.76 2.5 16 4.74 16 7.5C16 7.79 15.97 8.09 15.92 8.38C16.58 8.13 17.29 8 18 8C19.17 8 20.31 8.34 21.29 9C21.56 8.5 21.8 8 22 7.5C20.27 3.11 16 0 11 0ZM11 4.5C9.34 4.5 8 5.84 8 7.5C8 9.16 9.34 10.5 11 10.5C12.66 10.5 14 9.16 14 7.5C14 5.84 12.66 4.5 11 4.5ZM17 10.5V12.5H21V14.5H17V16.5L14 13.5L17 10.5Z"
-                                                            fill="black" />
-                                                    </svg>
-                                                </a>
-
-                                                &emsp;
-                                            @endif
-                                            {{--  --}}
-                                            <a href="{{ asset('storage/supervisor/project/03_03_PR/' . $koneksipo->po_parts_47) }}"
-                                                target="blank" download="" class="hover:underline">
-                                                {{ $koneksipo->po_parts_47 }}</a>
-                                            {{-- == --}}
-
-                                        </td>
-                                        <td>
-                                            @if ($koneksipo->up_by_parts_po_47 != '')
-                                                <div
-                                                    class="items-center py-1 px-2 text-sm font-medium text-center text-white bg-orange-500 w-[100] mx-auto rounded">
-                                                    {{ $koneksipo->up_by_parts_po_47 }}
-                                                </div>
-                                            @endif
-                                        </td>
-                                        <td class="text-center">{{ $koneksipo->date_po_parts_47 }}</td>
-                                        <td>
-                                            @if ($koneksipo->mny_parts_po_47 != '')
-                                                Rp{{ number_format($koneksipo->mny_parts_po_47, 0, ',', '.') }}
-                                            @endif
-                                        </td>
-
-                                        <td class="space-y-2 py-3 px-2">
-                                            @if ($koneksipo->po_parts_47 != '')
-                                                <div class="justify-center flex space-x-2">
-                                                    <button type="button"
-                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
-                                                        data-modal-target="modal147" data-modal-show="modal147"
-                                                        data-modal-toggle="modal147">Ubah</button>
-                                                </div>
-                                            @else
-                                                <input type="file" name="as_po_parts_47" id="">
-                                                <div class="">
-                                                    <input type="number" id="base-input"
-                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PO)"
-                                                        min="0" max="999999999999"
-                                                        oninput="validity.valid||(value='');"
-                                                        name="as_mny_parts_po_47">
-                                                </div>
-                                            @endif
-                                        </td>
-                                        <input type="text" hidden name="as_up_by_parts_po_47"
-                                            value="{{ Auth::user()->first_name }}">
-                                        <input type="date" hidden name="as_date_po_parts_47"
-                                            value="{{ date('Y-m-d') }}">
-
-                                    </tr>
-                                    {{-- parts 48 parts --}}
-                                    <tr
-                                        class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
-                                        <td class="py-4 font-bold text-center">48.</td>
-                                        <td class="flex items-center my-10">
-
-                                            @if ($koneksipo->po_parts_48 != '')
-                                                <a href="{{ asset('storage/supervisor/project/03_03_PR/' . $koneksipo->po_parts_48) }}"
-                                                    target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
-                                                    <svg width="22" height="17" viewBox="0 0 22 17"
-                                                        fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                        <path
-                                                            d="M11 0C6 0 1.73 3.11 0 7.5C1.73 11.89 6 15 11 15C11.36 15 11.72 15 12.08 14.95C12.03 14.63 12 14.32 12 14C12 13.44 12.08 12.88 12.24 12.34C11.83 12.44 11.42 12.5 11 12.5C8.24 12.5 6 10.26 6 7.5C6 4.74 8.24 2.5 11 2.5C13.76 2.5 16 4.74 16 7.5C16 7.79 15.97 8.09 15.92 8.38C16.58 8.13 17.29 8 18 8C19.17 8 20.31 8.34 21.29 9C21.56 8.5 21.8 8 22 7.5C20.27 3.11 16 0 11 0ZM11 4.5C9.34 4.5 8 5.84 8 7.5C8 9.16 9.34 10.5 11 10.5C12.66 10.5 14 9.16 14 7.5C14 5.84 12.66 4.5 11 4.5ZM17 10.5V12.5H21V14.5H17V16.5L14 13.5L17 10.5Z"
-                                                            fill="black" />
-                                                    </svg>
-                                                </a>
-
-                                                &emsp;
-                                            @endif
-                                            {{--  --}}
-                                            <a href="{{ asset('storage/supervisor/project/03_03_PR/' . $koneksipo->po_parts_48) }}"
-                                                target="blank" download="" class="hover:underline">
-                                                {{ $koneksipo->po_parts_48 }}</a>
-                                            {{-- == --}}
-
-                                        </td>
-                                        <td>
-                                            @if ($koneksipo->up_by_parts_po_48 != '')
-                                                <div
-                                                    class="items-center py-1 px-2 text-sm font-medium text-center text-white bg-orange-500 w-[100] mx-auto rounded">
-                                                    {{ $koneksipo->up_by_parts_po_48 }}
-                                                </div>
-                                            @endif
-                                        </td>
-                                        <td class="text-center">{{ $koneksipo->date_po_parts_48 }}</td>
-                                        <td>
-                                            @if ($koneksipo->mny_parts_po_48 != '')
-                                                Rp{{ number_format($koneksipo->mny_parts_po_48, 0, ',', '.') }}
-                                            @endif
-                                        </td>
-
-                                        <td class="space-y-2 py-3 px-2">
-                                            @if ($koneksipo->po_parts_48 != '')
-                                                <div class="justify-center flex space-x-2">
-                                                    <button type="button"
-                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
-                                                        data-modal-target="modal148" data-modal-show="modal148"
-                                                        data-modal-toggle="modal148">Ubah</button>
-                                                </div>
-                                            @else
-                                                <input type="file" name="as_po_parts_48" id="">
-                                                <div class="">
-                                                    <input type="number" id="base-input"
-                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PO)"
-                                                        min="0" max="999999999999"
-                                                        oninput="validity.valid||(value='');"
-                                                        name="as_mny_parts_po_48">
-                                                </div>
-                                            @endif
-
-                                        </td>
-                                        <input type="text" hidden name="as_up_by_parts_po_48"
-                                            value="{{ Auth::user()->first_name }}">
-                                        <input type="date" hidden name="as_date_po_parts_48"
-                                            value="{{ date('Y-m-d') }}">
-
-                                    </tr>
-                                    {{-- parts 49 parts --}}
-                                    <tr
-                                        class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
-                                        <td class="py-4 font-bold text-center">49.</td>
-                                        <td class="flex items-center my-10">
-
-                                            @if ($koneksipo->po_parts_49 != '')
-                                                <a href="{{ asset('storage/supervisor/project/03_03_PR/' . $koneksipo->po_parts_49) }}"
-                                                    target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
-                                                    <svg width="22" height="17" viewBox="0 0 22 17"
-                                                        fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                        <path
-                                                            d="M11 0C6 0 1.73 3.11 0 7.5C1.73 11.89 6 15 11 15C11.36 15 11.72 15 12.08 14.95C12.03 14.63 12 14.32 12 14C12 13.44 12.08 12.88 12.24 12.34C11.83 12.44 11.42 12.5 11 12.5C8.24 12.5 6 10.26 6 7.5C6 4.74 8.24 2.5 11 2.5C13.76 2.5 16 4.74 16 7.5C16 7.79 15.97 8.09 15.92 8.38C16.58 8.13 17.29 8 18 8C19.17 8 20.31 8.34 21.29 9C21.56 8.5 21.8 8 22 7.5C20.27 3.11 16 0 11 0ZM11 4.5C9.34 4.5 8 5.84 8 7.5C8 9.16 9.34 10.5 11 10.5C12.66 10.5 14 9.16 14 7.5C14 5.84 12.66 4.5 11 4.5ZM17 10.5V12.5H21V14.5H17V16.5L14 13.5L17 10.5Z"
-                                                            fill="black" />
-                                                    </svg>
-                                                </a>
-
-                                                &emsp;
-                                            @endif
-                                            {{--  --}}
-                                            <a href="{{ asset('storage/supervisor/project/03_03_PR/' . $koneksipo->po_parts_49) }}"
-                                                target="blank" download="" class="hover:underline">
-                                                {{ $koneksipo->po_parts_49 }}</a>
-                                            {{-- == --}}
-
-                                        </td>
-                                        <td>
-                                            @if ($koneksipo->up_by_parts_po_49 != '')
-                                                <div
-                                                    class="items-center py-1 px-2 text-sm font-medium text-center text-white bg-orange-500 w-[100] mx-auto rounded">
-                                                    {{ $koneksipo->up_by_parts_po_49 }}
-                                                </div>
-                                            @endif
-                                        </td>
-                                        <td class="text-center">{{ $koneksipo->date_po_parts_49 }}</td>
-                                        <td>
-                                            @if ($koneksipo->mny_parts_po_49 != '')
-                                                Rp{{ number_format($koneksipo->mny_parts_po_49, 0, ',', '.') }}
-                                            @endif
-                                        </td>
-
-                                        <td class="space-y-2 py-3 px-2">
-                                            @if ($koneksipo->po_parts_49 != '')
-                                                <div class="justify-center flex space-x-2">
-                                                    <button type="button"
-                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
-                                                        data-modal-target="modal149" data-modal-show="modal149"
-                                                        data-modal-toggle="modal149">Ubah</button>
-                                                </div>
-                                            @else
-                                                <input type="file" name="as_po_parts_49" id="">
-                                                <div class="">
-                                                    <input type="number" id="base-input"
-                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PO)"
-                                                        min="0" max="999999999999"
-                                                        oninput="validity.valid||(value='');"
-                                                        name="as_mny_parts_po_49">
-                                                </div>
-                                            @endif
-
-                                        </td>
-                                        <input type="text" hidden name="as_up_by_parts_po_49"
-                                            value="{{ Auth::user()->first_name }}">
-                                        <input type="date" hidden name="as_date_po_parts_49"
-                                            value="{{ date('Y-m-d') }}">
-
-                                    </tr>
-                                    {{-- 50 parts --}}
-                                    <tr
-                                        class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
-                                        <td class="py-4 font-bold text-center">50.</td>
-                                        <td class="flex items-center my-10">
-
-                                            @if ($koneksipo->po_parts_50 != '')
-                                                <a href="{{ asset('storage/supervisor/project/03_03_PR/' . $koneksipo->po_parts_50) }}"
-                                                    target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
-                                                    <svg width="22" height="17" viewBox="0 0 22 17"
-                                                        fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                        <path
-                                                            d="M11 0C6 0 1.73 3.11 0 7.5C1.73 11.89 6 15 11 15C11.36 15 11.72 15 12.08 14.95C12.03 14.63 12 14.32 12 14C12 13.44 12.08 12.88 12.24 12.34C11.83 12.44 11.42 12.5 11 12.5C8.24 12.5 6 10.26 6 7.5C6 4.74 8.24 2.5 11 2.5C13.76 2.5 16 4.74 16 7.5C16 7.79 15.97 8.09 15.92 8.38C16.58 8.13 17.29 8 18 8C19.17 8 20.31 8.34 21.29 9C21.56 8.5 21.8 8 22 7.5C20.27 3.11 16 0 11 0ZM11 4.5C9.34 4.5 8 5.84 8 7.5C8 9.16 9.34 10.5 11 10.5C12.66 10.5 14 9.16 14 7.5C14 5.84 12.66 4.5 11 4.5ZM17 10.5V12.5H21V14.5H17V16.5L14 13.5L17 10.5Z"
-                                                            fill="black" />
-                                                    </svg>
-                                                </a>
-
-                                                &emsp;
-                                            @endif
-                                            {{--  --}}
-                                            <a href="{{ asset('storage/supervisor/project/03_03_PR/' . $koneksipo->po_parts_50) }}"
-                                                target="blank" download="" class="hover:underline">
-                                                {{ $koneksipo->po_parts_50 }}</a>
-                                            {{-- == --}}
-
-                                        </td>
-                                        <td>
-                                            @if ($koneksipo->up_by_parts_po_50 != '')
-                                                <div
-                                                    class="items-center py-1 px-2 text-sm font-medium text-center text-white bg-orange-500 w-[100] mx-auto rounded">
-                                                    {{ $koneksipo->up_by_parts_po_50 }}
-                                                </div>
-                                            @endif
-                                        </td>
-                                        <td class="text-center">{{ $koneksipo->date_po_parts_50 }}</td>
-                                        <td>
-                                            @if ($koneksipo->mny_parts_po_50 != '')
-                                                Rp{{ number_format($koneksipo->mny_parts_po_50, 0, ',', '.') }}
-                                            @endif
-                                        </td>
-
-                                        <td class="space-y-2 py-3 px-2">
-                                            @if ($koneksipo->po_parts_50 != '')
-                                                <div class="justify-center flex space-x-2">
-                                                    <button type="button"
-                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
-                                                        data-modal-target="modal150" data-modal-show="modal150"
-                                                        data-modal-toggle="modal150">Ubah</button>
-                                                </div>
-                                            @else
-                                                <input type="file" name="as_po_parts_50" id="">
-                                                <div class="">
-                                                    <input type="number" id="base-input"
-                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PO)"
-                                                        min="0" max="999999999999"
-                                                        oninput="validity.valid||(value='');"
-                                                        name="as_mny_parts_po_50">
-                                                </div>
-                                            @endif
-
-                                        </td>
-                                        <input type="text" hidden name="as_up_by_parts_po_50"
-                                            value="{{ Auth::user()->first_name }}">
-                                        <input type="date" hidden name="as_date_po_parts_50"
-                                            value="{{ date('Y-m-d') }}">
-
-                                    </tr>
-
-
+                                    
                                 </tbody>
                             </table>
                         </div>
@@ -4312,19 +4171,19 @@
                         <div class="overflow-x-auto rounded-md mb-5 max-h-screen overflow-y-auto border">
                             <table class="w-full">
                                 <thead class="bg-gray-300 text-gray-700">
-                                    <th class="py-2 w-[5%]  font-medium">No.</th>
-                                    <th class="w-[45%]  font-medium">Nama File</th>
-                                    <th class="w-[12%]  font-medium">Uploaded by</th>
-                                    <th class="w-[12%]  font-medium">Last Update</th>
-                                    <th class="w-[11%]  font-medium">PR Amount</th>
-                                    <th class="w-[15%]  font-medium">Aksi</th>
+                                    <th class="py-2 w-[5%] font-medium">No.</th>
+                                        <th class="w-[45%]  font-medium">Nama File</th>
+                                        <th class="w-[11%]  font-medium">Uploaded by</th>
+                                        <th class="w-[10%]  font-medium">Last Update</th>
+                                        <th class="w-[14%]  font-medium">PO Amount</th>
+                                        <th class="w-[14%]  font-medium">Aksi</th>
                                 </thead>
                                 <tbody class="text-left border">
                                     {{-- 1 --}}
                                     <tr
                                         class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
                                         <td class="py-4 font-bold text-center">1.</td>
-                                        <td class="flex items-center my-10">
+                                        <td class="flex items-center my-4">
 
                                             @if ($koneksipo->po_jasa_1 != '')
                                                 <a href="{{ asset('storage/supervisor/project/03_03_PR/' . $koneksipo->po_jasa_1) }}"
@@ -4356,30 +4215,34 @@
                                         </td>
                                         <td class="text-center">{{ $koneksipo->date_po_jasa_1 }}</td>
                                         <td>
-                                            @if ($koneksipo->mny_jasa_pao1 != '')
-                                                Rp{{ number_format($koneksipo->mny_jasa_pao1, 0, ',', '.') }}
+                                            @if ($koneksipo->mny_jasa_po_1 != '')
+                                                Rp{{ number_format($koneksipo->mny_jasa_po_1, 0, ',', '.') }}
                                             @endif
                                         </td>
                                         <td class="space-y-2 py-3 px-2">
-                                            @if ($koneksipo->po_jasa_1 != '')
+                                            @if (
+                                                ($koneksipo->status_po_03 == '-' || $koneksipo->status_po_03 == 'Revisi Purchasing - PO') &&
+                                                    $koneksipo->po_jasa_1 == '')
+                                                <button type="button"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
+                                                    data-modal-target="modala21" data-modal-show="modala21"
+                                                    data-modal-toggle="modala21">
+                                                    + Tambah dokumen
+                                                </button>
+                                            @elseif (
+                                                ($koneksipo->status_po_03 == '-' || $koneksipo->status_po_03 == 'Revisi Purchasing - PO') &&
+                                                    $koneksipo->po_jasa_1 != '' &&
+                                                    $koneksipo->status_po_03 != 'Complete' &&
+                                                    $koneksipo->status_po_03 != 'Waiting Approval')
                                                 <div class="justify-center flex space-x-2">
                                                     <button type="button"
-                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                         data-modal-target="modal21" data-modal-show="modal21"
-                                                        data-modal-toggle="modal21">Ubah</button>
-                                                </div>
-                                            @else
-                                                <input type="file" name="as_po_jasa_1" id="">
-                                                <div class="">
-                                                    <input type="number" id="base-input"
-                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PO)"
-                                                        min="0" max="999999999999"
-                                                        oninput="validity.valid||(value='');"
-                                                        name="as_mny_jasa_po_1">
+                                                        data-modal-toggle="modal21">
+                                                        Ubah
+                                                    </button>
                                                 </div>
                                             @endif
-
                                         </td>
                                         <input type="text" hidden name="as_up_by_jasa_po_1"
                                             value="{{ Auth::user()->first_name }}">
@@ -4391,7 +4254,7 @@
                                     <tr
                                         class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
                                         <td class="py-4 font-bold text-center">2.</td>
-                                        <td class="flex items-center my-10">
+                                        <td class="flex items-center my-4">
 
                                             @if ($koneksipo->po_jasa_2 != '')
                                                 <a href="{{ asset('storage/supervisor/project/03_03_PR/' . $koneksipo->po_jasa_2) }}"
@@ -4423,30 +4286,34 @@
                                         </td>
                                         <td class="text-center">{{ $koneksipo->date_po_jasa_2 }}</td>
                                         <td>
-                                            @if ($koneksipo->mny_jasa_pao2 != '')
-                                                Rp{{ number_format($koneksipo->mny_jasa_pao2, 0, ',', '.') }}
+                                            @if ($koneksipo->mny_jasa_po_2 != '')
+                                                Rp{{ number_format($koneksipo->mny_jasa_po_2, 0, ',', '.') }}
                                             @endif
                                         </td>
                                         <td class="space-y-2 py-3 px-2">
-                                            @if ($koneksipo->po_jasa_2 != '')
+                                            @if (
+                                                ($koneksipo->status_po_03 == '-' || $koneksipo->status_po_03 == 'Revisi Purchasing - PO') &&
+                                                    $koneksipo->po_jasa_2 == '')
+                                                <button type="button"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
+                                                    data-modal-target="modala22" data-modal-show="modala22"
+                                                    data-modal-toggle="modala22">
+                                                    + Tambah dokumen
+                                                </button>
+                                            @elseif (
+                                                ($koneksipo->status_po_03 == '-' || $koneksipo->status_po_03 == 'Revisi Purchasing - PO') &&
+                                                    $koneksipo->po_jasa_2 != '' &&
+                                                    $koneksipo->status_po_03 != 'Complete' &&
+                                                    $koneksipo->status_po_03 != 'Waiting Approval')
                                                 <div class="justify-center flex space-x-2">
                                                     <button type="button"
-                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                         data-modal-target="modal22" data-modal-show="modal22"
-                                                        data-modal-toggle="modal22">Ubah</button>
-                                                </div>
-                                            @else
-                                                <input type="file" name="as_po_jasa_2" id="">
-                                                <div class="">
-                                                    <input type="number" id="base-input"
-                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PO)"
-                                                        min="0" max="999999999999"
-                                                        oninput="validity.valid||(value='');"
-                                                        name="as_mny_jasa_po_2">
+                                                        data-modal-toggle="modal22">
+                                                        Ubah
+                                                    </button>
                                                 </div>
                                             @endif
-
                                         </td>
                                         <input type="text" hidden name="as_up_by_jasa_po_2"
                                             value="{{ Auth::user()->first_name }}">
@@ -4459,7 +4326,7 @@
                                     <tr
                                         class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
                                         <td class="py-4 font-bold text-center">3.</td>
-                                        <td class="flex items-center my-10">
+                                        <td class="flex items-center my-4">
 
                                             @if ($koneksipo->po_jasa_3 != '')
                                                 <a href="{{ asset('storage/supervisor/project/03_03_PR/' . $koneksipo->po_jasa_3) }}"
@@ -4491,30 +4358,34 @@
                                         </td>
                                         <td class="text-center">{{ $koneksipo->date_po_jasa_3 }}</td>
                                         <td>
-                                            @if ($koneksipo->mny_jasa_pao3 != '')
-                                                Rp{{ number_format($koneksipo->mny_jasa_pao3, 0, ',', '.') }}
+                                            @if ($koneksipo->mny_jasa_po_3 != '')
+                                                Rp{{ number_format($koneksipo->mny_jasa_po_3, 0, ',', '.') }}
                                             @endif
                                         </td>
                                         <td class="space-y-2 py-3 px-2">
-                                            @if ($koneksipo->po_jasa_3 != '')
+                                            @if (
+                                                ($koneksipo->status_po_03 == '-' || $koneksipo->status_po_03 == 'Revisi Purchasing - PO') &&
+                                                    $koneksipo->po_jasa_3 == '')
+                                                <button type="button"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
+                                                    data-modal-target="modala23" data-modal-show="modala23"
+                                                    data-modal-toggle="modala23">
+                                                    + Tambah dokumen
+                                                </button>
+                                            @elseif (
+                                                ($koneksipo->status_po_03 == '-' || $koneksipo->status_po_03 == 'Revisi Purchasing - PO') &&
+                                                    $koneksipo->po_jasa_3 != '' &&
+                                                    $koneksipo->status_po_03 != 'Complete' &&
+                                                    $koneksipo->status_po_03 != 'Waiting Approval')
                                                 <div class="justify-center flex space-x-2">
                                                     <button type="button"
-                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                         data-modal-target="modal23" data-modal-show="modal23"
-                                                        data-modal-toggle="modal23">Ubah</button>
-                                                </div>
-                                            @else
-                                                <input type="file" name="as_po_jasa_3" id="">
-                                                <div class="">
-                                                    <input type="number" id="base-input"
-                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PO)"
-                                                        min="0" max="999999999999"
-                                                        oninput="validity.valid||(value='');"
-                                                        name="as_mny_jasa_po_3">
+                                                        data-modal-toggle="modal23">
+                                                        Ubah
+                                                    </button>
                                                 </div>
                                             @endif
-
                                         </td>
                                         <input type="text" hidden name="as_up_by_jasa_po_3"
                                             value="{{ Auth::user()->first_name }}">
@@ -4527,7 +4398,7 @@
                                     <tr
                                         class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
                                         <td class="py-4 font-bold text-center">4.</td>
-                                        <td class="flex items-center my-10">
+                                        <td class="flex items-center my-4">
 
                                             @if ($koneksipo->po_jasa_4 != '')
                                                 <a href="{{ asset('storage/supervisor/project/03_03_PR/' . $koneksipo->po_jasa_4) }}"
@@ -4559,27 +4430,32 @@
                                         </td>
                                         <td class="text-center">{{ $koneksipo->date_po_jasa_4 }}</td>
                                         <td>
-                                            @if ($koneksipo->mny_jasa_pao4 != '')
-                                                Rp{{ number_format($koneksipo->mny_jasa_pao4, 0, ',', '.') }}
+                                            @if ($koneksipo->mny_jasa_po_4 != '')
+                                                Rp{{ number_format($koneksipo->mny_jasa_po_4, 0, ',', '.') }}
                                             @endif
                                         </td>
                                         <td class="space-y-2 py-3 px-2">
-                                            @if ($koneksipo->po_jasa_4 != '')
+                                            @if (
+                                                ($koneksipo->status_po_03 == '-' || $koneksipo->status_po_03 == 'Revisi Purchasing - PO') &&
+                                                    $koneksipo->po_jasa_4 == '')
+                                                <button type="button"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
+                                                    data-modal-target="modala24" data-modal-show="modala24"
+                                                    data-modal-toggle="modala24">
+                                                    + Tambah dokumen
+                                                </button>
+                                            @elseif (
+                                                ($koneksipo->status_po_03 == '-' || $koneksipo->status_po_03 == 'Revisi Purchasing - PO') &&
+                                                    $koneksipo->po_jasa_4 != '' &&
+                                                    $koneksipo->status_po_03 != 'Complete' &&
+                                                    $koneksipo->status_po_03 != 'Waiting Approval')
                                                 <div class="justify-center flex space-x-2">
                                                     <button type="button"
-                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                         data-modal-target="modal24" data-modal-show="modal24"
-                                                        data-modal-toggle="modal24">Ubah</button>
-                                                </div>
-                                            @else
-                                                <input type="file" name="as_po_jasa_4" id="">
-                                                <div class="">
-                                                    <input type="number" id="base-input"
-                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PO)"
-                                                        min="0" max="999999999999"
-                                                        oninput="validity.valid||(value='');"
-                                                        name="as_mny_jasa_po_4">
+                                                        data-modal-toggle="modal24">
+                                                        Ubah
+                                                    </button>
                                                 </div>
                                             @endif
                                         </td>
@@ -4593,7 +4469,7 @@
                                     <tr
                                         class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
                                         <td class="py-4 font-bold text-center">5.</td>
-                                        <td class="flex items-center my-10">
+                                        <td class="flex items-center my-4">
 
                                             @if ($koneksipo->po_jasa_5 != '')
                                                 <a href="{{ asset('storage/supervisor/project/03_03_PR/' . $koneksipo->po_jasa_5) }}"
@@ -4625,27 +4501,32 @@
                                         </td>
                                         <td class="text-center">{{ $koneksipo->date_po_jasa_5 }}</td>
                                         <td>
-                                            @if ($koneksipo->mny_jasa_pao5 != '')
-                                                Rp{{ number_format($koneksipo->mny_jasa_pao5, 0, ',', '.') }}
+                                            @if ($koneksipo->mny_jasa_po_5 != '')
+                                                Rp{{ number_format($koneksipo->mny_jasa_po_5, 0, ',', '.') }}
                                             @endif
                                         </td>
                                         <td class="space-y-2 py-3 px-2">
-                                            @if ($koneksipo->po_jasa_5 != '')
+                                            @if (
+                                                ($koneksipo->status_po_03 == '-' || $koneksipo->status_po_03 == 'Revisi Purchasing - PO') &&
+                                                    $koneksipo->po_jasa_5 == '')
+                                                <button type="button"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
+                                                    data-modal-target="modala25" data-modal-show="modala25"
+                                                    data-modal-toggle="modala25">
+                                                    + Tambah dokumen
+                                                </button>
+                                            @elseif (
+                                                ($koneksipo->status_po_03 == '-' || $koneksipo->status_po_03 == 'Revisi Purchasing - PO') &&
+                                                    $koneksipo->po_jasa_5 != '' &&
+                                                    $koneksipo->status_po_03 != 'Complete' &&
+                                                    $koneksipo->status_po_03 != 'Waiting Approval')
                                                 <div class="justify-center flex space-x-2">
                                                     <button type="button"
-                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                         data-modal-target="modal25" data-modal-show="modal25"
-                                                        data-modal-toggle="modal25">Ubah</button>
-                                                </div>
-                                            @else
-                                                <input type="file" name="as_po_jasa_5" id="">
-                                                <div class="">
-                                                    <input type="number" id="base-input"
-                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PO)"
-                                                        min="0" max="999999999999"
-                                                        oninput="validity.valid||(value='');"
-                                                        name="as_mny_jasa_po_5">
+                                                        data-modal-toggle="modal25">
+                                                        Ubah
+                                                    </button>
                                                 </div>
                                             @endif
                                         </td>
@@ -4658,7 +4539,7 @@
                                     <tr
                                         class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
                                         <td class="py-4 font-bold text-center">6.</td>
-                                        <td class="flex items-center my-10">
+                                        <td class="flex items-center my-4">
 
                                             @if ($koneksipo->po_jasa_6 != '')
                                                 <a href="{{ asset('storage/supervisor/project/03_03_PR/' . $koneksipo->po_jasa_6) }}"
@@ -4690,30 +4571,34 @@
                                         </td>
                                         <td class="text-center">{{ $koneksipo->date_po_jasa_6 }}</td>
                                         <td>
-                                            @if ($koneksipo->mny_jasa_pao6 != '')
-                                                Rp{{ number_format($koneksipo->mny_jasa_pao6, 0, ',', '.') }}
+                                            @if ($koneksipo->mny_jasa_po_6 != '')
+                                                Rp{{ number_format($koneksipo->mny_jasa_po_6, 0, ',', '.') }}
                                             @endif
                                         </td>
                                         <td class="space-y-2 py-3 px-2">
-                                            @if ($koneksipo->po_jasa_6 != '')
+                                            @if (
+                                                ($koneksipo->status_po_03 == '-' || $koneksipo->status_po_03 == 'Revisi Purchasing - PO') &&
+                                                    $koneksipo->po_jasa_6 == '')
+                                                <button type="button"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
+                                                    data-modal-target="modala26" data-modal-show="modala26"
+                                                    data-modal-toggle="modala26">
+                                                    + Tambah dokumen
+                                                </button>
+                                            @elseif (
+                                                ($koneksipo->status_po_03 == '-' || $koneksipo->status_po_03 == 'Revisi Purchasing - PO') &&
+                                                    $koneksipo->po_jasa_6 != '' &&
+                                                    $koneksipo->status_po_03 != 'Complete' &&
+                                                    $koneksipo->status_po_03 != 'Waiting Approval')
                                                 <div class="justify-center flex space-x-2">
                                                     <button type="button"
-                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                         data-modal-target="modal26" data-modal-show="modal26"
-                                                        data-modal-toggle="modal26">Ubah</button>
-                                                </div>
-                                            @else
-                                                <input type="file" name="as_po_jasa_6" id="">
-                                                <div class="">
-                                                    <input type="number" id="base-input"
-                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PO)"
-                                                        min="0" max="999999999999"
-                                                        oninput="validity.valid||(value='');"
-                                                        name="as_mny_jasa_po_6">
+                                                        data-modal-toggle="modal26">
+                                                        Ubah
+                                                    </button>
                                                 </div>
                                             @endif
-
                                         </td>
                                         <input type="text" hidden name="as_up_by_jasa_po_6"
                                             value="{{ Auth::user()->first_name }}">
@@ -4725,7 +4610,7 @@
                                     <tr
                                         class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
                                         <td class="py-4 font-bold text-center">7.</td>
-                                        <td class="flex items-center my-10">
+                                        <td class="flex items-center my-4">
 
                                             @if ($koneksipo->po_jasa_7 != '')
                                                 <a href="{{ asset('storage/supervisor/project/03_03_PR/' . $koneksipo->po_jasa_7) }}"
@@ -4757,27 +4642,32 @@
                                         </td>
                                         <td class="text-center">{{ $koneksipo->date_po_jasa_7 }}</td>
                                         <td>
-                                            @if ($koneksipo->mny_jasa_pao7 != '')
-                                                Rp{{ number_format($koneksipo->mny_jasa_pao7, 0, ',', '.') }}
+                                            @if ($koneksipo->mny_jasa_po_7 != '')
+                                                Rp{{ number_format($koneksipo->mny_jasa_po_7, 0, ',', '.') }}
                                             @endif
                                         </td>
                                         <td class="space-y-2 py-3 px-2">
-                                            @if ($koneksipo->po_jasa_7 != '')
+                                            @if (
+                                                ($koneksipo->status_po_03 == '-' || $koneksipo->status_po_03 == 'Revisi Purchasing - PO') &&
+                                                    $koneksipo->po_jasa_7 == '')
+                                                <button type="button"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
+                                                    data-modal-target="modala27" data-modal-show="modala27"
+                                                    data-modal-toggle="modala27">
+                                                    + Tambah dokumen
+                                                </button>
+                                            @elseif (
+                                                ($koneksipo->status_po_03 == '-' || $koneksipo->status_po_03 == 'Revisi Purchasing - PO') &&
+                                                    $koneksipo->po_jasa_7 != '' &&
+                                                    $koneksipo->status_po_03 != 'Complete' &&
+                                                    $koneksipo->status_po_03 != 'Waiting Approval')
                                                 <div class="justify-center flex space-x-2">
                                                     <button type="button"
-                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                         data-modal-target="modal27" data-modal-show="modal27"
-                                                        data-modal-toggle="modal27">Ubah</button>
-                                                </div>
-                                            @else
-                                                <input type="file" name="as_po_jasa_7" id="">
-                                                <div class="">
-                                                    <input type="number" id="base-input"
-                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PO)"
-                                                        min="0" max="999999999999"
-                                                        oninput="validity.valid||(value='');"
-                                                        name="as_mny_jasa_po_7">
+                                                        data-modal-toggle="modal27">
+                                                        Ubah
+                                                    </button>
                                                 </div>
                                             @endif
                                         </td>
@@ -4791,7 +4681,7 @@
                                     <tr
                                         class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
                                         <td class="py-4 font-bold text-center">8.</td>
-                                        <td class="flex items-center my-10">
+                                        <td class="flex items-center my-4">
 
                                             @if ($koneksipo->po_jasa_8 != '')
                                                 <a href="{{ asset('storage/supervisor/project/03_03_PR/' . $koneksipo->po_jasa_8) }}"
@@ -4823,27 +4713,32 @@
                                         </td>
                                         <td class="text-center">{{ $koneksipo->date_po_jasa_8 }}</td>
                                         <td>
-                                            @if ($koneksipo->mny_jasa_pao8 != '')
-                                                Rp{{ number_format($koneksipo->mny_jasa_pao8, 0, ',', '.') }}
+                                            @if ($koneksipo->mny_jasa_po_8 != '')
+                                                Rp{{ number_format($koneksipo->mny_jasa_pa_8, 0, ',', '.') }}
                                             @endif
                                         </td>
                                         <td class="space-y-2 py-3 px-2">
-                                            @if ($koneksipo->po_jasa_8 != '')
+                                            @if (
+                                                ($koneksipo->status_po_03 == '-' || $koneksipo->status_po_03 == 'Revisi Purchasing - PO') &&
+                                                    $koneksipo->po_jasa_8 == '')
+                                                <button type="button"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
+                                                    data-modal-target="modala28" data-modal-show="modala28"
+                                                    data-modal-toggle="modala28">
+                                                    + Tambah dokumen
+                                                </button>
+                                            @elseif (
+                                                ($koneksipo->status_po_03 == '-' || $koneksipo->status_po_03 == 'Revisi Purchasing - PO') &&
+                                                    $koneksipo->po_jasa_8 != '' &&
+                                                    $koneksipo->status_po_03 != 'Complete' &&
+                                                    $koneksipo->status_po_03 != 'Waiting Approval')
                                                 <div class="justify-center flex space-x-2">
                                                     <button type="button"
-                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                         data-modal-target="modal28" data-modal-show="modal28"
-                                                        data-modal-toggle="modal28">Ubah</button>
-                                                </div>
-                                            @else
-                                                <input type="file" name="as_po_jasa_8" id="">
-                                                <div class="">
-                                                    <input type="number" id="base-input"
-                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PO)"
-                                                        min="0" max="999999999999"
-                                                        oninput="validity.valid||(value='');"
-                                                        name="as_mny_jasa_po_8">
+                                                        data-modal-toggle="modal28">
+                                                        Ubah
+                                                    </button>
                                                 </div>
                                             @endif
                                         </td>
@@ -4857,7 +4752,7 @@
                                     <tr
                                         class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
                                         <td class="py-4 font-bold text-center">9.</td>
-                                        <td class="flex items-center my-10">
+                                        <td class="flex items-center my-4">
 
                                             @if ($koneksipo->po_jasa_9 != '')
                                                 <a href="{{ asset('storage/supervisor/project/03_03_PR/' . $koneksipo->po_jasa_9) }}"
@@ -4889,30 +4784,34 @@
                                         </td>
                                         <td class="text-center">{{ $koneksipo->date_po_jasa_9 }}</td>
                                         <td>
-                                            @if ($koneksipo->mny_jasa_pao9 != '')
-                                                Rp{{ number_format($koneksipo->mny_jasa_pao9, 0, ',', '.') }}
+                                            @if ($koneksipo->mny_jasa_po_9 != '')
+                                                Rp{{ number_format($koneksipo->mny_jasa_po_9, 0, ',', '.') }}
                                             @endif
                                         </td>
                                         <td class="space-y-2 py-3 px-2">
-                                            @if ($koneksipo->po_jasa_9 != '')
+                                            @if (
+                                                ($koneksipo->status_po_03 == '-' || $koneksipo->status_po_03 == 'Revisi Purchasing - PO') &&
+                                                    $koneksipo->po_jasa_9 == '')
+                                                <button type="button"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
+                                                    data-modal-target="modala29" data-modal-show="modala29"
+                                                    data-modal-toggle="modala29">
+                                                    + Tambah dokumen
+                                                </button>
+                                            @elseif (
+                                                ($koneksipo->status_po_03 == '-' || $koneksipo->status_po_03 == 'Revisi Purchasing - PO') &&
+                                                    $koneksipo->po_jasa_9 != '' &&
+                                                    $koneksipo->status_po_03 != 'Complete' &&
+                                                    $koneksipo->status_po_03 != 'Waiting Approval')
                                                 <div class="justify-center flex space-x-2">
                                                     <button type="button"
-                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                         data-modal-target="modal29" data-modal-show="modal29"
-                                                        data-modal-toggle="modal29">Ubah</button>
-                                                </div>
-                                            @else
-                                                <input type="file" name="as_po_jasa_9" id="">
-                                                <div class="">
-                                                    <input type="number" id="base-input"
-                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PO)"
-                                                        min="0" max="999999999999"
-                                                        oninput="validity.valid||(value='');"
-                                                        name="as_mny_jasa_po_9">
+                                                        data-modal-toggle="modal29">
+                                                        Ubah
+                                                    </button>
                                                 </div>
                                             @endif
-
                                         </td>
                                         <input type="text" hidden name="as_up_by_jasa_po_9"
                                             value="{{ Auth::user()->first_name }}">
@@ -4924,7 +4823,7 @@
                                     <tr
                                         class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
                                         <td class="py-4 font-bold text-center">10.</td>
-                                        <td class="flex items-center my-10">
+                                        <td class="flex items-center my-4">
 
                                             @if ($koneksipo->po_jasa_10 != '')
                                                 <a href="{{ asset('storage/supervisor/project/03_03_PR/' . $koneksipo->po_jasa_10) }}"
@@ -4956,30 +4855,34 @@
                                         </td>
                                         <td class="text-center">{{ $koneksipo->date_po_jasa_10 }}</td>
                                         <td>
-                                            @if ($koneksipo->mny_jasa_pao10 != '')
-                                                Rp{{ number_format($koneksipo->mny_jasa_pao10, 0, ',', '.') }}
+                                            @if ($koneksipo->mny_jasa_po_10 != '')
+                                                Rp{{ number_format($koneksipo->mny_jasa_po_10, 0, ',', '.') }}
                                             @endif
                                         </td>
                                         <td class="space-y-2 py-3 px-2">
-                                            @if ($koneksipo->po_jasa_10 != '')
+                                            @if (
+                                                ($koneksipo->status_po_03 == '-' || $koneksipo->status_po_03 == 'Revisi Purchasing - PO') &&
+                                                    $koneksipo->po_jasa_10 == '')
+                                                <button type="button"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
+                                                    data-modal-target="modala210" data-modal-show="modala210"
+                                                    data-modal-toggle="modala210">
+                                                    + Tambah dokumen
+                                                </button>
+                                            @elseif (
+                                                ($koneksipo->status_po_03 == '-' || $koneksipo->status_po_03 == 'Revisi Purchasing - PO') &&
+                                                    $koneksipo->po_jasa_10 != '' &&
+                                                    $koneksipo->status_po_03 != 'Complete' &&
+                                                    $koneksipo->status_po_03 != 'Waiting Approval')
                                                 <div class="justify-center flex space-x-2">
                                                     <button type="button"
-                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                         data-modal-target="modal210" data-modal-show="modal210"
-                                                        data-modal-toggle="modal210">Ubah</button>
-                                                </div>
-                                            @else
-                                                <input type="file" name="as_po_jasa_10" id="">
-                                                <div class="">
-                                                    <input type="number" id="base-input"
-                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PO)"
-                                                        min="0" max="999999999999"
-                                                        oninput="validity.valid||(value='');"
-                                                        name="as_mny_jasa_po_10">
+                                                        data-modal-toggle="modal210">
+                                                        Ubah
+                                                    </button>
                                                 </div>
                                             @endif
-
                                         </td>
                                         <input type="text" hidden name="as_up_by_jasa_po_10"
                                             value="{{ Auth::user()->first_name }}">
@@ -4991,7 +4894,7 @@
                                     <tr
                                         class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
                                         <td class="py-4 font-bold text-center">11.</td>
-                                        <td class="flex items-center my-10">
+                                        <td class="flex items-center my-4">
 
                                             @if ($koneksipo->po_jasa_11 != '')
                                                 <a href="{{ asset('storage/supervisor/project/03_03_PR/' . $koneksipo->po_jasa_11) }}"
@@ -5023,30 +4926,34 @@
                                         </td>
                                         <td class="text-center">{{ $koneksipo->date_po_jasa_11 }}</td>
                                         <td>
-                                            @if ($koneksipo->mny_jasa_pao11 != '')
-                                                Rp{{ number_format($koneksipo->mny_jasa_pao11, 0, ',', '.') }}
+                                            @if ($koneksipo->mny_jasa_po_11 != '')
+                                                Rp{{ number_format($koneksipo->mny_jasa_po_11, 0, ',', '.') }}
                                             @endif
                                         </td>
                                         <td class="space-y-2 py-3 px-2">
-                                            @if ($koneksipo->po_jasa_11 != '')
+                                            @if (
+                                                ($koneksipo->status_po_03 == '-' || $koneksipo->status_po_03 == 'Revisi Purchasing - PO') &&
+                                                    $koneksipo->po_jasa_11 == '')
+                                                <button type="button"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
+                                                    data-modal-target="modala211" data-modal-show="modala211"
+                                                    data-modal-toggle="modala211">
+                                                    + Tambah dokumen
+                                                </button>
+                                            @elseif (
+                                                ($koneksipo->status_po_03 == '-' || $koneksipo->status_po_03 == 'Revisi Purchasing - PO') &&
+                                                    $koneksipo->po_jasa_11 != '' &&
+                                                    $koneksipo->status_po_03 != 'Complete' &&
+                                                    $koneksipo->status_po_03 != 'Waiting Approval')
                                                 <div class="justify-center flex space-x-2">
                                                     <button type="button"
-                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                         data-modal-target="modal211" data-modal-show="modal211"
-                                                        data-modal-toggle="modal211">Ubah</button>
-                                                </div>
-                                            @else
-                                                <input type="file" name="as_po_jasa_11" id="">
-                                                <div class="">
-                                                    <input type="number" id="base-input"
-                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PO)"
-                                                        min="0" max="999999999999"
-                                                        oninput="validity.valid||(value='');"
-                                                        name="as_mny_jasa_po_11">
+                                                        data-modal-toggle="modal211">
+                                                        Ubah
+                                                    </button>
                                                 </div>
                                             @endif
-
                                         </td>
                                         <input type="text" hidden name="as_up_by_jasa_po_11"
                                             value="{{ Auth::user()->first_name }}">
@@ -5058,7 +4965,7 @@
                                     <tr
                                         class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
                                         <td class="py-4 font-bold text-center">12.</td>
-                                        <td class="flex items-center my-10">
+                                        <td class="flex items-center my-4">
 
                                             @if ($koneksipo->po_jasa_12 != '')
                                                 <a href="{{ asset('storage/supervisor/project/03_03_PR/' . $koneksipo->po_jasa_12) }}"
@@ -5090,27 +4997,32 @@
                                         </td>
                                         <td class="text-center">{{ $koneksipo->date_po_jasa_12 }}</td>
                                         <td>
-                                            @if ($koneksipo->mny_jasa_pao12 != '')
-                                                Rp{{ number_format($koneksipo->mny_jasa_pao12, 0, ',', '.') }}
+                                            @if ($koneksipo->mny_jasa_po_12 != '')
+                                                Rp{{ number_format($koneksipo->mny_jasa_po_12, 0, ',', '.') }}
                                             @endif
                                         </td>
                                         <td class="space-y-2 py-3 px-2">
-                                            @if ($koneksipo->po_jasa_12 != '')
+                                            @if (
+                                                ($koneksipo->status_po_03 == '-' || $koneksipo->status_po_03 == 'Revisi Purchasing - PO') &&
+                                                    $koneksipo->po_jasa_12 == '')
+                                                <button type="button"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
+                                                    data-modal-target="modala212" data-modal-show="modala212"
+                                                    data-modal-toggle="modala212">
+                                                    + Tambah dokumen
+                                                </button>
+                                            @elseif (
+                                                ($koneksipo->status_po_03 == '-' || $koneksipo->status_po_03 == 'Revisi Purchasing - PO') &&
+                                                    $koneksipo->po_jasa_12 != '' &&
+                                                    $koneksipo->status_po_03 != 'Complete' &&
+                                                    $koneksipo->status_po_03 != 'Waiting Approval')
                                                 <div class="justify-center flex space-x-2">
                                                     <button type="button"
-                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                         data-modal-target="modal212" data-modal-show="modal212"
-                                                        data-modal-toggle="modal212">Ubah</button>
-                                                </div>
-                                            @else
-                                                <input type="file" name="as_po_jasa_12" id="">
-                                                <div class="">
-                                                    <input type="number" id="base-input"
-                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PO)"
-                                                        min="0" max="999999999999"
-                                                        oninput="validity.valid||(value='');"
-                                                        name="as_mny_jasa_po_12">
+                                                        data-modal-toggle="modal212">
+                                                        Ubah
+                                                    </button>
                                                 </div>
                                             @endif
                                         </td>
@@ -5124,7 +5036,7 @@
                                     <tr
                                         class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
                                         <td class="py-4 font-bold text-center">13.</td>
-                                        <td class="flex items-center my-10">
+                                        <td class="flex items-center my-4">
 
                                             @if ($koneksipo->po_jasa_13 != '')
                                                 <a href="{{ asset('storage/supervisor/project/03_03_PR/' . $koneksipo->po_jasa_13) }}"
@@ -5156,27 +5068,32 @@
                                         </td>
                                         <td class="text-center">{{ $koneksipo->date_po_jasa_13 }}</td>
                                         <td>
-                                            @if ($koneksipo->mny_jasa_pao13 != '')
-                                                Rp{{ number_format($koneksipo->mny_jasa_pao13, 0, ',', '.') }}
+                                            @if ($koneksipo->mny_jasa_po_13 != '')
+                                                Rp{{ number_format($koneksipo->mny_jasa_po_13, 0, ',', '.') }}
                                             @endif
                                         </td>
                                         <td class="space-y-2 py-3 px-2">
-                                            @if ($koneksipo->po_jasa_13 != '')
+                                            @if (
+                                                ($koneksipo->status_po_03 == '-' || $koneksipo->status_po_03 == 'Revisi Purchasing - PO') &&
+                                                    $koneksipo->po_jasa_13 == '')
+                                                <button type="button"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
+                                                    data-modal-target="modala213" data-modal-show="modala213"
+                                                    data-modal-toggle="modala213">
+                                                    + Tambah dokumen
+                                                </button>
+                                            @elseif (
+                                                ($koneksipo->status_po_03 == '-' || $koneksipo->status_po_03 == 'Revisi Purchasing - PO') &&
+                                                    $koneksipo->po_jasa_13 != '' &&
+                                                    $koneksipo->status_po_03 != 'Complete' &&
+                                                    $koneksipo->status_po_03 != 'Waiting Approval')
                                                 <div class="justify-center flex space-x-2">
                                                     <button type="button"
-                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                         data-modal-target="modal213" data-modal-show="modal213"
-                                                        data-modal-toggle="modal213">Ubah</button>
-                                                </div>
-                                            @else
-                                                <input type="file" name="as_po_jasa_13" id="">
-                                                <div class="">
-                                                    <input type="number" id="base-input"
-                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PO)"
-                                                        min="0" max="999999999999"
-                                                        oninput="validity.valid||(value='');"
-                                                        name="as_mny_jasa_po_13">
+                                                        data-modal-toggle="modal213">
+                                                        Ubah
+                                                    </button>
                                                 </div>
                                             @endif
                                         </td>
@@ -5190,7 +5107,7 @@
                                     <tr
                                         class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
                                         <td class="py-4 font-bold text-center">14.</td>
-                                        <td class="flex items-center my-10">
+                                        <td class="flex items-center my-4">
 
                                             @if ($koneksipo->po_jasa_14 != '')
                                                 <a href="{{ asset('storage/supervisor/project/03_03_PR/' . $koneksipo->po_jasa_14) }}"
@@ -5222,30 +5139,34 @@
                                         </td>
                                         <td class="text-center">{{ $koneksipo->date_po_jasa_14 }}</td>
                                         <td>
-                                            @if ($koneksipo->mny_jasa_pao14 != '')
-                                                Rp{{ number_format($koneksipo->mny_jasa_pao14, 0, ',', '.') }}
+                                            @if ($koneksipo->mny_jasa_po_14 != '')
+                                                Rp{{ number_format($koneksipo->mny_jasa_po_14, 0, ',', '.') }}
                                             @endif
                                         </td>
                                         <td class="space-y-2 py-3 px-2">
-                                            @if ($koneksipo->po_jasa_14 != '')
+                                            @if (
+                                                ($koneksipo->status_po_03 == '-' || $koneksipo->status_po_03 == 'Revisi Purchasing - PO') &&
+                                                    $koneksipo->po_jasa_14 == '')
+                                                <button type="button"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
+                                                    data-modal-target="modala214" data-modal-show="modala214"
+                                                    data-modal-toggle="modala214">
+                                                    + Tambah dokumen
+                                                </button>
+                                            @elseif (
+                                                ($koneksipo->status_po_03 == '-' || $koneksipo->status_po_03 == 'Revisi Purchasing - PO') &&
+                                                    $koneksipo->po_jasa_14 != '' &&
+                                                    $koneksipo->status_po_03 != 'Complete' &&
+                                                    $koneksipo->status_po_03 != 'Waiting Approval')
                                                 <div class="justify-center flex space-x-2">
                                                     <button type="button"
-                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                         data-modal-target="modal214" data-modal-show="modal214"
-                                                        data-modal-toggle="modal214">Ubah</button>
-                                                </div>
-                                            @else
-                                                <input type="file" name="as_po_jasa_14" id="">
-                                                <div class="">
-                                                    <input type="number" id="base-input"
-                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PO)"
-                                                        min="0" max="999999999999"
-                                                        oninput="validity.valid||(value='');"
-                                                        name="as_mny_jasa_po_14">
+                                                        data-modal-toggle="modal214">
+                                                        Ubah
+                                                    </button>
                                                 </div>
                                             @endif
-
                                         </td>
                                         <input type="text" hidden name="as_up_by_jasa_po_14"
                                             value="{{ Auth::user()->first_name }}">
@@ -5257,7 +5178,7 @@
                                     <tr
                                         class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
                                         <td class="py-4 font-bold text-center">15.</td>
-                                        <td class="flex items-center my-10">
+                                        <td class="flex items-center my-4">
 
                                             @if ($koneksipo->po_jasa_15 != '')
                                                 <a href="{{ asset('storage/supervisor/project/03_03_PR/' . $koneksipo->po_jasa_15) }}"
@@ -5289,30 +5210,34 @@
                                         </td>
                                         <td class="text-center">{{ $koneksipo->date_po_jasa_15 }}</td>
                                         <td>
-                                            @if ($koneksipo->mny_jasa_pao15 != '')
-                                                Rp{{ number_format($koneksipo->mny_jasa_pao15, 0, ',', '.') }}
+                                            @if ($koneksipo->mny_jasa_po_15 != '')
+                                                Rp{{ number_format($koneksipo->mny_jasa_po_15, 0, ',', '.') }}
                                             @endif
                                         </td>
                                         <td class="space-y-2 py-3 px-2">
-                                            @if ($koneksipo->po_jasa_15 != '')
+                                            @if (
+                                                ($koneksipo->status_po_03 == '-' || $koneksipo->status_po_03 == 'Revisi Purchasing - PO') &&
+                                                    $koneksipo->po_jasa_15 == '')
+                                                <button type="button"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
+                                                    data-modal-target="modala215" data-modal-show="modala215"
+                                                    data-modal-toggle="modala215">
+                                                    + Tambah dokumen
+                                                </button>
+                                            @elseif (
+                                                ($koneksipo->status_po_03 == '-' || $koneksipo->status_po_03 == 'Revisi Purchasing - PO') &&
+                                                    $koneksipo->po_jasa_15 != '' &&
+                                                    $koneksipo->status_po_03 != 'Complete' &&
+                                                    $koneksipo->status_po_03 != 'Waiting Approval')
                                                 <div class="justify-center flex space-x-2">
                                                     <button type="button"
-                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                         data-modal-target="modal215" data-modal-show="modal215"
-                                                        data-modal-toggle="modal215">Ubah</button>
-                                                </div>
-                                            @else
-                                                <input type="file" name="as_po_jasa_15" id="">
-                                                <div class="">
-                                                    <input type="number" id="base-input"
-                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PO)"
-                                                        min="0" max="999999999999"
-                                                        oninput="validity.valid||(value='');"
-                                                        name="as_mny_jasa_po_15">
+                                                        data-modal-toggle="modal215">
+                                                        Ubah
+                                                    </button>
                                                 </div>
                                             @endif
-
                                         </td>
                                         <input type="text" hidden name="as_up_by_jasa_po_15"
                                             value="{{ Auth::user()->first_name }}">
@@ -5324,7 +5249,7 @@
                                     <tr
                                         class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
                                         <td class="py-4 font-bold text-center">16.</td>
-                                        <td class="flex items-center my-10">
+                                        <td class="flex items-center my-4">
 
                                             @if ($koneksipo->po_jasa_16 != '')
                                                 <a href="{{ asset('storage/supervisor/project/03_03_PR/' . $koneksipo->po_jasa_16) }}"
@@ -5356,30 +5281,34 @@
                                         </td>
                                         <td class="text-center">{{ $koneksipo->date_po_jasa_16 }}</td>
                                         <td>
-                                            @if ($koneksipo->mny_jasa_pao16 != '')
-                                                Rp{{ number_format($koneksipo->mny_jasa_pao16, 0, ',', '.') }}
+                                            @if ($koneksipo->mny_jasa_po_16 != '')
+                                                Rp{{ number_format($koneksipo->mny_jasa_po_16, 0, ',', '.') }}
                                             @endif
                                         </td>
                                         <td class="space-y-2 py-3 px-2">
-                                            @if ($koneksipo->po_jasa_16 != '')
+                                            @if (
+                                                ($koneksipo->status_po_03 == '-' || $koneksipo->status_po_03 == 'Revisi Purchasing - PO') &&
+                                                    $koneksipo->po_jasa_16 == '')
+                                                <button type="button"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
+                                                    data-modal-target="modala216" data-modal-show="modala216"
+                                                    data-modal-toggle="modala216">
+                                                    + Tambah dokumen
+                                                </button>
+                                            @elseif (
+                                                ($koneksipo->status_po_03 == '-' || $koneksipo->status_po_03 == 'Revisi Purchasing - PO') &&
+                                                    $koneksipo->po_jasa_16 != '' &&
+                                                    $koneksipo->status_po_03 != 'Complete' &&
+                                                    $koneksipo->status_po_03 != 'Waiting Approval')
                                                 <div class="justify-center flex space-x-2">
                                                     <button type="button"
-                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                         data-modal-target="modal216" data-modal-show="modal216"
-                                                        data-modal-toggle="modal216">Ubah</button>
-                                                </div>
-                                            @else
-                                                <input type="file" name="as_po_jasa_16" id="">
-                                                <div class="">
-                                                    <input type="number" id="base-input"
-                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PO)"
-                                                        min="0" max="999999999999"
-                                                        oninput="validity.valid||(value='');"
-                                                        name="as_mny_jasa_po_16">
+                                                        data-modal-toggle="modal216">
+                                                        Ubah
+                                                    </button>
                                                 </div>
                                             @endif
-
                                         </td>
                                         <input type="text" hidden name="as_up_by_jasa_po_16"
                                             value="{{ Auth::user()->first_name }}">
@@ -5391,7 +5320,7 @@
                                     <tr
                                         class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
                                         <td class="py-4 font-bold text-center">17.</td>
-                                        <td class="flex items-center my-10">
+                                        <td class="flex items-center my-4">
 
                                             @if ($koneksipo->po_jasa_17 != '')
                                                 <a href="{{ asset('storage/supervisor/project/03_03_PR/' . $koneksipo->po_jasa_17) }}"
@@ -5423,30 +5352,34 @@
                                         </td>
                                         <td class="text-center">{{ $koneksipo->date_po_jasa_17 }}</td>
                                         <td>
-                                            @if ($koneksipo->mny_jasa_pao17 != '')
-                                                Rp{{ number_format($koneksipo->mny_jasa_pao17, 0, ',', '.') }}
+                                            @if ($koneksipo->mny_jasa_po_17 != '')
+                                                Rp{{ number_format($koneksipo->mny_jasa_po_17, 0, ',', '.') }}
                                             @endif
                                         </td>
                                         <td class="space-y-2 py-3 px-2">
-                                            @if ($koneksipo->po_jasa_17 != '')
+                                            @if (
+                                                ($koneksipo->status_po_03 == '-' || $koneksipo->status_po_03 == 'Revisi Purchasing - PO') &&
+                                                    $koneksipo->po_jasa_17 == '')
+                                                <button type="button"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
+                                                    data-modal-target="modala217" data-modal-show="modala217"
+                                                    data-modal-toggle="modala217">
+                                                    + Tambah dokumen
+                                                </button>
+                                            @elseif (
+                                                ($koneksipo->status_po_03 == '-' || $koneksipo->status_po_03 == 'Revisi Purchasing - PO') &&
+                                                    $koneksipo->po_jasa_17 != '' &&
+                                                    $koneksipo->status_po_03 != 'Complete' &&
+                                                    $koneksipo->status_po_03 != 'Waiting Approval')
                                                 <div class="justify-center flex space-x-2">
                                                     <button type="button"
-                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                         data-modal-target="modal217" data-modal-show="modal217"
-                                                        data-modal-toggle="modal217">Ubah</button>
-                                                </div>
-                                            @else
-                                                <input type="file" name="as_po_jasa_17" id="">
-                                                <div class="">
-                                                    <input type="number" id="base-input"
-                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PO)"
-                                                        min="0" max="999999999999"
-                                                        oninput="validity.valid||(value='');"
-                                                        name="as_mny_jasa_po_17">
+                                                        data-modal-toggle="modal217">
+                                                        Ubah
+                                                    </button>
                                                 </div>
                                             @endif
-
                                         </td>
                                         <input type="text" hidden name="as_up_by_jasa_po_17"
                                             value="{{ Auth::user()->first_name }}">
@@ -5458,7 +5391,7 @@
                                     <tr
                                         class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
                                         <td class="py-4 font-bold text-center">18.</td>
-                                        <td class="flex items-center my-10">
+                                        <td class="flex items-center my-4">
 
                                             @if ($koneksipo->po_jasa_18 != '')
                                                 <a href="{{ asset('storage/supervisor/project/03_03_PR/' . $koneksipo->po_jasa_18) }}"
@@ -5490,30 +5423,34 @@
                                         </td>
                                         <td class="text-center">{{ $koneksipo->date_po_jasa_18 }}</td>
                                         <td>
-                                            @if ($koneksipo->mny_jasa_pao18 != '')
-                                                Rp{{ number_format($koneksipo->mny_jasa_pao18, 0, ',', '.') }}
+                                            @if ($koneksipo->mny_jasa_po_18 != '')
+                                                Rp{{ number_format($koneksipo->mny_jasa_po_18, 0, ',', '.') }}
                                             @endif
                                         </td>
                                         <td class="space-y-2 py-3 px-2">
-                                            @if ($koneksipo->po_jasa_18 != '')
+                                            @if (
+                                                ($koneksipo->status_po_03 == '-' || $koneksipo->status_po_03 == 'Revisi Purchasing - PO') &&
+                                                    $koneksipo->po_jasa_18 == '')
+                                                <button type="button"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
+                                                    data-modal-target="modala218" data-modal-show="modala218"
+                                                    data-modal-toggle="modala218">
+                                                    + Tambah dokumen
+                                                </button>
+                                            @elseif (
+                                                ($koneksipo->status_po_03 == '-' || $koneksipo->status_po_03 == 'Revisi Purchasing - PO') &&
+                                                    $koneksipo->po_jasa_18 != '' &&
+                                                    $koneksipo->status_po_03 != 'Complete' &&
+                                                    $koneksipo->status_po_03 != 'Waiting Approval')
                                                 <div class="justify-center flex space-x-2">
                                                     <button type="button"
-                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                         data-modal-target="modal218" data-modal-show="modal218"
-                                                        data-modal-toggle="modal218">Ubah</button>
-                                                </div>
-                                            @else
-                                                <input type="file" name="as_po_jasa_18" id="">
-                                                <div class="">
-                                                    <input type="number" id="base-input"
-                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PO)"
-                                                        min="0" max="999999999999"
-                                                        oninput="validity.valid||(value='');"
-                                                        name="as_mny_jasa_po_18">
+                                                        data-modal-toggle="modal218">
+                                                        Ubah
+                                                    </button>
                                                 </div>
                                             @endif
-
                                         </td>
                                         <input type="text" hidden name="as_up_by_jasa_po_18"
                                             value="{{ Auth::user()->first_name }}">
@@ -5525,7 +5462,7 @@
                                     <tr
                                         class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
                                         <td class="py-4 font-bold text-center">19.</td>
-                                        <td class="flex items-center my-10">
+                                        <td class="flex items-center my-4">
 
                                             @if ($koneksipo->po_jasa_19 != '')
                                                 <a href="{{ asset('storage/supervisor/project/03_03_PR/' . $koneksipo->po_jasa_19) }}"
@@ -5557,30 +5494,34 @@
                                         </td>
                                         <td class="text-center">{{ $koneksipo->date_po_jasa_19 }}</td>
                                         <td>
-                                            @if ($koneksipo->mny_jasa_pao19 != '')
-                                                Rp{{ number_format($koneksipo->mny_jasa_pao19, 0, ',', '.') }}
+                                            @if ($koneksipo->mny_jasa_po_19 != '')
+                                                Rp{{ number_format($koneksipo->mny_jasa_po_19, 0, ',', '.') }}
                                             @endif
                                         </td>
                                         <td class="space-y-2 py-3 px-2">
-                                            @if ($koneksipo->po_jasa_19 != '')
+                                            @if (
+                                                ($koneksipo->status_po_03 == '-' || $koneksipo->status_po_03 == 'Revisi Purchasing - PO') &&
+                                                    $koneksipo->po_jasa_19 == '')
+                                                <button type="button"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
+                                                    data-modal-target="modala219" data-modal-show="modala219"
+                                                    data-modal-toggle="modala219">
+                                                    + Tambah dokumen
+                                                </button>
+                                            @elseif (
+                                                ($koneksipo->status_po_03 == '-' || $koneksipo->status_po_03 == 'Revisi Purchasing - PO') &&
+                                                    $koneksipo->po_jasa_19 != '' &&
+                                                    $koneksipo->status_po_03 != 'Complete' &&
+                                                    $koneksipo->status_po_03 != 'Waiting Approval')
                                                 <div class="justify-center flex space-x-2">
                                                     <button type="button"
-                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                         data-modal-target="modal219" data-modal-show="modal219"
-                                                        data-modal-toggle="modal219">Ubah</button>
-                                                </div>
-                                            @else
-                                                <input type="file" name="as_po_jasa_19" id="">
-                                                <div class="">
-                                                    <input type="number" id="base-input"
-                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PO)"
-                                                        min="0" max="999999999999"
-                                                        oninput="validity.valid||(value='');"
-                                                        name="as_mny_jasa_po_19">
+                                                        data-modal-toggle="modal219">
+                                                        Ubah
+                                                    </button>
                                                 </div>
                                             @endif
-
                                         </td>
                                         <input type="text" hidden name="as_up_by_jasa_po_19"
                                             value="{{ Auth::user()->first_name }}">
@@ -5592,7 +5533,7 @@
                                     <tr
                                         class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
                                         <td class="py-4 font-bold text-center">20.</td>
-                                        <td class="flex items-center my-10">
+                                        <td class="flex items-center my-4">
 
                                             @if ($koneksipo->po_jasa_20 != '')
                                                 <a href="{{ asset('storage/supervisor/project/03_03_PR/' . $koneksipo->po_jasa_20) }}"
@@ -5624,30 +5565,34 @@
                                         </td>
                                         <td class="text-center">{{ $koneksipo->date_po_jasa_20 }}</td>
                                         <td>
-                                            @if ($koneksipo->mny_jasa_pao20 != '')
-                                                Rp{{ number_format($koneksipo->mny_jasa_pao20, 0, ',', '.') }}
+                                            @if ($koneksipo->mny_jasa_po_20 != '')
+                                                Rp{{ number_format($koneksipo->mny_jasa_po_20, 0, ',', '.') }}
                                             @endif
                                         </td>
                                         <td class="space-y-2 py-3 px-2">
-                                            @if ($koneksipo->po_jasa_20 != '')
+                                            @if (
+                                                ($koneksipo->status_po_03 == '-' || $koneksipo->status_po_03 == 'Revisi Purchasing - PO') &&
+                                                    $koneksipo->po_jasa_20 == '')
+                                                <button type="button"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
+                                                    data-modal-target="modala220" data-modal-show="modala220"
+                                                    data-modal-toggle="modala220">
+                                                    + Tambah dokumen
+                                                </button>
+                                            @elseif (
+                                                ($koneksipo->status_po_03 == '-' || $koneksipo->status_po_03 == 'Revisi Purchasing - PO') &&
+                                                    $koneksipo->po_jasa_20 != '' &&
+                                                    $koneksipo->status_po_03 != 'Complete' &&
+                                                    $koneksipo->status_po_03 != 'Waiting Approval')
                                                 <div class="justify-center flex space-x-2">
                                                     <button type="button"
-                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                         data-modal-target="modal220" data-modal-show="modal220"
-                                                        data-modal-toggle="modal220">Ubah</button>
-                                                </div>
-                                            @else
-                                                <input type="file" name="as_po_jasa_20" id="">
-                                                <div class="">
-                                                    <input type="number" id="base-input"
-                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PO)"
-                                                        min="0" max="999999999999"
-                                                        oninput="validity.valid||(value='');"
-                                                        name="as_mny_jasa_po_20">
+                                                        data-modal-toggle="modal220">
+                                                        Ubah
+                                                    </button>
                                                 </div>
                                             @endif
-
                                         </td>
                                         <input type="text" hidden name="as_up_by_jasa_po_20"
                                             value="{{ Auth::user()->first_name }}">
@@ -5659,7 +5604,7 @@
                                     <tr
                                         class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
                                         <td class="py-4 font-bold text-center">21.</td>
-                                        <td class="flex items-center my-10">
+                                        <td class="flex items-center my-4">
 
                                             @if ($koneksipo->po_jasa_21 != '')
                                                 <a href="{{ asset('storage/supervisor/project/03_03_PR/' . $koneksipo->po_jasa_21) }}"
@@ -5691,30 +5636,34 @@
                                         </td>
                                         <td class="text-center">{{ $koneksipo->date_po_jasa_21 }}</td>
                                         <td>
-                                            @if ($koneksipo->mny_jasa_pao21 != '')
-                                                Rp{{ number_format($koneksipo->mny_jasa_pao21, 0, ',', '.') }}
+                                            @if ($koneksipo->mny_jasa_po_21 != '')
+                                                Rp{{ number_format($koneksipo->mny_jasa_po_21, 0, ',', '.') }}
                                             @endif
                                         </td>
                                         <td class="space-y-2 py-3 px-2">
-                                            @if ($koneksipo->po_jasa_21 != '')
+                                            @if (
+                                                ($koneksipo->status_po_03 == '-' || $koneksipo->status_po_03 == 'Revisi Purchasing - PO') &&
+                                                    $koneksipo->po_jasa_21 == '')
+                                                <button type="button"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
+                                                    data-modal-target="modala221" data-modal-show="modala221"
+                                                    data-modal-toggle="modala221">
+                                                    + Tambah dokumen
+                                                </button>
+                                            @elseif (
+                                                ($koneksipo->status_po_03 == '-' || $koneksipo->status_po_03 == 'Revisi Purchasing - PO') &&
+                                                    $koneksipo->po_jasa_21 != '' &&
+                                                    $koneksipo->status_po_03 != 'Complete' &&
+                                                    $koneksipo->status_po_03 != 'Waiting Approval')
                                                 <div class="justify-center flex space-x-2">
                                                     <button type="button"
-                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                         data-modal-target="modal221" data-modal-show="modal221"
-                                                        data-modal-toggle="modal221">Ubah</button>
-                                                </div>
-                                            @else
-                                                <input type="file" name="as_po_jasa_21" id="">
-                                                <div class="">
-                                                    <input type="number" id="base-input"
-                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PO)"
-                                                        min="0" max="999999999999"
-                                                        oninput="validity.valid||(value='');"
-                                                        name="as_mny_jasa_po_21">
+                                                        data-modal-toggle="modal221">
+                                                        Ubah
+                                                    </button>
                                                 </div>
                                             @endif
-
                                         </td>
                                         <input type="text" hidden name="as_up_by_jasa_po_21"
                                             value="{{ Auth::user()->first_name }}">
@@ -5726,7 +5675,7 @@
                                     <tr
                                         class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
                                         <td class="py-4 font-bold text-center">22.</td>
-                                        <td class="flex items-center my-10">
+                                        <td class="flex items-center my-4">
 
                                             @if ($koneksipo->po_jasa_22 != '')
                                                 <a href="{{ asset('storage/supervisor/project/03_03_PR/' . $koneksipo->po_jasa_22) }}"
@@ -5758,30 +5707,34 @@
                                         </td>
                                         <td class="text-center">{{ $koneksipo->date_po_jasa_22 }}</td>
                                         <td>
-                                            @if ($koneksipo->mny_jasa_pao22 != '')
-                                                Rp{{ number_format($koneksipo->mny_jasa_pao22, 0, ',', '.') }}
+                                            @if ($koneksipo->mny_jasa_po_22 != '')
+                                                Rp{{ number_format($koneksipo->mny_jasa_po_22, 0, ',', '.') }}
                                             @endif
                                         </td>
                                         <td class="space-y-2 py-3 px-2">
-                                            @if ($koneksipo->po_jasa_22 != '')
+                                            @if (
+                                                ($koneksipo->status_po_03 == '-' || $koneksipo->status_po_03 == 'Revisi Purchasing - PO') &&
+                                                    $koneksipo->po_jasa_22 == '')
+                                                <button type="button"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
+                                                    data-modal-target="modala222" data-modal-show="modala222"
+                                                    data-modal-toggle="modala222">
+                                                    + Tambah dokumen
+                                                </button>
+                                            @elseif (
+                                                ($koneksipo->status_po_03 == '-' || $koneksipo->status_po_03 == 'Revisi Purchasing - PO') &&
+                                                    $koneksipo->po_jasa_22 != '' &&
+                                                    $koneksipo->status_po_03 != 'Complete' &&
+                                                    $koneksipo->status_po_03 != 'Waiting Approval')
                                                 <div class="justify-center flex space-x-2">
                                                     <button type="button"
-                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                         data-modal-target="modal222" data-modal-show="modal222"
-                                                        data-modal-toggle="modal222">Ubah</button>
-                                                </div>
-                                            @else
-                                                <input type="file" name="as_po_jasa_22" id="">
-                                                <div class="">
-                                                    <input type="number" id="base-input"
-                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PO)"
-                                                        min="0" max="999999999999"
-                                                        oninput="validity.valid||(value='');"
-                                                        name="as_mny_jasa_po_22">
+                                                        data-modal-toggle="modal222">
+                                                        Ubah
+                                                    </button>
                                                 </div>
                                             @endif
-
                                         </td>
                                         <input type="text" hidden name="as_up_by_jasa_po_22"
                                             value="{{ Auth::user()->first_name }}">
@@ -5793,7 +5746,7 @@
                                     <tr
                                         class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
                                         <td class="py-4 font-bold text-center">23.</td>
-                                        <td class="flex items-center my-10">
+                                        <td class="flex items-center my-4">
 
                                             @if ($koneksipo->po_jasa_23 != '')
                                                 <a href="{{ asset('storage/supervisor/project/03_03_PR/' . $koneksipo->po_jasa_23) }}"
@@ -5825,30 +5778,34 @@
                                         </td>
                                         <td class="text-center">{{ $koneksipo->date_po_jasa_23 }}</td>
                                         <td>
-                                            @if ($koneksipo->mny_jasa_pao23 != '')
-                                                Rp{{ number_format($koneksipo->mny_jasa_pao23, 0, ',', '.') }}
+                                            @if ($koneksipo->mny_jasa_po_23 != '')
+                                                Rp{{ number_format($koneksipo->mny_jasa_po_23, 0, ',', '.') }}
                                             @endif
                                         </td>
                                         <td class="space-y-2 py-3 px-2">
-                                            @if ($koneksipo->po_jasa_23 != '')
+                                            @if (
+                                                ($koneksipo->status_po_03 == '-' || $koneksipo->status_po_03 == 'Revisi Purchasing - PO') &&
+                                                    $koneksipo->po_jasa_23 == '')
+                                                <button type="button"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
+                                                    data-modal-target="modala223" data-modal-show="modala223"
+                                                    data-modal-toggle="modala223">
+                                                    + Tambah dokumen
+                                                </button>
+                                            @elseif (
+                                                ($koneksipo->status_po_03 == '-' || $koneksipo->status_po_03 == 'Revisi Purchasing - PO') &&
+                                                    $koneksipo->po_jasa_23 != '' &&
+                                                    $koneksipo->status_po_03 != 'Complete' &&
+                                                    $koneksipo->status_po_03 != 'Waiting Approval')
                                                 <div class="justify-center flex space-x-2">
                                                     <button type="button"
-                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                         data-modal-target="modal223" data-modal-show="modal223"
-                                                        data-modal-toggle="modal223">Ubah</button>
-                                                </div>
-                                            @else
-                                                <input type="file" name="as_po_jasa_23" id="">
-                                                <div class="">
-                                                    <input type="number" id="base-input"
-                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PO)"
-                                                        min="0" max="999999999999"
-                                                        oninput="validity.valid||(value='');"
-                                                        name="as_mny_jasa_po_23">
+                                                        data-modal-toggle="modal223">
+                                                        Ubah
+                                                    </button>
                                                 </div>
                                             @endif
-
                                         </td>
                                         <input type="text" hidden name="as_up_by_jasa_po_23"
                                             value="{{ Auth::user()->first_name }}">
@@ -5860,7 +5817,7 @@
                                     <tr
                                         class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
                                         <td class="py-4 font-bold text-center">24.</td>
-                                        <td class="flex items-center my-10">
+                                        <td class="flex items-center my-4">
 
                                             @if ($koneksipo->po_jasa_24 != '')
                                                 <a href="{{ asset('storage/supervisor/project/03_03_PR/' . $koneksipo->po_jasa_24) }}"
@@ -5892,30 +5849,34 @@
                                         </td>
                                         <td class="text-center">{{ $koneksipo->date_po_jasa_24 }}</td>
                                         <td>
-                                            @if ($koneksipo->mny_jasa_pao24 != '')
-                                                Rp{{ number_format($koneksipo->mny_jasa_pao24, 0, ',', '.') }}
+                                            @if ($koneksipo->mny_jasa_po_24 != '')
+                                                Rp{{ number_format($koneksipo->mny_jasa_po_24, 0, ',', '.') }}
                                             @endif
                                         </td>
                                         <td class="space-y-2 py-3 px-2">
-                                            @if ($koneksipo->po_jasa_24 != '')
+                                            @if (
+                                                ($koneksipo->status_po_03 == '-' || $koneksipo->status_po_03 == 'Revisi Purchasing - PO') &&
+                                                    $koneksipo->po_jasa_24 == '')
+                                                <button type="button"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
+                                                    data-modal-target="modala224" data-modal-show="modala224"
+                                                    data-modal-toggle="modala224">
+                                                    + Tambah dokumen
+                                                </button>
+                                            @elseif (
+                                                ($koneksipo->status_po_03 == '-' || $koneksipo->status_po_03 == 'Revisi Purchasing - PO') &&
+                                                    $koneksipo->po_jasa_24 != '' &&
+                                                    $koneksipo->status_po_03 != 'Complete' &&
+                                                    $koneksipo->status_po_03 != 'Waiting Approval')
                                                 <div class="justify-center flex space-x-2">
                                                     <button type="button"
-                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                         data-modal-target="modal224" data-modal-show="modal224"
-                                                        data-modal-toggle="modal224">Ubah</button>
-                                                </div>
-                                            @else
-                                                <input type="file" name="as_po_jasa_24" id="">
-                                                <div class="">
-                                                    <input type="number" id="base-input"
-                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PO)"
-                                                        min="0" max="999999999999"
-                                                        oninput="validity.valid||(value='');"
-                                                        name="as_mny_jasa_po_24">
+                                                        data-modal-toggle="modal224">
+                                                        Ubah
+                                                    </button>
                                                 </div>
                                             @endif
-
                                         </td>
                                         <input type="text" hidden name="as_up_by_jasa_po_24"
                                             value="{{ Auth::user()->first_name }}">
@@ -5927,7 +5888,7 @@
                                     <tr
                                         class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
                                         <td class="py-4 font-bold text-center">25.</td>
-                                        <td class="flex items-center my-10">
+                                        <td class="flex items-center my-4">
 
                                             @if ($koneksipo->po_jasa_25 != '')
                                                 <a href="{{ asset('storage/supervisor/project/03_03_PR/' . $koneksipo->po_jasa_25) }}"
@@ -5959,30 +5920,34 @@
                                         </td>
                                         <td class="text-center">{{ $koneksipo->date_po_jasa_25 }}</td>
                                         <td>
-                                            @if ($koneksipo->mny_jasa_pao25 != '')
-                                                Rp{{ number_format($koneksipo->mny_jasa_pao25, 0, ',', '.') }}
+                                            @if ($koneksipo->mny_jasa_po_25 != '')
+                                                Rp{{ number_format($koneksipo->mny_jasa_po_25, 0, ',', '.') }}
                                             @endif
                                         </td>
                                         <td class="space-y-2 py-3 px-2">
-                                            @if ($koneksipo->po_jasa_25 != '')
+                                            @if (
+                                                ($koneksipo->status_po_03 == '-' || $koneksipo->status_po_03 == 'Revisi Purchasing - PO') &&
+                                                    $koneksipo->po_jasa_25 == '')
+                                                <button type="button"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
+                                                    data-modal-target="modala225" data-modal-show="modala225"
+                                                    data-modal-toggle="modala225">
+                                                    + Tambah dokumen
+                                                </button>
+                                            @elseif (
+                                                ($koneksipo->status_po_03 == '-' || $koneksipo->status_po_03 == 'Revisi Purchasing - PO') &&
+                                                    $koneksipo->po_jasa_25 != '' &&
+                                                    $koneksipo->status_po_03 != 'Complete' &&
+                                                    $koneksipo->status_po_03 != 'Waiting Approval')
                                                 <div class="justify-center flex space-x-2">
                                                     <button type="button"
-                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                         data-modal-target="modal225" data-modal-show="modal225"
-                                                        data-modal-toggle="modal225">Ubah</button>
-                                                </div>
-                                            @else
-                                                <input type="file" name="as_po_jasa_25" id="">
-                                                <div class="">
-                                                    <input type="number" id="base-input"
-                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PO)"
-                                                        min="0" max="999999999999"
-                                                        oninput="validity.valid||(value='');"
-                                                        name="as_mny_jasa_po_25">
+                                                        data-modal-toggle="modal225">
+                                                        Ubah
+                                                    </button>
                                                 </div>
                                             @endif
-
                                         </td>
                                         <input type="text" hidden name="as_up_by_jasa_po_25"
                                             value="{{ Auth::user()->first_name }}">
@@ -5994,7 +5959,7 @@
                                     <tr
                                         class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
                                         <td class="py-4 font-bold text-center">26.</td>
-                                        <td class="flex items-center my-10">
+                                        <td class="flex items-center my-4">
 
                                             @if ($koneksipo->po_jasa_26 != '')
                                                 <a href="{{ asset('storage/supervisor/project/03_03_PR/' . $koneksipo->po_jasa_26) }}"
@@ -6026,30 +5991,34 @@
                                         </td>
                                         <td class="text-center">{{ $koneksipo->date_po_jasa_26 }}</td>
                                         <td>
-                                            @if ($koneksipo->mny_jasa_pao26 != '')
-                                                Rp{{ number_format($koneksipo->mny_jasa_pao26, 0, ',', '.') }}
+                                            @if ($koneksipo->mny_jasa_po_26 != '')
+                                                Rp{{ number_format($koneksipo->mny_jasa_po_26, 0, ',', '.') }}
                                             @endif
                                         </td>
                                         <td class="space-y-2 py-3 px-2">
-                                            @if ($koneksipo->po_jasa_26 != '')
+                                            @if (
+                                                ($koneksipo->status_po_03 == '-' || $koneksipo->status_po_03 == 'Revisi Purchasing - PO') &&
+                                                    $koneksipo->po_jasa_26 == '')
+                                                <button type="button"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
+                                                    data-modal-target="modala226" data-modal-show="modala226"
+                                                    data-modal-toggle="modala226">
+                                                    + Tambah dokumen
+                                                </button>
+                                            @elseif (
+                                                ($koneksipo->status_po_03 == '-' || $koneksipo->status_po_03 == 'Revisi Purchasing - PO') &&
+                                                    $koneksipo->po_jasa_26 != '' &&
+                                                    $koneksipo->status_po_03 != 'Complete' &&
+                                                    $koneksipo->status_po_03 != 'Waiting Approval')
                                                 <div class="justify-center flex space-x-2">
                                                     <button type="button"
-                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                         data-modal-target="modal226" data-modal-show="modal226"
-                                                        data-modal-toggle="modal226">Ubah</button>
-                                                </div>
-                                            @else
-                                                <input type="file" name="as_po_jasa_26" id="">
-                                                <div class="">
-                                                    <input type="number" id="base-input"
-                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PO)"
-                                                        min="0" max="999999999999"
-                                                        oninput="validity.valid||(value='');"
-                                                        name="as_mny_jasa_po_26">
+                                                        data-modal-toggle="modal226">
+                                                        Ubah
+                                                    </button>
                                                 </div>
                                             @endif
-
                                         </td>
                                         <input type="text" hidden name="as_up_by_jasa_po_26"
                                             value="{{ Auth::user()->first_name }}">
@@ -6061,7 +6030,7 @@
                                     <tr
                                         class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
                                         <td class="py-4 font-bold text-center">27.</td>
-                                        <td class="flex items-center my-10">
+                                        <td class="flex items-center my-4">
 
                                             @if ($koneksipo->po_jasa_27 != '')
                                                 <a href="{{ asset('storage/supervisor/project/03_03_PR/' . $koneksipo->po_jasa_27) }}"
@@ -6093,30 +6062,34 @@
                                         </td>
                                         <td class="text-center">{{ $koneksipo->date_po_jasa_27 }}</td>
                                         <td>
-                                            @if ($koneksipo->mny_jasa_pao27 != '')
-                                                Rp{{ number_format($koneksipo->mny_jasa_pao27, 0, ',', '.') }}
+                                            @if ($koneksipo->mny_jasa_po_27 != '')
+                                                Rp{{ number_format($koneksipo->mny_jasa_po_27, 0, ',', '.') }}
                                             @endif
                                         </td>
                                         <td class="space-y-2 py-3 px-2">
-                                            @if ($koneksipo->po_jasa_27 != '')
+                                            @if (
+                                                ($koneksipo->status_po_03 == '-' || $koneksipo->status_po_03 == 'Revisi Purchasing - PO') &&
+                                                    $koneksipo->po_jasa_27 == '')
+                                                <button type="button"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
+                                                    data-modal-target="modala227" data-modal-show="modala227"
+                                                    data-modal-toggle="modala227">
+                                                    + Tambah dokumen
+                                                </button>
+                                            @elseif (
+                                                ($koneksipo->status_po_03 == '-' || $koneksipo->status_po_03 == 'Revisi Purchasing - PO') &&
+                                                    $koneksipo->po_jasa_27 != '' &&
+                                                    $koneksipo->status_po_03 != 'Complete' &&
+                                                    $koneksipo->status_po_03 != 'Waiting Approval')
                                                 <div class="justify-center flex space-x-2">
                                                     <button type="button"
-                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                         data-modal-target="modal227" data-modal-show="modal227"
-                                                        data-modal-toggle="modal227">Ubah</button>
-                                                </div>
-                                            @else
-                                                <input type="file" name="as_po_jasa_27" id="">
-                                                <div class="">
-                                                    <input type="number" id="base-input"
-                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PO)"
-                                                        min="0" max="999999999999"
-                                                        oninput="validity.valid||(value='');"
-                                                        name="as_mny_jasa_po_27">
+                                                        data-modal-toggle="modal227">
+                                                        Ubah
+                                                    </button>
                                                 </div>
                                             @endif
-
                                         </td>
                                         <input type="text" hidden name="as_up_by_jasa_po_27"
                                             value="{{ Auth::user()->first_name }}">
@@ -6128,7 +6101,7 @@
                                     <tr
                                         class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
                                         <td class="py-4 font-bold text-center">28.</td>
-                                        <td class="flex items-center my-10">
+                                        <td class="flex items-center my-4">
 
                                             @if ($koneksipo->po_jasa_28 != '')
                                                 <a href="{{ asset('storage/supervisor/project/03_03_PR/' . $koneksipo->po_jasa_28) }}"
@@ -6160,30 +6133,34 @@
                                         </td>
                                         <td class="text-center">{{ $koneksipo->date_po_jasa_28 }}</td>
                                         <td>
-                                            @if ($koneksipo->mny_jasa_pao28 != '')
-                                                Rp{{ number_format($koneksipo->mny_jasa_pao28, 0, ',', '.') }}
+                                            @if ($koneksipo->mny_jasa_po_28 != '')
+                                                Rp{{ number_format($koneksipo->mny_jasa_po_28, 0, ',', '.') }}
                                             @endif
                                         </td>
                                         <td class="space-y-2 py-3 px-2">
-                                            @if ($koneksipo->po_jasa_28 != '')
+                                            @if (
+                                                ($koneksipo->status_po_03 == '-' || $koneksipo->status_po_03 == 'Revisi Purchasing - PO') &&
+                                                    $koneksipo->po_jasa_28 == '')
+                                                <button type="button"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
+                                                    data-modal-target="modala228" data-modal-show="modala228"
+                                                    data-modal-toggle="modala228">
+                                                    + Tambah dokumen
+                                                </button>
+                                            @elseif (
+                                                ($koneksipo->status_po_03 == '-' || $koneksipo->status_po_03 == 'Revisi Purchasing - PO') &&
+                                                    $koneksipo->po_jasa_28 != '' &&
+                                                    $koneksipo->status_po_03 != 'Complete' &&
+                                                    $koneksipo->status_po_03 != 'Waiting Approval')
                                                 <div class="justify-center flex space-x-2">
                                                     <button type="button"
-                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                         data-modal-target="modal228" data-modal-show="modal228"
-                                                        data-modal-toggle="modal228">Ubah</button>
-                                                </div>
-                                            @else
-                                                <input type="file" name="as_po_jasa_28" id="">
-                                                <div class="">
-                                                    <input type="number" id="base-input"
-                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PO)"
-                                                        min="0" max="999999999999"
-                                                        oninput="validity.valid||(value='');"
-                                                        name="as_mny_jasa_po_28">
+                                                        data-modal-toggle="modal228">
+                                                        Ubah
+                                                    </button>
                                                 </div>
                                             @endif
-
                                         </td>
                                         <input type="text" hidden name="as_up_by_jasa_po_28"
                                             value="{{ Auth::user()->first_name }}">
@@ -6195,7 +6172,7 @@
                                     <tr
                                         class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
                                         <td class="py-4 font-bold text-center">29.</td>
-                                        <td class="flex items-center my-10">
+                                        <td class="flex items-center my-4">
 
                                             @if ($koneksipo->po_jasa_29 != '')
                                                 <a href="{{ asset('storage/supervisor/project/03_03_PR/' . $koneksipo->po_jasa_29) }}"
@@ -6227,30 +6204,34 @@
                                         </td>
                                         <td class="text-center">{{ $koneksipo->date_po_jasa_29 }}</td>
                                         <td>
-                                            @if ($koneksipo->mny_jasa_pao29 != '')
-                                                Rp{{ number_format($koneksipo->mny_jasa_pao29, 0, ',', '.') }}
+                                            @if ($koneksipo->mny_jasa_po_29 != '')
+                                                Rp{{ number_format($koneksipo->mny_jasa_po_29, 0, ',', '.') }}
                                             @endif
                                         </td>
                                         <td class="space-y-2 py-3 px-2">
-                                            @if ($koneksipo->po_jasa_29 != '')
+                                            @if (
+                                                ($koneksipo->status_po_03 == '-' || $koneksipo->status_po_03 == 'Revisi Purchasing - PO') &&
+                                                    $koneksipo->po_jasa_29 == '')
+                                                <button type="button"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
+                                                    data-modal-target="modala229" data-modal-show="modala229"
+                                                    data-modal-toggle="modala229">
+                                                    + Tambah dokumen
+                                                </button>
+                                            @elseif (
+                                                ($koneksipo->status_po_03 == '-' || $koneksipo->status_po_03 == 'Revisi Purchasing - PO') &&
+                                                    $koneksipo->po_jasa_29 != '' &&
+                                                    $koneksipo->status_po_03 != 'Complete' &&
+                                                    $koneksipo->status_po_03 != 'Waiting Approval')
                                                 <div class="justify-center flex space-x-2">
                                                     <button type="button"
-                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                         data-modal-target="modal229" data-modal-show="modal229"
-                                                        data-modal-toggle="modal229">Ubah</button>
-                                                </div>
-                                            @else
-                                                <input type="file" name="as_po_jasa_29" id="">
-                                                <div class="">
-                                                    <input type="number" id="base-input"
-                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PO)"
-                                                        min="0" max="999999999999"
-                                                        oninput="validity.valid||(value='');"
-                                                        name="as_mny_jasa_po_29">
+                                                        data-modal-toggle="modal229">
+                                                        Ubah
+                                                    </button>
                                                 </div>
                                             @endif
-
                                         </td>
                                         <input type="text" hidden name="as_up_by_jasa_po_29"
                                             value="{{ Auth::user()->first_name }}">
@@ -6262,7 +6243,7 @@
                                     <tr
                                         class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
                                         <td class="py-4 font-bold text-center">30.</td>
-                                        <td class="flex items-center my-10">
+                                        <td class="flex items-center my-4">
 
                                             @if ($koneksipo->po_jasa_30 != '')
                                                 <a href="{{ asset('storage/supervisor/project/03_03_PR/' . $koneksipo->po_jasa_30) }}"
@@ -6294,30 +6275,34 @@
                                         </td>
                                         <td class="text-center">{{ $koneksipo->date_po_jasa_30 }}</td>
                                         <td>
-                                            @if ($koneksipo->mny_jasa_pao30 != '')
-                                                Rp{{ number_format($koneksipo->mny_jasa_pao30, 0, ',', '.') }}
+                                            @if ($koneksipo->mny_jasa_po_30 != '')
+                                                Rp{{ number_format($koneksipo->mny_jasa_po_30, 0, ',', '.') }}
                                             @endif
                                         </td>
                                         <td class="space-y-2 py-3 px-2">
-                                            @if ($koneksipo->po_jasa_30 != '')
+                                            @if (
+                                                ($koneksipo->status_po_03 == '-' || $koneksipo->status_po_03 == 'Revisi Purchasing - PO') &&
+                                                    $koneksipo->po_jasa_30 == '')
+                                                <button type="button"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
+                                                    data-modal-target="modala230" data-modal-show="modala230"
+                                                    data-modal-toggle="modala230">
+                                                    + Tambah dokumen
+                                                </button>
+                                            @elseif (
+                                                ($koneksipo->status_po_03 == '-' || $koneksipo->status_po_03 == 'Revisi Purchasing - PO') &&
+                                                    $koneksipo->po_jasa_30 != '' &&
+                                                    $koneksipo->status_po_03 != 'Complete' &&
+                                                    $koneksipo->status_po_03 != 'Waiting Approval')
                                                 <div class="justify-center flex space-x-2">
                                                     <button type="button"
-                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                         data-modal-target="modal230" data-modal-show="modal230"
-                                                        data-modal-toggle="modal230">Ubah</button>
-                                                </div>
-                                            @else
-                                                <input type="file" name="as_po_jasa_30" id="">
-                                                <div class="">
-                                                    <input type="number" id="base-input"
-                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PO)"
-                                                        min="0" max="999999999999"
-                                                        oninput="validity.valid||(value='');"
-                                                        name="as_mny_jasa_po_30">
+                                                        data-modal-toggle="modal230">
+                                                        Ubah
+                                                    </button>
                                                 </div>
                                             @endif
-
                                         </td>
                                         <input type="text" hidden name="as_up_by_jasa_po_30"
                                             value="{{ Auth::user()->first_name }}">
@@ -6332,7 +6317,7 @@
                         </div>
                         {{-- Akhir pekerjaan --}}
 
-                        {{-- PR Manufaktur --}}
+                        {{-- PO Manufaktur --}}
                         {{-- awal standar formulir --}}
                         <div class="flex justify-between">
                             <p class="font-medium text-lg bg-gray-800 px-4 py-1 w-fit text-white mb-2 rounded"> PO Manufaktur
@@ -6365,19 +6350,19 @@
                         <div class="overflow-x-auto rounded-t-md max-h-screen overflow-y-auto border">
                             <table class="w-full">
                                 <thead class="bg-gray-300 text-gray-700">
-                                    <th class="py-2 w-[5%]  font-medium">No.</th>
-                                    <th class="w-[45%]  font-medium">Nama File</th>
-                                    <th class="w-[12%]  font-medium">Uploaded by</th>
-                                    <th class="w-[12%]  font-medium">Last Update</th>
-                                    <th class="w-[11%]  font-medium">PR Amount</th>
-                                    <th class="w-[15%]  font-medium">Aksi</th>
+                                    <th class="py-2 w-[5%] font-medium">No.</th>
+                                        <th class="w-[45%]  font-medium">Nama File</th>
+                                        <th class="w-[11%]  font-medium">Uploaded by</th>
+                                        <th class="w-[10%]  font-medium">Last Update</th>
+                                        <th class="w-[14%]  font-medium">PO Amount</th>
+                                        <th class="w-[14%]  font-medium">Aksi</th>
                                 </thead>
                                 <tbody class="text-left border">
                                     {{-- 1 --}}
                                     <tr
                                         class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
                                         <td class="py-4 font-bold text-center">1.</td>
-                                        <td class="flex items-center my-10">
+                                        <td class="flex items-center my-4">
 
                                             @if ($koneksipo->po_mnftr_1 != '')
                                                 <a href="{{ asset('storage/supervisor/project/03_03_PR/' . $koneksipo->po_mnftr_1) }}"
@@ -6414,25 +6399,29 @@
                                             @endif
                                         </td>
                                         <td class="space-y-2 py-3 px-2">
-                                            @if ($koneksipo->po_mnftr_1 != '')
+                                            @if (
+                                                ($koneksipo->status_po_03 == '-' || $koneksipo->status_po_03 == 'Revisi Purchasing - PO') &&
+                                                    $koneksipo->po_mnftr_1 == '')
+                                                <button type="button"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
+                                                    data-modal-target="modala31" data-modal-show="modala31"
+                                                    data-modal-toggle="modala31">
+                                                    + Tambah dokumen
+                                                </button>
+                                            @elseif (
+                                                ($koneksipo->status_po_03 == '-' || $koneksipo->status_po_03 == 'Revisi Purchasing - PO') &&
+                                                    $koneksipo->po_mnftr_1 != '' &&
+                                                    $koneksipo->status_po_03 != 'Complete' &&
+                                                    $koneksipo->status_po_03 != 'Waiting Approval')
                                                 <div class="justify-center flex space-x-2">
                                                     <button type="button"
-                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                         data-modal-target="modal31" data-modal-show="modal31"
-                                                        data-modal-toggle="modal31">Ubah</button>
-                                                </div>
-                                            @else
-                                                <input type="file" name="as_po_mnftr_1" id="">
-                                                <div class="">
-                                                    <input type="number" id="base-input"
-                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PO)"
-                                                        min="0" max="999999999999"
-                                                        oninput="validity.valid||(value='');"
-                                                        name="as_mny_mnftr_po_1">
+                                                        data-modal-toggle="modal31">
+                                                        Ubah
+                                                    </button>
                                                 </div>
                                             @endif
-
                                         </td>
                                         <input type="text" hidden name="as_up_by_mnftr_po_1"
                                             value="{{ Auth::user()->first_name }}">
@@ -6444,7 +6433,7 @@
                                     <tr
                                         class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
                                         <td class="py-4 font-bold text-center">2.</td>
-                                        <td class="flex items-center my-10">
+                                        <td class="flex items-center my-4">
 
                                             @if ($koneksipo->po_mnftr_2 != '')
                                                 <a href="{{ asset('storage/supervisor/project/03_03_PR/' . $koneksipo->po_mnftr_2) }}"
@@ -6481,26 +6470,29 @@
                                             @endif
                                         </td>
                                         <td class="space-y-2 py-3 px-2">
-                                            @if ($koneksipo->po_mnftr_2 != '')
+                                            @if (
+                                                ($koneksipo->status_po_03 == '-' || $koneksipo->status_po_03 == 'Revisi Purchasing - PO') &&
+                                                    $koneksipo->po_mnftr_2 == '')
+                                                <button type="button"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
+                                                    data-modal-target="modala32" data-modal-show="modala32"
+                                                    data-modal-toggle="modala32">
+                                                    + Tambah dokumen
+                                                </button>
+                                            @elseif (
+                                                ($koneksipo->status_po_03 == '-' || $koneksipo->status_po_03 == 'Revisi Purchasing - PO') &&
+                                                    $koneksipo->po_mnftr_2 != '' &&
+                                                    $koneksipo->status_po_03 != 'Complete' &&
+                                                    $koneksipo->status_po_03 != 'Waiting Approval')
                                                 <div class="justify-center flex space-x-2">
                                                     <button type="button"
-                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                         data-modal-target="modal32" data-modal-show="modal32"
-                                                        data-modal-toggle="modal32">Ubah</button>
+                                                        data-modal-toggle="modal32">
+                                                        Ubah
+                                                    </button>
                                                 </div>
-                                            @else
-                                                <input type="file" name="as_po_mnftr_2" id="">
-                                                <div class="">
-                                                    <input type="number" id="base-input"
-                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PO)"
-                                                        min="0" max="999999999999"
-                                                        oninput="validity.valid||(value='');"
-                                                        name="as_mny_mnftr_po_2">
-                                                </div>
-                                        </td>
-                                        @endif
-
+                                            @endif
                                         <input type="text" hidden name="as_up_by_mnftr_po_2"
                                             value="{{ Auth::user()->first_name }}">
                                         <input type="date" hidden name="as_date_po_mnftr_2"
@@ -6512,7 +6504,7 @@
                                     <tr
                                         class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
                                         <td class="py-4 font-bold text-center">3.</td>
-                                        <td class="flex items-center my-10">
+                                        <td class="flex items-center my-4">
 
                                             @if ($koneksipo->po_mnftr_3 != '')
                                                 <a href="{{ asset('storage/supervisor/project/03_03_PR/' . $koneksipo->po_mnftr_3) }}"
@@ -6549,26 +6541,29 @@
                                             @endif
                                         </td>
                                         <td class="space-y-2 py-3 px-2">
-                                            @if ($koneksipo->po_mnftr_3 != '')
+                                            @if (
+                                                ($koneksipo->status_po_03 == '-' || $koneksipo->status_po_03 == 'Revisi Purchasing - PO') &&
+                                                    $koneksipo->po_mnftr_3 == '')
+                                                <button type="button"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
+                                                    data-modal-target="modala33" data-modal-show="modala33"
+                                                    data-modal-toggle="modala33">
+                                                    + Tambah dokumen
+                                                </button>
+                                            @elseif (
+                                                ($koneksipo->status_po_03 == '-' || $koneksipo->status_po_03 == 'Revisi Purchasing - PO') &&
+                                                    $koneksipo->po_mnftr_3 != '' &&
+                                                    $koneksipo->status_po_03 != 'Complete' &&
+                                                    $koneksipo->status_po_03 != 'Waiting Approval')
                                                 <div class="justify-center flex space-x-2">
                                                     <button type="button"
-                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                         data-modal-target="modal33" data-modal-show="modal33"
-                                                        data-modal-toggle="modal33">Ubah</button>
+                                                        data-modal-toggle="modal33">
+                                                        Ubah
+                                                    </button>
                                                 </div>
-                                            @else
-                                                <input type="file" name="as_po_mnftr_3" id="">
-                                                <div class="">
-                                                    <input type="number" id="base-input"
-                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PO)"
-                                                        min="0" max="999999999999"
-                                                        oninput="validity.valid||(value='');"
-                                                        name="as_mny_mnftr_po_3">
-                                                </div>
-                                        </td>
-                                        @endif
-
+                                            @endif
                                         </td>
                                         <input type="text" hidden name="as_up_by_mnftr_po_3"
                                             value="{{ Auth::user()->first_name }}">
@@ -6581,7 +6576,7 @@
                                     <tr
                                         class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
                                         <td class="py-4 font-bold text-center">4.</td>
-                                        <td class="flex items-center my-10">
+                                        <td class="flex items-center my-4">
 
                                             @if ($koneksipo->po_mnftr_4 != '')
                                                 <a href="{{ asset('storage/supervisor/project/03_03_PR/' . $koneksipo->po_mnftr_4) }}"
@@ -6618,25 +6613,29 @@
                                             @endif
                                         </td>
                                         <td class="space-y-2 py-3 px-2">
-                                            @if ($koneksipo->po_mnftr_4 != '')
+                                            @if (
+                                                ($koneksipo->status_po_03 == '-' || $koneksipo->status_po_03 == 'Revisi Purchasing - PO') &&
+                                                    $koneksipo->po_mnftr_4 == '')
+                                                <button type="button"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
+                                                    data-modal-target="modala34" data-modal-show="modala34"
+                                                    data-modal-toggle="modala34">
+                                                    + Tambah dokumen
+                                                </button>
+                                            @elseif (
+                                                ($koneksipo->status_po_03 == '-' || $koneksipo->status_po_03 == 'Revisi Purchasing - PO') &&
+                                                    $koneksipo->po_mnftr_4 != '' &&
+                                                    $koneksipo->status_po_03 != 'Complete' &&
+                                                    $koneksipo->status_po_03 != 'Waiting Approval')
                                                 <div class="justify-center flex space-x-2">
                                                     <button type="button"
-                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                         data-modal-target="modal34" data-modal-show="modal34"
-                                                        data-modal-toggle="modal34">Ubah</button>
-                                                </div>
-                                            @else
-                                                <input type="file" name="as_po_mnftr_4" id="">
-                                                <div class="">
-                                                    <input type="number" id="base-input"
-                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PO)"
-                                                        min="0" max="999999999999"
-                                                        oninput="validity.valid||(value='');"
-                                                        name="as_mny_mnftr_po_4">
+                                                        data-modal-toggle="modal34">
+                                                        Ubah
+                                                    </button>
                                                 </div>
                                             @endif
-
                                         </td>
                                         <input type="text" hidden name="as_up_by_mnftr_po_4"
                                             value="{{ Auth::user()->first_name }}">
@@ -6648,7 +6647,7 @@
                                     <tr
                                         class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
                                         <td class="py-4 font-bold text-center">5.</td>
-                                        <td class="flex items-center my-10">
+                                        <td class="flex items-center my-4">
 
                                             @if ($koneksipo->po_mnftr_5 != '')
                                                 <a href="{{ asset('storage/supervisor/project/03_03_PR/' . $koneksipo->po_mnftr_5) }}"
@@ -6685,25 +6684,29 @@
                                             @endif
                                         </td>
                                         <td class="space-y-2 py-3 px-2">
-                                            @if ($koneksipo->po_mnftr_5 != '')
+                                            @if (
+                                                ($koneksipo->status_po_03 == '-' || $koneksipo->status_po_03 == 'Revisi Purchasing - PO') &&
+                                                    $koneksipo->po_mnftr_5 == '')
+                                                <button type="button"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
+                                                    data-modal-target="modala35" data-modal-show="modala35"
+                                                    data-modal-toggle="modala35">
+                                                    + Tambah dokumen
+                                                </button>
+                                            @elseif (
+                                                ($koneksipo->status_po_03 == '-' || $koneksipo->status_po_03 == 'Revisi Purchasing - PO') &&
+                                                    $koneksipo->po_mnftr_5 != '' &&
+                                                    $koneksipo->status_po_03 != 'Complete' &&
+                                                    $koneksipo->status_po_03 != 'Waiting Approval')
                                                 <div class="justify-center flex space-x-2">
                                                     <button type="button"
-                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                         data-modal-target="modal35" data-modal-show="modal35"
-                                                        data-modal-toggle="modal35">Ubah</button>
-                                                </div>
-                                            @else
-                                                <input type="file" name="as_po_mnftr_5" id="">
-                                                <div class="">
-                                                    <input type="number" id="base-input"
-                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PO)"
-                                                        min="0" max="999999999999"
-                                                        oninput="validity.valid||(value='');"
-                                                        name="as_mny_mnftr_po_5">
+                                                        data-modal-toggle="modal35">
+                                                        Ubah
+                                                    </button>
                                                 </div>
                                             @endif
-
                                         </td>
                                         <input type="text" hidden name="as_up_by_mnftr_po_5"
                                             value="{{ Auth::user()->first_name }}">
@@ -6715,7 +6718,7 @@
                                     <tr
                                         class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
                                         <td class="py-4 font-bold text-center">6.</td>
-                                        <td class="flex items-center my-10">
+                                        <td class="flex items-center my-4">
 
                                             @if ($koneksipo->po_mnftr_6 != '')
                                                 <a href="{{ asset('storage/supervisor/project/03_03_PR/' . $koneksipo->po_mnftr_6) }}"
@@ -6752,25 +6755,29 @@
                                             @endif
                                         </td>
                                         <td class="space-y-2 py-3 px-2">
-                                            @if ($koneksipo->po_mnftr_6 != '')
+                                            @if (
+                                                ($koneksipo->status_po_03 == '-' || $koneksipo->status_po_03 == 'Revisi Purchasing - PO') &&
+                                                    $koneksipo->po_mnftr_6 == '')
+                                                <button type="button"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
+                                                    data-modal-target="modala36" data-modal-show="modala36"
+                                                    data-modal-toggle="modala36">
+                                                    + Tambah dokumen
+                                                </button>
+                                            @elseif (
+                                                ($koneksipo->status_po_03 == '-' || $koneksipo->status_po_03 == 'Revisi Purchasing - PO') &&
+                                                    $koneksipo->po_mnftr_6 != '' &&
+                                                    $koneksipo->status_po_03 != 'Complete' &&
+                                                    $koneksipo->status_po_03 != 'Waiting Approval')
                                                 <div class="justify-center flex space-x-2">
                                                     <button type="button"
-                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                         data-modal-target="modal36" data-modal-show="modal36"
-                                                        data-modal-toggle="modal36">Ubah</button>
-                                                </div>
-                                            @else
-                                                <input type="file" name="as_po_mnftr_6" id="">
-                                                <div class="" id="submit-1">
-                                                    <input type="number" id="base-input"
-                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PO)"
-                                                        min="0" max="999999999999"
-                                                        oninput="validity.valid||(value='');"
-                                                        name="as_mny_mnftr_po_6">
+                                                        data-modal-toggle="modal36">
+                                                        Ubah
+                                                    </button>
                                                 </div>
                                             @endif
-
                                         </td>
                                         <input type="text" hidden name="as_up_by_mnftr_po_6"
                                             value="{{ Auth::user()->first_name }}">
@@ -6782,7 +6789,7 @@
                                     <tr
                                         class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
                                         <td class="py-4 font-bold text-center">7.</td>
-                                        <td class="flex items-center my-10">
+                                        <td class="flex items-center my-4">
 
                                             @if ($koneksipo->po_mnftr_7 != '')
                                                 <a href="{{ asset('storage/supervisor/project/03_03_PR/' . $koneksipo->po_mnftr_7) }}"
@@ -6819,25 +6826,29 @@
                                             @endif
                                         </td>
                                         <td class="space-y-2 py-3 px-2">
-                                            @if ($koneksipo->po_mnftr_7 != '')
+                                            @if (
+                                                ($koneksipo->status_po_03 == '-' || $koneksipo->status_po_03 == 'Revisi Purchasing - PO') &&
+                                                    $koneksipo->po_mnftr_7 == '')
+                                                <button type="button"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
+                                                    data-modal-target="modala37" data-modal-show="modala37"
+                                                    data-modal-toggle="modala37">
+                                                    + Tambah dokumen
+                                                </button>
+                                            @elseif (
+                                                ($koneksipo->status_po_03 == '-' || $koneksipo->status_po_03 == 'Revisi Purchasing - PO') &&
+                                                    $koneksipo->po_mnftr_7 != '' &&
+                                                    $koneksipo->status_po_03 != 'Complete' &&
+                                                    $koneksipo->status_po_03 != 'Waiting Approval')
                                                 <div class="justify-center flex space-x-2">
                                                     <button type="button"
-                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                         data-modal-target="modal37" data-modal-show="modal37"
-                                                        data-modal-toggle="modal37">Ubah</button>
-                                                </div>
-                                            @else
-                                                <input type="file" name="as_po_mnftr_7" id="">
-                                                <div class="">
-                                                    <input type="number" id="base-input"
-                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PO)"
-                                                        min="0" max="999999999999"
-                                                        oninput="validity.valid||(value='');"
-                                                        name="as_mny_mnftr_po_7">
+                                                        data-modal-toggle="modal37">
+                                                        Ubah
+                                                    </button>
                                                 </div>
                                             @endif
-
                                         </td>
                                         <input type="text" hidden name="as_up_by_mnftr_po_7"
                                             value="{{ Auth::user()->first_name }}">
@@ -6849,7 +6860,7 @@
                                     <tr
                                         class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
                                         <td class="py-4 font-bold text-center">8.</td>
-                                        <td class="flex items-center my-10">
+                                        <td class="flex items-center my-4">
 
                                             @if ($koneksipo->po_mnftr_8 != '')
                                                 <a href="{{ asset('storage/supervisor/project/03_03_PR/' . $koneksipo->po_mnftr_8) }}"
@@ -6886,25 +6897,29 @@
                                             @endif
                                         </td>
                                         <td class="space-y-2 py-3 px-2">
-                                            @if ($koneksipo->po_mnftr_8 != '')
+                                            @if (
+                                                ($koneksipo->status_po_03 == '-' || $koneksipo->status_po_03 == 'Revisi Purchasing - PO') &&
+                                                    $koneksipo->po_mnftr_8 == '')
+                                                <button type="button"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
+                                                    data-modal-target="modala38" data-modal-show="modala38"
+                                                    data-modal-toggle="modala38">
+                                                    + Tambah dokumen
+                                                </button>
+                                            @elseif (
+                                                ($koneksipo->status_po_03 == '-' || $koneksipo->status_po_03 == 'Revisi Purchasing - PO') &&
+                                                    $koneksipo->po_mnftr_8 != '' &&
+                                                    $koneksipo->status_po_03 != 'Complete' &&
+                                                    $koneksipo->status_po_03 != 'Waiting Approval')
                                                 <div class="justify-center flex space-x-2">
                                                     <button type="button"
-                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                         data-modal-target="modal38" data-modal-show="modal38"
-                                                        data-modal-toggle="modal38">Ubah</button>
-                                                </div>
-                                            @else
-                                                <input type="file" name="as_po_mnftr_8" id="">
-                                                <div class="">
-                                                    <input type="number" id="base-input"
-                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PO)"
-                                                        min="0" max="999999999999"
-                                                        oninput="validity.valid||(value='');"
-                                                        name="as_mny_mnftr_po_8">
+                                                        data-modal-toggle="modal38">
+                                                        Ubah
+                                                    </button>
                                                 </div>
                                             @endif
-
                                         </td>
                                         <input type="text" hidden name="as_up_by_mnftr_po_8"
                                             value="{{ Auth::user()->first_name }}">
@@ -6916,7 +6931,7 @@
                                     <tr
                                         class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
                                         <td class="py-4 font-bold text-center">9.</td>
-                                        <td class="flex items-center my-10">
+                                        <td class="flex items-center my-4">
 
                                             @if ($koneksipo->po_mnftr_9 != '')
                                                 <a href="{{ asset('storage/supervisor/project/03_03_PR/' . $koneksipo->po_mnftr_9) }}"
@@ -6953,25 +6968,29 @@
                                             @endif
                                         </td>
                                         <td class="space-y-2 py-3 px-2">
-                                            @if ($koneksipo->po_mnftr_9 != '')
+                                            @if (
+                                                ($koneksipo->status_po_03 == '-' || $koneksipo->status_po_03 == 'Revisi Purchasing - PO') &&
+                                                    $koneksipo->po_mnftr_9 == '')
+                                                <button type="button"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
+                                                    data-modal-target="modala39" data-modal-show="modala39"
+                                                    data-modal-toggle="modala39">
+                                                    + Tambah dokumen
+                                                </button>
+                                            @elseif (
+                                                ($koneksipo->status_po_03 == '-' || $koneksipo->status_po_03 == 'Revisi Purchasing - PO') &&
+                                                    $koneksipo->po_mnftr_9 != '' &&
+                                                    $koneksipo->status_po_03 != 'Complete' &&
+                                                    $koneksipo->status_po_03 != 'Waiting Approval')
                                                 <div class="justify-center flex space-x-2">
                                                     <button type="button"
-                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                         data-modal-target="modal39" data-modal-show="modal39"
-                                                        data-modal-toggle="modal39">Ubah</button>
-                                                </div>
-                                            @else
-                                                <input type="file" name="as_po_mnftr_9" id="">
-                                                <div class="">
-                                                    <input type="number" id="base-input"
-                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PO)"
-                                                        min="0" max="999999999999"
-                                                        oninput="validity.valid||(value='');"
-                                                        name="as_mny_mnftr_po_9">
+                                                        data-modal-toggle="modal39">
+                                                        Ubah
+                                                    </button>
                                                 </div>
                                             @endif
-
                                         </td>
                                         <input type="text" hidden name="as_up_by_mnftr_po_9"
                                             value="{{ Auth::user()->first_name }}">
@@ -6983,7 +7002,7 @@
                                     <tr
                                         class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
                                         <td class="py-4 font-bold text-center">10.</td>
-                                        <td class="flex items-center my-10">
+                                        <td class="flex items-center my-4">
 
                                             @if ($koneksipo->po_mnftr_10 != '')
                                                 <a href="{{ asset('storage/supervisor/project/03_03_PR/' . $koneksipo->po_mnftr_10) }}"
@@ -7020,25 +7039,29 @@
                                             @endif
                                         </td>
                                         <td class="space-y-2 py-3 px-2">
-                                            @if ($koneksipo->po_mnftr_10 != '')
+                                            @if (
+                                                ($koneksipo->status_po_03 == '-' || $koneksipo->status_po_03 == 'Revisi Purchasing - PO') &&
+                                                    $koneksipo->po_mnftr_10 == '')
+                                                <button type="button"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
+                                                    data-modal-target="modala310" data-modal-show="modala310"
+                                                    data-modal-toggle="modala310">
+                                                    + Tambah dokumen
+                                                </button>
+                                            @elseif (
+                                                ($koneksipo->status_po_03 == '-' || $koneksipo->status_po_03 == 'Revisi Purchasing - PO') &&
+                                                    $koneksipo->po_mnftr_10 != '' &&
+                                                    $koneksipo->status_po_03 != 'Complete' &&
+                                                    $koneksipo->status_po_03 != 'Waiting Approval')
                                                 <div class="justify-center flex space-x-2">
                                                     <button type="button"
-                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                         data-modal-target="modal310" data-modal-show="modal310"
-                                                        data-modal-toggle="modal310">Ubah</button>
-                                                </div>
-                                            @else
-                                                <input type="file" name="as_po_mnftr_10" id="">
-                                                <div class="">
-                                                    <input type="number" id="base-input"
-                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PO)"
-                                                        min="0" max="999999999999"
-                                                        oninput="validity.valid||(value='');"
-                                                        name="as_mny_mnftr_po_10">
+                                                        data-modal-toggle="modal310">
+                                                        Ubah
+                                                    </button>
                                                 </div>
                                             @endif
-
                                         </td>
                                         <input type="text" hidden name="as_up_by_mnftr_po_10"
                                             value="{{ Auth::user()->first_name }}">
@@ -7059,7 +7082,7 @@
                     {{-- awal tab impor --}}
                     <div class="mt-3 bg-white rounded-lg" id="impor" role="tabpanel"
                         aria-labelledby="impor-tab">
-                        {{-- PR PER --}}
+                        {{-- PO CAPO --}}
                         {{-- awal standar formulir --}}
                         <div class="flex space-x-2 items-center justify-between">
                             <p class="font-medium text-lg bg-gray-800 px-4 py-1 w-fit text-white mb-2 rounded">
@@ -7072,21 +7095,21 @@
                         <div class="overflow-x-auto rounded-md mb-5">
                             <table class="w-full">
                                 <thead class="bg-gray-300 text-gray-700">
-                                    <th class="py-2 w-[5%]  font-medium">No.</th>
-                                    <th class="w-[50%]  font-medium">Nama File</th>
-                                    <th class="w-[15%]  font-medium">Uploaded by</th>
-                                    <th class="w-[15%]  font-medium">Last Update</th>
-                                    <th class="w-[15%]  font-medium">Aksi</th>
+                                    <th class="py-2 w-[5%] font-medium">No.</th>
+                                        <th class="w-[45%]  font-medium">Nama File</th>
+                                        <th class="w-[11%]  font-medium">Uploaded by</th>
+                                        <th class="w-[10%]  font-medium">Last Update</th>
+                                        <th class="w-[14%]  font-medium">Aksi</th>
                                 </thead>
                                 <tbody class="text-left border">
                                     {{-- 1 --}}
                                     <tr
                                         class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
                                         <td class="py-4 font-bold text-center">1.</td>
-                                        <td class="flex items-center my-10">
+                                        <td class="flex items-center my-4">
 
-                                            @if ($koneksipa->po_capo_1 != '')
-                                                <a href="{{ asset('storage/supervisor/project/03_03_PR/' . $koneksipa->po_capo_1) }}"
+                                            @if ($koneksipo->po_capo_1 != '')
+                                                <a href="{{ asset('storage/supervisor/project/03_03_PR/' . $koneksipo->po_capo_1) }}"
                                                     target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
                                                     <svg width="22" height="17" viewBox="0 0 22 17"
                                                         fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -7099,9 +7122,9 @@
                                                 &emsp;
                                             @endif
                                             {{--  --}}
-                                            <a href="{{ asset('storage/supervisor/project/03_03_PR/' . $koneksipa->po_capo_1) }}"
+                                            <a href="{{ asset('storage/supervisor/project/03_03_PR/' . $koneksipo->po_capo_1) }}"
                                                 target="blank" download="" class="hover:underline">
-                                                {{ $koneksipa->po_capo_1 }}</a>
+                                                {{ $koneksipo->po_capo_1 }}</a>
                                             {{-- == --}}
 
                                         </td>
@@ -7116,18 +7139,29 @@
                                         <td class="text-center">{{ $koneksipo->date_po_capo_1 }}</td>
 
                                         <td class="space-y-2 py-3 px-2">
-                                            @if ($koneksipa->po_capo_1 != '')
-                                                <div class="justify-center flex space-x-2">
-                                                    <button type="button"
-                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
-                                                        data-modal-target="modal41" data-modal-show="modal41"
-                                                        data-modal-toggle="modal41">Ubah</button>
-                                                </div>
-                                            @else
-                                                <input type="file" name="as_po_capo_1" id="">
-                                            @endif
-
-
+                                            @if (
+                                                    ($koneksipo->status_po_03 == '-' || $koneksipo->status_po_03 == 'Revisi Purchasing - PO') &&
+                                                        $koneksipo->po_capo_1 == '')
+                                                    <input type="file" name="as_po_capo_1"
+                                                        id="fileInput_po_capo_1" style="display: none;">
+                                                    <button type="button" onclick="openFileInput('po_capo_1')"
+                                                        class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md">
+                                                        + Tambah dokumen
+                                                    </button>
+                                                @elseif (
+                                                    ($koneksipo->status_po_03 == '-' || $koneksipo->status_po_03 == 'Revisi Purchasing - PO') &&
+                                                        $koneksipo->po_capo_1 != '' &&
+                                                        $koneksipo->status_po_03 != 'Complete' &&
+                                                        $koneksipo->status_po_03 != 'Waiting Approval')
+                                                    <div class="justify-center flex space-x-2">
+                                                        <button type="button"
+                                                            class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                            data-modal-target="modal41" data-modal-show="modal41"
+                                                            data-modal-toggle="modal41">
+                                                            Ubah
+                                                        </button>
+                                                    </div>
+                                                @endif
                                         </td>
                                         <input type="text" hidden name="as_up_by_capo_po_1"
                                             value="{{ Auth::user()->first_name }}">
@@ -7139,10 +7173,10 @@
                                     <tr
                                         class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
                                         <td class="py-4 font-bold text-center">2.</td>
-                                        <td class="flex items-center my-10">
+                                        <td class="flex items-center my-4">
 
-                                            @if ($koneksipa->po_capo_2 != '')
-                                                <a href="{{ asset('storage/supervisor/project/03_03_PR/' . $koneksipa->po_capo_2) }}"
+                                            @if ($koneksipo->po_capo_2 != '')
+                                                <a href="{{ asset('storage/supervisor/project/03_03_PR/' . $koneksipo->po_capo_2) }}"
                                                     target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
                                                     <svg width="22" height="17" viewBox="0 0 22 17"
                                                         fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -7155,9 +7189,9 @@
                                                 &emsp;
                                             @endif
                                             {{--  --}}
-                                            <a href="{{ asset('storage/supervisor/project/03_03_PR/' . $koneksipa->po_capo_2) }}"
+                                            <a href="{{ asset('storage/supervisor/project/03_03_PR/' . $koneksipo->po_capo_2) }}"
                                                 target="blank" download="" class="hover:underline">
-                                                {{ $koneksipa->po_capo_2 }}</a>
+                                                {{ $koneksipo->po_capo_2 }}</a>
                                             {{-- == --}}
 
                                         </td>
@@ -7172,16 +7206,29 @@
                                         <td class="text-center">{{ $koneksipo->date_po_capo_2 }}</td>
 
                                         <td class="space-y-2 py-3 px-2">
-                                            @if ($koneksipa->po_capo_2 != '')
-                                                <div class="justify-center flex space-x-2">
-                                                    <button type="button"
-                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
-                                                        data-modal-target="modal42" data-modal-show="modal42"
-                                                        data-modal-toggle="modal42">Ubah</button>
-                                                </div>
-                                            @else
-                                                <input type="file" name="as_po_capo_2" id="">
-                                            @endif
+                                            @if (
+                                                    ($koneksipo->status_po_03 == '-' || $koneksipo->status_po_03 == 'Revisi Purchasing - PO') &&
+                                                        $koneksipo->po_capo_2 == '')
+                                                    <input type="file" name="as_po_capo_2"
+                                                        id="fileInput_po_capo_2" style="display: none;">
+                                                    <button type="button" onclick="openFileInput('po_capo_2')"
+                                                        class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md">
+                                                        + Tambah dokumen
+                                                    </button>
+                                                @elseif (
+                                                    ($koneksipo->status_po_03 == '-' || $koneksipo->status_po_03 == 'Revisi Purchasing - PO') &&
+                                                        $koneksipo->po_capo_2 != '' &&
+                                                        $koneksipo->status_po_03 != 'Complete' &&
+                                                        $koneksipo->status_po_03 != 'Waiting Approval')
+                                                    <div class="justify-center flex space-x-2">
+                                                        <button type="button"
+                                                            class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                            data-modal-target="modal42" data-modal-show="modal42"
+                                                            data-modal-toggle="modal42">
+                                                            Ubah
+                                                        </button>
+                                                    </div>
+                                                @endif
                                         </td>
                                         <input type="text" hidden name="as_up_by_capo_po_2"
                                             value="{{ Auth::user()->first_name }}">
@@ -7194,10 +7241,10 @@
                                     <tr
                                         class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
                                         <td class="py-4 font-bold text-center">3.</td>
-                                        <td class="flex items-center my-10">
+                                        <td class="flex items-center my-4">
 
-                                            @if ($koneksipa->po_capo_3 != '')
-                                                <a href="{{ asset('storage/supervisor/project/03_03_PR/' . $koneksipa->po_capo_3) }}"
+                                            @if ($koneksipo->po_capo_3 != '')
+                                                <a href="{{ asset('storage/supervisor/project/03_03_PR/' . $koneksipo->po_capo_3) }}"
                                                     target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
                                                     <svg width="22" height="17" viewBox="0 0 22 17"
                                                         fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -7210,9 +7257,9 @@
                                                 &emsp;
                                             @endif
                                             {{--  --}}
-                                            <a href="{{ asset('storage/supervisor/project/03_03_PR/' . $koneksipa->po_capo_3) }}"
+                                            <a href="{{ asset('storage/supervisor/project/03_03_PR/' . $koneksipo->po_capo_3) }}"
                                                 target="blank" download="" class="hover:underline">
-                                                {{ $koneksipa->po_capo_3 }}</a>
+                                                {{ $koneksipo->po_capo_3 }}</a>
                                             {{-- == --}}
 
                                         </td>
@@ -7227,16 +7274,29 @@
                                         <td class="text-center">{{ $koneksipo->date_po_capo_3 }}</td>
 
                                         <td class="space-y-2 py-3 px-2">
-                                            @if ($koneksipa->po_capo_3 != '')
-                                                <div class="justify-center flex space-x-2">
-                                                    <button type="button"
-                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
-                                                        data-modal-target="modal43" data-modal-show="modal43"
-                                                        data-modal-toggle="modal43">Ubah</button>
-                                                </div>
-                                            @else
-                                                <input type="file" name="as_po_capo_3" id="">
-                                            @endif
+                                            @if (
+                                                    ($koneksipo->status_po_03 == '-' || $koneksipo->status_po_03 == 'Revisi Purchasing - PO') &&
+                                                        $koneksipo->po_capo_3 == '')
+                                                    <input type="file" name="as_po_capo_3"
+                                                        id="fileInput_po_capo_3" style="display: none;">
+                                                    <button type="button" onclick="openFileInput('po_capo_3')"
+                                                        class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md">
+                                                        + Tambah dokumen
+                                                    </button>
+                                                @elseif (
+                                                    ($koneksipo->status_po_03 == '-' || $koneksipo->status_po_03 == 'Revisi Purchasing - PO') &&
+                                                        $koneksipo->po_capo_3 != '' &&
+                                                        $koneksipo->status_po_03 != 'Complete' &&
+                                                        $koneksipo->status_po_03 != 'Waiting Approval')
+                                                    <div class="justify-center flex space-x-2">
+                                                        <button type="button"
+                                                            class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                            data-modal-target="modal43" data-modal-show="modal43"
+                                                            data-modal-toggle="modal43">
+                                                            Ubah
+                                                        </button>
+                                                    </div>
+                                                @endif
                                         </td>
                                         <input type="text" hidden name="as_up_by_capo_po_3"
                                             value="{{ Auth::user()->first_name }}">
@@ -7248,10 +7308,10 @@
                                     <tr
                                         class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
                                         <td class="py-4 font-bold text-center">4.</td>
-                                        <td class="flex items-center my-10">
+                                        <td class="flex items-center my-4">
 
-                                            @if ($koneksipa->po_capo_4 != '')
-                                                <a href="{{ asset('storage/supervisor/project/03_03_PR/' . $koneksipa->po_capo_4) }}"
+                                            @if ($koneksipo->po_capo_4 != '')
+                                                <a href="{{ asset('storage/supervisor/project/03_03_PR/' . $koneksipo->po_capo_4) }}"
                                                     target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
                                                     <svg width="22" height="17" viewBox="0 0 22 17"
                                                         fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -7264,9 +7324,9 @@
                                                 &emsp;
                                             @endif
                                             {{--  --}}
-                                            <a href="{{ asset('storage/supervisor/project/03_03_PR/' . $koneksipa->po_capo_4) }}"
+                                            <a href="{{ asset('storage/supervisor/project/03_03_PR/' . $koneksipo->po_capo_4) }}"
                                                 target="blank" download="" class="hover:underline">
-                                                {{ $koneksipa->po_capo_4 }}</a>
+                                                {{ $koneksipo->po_capo_4 }}</a>
                                             {{-- == --}}
 
                                         </td>
@@ -7281,16 +7341,29 @@
                                         <td class="text-center">{{ $koneksipo->date_po_capo_4 }}</td>
 
                                         <td class="space-y-2 py-3 px-2">
-                                            @if ($koneksipa->po_capo_4 != '')
-                                                <div class="justify-center flex space-x-2">
-                                                    <button type="button"
-                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
-                                                        data-modal-target="modal44" data-modal-show="modal44"
-                                                        data-modal-toggle="modal44">Ubah</button>
-                                                </div>
-                                            @else
-                                                <input type="file" name="as_po_capo_4" id="">
-                                            @endif
+                                            @if (
+                                                    ($koneksipo->status_po_03 == '-' || $koneksipo->status_po_03 == 'Revisi Purchasing - PO') &&
+                                                        $koneksipo->po_capo_4 == '')
+                                                    <input type="file" name="as_po_capo_4"
+                                                        id="fileInput_po_capo_4" style="display: none;">
+                                                    <button type="button" onclick="openFileInput('po_capo_4')"
+                                                        class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md">
+                                                        + Tambah dokumen
+                                                    </button>
+                                                @elseif (
+                                                    ($koneksipo->status_po_03 == '-' || $koneksipo->status_po_03 == 'Revisi Purchasing - PO') &&
+                                                        $koneksipo->po_capo_4 != '' &&
+                                                        $koneksipo->status_po_03 != 'Complete' &&
+                                                        $koneksipo->status_po_03 != 'Waiting Approval')
+                                                    <div class="justify-center flex space-x-2">
+                                                        <button type="button"
+                                                            class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                            data-modal-target="modal44" data-modal-show="modal44"
+                                                            data-modal-toggle="modal44">
+                                                            Ubah
+                                                        </button>
+                                                    </div>
+                                                @endif
                                         </td>
                                         <input type="text" hidden name="as_up_by_capo_po_4"
                                             value="{{ Auth::user()->first_name }}">
@@ -7302,10 +7375,10 @@
                                     <tr
                                         class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
                                         <td class="py-4 font-bold text-center">5.</td>
-                                        <td class="flex items-center my-10">
+                                        <td class="flex items-center my-4">
 
-                                            @if ($koneksipa->po_capo_5 != '')
-                                                <a href="{{ asset('storage/supervisor/project/03_03_PR/' . $koneksipa->po_capo_5) }}"
+                                            @if ($koneksipo->po_capo_5 != '')
+                                                <a href="{{ asset('storage/supervisor/project/03_03_PR/' . $koneksipo->po_capo_5) }}"
                                                     target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
                                                     <svg width="22" height="17" viewBox="0 0 22 17"
                                                         fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -7318,9 +7391,9 @@
                                                 &emsp;
                                             @endif
                                             {{--  --}}
-                                            <a href="{{ asset('storage/supervisor/project/03_03_PR/' . $koneksipa->po_capo_5) }}"
+                                            <a href="{{ asset('storage/supervisor/project/03_03_PR/' . $koneksipo->po_capo_5) }}"
                                                 target="blank" download="" class="hover:underline">
-                                                {{ $koneksipa->po_capo_5 }}</a>
+                                                {{ $koneksipo->po_capo_5 }}</a>
                                             {{-- == --}}
 
                                         </td>
@@ -7335,16 +7408,29 @@
                                         <td class="text-center">{{ $koneksipo->date_po_capo_5 }}</td>
 
                                         <td class="space-y-2 py-3 px-2">
-                                            @if ($koneksipa->po_capo_5 != '')
-                                                <div class="justify-center flex space-x-2">
-                                                    <button type="button"
-                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
-                                                        data-modal-target="modal45" data-modal-show="modal45"
-                                                        data-modal-toggle="modal45">Ubah</button>
-                                                </div>
-                                            @else
-                                                <input type="file" name="as_po_capo_5" id="">
-                                            @endif
+                                            @if (
+                                                    ($koneksipo->status_po_03 == '-' || $koneksipo->status_po_03 == 'Revisi Purchasing - PO') &&
+                                                        $koneksipo->po_capo_5 == '')
+                                                    <input type="file" name="as_po_capo_5"
+                                                        id="fileInput_po_capo_5" style="display: none;">
+                                                    <button type="button" onclick="openFileInput('po_capo_5')"
+                                                        class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md">
+                                                        + Tambah dokumen
+                                                    </button>
+                                                @elseif (
+                                                    ($koneksipo->status_po_03 == '-' || $koneksipo->status_po_03 == 'Revisi Purchasing - PO') &&
+                                                        $koneksipo->po_capo_5 != '' &&
+                                                        $koneksipo->status_po_03 != 'Complete' &&
+                                                        $koneksipo->status_po_03 != 'Waiting Approval')
+                                                    <div class="justify-center flex space-x-2">
+                                                        <button type="button"
+                                                            class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                            data-modal-target="modal45" data-modal-show="modal45"
+                                                            data-modal-toggle="modal45">
+                                                            Ubah
+                                                        </button>
+                                                    </div>
+                                                @endif
                                         </td>
                                         <input type="text" hidden name="as_up_by_capo_po_5"
                                             value="{{ Auth::user()->first_name }}">
@@ -7361,20 +7447,156 @@
                 {{-- tabcontent --}}
             </div>
             {{-- bungkus --}}
-            <input type="text" name="status_purchasing" value="Waiting Approval Purchasing - PO" hidden>
-            <input type="date" hidden name="status_purchasing_date" value="{{ date('Y-m-d') }}">
 
-            <input type="text" name="status_po_03" value="Waiting Approval" hidden>
-            <input type="date" hidden name="status_po_03_date" value="{{ date('Y-m-d') }}">
-            {{-- table project --}}
-            <input type="text" name="check" value="needcheck" hidden>
-            <input type="text" name="progress" value="Waiting Approval Purchasing - PO" hidden>
-            <input type="text" name="last_update_name" value="{{ Auth::user()->first_name }}" hidden>
-            <input type="text" name="last_update_date" value="{{ date('d-M-Y') }}" hidden>
 
-            <button type="submit"
-                class="bg-orange-500 w-full hover:bg-orange-600 text-white font-bold py-2 rounded-b-lg shadow-md">Klik
-                untuk submit dokumen</button>
+            @php
+                $t = range(1, 50);
+            @endphp
+            {{-- tambah parts --}}
+            @foreach ($t as $index => $number)
+                <div id="modala1{{ $number }}"
+                    class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 inset-0 justify-center items-center w-full max-h-full">
+                    <div class="relative p-4 w-full max-w-2xl max-h-full">
+                        <!-- Modal content -->
+                        <div class="relative bg-white rounded-lg shadow">
+                            <!-- Modal header -->
+                            <div class="flex items-center justify-between px-5 py-3 border-b rounded-t">
+                                <p class="text-2xl font-semibold text-gray-900 font-mono">
+                                    Tambah dokumen dan nilai finansial - PO Parts
+                                </p>
+                                <button type="button"
+                                    class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center"
+                                    onclick="simulateEscape()">
+                                    <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                        fill="none" viewBox="0 0 14 14">
+                                        <path stroke="currentColor" stroke-linecap="round"
+                                            stroke-linejoin="round" stroke-width="2"
+                                            d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+                                    </svg>
+                                    <span class="sr-only">Close modal</span>
+                                </button>
+                            </div>
+                            <!-- Modal footer -->
+                            <div class="items-center px-5 py-2 border-t border-gray-200 rounded-b">
+                                <p class="text-sm font-bold">*Pastikan isi kedua bidang isian (file & nilai
+                                    finansial)</p>
+                                <div class="items-center justify-center w-full border my-4">
+                                    <div class="grid grid-cols-2">
+                                        <input type="file"name="as_po_parts_{{ $number }}"
+                                            id="">
+                                        <div class="">
+                                            <input type="number" id="base-input"
+                                                class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
+                                                placeholder="Rp{{ number_format($koneksipo->{'mny_parts_po_' . $number}, 0, ',', '.') }}"
+                                                min="0" max="999999999999"
+                                                oninput="validity.valid||(value='');"
+                                                name="as_mny_parts_po_{{ $number }}">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <button type="submit"
+                                class="bg-orange-500 w-full hover:bg-orange-600 text-white font-bold py-2 rounded-b-lg shadow-md">Submit</button>
+                        </div>
+                    </div>
+                </div>
+            @endforeach
+            {{-- tambah pekerjaan jasa --}}
+            @foreach ($t as $index => $number)
+                <div id="modala2{{ $number }}"
+                    class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 inset-0 justify-center items-center w-full max-h-full">
+                    <div class="relative p-4 w-full max-w-2xl max-h-full">
+                        <!-- Modal content -->
+                        <div class="relative bg-white rounded-lg shadow">
+                            <!-- Modal header -->
+                            <div class="flex items-center justify-between px-5 py-3 border-b rounded-t">
+                                <p class="text-2xl font-semibold text-gray-900 font-mono">
+                                    Tambah dokumen dan nilai finansial - PO Pekerjaan/jasa
+                                </p>
+                                <button type="button"
+                                    class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center"
+                                    onclick="simulateEscape()">
+                                    <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                        fill="none" viewBox="0 0 14 14">
+                                        <path stroke="currentColor" stroke-linecap="round"
+                                            stroke-linejoin="round" stroke-width="2"
+                                            d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+                                    </svg>
+                                    <span class="sr-only">Close modal</span>
+                                </button>
+                            </div>
+                            <div class="items-center px-5 py-2 border-t border-gray-200 rounded-b">
+                                <p class="text-sm font-bold">*Pastikan isi kedua bidang isian (file & nilai
+                                    finansial)
+                                    untuk dapat mengubah ajuan</p>
+                                <div class="items-center justify-center w-full border my-4">
+                                    <div class="grid grid-cols-2">
+                                        <input type="file"name="as_po_jasa_{{ $number }}"
+                                            id="">
+                                        <div class="">
+                                            <input type="number" id="base-input"
+                                                class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
+                                                placeholder="Rp{{ number_format($koneksipo->{'mny_jasa_po_' . $number}, 0, ',', '.') }}"
+                                                min="0" max="999999999999"
+                                                oninput="validity.valid||(value='');"
+                                                name="as_mny_jasa_po_{{ $number }}">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <button type="submit"
+                                class="bg-orange-500 w-full hover:bg-orange-600 text-white font-bold py-2 rounded-b-lg shadow-md">Submit</button>
+                        </div>
+                    </div>
+                </div>
+            @endforeach
+            {{-- tambah manufaktur --}}
+            @foreach ($t as $index => $number)
+                <div id="modala3{{ $number }}"
+                    class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 inset-0 justify-center items-center w-full max-h-full">
+                    <div class="relative p-4 w-full max-w-2xl max-h-full">
+                        <!-- Modal content -->
+                        <div class="relative bg-white rounded-lg shadow">
+                            <!-- Modal header -->
+                            <div class="flex items-center justify-between px-5 py-3 border-b rounded-t">
+                                <p class="text-2xl font-semibold text-gray-900 font-mono">
+                                    Tambah dokumen dan nilai finansial - PO Manufaktur
+                                </p>
+                                <button type="button"
+                                    class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center"
+                                    onclick="simulateEscape()">
+                                    <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                        fill="none" viewBox="0 0 14 14">
+                                        <path stroke="currentColor" stroke-linecap="round"
+                                            stroke-linejoin="round" stroke-width="2"
+                                            d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+                                    </svg>
+                                    <span class="sr-only">Close modal</span>
+                                </button>
+                            </div>
+                            <div class="items-center px-5 py-2 border-t border-gray-200 rounded-b">
+                                <div class="items-center justify-center w-full border my-4">
+                                    <div class="grid grid-cols-2">
+                                        <input type="file"name="as_po_mnftr_{{ $number }}"
+                                            id="">
+                                        <div class="">
+                                            <input type="number" id="base-input"
+                                                class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
+                                                placeholder="Rp{{ number_format($koneksipo->{'mny_mnftr_po_' . $number}, 0, ',', '.') }}"
+                                                min="0" max="999999999999"
+                                                oninput="validity.valid||(value='');"
+                                                name="as_mny_mnftr_po_{{ $number }}">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <button type="submit"
+                                class="bg-orange-500 w-full hover:bg-orange-600 text-white font-bold py-2 rounded-b-lg shadow-md">Submit</button>
+                        </div>
+                    </div>
+                </div>
+            @endforeach
+
 
             {{-- modal ubah --}}
             @php
@@ -7700,11 +7922,143 @@
                     </div>
                 </div>
             @endforeach
-
         </form>
     </div>
-
     {{-- Akhir progress file --}}
+
+    @if ($koneksipo->status_po_03 == '-' || $koneksipo->status_po_03 == 'Revisi Purchasing - PO')
+        @if (
+            //parts
+            $koneksipo->po_parts_1 ||
+                $koneksipo->po_parts_2 ||
+                $koneksipo->po_parts_3 ||
+                $koneksipo->po_parts_4 ||
+                $koneksipo->po_parts_5 ||
+                $koneksipo->po_parts_6 ||
+                $koneksipo->po_parts_7 ||
+                $koneksipo->po_parts_8 ||
+                $koneksipo->po_parts_9 ||
+                $koneksipo->po_parts_10 ||
+                $koneksipo->po_parts_11 ||
+                $koneksipo->po_parts_12 ||
+                $koneksipo->po_parts_13 ||
+                $koneksipo->po_parts_14 ||
+                $koneksipo->po_parts_15 ||
+                $koneksipo->po_parts_16 ||
+                $koneksipo->po_parts_17 ||
+                $koneksipo->po_parts_18 ||
+                $koneksipo->po_parts_19 ||
+                $koneksipo->po_parts_20 ||
+                $koneksipo->po_parts_21 ||
+                $koneksipo->po_parts_22 ||
+                $koneksipo->po_parts_23 ||
+                $koneksipo->po_parts_24 ||
+                $koneksipo->po_parts_25 ||
+                $koneksipo->po_parts_26 ||
+                $koneksipo->po_parts_27 ||
+                $koneksipo->po_parts_28 ||
+                $koneksipo->po_parts_29 ||
+                $koneksipo->po_parts_30 ||
+                $koneksipo->po_parts_31 ||
+                $koneksipo->po_parts_32 ||
+                $koneksipo->po_parts_33 ||
+                $koneksipo->po_parts_34 ||
+                $koneksipo->po_parts_35 ||
+                $koneksipo->po_parts_36 ||
+                $koneksipo->po_parts_37 ||
+                $koneksipo->po_parts_38 ||
+                $koneksipo->po_parts_39 ||
+                $koneksipo->po_parts_40 ||
+                $koneksipo->po_parts_41 ||
+                $koneksipo->po_parts_42 ||
+                $koneksipo->po_parts_43 ||
+                $koneksipo->po_parts_44 ||
+                $koneksipo->po_parts_45 ||
+                $koneksipo->po_parts_46 ||
+                $koneksipo->po_parts_47 ||
+                $koneksipo->po_parts_48 ||
+                $koneksipo->po_parts_49 ||
+                $koneksipo->po_parts_50 ||
+                // pekerjaan jasa
+                $koneksipo->po_jasa_1 ||
+                $koneksipo->po_jasa_2 ||
+                $koneksipo->po_jasa_3 ||
+                $koneksipo->po_jasa_4 ||
+                $koneksipo->po_jasa_5 ||
+                $koneksipo->po_jasa_6 ||
+                $koneksipo->po_jasa_7 ||
+                $koneksipo->po_jasa_8 ||
+                $koneksipo->po_jasa_9 ||
+                $koneksipo->po_jasa_10 ||
+                $koneksipo->po_jasa_11 ||
+                $koneksipo->po_jasa_12 ||
+                $koneksipo->po_jasa_13 ||
+                $koneksipo->po_jasa_14 ||
+                $koneksipo->po_jasa_15 ||
+                $koneksipo->po_jasa_16 ||
+                $koneksipo->po_jasa_17 ||
+                $koneksipo->po_jasa_18 ||
+                $koneksipo->po_jasa_19 ||
+                $koneksipo->po_jasa_20 ||
+                $koneksipo->po_jasa_21 ||
+                $koneksipo->po_jasa_22 ||
+                $koneksipo->po_jasa_23 ||
+                $koneksipo->po_jasa_24 ||
+                $koneksipo->po_jasa_25 ||
+                $koneksipo->po_jasa_26 ||
+                $koneksipo->po_jasa_27 ||
+                $koneksipo->po_jasa_28 ||
+                $koneksipo->po_jasa_29 ||
+                $koneksipo->po_jasa_30 ||
+                //manufaktur
+                $koneksipo->po_mnftr_1 ||
+                $koneksipo->po_mnftr_2 ||
+                $koneksipo->po_mnftr_3 ||
+                $koneksipo->po_mnftr_4 ||
+                $koneksipo->po_mnftr_5 ||
+                $koneksipo->po_mnftr_6 ||
+                $koneksipo->po_mnftr_7 ||
+                $koneksipo->po_mnftr_8 ||
+                $koneksipo->po_mnftr_9 ||
+                $koneksipo->po_mnftr_10 ||
+                //rfq per
+                $koneksipo->po_capo_1 ||
+                $koneksipo->po_capo_2 ||
+                $koneksipo->po_capo_3 ||
+                $koneksipo->po_capo_4 ||
+                $koneksipo->po_capo_5 != '')
+            <p class="mb-1 mt-3">
+                Pastikan unggahan dokumen sudah sesuai dengan proyek.
+            </p>
+            <form action="" method="post" enctype="multipart/form-data">
+                @csrf
+                @method('PUT')
+                {{-- mbuh iki opo --}}
+                <input type="text" name="status_purchasing" value="Waiting Approval Purchasing - PO" hidden>
+                <input type="date" hidden name="status_purchasing_date" value="{{ date('Y-m-d') }}">
+
+                <input type="text" name="status_po_03" value="Waiting Approval" hidden>
+                <input type="date" hidden name="status_po_03_date" value="{{ date('Y-m-d') }}">
+                {{-- table project --}}
+                <input type="text" name="check" value="needcheck" hidden>
+                <input type="text" name="progress" value="Waiting Approval Purchasing - PO" hidden>
+                <input type="text" name="last_update_name" value="{{ Auth::user()->first_name }}" hidden>
+                <input type="text" name="last_update_date" value="{{ date('d-M-Y') }}" hidden>
+                <button type="submit"
+                    class="border-gray-500 border-2 w-full hover:bg-gray-600 text-gray-700 hover:text-white font-medium py-2 rounded-lg shadow-md mb-3 bg-white">
+                    Klik untuk ajukan tahapan
+                </button>
+            </form>
+        @endif
+    @elseif($koneksipo->status_po_03 == 'Waiting Approval')
+        <p class="bg-gray-600 mt-3 py-3 text-center text-lg text-white font-medium uppercase tracking-wide">
+            Tahapan sedang menunggu persetujuan
+        </p>
+    @else
+        <p class="bg-green-700 text-white mt-3 py-3 text-center text-lg font-medium uppercase tracking-wide">
+            Tahapan telah disetujui
+        </p>
+    @endif
     @endif
 
     <script>
@@ -7720,21 +8074,21 @@
         }
 
         function openFileInput(namaVariabel) {
-        // Temukan elemen file input berdasarkan nama variabel
-        const fileInput = document.getElementById('fileInput_' + namaVariabel);
+            // Temukan elemen file input berdasarkan nama variabel
+            const fileInput = document.getElementById('fileInput_' + namaVariabel);
 
-        // Klik pada elemen file input
-        fileInput.click();
+            // Klik pada elemen file input
+            fileInput.click();
 
-        // Tambahkan event listener untuk menangani perubahan file
-        fileInput.addEventListener('change', function (event) {
-            const selectedFile = event.target.files[0];
-            console.log('File yang dipilih untuk ' + namaVariabel + ':', selectedFile.name);
+            // Tambahkan event listener untuk menangani perubahan file
+            fileInput.addEventListener('change', function(event) {
+                const selectedFile = event.target.files[0];
+                console.log('File yang dipilih untuk ' + namaVariabel + ':', selectedFile.name);
 
-            // Sekarang, kirim formulir
-            document.getElementById('uploadForm').submit();
-        });
-    }
+                // Sekarang, kirim formulir
+                document.getElementById('uploadForm').submit();
+            });
+        }
     </script>
 </div>
 {{-- tutup bungkus --}}

@@ -21,31 +21,11 @@
                 <div class="mx-auto my-auto">
                     <div class="w-full">
                         <div class="p-4 bg-white border shadow-md rounded-lg">
-                            <div class="space-x-4 mb-2 grid grid-cols-2">
+                            <div class="space-x-4 mb-2 grid grid-cols-1">
                                 <p
-                                    class="text-3xl border-orange-500 border-2 font-medium rounded text-orange-500 flex items-center justify-center">
-                                    Planned Target Payment ({{ $pl->year }})
+                                    class="text-3xl border-b-orange-500 py-1 font-medium rounded text-orange-500 flex items-center justify-center">
+                                    Planned Target Payment
                                 </p>
-                                <div class="">
-                                    <p>Tampilkan target tahun:</p>
-                                    <div class="flex">
-                                        <select id="underline_select" name="as_year"
-                                            class="block py-2.5 px-0 text-sm text-gray-500 bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 w-full focus:border-orange-500 peer">
-                                            <option disabled selected="" value="">Year Planned</option>
-                                            <option value="2023">2023</option>
-                                            <option value="2024">2024</option>
-                                            <option value="2025">2025</option>
-                                            <option value="2036">2026</option>
-                                            <option value="2027">2027</option>
-                                            <option value="2028">2028</option>
-                                            <option value="2029">2029</option>
-                                            <option value="2030">2030</option>
-                                            <option value="2031">2031</option>
-                                            <option value="2032">2032</option>
-                                            <option value="2032">2033</option>
-                                        </select>
-                                    </div>
-                                </div>
                             </div>
                             <hr>
                             <div class="flex justify-between">
@@ -207,13 +187,25 @@
                             <hr>
                             <div class="flex justify-between items-center my-2">
                                 <div class="flex">
-                                    <p class="text-lg">Target untuk tahun {{ $pl->year }}: &nbsp; </p>
+                                    <p class="text-lg">Target untuk tahun ini: &nbsp; </p>
                                     <p class="text-xl font-bold underline">Rp{{ number_format($sum_planned, 0, ',', '.') }}
                                     </p>
                                 </div>
 
 
-                                @if ($pl->planned_1 || $pl->planned_2  || $pl->planned_3  || $pl->planned_4  || $pl->planned_5  || $pl->planned_6  || $pl->planned_7  || $pl->planned_8  || $pl->planned_9  || $pl->planned_10  || $pl->planned_11  || $pl->planned_12 != '')
+                                @if (
+                                    $pl->planned_1 ||
+                                        $pl->planned_2 ||
+                                        $pl->planned_3 ||
+                                        $pl->planned_4 ||
+                                        $pl->planned_5 ||
+                                        $pl->planned_6 ||
+                                        $pl->planned_7 ||
+                                        $pl->planned_8 ||
+                                        $pl->planned_9 ||
+                                        $pl->planned_10 ||
+                                        $pl->planned_11 ||
+                                        $pl->planned_12 != '')
                                     <!-- Modal toggle -->
                                     <button data-modal-target="default-modal" data-modal-toggle="default-modal"
                                         class="block text-white bg-red-600 hover:bg-red-700 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center hover:underline">
@@ -239,18 +231,18 @@
                                                 @php
                                                     $num = range(1, 12);
                                                 @endphp
-                                                    <form action="" method="post" enctype="multipart/form-data">
-                                                        @csrf
-                                                        @method('PUT')
-                                                        @foreach ($num as $nums)
-                                                            <input type="text" hidden name="planned_{{ $nums }}"
-                                                                value="">
-                                                        @endforeach
-                                                        <button
-                                                            class="bg-red-600 hover:bg-red-700  px-5 py-2.5  text-white hover:underline rounded-lg mt-4">
-                                                            Reset target payment
-                                                        </button>
-                                                    </form>
+                                                <form action="" method="post" enctype="multipart/form-data">
+                                                    @csrf
+                                                    @method('PUT')
+                                                    @foreach ($num as $nums)
+                                                        <input type="text" hidden name="planned_{{ $nums }}"
+                                                            value="">
+                                                    @endforeach
+                                                    <button
+                                                        class="bg-red-600 hover:bg-red-700  px-5 py-2.5  text-white hover:underline rounded-lg mt-4">
+                                                        Reset target payment
+                                                    </button>
+                                                </form>
                                                 <button
                                                     class="text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900"
                                                     onclick="simulateEscape()">Batal</button>

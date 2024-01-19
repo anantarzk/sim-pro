@@ -200,7 +200,7 @@
                                 fill="white" />
                         </svg>
 
-                        <span class="ml-7  flex-1">Proyek</span>
+                        <span class="ml-7  flex-1">Modul Proyek</span>
                         <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 20 20"
                             xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd"
@@ -250,7 +250,7 @@
 
                 <li>
                     <a class="flex items-center rounded-lg py-2 pl-2 text-base font-semibold text-white hover:bg-orange-500 decoration-red-600"
-                        data-collapse-toggle="dropdown-2" type="button" aria-controls="dropdown-2" href="#">
+                    href="/tambah-standar-project">
                         <svg width="24" height="auto" viewBox="0 0 48 48" fill="white"
                             xmlns="http://www.w3.org/2000/svg">
                             <path
@@ -266,27 +266,8 @@
                             <path
                                 d="M46 35C46 41.0751 41.0751 46 35 46C28.9249 46 24 41.0751 24 35C24 28.9249 28.9249 24 35 24C41.0751 24 46 28.9249 46 35ZM36 28C36 27.4477 35.5523 27 35 27C34.4477 27 34 27.4477 34 28V34H28C27.4477 34 27 34.4477 27 35C27 35.5523 27.4477 36 28 36H34V42C34 42.5523 34.4477 43 35 43C35.5523 43 36 42.5523 36 42V36H42C42.5523 36 43 35.5523 43 35C43 34.4477 42.5523 34 42 34H36V28Z" />
                         </svg>
-                        <span class="ml-6 mr-14">Kelola Formulir kerja</span>
-                        <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 20 20"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd"
-                                d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                                clip-rule="evenodd"></path>
-                        </svg>
+                        <span class="ml-6">Kelola Formulir Kerja Standar</span>
                     </a>
-                    <div class="font-regular text-sm">
-                        <ul id="dropdown-2" class="hidden space-y-2 py-2 pl-14">
-                            <li class="px-2 flex items-center rounded-lg hover:bg-orange-500 decoration-red-600">
-                                <svg width="26" height="auto" viewBox="0 0 1024 1024"
-                                    xmlns="http://www.w3.org/2000/svg" class="icon" fill="white">
-                                    <path
-                                        d="M280 752h80c4.4 0 8-3.6 8-8V280c0-4.4-3.6-8-8-8h-80c-4.4 0-8 3.6-8 8v464c0 4.4 3.6 8 8 8zm192-280h80c4.4 0 8-3.6 8-8V280c0-4.4-3.6-8-8-8h-80c-4.4 0-8 3.6-8 8v184c0 4.4 3.6 8 8 8zm192 72h80c4.4 0 8-3.6 8-8V280c0-4.4-3.6-8-8-8h-80c-4.4 0-8 3.6-8 8v256c0 4.4 3.6 8 8 8zm216-432H144c-17.7 0-32 14.3-32 32v736c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V144c0-17.7-14.3-32-32-32zm-40 728H184V184h656v656z" />
-                                </svg>
-                                <a class="group flex w-full items-center  p-2 ml-1 text-white"
-                                    href="/tambah-standar-project">Kelola Formulir 7 Step Proyek</a>
-                            </li>
-                        </ul>
-                    </div>
                 </li>
                 {{-- Akhir Konten menu supervisor --}}
             </ul>

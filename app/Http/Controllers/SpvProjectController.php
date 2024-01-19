@@ -210,7 +210,7 @@ class SpvProjectController extends Controller
         $validator = Validator::make($request->all(), [
             'io_number' => 'required|numeric|digits:12',
         ], [
-            'io_number.digits' => 'Kolom IO Number harus memiliki panjang tepat 12 karakter.',
+            'io_number.digits' => 'Kolom IO Number harus memiliki panjang tepat 12 digit.',
         ]);
         if ($validator->fails()) {
             return redirect()->back()
@@ -23430,8 +23430,11 @@ class SpvProjectController extends Controller
                 ->storeAs('supervisor/project/03_04_PR', $newnamepay_da5);
         }
 
+        /* if ($request->has('as_mny_parts_pay_1')) {
+            $numpay_parts_1 = intval(str_replace('.', '', $request->mny_parts_pay_1));
+        } */
+        /* dd($request->input('as_mny_parts_pay_1')); */
         // menyimpan jika kosong atau menimpa
-
         if ($oldnamepay_parts1 != $newnamepay_parts1) {
             $request['pay_parts_1'] = $newnamepay_parts1;
             $request['up_by_parts_pay_1'] = $request['as_up_by_parts_pay_1'];
@@ -23947,31 +23950,31 @@ class SpvProjectController extends Controller
 
         if ($oldnamepay_da1 != $newnamepay_da1) {
             $request['pay_da_1'] = $newnamepay_da1;
-            $request['up_by_pay_da_1'] = $request['as_up_by_pay_da_1'];
+            $request['up_by_da_pay_1'] = $request['as_up_by_da_pay_1'];
             $request['mny_da_pay_1'] = $request['as_mny_da_pay_1'];
             $request['date_pay_da_1'] = $request['as_date_pay_da_1'];
         }
         if ($oldnamepay_da2 != $newnamepay_da2) {
             $request['pay_da_2'] = $newnamepay_da2;
-            $request['up_by_pay_da_2'] = $request['as_up_by_pay_da_2'];
+            $request['up_by_da_pay_2'] = $request['as_up_by_da_pay_2'];
             $request['mny_da_pay_2'] = $request['as_mny_da_pay_2'];
             $request['date_pay_da_2'] = $request['as_date_pay_da_2'];
         }
         if ($oldnamepay_da3 != $newnamepay_da3) {
             $request['pay_da_3'] = $newnamepay_da3;
-            $request['up_by_pay_da_3'] = $request['as_up_by_pay_da_3'];
+            $request['up_by_da_pay_3'] = $request['as_up_by_da_pay_3'];
             $request['mny_da_pay_3'] = $request['as_mny_da_pay_3'];
             $request['date_pay_da_3'] = $request['as_date_pay_da_3'];
         }
         if ($oldnamepay_da4 != $newnamepay_da4) {
             $request['pay_da_4'] = $newnamepay_da4;
-            $request['up_by_pay_da_4'] = $request['as_up_by_pay_da_4'];
+            $request['up_by_da_pay_4'] = $request['as_up_by_da_pay_4'];
             $request['mny_da_pay_4'] = $request['as_mny_da_pay_4'];
             $request['date_pay_da_4'] = $request['as_date_pay_da_4'];
         }
         if ($oldnamepay_da5 != $newnamepay_da5) {
             $request['pay_da_5'] = $newnamepay_da5;
-            $request['up_by_pay_da_5'] = $request['as_up_by_pay_da_5'];
+            $request['up_by_da_pay_5'] = $request['as_up_by_da_pay_5'];
             $request['mny_da_pay_5'] = $request['as_mny_da_pay_5'];
             $request['date_pay_da_5'] = $request['as_date_pay_da_5'];
         }

@@ -584,8 +584,8 @@
     </div>
     {{-- akhir stepper --}}
 
-    @if ($koneksifr->status_fr != 'Complete')
-        <p class="bg-gray-600 uppercase p-3 mt-2 text-center font-bold text-white">Tahapan wajib sebelumnya belum
+    @if ($koneksifr->status_fr != 'Complete' || $koneksiar->status_ar != 'Complete')
+        <p class="bg-gray-600 uppercase p-3 mt-2 text-center font-bold text-white">Tahapan sebelumnya belum
             disetujui</p>
     @else
         {{-- Awal progress file --}}

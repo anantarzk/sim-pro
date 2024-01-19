@@ -439,7 +439,6 @@
                 </div>
 
                 <div class="flex-auto border-t-2 border-gray-300"></div>
-
                 <div class="flex items-center relative">
                     @if ($koneksiar->status_ar == 'Complete')
                         <div class="rounded-full h-12 w-12 py-2 px-2 bg-green-600 border-white border-4">
@@ -584,9 +583,8 @@
     </div>
     {{-- akhir stepper --}}
 
-
-    @if ($koneksifr->status_fr != 'Complete')
-        <p class="bg-gray-600 uppercase p-3 mt-2 text-center font-bold text-white">Tahapan wajib sebelumnya belum
+    @if ($koneksifr->status_fr != 'Complete' || $koneksiar->status_ar != 'Complete')
+        <p class="bg-gray-600 uppercase p-3 mt-2 text-center font-bold text-white">Tahapan sebelumnya belum
             disetujui</p>
     @else
         {{-- Awal progress file --}}

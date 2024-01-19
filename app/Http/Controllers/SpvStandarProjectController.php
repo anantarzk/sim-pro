@@ -29,22 +29,52 @@ class SpvStandarProjectController extends Controller
     }
     public function ProcessEditStandarProject(Request $request)
     {
-        $validator = Validator::make($request->all(), [
-            'as_file_fr_sheet_form' => 'nullable|mimes:doc,docx,xls,xlsx,dwg,txt|max:4096',
-            'dr_m_sheet',
-            'dr_e_sheet',
-        ], [
-            'as_file_fr_sheet_form.mimes' => 'File harus berupa .docx, .xlsx, atau .dwg.',
-            'as_file_fr_sheet_form.max' => 'Ukuran file tidak boleh lebih dari 10 MB.',
-        ]);
-        if ($validator->fails()) {
-            return redirect()->back()
-                        ->withErrors($validator)
-                        ->withInput();
-        }
         $standarproject = StandarProject::all()
             ->where('marking', 'Standar-1')
             ->first();
+
+            $filesToValidate = [
+                'as_file_fr_sheet_form' => 'Fund Request',
+                'as_file_dr_m_sheet_form' => 'Drawing Mechanical',
+                'as_file_dr_e_sheet_form' => 'Drawing Electrical',
+                'as_file_lay_aprvl_sheet_form' => 'Layout Approval',
+                'as_file_dr_aprvl_sheet_form' => 'Drawing Approval',
+                'as_file_design_sheet_form' => 'Design Sheet',
+                'as_file_dr_meeting_form' => 'DR Meeting',
+                'as_file_est_budget_form' => 'Estimasi Budget',
+                'as_file_pr_parts_material_form' => 'PR Parts & Material',
+                'as_file_pr_pekerjaan_jasa_form' => 'PR Pekerjaan/Jasa',
+                'as_file_pr_manufaktur_form' => 'PR Manufaktur',
+                'as_file_pr_per_form' => 'PR PER',
+                'as_file_pr_rfq_form' => 'PR RFQ',
+                'as_file_mn_ir' => 'Manuf. Inspection Report',
+                'as_file_ipo_form' => 'Izin Power On',
+                'as_file_ecr_form' => 'Equipment Check Reports',
+                'as_file_sc_form' => 'Safety Check',
+                'as_file_sccs_form' => 'Safety Completeness Check',
+                'as_file_in_ir_form' => 'Inspection Report',
+                'as_file_iperiksam_form' => 'Izin Periksa Mesin',
+                'as_file_qas_form' => 'Quality Assurance System',
+                'as_file_ipakaim_form' => 'Izin Pakai Mesin',
+                'as_file_training_form' => 'Dokumen Training',
+                'as_file_lup_form' => 'Listup Trouble',
+                'as_file_camb_form' => 'Kontrol Awal Mesin Baru',
+                'as_file_cl_im_form' => 'Instruction Manual',
+                'as_file_chor_form' => 'Completion & Handover Report'
+            ];
+
+            $rules = [];
+            $messages = [];
+
+            foreach ($filesToValidate as $fieldName => $nama) {
+            $rules["$fieldName"] = 'nullable|mimes:docx,xlsx,dwg,txt|max:4096';
+            $messages["$fieldName.mimes"] = "File $nama harus memiliki ekstensi .docx, .xlsx, atau .dwg.";
+            $messages["$fieldName.max"] = "Ukuran file $nama tidak boleh lebih dari 4 MB.";
+            }
+            $validator = Validator::make($request->all(), $rules, $messages);
+            if ($validator->fails()) {
+                return redirect()->back()->withErrors($validator)->withInput();
+            }
 
         $newNamefr_sheet_form = '';
         $newNamedr_m_sheet_form = '';

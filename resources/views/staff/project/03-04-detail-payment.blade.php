@@ -582,8 +582,8 @@
     {{-- akhir stepper --}}
 
 
-    @if ($koneksifr->status_fr != 'Complete')
-    <p class="bg-gray-600 uppercase p-3 mt-2 text-center font-bold text-white">Tahapan wajib sebelumnya belum disetujui</p>
+    @if ($koneksifr->status_fr != 'Complete' || $koneksiar->status_ar != 'Complete')
+    <p class="bg-gray-600 uppercase p-3 mt-2 text-center font-bold text-white">Tahapan sebelumnya belum disetujui</p>
     @else
     {{-- Awal progress file --}}
     <div class="bg-white mt-3 w-full rounded-md shadow-md p-3">
@@ -863,9 +863,9 @@
                                 <thead class="bg-gray-300 text-gray-700 sticky top-0">
                                     <th class="py-2 w-[5%] font-medium">No.</th>
                                         <th class="w-[45%]  font-medium">Nama File</th>
-                                        <th class="w-[11%]  font-medium">Uploaded by</th>
-                                        <th class="w-[10%]  font-medium">Last Update</th>
-                                        <th class="w-[14%]  font-medium">PO Amount</th>
+                                        <th class="w-[11%]  font-medium">Diunggah oleh</th>
+                                        <th class="w-[10%]  font-medium">Terakhir diubah</th>
+                                        <th class="w-[14%]  font-medium">Jumlah PAY</th>
                                         <th class="w-[14%]  font-medium">Aksi</th>
                                 </thead>
                                 <tbody class="text-left border">
@@ -4172,9 +4172,9 @@
                                 <thead class="bg-gray-300 text-gray-700">
                                     <th class="py-2 w-[5%] font-medium">No.</th>
                                     <th class="w-[45%]  font-medium">Nama File</th>
-                                    <th class="w-[11%]  font-medium">Uploaded by</th>
-                                    <th class="w-[10%]  font-medium">Last Update</th>
-                                    <th class="w-[14%]  font-medium">PAY Amount</th>
+                                    <th class="w-[11%]  font-medium">Diunggah oleh</th>
+                                    <th class="w-[10%]  font-medium">Terakhir diubah</th>
+                                    <th class="w-[14%]  font-medium">Jumlah PAY</th>
                                     <th class="w-[14%]  font-medium">Aksi</th>
                                 </thead>
                                 <tbody class="text-left border">
@@ -6351,9 +6351,9 @@
                                 <thead class="bg-gray-300 text-gray-700">
                                     <th class="py-2 w-[5%] font-medium">No.</th>
                                     <th class="w-[45%] font-medium">Nama File</th>
-                                    <th class="w-[11%] font-medium">Uploaded by</th>
-                                    <th class="w-[10%] font-medium">Last Update</th>
-                                    <th class="w-[14%] font-medium">PAY Amount</th>
+                                    <th class="w-[11%] font-medium">Diunggah oleh</th>
+                                    <th class="w-[10%] font-medium">Terakhir diubah</th>
+                                    <th class="w-[14%] font-medium">Jumlah PAY</th>
                                     <th class="w-[14%] font-medium">Aksi</th>
                                 </thead>
                                 <tbody class="text-left border">
@@ -7044,8 +7044,8 @@
                                                     $koneksipay->pay_mnftr_10 == '')
                                                 <button type="button"
                                                     class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
-                                                    data-modal-target="modala10" data-modal-show="modala10"
-                                                    data-modal-toggle="modala10">
+                                                    data-modal-target="modala310" data-modal-show="modala310"
+                                                    data-modal-toggle="modala310">
                                                     + Tambah dokumen
                                                 </button>
                                             @elseif (
@@ -7056,8 +7056,8 @@
                                                 <div class="justify-center flex space-x-2">
                                                     <button type="button"
                                                         class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
-                                                        data-modal-target="modal10" data-modal-show="modal10"
-                                                        data-modal-toggle="modal10">
+                                                        data-modal-target="modal310" data-modal-show="modal310"
+                                                        data-modal-toggle="modal310">
                                                         Ubah
                                                     </button>
                                                 </div>
@@ -7067,9 +7067,7 @@
                                             value="{{ Auth::user()->first_name }}">
                                         <input type="date" hidden name="as_date_pay_mnftr_10"
                                             value="{{ date('Y-m-d') }}">
-
                                     </tr>
-
                                 </tbody>
                             </table>
                         </div>
@@ -7096,10 +7094,11 @@
                             <table class="w-full">
                                 <thead class="bg-gray-300 text-gray-700">
                                     <th class="py-2 w-[5%] font-medium">No.</th>
-                                    <th class="w-[45%] font-medium">Nama File</th>
-                                    <th class="w-[11%] font-medium">Uploaded by</th>
-                                    <th class="w-[10%] font-medium">Last Update</th>
-                                    <th class="w-[14%] font-medium">Aksi</th>
+                                    <th class="w-[45%]  font-medium">Nama File</th>
+                                    <th class="w-[11%]  font-medium">Diunggah oleh</th>
+                                    <th class="w-[10%]  font-medium">Terakhir diubah</th>
+                                    <th class="w-[14%]  font-medium">Jumlah PAY</th>
+                                    <th class="w-[14%]  font-medium">Aksi</th>
                                 </thead>
                                 <tbody class="text-left border">
                                     {{-- 1 --}}
@@ -7129,24 +7128,28 @@
 
                                         </td>
                                         <td>
-                                            @if ($koneksipay->up_by_pay_da_1y != '')
+                                            @if ($koneksipay->up_by_da_pay_1 != '')
                                                 <div
                                                     class="items-center py-1 px-2 text-sm font-medium text-center text-white bg-orange-500 w-[100] mx-auto rounded">
-                                                    {{ $koneksipay->up_by_pay_da_1y }}
+                                                    {{ $koneksipay->up_by_da_pay_1 }}
                                                 </div>
                                             @endif
                                         </td>
                                         <td class="text-center">{{ $koneksipay->date_pay_da_1 }}</td>
-
+                                        <td>
+                                            @if ($koneksipay->mny_da_pay_1 != '')
+                                                Rp{{ number_format($koneksipay->mny_da_pay_1, 0, ',', '.') }}
+                                            @endif
+                                        </td>
                                         <td class="space-y-2 py-3 px-2">
                                             @if (
                                                     ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
                                                         $koneksipay->pay_da_1 == '')
-                                                    <input type="file" name="as_pay_da_1"
-                                                        id="fileInput_pay_da_1" style="display: none;">
-                                                    <button type="button" onclick="openFileInput('pay_da_1')"
-                                                        class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md">
-                                                        + Tambah dokumen
+                                                    <button type="button"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
+                                                    data-modal-target="modala41" data-modal-show="modala41"
+                                                    data-modal-toggle="modala41">
+                                                    + Tambah dokumen
                                                     </button>
                                                 @elseif (
                                                     ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
@@ -7163,7 +7166,7 @@
                                                     </div>
                                                 @endif
                                         </td>
-                                        <input type="text" hidden name="as_up_by_pay_da_1"
+                                        <input type="text" hidden name="as_up_by_da_pay_1"
                                             value="{{ Auth::user()->first_name }}">
                                         <input type="date" hidden name="as_date_pay_da_1"
                                             value="{{ date('Y-m-d') }}">
@@ -7196,25 +7199,29 @@
 
                                         </td>
                                         <td>
-                                            @if ($koneksipay->up_by_pay_da_2y != '')
+                                            @if ($koneksipay->up_by_da_pay_2 != '')
                                                 <div
                                                     class="items-center py-1 px-2 text-sm font-medium text-center text-white bg-orange-500 w-[100] mx-auto rounded">
-                                                    {{ $koneksipay->up_by_pay_da_2y }}
+                                                    {{ $koneksipay->up_by_da_pay_2 }}
                                                 </div>
                                             @endif
                                         </td>
                                         <td class="text-center">{{ $koneksipay->date_pay_da_2 }}</td>
-
+                                        <td>
+                                            @if ($koneksipay->mny_da_pay_2 != '')
+                                                Rp{{ number_format($koneksipay->mny_da_pay_2, 0, ',', '.') }}
+                                            @endif
+                                        </td>
                                         <td class="space-y-2 py-3 px-2">
                                             @if (
                                                     ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
                                                         $koneksipay->pay_da_2 == '')
-                                                    <input type="file" name="as_pay_da_2"
-                                                        id="fileInput_pay_da_2" style="display: none;">
-                                                    <button type="button" onclick="openFileInput('pay_da_2')"
-                                                        class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md">
-                                                        + Tambah dokumen
-                                                    </button>
+                                                    <button type="button"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
+                                                    data-modal-target="modala42" data-modal-show="modala42"
+                                                    data-modal-toggle="modala42">
+                                                    + Tambah dokumen
+                                                </button>
                                                 @elseif (
                                                     ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
                                                         $koneksipay->pay_da_2 != '' &&
@@ -7230,7 +7237,7 @@
                                                     </div>
                                                 @endif
                                         </td>
-                                        <input type="text" hidden name="as_up_by_pay_da_2"
+                                        <input type="text" hidden name="as_up_by_da_pay_2"
                                             value="{{ Auth::user()->first_name }}">
                                         <input type="date" hidden name="as_date_pay_da_2"
                                             value="{{ date('Y-m-d') }}">
@@ -7263,25 +7270,29 @@
 
                                         </td>
                                         <td>
-                                            @if ($koneksipay->up_by_pay_da_3y != '')
+                                            @if ($koneksipay->up_by_da_pay_3 != '')
                                                 <div
                                                     class="items-center py-1 px-2 text-sm font-medium text-center text-white bg-orange-500 w-[100] mx-auto rounded">
-                                                    {{ $koneksipay->up_by_pay_da_3y }}
+                                                    {{ $koneksipay->up_by_da_pay_3 }}
                                                 </div>
                                             @endif
                                         </td>
                                         <td class="text-center">{{ $koneksipay->date_pay_da_3 }}</td>
-
+                                        <td>
+                                            @if ($koneksipay->mny_da_pay_3 != '')
+                                                Rp{{ number_format($koneksipay->mny_da_pay_3, 0, ',', '.') }}
+                                            @endif
+                                        </td>
                                         <td class="space-y-2 py-3 px-2">
                                             @if (
                                                     ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
                                                         $koneksipay->pay_da_3 == '')
-                                                    <input type="file" name="as_pay_da_3"
-                                                        id="fileInput_pay_da_3" style="display: none;">
-                                                    <button type="button" onclick="openFileInput('pay_da_3')"
-                                                        class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md">
-                                                        + Tambah dokumen
-                                                    </button>
+                                                    <button type="button"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
+                                                    data-modal-target="modala43" data-modal-show="modala43"
+                                                    data-modal-toggle="modala43">
+                                                    + Tambah dokumen
+                                                </button>
                                                 @elseif (
                                                     ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
                                                         $koneksipay->pay_da_3 != '' &&
@@ -7297,7 +7308,7 @@
                                                     </div>
                                                 @endif
                                         </td>
-                                        <input type="text" hidden name="as_up_by_pay_da_3"
+                                        <input type="text" hidden name="as_up_by_da_pay_3"
                                             value="{{ Auth::user()->first_name }}">
                                         <input type="date" hidden name="as_date_pay_da_3"
                                             value="{{ date('Y-m-d') }}">
@@ -7330,24 +7341,28 @@
 
                                         </td>
                                         <td>
-                                            @if ($koneksipay->up_by_pay_da_4y != '')
+                                            @if ($koneksipay->up_by_da_pay_4 != '')
                                                 <div
                                                     class="items-center py-1 px-2 text-sm font-medium text-center text-white bg-orange-500 w-[100] mx-auto rounded">
-                                                    {{ $koneksipay->up_by_pay_da_4y }}
+                                                    {{ $koneksipay->up_by_da_pay_4 }}
                                                 </div>
                                             @endif
                                         </td>
                                         <td class="text-center">{{ $koneksipay->date_pay_da_4 }}</td>
-
+                                        <td>
+                                            @if ($koneksipay->mny_da_pay_4 != '')
+                                                Rp{{ number_format($koneksipay->mny_da_pay_4, 0, ',', '.') }}
+                                            @endif
+                                        </td>
                                         <td class="space-y-2 py-3 px-2">
                                             @if (
                                                     ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
                                                         $koneksipay->pay_da_4 == '')
-                                                    <input type="file" name="as_pay_da_4"
-                                                        id="fileInput_pay_da_4" style="display: none;">
-                                                    <button type="button" onclick="openFileInput('pay_da_4')"
-                                                        class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md">
-                                                        + Tambah dokumen
+                                                    <button type="button"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
+                                                    data-modal-target="modala44" data-modal-show="modala44"
+                                                    data-modal-toggle="modala44">
+                                                    + Tambah dokumen
                                                     </button>
                                                 @elseif (
                                                     ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
@@ -7364,7 +7379,7 @@
                                                     </div>
                                                 @endif
                                         </td>
-                                        <input type="text" hidden name="as_up_by_pay_da_4"
+                                        <input type="text" hidden name="as_up_by_da_pay_4"
                                             value="{{ Auth::user()->first_name }}">
                                         <input type="date" hidden name="as_date_pay_da_4"
                                             value="{{ date('Y-m-d') }}">
@@ -7397,25 +7412,29 @@
 
                                         </td>
                                         <td>
-                                            @if ($koneksipay->up_by_pay_da_5y != '')
+                                            @if ($koneksipay->up_by_da_pay_5 != '')
                                                 <div
                                                     class="items-center py-1 px-2 text-sm font-medium text-center text-white bg-orange-500 w-[100] mx-auto rounded">
-                                                    {{ $koneksipay->up_by_pay_da_5y }}
+                                                    {{ $koneksipay->up_by_da_pay_5 }}
                                                 </div>
                                             @endif
                                         </td>
                                         <td class="text-center">{{ $koneksipay->date_pay_da_5 }}</td>
-
+                                        <td>
+                                            @if ($koneksipay->mny_da_pay_5 != '')
+                                                Rp{{ number_format($koneksipay->mny_da_pay_5, 0, ',', '.') }}
+                                            @endif
+                                        </td>
                                         <td class="space-y-2 py-3 px-2">
                                             @if (
                                                     ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
                                                         $koneksipay->pay_da_5 == '')
-                                                    <input type="file" name="as_pay_da_5"
-                                                        id="fileInput_pay_da_5" style="display: none;">
-                                                    <button type="button" onclick="openFileInput('pay_da_5')"
-                                                        class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md">
-                                                        + Tambah dokumen
-                                                    </button>
+                                                    <button type="button"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
+                                                    data-modal-target="modala45" data-modal-show="modala45"
+                                                    data-modal-toggle="modala45">
+                                                    + Tambah dokumen
+                                                </button>
                                                 @elseif (
                                                     ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
                                                         $koneksipay->pay_da_5 != '' &&
@@ -7424,14 +7443,14 @@
                                                     <div class="justify-center flex space-x-2">
                                                         <button type="button"
                                                             class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
-                                                            data-modal-target="modal44" data-modal-show="modal44"
-                                                            data-modal-toggle="modal44">
+                                                            data-modal-target="modal45" data-modal-show="modal45"
+                                                            data-modal-toggle="modal45">
                                                             Ubah
                                                         </button>
                                                     </div>
                                                 @endif
                                         </td>
-                                        <input type="text" hidden name="as_up_by_pay_da_5"
+                                        <input type="text" hidden name="as_up_by_da_pay_5"
                                             value="{{ Auth::user()->first_name }}">
                                         <input type="date" hidden name="as_date_pay_da_5"
                                             value="{{ date('Y-m-d') }}">
@@ -7483,11 +7502,11 @@
                                         <input type="file"name="as_pay_parts_{{ $number }}"
                                             id="">
                                         <div class="">
-                                            <input type="number" id="base-input"
+                                            <input type="text" id="base-input"
                                                 class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
                                                 placeholder="Rp{{ number_format($koneksipay->{'mny_parts_pay_' . $number}, 0, ',', '.') }}"
                                                 min="0" max="999999999999"
-                                                oninput="validity.valid||(value='');"
+                                                oninput="validity.valid||(value='');  formatAngka(this);"
                                                 name="as_mny_parts_pay_{{ $number }}">
                                         </div>
                                     </div>
@@ -7532,11 +7551,11 @@
                                         <input type="file"name="as_pay_jasa_{{ $number }}"
                                             id="">
                                         <div class="">
-                                            <input type="number" id="base-input"
+                                            <input type="text" id="base-input"
                                                 class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
                                                 placeholder="Rp{{ number_format($koneksipay->{'mny_jasa_pay_' . $number}, 0, ',', '.') }}"
                                                 min="0" max="999999999999"
-                                                oninput="validity.valid||(value='');"
+                                                oninput="validity.valid||(value='');  formatAngka(this);"
                                                 name="as_mny_jasa_pay_{{ $number }}">
                                         </div>
                                     </div>
@@ -7578,11 +7597,11 @@
                                         <input type="file"name="as_pay_mnftr_{{ $number }}"
                                             id="">
                                         <div class="">
-                                            <input type="number" id="base-input"
+                                            <input type="text" id="base-input"
                                                 class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
                                                 placeholder="Rp{{ number_format($koneksipay->{'mny_mnftr_pay_' . $number}, 0, ',', '.') }}"
                                                 min="0" max="999999999999"
-                                                oninput="validity.valid||(value='');"
+                                                oninput="validity.valid||(value='');  formatAngka(this);"
                                                 name="as_mny_mnftr_pay_{{ $number }}">
                                         </div>
                                     </div>
@@ -7595,6 +7614,53 @@
                 </div>
             @endforeach
 
+            {{-- tambah DA --}}
+            @foreach ($t as $index => $number)
+            <div id="modala4{{ $number }}"
+                class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 inset-0 justify-center items-center w-full max-h-full">
+                <div class="relative p-4 w-full max-w-2xl max-h-full">
+                    <!-- Modal content -->
+                    <div class="relative bg-white rounded-lg shadow">
+                        <!-- Modal header -->
+                        <div class="flex items-center justify-between px-5 py-3 border-b rounded-t">
+                            <p class="text-2xl font-semibold text-gray-900 font-mono">
+                                Tambah dokumen dan nilai finansial - DA
+                            </p>
+                            <button type="button"
+                                class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center"
+                                onclick="simulateEscape()">
+                                <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                    fill="none" viewBox="0 0 14 14">
+                                    <path stroke="currentColor" stroke-linecap="round"
+                                        stroke-linejoin="round" stroke-width="2"
+                                        d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+                                </svg>
+                                <span class="sr-only">Close modal</span>
+                            </button>
+                        </div>
+                        <div class="items-center px-5 py-2 border-t border-gray-200 rounded-b">
+                            <div class="items-center justify-center w-full border my-4">
+                                <div class="grid grid-cols-2">
+                                    <input type="file"name="as_pay_da_{{ $number }}"
+                                        id="">
+                                    <div class="">
+                                        <input type="text" id="base-input"
+                                            class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
+                                            {{-- placeholder="Rp{{ number_format($koneksipay->{'as_mny_da_pay_' . $number}, 0, ',', '.') }}" --}}
+                                            value="{{ $koneksipay->{'mny_da_pay_' . $number} ?? '' }}"
+                                            min="0" max="999999999999"
+                                            oninput="validity.valid||(value='');  formatAngka(this);"
+                                            name="as_mny_da_pay_{{ $number }}">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <button type="submit"
+                            class="bg-orange-500 w-full hover:bg-orange-600 text-white font-bold py-2 rounded-b-lg shadow-md">Submit</button>
+                    </div>
+                </div>
+            </div>
+        @endforeach
 
             {{-- modal ubah --}}
             @php
@@ -7667,11 +7733,11 @@
                                             <input type="file" name="as_pay_parts_{{ $number }}"
                                                 id="">
                                             <div class="">
-                                                <input type="number" id="base-input"
+                                                <input type="text" id="base-input"
                                                     class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
                                                     placeholder="Rp{{ number_format($koneksipay->{'mny_parts_pay_' . $number}, 0, ',', '.') }}"
                                                     min="0" max="999999999999"
-                                                    oninput="validity.valid||(value='');"
+                                                    oninput="validity.valid||(value='');  formatAngka(this);"
                                                     name="as_mny_parts_pay_{{ $number }}">
                                             </div>
                                         </div>
@@ -7752,11 +7818,11 @@
                                             <input type="file"name="as_pay_jasa_{{ $number }}"
                                                 id="">
                                             <div class="">
-                                                <input type="number" id="base-input"
+                                                <input type="text" id="base-input"
                                                     class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
                                                     placeholder="Rp{{ number_format($koneksipay->{'mny_jasa_pay_' . $number}, 0, ',', '.') }}"
                                                     min="0" max="999999999999"
-                                                    oninput="validity.valid||(value='');"
+                                                    oninput="validity.valid||(value='');  formatAngka(this);"
                                                     name="as_mny_jasa_pay_{{ $number }}">
                                             </div>
                                         </div>
@@ -7837,11 +7903,11 @@
                                             <input type="file"name="as_pay_mnftr_{{ $number }}"
                                                 id="">
                                             <div class="">
-                                                <input type="number" id="base-input"
+                                                <input type="text" id="base-input"
                                                     class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
                                                     placeholder="Rp{{ number_format($koneksipay->{'mny_mnftr_pay_' . $number}, 0, ',', '.') }}"
                                                     min="0" max="999999999999"
-                                                    oninput="validity.valid||(value='');"
+                                                    oninput="validity.valid||(value='');  formatAngka(this);"
                                                     name="as_mny_mnftr_pay_{{ $number }}">
                                             </div>
                                         </div>
@@ -7881,7 +7947,7 @@
                             <!-- Modal body -->
                             <div class="py-2 px-5">
                                 <p class="font-light text-lg mb-2">Dokumen sebelumnya</p>
-                                <div class="grid grid-cols-2 space-x-2">
+                                <div class="grid grid-cols-3 space-x-2">
                                     <div>
                                         <p class="text-base leading-relaxed text-gray-600">
                                             Nama dokumen:
@@ -7892,10 +7958,18 @@
                                     </div>
                                     <div>
                                         <p class="text-base leading-relaxed text-gray-600">
+                                            Jumlah:
+                                        </p>
+                                        <p class="text-gray-900">
+                                            Rp{{ number_format($koneksipay->{'mny_da_pay_' . $number}, 0, ',', '.') }}
+                                        </p>
+                                    </div>
+                                    <div>
+                                        <p class="text-base leading-relaxed text-gray-600">
                                             Oleh:
                                         </p>
                                         <p class="text-gray-900">
-                                            {{ $koneksipay->{'up_by_pay_da_' . $number} }}
+                                            {{ $koneksipay->{'up_by_da_pay_' . $number} }}
                                         </p>
                                     </div>
                                 </div>
@@ -7909,7 +7983,16 @@
                                     untuk dapat mengubah ajuan</p>
                                 <div class="items-center justify-center w-full border my-4">
                                     @if ($koneksipay->{'pay_da_' . $number} != '')
+                                    <div class="grid grid-cols-2">
                                         <input type="file"name="as_pay_da_{{ $number }}" id="">
+                                        <input type="text" id="base-input"
+                                            class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
+                                            {{-- placeholder="Rp{{ number_format($koneksipay->{'as_mny_da_pay_' . $number}, 0, ',', '.') }}" --}}
+                                            value="{{ $koneksipay->{'mny_da_pay_' . $number} ?? '' }}"
+                                            min="0" max="999999999999"
+                                            oninput="validity.valid||(value='');  formatAngka(this);"
+                                            name="as_mny_da_pay_{{ $number }}">
+                                    </div>
                                     @else()
                                     @endif
                                 </div>
@@ -8058,6 +8141,7 @@
         </p>
     @endif
     @endif
+
     <script>
         function simulateEscape() {
             // Create a new KeyboardEvent for the "Escape" key
@@ -8086,10 +8170,19 @@
                 document.getElementById('uploadForm').submit();
             });
         }
+
+        function formatAngka(input) {
+        // Menghilangkan karakter selain angka
+        let angka = input.value.replace(/[^\d]/g, '');
+
+        // Menambahkan tanda titik setiap ribuan
+        angka = angka.replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+
+        // Update nilai input
+        input.value = angka;
+    }
     </script>
 </div>
 {{-- tutup bungkus --}}
-
-
 <div id="submit-1" class="-mt-52"></div>
 </div>

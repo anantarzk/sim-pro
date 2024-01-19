@@ -6160,16 +6160,7 @@ class SupervisorController extends Controller
             $jan_mny_jasa_pay_28 +
             $jan_mny_jasa_pay_29 +
             $jan_mny_jasa_pay_30 +
-            $jan_mny_jasa_pay_1 +
-            $jan_mny_jasa_pay_2 +
-            $jan_mny_jasa_pay_3 +
-            $jan_mny_jasa_pay_4 +
-            $jan_mny_jasa_pay_5 +
-            $jan_mny_jasa_pay_6 +
-            $jan_mny_jasa_pay_7 +
-            $jan_mny_jasa_pay_8 +
-            $jan_mny_jasa_pay_9 +
-            $jan_mny_jasa_pay_10 +
+
             $jan_mny_mnftr_pay_1 +
             $jan_mny_mnftr_pay_2 +
             $jan_mny_mnftr_pay_3 +
@@ -6180,6 +6171,7 @@ class SupervisorController extends Controller
             $jan_mny_mnftr_pay_8 +
             $jan_mny_mnftr_pay_9 +
             $jan_mny_mnftr_pay_10 +
+
             $jan_mny_da_pay_1 +
             $jan_mny_da_pay_2 +
             $jan_mny_da_pay_3 +
@@ -6263,16 +6255,7 @@ class SupervisorController extends Controller
             $feb_mny_jasa_pay_28 +
             $feb_mny_jasa_pay_29 +
             $feb_mny_jasa_pay_30 +
-            $feb_mny_jasa_pay_1 +
-            $feb_mny_jasa_pay_2 +
-            $feb_mny_jasa_pay_3 +
-            $feb_mny_jasa_pay_4 +
-            $feb_mny_jasa_pay_5 +
-            $feb_mny_jasa_pay_6 +
-            $feb_mny_jasa_pay_7 +
-            $feb_mny_jasa_pay_8 +
-            $feb_mny_jasa_pay_9 +
-            $feb_mny_jasa_pay_10 +
+
             $feb_mny_mnftr_pay_1 +
             $feb_mny_mnftr_pay_2 +
             $feb_mny_mnftr_pay_3 +
@@ -6366,16 +6349,7 @@ class SupervisorController extends Controller
             $mar_mny_jasa_pay_28 +
             $mar_mny_jasa_pay_29 +
             $mar_mny_jasa_pay_30 +
-            $mar_mny_jasa_pay_1 +
-            $mar_mny_jasa_pay_2 +
-            $mar_mny_jasa_pay_3 +
-            $mar_mny_jasa_pay_4 +
-            $mar_mny_jasa_pay_5 +
-            $mar_mny_jasa_pay_6 +
-            $mar_mny_jasa_pay_7 +
-            $mar_mny_jasa_pay_8 +
-            $mar_mny_jasa_pay_9 +
-            $mar_mny_jasa_pay_10 +
+
             $mar_mny_mnftr_pay_1 +
             $mar_mny_mnftr_pay_2 +
             $mar_mny_mnftr_pay_3 +
@@ -6469,16 +6443,7 @@ class SupervisorController extends Controller
             $apr_mny_jasa_pay_28 +
             $apr_mny_jasa_pay_29 +
             $apr_mny_jasa_pay_30 +
-            $apr_mny_jasa_pay_1 +
-            $apr_mny_jasa_pay_2 +
-            $apr_mny_jasa_pay_3 +
-            $apr_mny_jasa_pay_4 +
-            $apr_mny_jasa_pay_5 +
-            $apr_mny_jasa_pay_6 +
-            $apr_mny_jasa_pay_7 +
-            $apr_mny_jasa_pay_8 +
-            $apr_mny_jasa_pay_9 +
-            $apr_mny_jasa_pay_10 +
+
             $apr_mny_mnftr_pay_1 +
             $apr_mny_mnftr_pay_2 +
             $apr_mny_mnftr_pay_3 +
@@ -6572,16 +6537,7 @@ class SupervisorController extends Controller
             $mei_mny_jasa_pay_28 +
             $mei_mny_jasa_pay_29 +
             $mei_mny_jasa_pay_30 +
-            $mei_mny_jasa_pay_1 +
-            $mei_mny_jasa_pay_2 +
-            $mei_mny_jasa_pay_3 +
-            $mei_mny_jasa_pay_4 +
-            $mei_mny_jasa_pay_5 +
-            $mei_mny_jasa_pay_6 +
-            $mei_mny_jasa_pay_7 +
-            $mei_mny_jasa_pay_8 +
-            $mei_mny_jasa_pay_9 +
-            $mei_mny_jasa_pay_10 +
+
             $mei_mny_mnftr_pay_1 +
             $mei_mny_mnftr_pay_2 +
             $mei_mny_mnftr_pay_3 +
@@ -6675,16 +6631,7 @@ class SupervisorController extends Controller
             $jun_mny_jasa_pay_28 +
             $jun_mny_jasa_pay_29 +
             $jun_mny_jasa_pay_30 +
-            $jun_mny_jasa_pay_1 +
-            $jun_mny_jasa_pay_2 +
-            $jun_mny_jasa_pay_3 +
-            $jun_mny_jasa_pay_4 +
-            $jun_mny_jasa_pay_5 +
-            $jun_mny_jasa_pay_6 +
-            $jun_mny_jasa_pay_7 +
-            $jun_mny_jasa_pay_8 +
-            $jun_mny_jasa_pay_9 +
-            $jun_mny_jasa_pay_10 +
+
             $jun_mny_mnftr_pay_1 +
             $jun_mny_mnftr_pay_2 +
             $jun_mny_mnftr_pay_3 +
@@ -6778,16 +6725,7 @@ class SupervisorController extends Controller
             $jul_mny_jasa_pay_28 +
             $jul_mny_jasa_pay_29 +
             $jul_mny_jasa_pay_30 +
-            $jul_mny_jasa_pay_1 +
-            $jul_mny_jasa_pay_2 +
-            $jul_mny_jasa_pay_3 +
-            $jul_mny_jasa_pay_4 +
-            $jul_mny_jasa_pay_5 +
-            $jul_mny_jasa_pay_6 +
-            $jul_mny_jasa_pay_7 +
-            $jul_mny_jasa_pay_8 +
-            $jul_mny_jasa_pay_9 +
-            $jul_mny_jasa_pay_10 +
+
             $jul_mny_mnftr_pay_1 +
             $jul_mny_mnftr_pay_2 +
             $jul_mny_mnftr_pay_3 +
@@ -6881,16 +6819,7 @@ class SupervisorController extends Controller
             $agu_mny_jasa_pay_28 +
             $agu_mny_jasa_pay_29 +
             $agu_mny_jasa_pay_30 +
-            $agu_mny_jasa_pay_1 +
-            $agu_mny_jasa_pay_2 +
-            $agu_mny_jasa_pay_3 +
-            $agu_mny_jasa_pay_4 +
-            $agu_mny_jasa_pay_5 +
-            $agu_mny_jasa_pay_6 +
-            $agu_mny_jasa_pay_7 +
-            $agu_mny_jasa_pay_8 +
-            $agu_mny_jasa_pay_9 +
-            $agu_mny_jasa_pay_10 +
+
             $agu_mny_mnftr_pay_1 +
             $agu_mny_mnftr_pay_2 +
             $agu_mny_mnftr_pay_3 +
@@ -6984,16 +6913,7 @@ class SupervisorController extends Controller
             $sep_mny_jasa_pay_28 +
             $sep_mny_jasa_pay_29 +
             $sep_mny_jasa_pay_30 +
-            $sep_mny_jasa_pay_1 +
-            $sep_mny_jasa_pay_2 +
-            $sep_mny_jasa_pay_3 +
-            $sep_mny_jasa_pay_4 +
-            $sep_mny_jasa_pay_5 +
-            $sep_mny_jasa_pay_6 +
-            $sep_mny_jasa_pay_7 +
-            $sep_mny_jasa_pay_8 +
-            $sep_mny_jasa_pay_9 +
-            $sep_mny_jasa_pay_10 +
+
             $sep_mny_mnftr_pay_1 +
             $sep_mny_mnftr_pay_2 +
             $sep_mny_mnftr_pay_3 +
@@ -7087,16 +7007,7 @@ class SupervisorController extends Controller
             $okt_mny_jasa_pay_28 +
             $okt_mny_jasa_pay_29 +
             $okt_mny_jasa_pay_30 +
-            $okt_mny_jasa_pay_1 +
-            $okt_mny_jasa_pay_2 +
-            $okt_mny_jasa_pay_3 +
-            $okt_mny_jasa_pay_4 +
-            $okt_mny_jasa_pay_5 +
-            $okt_mny_jasa_pay_6 +
-            $okt_mny_jasa_pay_7 +
-            $okt_mny_jasa_pay_8 +
-            $okt_mny_jasa_pay_9 +
-            $okt_mny_jasa_pay_10 +
+
             $okt_mny_mnftr_pay_1 +
             $okt_mny_mnftr_pay_2 +
             $okt_mny_mnftr_pay_3 +
@@ -7190,16 +7101,7 @@ class SupervisorController extends Controller
             $nov_mny_jasa_pay_28 +
             $nov_mny_jasa_pay_29 +
             $nov_mny_jasa_pay_30 +
-            $nov_mny_jasa_pay_1 +
-            $nov_mny_jasa_pay_2 +
-            $nov_mny_jasa_pay_3 +
-            $nov_mny_jasa_pay_4 +
-            $nov_mny_jasa_pay_5 +
-            $nov_mny_jasa_pay_6 +
-            $nov_mny_jasa_pay_7 +
-            $nov_mny_jasa_pay_8 +
-            $nov_mny_jasa_pay_9 +
-            $nov_mny_jasa_pay_10 +
+
             $nov_mny_mnftr_pay_1 +
             $nov_mny_mnftr_pay_2 +
             $nov_mny_mnftr_pay_3 +
@@ -7293,16 +7195,7 @@ class SupervisorController extends Controller
             $des_mny_jasa_pay_28 +
             $des_mny_jasa_pay_29 +
             $des_mny_jasa_pay_30 +
-            $des_mny_jasa_pay_1 +
-            $des_mny_jasa_pay_2 +
-            $des_mny_jasa_pay_3 +
-            $des_mny_jasa_pay_4 +
-            $des_mny_jasa_pay_5 +
-            $des_mny_jasa_pay_6 +
-            $des_mny_jasa_pay_7 +
-            $des_mny_jasa_pay_8 +
-            $des_mny_jasa_pay_9 +
-            $des_mny_jasa_pay_10 +
+            
             $des_mny_mnftr_pay_1 +
             $des_mny_mnftr_pay_2 +
             $des_mny_mnftr_pay_3 +

@@ -587,11 +587,13 @@
 
     @if (
         $koneksifr->status_fr != 'Complete' ||
+        $koneksiar->status_ar != 'Complete' ||
             $koneksipr->status_pr_01 != 'Complete' ||
             $koneksipa->status_pa_02 != 'Complete' ||
             $koneksipo->status_po_03 != 'Complete' ||
+            $koneksipay->status_pay_04 != 'Complete' ||
             $koneksiin->status_in != 'Complete')
-        <p class="bg-gray-600 uppercase p-3 mt-2 text-center font-bold text-white ">Tahapan wajib sebelumnya belum
+        <p class="bg-gray-600 uppercase p-3 mt-2 text-center font-bold text-white ">Tahapan sebelumnya belum
             disetujui</p>
     @else
         {{-- Awal progress file --}}

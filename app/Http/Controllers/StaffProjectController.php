@@ -23153,551 +23153,125 @@ class StaffProjectController extends Controller
                 ->storeAs('supervisor/project/03_04_PR', $newnamepay_da5);
         }
 
+      /*   for ($i = 1; $i <= 50; $i++) {
+            $inputName = "as_mny_parts_pay_$i";
+
+            if ($request->has($inputName)) {
+                $variableName = "numparts_pay_$i";
+                $$variableName = intval(str_replace('.', '', $request->$inputName));
+            }
+        } */
+
+        for ($i = 1; $i <= 45; $i++) {
+            $mnyPartsPay = "as_mny_parts_pay_$i";
+
+            if ($request->has($mnyPartsPay)) {
+                $request["nparts_pay_$i"] = intval(str_replace('.', '', $request->$mnyPartsPay));
+            }
+        }
+
+        for ($i = 1; $i <= 45; $i++) {
+            $oldName = "oldnamepay_parts{$i}";
+            $newName = "newnamepay_parts{$i}";
+            $npartsName = "nparts_pay_{$i}";
+
+            $requestKeyPay = "pay_parts_{$i}";
+            $requestKeyUpBy = "up_by_parts_pay_{$i}";
+            $requestKeyMny = "mny_parts_pay_{$i}";
+            $requestKeyDate = "date_pay_parts_{$i}";
+
+            if ($$oldName != $$newName) {
+                $request[$requestKeyPay] = $$newName;
+                $request[$requestKeyUpBy] = $request["as_up_by_parts_pay_$i"];
+                $request[$requestKeyMny] = $request[$npartsName];
+                $request[$requestKeyDate] = $request["as_date_pay_parts_$i"];
+            }
+        }
+
+        for ($i = 1; $i <= 30; $i++) {
+            $mnyJasaPay = "as_mny_jasa_pay_$i";
+
+            if ($request->has($mnyJasaPay)) {
+                $request["njasa_pay_$i"] = intval(str_replace('.', '', $request->$mnyJasaPay));
+            }
+        }
+
+        for ($i = 1; $i <= 30; $i++) {
+            $oldName = "oldnamepay_jasa{$i}";
+            $newName = "newnamepay_jasa{$i}";
+            $njasaName = "njasa_pay_{$i}";
+
+            $requestKeyPay = "pay_jasa_{$i}";
+            $requestKeyUpBy = "up_by_jasa_pay_{$i}";
+            $requestKeyMny = "mny_jasa_pay_{$i}";
+            $requestKeyDate = "date_pay_jasa_{$i}";
+
+            if ($$oldName != $$newName) {
+                $request[$requestKeyPay] = $$newName;
+                $request[$requestKeyUpBy] = $request["as_up_by_jasa_pay_$i"];
+                $request[$requestKeyMny] = $request[$njasaName];
+                $request[$requestKeyDate] = $request["as_date_pay_jasa_$i"];
+            }
+        }
+
+        /* dd($numpay_parts_1); */
         // menyimpan jika kosong atau menimpa
+        // Process 'mnftr' fields
+        for ($i = 1; $i <= 10; $i++) {
+            $mnyMnftr = "as_mny_mnftr_pay_$i";
 
-        if ($oldnamepay_parts1 != $newnamepay_parts1) {
-            $request['pay_parts_1'] = $newnamepay_parts1;
-            $request['up_by_parts_pay_1'] = $request['as_up_by_parts_pay_1'];
-            $request['mny_parts_pay_1'] = $request['as_mny_parts_pay_1'];
-            $request['date_pay_parts_1'] = $request['as_date_pay_parts_1'];
-        }
-        if ($oldnamepay_parts2 != $newnamepay_parts2) {
-            $request['pay_parts_2'] = $newnamepay_parts2;
-            $request['up_by_parts_pay_2'] = $request['as_up_by_parts_pay_2'];
-            $request['mny_parts_pay_2'] = $request['as_mny_parts_pay_2'];
-            $request['date_pay_parts_2'] = $request['as_date_pay_parts_2'];
-        }
-        if ($oldnamepay_parts3 != $newnamepay_parts3) {
-            $request['pay_parts_3'] = $newnamepay_parts3;
-            $request['up_by_parts_pay_3'] = $request['as_up_by_parts_pay_3'];
-            $request['mny_parts_pay_3'] = $request['as_mny_parts_pay_3'];
-            $request['date_pay_parts_3'] = $request['as_date_pay_parts_3'];
-        }
-        if ($oldnamepay_parts4 != $newnamepay_parts4) {
-            $request['pay_parts_4'] = $newnamepay_parts4;
-            $request['up_by_parts_pay_4'] = $request['as_up_by_parts_pay_4'];
-            $request['mny_parts_pay_4'] = $request['as_mny_parts_pay_4'];
-            $request['date_pay_parts_4'] = $request['as_date_pay_parts_4'];
-        }
-        if ($oldnamepay_parts5 != $newnamepay_parts5) {
-            $request['pay_parts_5'] = $newnamepay_parts5;
-            $request['up_by_parts_pay_5'] = $request['as_up_by_parts_pay_5'];
-            $request['mny_parts_pay_5'] = $request['as_mny_parts_pay_5'];
-            $request['date_pay_parts_5'] = $request['as_date_pay_parts_5'];
-        }
-        if ($oldnamepay_parts6 != $newnamepay_parts6) {
-            $request['pay_parts_6'] = $newnamepay_parts6;
-            $request['up_by_parts_pay_6'] = $request['as_up_by_parts_pay_6'];
-            $request['mny_parts_pay_6'] = $request['as_mny_parts_pay_6'];
-            $request['date_pay_parts_6'] = $request['as_date_pay_parts_6'];
-        }
-        if ($oldnamepay_parts7 != $newnamepay_parts7) {
-            $request['pay_parts_7'] = $newnamepay_parts7;
-            $request['up_by_parts_pay_7'] = $request['as_up_by_parts_pay_7'];
-            $request['mny_parts_pay_7'] = $request['as_mny_parts_pay_7'];
-            $request['date_pay_parts_7'] = $request['as_date_pay_parts_7'];
-        }
-        if ($oldnamepay_parts8 != $newnamepay_parts8) {
-            $request['pay_parts_8'] = $newnamepay_parts8;
-            $request['up_by_parts_pay_8'] = $request['as_up_by_parts_pay_8'];
-            $request['mny_parts_pay_8'] = $request['as_mny_parts_pay_8'];
-            $request['date_pay_parts_8'] = $request['as_date_pay_parts_8'];
-        }
-        if ($oldnamepay_parts9 != $newnamepay_parts9) {
-            $request['pay_parts_9'] = $newnamepay_parts9;
-            $request['up_by_parts_pay_9'] = $request['as_up_by_parts_pay_9'];
-            $request['mny_parts_pay_9'] = $request['as_mny_parts_pay_9'];
-            $request['date_pay_parts_9'] = $request['as_date_pay_parts_9'];
-        }
-        if ($oldnamepay_parts10 != $newnamepay_parts10) {
-            $request['pay_parts_10'] = $newnamepay_parts10;
-            $request['up_by_parts_pay_10'] = $request['as_up_by_parts_pay_10'];
-            $request['mny_parts_pay_10'] = $request['as_mny_parts_pay_10'];
-            $request['date_pay_parts_10'] = $request['as_date_pay_parts_10'];
-        }
-        if ($oldnamepay_parts11 != $newnamepay_parts11) {
-            $request['pay_parts_11'] = $newnamepay_parts11;
-            $request['up_by_parts_pay_11'] = $request['as_up_by_parts_pay_11'];
-            $request['mny_parts_pay_11'] = $request['as_mny_parts_pay_11'];
-            $request['date_pay_parts_11'] = $request['as_date_pay_parts_11'];
-        }
-        if ($oldnamepay_parts12 != $newnamepay_parts12) {
-            $request['pay_parts_12'] = $newnamepay_parts12;
-            $request['up_by_parts_pay_12'] = $request['as_up_by_parts_pay_12'];
-            $request['mny_parts_pay_12'] = $request['as_mny_parts_pay_12'];
-            $request['date_pay_parts_12'] = $request['as_date_pay_parts_12'];
-        }
-        if ($oldnamepay_parts13 != $newnamepay_parts13) {
-            $request['pay_parts_13'] = $newnamepay_parts13;
-            $request['up_by_parts_pay_13'] = $request['as_up_by_parts_pay_13'];
-            $request['mny_parts_pay_13'] = $request['as_mny_parts_pay_13'];
-            $request['date_pay_parts_13'] = $request['as_date_pay_parts_13'];
-        }
-        if ($oldnamepay_parts14 != $newnamepay_parts14) {
-            $request['pay_parts_14'] = $newnamepay_parts14;
-            $request['up_by_parts_pay_14'] = $request['as_up_by_parts_pay_14'];
-            $request['mny_parts_pay_14'] = $request['as_mny_parts_pay_14'];
-            $request['date_pay_parts_14'] = $request['as_date_pay_parts_14'];
-        }
-        if ($oldnamepay_parts15 != $newnamepay_parts15) {
-            $request['pay_parts_15'] = $newnamepay_parts15;
-            $request['up_by_parts_pay_15'] = $request['as_up_by_parts_pay_15'];
-            $request['mny_parts_pay_15'] = $request['as_mny_parts_pay_15'];
-            $request['date_pay_parts_15'] = $request['as_date_pay_parts_15'];
-        }
-        if ($oldnamepay_parts16 != $newnamepay_parts16) {
-            $request['pay_parts_16'] = $newnamepay_parts16;
-            $request['up_by_parts_pay_16'] = $request['as_up_by_parts_pay_16'];
-            $request['mny_parts_pay_16'] = $request['as_mny_parts_pay_16'];
-            $request['date_pay_parts_16'] = $request['as_date_pay_parts_16'];
-        }
-        if ($oldnamepay_parts17 != $newnamepay_parts17) {
-            $request['pay_parts_17'] = $newnamepay_parts17;
-            $request['up_by_parts_pay_17'] = $request['as_up_by_parts_pay_17'];
-            $request['mny_parts_pay_17'] = $request['as_mny_parts_pay_17'];
-            $request['date_pay_parts_17'] = $request['as_date_pay_parts_17'];
-        }
-        if ($oldnamepay_parts18 != $newnamepay_parts18) {
-            $request['pay_parts_18'] = $newnamepay_parts18;
-            $request['up_by_parts_pay_18'] = $request['as_up_by_parts_pay_18'];
-            $request['mny_parts_pay_18'] = $request['as_mny_parts_pay_18'];
-            $request['date_pay_parts_18'] = $request['as_date_pay_parts_18'];
-        }
-        if ($oldnamepay_parts19 != $newnamepay_parts19) {
-            $request['pay_parts_19'] = $newnamepay_parts19;
-            $request['up_by_parts_pay_19'] = $request['as_up_by_parts_pay_19'];
-            $request['mny_parts_pay_19'] = $request['as_mny_parts_pay_19'];
-            $request['date_pay_parts_19'] = $request['as_date_pay_parts_19'];
-        }
-        if ($oldnamepay_parts20 != $newnamepay_parts20) {
-            $request['pay_parts_20'] = $newnamepay_parts20;
-            $request['up_by_parts_pay_20'] = $request['as_up_by_parts_pay_20'];
-            $request['mny_parts_pay_20'] = $request['as_mny_parts_pay_20'];
-            $request['date_pay_parts_20'] = $request['as_date_pay_parts_20'];
-        }
-        if ($oldnamepay_parts21 != $newnamepay_parts21) {
-            $request['pay_parts_21'] = $newnamepay_parts21;
-            $request['up_by_parts_pay_21'] = $request['as_up_by_parts_pay_21'];
-            $request['mny_parts_pay_21'] = $request['as_mny_parts_pay_21'];
-            $request['date_pay_parts_21'] = $request['as_date_pay_parts_21'];
-        }
-        if ($oldnamepay_parts22 != $newnamepay_parts22) {
-            $request['pay_parts_22'] = $newnamepay_parts22;
-            $request['up_by_parts_pay_22'] = $request['as_up_by_parts_pay_22'];
-            $request['mny_parts_pay_22'] = $request['as_mny_parts_pay_22'];
-            $request['date_pay_parts_22'] = $request['as_date_pay_parts_22'];
-        }
-        if ($oldnamepay_parts23 != $newnamepay_parts23) {
-            $request['pay_parts_23'] = $newnamepay_parts23;
-            $request['up_by_parts_pay_23'] = $request['as_up_by_parts_pay_23'];
-            $request['mny_parts_pay_23'] = $request['as_mny_parts_pay_23'];
-            $request['date_pay_parts_23'] = $request['as_date_pay_parts_23'];
-        }
-        if ($oldnamepay_parts24 != $newnamepay_parts24) {
-            $request['pay_parts_24'] = $newnamepay_parts24;
-            $request['up_by_parts_pay_24'] = $request['as_up_by_parts_pay_24'];
-            $request['mny_parts_pay_24'] = $request['as_mny_parts_pay_24'];
-            $request['date_pay_parts_24'] = $request['as_date_pay_parts_24'];
-        }
-        if ($oldnamepay_parts25 != $newnamepay_parts25) {
-            $request['pay_parts_25'] = $newnamepay_parts25;
-            $request['up_by_parts_pay_25'] = $request['as_up_by_parts_pay_25'];
-            $request['mny_parts_pay_25'] = $request['as_mny_parts_pay_25'];
-            $request['date_pay_parts_25'] = $request['as_date_pay_parts_25'];
-        }
-        if ($oldnamepay_parts26 != $newnamepay_parts26) {
-            $request['pay_parts_26'] = $newnamepay_parts26;
-            $request['up_by_parts_pay_26'] = $request['as_up_by_parts_pay_26'];
-            $request['mny_parts_pay_26'] = $request['as_mny_parts_pay_26'];
-            $request['date_pay_parts_26'] = $request['as_date_pay_parts_26'];
-        }
-        if ($oldnamepay_parts27 != $newnamepay_parts27) {
-            $request['pay_parts_27'] = $newnamepay_parts27;
-            $request['up_by_parts_pay_27'] = $request['as_up_by_parts_pay_27'];
-            $request['mny_parts_pay_27'] = $request['as_mny_parts_pay_27'];
-            $request['date_pay_parts_27'] = $request['as_date_pay_parts_27'];
-        }
-        if ($oldnamepay_parts28 != $newnamepay_parts28) {
-            $request['pay_parts_28'] = $newnamepay_parts28;
-            $request['up_by_parts_pay_28'] = $request['as_up_by_parts_pay_28'];
-            $request['mny_parts_pay_28'] = $request['as_mny_parts_pay_28'];
-            $request['date_pay_parts_28'] = $request['as_date_pay_parts_28'];
-        }
-        if ($oldnamepay_parts29 != $newnamepay_parts29) {
-            $request['pay_parts_29'] = $newnamepay_parts29;
-            $request['up_by_parts_pay_29'] = $request['as_up_by_parts_pay_29'];
-            $request['mny_parts_pay_29'] = $request['as_mny_parts_pay_29'];
-            $request['date_pay_parts_29'] = $request['as_date_pay_parts_29'];
-        }
-        if ($oldnamepay_parts30 != $newnamepay_parts30) {
-            $request['pay_parts_30'] = $newnamepay_parts30;
-            $request['up_by_parts_pay_30'] = $request['as_up_by_parts_pay_30'];
-            $request['mny_parts_pay_30'] = $request['as_mny_parts_pay_30'];
-            $request['date_pay_parts_30'] = $request['as_date_pay_parts_30'];
-        }
-        if ($oldnamepay_parts31 != $newnamepay_parts31) {
-            $request['pay_parts_31'] = $newnamepay_parts31;
-            $request['up_by_parts_pay_31'] = $request['as_up_by_parts_pay_31'];
-            $request['mny_parts_pay_31'] = $request['as_mny_parts_pay_31'];
-            $request['date_pay_parts_31'] = $request['as_date_pay_parts_31'];
-        }
-        if ($oldnamepay_parts32 != $newnamepay_parts32) {
-            $request['pay_parts_32'] = $newnamepay_parts32;
-            $request['up_by_parts_pay_32'] = $request['as_up_by_parts_pay_32'];
-            $request['mny_parts_pay_32'] = $request['as_mny_parts_pay_32'];
-            $request['date_pay_parts_32'] = $request['as_date_pay_parts_32'];
-        }
-        if ($oldnamepay_parts33 != $newnamepay_parts33) {
-            $request['pay_parts_33'] = $newnamepay_parts33;
-            $request['up_by_parts_pay_33'] = $request['as_up_by_parts_pay_33'];
-            $request['mny_parts_pay_33'] = $request['as_mny_parts_pay_33'];
-            $request['date_pay_parts_33'] = $request['as_date_pay_parts_33'];
-        }
-        if ($oldnamepay_parts34 != $newnamepay_parts34) {
-            $request['pay_parts_34'] = $newnamepay_parts34;
-            $request['up_by_parts_pay_34'] = $request['as_up_by_parts_pay_34'];
-            $request['mny_parts_pay_34'] = $request['as_mny_parts_pay_34'];
-            $request['date_pay_parts_34'] = $request['as_date_pay_parts_34'];
-        }
-        if ($oldnamepay_parts35 != $newnamepay_parts35) {
-            $request['pay_parts_35'] = $newnamepay_parts35;
-            $request['up_by_parts_pay_35'] = $request['as_up_by_parts_pay_35'];
-            $request['mny_parts_pay_35'] = $request['as_mny_parts_pay_35'];
-            $request['date_pay_parts_35'] = $request['as_date_pay_parts_35'];
-        }
-        if ($oldnamepay_parts36 != $newnamepay_parts36) {
-            $request['pay_parts_36'] = $newnamepay_parts36;
-            $request['up_by_parts_pay_36'] = $request['as_up_by_parts_pay_36'];
-            $request['mny_parts_pay_36'] = $request['as_mny_parts_pay_36'];
-            $request['date_pay_parts_36'] = $request['as_date_pay_parts_36'];
-        }
-        if ($oldnamepay_parts37 != $newnamepay_parts37) {
-            $request['pay_parts_37'] = $newnamepay_parts37;
-            $request['up_by_parts_pay_37'] = $request['as_up_by_parts_pay_37'];
-            $request['mny_parts_pay_37'] = $request['as_mny_parts_pay_37'];
-            $request['date_pay_parts_37'] = $request['as_date_pay_parts_37'];
-        }
-        if ($oldnamepay_parts38 != $newnamepay_parts38) {
-            $request['pay_parts_38'] = $newnamepay_parts38;
-            $request['up_by_parts_pay_38'] = $request['as_up_by_parts_pay_38'];
-            $request['mny_parts_pay_38'] = $request['as_mny_parts_pay_38'];
-            $request['date_pay_parts_38'] = $request['as_date_pay_parts_38'];
-        }
-        if ($oldnamepay_parts39 != $newnamepay_parts39) {
-            $request['pay_parts_39'] = $newnamepay_parts39;
-            $request['up_by_parts_pay_39'] = $request['as_up_by_parts_pay_39'];
-            $request['mny_parts_pay_39'] = $request['as_mny_parts_pay_39'];
-            $request['date_pay_parts_39'] = $request['as_date_pay_parts_39'];
-        }
-        if ($oldnamepay_parts40 != $newnamepay_parts40) {
-            $request['pay_parts_40'] = $newnamepay_parts40;
-            $request['up_by_parts_pay_40'] = $request['as_up_by_parts_pay_40'];
-            $request['mny_parts_pay_40'] = $request['as_mny_parts_pay_40'];
-            $request['date_pay_parts_40'] = $request['as_date_pay_parts_40'];
-        }
-        if ($oldnamepay_parts41 != $newnamepay_parts41) {
-            $request['pay_parts_41'] = $newnamepay_parts41;
-            $request['up_by_parts_pay_41'] = $request['as_up_by_parts_pay_41'];
-            $request['mny_parts_pay_41'] = $request['as_mny_parts_pay_41'];
-            $request['date_pay_parts_41'] = $request['as_date_pay_parts_41'];
-        }
-        if ($oldnamepay_parts42 != $newnamepay_parts42) {
-            $request['pay_parts_42'] = $newnamepay_parts42;
-            $request['up_by_parts_pay_42'] = $request['as_up_by_parts_pay_42'];
-            $request['mny_parts_pay_42'] = $request['as_mny_parts_pay_42'];
-            $request['date_pay_parts_42'] = $request['as_date_pay_parts_42'];
-        }
-        if ($oldnamepay_parts43 != $newnamepay_parts43) {
-            $request['pay_parts_43'] = $newnamepay_parts43;
-            $request['up_by_parts_pay_43'] = $request['as_up_by_parts_pay_43'];
-            $request['mny_parts_pay_43'] = $request['as_mny_parts_pay_43'];
-            $request['date_pay_parts_43'] = $request['as_date_pay_parts_43'];
-        }
-        if ($oldnamepay_parts44 != $newnamepay_parts44) {
-            $request['pay_parts_44'] = $newnamepay_parts44;
-            $request['up_by_parts_pay_44'] = $request['as_up_by_parts_pay_44'];
-            $request['mny_parts_pay_44'] = $request['as_mny_parts_pay_44'];
-            $request['date_pay_parts_44'] = $request['as_date_pay_parts_44'];
-        }
-        if ($oldnamepay_parts45 != $newnamepay_parts45) {
-            $request['pay_parts_45'] = $newnamepay_parts45;
-            $request['up_by_parts_pay_45'] = $request['as_up_by_parts_pay_45'];
-            $request['mny_parts_pay_45'] = $request['as_mny_parts_pay_45'];
-            $request['date_pay_parts_45'] = $request['as_date_pay_parts_45'];
+            if ($request->has($mnyMnftr)) {
+                $request["nmnftr_pay_$i"] = intval(str_replace('.', '', $request->$mnyMnftr));
+            }
         }
 
-        if ($oldnamepay_jasa1 != $newnamepay_jasa1) {
-            $request['pay_jasa_1'] = $newnamepay_jasa1;
-            $request['up_by_jasa_pay_1'] = $request['as_up_by_jasa_pay_1'];
-            $request['mny_jasa_pay_1'] = $request['as_mny_jasa_pay_1'];
-            $request['date_pay_jasa_1'] = $request['as_date_pay_jasa_1'];
-        }
-        if ($oldnamepay_jasa2 != $newnamepay_jasa2) {
-            $request['pay_jasa_2'] = $newnamepay_jasa2;
-            $request['up_by_jasa_pay_2'] = $request['as_up_by_jasa_pay_2'];
-            $request['mny_jasa_pay_2'] = $request['as_mny_jasa_pay_2'];
-            $request['date_pay_jasa_2'] = $request['as_date_pay_jasa_2'];
-        }
-        if ($oldnamepay_jasa3 != $newnamepay_jasa3) {
-            $request['pay_jasa_3'] = $newnamepay_jasa3;
-            $request['up_by_jasa_pay_3'] = $request['as_up_by_jasa_pay_3'];
-            $request['mny_jasa_pay_3'] = $request['as_mny_jasa_pay_3'];
-            $request['date_pay_jasa_3'] = $request['as_date_pay_jasa_3'];
-        }
-        if ($oldnamepay_jasa4 != $newnamepay_jasa4) {
-            $request['pay_jasa_4'] = $newnamepay_jasa4;
-            $request['up_by_jasa_pay_4'] = $request['as_up_by_jasa_pay_4'];
-            $request['mny_jasa_pay_4'] = $request['as_mny_jasa_pay_4'];
-            $request['date_pay_jasa_4'] = $request['as_date_pay_jasa_4'];
-        }
-        if ($oldnamepay_jasa5 != $newnamepay_jasa5) {
-            $request['pay_jasa_5'] = $newnamepay_jasa5;
-            $request['up_by_jasa_pay_5'] = $request['as_up_by_jasa_pay_5'];
-            $request['mny_jasa_pay_5'] = $request['as_mny_jasa_pay_5'];
-            $request['date_pay_jasa_5'] = $request['as_date_pay_jasa_5'];
-        }
-        if ($oldnamepay_jasa6 != $newnamepay_jasa6) {
-            $request['pay_jasa_6'] = $newnamepay_jasa6;
-            $request['up_by_jasa_pay_6'] = $request['as_up_by_jasa_pay_6'];
-            $request['mny_jasa_pay_6'] = $request['as_mny_jasa_pay_6'];
-            $request['date_pay_jasa_6'] = $request['as_date_pay_jasa_6'];
-        }
-        if ($oldnamepay_jasa7 != $newnamepay_jasa7) {
-            $request['pay_jasa_7'] = $newnamepay_jasa7;
-            $request['up_by_jasa_pay_7'] = $request['as_up_by_jasa_pay_7'];
-            $request['mny_jasa_pay_7'] = $request['as_mny_jasa_pay_7'];
-            $request['date_pay_jasa_7'] = $request['as_date_pay_jasa_7'];
-        }
-        if ($oldnamepay_jasa8 != $newnamepay_jasa8) {
-            $request['pay_jasa_8'] = $newnamepay_jasa8;
-            $request['up_by_jasa_pay_8'] = $request['as_up_by_jasa_pay_8'];
-            $request['mny_jasa_pay_8'] = $request['as_mny_jasa_pay_8'];
-            $request['date_pay_jasa_8'] = $request['as_date_pay_jasa_8'];
-        }
-        if ($oldnamepay_jasa9 != $newnamepay_jasa9) {
-            $request['pay_jasa_9'] = $newnamepay_jasa9;
-            $request['up_by_jasa_pay_9'] = $request['as_up_by_jasa_pay_9'];
-            $request['mny_jasa_pay_9'] = $request['as_mny_jasa_pay_9'];
-            $request['date_pay_jasa_9'] = $request['as_date_pay_jasa_9'];
-        }
-        if ($oldnamepay_jasa10 != $newnamepay_jasa10) {
-            $request['pay_jasa_10'] = $newnamepay_jasa10;
-            $request['up_by_jasa_pay_10'] = $request['as_up_by_jasa_pay_10'];
-            $request['mny_jasa_pay_10'] = $request['as_mny_jasa_pay_10'];
-            $request['date_pay_jasa_10'] = $request['as_date_pay_jasa_10'];
-        }
-        if ($oldnamepay_jasa11 != $newnamepay_jasa11) {
-            $request['pay_jasa_11'] = $newnamepay_jasa11;
-            $request['up_by_jasa_pay_11'] = $request['as_up_by_jasa_pay_11'];
-            $request['mny_jasa_pay_11'] = $request['as_mny_jasa_pay_11'];
-            $request['date_pay_jasa_11'] = $request['as_date_pay_jasa_11'];
-        }
-        if ($oldnamepay_jasa12 != $newnamepay_jasa12) {
-            $request['pay_jasa_12'] = $newnamepay_jasa12;
-            $request['up_by_jasa_pay_12'] = $request['as_up_by_jasa_pay_12'];
-            $request['mny_jasa_pay_12'] = $request['as_mny_jasa_pay_12'];
-            $request['date_pay_jasa_12'] = $request['as_date_pay_jasa_12'];
-        }
-        if ($oldnamepay_jasa13 != $newnamepay_jasa13) {
-            $request['pay_jasa_13'] = $newnamepay_jasa13;
-            $request['up_by_jasa_pay_13'] = $request['as_up_by_jasa_pay_13'];
-            $request['mny_jasa_pay_13'] = $request['as_mny_jasa_pay_13'];
-            $request['date_pay_jasa_13'] = $request['as_date_pay_jasa_13'];
-        }
-        if ($oldnamepay_jasa14 != $newnamepay_jasa14) {
-            $request['pay_jasa_14'] = $newnamepay_jasa14;
-            $request['up_by_jasa_pay_14'] = $request['as_up_by_jasa_pay_14'];
-            $request['mny_jasa_pay_14'] = $request['as_mny_jasa_pay_14'];
-            $request['date_pay_jasa_14'] = $request['as_date_pay_jasa_14'];
-        }
-        if ($oldnamepay_jasa15 != $newnamepay_jasa15) {
-            $request['pay_jasa_15'] = $newnamepay_jasa15;
-            $request['up_by_jasa_pay_15'] = $request['as_up_by_jasa_pay_15'];
-            $request['mny_jasa_pay_15'] = $request['as_mny_jasa_pay_15'];
-            $request['date_pay_jasa_15'] = $request['as_date_pay_jasa_15'];
-        }
-        if ($oldnamepay_jasa16 != $newnamepay_jasa16) {
-            $request['pay_jasa_16'] = $newnamepay_jasa16;
-            $request['up_by_jasa_pay_16'] = $request['as_up_by_jasa_pay_16'];
-            $request['mny_jasa_pay_16'] = $request['as_mny_jasa_pay_16'];
-            $request['date_pay_jasa_16'] = $request['as_date_pay_jasa_16'];
-        }
-        if ($oldnamepay_jasa17 != $newnamepay_jasa17) {
-            $request['pay_jasa_17'] = $newnamepay_jasa17;
-            $request['up_by_jasa_pay_17'] = $request['as_up_by_jasa_pay_17'];
-            $request['mny_jasa_pay_17'] = $request['as_mny_jasa_pay_17'];
-            $request['date_pay_jasa_17'] = $request['as_date_pay_jasa_17'];
-        }
-        if ($oldnamepay_jasa18 != $newnamepay_jasa18) {
-            $request['pay_jasa_18'] = $newnamepay_jasa18;
-            $request['up_by_jasa_pay_18'] = $request['as_up_by_jasa_pay_18'];
-            $request['mny_jasa_pay_18'] = $request['as_mny_jasa_pay_18'];
-            $request['date_pay_jasa_18'] = $request['as_date_pay_jasa_18'];
-        }
-        if ($oldnamepay_jasa19 != $newnamepay_jasa19) {
-            $request['pay_jasa_19'] = $newnamepay_jasa19;
-            $request['up_by_jasa_pay_19'] = $request['as_up_by_jasa_pay_19'];
-            $request['mny_jasa_pay_19'] = $request['as_mny_jasa_pay_19'];
-            $request['date_pay_jasa_19'] = $request['as_date_pay_jasa_19'];
-        }
-        if ($oldnamepay_jasa20 != $newnamepay_jasa20) {
-            $request['pay_jasa_20'] = $newnamepay_jasa20;
-            $request['up_by_jasa_pay_20'] = $request['as_up_by_jasa_pay_20'];
-            $request['mny_jasa_pay_20'] = $request['as_mny_jasa_pay_20'];
-            $request['date_pay_jasa_20'] = $request['as_date_pay_jasa_20'];
-        }
-        if ($oldnamepay_jasa21 != $newnamepay_jasa21) {
-            $request['pay_jasa_21'] = $newnamepay_jasa21;
-            $request['up_by_jasa_pay_21'] = $request['as_up_by_jasa_pay_21'];
-            $request['mny_jasa_pay_21'] = $request['as_mny_jasa_pay_21'];
-            $request['date_pay_jasa_21'] = $request['as_date_pay_jasa_21'];
-        }
-        if ($oldnamepay_jasa22 != $newnamepay_jasa22) {
-            $request['pay_jasa_22'] = $newnamepay_jasa22;
-            $request['up_by_jasa_pay_22'] = $request['as_up_by_jasa_pay_22'];
-            $request['mny_jasa_pay_22'] = $request['as_mny_jasa_pay_22'];
-            $request['date_pay_jasa_22'] = $request['as_date_pay_jasa_22'];
-        }
-        if ($oldnamepay_jasa23 != $newnamepay_jasa23) {
-            $request['pay_jasa_23'] = $newnamepay_jasa23;
-            $request['up_by_jasa_pay_23'] = $request['as_up_by_jasa_pay_23'];
-            $request['mny_jasa_pay_23'] = $request['as_mny_jasa_pay_23'];
-            $request['date_pay_jasa_23'] = $request['as_date_pay_jasa_23'];
-        }
-        if ($oldnamepay_jasa24 != $newnamepay_jasa24) {
-            $request['pay_jasa_24'] = $newnamepay_jasa24;
-            $request['up_by_jasa_pay_24'] = $request['as_up_by_jasa_pay_24'];
-            $request['mny_jasa_pay_24'] = $request['as_mny_jasa_pay_24'];
-            $request['date_pay_jasa_24'] = $request['as_date_pay_jasa_24'];
-        }
-        if ($oldnamepay_jasa25 != $newnamepay_jasa25) {
-            $request['pay_jasa_25'] = $newnamepay_jasa25;
-            $request['up_by_jasa_pay_25'] = $request['as_up_by_jasa_pay_25'];
-            $request['mny_jasa_pay_25'] = $request['as_mny_jasa_pay_25'];
-            $request['date_pay_jasa_25'] = $request['as_date_pay_jasa_25'];
-        }
-        if ($oldnamepay_jasa26 != $newnamepay_jasa26) {
-            $request['pay_jasa_26'] = $newnamepay_jasa26;
-            $request['up_by_jasa_pay_26'] = $request['as_up_by_jasa_pay_26'];
-            $request['mny_jasa_pay_26'] = $request['as_mny_jasa_pay_26'];
-            $request['date_pay_jasa_26'] = $request['as_date_pay_jasa_26'];
-        }
-        if ($oldnamepay_jasa27 != $newnamepay_jasa27) {
-            $request['pay_jasa_27'] = $newnamepay_jasa27;
-            $request['up_by_jasa_pay_27'] = $request['as_up_by_jasa_pay_27'];
-            $request['mny_jasa_pay_27'] = $request['as_mny_jasa_pay_27'];
-            $request['date_pay_jasa_27'] = $request['as_date_pay_jasa_27'];
-        }
-        if ($oldnamepay_jasa28 != $newnamepay_jasa28) {
-            $request['pay_jasa_28'] = $newnamepay_jasa28;
-            $request['up_by_jasa_pay_28'] = $request['as_up_by_jasa_pay_28'];
-            $request['mny_jasa_pay_28'] = $request['as_mny_jasa_pay_28'];
-            $request['date_pay_jasa_28'] = $request['as_date_pay_jasa_28'];
-        }
-        if ($oldnamepay_jasa29 != $newnamepay_jasa29) {
-            $request['pay_jasa_29'] = $newnamepay_jasa29;
-            $request['up_by_jasa_pay_29'] = $request['as_up_by_jasa_pay_29'];
-            $request['mny_jasa_pay_29'] = $request['as_mny_jasa_pay_29'];
-            $request['date_pay_jasa_29'] = $request['as_date_pay_jasa_29'];
-        }
-        if ($oldnamepay_jasa30 != $newnamepay_jasa30) {
-            $request['pay_jasa_30'] = $newnamepay_jasa30;
-            $request['up_by_jasa_pay_30'] = $request['as_up_by_jasa_pay_30'];
-            $request['mny_jasa_pay_30'] = $request['as_mny_jasa_pay_30'];
-            $request['date_pay_jasa_30'] = $request['as_date_pay_jasa_30'];
+        // Further processing using the processed values
+        for ($i = 1; $i <= 10; $i++) {
+            $oldName = "oldnamepay_mnftr{$i}";
+            $newName = "newnamepay_mnftr{$i}";
+            $nmnftrName = "nmnftr_pay_$i";  // This should be consistent with the key set in the first loop
+
+            $requestKeyPay = "pay_mnftr_{$i}";
+            $requestKeyUpBy = "up_by_mnftr_pay_{$i}";
+            $requestKeyMny = "mny_mnftr_pay_{$i}";
+            $requestKeyDate = "date_pay_mnftr_{$i}";
+
+            if ($$oldName != $$newName) {
+                $request[$requestKeyPay] = $$newName;
+                $request[$requestKeyUpBy] = $request["as_up_by_mnftr_pay_$i"];
+                $request[$requestKeyMny] = $request[$nmnftrName];  // Use the correct key
+                $request[$requestKeyDate] = $request["as_date_pay_mnftr_$i"];
+            }
         }
 
-        if ($oldnamepay_mnftr1 != $newnamepay_mnftr1) {
-            $request['pay_mnftr_1'] = $newnamepay_mnftr1;
-            $request['up_by_mnftr_pay_1'] = $request['as_up_by_mnftr_pay_1'];
-            $request['mny_mnftr_pay_1'] = $request['as_mny_mnftr_pay_1'];
-            $request['date_pay_mnftr_1'] = $request['as_date_pay_mnftr_1'];
-        }
-        if ($oldnamepay_mnftr2 != $newnamepay_mnftr2) {
-            $request['pay_mnftr_2'] = $newnamepay_mnftr2;
-            $request['up_by_mnftr_pay_2'] = $request['as_up_by_mnftr_pay_2'];
-            $request['mny_mnftr_pay_2'] = $request['as_mny_mnftr_pay_2'];
-            $request['date_pay_mnftr_2'] = $request['as_date_pay_mnftr_2'];
-        }
-        if ($oldnamepay_mnftr3 != $newnamepay_mnftr3) {
-            $request['pay_mnftr_3'] = $newnamepay_mnftr3;
-            $request['up_by_mnftr_pay_3'] = $request['as_up_by_mnftr_pay_3'];
-            $request['mny_mnftr_pay_3'] = $request['as_mny_mnftr_pay_3'];
-            $request['date_pay_mnftr_3'] = $request['as_date_pay_mnftr_3'];
-        }
-        if ($oldnamepay_mnftr4 != $newnamepay_mnftr4) {
-            $request['pay_mnftr_4'] = $newnamepay_mnftr4;
-            $request['up_by_mnftr_pay_4'] = $request['as_up_by_mnftr_pay_4'];
-            $request['mny_mnftr_pay_4'] = $request['as_mny_mnftr_pay_4'];
-            $request['date_pay_mnftr_4'] = $request['as_date_pay_mnftr_4'];
-        }
-        if ($oldnamepay_mnftr5 != $newnamepay_mnftr5) {
-            $request['pay_mnftr_5'] = $newnamepay_mnftr5;
-            $request['up_by_mnftr_pay_5'] = $request['as_up_by_mnftr_pay_5'];
-            $request['mny_mnftr_pay_5'] = $request['as_mny_mnftr_pay_5'];
-            $request['date_pay_mnftr_5'] = $request['as_date_pay_mnftr_5'];
-        }
-        if ($oldnamepay_mnftr6 != $newnamepay_mnftr6) {
-            $request['pay_mnftr_6'] = $newnamepay_mnftr6;
-            $request['up_by_mnftr_pay_6'] = $request['as_up_by_mnftr_pay_6'];
-            $request['mny_mnftr_pay_6'] = $request['as_mny_mnftr_pay_6'];
-            $request['date_pay_mnftr_6'] = $request['as_date_pay_mnftr_6'];
-        }
-        if ($oldnamepay_mnftr7 != $newnamepay_mnftr7) {
-            $request['pay_mnftr_7'] = $newnamepay_mnftr7;
-            $request['up_by_mnftr_pay_7'] = $request['as_up_by_mnftr_pay_7'];
-            $request['mny_mnftr_pay_7'] = $request['as_mny_mnftr_pay_7'];
-            $request['date_pay_mnftr_7'] = $request['as_date_pay_mnftr_7'];
-        }
-        if ($oldnamepay_mnftr8 != $newnamepay_mnftr8) {
-            $request['pay_mnftr_8'] = $newnamepay_mnftr8;
-            $request['up_by_mnftr_pay_8'] = $request['as_up_by_mnftr_pay_8'];
-            $request['mny_mnftr_pay_8'] = $request['as_mny_mnftr_pay_8'];
-            $request['date_pay_mnftr_8'] = $request['as_date_pay_mnftr_8'];
-        }
-        if ($oldnamepay_mnftr9 != $newnamepay_mnftr9) {
-            $request['pay_mnftr_9'] = $newnamepay_mnftr9;
-            $request['up_by_mnftr_pay_9'] = $request['as_up_by_mnftr_pay_9'];
-            $request['mny_mnftr_pay_9'] = $request['as_mny_mnftr_pay_9'];
-            $request['date_pay_mnftr_9'] = $request['as_date_pay_mnftr_9'];
-        }
-        if ($oldnamepay_mnftr10 != $newnamepay_mnftr10) {
-            $request['pay_mnftr_10'] = $newnamepay_mnftr10;
-            $request['up_by_mnftr_pay_10'] = $request['as_up_by_mnftr_pay_10'];
-            $request['mny_mnftr_pay_10'] = $request['as_mny_mnftr_pay_10'];
-            $request['date_pay_mnftr_10'] = $request['as_date_pay_mnftr_10'];
+        // Process 'da' fields
+        for ($i = 1; $i <= 5; $i++) {
+            $mnyDaPay = "as_mny_da_pay_$i";
+
+            if ($request->has($mnyDaPay)) {
+                $request["nda_pay_$i"] = intval(str_replace('.', '', $request->$mnyDaPay));
+            }
         }
 
-        if ($oldnamepay_da1 != $newnamepay_da1) {
-            $request['pay_da_1'] = $newnamepay_da1;
-            $request['up_by_pay_da_1'] = $request['as_up_by_pay_da_1'];
-            $request['mny_da_pay_1'] = $request['as_mny_da_pay_1'];
-            $request['date_pay_da_1'] = $request['as_date_pay_da_1'];
+        // Further processing using the processed values
+        for ($i = 1; $i <= 5; $i++) {
+            $oldName = "oldnamepay_da{$i}";
+            $newName = "newnamepay_da{$i}";
+            $ndaName = "nda_pay_{$i}";  // This should be consistent with the key set in the first loop
+
+            $requestKeyPay = "pay_da_{$i}";
+            $requestKeyUpBy = "up_by_da_pay_{$i}";
+            $requestKeyMny = "mny_da_pay_{$i}";
+            $requestKeyDate = "date_pay_da_{$i}";
+
+            if ($$oldName != $$newName) {
+                $request[$requestKeyPay] = $$newName;
+                $request[$requestKeyUpBy] = $request["as_up_by_da_pay_$i"];
+                $request[$requestKeyMny] = $request[$ndaName];  // Use the correct key
+                $request[$requestKeyDate] = $request["as_date_pay_da_$i"];
+            }
         }
-        if ($oldnamepay_da2 != $newnamepay_da2) {
-            $request['pay_da_2'] = $newnamepay_da2;
-            $request['up_by_pay_da_2'] = $request['as_up_by_pay_da_2'];
-            $request['mny_da_pay_2'] = $request['as_mny_da_pay_2'];
-            $request['date_pay_da_2'] = $request['as_date_pay_da_2'];
-        }
-        if ($oldnamepay_da3 != $newnamepay_da3) {
-            $request['pay_da_3'] = $newnamepay_da3;
-            $request['up_by_pay_da_3'] = $request['as_up_by_pay_da_3'];
-            $request['mny_da_pay_3'] = $request['as_mny_da_pay_3'];
-            $request['date_pay_da_3'] = $request['as_date_pay_da_3'];
-        }
-        if ($oldnamepay_da4 != $newnamepay_da4) {
-            $request['pay_da_4'] = $newnamepay_da4;
-            $request['up_by_pay_da_4'] = $request['as_up_by_pay_da_4'];
-            $request['mny_da_pay_4'] = $request['as_mny_da_pay_4'];
-            $request['date_pay_da_4'] = $request['as_date_pay_da_4'];
-        }
-        if ($oldnamepay_da5 != $newnamepay_da5) {
-            $request['pay_da_5'] = $newnamepay_da5;
-            $request['up_by_pay_da_5'] = $request['as_up_by_pay_da_5'];
-            $request['mny_da_pay_5'] = $request['as_mny_da_pay_5'];
-            $request['date_pay_da_5'] = $request['as_date_pay_da_5'];
-        }
+
 
         // menyimpan seluruh ke table purchasing 01
         $viewdataproject->update($request->all());

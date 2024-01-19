@@ -3,7 +3,9 @@
 
 <div class="my-20 mx-10">
     <p class="text-3xl font-bold font-mono mt-4">Formulir Kerja Standar</p>
-    <p class="text-base font-normal text-gray-500 mb-3">Kelola formulir kerja untuk tahapan proyek.</p>
+    <p class="text-base font-normal text-gray-500">File yang diperbolehkan hanya:</p>
+    <p class="text-base font-normal text-gray-500">1. Memiliki format .docx, .xlsx, dan .dwg</p>
+    <p class="text-base font-normal text-gray-500 mb-3">2. Memiliki ukuran maksium 4MB (Megabyte)</p>
     @if ($errors->any())
         <div
             class="flex p-4 mb-4 text-sm text-red-700 bg-red-100 rounded-lg  alert-danger">
@@ -75,7 +77,7 @@
             </ul>
 
             <!-- Tab Contents -->
-            <form action="" method="post" enctype="multipart/form-data">
+            <form action="" method="post" enctype="multipart/form-data" id="uploadForm">
                 @csrf
                 @method('PUT')
                 @foreach ($standarproject as $spt)
@@ -92,9 +94,9 @@
                                     <thead class="bg-gray-300 text-gray-700">
                                         <th class="py-2 w-[15%] font-medium">Kategori Formulir</th>
                                         <th class="w-[45%] font-medium">Nama File</th>
-                                        <th class="w-[10%] font-medium">Uploaded by</th>
-                                        <th class="w-[10%] font-medium">Last Update</th>
-                                        <th class="w-[10%] font-medium">Upload</th>
+                                        <th class="w-[10%] font-medium">Diunggah oleh</th>
+                                        <th class="w-[10%] font-medium">Terakhir diubah</th>
+                                        <th class="w-[15%] font-medium">Aksi</th>
                                     </thead>
                                     <tbody class="text-left">
                                         {{-- 1 --}}
@@ -133,7 +135,7 @@
                                                 @endif
                                             </td>
                                             <td class="text-center">{{ $spt->date_fr_sheet_form }}</td>
-                                            <td class="space-y-2 py-3 px-2">
+                                            <td class="">
                                                 @if ($spt->file_fr_sheet_form != '')
                                                     <div class="justify-center flex space-x-2">
                                                         <button type="button"
@@ -153,7 +155,12 @@
                                                         </button>
                                                     </div>
                                                 @else
-                                                    <input type="file" accept=".docx, .xlsx, .dwg, .txt" name="as_file_fr_sheet_form" id="fr">
+                                                    <input type="file" accept=".docx, .xlsx, .dwg" name="as_file_fr_sheet_form"
+                                                    id="fileInput_file_fr_sheet_form" style="display: none;">
+                                                    <button type="button" onclick="openFileInput('file_fr_sheet_form')"
+                                                        class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md">
+                                                        + Tambah dokumen
+                                                    </button>
                                                 @endif
                                             </td>
                                             <input type="text" hidden name="as_up_fr_sheet_form"
@@ -178,9 +185,9 @@
                                     <thead class="bg-gray-300 text-gray-700">
                                         <th class="py-2 w-[15%] font-medium">Kategori Formulir</th>
                                         <th class="w-[45%] font-medium">Nama File</th>
-                                        <th class="w-[10%] font-medium">Uploaded by</th>
-                                        <th class="w-[10%] font-medium">Last Update</th>
-                                        <th class="w-[10%] font-medium">Upload</th>
+                                        <th class="w-[10%] font-medium">Diunggah oleh</th>
+                                        <th class="w-[10%] font-medium">Terakhir diubah</th>
+                                        <th class="w-[15%] font-medium">Aksi</th>
                                     </thead>
                                     <tbody class="text-left">
                                         {{-- 1 --}}
@@ -220,7 +227,7 @@
                                                 @endif
                                             </td>
                                             <td class="text-center">{{ $spt->date_dr_m_sheet_form }}</td>
-                                            <td class="space-y-2 py-3 px-2">
+                                            <td class="">
                                                 @if ($spt->file_dr_m_sheet_form != '')
                                                     <div class="justify-center flex space-x-2">
                                                         <button type="button"
@@ -240,8 +247,12 @@
                                                         </button>
                                                     </div>
                                                 @else
-                                                    <input type="file" accept=".docx, .xlsx, .dwg, .txt" name="as_file_dr_m_sheet_form"
-                                                        id="">
+                                                <input type="file" accept=".docx, .xlsx, .dwg" name="as_file_dr_m_sheet_form"
+                                                    id="fileInput_file_dr_m_sheet_form" style="display: none;">
+                                                    <button type="button" onclick="openFileInput('file_dr_m_sheet_form')"
+                                                        class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md">
+                                                        + Tambah dokumen
+                                                    </button>
                                                 @endif
                                             </td>
                                             <input type="text" hidden name="as_up_dr_m_sheet_form"
@@ -287,7 +298,7 @@
 
                                             </td>
                                             <td class="text-center">{{ $spt->date_dr_e_sheet_form }}</td>
-                                            <td class="space-y-2 py-3 px-2">
+                                            <td class="">
                                                 @if ($spt->file_dr_e_sheet_form != '')
                                                     <div class="justify-center flex space-x-2">
                                                         <button type="button"
@@ -307,8 +318,12 @@
                                                         </button>
                                                     </div>
                                                 @else
-                                                    <input type="file" accept=".docx, .xlsx, .dwg, .txt" name="as_file_dr_e_sheet_form"
-                                                        id="">
+                                                <input type="file" accept=".docx, .xlsx, .dwg" name="as_file_dr_e_sheet_form"
+                                                id="fileInput_file_dr_e_sheet_form" style="display: none;">
+                                                <button type="button" onclick="openFileInput('file_dr_e_sheet_form')"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md">
+                                                    + Tambah dokumen
+                                                </button>
                                                 @endif
                                             </td>
                                             <input type="text" hidden name="as_up_dr_e_sheet_form"
@@ -354,7 +369,7 @@
 
                                             </td>
                                             <td class="text-center">{{ $spt->date_lay_aprvl_sheet_form }}</td>
-                                            <td class="space-y-2 py-3 px-2">
+                                            <td class="">
                                                 @if ($spt->file_lay_aprvl_sheet_form != '')
                                                     <div class="justify-center flex space-x-2">
                                                         <button type="button"
@@ -374,8 +389,12 @@
                                                         </button>
                                                     </div>
                                                 @else
-                                                    <input type="file" accept=".docx, .xlsx, .dwg, .txt" name="as_file_lay_aprvl_sheet_form"
-                                                        id="">
+                                                <input type="file" accept=".docx, .xlsx, .dwg" name="as_file_lay_aprvl_form"
+                                                id="fileInput_file_lay_aprvl_form" style="display: none;">
+                                                <button type="button" onclick="openFileInput('file_lay_aprvl_form')"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md">
+                                                    + Tambah dokumen
+                                                </button>
                                                 @endif
                                             </td>
                                             <input type="text" hidden name="as_up_lay_aprvl_sheet_form"
@@ -420,7 +439,7 @@
                                                 @endif
                                             </td>
                                             <td class="text-center">{{ $spt->date_dr_aprvl_sheet_form }}</td>
-                                            <td class="space-y-2 py-3 px-2">
+                                            <td class="">
                                                 @if ($spt->file_dr_aprvl_sheet_form != '')
                                                     <div class="justify-center flex space-x-2">
                                                         <button type="button"
@@ -440,8 +459,12 @@
                                                         </button>
                                                     </div>
                                                 @else
-                                                    <input type="file" accept=".docx, .xlsx, .dwg, .txt" name="as_file_dr_aprvl_sheet_form"
-                                                        id="">
+                                                <input type="file" accept=".docx, .xlsx, .dwg" name="as_file_dr_aprvl_form"
+                                                id="fileInput_file_dr_aprvl_form" style="display: none;">
+                                                <button type="button" onclick="openFileInput('file_dr_aprvl_form')"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md">
+                                                    + Tambah dokumen
+                                                </button>
                                                 @endif
                                             </td>
                                             <input type="text" hidden name="as_up_dr_aprvl_sheet_form"
@@ -487,7 +510,7 @@
 
                                             </td>
                                             <td class="text-center">{{ $spt->date_design_sheet_form }}</td>
-                                            <td class="space-y-2 py-3 px-2">
+                                            <td class="">
                                                 @if ($spt->file_design_sheet_form != '')
                                                     <div class="justify-center flex space-x-2">
                                                         <button type="button"
@@ -507,8 +530,12 @@
                                                         </button>
                                                     </div>
                                                 @else
-                                                    <input type="file" accept=".docx, .xlsx, .dwg, .txt" name="as_file_design_sheet_form"
-                                                        id="">
+                                                <input type="file" accept=".docx, .xlsx, .dwg" name="as_file_design_sheet_form"
+                                                id="fileInput_file_design_sheet_form" style="display: none;">
+                                                <button type="button" onclick="openFileInput('file_design_sheet_form')"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md">
+                                                    + Tambah dokumen
+                                                </button>
                                                 @endif
                                             </td>
                                             <input type="text" hidden name="as_up_design_sheet_form"
@@ -555,7 +582,7 @@
 
                                             </td>
                                             <td class="text-center">{{ $spt->date_dr_meeting_form }}</td>
-                                            <td class="space-y-2 py-3 px-2">
+                                            <td class="">
                                                 @if ($spt->file_dr_meeting_form != '')
                                                     <div class="justify-center flex space-x-2">
                                                         <button type="button"
@@ -575,8 +602,12 @@
                                                         </button>
                                                     </div>
                                                 @else
-                                                    <input type="file" accept=".docx, .xlsx, .dwg, .txt" name="as_file_dr_meeting_form"
-                                                        id="">
+                                                <input type="file" accept=".docx, .xlsx, .dwg" name="as_file_dr_meeting_form"
+                                                id="fileInput_file_dr_meeting_form" style="display: none;">
+                                                <button type="button" onclick="openFileInput('file_dr_meeting_form')"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md">
+                                                    + Tambah dokumen
+                                                </button>
                                                 @endif
                                             </td>
                                             <input type="text" hidden name="as_up_dr_meeting_form"
@@ -621,7 +652,7 @@
                                                 @endif
                                             </td>
                                             <td class="text-center">{{ $spt->date_est_budget_form }}</td>
-                                            <td class="space-y-2 py-3 px-2">
+                                            <td class="">
                                                 @if ($spt->file_est_budget_form != '')
                                                     <div class="justify-center flex space-x-2">
                                                         <button type="button"
@@ -641,8 +672,12 @@
                                                         </button>
                                                     </div>
                                                 @else
-                                                    <input type="file" accept=".docx, .xlsx, .dwg, .txt" name="as_file_est_budget_form"
-                                                        id="">
+                                                <input type="file" accept=".docx, .xlsx, .dwg" name="as_file_est_budget_form"
+                                                id="fileInput_file_est_budget_form" style="display: none;">
+                                                <button type="button" onclick="openFileInput('file_est_budget_form')"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md">
+                                                    + Tambah dokumen
+                                                </button>
                                                 @endif
                                             </td>
                                             <input type="text" hidden name="as_up_est_budget_form"
@@ -667,9 +702,9 @@
                                     <thead class="bg-gray-300 text-gray-700">
                                         <th class="py-2 w-[15%] font-medium">Kategori Formulir</th>
                                         <th class="w-[45%] font-medium">Nama File</th>
-                                        <th class="w-[10%] font-medium">Uploaded by</th>
-                                        <th class="w-[10%] font-medium">Last Update</th>
-                                        <th class="w-[10%] font-medium">Upload</th>
+                                        <th class="w-[10%] font-medium">Diunggah oleh</th>
+                                        <th class="w-[10%] font-medium">Terakhir diubah</th>
+                                        <th class="w-[15%] font-medium">Aksi</th>
                                     </thead>
                                     <tbody class="text-left">
                                         {{-- 1 --}}
@@ -710,7 +745,7 @@
 
                                             </td>
                                             <td class="text-center">{{ $spt->date_pr_parts_material_form }}</td>
-                                            <td class="space-y-2 py-3 px-2">
+                                            <td class="">
                                                 @if ($spt->file_pr_parts_material_form != '')
                                                     <div class="justify-center flex space-x-2">
                                                         <button type="button"
@@ -730,8 +765,12 @@
                                                         </button>
                                                     </div>
                                                 @else
-                                                    <input type="file" accept=".docx, .xlsx, .dwg, .txt" name="as_file_pr_parts_material_form"
-                                                        id="">
+                                                <input type="file" accept=".docx, .xlsx, .dwg" name="as_file_pr_parts_material_form"
+                                                id="fileInput_file_pr_parts_material_form" style="display: none;">
+                                                <button type="button" onclick="openFileInput('file_pr_parts_material_form')"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md">
+                                                    + Tambah dokumen
+                                                </button>
                                                 @endif
                                             </td>
                                             <input type="text" hidden name="as_up_pr_parts_material_form"
@@ -777,7 +816,7 @@
 
                                             </td>
                                             <td class="text-center">{{ $spt->date_pr_pekerjaan_jasa_form }}</td>
-                                            <td class="space-y-2 py-3 px-2">
+                                            <td class="">
                                                 @if ($spt->file_pr_pekerjaan_jasa_form != '')
                                                     <div class="justify-center flex space-x-2">
                                                         <button type="button"
@@ -797,8 +836,12 @@
                                                         </button>
                                                     </div>
                                                 @else
-                                                    <input type="file" accept=".docx, .xlsx, .dwg, .txt" name="as_file_pr_pekerjaan_jasa_form"
-                                                        id="">
+                                                <input type="file" accept=".docx, .xlsx, .dwg" name="as_file_pr_pekerjaan_jasa_form"
+                                                id="fileInput_file_pr_pekerjaan_jasa_form" style="display: none;">
+                                                <button type="button" onclick="openFileInput('file_pr_pekerjaan_jasa_form')"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md">
+                                                    + Tambah dokumen
+                                                </button>
                                                 @endif
                                             </td>
                                             <input type="text" hidden name="as_up_pr_pekerjaan_jasa_form"
@@ -843,7 +886,7 @@
                                                 @endif
                                             </td>
                                             <td class="text-center">{{ $spt->date_pr_manufaktur_form }}</td>
-                                            <td class="space-y-2 py-3 px-2">
+                                            <td class="">
                                                 @if ($spt->file_pr_manufaktur_form != '')
                                                     <div class="justify-center flex space-x-2">
                                                         <button type="button"
@@ -863,8 +906,12 @@
                                                         </button>
                                                     </div>
                                                 @else
-                                                    <input type="file" accept=".docx, .xlsx, .dwg, .txt" name="as_file_pr_manufaktur_form"
-                                                        id="">
+                                                <input type="file" accept=".docx, .xlsx, .dwg" name="as_file_pr_manufaktur_form"
+                                                id="fileInput_file_pr_manufaktur_form" style="display: none;">
+                                                <button type="button" onclick="openFileInput('file_pr_manufaktur_form')"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md">
+                                                    + Tambah dokumen
+                                                </button>
                                                 @endif
                                             </td>
                                             <input type="text" hidden name="as_up_pr_manufaktur_form"
@@ -910,7 +957,7 @@
 
                                             </td>
                                             <td class="text-center">{{ $spt->date_pr_per_form }}</td>
-                                            <td class="space-y-2 py-3 px-2">
+                                            <td class="">
                                                 @if ($spt->file_pr_per_form != '')
                                                     <div class="justify-center flex space-x-2">
                                                         <button type="button"
@@ -930,7 +977,12 @@
                                                         </button>
                                                     </div>
                                                 @else
-                                                    <input type="file" accept=".docx, .xlsx, .dwg, .txt" name="as_file_pr_per_form" id="">
+                                                <input type="file" accept=".docx, .xlsx, .dwg" name="as_file_per_form"
+                                                id="fileInput_file_per_form" style="display: none;">
+                                                <button type="button" onclick="openFileInput('file_per_form')"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md">
+                                                    + Tambah dokumen
+                                                </button>
                                                 @endif
                                             </td>
                                             <input type="text" hidden name="as_up_pr_per_form"
@@ -976,7 +1028,7 @@
 
                                             </td>
                                             <td class="text-center">{{ $spt->date_pr_rfq_form }}</td>
-                                            <td class="space-y-2 py-3 px-2">
+                                            <td class="">
                                                 @if ($spt->file_pr_rfq_form != '')
                                                     <div class="justify-center flex space-x-2">
                                                         <button type="button"
@@ -996,7 +1048,12 @@
                                                         </button>
                                                     </div>
                                                 @else
-                                                    <input type="file" accept=".docx, .xlsx, .dwg, .txt" name="as_file_pr_rfq_form" id="">
+                                                <input type="file" accept=".docx, .xlsx, .dwg" name="as_file_rfq_form"
+                                                id="fileInput_file_rfq_form" style="display: none;">
+                                                <button type="button" onclick="openFileInput('file_rfq_form')"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md">
+                                                    + Tambah dokumen
+                                                </button>
                                                 @endif
                                             </td>
                                             <input type="text" hidden name="as_up_pr_rfq_form"
@@ -1022,9 +1079,9 @@
                                     <thead class="bg-gray-300 text-gray-700">
                                         <th class="py-2 w-[15%] font-medium">Kategori Formulir</th>
                                         <th class="w-[45%] font-medium">Nama File</th>
-                                        <th class="w-[10%] font-medium">Uploaded by</th>
-                                        <th class="w-[10%] font-medium">Last Update</th>
-                                        <th class="w-[10%] font-medium">Upload</th>
+                                        <th class="w-[10%] font-medium">Diunggah oleh</th>
+                                        <th class="w-[10%] font-medium">Terakhir diubah</th>
+                                        <th class="w-[15%] font-medium">Aksi</th>
                                     </thead>
                                     <tbody class="text-left">
                                         {{-- 1 --}}
@@ -1065,7 +1122,7 @@
 
                                             </td>
                                             <td class="text-center">{{ $spt->date_mn_ir_form }}</td>
-                                            <td class="space-y-2 py-3 px-2">
+                                            <td class="">
                                                 @if ($spt->file_mn_ir_form != '')
                                                     <div class="justify-center flex space-x-2">
                                                         <button type="button"
@@ -1085,7 +1142,12 @@
                                                         </button>
                                                     </div>
                                                 @else
-                                                    <input type="file" accept=".docx, .xlsx, .dwg, .txt" name="as_file_mn_ir_form" id="">
+                                                <input type="file" accept=".docx, .xlsx, .dwg" name="as_file_mn_ir_form"
+                                                id="fileInput_file_mn_ir_form" style="display: none;">
+                                                <button type="button" onclick="openFileInput('file_mn_ir_form')"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md">
+                                                    + Tambah dokumen
+                                                </button>
                                                 @endif
                                             </td>
                                             <input type="text" hidden name="as_up_mn_ir_form"
@@ -1110,9 +1172,9 @@
                                     <thead class="bg-gray-300 text-gray-700">
                                         <th class="py-2 w-[15%] font-medium">Kategori Formulir</th>
                                         <th class="w-[45%] font-medium">Nama File</th>
-                                        <th class="w-[10%] font-medium">Uploaded by</th>
-                                        <th class="w-[10%] font-medium">Last Update</th>
-                                        <th class="w-[10%] font-medium">Upload</th>
+                                        <th class="w-[10%] font-medium">Diunggah oleh</th>
+                                        <th class="w-[10%] font-medium">Terakhir diubah</th>
+                                        <th class="w-[15%] font-medium">Aksi</th>
                                     </thead>
                                     <tbody class="text-left">
                                         {{-- 1 --}}
@@ -1153,7 +1215,7 @@
 
                                             </td>
                                             <td class="text-center">{{ $spt->date_ipo_form }}</td>
-                                            <td class="space-y-2 py-3 px-2">
+                                            <td class="">
                                                 @if ($spt->file_ipo_form != '')
                                                     <div class="justify-center flex space-x-2">
                                                         <button type="button"
@@ -1173,7 +1235,12 @@
                                                         </button>
                                                     </div>
                                                 @else
-                                                    <input type="file" accept=".docx, .xlsx, .dwg, .txt" name="as_file_ipo_form" id="">
+                                                <input type="file" accept=".docx, .xlsx, .dwg" name="as_file_ipo_form"
+                                                id="fileInput_file_ipo_form" style="display: none;">
+                                                <button type="button" onclick="openFileInput('file_ipo_form')"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md">
+                                                    + Tambah dokumen
+                                                </button>
                                                 @endif
                                             </td>
                                             <input type="text" hidden name="as_up_ipo_form"
@@ -1219,7 +1286,7 @@
 
                                             </td>
                                             <td class="text-center">{{ $spt->date_ecr_form }}</td>
-                                            <td class="space-y-2 py-3 px-2">
+                                            <td class="">
                                                 @if ($spt->file_ecr_form != '')
                                                     <div class="justify-center flex space-x-2">
                                                         <button type="button"
@@ -1239,7 +1306,12 @@
                                                         </button>
                                                     </div>
                                                 @else
-                                                    <input type="file" accept=".docx, .xlsx, .dwg, .txt" name="as_file_ecr_form" id="">
+                                                <input type="file" accept=".docx, .xlsx, .dwg" name="as_file_ecr_form"
+                                                id="fileInput_file_ecr_form" style="display: none;">
+                                                <button type="button" onclick="openFileInput('file_ecr_form')"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md">
+                                                    + Tambah dokumen
+                                                </button>
                                                 @endif
                                             </td>
                                             <input type="text" hidden name="as_up_ecr_form"
@@ -1285,7 +1357,7 @@
 
                                             </td>
                                             <td class="text-center">{{ $spt->date_sc_form }}</td>
-                                            <td class="space-y-2 py-3 px-2">
+                                            <td class="">
                                                 @if ($spt->file_sc_form != '')
                                                     <div class="justify-center flex space-x-2">
                                                         <button type="button"
@@ -1305,7 +1377,12 @@
                                                         </button>
                                                     </div>
                                                 @else
-                                                    <input type="file" accept=".docx, .xlsx, .dwg, .txt" name="as_file_sc_form" id="">
+                                                <input type="file" accept=".docx, .xlsx, .dwg" name="as_file_sc_form"
+                                                id="fileInput_file_sc_form" style="display: none;">
+                                                <button type="button" onclick="openFileInput('file_sc_form')"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md">
+                                                    + Tambah dokumen
+                                                </button>
                                                 @endif
                                             </td>
                                             <input type="text" hidden name="as_up_sc_form"
@@ -1350,7 +1427,7 @@
                                                 @endif
                                             </td>
                                             <td class="text-center">{{ $spt->date_sccs_form }}</td>
-                                            <td class="space-y-2 py-3 px-2">
+                                            <td class="">
                                                 @if ($spt->file_sccs_form != '')
                                                     <div class="justify-center flex space-x-2">
                                                         <button type="button"
@@ -1370,7 +1447,12 @@
                                                         </button>
                                                     </div>
                                                 @else
-                                                    <input type="file" accept=".docx, .xlsx, .dwg, .txt" name="as_file_sccs_form" id="">
+                                                <input type="file" accept=".docx, .xlsx, .dwg" name="as_file_sccs_form"
+                                                id="fileInput_file_sccs_form" style="display: none;">
+                                                <button type="button" onclick="openFileInput('file_sccs_form')"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md">
+                                                    + Tambah dokumen
+                                                </button>
                                                 @endif
                                             </td>
                                             <input type="text" hidden name="as_up_sccs_form"
@@ -1415,7 +1497,7 @@
                                                 @endif
                                             </td>
                                             <td class="text-center">{{ $spt->date_in_ir_form }}</td>
-                                            <td class="space-y-2 py-3 px-2">
+                                            <td class="">
                                                 @if ($spt->file_in_ir_form != '')
                                                     <div class="justify-center flex space-x-2">
                                                         <button type="button"
@@ -1435,7 +1517,12 @@
                                                         </button>
                                                     </div>
                                                 @else
-                                                    <input type="file" accept=".docx, .xlsx, .dwg, .txt" name="as_file_in_ir_form" id="">
+                                                <input type="file" accept=".docx, .xlsx, .dwg" name="as_file_in_ir_form"
+                                                id="fileInput_file_in_ir_form" style="display: none;">
+                                                <button type="button" onclick="openFileInput('file_in_ir_form')"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md">
+                                                    + Tambah dokumen
+                                                </button>
                                                 @endif
                                             </td>
                                             <input type="text" hidden name="as_up_in_ir_form"
@@ -1460,9 +1547,9 @@
                                     <thead class="bg-gray-300 text-gray-700">
                                         <th class="py-2 w-[15%] font-medium">Kategori Formulir</th>
                                         <th class="w-[45%] font-medium">Nama File</th>
-                                        <th class="w-[10%] font-medium">Uploaded by</th>
-                                        <th class="w-[10%] font-medium">Last Update</th>
-                                        <th class="w-[10%] font-medium">Upload</th>
+                                        <th class="w-[10%] font-medium">Diunggah oleh</th>
+                                        <th class="w-[10%] font-medium">Terakhir diubah</th>
+                                        <th class="w-[15%] font-medium">Aksi</th>
                                     </thead>
                                     <tbody class="text-left">
                                         {{-- 1 --}}
@@ -1503,7 +1590,7 @@
 
                                             </td>
                                             <td class="text-center">{{ $spt->date_iperiksam_form }}</td>
-                                            <td class="space-y-2 py-3 px-2">
+                                            <td class="">
                                                 @if ($spt->file_iperiksam_form != '')
                                                     <div class="justify-center flex space-x-2">
                                                         <button type="button"
@@ -1523,8 +1610,12 @@
                                                         </button>
                                                     </div>
                                                 @else
-                                                    <input type="file" accept=".docx, .xlsx, .dwg, .txt" name="as_file_iperiksam_form"
-                                                        id="">
+                                                <input type="file" accept=".docx, .xlsx, .dwg" name="as_file_iperiksam_form"
+                                                id="fileInput_file_iperiksam_form" style="display: none;">
+                                                <button type="button" onclick="openFileInput('file_iperiksam_form')"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md">
+                                                    + Tambah dokumen
+                                                </button>
                                                 @endif
                                             </td>
                                             <input type="text" hidden name="as_up_iperiksam_form"
@@ -1569,7 +1660,7 @@
                                                 @endif
                                             </td>
                                             <td class="text-center">{{ $spt->date_qas_form }}</td>
-                                            <td class="space-y-2 py-3 px-2">
+                                            <td class="">
                                                 @if ($spt->file_qas_form != '')
                                                     <div class="justify-center flex space-x-2">
                                                         <button type="button"
@@ -1589,7 +1680,12 @@
                                                         </button>
                                                     </div>
                                                 @else
-                                                    <input type="file" accept=".docx, .xlsx, .dwg, .txt" name="as_file_qas_form" id="">
+                                                <input type="file" accept=".docx, .xlsx, .dwg" name="as_file_qas_form"
+                                                id="fileInput_file_qas_form" style="display: none;">
+                                                <button type="button" onclick="openFileInput('file_qas_form')"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md">
+                                                    + Tambah dokumen
+                                                </button>
                                                 @endif
                                             </td>
                                             <input type="text" hidden name="as_up_qas_form"
@@ -1635,7 +1731,7 @@
 
                                             </td>
                                             <td class="text-center">{{ $spt->date_ipakaim_form }}</td>
-                                            <td class="space-y-2 py-3 px-2">
+                                            <td class="">
                                                 @if ($spt->file_ipakaim_form != '')
                                                     <div class="justify-center flex space-x-2">
                                                         <button type="button"
@@ -1655,8 +1751,12 @@
                                                         </button>
                                                     </div>
                                                 @else
-                                                    <input type="file" accept=".docx, .xlsx, .dwg, .txt" name="as_file_ipakaim_form"
-                                                        id="">
+                                                <input type="file" accept=".docx, .xlsx, .dwg" name="as_file_ipakaim_form"
+                                                id="fileInput_file_ipakaim_form" style="display: none;">
+                                                <button type="button" onclick="openFileInput('file_ipakaim_form')"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md">
+                                                    + Tambah dokumen
+                                                </button>
                                                 @endif
 
                                             </td>
@@ -1703,7 +1803,7 @@
 
                                             </td>
                                             <td class="text-center">{{ $spt->date_training_form }}</td>
-                                            <td class="space-y-2 py-3 px-2">
+                                            <td class="">
                                                 @if ($spt->file_training_form != '')
                                                     <div class="justify-center flex space-x-2">
                                                         <button type="button"
@@ -1723,8 +1823,12 @@
                                                         </button>
                                                     </div>
                                                 @else
-                                                    <input type="file" accept=".docx, .xlsx, .dwg, .txt" name="as_file_training_form"
-                                                        id="">
+                                                <input type="file" accept=".docx, .xlsx, .dwg" name="as_file_training_form"
+                                                id="fileInput_file_training_form" style="display: none;">
+                                                <button type="button" onclick="openFileInput('file_training_form')"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md">
+                                                    + Tambah dokumen
+                                                </button>
                                                 @endif
                                             </td>
                                             <input type="text" hidden name="as_up_training_form"
@@ -1770,7 +1874,7 @@
 
                                             </td>
                                             <td class="text-center">{{ $spt->date_lup_form }}</td>
-                                            <td class="space-y-2 py-3 px-2">
+                                            <td class="">
                                                 @if ($spt->file_lup_form != '')
                                                     <div class="justify-center flex space-x-2">
                                                         <button type="button"
@@ -1790,7 +1894,12 @@
                                                         </button>
                                                     </div>
                                                 @else
-                                                    <input type="file" accept=".docx, .xlsx, .dwg, .txt" name="as_file_lup_form" id="">
+                                                <input type="file" accept=".docx, .xlsx, .dwg" name="as_file_lup_form"
+                                                id="fileInput_file_lup_form" style="display: none;">
+                                                <button type="button" onclick="openFileInput('file_lup_form')"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md">
+                                                    + Tambah dokumen
+                                                </button>
                                                 @endif
                                             </td>
                                             <input type="text" hidden name="as_up_lup_form"
@@ -1836,7 +1945,7 @@
 
                                             </td>
                                             <td class="text-center">{{ $spt->date_camb_form }}</td>
-                                            <td class="space-y-2 py-3 px-2">
+                                            <td class="">
                                                 @if ($spt->file_camb_form != '')
                                                     <div class="justify-center flex space-x-2">
                                                         <button type="button"
@@ -1856,7 +1965,12 @@
                                                         </button>
                                                     </div>
                                                 @else
-                                                    <input type="file" accept=".docx, .xlsx, .dwg, .txt" name="as_file_camb_form" id="">
+                                                <input type="file" accept=".docx, .xlsx, .dwg" name="as_file_camb_form"
+                                                id="fileInput_file_camb_form" style="display: none;">
+                                                <button type="button" onclick="openFileInput('file_camb_form')"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md">
+                                                    + Tambah dokumen
+                                                </button>
                                                 @endif
                                             </td>
                                             <input type="text" hidden name="as_up_camb_form"
@@ -1901,7 +2015,7 @@
                                                 @endif
                                             </td>
                                             <td class="text-center">{{ $spt->date_cl_im_form }}</td>
-                                            <td class="space-y-2 py-3 px-2">
+                                            <td class="">
                                                 @if ($spt->file_cl_im_form != '')
                                                     <div class="justify-center flex space-x-2">
                                                         <button type="button"
@@ -1921,8 +2035,12 @@
                                                         </button>
                                                     </div>
                                                 @else
-                                                    <input type="file" accept=".docx, .xlsx, .dwg, .txt" name="as_file_cl_im_form"
-                                                        id="">
+                                                <input type="file" accept=".docx, .xlsx, .dwg" name="as_file_cl_im_form"
+                                                id="fileInput_file_cl_im_form" style="display: none;">
+                                                <button type="button" onclick="openFileInput('file_cl_im_form')"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md">
+                                                    + Tambah dokumen
+                                                </button>
                                                 @endif
                                             </td>
                                             <input type="text" hidden name="as_up_cl_im_form"
@@ -1967,7 +2085,7 @@
                                                 @endif
                                             </td>
                                             <td class="text-center">{{ $spt->date_chor_form }}</td>
-                                            <td class="space-y-2 py-3 px-2">
+                                            <td class="">
                                                 @if ($spt->file_chor_form != '')
                                                     <div class="justify-center flex space-x-2">
                                                         <button type="button"
@@ -1987,7 +2105,12 @@
                                                         </button>
                                                     </div>
                                                 @else
-                                                    <input type="file" accept=".docx, .xlsx, .dwg, .txt" name="as_file_chor_form" id="">
+                                                <input type="file" accept=".docx, .xlsx, .dwg" name="as_file_chor_form"
+                                                id="fileInput_file_chor_form" style="display: none;">
+                                                <button type="button" onclick="openFileInput('file_chor_form')"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md">
+                                                    + Tambah dokumen
+                                                </button>
                                                 @endif
                                             </td>
                                             <input type="text" hidden name="as_up_chor_form"
@@ -2003,9 +2126,6 @@
                         </div>
                         {{-- akhir batas konten 6 --}}
                     </div>
-
-                    <button type="submit"
-                        class="bg-orange-500 w-full hover:bg-orange-600 text-white font-bold py-2 rounded-md shadow-md">Simpan perubahan</button>
                 @endforeach
             </form>
         </div>
@@ -2098,7 +2218,7 @@
                         </p>
                         <div class="items-center justify-center w-full border my-4">
                             @if ($spt->file_fr_sheet_form != '')
-                                <input type="file" required accept=".docx, .xlsx, .dwg, .txt" name="as_file_fr_sheet_form" id="">
+                                <input type="file" required accept=".docx, .xlsx, .dwg" name="as_file_fr_sheet_form" id="">
                                 <input type="text" hidden name="as_up_fr_sheet_form"
                                     value="{{ Auth::user()->first_name }}">
                                 <input type="date" hidden name="as_date_fr_sheet_form"
@@ -2169,7 +2289,7 @@
                             </p>
                             <div class="items-center justify-center w-full border my-4">
                                 @if ($spt->{'file_' . $word . '_form'} != '')
-                                    <input type="file" required accept=".docx, .xlsx, .dwg, .txt" name="as_file_{{ $word }}_form"
+                                    <input type="file" required accept=".docx, .xlsx, .dwg" name="as_file_{{ $word }}_form"
                                         id="">
                                     <input type="text" hidden name="as_up_{{ $word }}_form"
                                         value="{{ Auth::user()->first_name }}">
@@ -2241,7 +2361,7 @@
                             </p>
                             <div class="items-center justify-center w-full border my-4">
                                 @if ($spt->{'file_' . $word . '_form'} != '')
-                                    <input type="file" required accept=".docx, .xlsx, .dwg, .txt" name="as_file_{{ $word }}_form"
+                                    <input type="file" required accept=".docx, .xlsx, .dwg" name="as_file_{{ $word }}_form"
                                         id="">
                                     <input type="text" hidden name="as_up_{{ $word }}_form"
                                         value="{{ Auth::user()->first_name }}">
@@ -2309,7 +2429,7 @@
                         </p>
                         <div class="items-center justify-center w-full border my-4">
                             @if ($spt->file_fr_sheet_form != '')
-                                <input type="file" required accept=".docx, .xlsx, .dwg, .txt"name="as_file_mn_ir_form" id="">
+                                <input type="file" required accept=".docx, .xlsx, .dwg"name="as_file_mn_ir_form" id="">
                                 <input type="text" hidden name="as_up_mn_ir_form"
                                     value="{{ Auth::user()->first_name }}">
                                 <input type="date" hidden name="as_mn_ir_form" value="{{ date('Y-m-d') }}">
@@ -2380,7 +2500,7 @@
                             </p>
                             <div class="items-center justify-center w-full border my-4">
                                 @if ($spt->{'file_' . $word . '_form'} != '')
-                                    <input type="file" required accept=".docx, .xlsx, .dwg, .txt" name="as_file_{{ $word }}_form"
+                                    <input type="file" required accept=".docx, .xlsx, .dwg" name="as_file_{{ $word }}_form"
                                         id="">
                                     <input type="text" hidden name="as_up_{{ $word }}_form"
                                         value="{{ Auth::user()->first_name }}">
@@ -2452,7 +2572,7 @@
                             </p>
                             <div class="items-center justify-center w-full border my-4">
                                 @if ($spt->{'file_' . $word . '_form'} != '')
-                                    <input type="file" required accept=".docx, .xlsx, .dwg, .txt" name="as_file_{{ $word }}_form"
+                                    <input type="file" required accept=".docx, .xlsx, .dwg" name="as_file_{{ $word }}_form"
                                         id="">
                                     <input type="text" hidden name="as_up_{{ $word }}_form"
                                         value="{{ Auth::user()->first_name }}">
@@ -2608,6 +2728,21 @@
                 which: 27,
             });
             document.dispatchEvent(escapeEvent);
+        }
+
+        function openFileInput(namaVariabel) {
+            // Temukan elemen file input berdasarkan nama variabel
+            const fileInput = document.getElementById('fileInput_' + namaVariabel);
+            // Klik pada elemen file input
+            fileInput.click();
+            // Tambahkan event listener untuk menangani perubahan file
+            fileInput.addEventListener('change', function(event) {
+                const selectedFile = event.target.files[0];
+                console.log('File yang dipilih untuk ' + namaVariabel + ':', selectedFile.name);
+
+                // Sekarang, kirim formulir
+                document.getElementById('uploadForm').submit();
+            });
         }
     </script>
 </div>

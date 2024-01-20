@@ -122,168 +122,64 @@
                 <div class="mt-3">
                     <hr class="mb-2 w-full border">
                     {{-- progress bar --}}
-                    @if ($viewdataproject->progress == 'Not Started')
-                        <div class="w-full bg-gray-200 rounded-full my-2 text-sm font-medium text-black text-center"
-                            data-popover-target="popover-0" data-popover-placement="bottom">
-                            <p class="">0%</p>
-                            <div class="bg-orange-500  text-sm font-medium text-blue-100 text-center leading-none rounded-lg hover:cursor-default"
-                                style="width: 0%">
-                            </div>
-                        </div>
-                    @elseif ($viewdataproject->progress == 'Waiting Approval Fund Request')
-                        <div class="w-full bg-gray-200 rounded-full my-2 text-sm font-medium text-black text-center"
-                            data-popover-target="popover-0" data-popover-placement="bottom">
-                            <p class="">0%</p>
-                            <div class="bg-orange-500  text-sm font-medium text-blue-100 text-center leading-none rounded-lg hover:cursor-default"
-                                style="width: 0%">
-                            </div>
-                        </div>
-                    @elseif ($viewdataproject->progress == 'Fund Request')
-                        <div class="w-full bg-gray-200 rounded-full my-2">
-                            <div class="bg-orange-500  text-sm font-medium text-blue-100 text-center leading-none rounded-lg hover:cursor-default"
-                                data-popover-target="popover-2" data-popover-placement="bottom" style="width: 5%">
-                                <p>05%</p>
+                    @php
+                        $totalStages = 9;
+                        $completedStages = 0;
 
-                            </div>
-                        </div>
-                    @elseif ($viewdataproject->progress == 'Waiting Approval Arrangement')
-                        <div class="w-full bg-gray-200 rounded-full my-2">
-                            <div class="bg-orange-500  text-sm font-medium text-blue-100 text-center leading-none rounded-lg hover:cursor-default"
-                                data-popover-target="popover-3" data-popover-placement="bottom" style="width: 05%">
-                                <p>05%</p>
+                        $statuses = [
+                            $koneksifr->status_fr,
+                            $koneksiar->status_ar,
+                            $koneksipr->status_pr_01,
+                            $koneksipa->status_pa_02,
+                            $koneksipo->status_po_03,
+                            $koneksipay->status_pay_04,
+                            $koneksimn->status_mn,
+                            $koneksiin->status_in,
+                            $koneksicl->status_cl,
+                        ];
 
-                            </div>
-                        </div>
-                    @elseif ($viewdataproject->progress == 'Arrangement')
-                        <div class="w-full bg-gray-200 rounded-full my-2">
-                            <div class="bg-orange-500  text-sm font-medium text-blue-100 text-center leading-none rounded-lg hover:cursor-default"
-                                data-popover-target="popover-4" data-popover-placement="bottom" style="width: 10%">
-                                <p>10%</p>
+                        foreach ($statuses as $status) {
+                            if ($status == 'Complete') {
+                                $completedStages++;
+                            }
+                        }
 
-                            </div>
-                        </div>
-                    @elseif ($viewdataproject->progress == 'Waiting Approval Purchasing - PR')
-                        <div class="w-full bg-gray-200 rounded-full my-2">
-                            <div class="bg-orange-500  text-sm font-medium text-blue-100 text-center leading-none rounded-lg hover:cursor-default"
-                                data-popover-target="popover-5" data-popover-placement="bottom" style="width: 10%">
-                                <p>10%</p>
+                        $purchasingPercentage = 70;
+                        $otherStagesPercentage = 30;
 
-                            </div>
-                        </div>
-                    @elseif ($viewdataproject->progress == 'Purchasing - PR')
-                        <div class="w-full bg-gray-200 rounded-full my-2">
-                            <div class="bg-orange-500  text-sm font-medium text-blue-100 text-center leading-none rounded-lg hover:cursor-default"
-                                data-popover-target="popover-6" data-popover-placement="bottom" style="width: 15%">
-                                <p>15%</p>
+                        $overallProgress = ceil(($completedStages / $totalStages) * ($purchasingPercentage + $otherStagesPercentage));
 
-                            </div>
-                        </div>
-                    @elseif ($viewdataproject->progress == 'Waiting Approval Purchasing - PA')
-                        <div class="w-full bg-gray-200 rounded-full my-2">
-                            <div class="bg-orange-500  text-sm font-medium text-blue-100 text-center leading-none rounded-lg hover:cursor-default"
-                                data-popover-target="popover-7" data-popover-placement="bottom" style="width: 15%">
-                                <p>15%</p>
+                        // Menetapkan warna berdasarkan persentase
+                        $barColor = 'bg-red-500';
 
-                            </div>
-                        </div>
-                    @elseif ($viewdataproject->progress == 'Purchasing - PA')
-                        <div class="w-full bg-gray-200 rounded-full my-2">
-                            <div class="bg-orange-500  text-sm font-medium text-blue-100 text-center leading-none rounded-lg hover:cursor-default"
-                                data-popover-target="popover-8" data-popover-placement="bottom" style="width: 20%">
-                                <p>20%</p>
+                        if ($overallProgress > 15) {
+                            $barColor = 'bg-orange-500';
+                        }
 
-                            </div>
-                        </div>
-                    @elseif ($viewdataproject->progress == 'Waiting Approval Purchasing - PO')
-                        <div class="w-full bg-gray-200 rounded-full my-2">
-                            <div class="bg-orange-500  text-sm font-medium text-blue-100 text-center leading-none rounded-lg hover:cursor-default"
-                                data-popover-target="popover-9" data-popover-placement="bottom" style="width: 20%">
-                                <p>20%</p>
+                        if ($overallProgress > 30) {
+                            $barColor = 'bg-yellow-500';
+                        }
 
-                            </div>
-                        </div>
-                    @elseif ($viewdataproject->progress == 'Purchasing - PO')
-                        <div class="w-full bg-gray-200 rounded-full my-2">
-                            <div class="bg-orange-500  text-sm font-medium text-blue-100 text-center leading-none rounded-lg hover:cursor-default"
-                                data-popover-target="popover-10" data-popover-placement="bottom" style="width: 25%">
-                                <p>25%</p>
+                        if ($overallProgress > 50) {
+                            $barColor = 'bg-blue-500';
+                        }
 
-                            </div>
-                        </div>
-                    @elseif ($viewdataproject->progress == 'Waiting Approval Purchasing - PAY')
-                        <div class="w-full bg-gray-200 rounded-full my-2">
-                            <div class="bg-orange-500  text-sm font-medium text-blue-100 text-center leading-none rounded-lg hover:cursor-default"
-                                data-popover-target="popover-11" data-popover-placement="bottom" style="width: 25%">
-                                <p>25%</p>
+                        if ($overallProgress > 70) {
+                            $barColor = 'bg-green-500';
+                        }
 
-                            </div>
-                        </div>
-                    @elseif ($viewdataproject->progress == 'Purchasing - PAY')
-                        <div class="w-full bg-gray-200 rounded-full my-2">
-                            <div class="bg-orange-500  text-sm font-medium text-blue-100 text-center leading-none rounded-lg hover:cursor-default"
-                                data-popover-target="popover-12" data-popover-placement="bottom" style="width: 30%">
-                                <p>30%</p>
+                        if ($overallProgress > 85) {
+                            $barColor = 'bg-green-700';
+                        }
+                    @endphp
 
-                            </div>
+                    <div class="w-full bg-gray-200 rounded-full my-2">
+                        <div class="text-sm font-medium text-white text-center leading-none rounded-lg hover:cursor-default relative transition-all duration-500
+                            {{ $barColor }}"
+                            style="width: {{ $overallProgress }}%;">
+                            <p class="text-sm">{{ $overallProgress }}%</p>
                         </div>
-                    @elseif ($viewdataproject->progress == 'Purchasing')
-                        <div class="w-full bg-gray-200 rounded-full my-2">
-                            <div class="bg-orange-500  text-sm font-medium text-blue-100 text-center leading-none rounded-lg hover:cursor-default"
-                                data-popover-target="popover-13" data-popover-placement="bottom" style="width: 30%">
-                                <p>30%</p>
-
-                            </div>
-                        </div>
-                    @elseif ($viewdataproject->progress == 'Waiting Approval Manufacturing')
-                        <div class="w-full bg-gray-200 rounded-full my-2">
-                            <div class="bg-orange-500  text-sm font-medium text-blue-100 text-center leading-none rounded-lg hover:cursor-default"
-                                data-popover-target="popover-14" data-popover-placement="bottom" style="width: 30%">
-                                <p>30%</p>
-
-                            </div>
-                        </div>
-                    @elseif ($viewdataproject->progress == 'Manufacturing')
-                        <div class="w-full bg-gray-200 rounded-full my-2">
-                            <div class="bg-orange-500  text-sm font-medium text-blue-100 text-center leading-none rounded-lg hover:cursor-default"
-                                data-popover-target="popover-15" data-popover-placement="bottom" style="width: 60%">
-                                <p>60%</p>
-
-                            </div>
-                        </div>
-                    @elseif ($viewdataproject->progress == 'Waiting Approval Installation')
-                        <div class="w-full bg-gray-200 rounded-full my-2">
-                            <div class="bg-orange-500  text-sm font-medium text-blue-100 text-center leading-none rounded-lg hover:cursor-default"
-                                data-popover-target="popover-16" data-popover-placement="bottom" style="width: 60%">
-                                <p>60%</p>
-
-                            </div>
-                        </div>
-                    @elseif ($viewdataproject->progress == 'Installation')
-                        <div class="w-full bg-gray-200 rounded-full my-2">
-                            <div class="bg-orange-500  text-sm font-medium text-blue-100 text-center leading-none rounded-lg hover:cursor-default"
-                                data-popover-target="popover-17" data-popover-placement="bottom" style="width: 95%">
-                                <p>95%</p>
-
-                            </div>
-                        </div>
-                    @elseif ($viewdataproject->progress == 'Waiting Approval Closed')
-                        <div class="w-full bg-gray-200 rounded-full my-2">
-                            <div class="bg-orange-500  text-sm font-medium text-blue-100 text-center leading-none rounded-lg hover:cursor-default"
-                                data-popover-target="popover-18" data-popover-placement="bottom" style="width: 95%">
-                                <p>95%</p>
-
-                            </div>
-                        </div>
-                    @elseif ($viewdataproject->progress == 'Closed')
-                        <div class="w-full bg-gray-200 rounded-full my-2">
-                            <div class="bg-orange-500  text-sm font-medium text-blue-100 text-center leading-none rounded-lg hover:cursor-default"
-                                data-popover-target="popover-19" data-popover-placement="bottom" style="width: 100%">
-                                <p>100%</p>
-
-                            </div>
-                        </div>
-                    @endif
-
+                    </div>
                     {{-- akhir bar --}}
 
                     {{-- status --}}
@@ -591,6 +487,7 @@
             $koneksipr->status_pr_01 != 'Complete' ||
             $koneksipa->status_pa_02 != 'Complete' ||
             $koneksipo->status_po_03 != 'Complete' ||
+            $koneksimn->status_mn != 'Complete' ||
             $koneksimn->status_mn != 'Complete')
         <p class="bg-gray-600 uppercase p-3 mt-2 text-center font-bold text-white">Tahapan sebelumnya belum
             disetujui</p>

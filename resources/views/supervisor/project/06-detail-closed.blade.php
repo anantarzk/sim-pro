@@ -119,171 +119,66 @@
 
                 {{-- div row status --}}
                 <div class="mt-3">
-                    <hr class="mb-2 w-full border">
-                    {{-- progress bar --}}
-                    @if ($viewdataproject->progress == 'Not Started')
-                        <div class="w-full bg-gray-200 rounded-full my-2 text-sm font-medium text-black text-center"
-                            data-popover-target="popover-0" data-popover-placement="bottom">
-                            <p class="">0%</p>
-                            <div class="bg-orange-500  text-sm font-medium text-blue-100 text-center leading-none rounded-lg hover:cursor-default"
-                                style="width: 0%">
-                            </div>
-                        </div>
-                    @elseif ($viewdataproject->progress == 'Waiting Approval Fund Request')
-                        <div class="w-full bg-gray-200 rounded-full my-2 text-sm font-medium text-black text-center"
-                            data-popover-target="popover-0" data-popover-placement="bottom">
-                            <p class="">0%</p>
-                            <div class="bg-orange-500  text-sm font-medium text-blue-100 text-center leading-none rounded-lg hover:cursor-default"
-                                style="width: 0%">
-                            </div>
-                        </div>
-                    @elseif ($viewdataproject->progress == 'Fund Request')
-                        <div class="w-full bg-gray-200 rounded-full my-2">
-                            <div class="bg-orange-500  text-sm font-medium text-blue-100 text-center leading-none rounded-lg hover:cursor-default"
-                                data-popover-target="popover-2" data-popover-placement="bottom" style="width: 5%">
-                                <p>05%</p>
+                {{-- progress bar --}}
+                @php
+                    $totalStages = 9;
+                    $completedStages = 0;
 
-                            </div>
-                        </div>
-                    @elseif ($viewdataproject->progress == 'Waiting Approval Arrangement')
-                        <div class="w-full bg-gray-200 rounded-full my-2">
-                            <div class="bg-orange-500  text-sm font-medium text-blue-100 text-center leading-none rounded-lg hover:cursor-default"
-                                data-popover-target="popover-3" data-popover-placement="bottom" style="width: 05%">
-                                <p>05%</p>
+                    $statuses = [
+                        $koneksifr->status_fr,
+                        $koneksiar->status_ar,
+                        $koneksipr->status_pr_01,
+                        $koneksipa->status_pa_02,
+                        $koneksipo->status_po_03,
+                        $koneksipay->status_pay_04,
+                        $koneksimn->status_mn,
+                        $koneksiin->status_in,
+                        $koneksicl->status_cl,
+                    ];
 
-                            </div>
-                        </div>
-                    @elseif ($viewdataproject->progress == 'Arrangement')
-                        <div class="w-full bg-gray-200 rounded-full my-2">
-                            <div class="bg-orange-500  text-sm font-medium text-blue-100 text-center leading-none rounded-lg hover:cursor-default"
-                                data-popover-target="popover-4" data-popover-placement="bottom" style="width: 10%">
-                                <p>10%</p>
+                    foreach ($statuses as $status) {
+                        if ($status == 'Complete') {
+                            $completedStages++;
+                        }
+                    }
 
-                            </div>
-                        </div>
-                    @elseif ($viewdataproject->progress == 'Waiting Approval Purchasing - PR')
-                        <div class="w-full bg-gray-200 rounded-full my-2">
-                            <div class="bg-orange-500  text-sm font-medium text-blue-100 text-center leading-none rounded-lg hover:cursor-default"
-                                data-popover-target="popover-5" data-popover-placement="bottom" style="width: 10%">
-                                <p>10%</p>
+                    $purchasingPercentage = 70;
+                    $otherStagesPercentage = 30;
 
-                            </div>
-                        </div>
-                    @elseif ($viewdataproject->progress == 'Purchasing - PR')
-                        <div class="w-full bg-gray-200 rounded-full my-2">
-                            <div class="bg-orange-500  text-sm font-medium text-blue-100 text-center leading-none rounded-lg hover:cursor-default"
-                                data-popover-target="popover-6" data-popover-placement="bottom" style="width: 15%">
-                                <p>15%</p>
+                    $overallProgress = ceil(($completedStages / $totalStages) * ($purchasingPercentage + $otherStagesPercentage));
 
-                            </div>
-                        </div>
-                    @elseif ($viewdataproject->progress == 'Waiting Approval Purchasing - PA')
-                        <div class="w-full bg-gray-200 rounded-full my-2">
-                            <div class="bg-orange-500  text-sm font-medium text-blue-100 text-center leading-none rounded-lg hover:cursor-default"
-                                data-popover-target="popover-7" data-popover-placement="bottom" style="width: 15%">
-                                <p>15%</p>
+                    // Menetapkan warna berdasarkan persentase
+                    $barColor = 'bg-red-500';
 
-                            </div>
-                        </div>
-                    @elseif ($viewdataproject->progress == 'Purchasing - PA')
-                        <div class="w-full bg-gray-200 rounded-full my-2">
-                            <div class="bg-orange-500  text-sm font-medium text-blue-100 text-center leading-none rounded-lg hover:cursor-default"
-                                data-popover-target="popover-8" data-popover-placement="bottom" style="width: 20%">
-                                <p>20%</p>
+                    if ($overallProgress > 15) {
+                        $barColor = 'bg-orange-500';
+                    }
 
-                            </div>
-                        </div>
-                    @elseif ($viewdataproject->progress == 'Waiting Approval Purchasing - PO')
-                        <div class="w-full bg-gray-200 rounded-full my-2">
-                            <div class="bg-orange-500  text-sm font-medium text-blue-100 text-center leading-none rounded-lg hover:cursor-default"
-                                data-popover-target="popover-9" data-popover-placement="bottom" style="width: 20%">
-                                <p>20%</p>
+                    if ($overallProgress > 30) {
+                        $barColor = 'bg-yellow-500';
+                    }
 
-                            </div>
-                        </div>
-                    @elseif ($viewdataproject->progress == 'Purchasing - PO')
-                        <div class="w-full bg-gray-200 rounded-full my-2">
-                            <div class="bg-orange-500  text-sm font-medium text-blue-100 text-center leading-none rounded-lg hover:cursor-default"
-                                data-popover-target="popover-10" data-popover-placement="bottom" style="width: 25%">
-                                <p>25%</p>
+                    if ($overallProgress > 50) {
+                        $barColor = 'bg-blue-500';
+                    }
 
-                            </div>
-                        </div>
-                    @elseif ($viewdataproject->progress == 'Waiting Approval Purchasing - PAY')
-                        <div class="w-full bg-gray-200 rounded-full my-2">
-                            <div class="bg-orange-500  text-sm font-medium text-blue-100 text-center leading-none rounded-lg hover:cursor-default"
-                                data-popover-target="popover-11" data-popover-placement="bottom" style="width: 25%">
-                                <p>25%</p>
+                    if ($overallProgress > 70) {
+                        $barColor = 'bg-green-500';
+                    }
 
-                            </div>
-                        </div>
-                    @elseif ($viewdataproject->progress == 'Purchasing - PAY')
-                        <div class="w-full bg-gray-200 rounded-full my-2">
-                            <div class="bg-orange-500  text-sm font-medium text-blue-100 text-center leading-none rounded-lg hover:cursor-default"
-                                data-popover-target="popover-12" data-popover-placement="bottom" style="width: 30%">
-                                <p>30%</p>
+                    if ($overallProgress > 85) {
+                        $barColor = 'bg-green-700';
+                    }
+                @endphp
 
-                            </div>
-                        </div>
-                    @elseif ($viewdataproject->progress == 'Purchasing')
-                        <div class="w-full bg-gray-200 rounded-full my-2">
-                            <div class="bg-orange-500  text-sm font-medium text-blue-100 text-center leading-none rounded-lg hover:cursor-default"
-                                data-popover-target="popover-13" data-popover-placement="bottom" style="width: 30%">
-                                <p>30%</p>
-
-                            </div>
-                        </div>
-                    @elseif ($viewdataproject->progress == 'Waiting Approval Manufacturing')
-                        <div class="w-full bg-gray-200 rounded-full my-2">
-                            <div class="bg-orange-500  text-sm font-medium text-blue-100 text-center leading-none rounded-lg hover:cursor-default"
-                                data-popover-target="popover-14" data-popover-placement="bottom" style="width: 30%">
-                                <p>30%</p>
-
-                            </div>
-                        </div>
-                    @elseif ($viewdataproject->progress == 'Manufacturing')
-                        <div class="w-full bg-gray-200 rounded-full my-2">
-                            <div class="bg-orange-500  text-sm font-medium text-blue-100 text-center leading-none rounded-lg hover:cursor-default"
-                                data-popover-target="popover-15" data-popover-placement="bottom" style="width: 60%">
-                                <p>60%</p>
-
-                            </div>
-                        </div>
-                    @elseif ($viewdataproject->progress == 'Waiting Approval Installation')
-                        <div class="w-full bg-gray-200 rounded-full my-2">
-                            <div class="bg-orange-500  text-sm font-medium text-blue-100 text-center leading-none rounded-lg hover:cursor-default"
-                                data-popover-target="popover-16" data-popover-placement="bottom" style="width: 60%">
-                                <p>60%</p>
-
-                            </div>
-                        </div>
-                    @elseif ($viewdataproject->progress == 'Installation')
-                        <div class="w-full bg-gray-200 rounded-full my-2">
-                            <div class="bg-orange-500  text-sm font-medium text-blue-100 text-center leading-none rounded-lg hover:cursor-default"
-                                data-popover-target="popover-17" data-popover-placement="bottom" style="width: 95%">
-                                <p>95%</p>
-
-                            </div>
-                        </div>
-                    @elseif ($viewdataproject->progress == 'Waiting Approval Closed')
-                        <div class="w-full bg-gray-200 rounded-full my-2">
-                            <div class="bg-orange-500  text-sm font-medium text-blue-100 text-center leading-none rounded-lg hover:cursor-default"
-                                data-popover-target="popover-18" data-popover-placement="bottom" style="width: 95%">
-                                <p>95%</p>
-
-                            </div>
-                        </div>
-                    @elseif ($viewdataproject->progress == 'Closed')
-                        <div class="w-full bg-gray-200 rounded-full my-2">
-                            <div class="bg-orange-500  text-sm font-medium text-blue-100 text-center leading-none rounded-lg hover:cursor-default"
-                                data-popover-target="popover-19" data-popover-placement="bottom" style="width: 100%">
-                                <p>100%</p>
-
-                            </div>
-                        </div>
-                    @endif
-
-                    {{-- akhir bar --}}
+                <div class="w-full bg-gray-200 rounded-full my-2">
+                    <div class="text-sm font-medium text-white text-center leading-none rounded-lg hover:cursor-default relative transition-all duration-500
+                        {{ $barColor }}"
+                        style="width: {{ $overallProgress }}%;">
+                        <p class="text-sm">{{ $overallProgress }}%</p>
+                    </div>
+                </div>
+                {{-- akhir bar --}}
 
                     {{-- status --}}
                     <div class="flex justify-between">
@@ -487,7 +382,8 @@
                     <div class="absolute top-0 -ml-10 text-center mt-14 w-32 text-sm font-medium">
                         <a
                             href="/03-01-PR-purchasing-proyek/{{ $viewdataproject->id }}/{{ $koneksifr->id_fr_1 }}/{{ $koneksiar->id_ar_2 }}/{{ $koneksipr->id_pr_01_3 }}/{{ $koneksipa->id_pa_02_3 }}/{{ $koneksipo->id_po_03_3 }}/{{ $koneksipay->id_pay_04_3 }}/{{ $koneksimn->id_mn_4 }}/{{ $koneksiin->id_in_5 }}/{{ $koneksicl->id_cl_6 }}">
-                            <p class="font-semibold text-lg text-gray-900 hover:underline">Purchasing<span class="text-red-600">*</span>
+                            <p class="font-semibold text-lg text-gray-900 hover:underline">Purchasing<span
+                                    class="text-red-600">*</span>
                             </p>
                         </a>
                         <p class="uppercase text-xs">{{ $koneksipr->status_purchasing }}</p>
@@ -541,7 +437,8 @@
                     <div class="absolute top-0 -ml-10 text-center mt-14 w-32 text-sm font-medium">
                         <a
                             href="/05-installation-proyek/{{ $viewdataproject->id }}/{{ $koneksifr->id_fr_1 }}/{{ $koneksiar->id_ar_2 }}/{{ $koneksipr->id_pr_01_3 }}/{{ $koneksipa->id_pa_02_3 }}/{{ $koneksipo->id_po_03_3 }}/{{ $koneksipay->id_pay_04_3 }}/{{ $koneksimn->id_mn_4 }}/{{ $koneksiin->id_in_5 }}/{{ $koneksicl->id_cl_6 }}">
-                            <p class="font-semibold text-lg text-gray-900 hover:underline">Installation<span class="text-red-600">*</span>
+                            <p class="font-semibold text-lg text-gray-900 hover:underline">Installation<span
+                                    class="text-red-600">*</span>
                             </p>
                         </a>
                         <p class="uppercase text-xs">{{ $koneksiin->status_in }}</p>
@@ -568,7 +465,8 @@
                     <div class="absolute top-0 -ml-10 text-center mt-14 w-32 text-sm font-medium">
                         <a
                             href="/06-closed-proyek/{{ $viewdataproject->id }}/{{ $koneksifr->id_fr_1 }}/{{ $koneksiar->id_ar_2 }}/{{ $koneksipr->id_pr_01_3 }}/{{ $koneksipa->id_pa_02_3 }}/{{ $koneksipo->id_po_03_3 }}/{{ $koneksipay->id_pay_04_3 }}/{{ $koneksimn->id_mn_4 }}/{{ $koneksiin->id_in_5 }}/{{ $koneksicl->id_cl_6 }}">
-                            <p class="font-semibold text-lg text-gray-900 hover:underline">Handover<span class="text-red-600">*</span>
+                            <p class="font-semibold text-lg text-gray-900 hover:underline">Handover<span
+                                    class="text-red-600">*</span>
                             </p>
                         </a>
                         <p class="uppercase text-xs">{{ $koneksicl->status_cl }}</p>
@@ -590,7 +488,8 @@
             {{-- status approval row --}}
             <div class="flex">
                 <p>Diperiksa oleh: &nbsp;
-                <div class="items-center py-1 px-2 text-sm font-medium text-center text-white bg-orange-500 mr-2 rounded">
+                <div
+                    class="items-center py-1 px-2 text-sm font-medium text-center text-white bg-orange-500 mr-2 rounded">
                     {{ $koneksicl->approval_by }}
                 </div>
                 </p>
@@ -687,16 +586,18 @@
             {{-- atas form --}}
 
             <div class="w-full bg-white">
-                    {{-- Izin Pemeriksaan Mesin --}}
-                    {{-- awal standar formulir --}}
-                    <div class="flex justify-between">
-                        <p class="font-medium text-lg bg-gray-800 px-4 py-1 w-fit text-white mb-2 rounded"> Izin Pemeriksaan Mesin
+                {{-- Izin Pemeriksaan Mesin --}}
+                {{-- awal standar formulir --}}
+                <div class="flex justify-between">
+                    <p class="font-medium text-lg bg-gray-800 px-4 py-1 w-fit text-white mb-2 rounded"> Izin
+                        Pemeriksaan Mesin
                         @foreach ($standar_project as $spt)
                             @if ($spt->file_iperiksam_form != '')
                                 <div class="flex justify-end mr-1 mt-4">
                                     <a href="{{ asset('storage/supervisor/standarproject/' . $spt->file_iperiksam_form) }}"
                                         download="">
-                                        <div class="w-fit items-center space-x-1 flex fill-blue-600 hover:fill-blue-800">
+                                        <div
+                                            class="w-fit items-center space-x-1 flex fill-blue-600 hover:fill-blue-800">
                                             <svg width="15" height="" viewBox="0 0 52 52"
                                                 xmlns="http://www.w3.org/2000/svg">
                                                 <path
@@ -714,599 +615,590 @@
                             @endif
                         @endforeach
                         {{-- tombol form --}}
-                    </div>
-                    {{-- akhir standar formulir --}}
+                </div>
+                {{-- akhir standar formulir --}}
 
-                    <div class="overflow-x-auto rounded-md mb-5 border">
-                        <table class="w-full ">
-                            <thead class="bg-gray-300 text-gray-700 sticky top-0">
-                                <th class="py-2 w-[5%] font-medium">No.</th>
-                                <th class="w-[57%] font-medium">Nama File</th>
-                                <th class="w-[10%] font-medium">Uploaded by</th>
-                                <th class="w-[13%] font-medium">Last Update</th>
-                                <th class="w-[15%] font-medium">Aksi</th>
-                            </thead>
-                            <tbody class="text-left border">
-                                {{-- 1 --}}
-                                <tr
-                                    class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
-                                    <td class="py-4 font-bold text-center">1.</td>
-                                    <td class="flex justify-start py-4 items-center">
+                <div class="overflow-x-auto rounded-md mb-5 border">
+                    <table class="w-full ">
+                        <thead class="bg-gray-300 text-gray-700 sticky top-0">
+                            <th class="py-2 w-[5%] font-medium">No.</th>
+                            <th class="w-[57%] font-medium">Nama File</th>
+                            <th class="w-[10%] font-medium">Uploaded by</th>
+                            <th class="w-[13%] font-medium">Last Update</th>
+                            <th class="w-[15%] font-medium">Aksi</th>
+                        </thead>
+                        <tbody class="text-left border">
+                            {{-- 1 --}}
+                            <tr class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
+                                <td class="py-4 font-bold text-center">1.</td>
+                                <td class="flex justify-start py-4 items-center">
 
-                                        @if ($koneksicl->cl_i_periksa_m_1 != '')
-                                            <a href="{{ asset('storage/supervisor/project/06_CL/' . $koneksicl->cl_i_periksa_m_1) }}"
-                                                target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
-                                                <svg width="22" height="17" viewBox="0 0 22 17"
-                                                    fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                    <path
-                                                        d="M11 0C6 0 1.73 3.11 0 7.5C1.73 11.89 6 15 11 15C11.36 15 11.72 15 12.08 14.95C12.03 14.63 12 14.32 12 14C12 13.44 12.08 12.88 12.24 12.34C11.83 12.44 11.42 12.5 11 12.5C8.24 12.5 6 10.26 6 7.5C6 4.74 8.24 2.5 11 2.5C13.76 2.5 16 4.74 16 7.5C16 7.79 15.97 8.09 15.92 8.38C16.58 8.13 17.29 8 18 8C19.17 8 20.31 8.34 21.29 9C21.56 8.5 21.8 8 22 7.5C20.27 3.11 16 0 11 0ZM11 4.5C9.34 4.5 8 5.84 8 7.5C8 9.16 9.34 10.5 11 10.5C12.66 10.5 14 9.16 14 7.5C14 5.84 12.66 4.5 11 4.5ZM17 10.5V12.5H21V14.5H17V16.5L14 13.5L17 10.5Z"
-                                                        fill="black" />
-                                                </svg>
-                                            </a>
-
-                                            &emsp;
-                                        @endif
-                                        {{--  --}}
+                                    @if ($koneksicl->cl_i_periksa_m_1 != '')
                                         <a href="{{ asset('storage/supervisor/project/06_CL/' . $koneksicl->cl_i_periksa_m_1) }}"
-                                            target="blank" download="" class="hover:underline">
-                                            {{ $koneksicl->cl_i_periksa_m_1 }}</a>
-                                        {{-- == --}}
+                                            target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
+                                            <svg width="22" height="17" viewBox="0 0 22 17" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M11 0C6 0 1.73 3.11 0 7.5C1.73 11.89 6 15 11 15C11.36 15 11.72 15 12.08 14.95C12.03 14.63 12 14.32 12 14C12 13.44 12.08 12.88 12.24 12.34C11.83 12.44 11.42 12.5 11 12.5C8.24 12.5 6 10.26 6 7.5C6 4.74 8.24 2.5 11 2.5C13.76 2.5 16 4.74 16 7.5C16 7.79 15.97 8.09 15.92 8.38C16.58 8.13 17.29 8 18 8C19.17 8 20.31 8.34 21.29 9C21.56 8.5 21.8 8 22 7.5C20.27 3.11 16 0 11 0ZM11 4.5C9.34 4.5 8 5.84 8 7.5C8 9.16 9.34 10.5 11 10.5C12.66 10.5 14 9.16 14 7.5C14 5.84 12.66 4.5 11 4.5ZM17 10.5V12.5H21V14.5H17V16.5L14 13.5L17 10.5Z"
+                                                    fill="black" />
+                                            </svg>
+                                        </a>
 
-                                    </td>
-                                    <td>
-                                        @if ($koneksicl->up_by_i_periksa_m_cl_1 != '')
-                                            <div
-                                                class="items-center py-1 px-2 text-sm font-medium text-center text-white bg-orange-500 w-[100] mx-auto rounded">
-                                                {{ $koneksicl->up_by_i_periksa_m_cl_1 }}
-                                            </div>
-                                        @endif
-                                    </td>
-                                    <td class="text-center">{{ $koneksicl->date_cl_i_periksa_m_1 }}</td>
-                                    <td class="space-y-2 py-3 px-2">
-                                        @if (($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Closed') && $koneksicl->cl_i_periksa_m_1 == '')
-                                            <div class="justify-center flex space-x-2">
-                                                <input type="file" name="as_cl_i_periksa_m_1"
-                                                    id="fileInput_cl_i_periksa_m_1" style="display: none;">
-                                                <button type="button" onclick="openFileInput('cl_i_periksa_m_1')"
-                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md">
-                                                    + Tambah dokumen
-                                                </button>
-                                            </div>
-                                        @elseif (
-                                            ($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Closed') &&
-                                                $koneksicl->cl_i_periksa_m_1 != '' &&
-                                                $koneksicl->status_cl != 'Complete' &&
-                                                $koneksicl->status_cl != 'Waiting Approval')
-                                            <div class="justify-center flex space-x-2">
-                                                <button type="button"
-                                                    class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
-                                                    data-modal-target="modal11" data-modal-show="modal11"
-                                                    data-modal-toggle="modal11">
-                                                    Ubah
-                                                </button>
-                                                <button data-dropdown-toggle="dropdown1" type="button"
-                                                        class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
-                                                            width="22" fill="white" viewBox="0 0 48 48">
-                                                            <path
-                                                                d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
-                                                            </path>
-                                                        </svg>
-                                                    </button>
-                                            </div>
-                                        @endif
-                                    </td>
-                                    <input type="text" hidden name="as_up_by_i_periksa_m_cl_1"
-                                        value="{{ Auth::user()->first_name }}">
-                                    <input type="date" hidden name="as_date_cl_i_periksa_m_1"
-                                        value="{{ date('Y-m-d') }}">
+                                        &emsp;
+                                    @endif
+                                    {{--  --}}
+                                    <a href="{{ asset('storage/supervisor/project/06_CL/' . $koneksicl->cl_i_periksa_m_1) }}"
+                                        target="blank" download="" class="hover:underline">
+                                        {{ $koneksicl->cl_i_periksa_m_1 }}</a>
+                                    {{-- == --}}
 
-                                </tr>
-                                {{-- 2 --}}
-                                <tr
-                                    class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
-                                    <td class="py-4 font-bold text-center">2.</td>
-                                    <td class="flex justify-start py-4 items-center">
-
-                                        @if ($koneksicl->cl_i_periksa_m_2 != '')
-                                            <a href="{{ asset('storage/supervisor/project/06_CL/' . $koneksicl->cl_i_periksa_m_2) }}"
-                                                target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
-                                                <svg width="22" height="17" viewBox="0 0 22 17"
-                                                    fill="none" xmlns="http://www.w3.org/2000/svg">
+                                </td>
+                                <td>
+                                    @if ($koneksicl->up_by_i_periksa_m_cl_1 != '')
+                                        <div
+                                            class="items-center py-1 px-2 text-sm font-medium text-center text-white bg-orange-500 w-[100] mx-auto rounded">
+                                            {{ $koneksicl->up_by_i_periksa_m_cl_1 }}
+                                        </div>
+                                    @endif
+                                </td>
+                                <td class="text-center">{{ $koneksicl->date_cl_i_periksa_m_1 }}</td>
+                                <td class="space-y-2 py-3 px-2">
+                                    @if (($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Closed') && $koneksicl->cl_i_periksa_m_1 == '')
+                                        <div class="justify-center flex space-x-2">
+                                            <input type="file" name="as_cl_i_periksa_m_1"
+                                                id="fileInput_cl_i_periksa_m_1" style="display: none;">
+                                            <button type="button" onclick="openFileInput('cl_i_periksa_m_1')"
+                                                class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md">
+                                                + Tambah dokumen
+                                            </button>
+                                        </div>
+                                    @elseif (
+                                        ($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Closed') &&
+                                            $koneksicl->cl_i_periksa_m_1 != '' &&
+                                            $koneksicl->status_cl != 'Complete' &&
+                                            $koneksicl->status_cl != 'Waiting Approval')
+                                        <div class="justify-center flex space-x-2">
+                                            <button type="button"
+                                                class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                data-modal-target="modal11" data-modal-show="modal11"
+                                                data-modal-toggle="modal11">
+                                                Ubah
+                                            </button>
+                                            <button data-dropdown-toggle="dropdown1" type="button"
+                                                class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="22"
+                                                    fill="white" viewBox="0 0 48 48">
                                                     <path
-                                                        d="M11 0C6 0 1.73 3.11 0 7.5C1.73 11.89 6 15 11 15C11.36 15 11.72 15 12.08 14.95C12.03 14.63 12 14.32 12 14C12 13.44 12.08 12.88 12.24 12.34C11.83 12.44 11.42 12.5 11 12.5C8.24 12.5 6 10.26 6 7.5C6 4.74 8.24 2.5 11 2.5C13.76 2.5 16 4.74 16 7.5C16 7.79 15.97 8.09 15.92 8.38C16.58 8.13 17.29 8 18 8C19.17 8 20.31 8.34 21.29 9C21.56 8.5 21.8 8 22 7.5C20.27 3.11 16 0 11 0ZM11 4.5C9.34 4.5 8 5.84 8 7.5C8 9.16 9.34 10.5 11 10.5C12.66 10.5 14 9.16 14 7.5C14 5.84 12.66 4.5 11 4.5ZM17 10.5V12.5H21V14.5H17V16.5L14 13.5L17 10.5Z"
-                                                        fill="black" />
+                                                        d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                    </path>
                                                 </svg>
-                                            </a>
+                                            </button>
+                                        </div>
+                                    @endif
+                                </td>
+                                <input type="text" hidden name="as_up_by_i_periksa_m_cl_1"
+                                    value="{{ Auth::user()->first_name }}">
+                                <input type="date" hidden name="as_date_cl_i_periksa_m_1"
+                                    value="{{ date('Y-m-d') }}">
 
-                                            &emsp;
-                                        @endif
-                                        {{--  --}}
+                            </tr>
+                            {{-- 2 --}}
+                            <tr class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
+                                <td class="py-4 font-bold text-center">2.</td>
+                                <td class="flex justify-start py-4 items-center">
+
+                                    @if ($koneksicl->cl_i_periksa_m_2 != '')
                                         <a href="{{ asset('storage/supervisor/project/06_CL/' . $koneksicl->cl_i_periksa_m_2) }}"
-                                            target="blank" download="" class="hover:underline">
-                                            {{ $koneksicl->cl_i_periksa_m_2 }}</a>
-                                        {{-- == --}}
+                                            target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
+                                            <svg width="22" height="17" viewBox="0 0 22 17" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M11 0C6 0 1.73 3.11 0 7.5C1.73 11.89 6 15 11 15C11.36 15 11.72 15 12.08 14.95C12.03 14.63 12 14.32 12 14C12 13.44 12.08 12.88 12.24 12.34C11.83 12.44 11.42 12.5 11 12.5C8.24 12.5 6 10.26 6 7.5C6 4.74 8.24 2.5 11 2.5C13.76 2.5 16 4.74 16 7.5C16 7.79 15.97 8.09 15.92 8.38C16.58 8.13 17.29 8 18 8C19.17 8 20.31 8.34 21.29 9C21.56 8.5 21.8 8 22 7.5C20.27 3.11 16 0 11 0ZM11 4.5C9.34 4.5 8 5.84 8 7.5C8 9.16 9.34 10.5 11 10.5C12.66 10.5 14 9.16 14 7.5C14 5.84 12.66 4.5 11 4.5ZM17 10.5V12.5H21V14.5H17V16.5L14 13.5L17 10.5Z"
+                                                    fill="black" />
+                                            </svg>
+                                        </a>
 
-                                    </td>
-                                    <td>
-                                        @if ($koneksicl->up_by_i_periksa_m_cl_2 != '')
-                                            <div
-                                                class="items-center py-1 px-2 text-sm font-medium text-center text-white bg-orange-500 w-[100] mx-auto rounded">
-                                                {{ $koneksicl->up_by_i_periksa_m_cl_2 }}
-                                            </div>
-                                        @endif
-                                    </td>
-                                    <td class="text-center">{{ $koneksicl->date_cl_i_periksa_m_2 }}</td>
-                                    <td class="space-y-2 py-3 px-2">
-                                        @if (($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Closed') && $koneksicl->cl_i_periksa_m_2 == '')
-                                            <div class="justify-center flex space-x-2">
-                                                <input type="file" name="as_cl_i_periksa_m_2"
-                                                    id="fileInput_cl_i_periksa_m_2" style="display: none;">
-                                                <button type="button" onclick="openFileInput('cl_i_periksa_m_2')"
-                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md">
-                                                    + Tambah dokumen
-                                                </button>
-                                            </div>
-                                        @elseif (
-                                            ($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Closed') &&
-                                                $koneksicl->cl_i_periksa_m_2 != '' &&
-                                                $koneksicl->status_cl != 'Complete' &&
-                                                $koneksicl->status_cl != 'Waiting Approval')
-                                            <div class="justify-center flex space-x-2">
-                                                <button type="button"
-                                                    class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
-                                                    data-modal-target="modal12" data-modal-show="modal12"
-                                                    data-modal-toggle="modal12">
-                                                    Ubah
-                                                </button>
-                                                <button data-dropdown-toggle="dropdown1" type="button"
-                                                        class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
-                                                            width="22" fill="white" viewBox="0 0 48 48">
-                                                            <path
-                                                                d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
-                                                            </path>
-                                                        </svg>
-                                                    </button>
-                                            </div>
-                                        @endif
-                                    </td>
-                                    <input type="text" hidden name="as_up_by_i_periksa_m_cl_2"
-                                        value="{{ Auth::user()->first_name }}">
-                                    <input type="date" hidden name="as_date_cl_i_periksa_m_2"
-                                        value="{{ date('Y-m-d') }}">
+                                        &emsp;
+                                    @endif
+                                    {{--  --}}
+                                    <a href="{{ asset('storage/supervisor/project/06_CL/' . $koneksicl->cl_i_periksa_m_2) }}"
+                                        target="blank" download="" class="hover:underline">
+                                        {{ $koneksicl->cl_i_periksa_m_2 }}</a>
+                                    {{-- == --}}
 
-                                </tr>
-
-                                {{-- 3 --}}
-                                <tr
-                                    class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
-                                    <td class="py-4 font-bold text-center">3.</td>
-                                    <td class="flex justify-start py-4 items-center">
-
-                                        @if ($koneksicl->cl_i_periksa_m_3 != '')
-                                            <a href="{{ asset('storage/supervisor/project/06_CL/' . $koneksicl->cl_i_periksa_m_3) }}"
-                                                target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
-                                                <svg width="22" height="17" viewBox="0 0 22 17"
-                                                    fill="none" xmlns="http://www.w3.org/2000/svg">
+                                </td>
+                                <td>
+                                    @if ($koneksicl->up_by_i_periksa_m_cl_2 != '')
+                                        <div
+                                            class="items-center py-1 px-2 text-sm font-medium text-center text-white bg-orange-500 w-[100] mx-auto rounded">
+                                            {{ $koneksicl->up_by_i_periksa_m_cl_2 }}
+                                        </div>
+                                    @endif
+                                </td>
+                                <td class="text-center">{{ $koneksicl->date_cl_i_periksa_m_2 }}</td>
+                                <td class="space-y-2 py-3 px-2">
+                                    @if (($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Closed') && $koneksicl->cl_i_periksa_m_2 == '')
+                                        <div class="justify-center flex space-x-2">
+                                            <input type="file" name="as_cl_i_periksa_m_2"
+                                                id="fileInput_cl_i_periksa_m_2" style="display: none;">
+                                            <button type="button" onclick="openFileInput('cl_i_periksa_m_2')"
+                                                class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md">
+                                                + Tambah dokumen
+                                            </button>
+                                        </div>
+                                    @elseif (
+                                        ($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Closed') &&
+                                            $koneksicl->cl_i_periksa_m_2 != '' &&
+                                            $koneksicl->status_cl != 'Complete' &&
+                                            $koneksicl->status_cl != 'Waiting Approval')
+                                        <div class="justify-center flex space-x-2">
+                                            <button type="button"
+                                                class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                data-modal-target="modal12" data-modal-show="modal12"
+                                                data-modal-toggle="modal12">
+                                                Ubah
+                                            </button>
+                                            <button data-dropdown-toggle="dropdown1" type="button"
+                                                class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="22"
+                                                    fill="white" viewBox="0 0 48 48">
                                                     <path
-                                                        d="M11 0C6 0 1.73 3.11 0 7.5C1.73 11.89 6 15 11 15C11.36 15 11.72 15 12.08 14.95C12.03 14.63 12 14.32 12 14C12 13.44 12.08 12.88 12.24 12.34C11.83 12.44 11.42 12.5 11 12.5C8.24 12.5 6 10.26 6 7.5C6 4.74 8.24 2.5 11 2.5C13.76 2.5 16 4.74 16 7.5C16 7.79 15.97 8.09 15.92 8.38C16.58 8.13 17.29 8 18 8C19.17 8 20.31 8.34 21.29 9C21.56 8.5 21.8 8 22 7.5C20.27 3.11 16 0 11 0ZM11 4.5C9.34 4.5 8 5.84 8 7.5C8 9.16 9.34 10.5 11 10.5C12.66 10.5 14 9.16 14 7.5C14 5.84 12.66 4.5 11 4.5ZM17 10.5V12.5H21V14.5H17V16.5L14 13.5L17 10.5Z"
-                                                        fill="black" />
+                                                        d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                    </path>
                                                 </svg>
-                                            </a>
+                                            </button>
+                                        </div>
+                                    @endif
+                                </td>
+                                <input type="text" hidden name="as_up_by_i_periksa_m_cl_2"
+                                    value="{{ Auth::user()->first_name }}">
+                                <input type="date" hidden name="as_date_cl_i_periksa_m_2"
+                                    value="{{ date('Y-m-d') }}">
 
-                                            &emsp;
-                                        @endif
-                                        {{--  --}}
+                            </tr>
+
+                            {{-- 3 --}}
+                            <tr class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
+                                <td class="py-4 font-bold text-center">3.</td>
+                                <td class="flex justify-start py-4 items-center">
+
+                                    @if ($koneksicl->cl_i_periksa_m_3 != '')
                                         <a href="{{ asset('storage/supervisor/project/06_CL/' . $koneksicl->cl_i_periksa_m_3) }}"
-                                            target="blank" download="" class="hover:underline">
-                                            {{ $koneksicl->cl_i_periksa_m_3 }}</a>
-                                        {{-- == --}}
-
-                                    </td>
-                                    <td>
-                                        @if ($koneksicl->up_by_i_periksa_m_cl_3 != '')
-                                            <div
-                                                class="items-center py-1 px-2 text-sm font-medium text-center text-white bg-orange-500 w-[100] mx-auto rounded">
-                                                {{ $koneksicl->up_by_i_periksa_m_cl_3 }}
-                                            </div>
-                                        @endif
-                                    </td>
-                                    <td class="text-center">{{ $koneksicl->date_cl_i_periksa_m_3 }}</td>
-                                    <td class="space-y-2 py-3 px-2">
-                                        @if (($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Closed') && $koneksicl->cl_i_periksa_m_3 == '')
-                                            <div class="justify-center flex space-x-2">
-                                                <input type="file" name="as_cl_i_periksa_m_3"
-                                                    id="fileInput_cl_i_periksa_m_3" style="display: none;">
-                                                <button type="button" onclick="openFileInput('cl_i_periksa_m_3')"
-                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md">
-                                                    + Tambah dokumen
-                                                </button>
-                                            </div>
-                                        @elseif (
-                                            ($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Closed') &&
-                                                $koneksicl->cl_i_periksa_m_3 != '' &&
-                                                $koneksicl->status_cl != 'Complete' &&
-                                                $koneksicl->status_cl != 'Waiting Approval')
-                                            <div class="justify-center flex space-x-2">
-                                                <button type="button"
-                                                    class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
-                                                    data-modal-target="modal13" data-modal-show="modal13"
-                                                    data-modal-toggle="modal13">
-                                                    Ubah
-                                                </button>
-                                                <button data-dropdown-toggle="dropdown1" type="button"
-                                                        class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
-                                                            width="22" fill="white" viewBox="0 0 48 48">
-                                                            <path
-                                                                d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
-                                                            </path>
-                                                        </svg>
-                                                    </button>
-                                            </div>
-                                        @endif
-                                    </td>
-                                    <input type="text" hidden name="as_up_by_i_periksa_m_cl_3"
-                                        value="{{ Auth::user()->first_name }}">
-                                    <input type="date" hidden name="as_date_cl_i_periksa_m_3"
-                                        value="{{ date('Y-m-d') }}">
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    {{-- Akhir --}}
-
-                    {{-- System Quality Assurance --}}
-                    {{-- awal standar formulir --}}
-                    <div class="flex justify-between">
-                        <p class="font-medium text-lg bg-gray-800 px-4 py-1 w-fit text-white mb-2 rounded"> System
-                            Quality Assurance
-                            @foreach ($standar_project as $spt)
-                                @if ($spt->file_qas_form != '')
-                                    <div class="flex justify-end mr-1 mt-4">
-                                        <a href="{{ asset('storage/supervisor/standarproject/' . $spt->file_qas_form) }}"
-                                            download="">
-                                            <div
-                                                class="w-fit items-center space-x-1 flex fill-blue-600 hover:fill-blue-800">
-                                                <svg width="15" height="" viewBox="0 0 52 52"
-                                                    xmlns="http://www.w3.org/2000/svg">
-                                                    <path
-                                                        d="m36.4 14.8h8.48a1.09 1.09 0 0 0 1.12-1.12 1 1 0 0 0 -.32-.8l-10.56-10.56a1 1 0 0 0 -.8-.32 1.09 1.09 0 0 0 -1.12 1.12v8.48a3.21 3.21 0 0 0 3.2 3.2z" />
-
-                                                    <path
-                                                        d="m44.4 19.6h-11.2a4.81 4.81 0 0 1 -4.8-4.8v-11.2a1.6 1.6 0 0 0 -1.6-1.6h-16a4.81 4.81 0 0 0 -4.8 4.8v38.4a4.81 4.81 0 0 0 4.8 4.8h30.4a4.81 4.81 0 0 0 4.8-4.8v-24a1.6 1.6 0 0 0 -1.6-1.6zm-32-1.6a1.62 1.62 0 0 1 1.6-1.55h6.55a1.56 1.56 0 0 1 1.57 1.55v1.59a1.63 1.63 0 0 1 -1.59 1.58h-6.53a1.55 1.55 0 0 1 -1.58-1.58zm24 20.77a1.6 1.6 0 0 1 -1.6 1.6h-20.8a1.6 1.6 0 0 1 -1.6-1.6v-1.57a1.6 1.6 0 0 1 1.6-1.6h20.8a1.6 1.6 0 0 1 1.6 1.6zm3.2-9.6a1.6 1.6 0 0 1 -1.6 1.63h-24a1.6 1.6 0 0 1 -1.6-1.6v-1.6a1.6 1.6 0 0 1 1.6-1.6h24a1.6 1.6 0 0 1 1.6 1.6z" />
-                                                </svg>
-                                                <p
-                                                    class="text-right hover:underline font-semibold text-md text-blue-600 hover:text-blue-800 ">
-                                                    Klik untuk mengunduh formulir kerja</p>
-                                            </div>
+                                            target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
+                                            <svg width="22" height="17" viewBox="0 0 22 17" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M11 0C6 0 1.73 3.11 0 7.5C1.73 11.89 6 15 11 15C11.36 15 11.72 15 12.08 14.95C12.03 14.63 12 14.32 12 14C12 13.44 12.08 12.88 12.24 12.34C11.83 12.44 11.42 12.5 11 12.5C8.24 12.5 6 10.26 6 7.5C6 4.74 8.24 2.5 11 2.5C13.76 2.5 16 4.74 16 7.5C16 7.79 15.97 8.09 15.92 8.38C16.58 8.13 17.29 8 18 8C19.17 8 20.31 8.34 21.29 9C21.56 8.5 21.8 8 22 7.5C20.27 3.11 16 0 11 0ZM11 4.5C9.34 4.5 8 5.84 8 7.5C8 9.16 9.34 10.5 11 10.5C12.66 10.5 14 9.16 14 7.5C14 5.84 12.66 4.5 11 4.5ZM17 10.5V12.5H21V14.5H17V16.5L14 13.5L17 10.5Z"
+                                                    fill="black" />
+                                            </svg>
                                         </a>
-                                    </div>
-                                @endif
-                            @endforeach
-                            {{-- tombol form --}}
-                    </div>
-                    {{-- akhir standar formulir --}}
 
-                    <div class="overflow-x-auto rounded-md mb-5 border">
-                        <table class="w-full ">
-                            <thead class="bg-gray-300 text-gray-700 sticky top-0">
-                                <th class="py-2 w-[5%] font-medium">No.</th>
-                                <th class="w-[57%] font-medium">Nama File</th>
-                                <th class="w-[10%] font-medium">Uploaded by</th>
-                                <th class="w-[13%] font-medium">Last Update</th>
-                                <th class="w-[15%] font-medium">Aksi</th>
-                            </thead>
-                            <tbody class="text-left border">
-                                {{-- 1 --}}
-                                <tr
-                                    class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
-                                    <td class="py-4 font-bold text-center">1.</td>
-                                    <td class="flex justify-start py-4 items-center">
+                                        &emsp;
+                                    @endif
+                                    {{--  --}}
+                                    <a href="{{ asset('storage/supervisor/project/06_CL/' . $koneksicl->cl_i_periksa_m_3) }}"
+                                        target="blank" download="" class="hover:underline">
+                                        {{ $koneksicl->cl_i_periksa_m_3 }}</a>
+                                    {{-- == --}}
 
-                                        @if ($koneksicl->cl_qas_1 != '')
-                                            <a href="{{ asset('storage/supervisor/project/06_CL/' . $koneksicl->cl_qas_1) }}"
-                                                target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
-                                                <svg width="22" height="17" viewBox="0 0 22 17"
-                                                    fill="none" xmlns="http://www.w3.org/2000/svg">
+                                </td>
+                                <td>
+                                    @if ($koneksicl->up_by_i_periksa_m_cl_3 != '')
+                                        <div
+                                            class="items-center py-1 px-2 text-sm font-medium text-center text-white bg-orange-500 w-[100] mx-auto rounded">
+                                            {{ $koneksicl->up_by_i_periksa_m_cl_3 }}
+                                        </div>
+                                    @endif
+                                </td>
+                                <td class="text-center">{{ $koneksicl->date_cl_i_periksa_m_3 }}</td>
+                                <td class="space-y-2 py-3 px-2">
+                                    @if (($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Closed') && $koneksicl->cl_i_periksa_m_3 == '')
+                                        <div class="justify-center flex space-x-2">
+                                            <input type="file" name="as_cl_i_periksa_m_3"
+                                                id="fileInput_cl_i_periksa_m_3" style="display: none;">
+                                            <button type="button" onclick="openFileInput('cl_i_periksa_m_3')"
+                                                class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md">
+                                                + Tambah dokumen
+                                            </button>
+                                        </div>
+                                    @elseif (
+                                        ($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Closed') &&
+                                            $koneksicl->cl_i_periksa_m_3 != '' &&
+                                            $koneksicl->status_cl != 'Complete' &&
+                                            $koneksicl->status_cl != 'Waiting Approval')
+                                        <div class="justify-center flex space-x-2">
+                                            <button type="button"
+                                                class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                data-modal-target="modal13" data-modal-show="modal13"
+                                                data-modal-toggle="modal13">
+                                                Ubah
+                                            </button>
+                                            <button data-dropdown-toggle="dropdown1" type="button"
+                                                class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="22"
+                                                    fill="white" viewBox="0 0 48 48">
                                                     <path
-                                                        d="M11 0C6 0 1.73 3.11 0 7.5C1.73 11.89 6 15 11 15C11.36 15 11.72 15 12.08 14.95C12.03 14.63 12 14.32 12 14C12 13.44 12.08 12.88 12.24 12.34C11.83 12.44 11.42 12.5 11 12.5C8.24 12.5 6 10.26 6 7.5C6 4.74 8.24 2.5 11 2.5C13.76 2.5 16 4.74 16 7.5C16 7.79 15.97 8.09 15.92 8.38C16.58 8.13 17.29 8 18 8C19.17 8 20.31 8.34 21.29 9C21.56 8.5 21.8 8 22 7.5C20.27 3.11 16 0 11 0ZM11 4.5C9.34 4.5 8 5.84 8 7.5C8 9.16 9.34 10.5 11 10.5C12.66 10.5 14 9.16 14 7.5C14 5.84 12.66 4.5 11 4.5ZM17 10.5V12.5H21V14.5H17V16.5L14 13.5L17 10.5Z"
-                                                        fill="black" />
+                                                        d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                    </path>
                                                 </svg>
-                                            </a>
+                                            </button>
+                                        </div>
+                                    @endif
+                                </td>
+                                <input type="text" hidden name="as_up_by_i_periksa_m_cl_3"
+                                    value="{{ Auth::user()->first_name }}">
+                                <input type="date" hidden name="as_date_cl_i_periksa_m_3"
+                                    value="{{ date('Y-m-d') }}">
 
-                                            &emsp;
-                                        @endif
-                                        {{--  --}}
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                {{-- Akhir --}}
+
+                {{-- System Quality Assurance --}}
+                {{-- awal standar formulir --}}
+                <div class="flex justify-between">
+                    <p class="font-medium text-lg bg-gray-800 px-4 py-1 w-fit text-white mb-2 rounded"> System
+                        Quality Assurance
+                        @foreach ($standar_project as $spt)
+                            @if ($spt->file_qas_form != '')
+                                <div class="flex justify-end mr-1 mt-4">
+                                    <a href="{{ asset('storage/supervisor/standarproject/' . $spt->file_qas_form) }}"
+                                        download="">
+                                        <div
+                                            class="w-fit items-center space-x-1 flex fill-blue-600 hover:fill-blue-800">
+                                            <svg width="15" height="" viewBox="0 0 52 52"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="m36.4 14.8h8.48a1.09 1.09 0 0 0 1.12-1.12 1 1 0 0 0 -.32-.8l-10.56-10.56a1 1 0 0 0 -.8-.32 1.09 1.09 0 0 0 -1.12 1.12v8.48a3.21 3.21 0 0 0 3.2 3.2z" />
+
+                                                <path
+                                                    d="m44.4 19.6h-11.2a4.81 4.81 0 0 1 -4.8-4.8v-11.2a1.6 1.6 0 0 0 -1.6-1.6h-16a4.81 4.81 0 0 0 -4.8 4.8v38.4a4.81 4.81 0 0 0 4.8 4.8h30.4a4.81 4.81 0 0 0 4.8-4.8v-24a1.6 1.6 0 0 0 -1.6-1.6zm-32-1.6a1.62 1.62 0 0 1 1.6-1.55h6.55a1.56 1.56 0 0 1 1.57 1.55v1.59a1.63 1.63 0 0 1 -1.59 1.58h-6.53a1.55 1.55 0 0 1 -1.58-1.58zm24 20.77a1.6 1.6 0 0 1 -1.6 1.6h-20.8a1.6 1.6 0 0 1 -1.6-1.6v-1.57a1.6 1.6 0 0 1 1.6-1.6h20.8a1.6 1.6 0 0 1 1.6 1.6zm3.2-9.6a1.6 1.6 0 0 1 -1.6 1.63h-24a1.6 1.6 0 0 1 -1.6-1.6v-1.6a1.6 1.6 0 0 1 1.6-1.6h24a1.6 1.6 0 0 1 1.6 1.6z" />
+                                            </svg>
+                                            <p
+                                                class="text-right hover:underline font-semibold text-md text-blue-600 hover:text-blue-800 ">
+                                                Klik untuk mengunduh formulir kerja</p>
+                                        </div>
+                                    </a>
+                                </div>
+                            @endif
+                        @endforeach
+                        {{-- tombol form --}}
+                </div>
+                {{-- akhir standar formulir --}}
+
+                <div class="overflow-x-auto rounded-md mb-5 border">
+                    <table class="w-full ">
+                        <thead class="bg-gray-300 text-gray-700 sticky top-0">
+                            <th class="py-2 w-[5%] font-medium">No.</th>
+                            <th class="w-[57%] font-medium">Nama File</th>
+                            <th class="w-[10%] font-medium">Uploaded by</th>
+                            <th class="w-[13%] font-medium">Last Update</th>
+                            <th class="w-[15%] font-medium">Aksi</th>
+                        </thead>
+                        <tbody class="text-left border">
+                            {{-- 1 --}}
+                            <tr class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
+                                <td class="py-4 font-bold text-center">1.</td>
+                                <td class="flex justify-start py-4 items-center">
+
+                                    @if ($koneksicl->cl_qas_1 != '')
                                         <a href="{{ asset('storage/supervisor/project/06_CL/' . $koneksicl->cl_qas_1) }}"
-                                            target="blank" download="" class="hover:underline">
-                                            {{ $koneksicl->cl_qas_1 }}</a>
-                                        {{-- == --}}
-
-                                    </td>
-                                    <td>
-                                        @if ($koneksicl->up_by_qas_cl_1 != '')
-                                            <div
-                                                class="items-center py-1 px-2 text-sm font-medium text-center text-white bg-orange-500 w-[100] mx-auto rounded">
-                                                {{ $koneksicl->up_by_qas_cl_1 }}
-                                            </div>
-                                        @endif
-                                    </td>
-                                    <td class="text-center">{{ $koneksicl->date_cl_qas_1 }}</td>
-                                    <td class="space-y-2 py-3 px-2">
-                                        @if (($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Closed') && $koneksicl->cl_qas_1 == '')
-                                            <div class="justify-center flex space-x-2">
-                                                <input type="file" name="as_cl_qas_1"
-                                                    id="fileInput_cl_qas_1" style="display: none;">
-                                                <button type="button" onclick="openFileInput('cl_qas_1')"
-                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md">
-                                                    + Tambah dokumen
-                                                </button>
-                                            </div>
-                                        @elseif (
-                                            ($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Closed') &&
-                                                $koneksicl->cl_qas_1 != '' &&
-                                                $koneksicl->status_cl != 'Complete' &&
-                                                $koneksicl->status_cl != 'Waiting Approval')
-                                            <div class="justify-center flex space-x-2">
-                                                <button type="button"
-                                                    class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
-                                                    data-modal-target="modal21" data-modal-show="modal21"
-                                                    data-modal-toggle="modal21">
-                                                    Ubah
-                                                </button>
-                                                <button data-dropdown-toggle="dropdown1" type="button"
-                                                        class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
-                                                            width="22" fill="white" viewBox="0 0 48 48">
-                                                            <path
-                                                                d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
-                                                            </path>
-                                                        </svg>
-                                                    </button>
-                                            </div>
-                                        @endif
-                                    </td>
-                                    <input type="text" hidden name="as_up_by_qas_cl_1"
-                                        value="{{ Auth::user()->first_name }}">
-                                    <input type="date" hidden name="as_date_cl_qas_1"
-                                        value="{{ date('Y-m-d') }}">
-                                </tr>
-                                {{-- 2 --}}
-                                <tr
-                                    class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
-                                    <td class="py-4 font-bold text-center">2.</td>
-                                    <td class="flex justify-start py-4 items-center">
-
-                                        @if ($koneksicl->cl_qas_2 != '')
-                                            <a href="{{ asset('storage/supervisor/project/06_CL/' . $koneksicl->cl_qas_2) }}"
-                                                target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
-                                                <svg width="22" height="17" viewBox="0 0 22 17"
-                                                    fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                    <path
-                                                        d="M11 0C6 0 1.73 3.11 0 7.5C1.73 11.89 6 15 11 15C11.36 15 11.72 15 12.08 14.95C12.03 14.63 12 14.32 12 14C12 13.44 12.08 12.88 12.24 12.34C11.83 12.44 11.42 12.5 11 12.5C8.24 12.5 6 10.26 6 7.5C6 4.74 8.24 2.5 11 2.5C13.76 2.5 16 4.74 16 7.5C16 7.79 15.97 8.09 15.92 8.38C16.58 8.13 17.29 8 18 8C19.17 8 20.31 8.34 21.29 9C21.56 8.5 21.8 8 22 7.5C20.27 3.11 16 0 11 0ZM11 4.5C9.34 4.5 8 5.84 8 7.5C8 9.16 9.34 10.5 11 10.5C12.66 10.5 14 9.16 14 7.5C14 5.84 12.66 4.5 11 4.5ZM17 10.5V12.5H21V14.5H17V16.5L14 13.5L17 10.5Z"
-                                                        fill="black" />
-                                                </svg>
-                                            </a>
-
-                                            &emsp;
-                                        @endif
-                                        {{--  --}}
-                                        <a href="{{ asset('storage/supervisor/project/06_CL/' . $koneksicl->cl_qas_2) }}"
-                                            target="blank" download="" class="hover:underline">
-                                            {{ $koneksicl->cl_qas_2 }}</a>
-                                        {{-- == --}}
-
-                                    </td>
-                                    <td>
-                                        @if ($koneksicl->up_by_qas_cl_2 != '')
-                                            <div
-                                                class="items-center py-1 px-2 text-sm font-medium text-center text-white bg-orange-500 w-[100] mx-auto rounded">
-                                                {{ $koneksicl->up_by_qas_cl_2 }}
-                                            </div>
-                                        @endif
-                                    </td>
-                                    <td class="text-center">{{ $koneksicl->date_cl_qas_2 }}</td>
-                                    <td class="space-y-2 py-3 px-2">
-                                        @if (($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Closed') && $koneksicl->cl_qas_2 == '')
-                                            <div class="justify-center flex space-x-2">
-                                                <input type="file" name="as_cl_qas_2"
-                                                    id="fileInput_cl_qas_2" style="display: none;">
-                                                <button type="button" onclick="openFileInput('cl_qas_2')"
-                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md">
-                                                    + Tambah dokumen
-                                                </button>
-                                            </div>
-                                        @elseif (
-                                            ($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Closed') &&
-                                                $koneksicl->cl_qas_2 != '' &&
-                                                $koneksicl->status_cl != 'Complete' &&
-                                                $koneksicl->status_cl != 'Waiting Approval')
-                                            <div class="justify-center flex space-x-2">
-                                                <button type="button"
-                                                    class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
-                                                    data-modal-target="modal22" data-modal-show="modal22"
-                                                    data-modal-toggle="modal22">
-                                                    Ubah
-                                                </button>
-                                                <button data-dropdown-toggle="dropdown1" type="button"
-                                                        class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
-                                                            width="22" fill="white" viewBox="0 0 48 48">
-                                                            <path
-                                                                d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
-                                                            </path>
-                                                        </svg>
-                                                    </button>
-                                            </div>
-                                        @endif
-                                    </td>
-                                    <input type="text" hidden name="as_up_by_qas_cl_2"
-                                        value="{{ Auth::user()->first_name }}">
-                                    <input type="date" hidden name="as_date_cl_qas_2"
-                                        value="{{ date('Y-m-d') }}">
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    {{-- Akhir --}}
-
-                    {{-- Ijin Pakai Mesin --}}
-                    {{-- awal standar formulir --}}
-                    <div class="flex justify-between">
-                        <p class="font-medium text-lg bg-gray-800 px-4 py-1 w-fit text-white mb-2 rounded"> Izin Pakai
-                            Mesin
-                            @foreach ($standar_project as $spt)
-                                @if ($spt->file_ipakaim_form != '')
-                                    <div class="flex justify-end mr-1 mt-4">
-                                        <a href="{{ asset('storage/supervisor/standarproject/' . $spt->file_ipakaim_form) }}"
-                                            download="">
-                                            <div
-                                                class="w-fit items-center space-x-1 flex fill-blue-600 hover:fill-blue-800">
-                                                <svg width="15" height="" viewBox="0 0 52 52"
-                                                    xmlns="http://www.w3.org/2000/svg">
-                                                    <path
-                                                        d="m36.4 14.8h8.48a1.09 1.09 0 0 0 1.12-1.12 1 1 0 0 0 -.32-.8l-10.56-10.56a1 1 0 0 0 -.8-.32 1.09 1.09 0 0 0 -1.12 1.12v8.48a3.21 3.21 0 0 0 3.2 3.2z" />
-
-                                                    <path
-                                                        d="m44.4 19.6h-11.2a4.81 4.81 0 0 1 -4.8-4.8v-11.2a1.6 1.6 0 0 0 -1.6-1.6h-16a4.81 4.81 0 0 0 -4.8 4.8v38.4a4.81 4.81 0 0 0 4.8 4.8h30.4a4.81 4.81 0 0 0 4.8-4.8v-24a1.6 1.6 0 0 0 -1.6-1.6zm-32-1.6a1.62 1.62 0 0 1 1.6-1.55h6.55a1.56 1.56 0 0 1 1.57 1.55v1.59a1.63 1.63 0 0 1 -1.59 1.58h-6.53a1.55 1.55 0 0 1 -1.58-1.58zm24 20.77a1.6 1.6 0 0 1 -1.6 1.6h-20.8a1.6 1.6 0 0 1 -1.6-1.6v-1.57a1.6 1.6 0 0 1 1.6-1.6h20.8a1.6 1.6 0 0 1 1.6 1.6zm3.2-9.6a1.6 1.6 0 0 1 -1.6 1.63h-24a1.6 1.6 0 0 1 -1.6-1.6v-1.6a1.6 1.6 0 0 1 1.6-1.6h24a1.6 1.6 0 0 1 1.6 1.6z" />
-                                                </svg>
-                                                <p
-                                                    class="text-right hover:underline font-semibold text-md text-blue-600 hover:text-blue-800 ">
-                                                    Klik untuk mengunduh formulir kerja</p>
-                                            </div>
+                                            target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
+                                            <svg width="22" height="17" viewBox="0 0 22 17" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M11 0C6 0 1.73 3.11 0 7.5C1.73 11.89 6 15 11 15C11.36 15 11.72 15 12.08 14.95C12.03 14.63 12 14.32 12 14C12 13.44 12.08 12.88 12.24 12.34C11.83 12.44 11.42 12.5 11 12.5C8.24 12.5 6 10.26 6 7.5C6 4.74 8.24 2.5 11 2.5C13.76 2.5 16 4.74 16 7.5C16 7.79 15.97 8.09 15.92 8.38C16.58 8.13 17.29 8 18 8C19.17 8 20.31 8.34 21.29 9C21.56 8.5 21.8 8 22 7.5C20.27 3.11 16 0 11 0ZM11 4.5C9.34 4.5 8 5.84 8 7.5C8 9.16 9.34 10.5 11 10.5C12.66 10.5 14 9.16 14 7.5C14 5.84 12.66 4.5 11 4.5ZM17 10.5V12.5H21V14.5H17V16.5L14 13.5L17 10.5Z"
+                                                    fill="black" />
+                                            </svg>
                                         </a>
-                                    </div>
-                                @endif
-                            @endforeach
-                            {{-- tombol form --}}
-                    </div>
-                    {{-- akhir standar formulir --}}
 
-                    <div class="overflow-x-auto rounded-md mb-5 border">
-                        <table class="w-full ">
-                            <thead class="bg-gray-300 text-gray-700 sticky top-0">
-                                <th class="py-2 w-[5%] font-medium">No.</th>
-                                <th class="w-[57%] font-medium">Nama File</th>
-                                <th class="w-[10%] font-medium">Uploaded by</th>
-                                <th class="w-[13%] font-medium">Last Update</th>
-                                <th class="w-[15%] font-medium">Aksi</th>
-                            </thead>
-                            <tbody class="text-left border">
-                                {{-- 1 --}}
-                                <tr
-                                    class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
-                                    <td class="py-4 font-bold text-center">1.</td>
-                                    <td class="flex justify-start py-4 items-center">
+                                        &emsp;
+                                    @endif
+                                    {{--  --}}
+                                    <a href="{{ asset('storage/supervisor/project/06_CL/' . $koneksicl->cl_qas_1) }}"
+                                        target="blank" download="" class="hover:underline">
+                                        {{ $koneksicl->cl_qas_1 }}</a>
+                                    {{-- == --}}
 
-                                        @if ($koneksicl->cl_i_pakai_m_1 != '')
-                                            <a href="{{ asset('storage/supervisor/project/06_CL/' . $koneksicl->cl_i_pakai_m_1) }}"
-                                                target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
-                                                <svg width="22" height="17" viewBox="0 0 22 17"
-                                                    fill="none" xmlns="http://www.w3.org/2000/svg">
+                                </td>
+                                <td>
+                                    @if ($koneksicl->up_by_qas_cl_1 != '')
+                                        <div
+                                            class="items-center py-1 px-2 text-sm font-medium text-center text-white bg-orange-500 w-[100] mx-auto rounded">
+                                            {{ $koneksicl->up_by_qas_cl_1 }}
+                                        </div>
+                                    @endif
+                                </td>
+                                <td class="text-center">{{ $koneksicl->date_cl_qas_1 }}</td>
+                                <td class="space-y-2 py-3 px-2">
+                                    @if (($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Closed') && $koneksicl->cl_qas_1 == '')
+                                        <div class="justify-center flex space-x-2">
+                                            <input type="file" name="as_cl_qas_1" id="fileInput_cl_qas_1"
+                                                style="display: none;">
+                                            <button type="button" onclick="openFileInput('cl_qas_1')"
+                                                class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md">
+                                                + Tambah dokumen
+                                            </button>
+                                        </div>
+                                    @elseif (
+                                        ($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Closed') &&
+                                            $koneksicl->cl_qas_1 != '' &&
+                                            $koneksicl->status_cl != 'Complete' &&
+                                            $koneksicl->status_cl != 'Waiting Approval')
+                                        <div class="justify-center flex space-x-2">
+                                            <button type="button"
+                                                class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                data-modal-target="modal21" data-modal-show="modal21"
+                                                data-modal-toggle="modal21">
+                                                Ubah
+                                            </button>
+                                            <button data-dropdown-toggle="dropdown1" type="button"
+                                                class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="22"
+                                                    fill="white" viewBox="0 0 48 48">
                                                     <path
-                                                        d="M11 0C6 0 1.73 3.11 0 7.5C1.73 11.89 6 15 11 15C11.36 15 11.72 15 12.08 14.95C12.03 14.63 12 14.32 12 14C12 13.44 12.08 12.88 12.24 12.34C11.83 12.44 11.42 12.5 11 12.5C8.24 12.5 6 10.26 6 7.5C6 4.74 8.24 2.5 11 2.5C13.76 2.5 16 4.74 16 7.5C16 7.79 15.97 8.09 15.92 8.38C16.58 8.13 17.29 8 18 8C19.17 8 20.31 8.34 21.29 9C21.56 8.5 21.8 8 22 7.5C20.27 3.11 16 0 11 0ZM11 4.5C9.34 4.5 8 5.84 8 7.5C8 9.16 9.34 10.5 11 10.5C12.66 10.5 14 9.16 14 7.5C14 5.84 12.66 4.5 11 4.5ZM17 10.5V12.5H21V14.5H17V16.5L14 13.5L17 10.5Z"
-                                                        fill="black" />
+                                                        d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                    </path>
                                                 </svg>
-                                            </a>
+                                            </button>
+                                        </div>
+                                    @endif
+                                </td>
+                                <input type="text" hidden name="as_up_by_qas_cl_1"
+                                    value="{{ Auth::user()->first_name }}">
+                                <input type="date" hidden name="as_date_cl_qas_1" value="{{ date('Y-m-d') }}">
+                            </tr>
+                            {{-- 2 --}}
+                            <tr class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
+                                <td class="py-4 font-bold text-center">2.</td>
+                                <td class="flex justify-start py-4 items-center">
 
-                                            &emsp;
-                                        @endif
-                                        {{--  --}}
+                                    @if ($koneksicl->cl_qas_2 != '')
+                                        <a href="{{ asset('storage/supervisor/project/06_CL/' . $koneksicl->cl_qas_2) }}"
+                                            target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
+                                            <svg width="22" height="17" viewBox="0 0 22 17" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M11 0C6 0 1.73 3.11 0 7.5C1.73 11.89 6 15 11 15C11.36 15 11.72 15 12.08 14.95C12.03 14.63 12 14.32 12 14C12 13.44 12.08 12.88 12.24 12.34C11.83 12.44 11.42 12.5 11 12.5C8.24 12.5 6 10.26 6 7.5C6 4.74 8.24 2.5 11 2.5C13.76 2.5 16 4.74 16 7.5C16 7.79 15.97 8.09 15.92 8.38C16.58 8.13 17.29 8 18 8C19.17 8 20.31 8.34 21.29 9C21.56 8.5 21.8 8 22 7.5C20.27 3.11 16 0 11 0ZM11 4.5C9.34 4.5 8 5.84 8 7.5C8 9.16 9.34 10.5 11 10.5C12.66 10.5 14 9.16 14 7.5C14 5.84 12.66 4.5 11 4.5ZM17 10.5V12.5H21V14.5H17V16.5L14 13.5L17 10.5Z"
+                                                    fill="black" />
+                                            </svg>
+                                        </a>
+
+                                        &emsp;
+                                    @endif
+                                    {{--  --}}
+                                    <a href="{{ asset('storage/supervisor/project/06_CL/' . $koneksicl->cl_qas_2) }}"
+                                        target="blank" download="" class="hover:underline">
+                                        {{ $koneksicl->cl_qas_2 }}</a>
+                                    {{-- == --}}
+
+                                </td>
+                                <td>
+                                    @if ($koneksicl->up_by_qas_cl_2 != '')
+                                        <div
+                                            class="items-center py-1 px-2 text-sm font-medium text-center text-white bg-orange-500 w-[100] mx-auto rounded">
+                                            {{ $koneksicl->up_by_qas_cl_2 }}
+                                        </div>
+                                    @endif
+                                </td>
+                                <td class="text-center">{{ $koneksicl->date_cl_qas_2 }}</td>
+                                <td class="space-y-2 py-3 px-2">
+                                    @if (($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Closed') && $koneksicl->cl_qas_2 == '')
+                                        <div class="justify-center flex space-x-2">
+                                            <input type="file" name="as_cl_qas_2" id="fileInput_cl_qas_2"
+                                                style="display: none;">
+                                            <button type="button" onclick="openFileInput('cl_qas_2')"
+                                                class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md">
+                                                + Tambah dokumen
+                                            </button>
+                                        </div>
+                                    @elseif (
+                                        ($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Closed') &&
+                                            $koneksicl->cl_qas_2 != '' &&
+                                            $koneksicl->status_cl != 'Complete' &&
+                                            $koneksicl->status_cl != 'Waiting Approval')
+                                        <div class="justify-center flex space-x-2">
+                                            <button type="button"
+                                                class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                data-modal-target="modal22" data-modal-show="modal22"
+                                                data-modal-toggle="modal22">
+                                                Ubah
+                                            </button>
+                                            <button data-dropdown-toggle="dropdown1" type="button"
+                                                class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="22"
+                                                    fill="white" viewBox="0 0 48 48">
+                                                    <path
+                                                        d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                    </path>
+                                                </svg>
+                                            </button>
+                                        </div>
+                                    @endif
+                                </td>
+                                <input type="text" hidden name="as_up_by_qas_cl_2"
+                                    value="{{ Auth::user()->first_name }}">
+                                <input type="date" hidden name="as_date_cl_qas_2" value="{{ date('Y-m-d') }}">
+
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                {{-- Akhir --}}
+
+                {{-- Ijin Pakai Mesin --}}
+                {{-- awal standar formulir --}}
+                <div class="flex justify-between">
+                    <p class="font-medium text-lg bg-gray-800 px-4 py-1 w-fit text-white mb-2 rounded"> Izin Pakai
+                        Mesin
+                        @foreach ($standar_project as $spt)
+                            @if ($spt->file_ipakaim_form != '')
+                                <div class="flex justify-end mr-1 mt-4">
+                                    <a href="{{ asset('storage/supervisor/standarproject/' . $spt->file_ipakaim_form) }}"
+                                        download="">
+                                        <div
+                                            class="w-fit items-center space-x-1 flex fill-blue-600 hover:fill-blue-800">
+                                            <svg width="15" height="" viewBox="0 0 52 52"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="m36.4 14.8h8.48a1.09 1.09 0 0 0 1.12-1.12 1 1 0 0 0 -.32-.8l-10.56-10.56a1 1 0 0 0 -.8-.32 1.09 1.09 0 0 0 -1.12 1.12v8.48a3.21 3.21 0 0 0 3.2 3.2z" />
+
+                                                <path
+                                                    d="m44.4 19.6h-11.2a4.81 4.81 0 0 1 -4.8-4.8v-11.2a1.6 1.6 0 0 0 -1.6-1.6h-16a4.81 4.81 0 0 0 -4.8 4.8v38.4a4.81 4.81 0 0 0 4.8 4.8h30.4a4.81 4.81 0 0 0 4.8-4.8v-24a1.6 1.6 0 0 0 -1.6-1.6zm-32-1.6a1.62 1.62 0 0 1 1.6-1.55h6.55a1.56 1.56 0 0 1 1.57 1.55v1.59a1.63 1.63 0 0 1 -1.59 1.58h-6.53a1.55 1.55 0 0 1 -1.58-1.58zm24 20.77a1.6 1.6 0 0 1 -1.6 1.6h-20.8a1.6 1.6 0 0 1 -1.6-1.6v-1.57a1.6 1.6 0 0 1 1.6-1.6h20.8a1.6 1.6 0 0 1 1.6 1.6zm3.2-9.6a1.6 1.6 0 0 1 -1.6 1.63h-24a1.6 1.6 0 0 1 -1.6-1.6v-1.6a1.6 1.6 0 0 1 1.6-1.6h24a1.6 1.6 0 0 1 1.6 1.6z" />
+                                            </svg>
+                                            <p
+                                                class="text-right hover:underline font-semibold text-md text-blue-600 hover:text-blue-800 ">
+                                                Klik untuk mengunduh formulir kerja</p>
+                                        </div>
+                                    </a>
+                                </div>
+                            @endif
+                        @endforeach
+                        {{-- tombol form --}}
+                </div>
+                {{-- akhir standar formulir --}}
+
+                <div class="overflow-x-auto rounded-md mb-5 border">
+                    <table class="w-full ">
+                        <thead class="bg-gray-300 text-gray-700 sticky top-0">
+                            <th class="py-2 w-[5%] font-medium">No.</th>
+                            <th class="w-[57%] font-medium">Nama File</th>
+                            <th class="w-[10%] font-medium">Uploaded by</th>
+                            <th class="w-[13%] font-medium">Last Update</th>
+                            <th class="w-[15%] font-medium">Aksi</th>
+                        </thead>
+                        <tbody class="text-left border">
+                            {{-- 1 --}}
+                            <tr class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
+                                <td class="py-4 font-bold text-center">1.</td>
+                                <td class="flex justify-start py-4 items-center">
+
+                                    @if ($koneksicl->cl_i_pakai_m_1 != '')
                                         <a href="{{ asset('storage/supervisor/project/06_CL/' . $koneksicl->cl_i_pakai_m_1) }}"
-                                            target="blank" download="" class="hover:underline">
-                                            {{ $koneksicl->cl_i_pakai_m_1 }}</a>
-                                        {{-- == --}}
+                                            target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
+                                            <svg width="22" height="17" viewBox="0 0 22 17" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M11 0C6 0 1.73 3.11 0 7.5C1.73 11.89 6 15 11 15C11.36 15 11.72 15 12.08 14.95C12.03 14.63 12 14.32 12 14C12 13.44 12.08 12.88 12.24 12.34C11.83 12.44 11.42 12.5 11 12.5C8.24 12.5 6 10.26 6 7.5C6 4.74 8.24 2.5 11 2.5C13.76 2.5 16 4.74 16 7.5C16 7.79 15.97 8.09 15.92 8.38C16.58 8.13 17.29 8 18 8C19.17 8 20.31 8.34 21.29 9C21.56 8.5 21.8 8 22 7.5C20.27 3.11 16 0 11 0ZM11 4.5C9.34 4.5 8 5.84 8 7.5C8 9.16 9.34 10.5 11 10.5C12.66 10.5 14 9.16 14 7.5C14 5.84 12.66 4.5 11 4.5ZM17 10.5V12.5H21V14.5H17V16.5L14 13.5L17 10.5Z"
+                                                    fill="black" />
+                                            </svg>
+                                        </a>
 
-                                    </td>
-                                    <td>
-                                        @if ($koneksicl->up_by_i_pakai_m_cl_1 != '')
-                                            <div
-                                                class="items-center py-1 px-2 text-sm font-medium text-center text-white bg-orange-500 w-[100] mx-auto rounded">
-                                                {{ $koneksicl->up_by_i_pakai_m_cl_1 }}
-                                            </div>
-                                        @endif
-                                    </td>
-                                    <td class="text-center">{{ $koneksicl->date_cl_i_pakai_m_1 }}</td>
-                                    <td class="space-y-2 py-3 px-2">
-                                        @if (($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Closed') && $koneksicl->cl_i_pakai_m_1 == '')
-                                            <div class="justify-center flex space-x-2">
-                                                <input type="file" name="as_cl_i_pakai_m_1"
-                                                    id="fileInput_cl_i_pakai_m_1" style="display: none;">
-                                                <button type="button" onclick="openFileInput('cl_i_pakai_m_1')"
-                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md">
-                                                    + Tambah dokumen
-                                                </button>
-                                            </div>
-                                        @elseif (
-                                            ($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Closed') &&
-                                                $koneksicl->cl_i_pakai_m_1 != '' &&
-                                                $koneksicl->status_cl != 'Complete' &&
-                                                $koneksicl->status_cl != 'Waiting Approval')
-                                            <div class="justify-center flex space-x-2">
-                                                <button type="button"
-                                                    class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
-                                                    data-modal-target="modal31" data-modal-show="modal31"
-                                                    data-modal-toggle="modal31">
-                                                    Ubah
-                                                </button>
-                                                <button data-dropdown-toggle="dropdown1" type="button"
-                                                        class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
-                                                            width="22" fill="white" viewBox="0 0 48 48">
-                                                            <path
-                                                                d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
-                                                            </path>
-                                                        </svg>
-                                                    </button>
-                                            </div>
-                                        @endif
-                                    </td>
-                                    <input type="text" hidden name="as_up_by_i_pakai_m_cl_1"
-                                        value="{{ Auth::user()->first_name }}">
-                                    <input type="date" hidden name="as_date_cl_i_pakai_m_1"
-                                        value="{{ date('Y-m-d') }}">
+                                        &emsp;
+                                    @endif
+                                    {{--  --}}
+                                    <a href="{{ asset('storage/supervisor/project/06_CL/' . $koneksicl->cl_i_pakai_m_1) }}"
+                                        target="blank" download="" class="hover:underline">
+                                        {{ $koneksicl->cl_i_pakai_m_1 }}</a>
+                                    {{-- == --}}
 
-                                </tr>
-                                {{-- 2 --}}
-                                <tr
-                                    class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
-                                    <td class="py-4 font-bold text-center">2.</td>
-                                    <td class="flex justify-start py-4 items-center">
-                                        @if ($koneksicl->cl_i_pakai_m_2 != '')
-                                            <a href="{{ asset('storage/supervisor/project/06_CL/' . $koneksicl->cl_i_pakai_m_2) }}"
-                                                target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
-                                                <svg width="22" height="17" viewBox="0 0 22 17"
-                                                    fill="none" xmlns="http://www.w3.org/2000/svg">
+                                </td>
+                                <td>
+                                    @if ($koneksicl->up_by_i_pakai_m_cl_1 != '')
+                                        <div
+                                            class="items-center py-1 px-2 text-sm font-medium text-center text-white bg-orange-500 w-[100] mx-auto rounded">
+                                            {{ $koneksicl->up_by_i_pakai_m_cl_1 }}
+                                        </div>
+                                    @endif
+                                </td>
+                                <td class="text-center">{{ $koneksicl->date_cl_i_pakai_m_1 }}</td>
+                                <td class="space-y-2 py-3 px-2">
+                                    @if (($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Closed') && $koneksicl->cl_i_pakai_m_1 == '')
+                                        <div class="justify-center flex space-x-2">
+                                            <input type="file" name="as_cl_i_pakai_m_1"
+                                                id="fileInput_cl_i_pakai_m_1" style="display: none;">
+                                            <button type="button" onclick="openFileInput('cl_i_pakai_m_1')"
+                                                class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md">
+                                                + Tambah dokumen
+                                            </button>
+                                        </div>
+                                    @elseif (
+                                        ($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Closed') &&
+                                            $koneksicl->cl_i_pakai_m_1 != '' &&
+                                            $koneksicl->status_cl != 'Complete' &&
+                                            $koneksicl->status_cl != 'Waiting Approval')
+                                        <div class="justify-center flex space-x-2">
+                                            <button type="button"
+                                                class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                data-modal-target="modal31" data-modal-show="modal31"
+                                                data-modal-toggle="modal31">
+                                                Ubah
+                                            </button>
+                                            <button data-dropdown-toggle="dropdown1" type="button"
+                                                class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="22"
+                                                    fill="white" viewBox="0 0 48 48">
                                                     <path
-                                                        d="M11 0C6 0 1.73 3.11 0 7.5C1.73 11.89 6 15 11 15C11.36 15 11.72 15 12.08 14.95C12.03 14.63 12 14.32 12 14C12 13.44 12.08 12.88 12.24 12.34C11.83 12.44 11.42 12.5 11 12.5C8.24 12.5 6 10.26 6 7.5C6 4.74 8.24 2.5 11 2.5C13.76 2.5 16 4.74 16 7.5C16 7.79 15.97 8.09 15.92 8.38C16.58 8.13 17.29 8 18 8C19.17 8 20.31 8.34 21.29 9C21.56 8.5 21.8 8 22 7.5C20.27 3.11 16 0 11 0ZM11 4.5C9.34 4.5 8 5.84 8 7.5C8 9.16 9.34 10.5 11 10.5C12.66 10.5 14 9.16 14 7.5C14 5.84 12.66 4.5 11 4.5ZM17 10.5V12.5H21V14.5H17V16.5L14 13.5L17 10.5Z"
-                                                        fill="black" />
+                                                        d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                    </path>
                                                 </svg>
-                                            </a>
+                                            </button>
+                                        </div>
+                                    @endif
+                                </td>
+                                <input type="text" hidden name="as_up_by_i_pakai_m_cl_1"
+                                    value="{{ Auth::user()->first_name }}">
+                                <input type="date" hidden name="as_date_cl_i_pakai_m_1"
+                                    value="{{ date('Y-m-d') }}">
 
-                                            &emsp;
-                                        @endif
-                                        {{--  --}}
+                            </tr>
+                            {{-- 2 --}}
+                            <tr class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
+                                <td class="py-4 font-bold text-center">2.</td>
+                                <td class="flex justify-start py-4 items-center">
+                                    @if ($koneksicl->cl_i_pakai_m_2 != '')
                                         <a href="{{ asset('storage/supervisor/project/06_CL/' . $koneksicl->cl_i_pakai_m_2) }}"
-                                            target="blank" download="" class="hover:underline">
-                                            {{ $koneksicl->cl_i_pakai_m_2 }}</a>
-                                        {{-- == --}}
+                                            target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
+                                            <svg width="22" height="17" viewBox="0 0 22 17" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M11 0C6 0 1.73 3.11 0 7.5C1.73 11.89 6 15 11 15C11.36 15 11.72 15 12.08 14.95C12.03 14.63 12 14.32 12 14C12 13.44 12.08 12.88 12.24 12.34C11.83 12.44 11.42 12.5 11 12.5C8.24 12.5 6 10.26 6 7.5C6 4.74 8.24 2.5 11 2.5C13.76 2.5 16 4.74 16 7.5C16 7.79 15.97 8.09 15.92 8.38C16.58 8.13 17.29 8 18 8C19.17 8 20.31 8.34 21.29 9C21.56 8.5 21.8 8 22 7.5C20.27 3.11 16 0 11 0ZM11 4.5C9.34 4.5 8 5.84 8 7.5C8 9.16 9.34 10.5 11 10.5C12.66 10.5 14 9.16 14 7.5C14 5.84 12.66 4.5 11 4.5ZM17 10.5V12.5H21V14.5H17V16.5L14 13.5L17 10.5Z"
+                                                    fill="black" />
+                                            </svg>
+                                        </a>
 
-                                    </td>
-                                    <td>
-                                        @if ($koneksicl->up_by_i_pakai_m_cl_2 != '')
-                                            <div
-                                                class="items-center py-1 px-2 text-sm font-medium text-center text-white bg-orange-500 w-[100] mx-auto rounded">
-                                                {{ $koneksicl->up_by_i_pakai_m_cl_2 }}
-                                            </div>
-                                        @endif
-                                    </td>
-                                    <td class="text-center">{{ $koneksicl->date_cl_i_pakai_m_2 }}</td>
-                                    <td class="space-y-2 py-3 px-2">
-                                        @if (($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Closed') && $koneksicl->cl_i_pakai_m_2 == '')
+                                        &emsp;
+                                    @endif
+                                    {{--  --}}
+                                    <a href="{{ asset('storage/supervisor/project/06_CL/' . $koneksicl->cl_i_pakai_m_2) }}"
+                                        target="blank" download="" class="hover:underline">
+                                        {{ $koneksicl->cl_i_pakai_m_2 }}</a>
+                                    {{-- == --}}
+
+                                </td>
+                                <td>
+                                    @if ($koneksicl->up_by_i_pakai_m_cl_2 != '')
+                                        <div
+                                            class="items-center py-1 px-2 text-sm font-medium text-center text-white bg-orange-500 w-[100] mx-auto rounded">
+                                            {{ $koneksicl->up_by_i_pakai_m_cl_2 }}
+                                        </div>
+                                    @endif
+                                </td>
+                                <td class="text-center">{{ $koneksicl->date_cl_i_pakai_m_2 }}</td>
+                                <td class="space-y-2 py-3 px-2">
+                                    @if (($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Closed') && $koneksicl->cl_i_pakai_m_2 == '')
                                         <div class="justify-center flex space-x-2">
                                             <input type="file" name="as_cl_i_pakai_m_2"
                                                 id="fileInput_cl_i_pakai_m_2" style="display: none;">
@@ -1328,106 +1220,105 @@
                                                 Ubah
                                             </button>
                                             <button data-dropdown-toggle="dropdown1" type="button"
-                                                        class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
-                                                            width="22" fill="white" viewBox="0 0 48 48">
-                                                            <path
-                                                                d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
-                                                            </path>
-                                                        </svg>
-                                                    </button>
+                                                class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="22"
+                                                    fill="white" viewBox="0 0 48 48">
+                                                    <path
+                                                        d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                    </path>
+                                                </svg>
+                                            </button>
                                         </div>
                                     @endif
-                                    </td>
-                                    <input type="text" hidden name="as_up_by_i_pakai_m_cl_2"
-                                        value="{{ Auth::user()->first_name }}">
-                                    <input type="date" hidden name="as_date_cl_i_pakai_m_2"
-                                        value="{{ date('Y-m-d') }}">
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    {{-- Akhir --}}
+                                </td>
+                                <input type="text" hidden name="as_up_by_i_pakai_m_cl_2"
+                                    value="{{ Auth::user()->first_name }}">
+                                <input type="date" hidden name="as_date_cl_i_pakai_m_2"
+                                    value="{{ date('Y-m-d') }}">
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                {{-- Akhir --}}
 
-                    {{-- Training Document --}}
-                    {{-- awal standar formulir --}}
-                    <div class="flex justify-between">
-                        <p class="font-medium text-lg bg-gray-800 px-4 py-1 w-fit text-white mb-2 rounded"> Dokumen
-                            Training
-                            @foreach ($standar_project as $spt)
-                                @if ($spt->file_training_form != '')
-                                    <div class="flex justify-end mr-1 mt-4">
-                                        <a href="{{ asset('storage/supervisor/standarproject/' . $spt->file_training_form) }}"
-                                            download="">
-                                            <div
-                                                class="w-fit items-center space-x-1 flex fill-blue-600 hover:fill-blue-800">
-                                                <svg width="15" height="" viewBox="0 0 52 52"
-                                                    xmlns="http://www.w3.org/2000/svg">
-                                                    <path
-                                                        d="m36.4 14.8h8.48a1.09 1.09 0 0 0 1.12-1.12 1 1 0 0 0 -.32-.8l-10.56-10.56a1 1 0 0 0 -.8-.32 1.09 1.09 0 0 0 -1.12 1.12v8.48a3.21 3.21 0 0 0 3.2 3.2z" />
+                {{-- Training Document --}}
+                {{-- awal standar formulir --}}
+                <div class="flex justify-between">
+                    <p class="font-medium text-lg bg-gray-800 px-4 py-1 w-fit text-white mb-2 rounded"> Dokumen
+                        Training
+                        @foreach ($standar_project as $spt)
+                            @if ($spt->file_training_form != '')
+                                <div class="flex justify-end mr-1 mt-4">
+                                    <a href="{{ asset('storage/supervisor/standarproject/' . $spt->file_training_form) }}"
+                                        download="">
+                                        <div
+                                            class="w-fit items-center space-x-1 flex fill-blue-600 hover:fill-blue-800">
+                                            <svg width="15" height="" viewBox="0 0 52 52"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="m36.4 14.8h8.48a1.09 1.09 0 0 0 1.12-1.12 1 1 0 0 0 -.32-.8l-10.56-10.56a1 1 0 0 0 -.8-.32 1.09 1.09 0 0 0 -1.12 1.12v8.48a3.21 3.21 0 0 0 3.2 3.2z" />
 
-                                                    <path
-                                                        d="m44.4 19.6h-11.2a4.81 4.81 0 0 1 -4.8-4.8v-11.2a1.6 1.6 0 0 0 -1.6-1.6h-16a4.81 4.81 0 0 0 -4.8 4.8v38.4a4.81 4.81 0 0 0 4.8 4.8h30.4a4.81 4.81 0 0 0 4.8-4.8v-24a1.6 1.6 0 0 0 -1.6-1.6zm-32-1.6a1.62 1.62 0 0 1 1.6-1.55h6.55a1.56 1.56 0 0 1 1.57 1.55v1.59a1.63 1.63 0 0 1 -1.59 1.58h-6.53a1.55 1.55 0 0 1 -1.58-1.58zm24 20.77a1.6 1.6 0 0 1 -1.6 1.6h-20.8a1.6 1.6 0 0 1 -1.6-1.6v-1.57a1.6 1.6 0 0 1 1.6-1.6h20.8a1.6 1.6 0 0 1 1.6 1.6zm3.2-9.6a1.6 1.6 0 0 1 -1.6 1.63h-24a1.6 1.6 0 0 1 -1.6-1.6v-1.6a1.6 1.6 0 0 1 1.6-1.6h24a1.6 1.6 0 0 1 1.6 1.6z" />
-                                                </svg>
-                                                <p
-                                                    class="text-right hover:underline font-semibold text-md text-blue-600 hover:text-blue-800 ">
-                                                    Klik untuk mengunduh formulir kerja</p>
-                                            </div>
-                                        </a>
-                                    </div>
-                                @endif
-                            @endforeach
-                            {{-- tombol form --}}
-                    </div>
-                    {{-- akhir standar formulir --}}
+                                                <path
+                                                    d="m44.4 19.6h-11.2a4.81 4.81 0 0 1 -4.8-4.8v-11.2a1.6 1.6 0 0 0 -1.6-1.6h-16a4.81 4.81 0 0 0 -4.8 4.8v38.4a4.81 4.81 0 0 0 4.8 4.8h30.4a4.81 4.81 0 0 0 4.8-4.8v-24a1.6 1.6 0 0 0 -1.6-1.6zm-32-1.6a1.62 1.62 0 0 1 1.6-1.55h6.55a1.56 1.56 0 0 1 1.57 1.55v1.59a1.63 1.63 0 0 1 -1.59 1.58h-6.53a1.55 1.55 0 0 1 -1.58-1.58zm24 20.77a1.6 1.6 0 0 1 -1.6 1.6h-20.8a1.6 1.6 0 0 1 -1.6-1.6v-1.57a1.6 1.6 0 0 1 1.6-1.6h20.8a1.6 1.6 0 0 1 1.6 1.6zm3.2-9.6a1.6 1.6 0 0 1 -1.6 1.63h-24a1.6 1.6 0 0 1 -1.6-1.6v-1.6a1.6 1.6 0 0 1 1.6-1.6h24a1.6 1.6 0 0 1 1.6 1.6z" />
+                                            </svg>
+                                            <p
+                                                class="text-right hover:underline font-semibold text-md text-blue-600 hover:text-blue-800 ">
+                                                Klik untuk mengunduh formulir kerja</p>
+                                        </div>
+                                    </a>
+                                </div>
+                            @endif
+                        @endforeach
+                        {{-- tombol form --}}
+                </div>
+                {{-- akhir standar formulir --}}
 
-                    <div class="overflow-x-auto rounded-md mb-5 border">
-                        <table class="w-full ">
-                            <thead class="bg-gray-300 text-gray-700 sticky top-0">
-                                <th class="py-2 w-[5%] font-medium">No.</th>
-                                <th class="w-[57%] font-medium">Nama File</th>
-                                <th class="w-[10%] font-medium">Uploaded by</th>
-                                <th class="w-[13%] font-medium">Last Update</th>
-                                <th class="w-[15%] font-medium">Aksi</th>
-                            </thead>
-                            <tbody class="text-left border">
-                                {{-- 1 --}}
-                                <tr
-                                    class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
-                                    <td class="py-4 font-bold text-center">1.</td>
-                                    <td class="flex justify-start py-4 items-center">
+                <div class="overflow-x-auto rounded-md mb-5 border">
+                    <table class="w-full ">
+                        <thead class="bg-gray-300 text-gray-700 sticky top-0">
+                            <th class="py-2 w-[5%] font-medium">No.</th>
+                            <th class="w-[57%] font-medium">Nama File</th>
+                            <th class="w-[10%] font-medium">Uploaded by</th>
+                            <th class="w-[13%] font-medium">Last Update</th>
+                            <th class="w-[15%] font-medium">Aksi</th>
+                        </thead>
+                        <tbody class="text-left border">
+                            {{-- 1 --}}
+                            <tr class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
+                                <td class="py-4 font-bold text-center">1.</td>
+                                <td class="flex justify-start py-4 items-center">
 
-                                        @if ($koneksicl->cl_training_1 != '')
-                                            <a href="{{ asset('storage/supervisor/project/06_CL/' . $koneksicl->cl_training_1) }}"
-                                                target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
-                                                <svg width="22" height="17" viewBox="0 0 22 17"
-                                                    fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                    <path
-                                                        d="M11 0C6 0 1.73 3.11 0 7.5C1.73 11.89 6 15 11 15C11.36 15 11.72 15 12.08 14.95C12.03 14.63 12 14.32 12 14C12 13.44 12.08 12.88 12.24 12.34C11.83 12.44 11.42 12.5 11 12.5C8.24 12.5 6 10.26 6 7.5C6 4.74 8.24 2.5 11 2.5C13.76 2.5 16 4.74 16 7.5C16 7.79 15.97 8.09 15.92 8.38C16.58 8.13 17.29 8 18 8C19.17 8 20.31 8.34 21.29 9C21.56 8.5 21.8 8 22 7.5C20.27 3.11 16 0 11 0ZM11 4.5C9.34 4.5 8 5.84 8 7.5C8 9.16 9.34 10.5 11 10.5C12.66 10.5 14 9.16 14 7.5C14 5.84 12.66 4.5 11 4.5ZM17 10.5V12.5H21V14.5H17V16.5L14 13.5L17 10.5Z"
-                                                        fill="black" />
-                                                </svg>
-                                            </a>
-
-                                            &emsp;
-                                        @endif
-                                        {{--  --}}
+                                    @if ($koneksicl->cl_training_1 != '')
                                         <a href="{{ asset('storage/supervisor/project/06_CL/' . $koneksicl->cl_training_1) }}"
-                                            target="blank" download="" class="hover:underline">
-                                            {{ $koneksicl->cl_training_1 }}</a>
-                                        {{-- == --}}
+                                            target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
+                                            <svg width="22" height="17" viewBox="0 0 22 17" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M11 0C6 0 1.73 3.11 0 7.5C1.73 11.89 6 15 11 15C11.36 15 11.72 15 12.08 14.95C12.03 14.63 12 14.32 12 14C12 13.44 12.08 12.88 12.24 12.34C11.83 12.44 11.42 12.5 11 12.5C8.24 12.5 6 10.26 6 7.5C6 4.74 8.24 2.5 11 2.5C13.76 2.5 16 4.74 16 7.5C16 7.79 15.97 8.09 15.92 8.38C16.58 8.13 17.29 8 18 8C19.17 8 20.31 8.34 21.29 9C21.56 8.5 21.8 8 22 7.5C20.27 3.11 16 0 11 0ZM11 4.5C9.34 4.5 8 5.84 8 7.5C8 9.16 9.34 10.5 11 10.5C12.66 10.5 14 9.16 14 7.5C14 5.84 12.66 4.5 11 4.5ZM17 10.5V12.5H21V14.5H17V16.5L14 13.5L17 10.5Z"
+                                                    fill="black" />
+                                            </svg>
+                                        </a>
 
-                                    </td>
-                                    <td>
-                                        @if ($koneksicl->up_by_training_cl_1 != '')
-                                            <div
-                                                class="items-center py-1 px-2 text-sm font-medium text-center text-white bg-orange-500 w-[100] mx-auto rounded">
-                                                {{ $koneksicl->up_by_training_cl_1 }}
-                                            </div>
-                                        @endif
-                                    </td>
-                                    <td class="text-center">{{ $koneksicl->date_cl_training_1 }}</td>
-                                    <td class="space-y-2 py-3 px-2">
-                                        @if (($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Closed') && $koneksicl->cl_training_1 == '')
+                                        &emsp;
+                                    @endif
+                                    {{--  --}}
+                                    <a href="{{ asset('storage/supervisor/project/06_CL/' . $koneksicl->cl_training_1) }}"
+                                        target="blank" download="" class="hover:underline">
+                                        {{ $koneksicl->cl_training_1 }}</a>
+                                    {{-- == --}}
+
+                                </td>
+                                <td>
+                                    @if ($koneksicl->up_by_training_cl_1 != '')
+                                        <div
+                                            class="items-center py-1 px-2 text-sm font-medium text-center text-white bg-orange-500 w-[100] mx-auto rounded">
+                                            {{ $koneksicl->up_by_training_cl_1 }}
+                                        </div>
+                                    @endif
+                                </td>
+                                <td class="text-center">{{ $koneksicl->date_cl_training_1 }}</td>
+                                <td class="space-y-2 py-3 px-2">
+                                    @if (($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Closed') && $koneksicl->cl_training_1 == '')
                                         <div class="justify-center flex space-x-2">
                                             <input type="file" name="as_cl_training_1"
                                                 id="fileInput_cl_training_1" style="display: none;">
@@ -1449,57 +1340,56 @@
                                                 Ubah
                                             </button>
                                             <button data-dropdown-toggle="dropdown1" type="button"
-                                                        class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
-                                                            width="22" fill="white" viewBox="0 0 48 48">
-                                                            <path
-                                                                d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
-                                                            </path>
-                                                        </svg>
-                                                    </button>
+                                                class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="22"
+                                                    fill="white" viewBox="0 0 48 48">
+                                                    <path
+                                                        d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                    </path>
+                                                </svg>
+                                            </button>
                                         </div>
                                     @endif
-                                    </td>
-                                    <input type="text" hidden name="as_up_by_training_cl_1"
-                                        value="{{ Auth::user()->first_name }}">
-                                    <input type="date" hidden name="as_date_cl_training_1"
-                                        value="{{ date('Y-m-d') }}">
-                                </tr>
-                                {{-- 2 --}}
-                                <tr
-                                    class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
-                                    <td class="py-4 font-bold text-center">2.</td>
-                                    <td class="flex justify-start py-4 items-center">
-                                        @if ($koneksicl->cl_training_2 != '')
-                                            <a href="{{ asset('storage/supervisor/project/06_CL/' . $koneksicl->cl_training_2) }}"
-                                                target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
-                                                <svg width="22" height="17" viewBox="0 0 22 17"
-                                                    fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                    <path
-                                                        d="M11 0C6 0 1.73 3.11 0 7.5C1.73 11.89 6 15 11 15C11.36 15 11.72 15 12.08 14.95C12.03 14.63 12 14.32 12 14C12 13.44 12.08 12.88 12.24 12.34C11.83 12.44 11.42 12.5 11 12.5C8.24 12.5 6 10.26 6 7.5C6 4.74 8.24 2.5 11 2.5C13.76 2.5 16 4.74 16 7.5C16 7.79 15.97 8.09 15.92 8.38C16.58 8.13 17.29 8 18 8C19.17 8 20.31 8.34 21.29 9C21.56 8.5 21.8 8 22 7.5C20.27 3.11 16 0 11 0ZM11 4.5C9.34 4.5 8 5.84 8 7.5C8 9.16 9.34 10.5 11 10.5C12.66 10.5 14 9.16 14 7.5C14 5.84 12.66 4.5 11 4.5ZM17 10.5V12.5H21V14.5H17V16.5L14 13.5L17 10.5Z"
-                                                        fill="black" />
-                                                </svg>
-                                            </a>
-
-                                            &emsp;
-                                        @endif
-                                        {{--  --}}
+                                </td>
+                                <input type="text" hidden name="as_up_by_training_cl_1"
+                                    value="{{ Auth::user()->first_name }}">
+                                <input type="date" hidden name="as_date_cl_training_1"
+                                    value="{{ date('Y-m-d') }}">
+                            </tr>
+                            {{-- 2 --}}
+                            <tr class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
+                                <td class="py-4 font-bold text-center">2.</td>
+                                <td class="flex justify-start py-4 items-center">
+                                    @if ($koneksicl->cl_training_2 != '')
                                         <a href="{{ asset('storage/supervisor/project/06_CL/' . $koneksicl->cl_training_2) }}"
-                                            target="blank" download="" class="hover:underline">
-                                            {{ $koneksicl->cl_training_2 }}</a>
-                                        {{-- == --}}
-                                    </td>
-                                    <td>
-                                        @if ($koneksicl->up_by_training_cl_2 != '')
-                                            <div
-                                                class="items-center py-1 px-2 text-sm font-medium text-center text-white bg-orange-500 w-[100] mx-auto rounded">
-                                                {{ $koneksicl->up_by_training_cl_2 }}
-                                            </div>
-                                        @endif
-                                    </td>
-                                    <td class="text-center">{{ $koneksicl->date_cl_training_2 }}</td>
-                                    <td class="space-y-2 py-3 px-2">
-                                        @if (($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Closed') && $koneksicl->cl_training_2 == '')
+                                            target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
+                                            <svg width="22" height="17" viewBox="0 0 22 17" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M11 0C6 0 1.73 3.11 0 7.5C1.73 11.89 6 15 11 15C11.36 15 11.72 15 12.08 14.95C12.03 14.63 12 14.32 12 14C12 13.44 12.08 12.88 12.24 12.34C11.83 12.44 11.42 12.5 11 12.5C8.24 12.5 6 10.26 6 7.5C6 4.74 8.24 2.5 11 2.5C13.76 2.5 16 4.74 16 7.5C16 7.79 15.97 8.09 15.92 8.38C16.58 8.13 17.29 8 18 8C19.17 8 20.31 8.34 21.29 9C21.56 8.5 21.8 8 22 7.5C20.27 3.11 16 0 11 0ZM11 4.5C9.34 4.5 8 5.84 8 7.5C8 9.16 9.34 10.5 11 10.5C12.66 10.5 14 9.16 14 7.5C14 5.84 12.66 4.5 11 4.5ZM17 10.5V12.5H21V14.5H17V16.5L14 13.5L17 10.5Z"
+                                                    fill="black" />
+                                            </svg>
+                                        </a>
+
+                                        &emsp;
+                                    @endif
+                                    {{--  --}}
+                                    <a href="{{ asset('storage/supervisor/project/06_CL/' . $koneksicl->cl_training_2) }}"
+                                        target="blank" download="" class="hover:underline">
+                                        {{ $koneksicl->cl_training_2 }}</a>
+                                    {{-- == --}}
+                                </td>
+                                <td>
+                                    @if ($koneksicl->up_by_training_cl_2 != '')
+                                        <div
+                                            class="items-center py-1 px-2 text-sm font-medium text-center text-white bg-orange-500 w-[100] mx-auto rounded">
+                                            {{ $koneksicl->up_by_training_cl_2 }}
+                                        </div>
+                                    @endif
+                                </td>
+                                <td class="text-center">{{ $koneksicl->date_cl_training_2 }}</td>
+                                <td class="space-y-2 py-3 px-2">
+                                    @if (($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Closed') && $koneksicl->cl_training_2 == '')
                                         <div class="justify-center flex space-x-2">
                                             <input type="file" name="as_cl_training_2"
                                                 id="fileInput_cl_training_2" style="display: none;">
@@ -1521,60 +1411,59 @@
                                                 Ubah
                                             </button>
                                             <button data-dropdown-toggle="dropdown1" type="button"
-                                                        class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
-                                                            width="22" fill="white" viewBox="0 0 48 48">
-                                                            <path
-                                                                d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
-                                                            </path>
-                                                        </svg>
-                                                    </button>
+                                                class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="22"
+                                                    fill="white" viewBox="0 0 48 48">
+                                                    <path
+                                                        d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                    </path>
+                                                </svg>
+                                            </button>
                                         </div>
                                     @endif
-                                    </td>
-                                    <input type="text" hidden name="as_up_by_training_cl_2"
-                                        value="{{ Auth::user()->first_name }}">
-                                    <input type="date" hidden name="as_date_cl_training_2"
-                                        value="{{ date('Y-m-d') }}">
+                                </td>
+                                <input type="text" hidden name="as_up_by_training_cl_2"
+                                    value="{{ Auth::user()->first_name }}">
+                                <input type="date" hidden name="as_date_cl_training_2"
+                                    value="{{ date('Y-m-d') }}">
 
-                                </tr>
-                                {{-- 3 --}}
-                                <tr
-                                    class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
-                                    <td class="py-4 font-bold text-center">3.</td>
-                                    <td class="flex justify-start py-4 items-center">
+                            </tr>
+                            {{-- 3 --}}
+                            <tr class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
+                                <td class="py-4 font-bold text-center">3.</td>
+                                <td class="flex justify-start py-4 items-center">
 
-                                        @if ($koneksicl->cl_training_3 != '')
-                                            <a href="{{ asset('storage/supervisor/project/06_CL/' . $koneksicl->cl_training_3) }}"
-                                                target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
-                                                <svg width="22" height="17" viewBox="0 0 22 17"
-                                                    fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                    <path
-                                                        d="M11 0C6 0 1.73 3.11 0 7.5C1.73 11.89 6 15 11 15C11.36 15 11.72 15 12.08 14.95C12.03 14.63 12 14.32 12 14C12 13.44 12.08 12.88 12.24 12.34C11.83 12.44 11.42 12.5 11 12.5C8.24 12.5 6 10.26 6 7.5C6 4.74 8.24 2.5 11 2.5C13.76 2.5 16 4.74 16 7.5C16 7.79 15.97 8.09 15.92 8.38C16.58 8.13 17.29 8 18 8C19.17 8 20.31 8.34 21.29 9C21.56 8.5 21.8 8 22 7.5C20.27 3.11 16 0 11 0ZM11 4.5C9.34 4.5 8 5.84 8 7.5C8 9.16 9.34 10.5 11 10.5C12.66 10.5 14 9.16 14 7.5C14 5.84 12.66 4.5 11 4.5ZM17 10.5V12.5H21V14.5H17V16.5L14 13.5L17 10.5Z"
-                                                        fill="black" />
-                                                </svg>
-                                            </a>
-
-                                            &emsp;
-                                        @endif
-                                        {{--  --}}
+                                    @if ($koneksicl->cl_training_3 != '')
                                         <a href="{{ asset('storage/supervisor/project/06_CL/' . $koneksicl->cl_training_3) }}"
-                                            target="blank" download="" class="hover:underline">
-                                            {{ $koneksicl->cl_training_3 }}</a>
-                                        {{-- == --}}
+                                            target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
+                                            <svg width="22" height="17" viewBox="0 0 22 17" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M11 0C6 0 1.73 3.11 0 7.5C1.73 11.89 6 15 11 15C11.36 15 11.72 15 12.08 14.95C12.03 14.63 12 14.32 12 14C12 13.44 12.08 12.88 12.24 12.34C11.83 12.44 11.42 12.5 11 12.5C8.24 12.5 6 10.26 6 7.5C6 4.74 8.24 2.5 11 2.5C13.76 2.5 16 4.74 16 7.5C16 7.79 15.97 8.09 15.92 8.38C16.58 8.13 17.29 8 18 8C19.17 8 20.31 8.34 21.29 9C21.56 8.5 21.8 8 22 7.5C20.27 3.11 16 0 11 0ZM11 4.5C9.34 4.5 8 5.84 8 7.5C8 9.16 9.34 10.5 11 10.5C12.66 10.5 14 9.16 14 7.5C14 5.84 12.66 4.5 11 4.5ZM17 10.5V12.5H21V14.5H17V16.5L14 13.5L17 10.5Z"
+                                                    fill="black" />
+                                            </svg>
+                                        </a>
 
-                                    </td>
-                                    <td>
-                                        @if ($koneksicl->up_by_training_cl_3 != '')
-                                            <div
-                                                class="items-center py-1 px-2 text-sm font-medium text-center text-white bg-orange-500 w-[100] mx-auto rounded">
-                                                {{ $koneksicl->up_by_training_cl_3 }}
-                                            </div>
-                                        @endif
-                                    </td>
-                                    <td class="text-center">{{ $koneksicl->date_cl_training_3 }}</td>
-                                    <td class="space-y-2 py-3 px-2">
-                                        @if (($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Closed') && $koneksicl->cl_training_3 == '')
+                                        &emsp;
+                                    @endif
+                                    {{--  --}}
+                                    <a href="{{ asset('storage/supervisor/project/06_CL/' . $koneksicl->cl_training_3) }}"
+                                        target="blank" download="" class="hover:underline">
+                                        {{ $koneksicl->cl_training_3 }}</a>
+                                    {{-- == --}}
+
+                                </td>
+                                <td>
+                                    @if ($koneksicl->up_by_training_cl_3 != '')
+                                        <div
+                                            class="items-center py-1 px-2 text-sm font-medium text-center text-white bg-orange-500 w-[100] mx-auto rounded">
+                                            {{ $koneksicl->up_by_training_cl_3 }}
+                                        </div>
+                                    @endif
+                                </td>
+                                <td class="text-center">{{ $koneksicl->date_cl_training_3 }}</td>
+                                <td class="space-y-2 py-3 px-2">
+                                    @if (($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Closed') && $koneksicl->cl_training_3 == '')
                                         <div class="justify-center flex space-x-2">
                                             <input type="file" name="as_cl_training_3"
                                                 id="fileInput_cl_training_3" style="display: none;">
@@ -1596,59 +1485,58 @@
                                                 Ubah
                                             </button>
                                             <button data-dropdown-toggle="dropdown1" type="button"
-                                                        class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
-                                                            width="22" fill="white" viewBox="0 0 48 48">
-                                                            <path
-                                                                d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
-                                                            </path>
-                                                        </svg>
-                                                    </button>
+                                                class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="22"
+                                                    fill="white" viewBox="0 0 48 48">
+                                                    <path
+                                                        d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                    </path>
+                                                </svg>
+                                            </button>
                                         </div>
                                     @endif
-                                    </td>
-                                    <input type="text" hidden name="as_up_by_training_cl_3"
-                                        value="{{ Auth::user()->first_name }}">
-                                    <input type="date" hidden name="as_date_cl_training_3"
-                                        value="{{ date('Y-m-d') }}">
-                                </tr>
-                                {{-- 4 --}}
-                                <tr
-                                    class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
-                                    <td class="py-4 font-bold text-center">4.</td>
-                                    <td class="flex justify-start py-4 items-center">
+                                </td>
+                                <input type="text" hidden name="as_up_by_training_cl_3"
+                                    value="{{ Auth::user()->first_name }}">
+                                <input type="date" hidden name="as_date_cl_training_3"
+                                    value="{{ date('Y-m-d') }}">
+                            </tr>
+                            {{-- 4 --}}
+                            <tr class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
+                                <td class="py-4 font-bold text-center">4.</td>
+                                <td class="flex justify-start py-4 items-center">
 
-                                        @if ($koneksicl->cl_training_4 != '')
-                                            <a href="{{ asset('storage/supervisor/project/06_CL/' . $koneksicl->cl_training_4) }}"
-                                                target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
-                                                <svg width="22" height="17" viewBox="0 0 22 17"
-                                                    fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                    <path
-                                                        d="M11 0C6 0 1.73 3.11 0 7.5C1.73 11.89 6 15 11 15C11.36 15 11.72 15 12.08 14.95C12.03 14.63 12 14.32 12 14C12 13.44 12.08 12.88 12.24 12.34C11.83 12.44 11.42 12.5 11 12.5C8.24 12.5 6 10.26 6 7.5C6 4.74 8.24 2.5 11 2.5C13.76 2.5 16 4.74 16 7.5C16 7.79 15.97 8.09 15.92 8.38C16.58 8.13 17.29 8 18 8C19.17 8 20.31 8.34 21.29 9C21.56 8.5 21.8 8 22 7.5C20.27 3.11 16 0 11 0ZM11 4.5C9.34 4.5 8 5.84 8 7.5C8 9.16 9.34 10.5 11 10.5C12.66 10.5 14 9.16 14 7.5C14 5.84 12.66 4.5 11 4.5ZM17 10.5V12.5H21V14.5H17V16.5L14 13.5L17 10.5Z"
-                                                        fill="black" />
-                                                </svg>
-                                            </a>
-
-                                            &emsp;
-                                        @endif
-                                        {{--  --}}
+                                    @if ($koneksicl->cl_training_4 != '')
                                         <a href="{{ asset('storage/supervisor/project/06_CL/' . $koneksicl->cl_training_4) }}"
-                                            target="blank" download="" class="hover:underline">
-                                            {{ $koneksicl->cl_training_4 }}</a>
-                                        {{-- == --}}
+                                            target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
+                                            <svg width="22" height="17" viewBox="0 0 22 17" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M11 0C6 0 1.73 3.11 0 7.5C1.73 11.89 6 15 11 15C11.36 15 11.72 15 12.08 14.95C12.03 14.63 12 14.32 12 14C12 13.44 12.08 12.88 12.24 12.34C11.83 12.44 11.42 12.5 11 12.5C8.24 12.5 6 10.26 6 7.5C6 4.74 8.24 2.5 11 2.5C13.76 2.5 16 4.74 16 7.5C16 7.79 15.97 8.09 15.92 8.38C16.58 8.13 17.29 8 18 8C19.17 8 20.31 8.34 21.29 9C21.56 8.5 21.8 8 22 7.5C20.27 3.11 16 0 11 0ZM11 4.5C9.34 4.5 8 5.84 8 7.5C8 9.16 9.34 10.5 11 10.5C12.66 10.5 14 9.16 14 7.5C14 5.84 12.66 4.5 11 4.5ZM17 10.5V12.5H21V14.5H17V16.5L14 13.5L17 10.5Z"
+                                                    fill="black" />
+                                            </svg>
+                                        </a>
 
-                                    </td>
-                                    <td>
-                                        @if ($koneksicl->up_by_training_cl_4 != '')
-                                            <div
-                                                class="items-center py-1 px-2 text-sm font-medium text-center text-white bg-orange-500 w-[100] mx-auto rounded">
-                                                {{ $koneksicl->up_by_training_cl_4 }}
-                                            </div>
-                                        @endif
-                                    </td>
-                                    <td class="text-center">{{ $koneksicl->date_cl_training_4 }}</td>
-                                    <td class="space-y-2 py-3 px-2">
-                                        @if (($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Closed') && $koneksicl->cl_training_4 == '')
+                                        &emsp;
+                                    @endif
+                                    {{--  --}}
+                                    <a href="{{ asset('storage/supervisor/project/06_CL/' . $koneksicl->cl_training_4) }}"
+                                        target="blank" download="" class="hover:underline">
+                                        {{ $koneksicl->cl_training_4 }}</a>
+                                    {{-- == --}}
+
+                                </td>
+                                <td>
+                                    @if ($koneksicl->up_by_training_cl_4 != '')
+                                        <div
+                                            class="items-center py-1 px-2 text-sm font-medium text-center text-white bg-orange-500 w-[100] mx-auto rounded">
+                                            {{ $koneksicl->up_by_training_cl_4 }}
+                                        </div>
+                                    @endif
+                                </td>
+                                <td class="text-center">{{ $koneksicl->date_cl_training_4 }}</td>
+                                <td class="space-y-2 py-3 px-2">
+                                    @if (($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Closed') && $koneksicl->cl_training_4 == '')
                                         <div class="justify-center flex space-x-2">
                                             <input type="file" name="as_cl_training_4"
                                                 id="fileInput_cl_training_4" style="display: none;">
@@ -1670,60 +1558,59 @@
                                                 Ubah
                                             </button>
                                             <button data-dropdown-toggle="dropdown1" type="button"
-                                                        class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
-                                                            width="22" fill="white" viewBox="0 0 48 48">
-                                                            <path
-                                                                d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
-                                                            </path>
-                                                        </svg>
-                                                    </button>
+                                                class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="22"
+                                                    fill="white" viewBox="0 0 48 48">
+                                                    <path
+                                                        d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                    </path>
+                                                </svg>
+                                            </button>
                                         </div>
                                     @endif
-                                    </td>
-                                    <input type="text" hidden name="as_up_by_training_cl_4"
-                                        value="{{ Auth::user()->first_name }}">
-                                    <input type="date" hidden name="as_date_cl_training_4"
-                                        value="{{ date('Y-m-d') }}">
+                                </td>
+                                <input type="text" hidden name="as_up_by_training_cl_4"
+                                    value="{{ Auth::user()->first_name }}">
+                                <input type="date" hidden name="as_date_cl_training_4"
+                                    value="{{ date('Y-m-d') }}">
 
-                                </tr>
-                                {{-- 5 --}}
-                                <tr
-                                    class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
-                                    <td class="py-4 font-bold text-center">5.</td>
-                                    <td class="flex justify-start py-4 items-center">
+                            </tr>
+                            {{-- 5 --}}
+                            <tr class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
+                                <td class="py-4 font-bold text-center">5.</td>
+                                <td class="flex justify-start py-4 items-center">
 
-                                        @if ($koneksicl->cl_training_5 != '')
-                                            <a href="{{ asset('storage/supervisor/project/06_CL/' . $koneksicl->cl_training_5) }}"
-                                                target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
-                                                <svg width="22" height="17" viewBox="0 0 22 17"
-                                                    fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                    <path
-                                                        d="M11 0C6 0 1.73 3.11 0 7.5C1.73 11.89 6 15 11 15C11.36 15 11.72 15 12.08 14.95C12.03 14.63 12 14.32 12 14C12 13.44 12.08 12.88 12.24 12.34C11.83 12.44 11.42 12.5 11 12.5C8.24 12.5 6 10.26 6 7.5C6 4.74 8.24 2.5 11 2.5C13.76 2.5 16 4.74 16 7.5C16 7.79 15.97 8.09 15.92 8.38C16.58 8.13 17.29 8 18 8C19.17 8 20.31 8.34 21.29 9C21.56 8.5 21.8 8 22 7.5C20.27 3.11 16 0 11 0ZM11 4.5C9.34 4.5 8 5.84 8 7.5C8 9.16 9.34 10.5 11 10.5C12.66 10.5 14 9.16 14 7.5C14 5.84 12.66 4.5 11 4.5ZM17 10.5V12.5H21V14.5H17V16.5L14 13.5L17 10.5Z"
-                                                        fill="black" />
-                                                </svg>
-                                            </a>
-
-                                            &emsp;
-                                        @endif
-                                        {{--  --}}
+                                    @if ($koneksicl->cl_training_5 != '')
                                         <a href="{{ asset('storage/supervisor/project/06_CL/' . $koneksicl->cl_training_5) }}"
-                                            target="blank" download="" class="hover:underline">
-                                            {{ $koneksicl->cl_training_5 }}</a>
-                                        {{-- == --}}
+                                            target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
+                                            <svg width="22" height="17" viewBox="0 0 22 17" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M11 0C6 0 1.73 3.11 0 7.5C1.73 11.89 6 15 11 15C11.36 15 11.72 15 12.08 14.95C12.03 14.63 12 14.32 12 14C12 13.44 12.08 12.88 12.24 12.34C11.83 12.44 11.42 12.5 11 12.5C8.24 12.5 6 10.26 6 7.5C6 4.74 8.24 2.5 11 2.5C13.76 2.5 16 4.74 16 7.5C16 7.79 15.97 8.09 15.92 8.38C16.58 8.13 17.29 8 18 8C19.17 8 20.31 8.34 21.29 9C21.56 8.5 21.8 8 22 7.5C20.27 3.11 16 0 11 0ZM11 4.5C9.34 4.5 8 5.84 8 7.5C8 9.16 9.34 10.5 11 10.5C12.66 10.5 14 9.16 14 7.5C14 5.84 12.66 4.5 11 4.5ZM17 10.5V12.5H21V14.5H17V16.5L14 13.5L17 10.5Z"
+                                                    fill="black" />
+                                            </svg>
+                                        </a>
 
-                                    </td>
-                                    <td>
-                                        @if ($koneksicl->up_by_training_cl_5 != '')
-                                            <div
-                                                class="items-center py-1 px-2 text-sm font-medium text-center text-white bg-orange-500 w-[100] mx-auto rounded">
-                                                {{ $koneksicl->up_by_training_cl_5 }}
-                                            </div>
-                                        @endif
-                                    </td>
-                                    <td class="text-center">{{ $koneksicl->date_cl_training_5 }}</td>
-                                    <td class="space-y-2 py-3 px-2">
-                                        @if (($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Closed') && $koneksicl->cl_training_5 == '')
+                                        &emsp;
+                                    @endif
+                                    {{--  --}}
+                                    <a href="{{ asset('storage/supervisor/project/06_CL/' . $koneksicl->cl_training_5) }}"
+                                        target="blank" download="" class="hover:underline">
+                                        {{ $koneksicl->cl_training_5 }}</a>
+                                    {{-- == --}}
+
+                                </td>
+                                <td>
+                                    @if ($koneksicl->up_by_training_cl_5 != '')
+                                        <div
+                                            class="items-center py-1 px-2 text-sm font-medium text-center text-white bg-orange-500 w-[100] mx-auto rounded">
+                                            {{ $koneksicl->up_by_training_cl_5 }}
+                                        </div>
+                                    @endif
+                                </td>
+                                <td class="text-center">{{ $koneksicl->date_cl_training_5 }}</td>
+                                <td class="space-y-2 py-3 px-2">
+                                    @if (($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Closed') && $koneksicl->cl_training_5 == '')
                                         <div class="justify-center flex space-x-2">
                                             <input type="file" name="as_cl_training_5"
                                                 id="fileInput_cl_training_5" style="display: none;">
@@ -1745,106 +1632,105 @@
                                                 Ubah
                                             </button>
                                             <button data-dropdown-toggle="dropdown1" type="button"
-                                                        class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
-                                                            width="22" fill="white" viewBox="0 0 48 48">
-                                                            <path
-                                                                d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
-                                                            </path>
-                                                        </svg>
-                                                    </button>
+                                                class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="22"
+                                                    fill="white" viewBox="0 0 48 48">
+                                                    <path
+                                                        d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                    </path>
+                                                </svg>
+                                            </button>
                                         </div>
                                     @endif
-                                    </td>
-                                    <input type="text" hidden name="as_up_by_training_cl_5"
-                                        value="{{ Auth::user()->first_name }}">
-                                    <input type="date" hidden name="as_date_cl_training_5"
-                                        value="{{ date('Y-m-d') }}">
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    {{-- Akhir --}}
+                                </td>
+                                <input type="text" hidden name="as_up_by_training_cl_5"
+                                    value="{{ Auth::user()->first_name }}">
+                                <input type="date" hidden name="as_date_cl_training_5"
+                                    value="{{ date('Y-m-d') }}">
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                {{-- Akhir --}}
 
-                    {{-- Listup Trouble --}}
-                    {{-- awal standar formulir --}}
-                    <div class="flex justify-between">
-                        <p class="font-medium text-lg bg-gray-800 px-4 py-1 w-fit text-white mb-2 rounded"> Trouble
-                            Listup
-                            @foreach ($standar_project as $spt)
-                                @if ($spt->file_lup_form != '')
-                                    <div class="flex justify-end mr-1 mt-4">
-                                        <a href="{{ asset('storage/supervisor/standarproject/' . $spt->file_lup_form) }}"
-                                            download="">
-                                            <div
-                                                class="w-fit items-center space-x-1 flex fill-blue-600 hover:fill-blue-800">
-                                                <svg width="15" height="" viewBox="0 0 52 52"
-                                                    xmlns="http://www.w3.org/2000/svg">
-                                                    <path
-                                                        d="m36.4 14.8h8.48a1.09 1.09 0 0 0 1.12-1.12 1 1 0 0 0 -.32-.8l-10.56-10.56a1 1 0 0 0 -.8-.32 1.09 1.09 0 0 0 -1.12 1.12v8.48a3.21 3.21 0 0 0 3.2 3.2z" />
+                {{-- Listup Trouble --}}
+                {{-- awal standar formulir --}}
+                <div class="flex justify-between">
+                    <p class="font-medium text-lg bg-gray-800 px-4 py-1 w-fit text-white mb-2 rounded"> Trouble
+                        Listup
+                        @foreach ($standar_project as $spt)
+                            @if ($spt->file_lup_form != '')
+                                <div class="flex justify-end mr-1 mt-4">
+                                    <a href="{{ asset('storage/supervisor/standarproject/' . $spt->file_lup_form) }}"
+                                        download="">
+                                        <div
+                                            class="w-fit items-center space-x-1 flex fill-blue-600 hover:fill-blue-800">
+                                            <svg width="15" height="" viewBox="0 0 52 52"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="m36.4 14.8h8.48a1.09 1.09 0 0 0 1.12-1.12 1 1 0 0 0 -.32-.8l-10.56-10.56a1 1 0 0 0 -.8-.32 1.09 1.09 0 0 0 -1.12 1.12v8.48a3.21 3.21 0 0 0 3.2 3.2z" />
 
-                                                    <path
-                                                        d="m44.4 19.6h-11.2a4.81 4.81 0 0 1 -4.8-4.8v-11.2a1.6 1.6 0 0 0 -1.6-1.6h-16a4.81 4.81 0 0 0 -4.8 4.8v38.4a4.81 4.81 0 0 0 4.8 4.8h30.4a4.81 4.81 0 0 0 4.8-4.8v-24a1.6 1.6 0 0 0 -1.6-1.6zm-32-1.6a1.62 1.62 0 0 1 1.6-1.55h6.55a1.56 1.56 0 0 1 1.57 1.55v1.59a1.63 1.63 0 0 1 -1.59 1.58h-6.53a1.55 1.55 0 0 1 -1.58-1.58zm24 20.77a1.6 1.6 0 0 1 -1.6 1.6h-20.8a1.6 1.6 0 0 1 -1.6-1.6v-1.57a1.6 1.6 0 0 1 1.6-1.6h20.8a1.6 1.6 0 0 1 1.6 1.6zm3.2-9.6a1.6 1.6 0 0 1 -1.6 1.63h-24a1.6 1.6 0 0 1 -1.6-1.6v-1.6a1.6 1.6 0 0 1 1.6-1.6h24a1.6 1.6 0 0 1 1.6 1.6z" />
-                                                </svg>
-                                                <p
-                                                    class="text-right hover:underline font-semibold text-md text-blue-600 hover:text-blue-800 ">
-                                                    Klik untuk mengunduh formulir kerja</p>
-                                            </div>
-                                        </a>
-                                    </div>
-                                @endif
-                            @endforeach
-                            {{-- tombol form --}}
-                    </div>
-                    {{-- akhir standar formulir --}}
+                                                <path
+                                                    d="m44.4 19.6h-11.2a4.81 4.81 0 0 1 -4.8-4.8v-11.2a1.6 1.6 0 0 0 -1.6-1.6h-16a4.81 4.81 0 0 0 -4.8 4.8v38.4a4.81 4.81 0 0 0 4.8 4.8h30.4a4.81 4.81 0 0 0 4.8-4.8v-24a1.6 1.6 0 0 0 -1.6-1.6zm-32-1.6a1.62 1.62 0 0 1 1.6-1.55h6.55a1.56 1.56 0 0 1 1.57 1.55v1.59a1.63 1.63 0 0 1 -1.59 1.58h-6.53a1.55 1.55 0 0 1 -1.58-1.58zm24 20.77a1.6 1.6 0 0 1 -1.6 1.6h-20.8a1.6 1.6 0 0 1 -1.6-1.6v-1.57a1.6 1.6 0 0 1 1.6-1.6h20.8a1.6 1.6 0 0 1 1.6 1.6zm3.2-9.6a1.6 1.6 0 0 1 -1.6 1.63h-24a1.6 1.6 0 0 1 -1.6-1.6v-1.6a1.6 1.6 0 0 1 1.6-1.6h24a1.6 1.6 0 0 1 1.6 1.6z" />
+                                            </svg>
+                                            <p
+                                                class="text-right hover:underline font-semibold text-md text-blue-600 hover:text-blue-800 ">
+                                                Klik untuk mengunduh formulir kerja</p>
+                                        </div>
+                                    </a>
+                                </div>
+                            @endif
+                        @endforeach
+                        {{-- tombol form --}}
+                </div>
+                {{-- akhir standar formulir --}}
 
-                    <div class="overflow-x-auto rounded-md mb-5 border">
-                        <table class="w-full ">
-                            <thead class="bg-gray-300 text-gray-700 sticky top-0">
-                                <th class="py-2 w-[5%] font-medium">No.</th>
-                                <th class="w-[57%] font-medium">Nama File</th>
-                                <th class="w-[10%] font-medium">Uploaded by</th>
-                                <th class="w-[13%] font-medium">Last Update</th>
-                                <th class="w-[15%] font-medium">Aksi</th>
-                            </thead>
-                            <tbody class="text-left border">
-                                {{-- 1 --}}
-                                <tr
-                                    class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
-                                    <td class="py-4 font-bold text-center">1.</td>
-                                    <td class="flex justify-start py-4 items-center">
+                <div class="overflow-x-auto rounded-md mb-5 border">
+                    <table class="w-full ">
+                        <thead class="bg-gray-300 text-gray-700 sticky top-0">
+                            <th class="py-2 w-[5%] font-medium">No.</th>
+                            <th class="w-[57%] font-medium">Nama File</th>
+                            <th class="w-[10%] font-medium">Uploaded by</th>
+                            <th class="w-[13%] font-medium">Last Update</th>
+                            <th class="w-[15%] font-medium">Aksi</th>
+                        </thead>
+                        <tbody class="text-left border">
+                            {{-- 1 --}}
+                            <tr class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
+                                <td class="py-4 font-bold text-center">1.</td>
+                                <td class="flex justify-start py-4 items-center">
 
-                                        @if ($koneksicl->cl_l_trouble_1 != '')
-                                            <a href="{{ asset('storage/supervisor/project/06_CL/' . $koneksicl->cl_l_trouble_1) }}"
-                                                target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
-                                                <svg width="22" height="17" viewBox="0 0 22 17"
-                                                    fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                    <path
-                                                        d="M11 0C6 0 1.73 3.11 0 7.5C1.73 11.89 6 15 11 15C11.36 15 11.72 15 12.08 14.95C12.03 14.63 12 14.32 12 14C12 13.44 12.08 12.88 12.24 12.34C11.83 12.44 11.42 12.5 11 12.5C8.24 12.5 6 10.26 6 7.5C6 4.74 8.24 2.5 11 2.5C13.76 2.5 16 4.74 16 7.5C16 7.79 15.97 8.09 15.92 8.38C16.58 8.13 17.29 8 18 8C19.17 8 20.31 8.34 21.29 9C21.56 8.5 21.8 8 22 7.5C20.27 3.11 16 0 11 0ZM11 4.5C9.34 4.5 8 5.84 8 7.5C8 9.16 9.34 10.5 11 10.5C12.66 10.5 14 9.16 14 7.5C14 5.84 12.66 4.5 11 4.5ZM17 10.5V12.5H21V14.5H17V16.5L14 13.5L17 10.5Z"
-                                                        fill="black" />
-                                                </svg>
-                                            </a>
-
-                                            &emsp;
-                                        @endif
-                                        {{--  --}}
+                                    @if ($koneksicl->cl_l_trouble_1 != '')
                                         <a href="{{ asset('storage/supervisor/project/06_CL/' . $koneksicl->cl_l_trouble_1) }}"
-                                            target="blank" download="" class="hover:underline">
-                                            {{ $koneksicl->cl_l_trouble_1 }}</a>
-                                        {{-- == --}}
+                                            target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
+                                            <svg width="22" height="17" viewBox="0 0 22 17" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M11 0C6 0 1.73 3.11 0 7.5C1.73 11.89 6 15 11 15C11.36 15 11.72 15 12.08 14.95C12.03 14.63 12 14.32 12 14C12 13.44 12.08 12.88 12.24 12.34C11.83 12.44 11.42 12.5 11 12.5C8.24 12.5 6 10.26 6 7.5C6 4.74 8.24 2.5 11 2.5C13.76 2.5 16 4.74 16 7.5C16 7.79 15.97 8.09 15.92 8.38C16.58 8.13 17.29 8 18 8C19.17 8 20.31 8.34 21.29 9C21.56 8.5 21.8 8 22 7.5C20.27 3.11 16 0 11 0ZM11 4.5C9.34 4.5 8 5.84 8 7.5C8 9.16 9.34 10.5 11 10.5C12.66 10.5 14 9.16 14 7.5C14 5.84 12.66 4.5 11 4.5ZM17 10.5V12.5H21V14.5H17V16.5L14 13.5L17 10.5Z"
+                                                    fill="black" />
+                                            </svg>
+                                        </a>
 
-                                    </td>
-                                    <td>
-                                        @if ($koneksicl->up_by_l_trouble_cl_1 != '')
-                                            <div
-                                                class="items-center py-1 px-2 text-sm font-medium text-center text-white bg-orange-500 w-[100] mx-auto rounded">
-                                                {{ $koneksicl->up_by_l_trouble_cl_1 }}
-                                            </div>
-                                        @endif
-                                    </td>
-                                    <td class="text-center">{{ $koneksicl->date_cl_l_trouble_1 }}</td>
-                                    <td class="space-y-2 py-3 px-2">
-                                        @if (($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Closed') && $koneksicl->cl_l_trouble_1 == '')
+                                        &emsp;
+                                    @endif
+                                    {{--  --}}
+                                    <a href="{{ asset('storage/supervisor/project/06_CL/' . $koneksicl->cl_l_trouble_1) }}"
+                                        target="blank" download="" class="hover:underline">
+                                        {{ $koneksicl->cl_l_trouble_1 }}</a>
+                                    {{-- == --}}
+
+                                </td>
+                                <td>
+                                    @if ($koneksicl->up_by_l_trouble_cl_1 != '')
+                                        <div
+                                            class="items-center py-1 px-2 text-sm font-medium text-center text-white bg-orange-500 w-[100] mx-auto rounded">
+                                            {{ $koneksicl->up_by_l_trouble_cl_1 }}
+                                        </div>
+                                    @endif
+                                </td>
+                                <td class="text-center">{{ $koneksicl->date_cl_l_trouble_1 }}</td>
+                                <td class="space-y-2 py-3 px-2">
+                                    @if (($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Closed') && $koneksicl->cl_l_trouble_1 == '')
                                         <div class="justify-center flex space-x-2">
                                             <input type="file" name="as_cl_l_trouble_1"
                                                 id="fileInput_cl_l_trouble_1" style="display: none;">
@@ -1866,60 +1752,59 @@
                                                 Ubah
                                             </button>
                                             <button data-dropdown-toggle="dropdown1" type="button"
-                                                        class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
-                                                            width="22" fill="white" viewBox="0 0 48 48">
-                                                            <path
-                                                                d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
-                                                            </path>
-                                                        </svg>
-                                                    </button>
+                                                class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                    width="22" fill="white" viewBox="0 0 48 48">
+                                                    <path
+                                                        d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                    </path>
+                                                </svg>
+                                            </button>
                                         </div>
                                     @endif
-                                    </td>
-                                    <input type="text" hidden name="as_up_by_l_trouble_cl_1"
-                                        value="{{ Auth::user()->first_name }}">
-                                    <input type="date" hidden name="as_date_cl_l_trouble_1"
-                                        value="{{ date('Y-m-d') }}">
+                                </td>
+                                <input type="text" hidden name="as_up_by_l_trouble_cl_1"
+                                    value="{{ Auth::user()->first_name }}">
+                                <input type="date" hidden name="as_date_cl_l_trouble_1"
+                                    value="{{ date('Y-m-d') }}">
 
-                                </tr>
-                                {{-- 2 --}}
-                                <tr
-                                    class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
-                                    <td class="py-4 font-bold text-center">2.</td>
-                                    <td class="flex justify-start py-4 items-center">
+                            </tr>
+                            {{-- 2 --}}
+                            <tr class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
+                                <td class="py-4 font-bold text-center">2.</td>
+                                <td class="flex justify-start py-4 items-center">
 
-                                        @if ($koneksicl->cl_l_trouble_2 != '')
-                                            <a href="{{ asset('storage/supervisor/project/06_CL/' . $koneksicl->cl_l_trouble_2) }}"
-                                                target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
-                                                <svg width="22" height="17" viewBox="0 0 22 17"
-                                                    fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                    <path
-                                                        d="M11 0C6 0 1.73 3.11 0 7.5C1.73 11.89 6 15 11 15C11.36 15 11.72 15 12.08 14.95C12.03 14.63 12 14.32 12 14C12 13.44 12.08 12.88 12.24 12.34C11.83 12.44 11.42 12.5 11 12.5C8.24 12.5 6 10.26 6 7.5C6 4.74 8.24 2.5 11 2.5C13.76 2.5 16 4.74 16 7.5C16 7.79 15.97 8.09 15.92 8.38C16.58 8.13 17.29 8 18 8C19.17 8 20.31 8.34 21.29 9C21.56 8.5 21.8 8 22 7.5C20.27 3.11 16 0 11 0ZM11 4.5C9.34 4.5 8 5.84 8 7.5C8 9.16 9.34 10.5 11 10.5C12.66 10.5 14 9.16 14 7.5C14 5.84 12.66 4.5 11 4.5ZM17 10.5V12.5H21V14.5H17V16.5L14 13.5L17 10.5Z"
-                                                        fill="black" />
-                                                </svg>
-                                            </a>
-
-                                            &emsp;
-                                        @endif
-                                        {{--  --}}
+                                    @if ($koneksicl->cl_l_trouble_2 != '')
                                         <a href="{{ asset('storage/supervisor/project/06_CL/' . $koneksicl->cl_l_trouble_2) }}"
-                                            target="blank" download="" class="hover:underline">
-                                            {{ $koneksicl->cl_l_trouble_2 }}</a>
-                                        {{-- == --}}
+                                            target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
+                                            <svg width="22" height="17" viewBox="0 0 22 17"
+                                                fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M11 0C6 0 1.73 3.11 0 7.5C1.73 11.89 6 15 11 15C11.36 15 11.72 15 12.08 14.95C12.03 14.63 12 14.32 12 14C12 13.44 12.08 12.88 12.24 12.34C11.83 12.44 11.42 12.5 11 12.5C8.24 12.5 6 10.26 6 7.5C6 4.74 8.24 2.5 11 2.5C13.76 2.5 16 4.74 16 7.5C16 7.79 15.97 8.09 15.92 8.38C16.58 8.13 17.29 8 18 8C19.17 8 20.31 8.34 21.29 9C21.56 8.5 21.8 8 22 7.5C20.27 3.11 16 0 11 0ZM11 4.5C9.34 4.5 8 5.84 8 7.5C8 9.16 9.34 10.5 11 10.5C12.66 10.5 14 9.16 14 7.5C14 5.84 12.66 4.5 11 4.5ZM17 10.5V12.5H21V14.5H17V16.5L14 13.5L17 10.5Z"
+                                                    fill="black" />
+                                            </svg>
+                                        </a>
 
-                                    </td>
-                                    <td>
-                                        @if ($koneksicl->up_by_l_trouble_cl_2 != '')
-                                            <div
-                                                class="items-center py-1 px-2 text-sm font-medium text-center text-white bg-orange-500 w-[100] mx-auto rounded">
-                                                {{ $koneksicl->up_by_l_trouble_cl_2 }}
-                                            </div>
-                                        @endif
-                                    </td>
-                                    <td class="text-center">{{ $koneksicl->date_cl_l_trouble_2 }}</td>
-                                    <td class="space-y-2 py-3 px-2">
-                                        @if (($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Closed') && $koneksicl->cl_l_trouble_2 == '')
+                                        &emsp;
+                                    @endif
+                                    {{--  --}}
+                                    <a href="{{ asset('storage/supervisor/project/06_CL/' . $koneksicl->cl_l_trouble_2) }}"
+                                        target="blank" download="" class="hover:underline">
+                                        {{ $koneksicl->cl_l_trouble_2 }}</a>
+                                    {{-- == --}}
+
+                                </td>
+                                <td>
+                                    @if ($koneksicl->up_by_l_trouble_cl_2 != '')
+                                        <div
+                                            class="items-center py-1 px-2 text-sm font-medium text-center text-white bg-orange-500 w-[100] mx-auto rounded">
+                                            {{ $koneksicl->up_by_l_trouble_cl_2 }}
+                                        </div>
+                                    @endif
+                                </td>
+                                <td class="text-center">{{ $koneksicl->date_cl_l_trouble_2 }}</td>
+                                <td class="space-y-2 py-3 px-2">
+                                    @if (($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Closed') && $koneksicl->cl_l_trouble_2 == '')
                                         <div class="justify-center flex space-x-2">
                                             <input type="file" name="as_cl_l_trouble_2"
                                                 id="fileInput_cl_l_trouble_2" style="display: none;">
@@ -1941,110 +1826,109 @@
                                                 Ubah
                                             </button>
                                             <button data-dropdown-toggle="dropdown1" type="button"
-                                                        class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
-                                                            width="22" fill="white" viewBox="0 0 48 48">
-                                                            <path
-                                                                d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
-                                                            </path>
-                                                        </svg>
-                                                    </button>
+                                                class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                    width="22" fill="white" viewBox="0 0 48 48">
+                                                    <path
+                                                        d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                    </path>
+                                                </svg>
+                                            </button>
                                         </div>
                                     @endif
-                                    </td>
-                                    <input type="text" hidden name="as_up_by_l_trouble_cl_2"
-                                        value="{{ Auth::user()->first_name }}">
-                                    <input type="date" hidden name="as_date_cl_l_trouble_2"
-                                        value="{{ date('Y-m-d') }}">
+                                </td>
+                                <input type="text" hidden name="as_up_by_l_trouble_cl_2"
+                                    value="{{ Auth::user()->first_name }}">
+                                <input type="date" hidden name="as_date_cl_l_trouble_2"
+                                    value="{{ date('Y-m-d') }}">
 
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    {{-- Akhir --}}
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                {{-- Akhir --}}
 
-                    {{-- Control Awal Mesin Baru --}}
-                    {{-- awal standar formulir --}}
-                    <div class="flex justify-between">
-                        <p class="font-medium text-lg bg-gray-800 px-4 py-1 w-fit text-white mb-2 rounded"> Kontrol
-                            Awal Mesin Baru
-                            @foreach ($standar_project as $spt)
-                                @if ($spt->file_camb_form != '')
-                                    <div class="flex justify-end mr-1 mt-4">
-                                        <a href="{{ asset('storage/supervisor/standarproject/' . $spt->file_camb_form) }}"
-                                            download="">
-                                            <div
-                                                class="w-fit items-center space-x-1 flex fill-blue-600 hover:fill-blue-800">
-                                                <svg width="15" height="" viewBox="0 0 52 52"
-                                                    xmlns="http://www.w3.org/2000/svg">
-                                                    <path
-                                                        d="m36.4 14.8h8.48a1.09 1.09 0 0 0 1.12-1.12 1 1 0 0 0 -.32-.8l-10.56-10.56a1 1 0 0 0 -.8-.32 1.09 1.09 0 0 0 -1.12 1.12v8.48a3.21 3.21 0 0 0 3.2 3.2z" />
+                {{-- Control Awal Mesin Baru --}}
+                {{-- awal standar formulir --}}
+                <div class="flex justify-between">
+                    <p class="font-medium text-lg bg-gray-800 px-4 py-1 w-fit text-white mb-2 rounded"> Kontrol
+                        Awal Mesin Baru
+                        @foreach ($standar_project as $spt)
+                            @if ($spt->file_camb_form != '')
+                                <div class="flex justify-end mr-1 mt-4">
+                                    <a href="{{ asset('storage/supervisor/standarproject/' . $spt->file_camb_form) }}"
+                                        download="">
+                                        <div
+                                            class="w-fit items-center space-x-1 flex fill-blue-600 hover:fill-blue-800">
+                                            <svg width="15" height="" viewBox="0 0 52 52"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="m36.4 14.8h8.48a1.09 1.09 0 0 0 1.12-1.12 1 1 0 0 0 -.32-.8l-10.56-10.56a1 1 0 0 0 -.8-.32 1.09 1.09 0 0 0 -1.12 1.12v8.48a3.21 3.21 0 0 0 3.2 3.2z" />
 
-                                                    <path
-                                                        d="m44.4 19.6h-11.2a4.81 4.81 0 0 1 -4.8-4.8v-11.2a1.6 1.6 0 0 0 -1.6-1.6h-16a4.81 4.81 0 0 0 -4.8 4.8v38.4a4.81 4.81 0 0 0 4.8 4.8h30.4a4.81 4.81 0 0 0 4.8-4.8v-24a1.6 1.6 0 0 0 -1.6-1.6zm-32-1.6a1.62 1.62 0 0 1 1.6-1.55h6.55a1.56 1.56 0 0 1 1.57 1.55v1.59a1.63 1.63 0 0 1 -1.59 1.58h-6.53a1.55 1.55 0 0 1 -1.58-1.58zm24 20.77a1.6 1.6 0 0 1 -1.6 1.6h-20.8a1.6 1.6 0 0 1 -1.6-1.6v-1.57a1.6 1.6 0 0 1 1.6-1.6h20.8a1.6 1.6 0 0 1 1.6 1.6zm3.2-9.6a1.6 1.6 0 0 1 -1.6 1.63h-24a1.6 1.6 0 0 1 -1.6-1.6v-1.6a1.6 1.6 0 0 1 1.6-1.6h24a1.6 1.6 0 0 1 1.6 1.6z" />
-                                                </svg>
-                                                <p
-                                                    class="text-right hover:underline font-semibold text-md text-blue-600 hover:text-blue-800 ">
-                                                    Klik untuk mengunduh formulir kerja</p>
-                                            </div>
-                                        </a>
-                                    </div>
-                                @endif
-                            @endforeach
-                            {{-- tombol form --}}
-                    </div>
-                    {{-- akhir standar formulir --}}
+                                                <path
+                                                    d="m44.4 19.6h-11.2a4.81 4.81 0 0 1 -4.8-4.8v-11.2a1.6 1.6 0 0 0 -1.6-1.6h-16a4.81 4.81 0 0 0 -4.8 4.8v38.4a4.81 4.81 0 0 0 4.8 4.8h30.4a4.81 4.81 0 0 0 4.8-4.8v-24a1.6 1.6 0 0 0 -1.6-1.6zm-32-1.6a1.62 1.62 0 0 1 1.6-1.55h6.55a1.56 1.56 0 0 1 1.57 1.55v1.59a1.63 1.63 0 0 1 -1.59 1.58h-6.53a1.55 1.55 0 0 1 -1.58-1.58zm24 20.77a1.6 1.6 0 0 1 -1.6 1.6h-20.8a1.6 1.6 0 0 1 -1.6-1.6v-1.57a1.6 1.6 0 0 1 1.6-1.6h20.8a1.6 1.6 0 0 1 1.6 1.6zm3.2-9.6a1.6 1.6 0 0 1 -1.6 1.63h-24a1.6 1.6 0 0 1 -1.6-1.6v-1.6a1.6 1.6 0 0 1 1.6-1.6h24a1.6 1.6 0 0 1 1.6 1.6z" />
+                                            </svg>
+                                            <p
+                                                class="text-right hover:underline font-semibold text-md text-blue-600 hover:text-blue-800 ">
+                                                Klik untuk mengunduh formulir kerja</p>
+                                        </div>
+                                    </a>
+                                </div>
+                            @endif
+                        @endforeach
+                        {{-- tombol form --}}
+                </div>
+                {{-- akhir standar formulir --}}
 
-                    <div class="overflow-x-auto rounded-md mb-5">
-                        <table class="w-full">
-                            <thead class="bg-gray-300 text-gray-700">
-                                <th class="py-2 w-[5%] font-medium">No.</th>
-                                <th class="w-[57%] font-medium">Nama File</th>
-                                <th class="w-[10%] font-medium">Uploaded by</th>
-                                <th class="w-[13%] font-medium">Last Update</th>
-                                <th class="w-[15%] font-medium">Aksi</th>
-                            </thead>
-                            <tbody class="text-left border">
-                                {{-- 1 --}}
-                                <tr
-                                    class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
-                                    <td class="py-4 font-bold text-center">1.</td>
-                                    <td class="flex justify-start py-4 items-center">
+                <div class="overflow-x-auto rounded-md mb-5">
+                    <table class="w-full">
+                        <thead class="bg-gray-300 text-gray-700">
+                            <th class="py-2 w-[5%] font-medium">No.</th>
+                            <th class="w-[57%] font-medium">Nama File</th>
+                            <th class="w-[10%] font-medium">Uploaded by</th>
+                            <th class="w-[13%] font-medium">Last Update</th>
+                            <th class="w-[15%] font-medium">Aksi</th>
+                        </thead>
+                        <tbody class="text-left border">
+                            {{-- 1 --}}
+                            <tr class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
+                                <td class="py-4 font-bold text-center">1.</td>
+                                <td class="flex justify-start py-4 items-center">
 
-                                        @if ($koneksicl->cl_camb_1 != '')
-                                            <a href="{{ asset('storage/supervisor/project/06_CL/' . $koneksicl->cl_camb_1) }}"
-                                                target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
-                                                <svg width="22" height="17" viewBox="0 0 22 17"
-                                                    fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                    <path
-                                                        d="M11 0C6 0 1.73 3.11 0 7.5C1.73 11.89 6 15 11 15C11.36 15 11.72 15 12.08 14.95C12.03 14.63 12 14.32 12 14C12 13.44 12.08 12.88 12.24 12.34C11.83 12.44 11.42 12.5 11 12.5C8.24 12.5 6 10.26 6 7.5C6 4.74 8.24 2.5 11 2.5C13.76 2.5 16 4.74 16 7.5C16 7.79 15.97 8.09 15.92 8.38C16.58 8.13 17.29 8 18 8C19.17 8 20.31 8.34 21.29 9C21.56 8.5 21.8 8 22 7.5C20.27 3.11 16 0 11 0ZM11 4.5C9.34 4.5 8 5.84 8 7.5C8 9.16 9.34 10.5 11 10.5C12.66 10.5 14 9.16 14 7.5C14 5.84 12.66 4.5 11 4.5ZM17 10.5V12.5H21V14.5H17V16.5L14 13.5L17 10.5Z"
-                                                        fill="black" />
-                                                </svg>
-                                            </a>
-
-                                            &emsp;
-                                        @endif
-                                        {{--  --}}
+                                    @if ($koneksicl->cl_camb_1 != '')
                                         <a href="{{ asset('storage/supervisor/project/06_CL/' . $koneksicl->cl_camb_1) }}"
-                                            target="blank" download="" class="hover:underline">
-                                            {{ $koneksicl->cl_camb_1 }}</a>
-                                        {{-- == --}}
+                                            target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
+                                            <svg width="22" height="17" viewBox="0 0 22 17"
+                                                fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M11 0C6 0 1.73 3.11 0 7.5C1.73 11.89 6 15 11 15C11.36 15 11.72 15 12.08 14.95C12.03 14.63 12 14.32 12 14C12 13.44 12.08 12.88 12.24 12.34C11.83 12.44 11.42 12.5 11 12.5C8.24 12.5 6 10.26 6 7.5C6 4.74 8.24 2.5 11 2.5C13.76 2.5 16 4.74 16 7.5C16 7.79 15.97 8.09 15.92 8.38C16.58 8.13 17.29 8 18 8C19.17 8 20.31 8.34 21.29 9C21.56 8.5 21.8 8 22 7.5C20.27 3.11 16 0 11 0ZM11 4.5C9.34 4.5 8 5.84 8 7.5C8 9.16 9.34 10.5 11 10.5C12.66 10.5 14 9.16 14 7.5C14 5.84 12.66 4.5 11 4.5ZM17 10.5V12.5H21V14.5H17V16.5L14 13.5L17 10.5Z"
+                                                    fill="black" />
+                                            </svg>
+                                        </a>
 
-                                    </td>
-                                    <td>
-                                        @if ($koneksicl->up_by_camb_cl_1 != '')
-                                            <div
-                                                class="items-center py-1 px-2 text-sm font-medium text-center text-white bg-orange-500 w-[100] mx-auto rounded">
-                                                {{ $koneksicl->up_by_camb_cl_1 }}
-                                            </div>
-                                        @endif
-                                    </td>
-                                    <td class="text-center">{{ $koneksicl->date_cl_camb_1 }}</td>
-                                    <td class="space-y-2 py-3 px-2">
-                                        @if (($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Closed') && $koneksicl->cl_camb_1 == '')
+                                        &emsp;
+                                    @endif
+                                    {{--  --}}
+                                    <a href="{{ asset('storage/supervisor/project/06_CL/' . $koneksicl->cl_camb_1) }}"
+                                        target="blank" download="" class="hover:underline">
+                                        {{ $koneksicl->cl_camb_1 }}</a>
+                                    {{-- == --}}
+
+                                </td>
+                                <td>
+                                    @if ($koneksicl->up_by_camb_cl_1 != '')
+                                        <div
+                                            class="items-center py-1 px-2 text-sm font-medium text-center text-white bg-orange-500 w-[100] mx-auto rounded">
+                                            {{ $koneksicl->up_by_camb_cl_1 }}
+                                        </div>
+                                    @endif
+                                </td>
+                                <td class="text-center">{{ $koneksicl->date_cl_camb_1 }}</td>
+                                <td class="space-y-2 py-3 px-2">
+                                    @if (($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Closed') && $koneksicl->cl_camb_1 == '')
                                         <div class="justify-center flex space-x-2">
-                                            <input type="file" name="as_cl_camb_1"
-                                                id="fileInput_cl_camb_1" style="display: none;">
+                                            <input type="file" name="as_cl_camb_1" id="fileInput_cl_camb_1"
+                                                style="display: none;">
                                             <button type="button" onclick="openFileInput('cl_camb_1')"
                                                 class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md">
                                                 + Tambah dokumen
@@ -2063,63 +1947,62 @@
                                                 Ubah
                                             </button>
                                             <button data-dropdown-toggle="dropdown1" type="button"
-                                                        class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
-                                                            width="22" fill="white" viewBox="0 0 48 48">
-                                                            <path
-                                                                d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
-                                                            </path>
-                                                        </svg>
-                                                    </button>
+                                                class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                    width="22" fill="white" viewBox="0 0 48 48">
+                                                    <path
+                                                        d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                    </path>
+                                                </svg>
+                                            </button>
                                         </div>
                                     @endif
-                                    </td>
-                                    <input type="text" hidden name="as_up_by_camb_cl_1"
-                                        value="{{ Auth::user()->first_name }}">
-                                    <input type="date" hidden name="as_date_cl_camb_1"
-                                        value="{{ date('Y-m-d') }}">
+                                </td>
+                                <input type="text" hidden name="as_up_by_camb_cl_1"
+                                    value="{{ Auth::user()->first_name }}">
+                                <input type="date" hidden name="as_date_cl_camb_1"
+                                    value="{{ date('Y-m-d') }}">
 
-                                </tr>
-                                {{-- 2 --}}
-                                <tr
-                                    class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
-                                    <td class="py-4 font-bold text-center">2.</td>
-                                    <td class="flex justify-start py-4 items-center">
+                            </tr>
+                            {{-- 2 --}}
+                            <tr class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
+                                <td class="py-4 font-bold text-center">2.</td>
+                                <td class="flex justify-start py-4 items-center">
 
-                                        @if ($koneksicl->cl_camb_2 != '')
-                                            <a href="{{ asset('storage/supervisor/project/06_CL/' . $koneksicl->cl_camb_2) }}"
-                                                target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
-                                                <svg width="22" height="17" viewBox="0 0 22 17"
-                                                    fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                    <path
-                                                        d="M11 0C6 0 1.73 3.11 0 7.5C1.73 11.89 6 15 11 15C11.36 15 11.72 15 12.08 14.95C12.03 14.63 12 14.32 12 14C12 13.44 12.08 12.88 12.24 12.34C11.83 12.44 11.42 12.5 11 12.5C8.24 12.5 6 10.26 6 7.5C6 4.74 8.24 2.5 11 2.5C13.76 2.5 16 4.74 16 7.5C16 7.79 15.97 8.09 15.92 8.38C16.58 8.13 17.29 8 18 8C19.17 8 20.31 8.34 21.29 9C21.56 8.5 21.8 8 22 7.5C20.27 3.11 16 0 11 0ZM11 4.5C9.34 4.5 8 5.84 8 7.5C8 9.16 9.34 10.5 11 10.5C12.66 10.5 14 9.16 14 7.5C14 5.84 12.66 4.5 11 4.5ZM17 10.5V12.5H21V14.5H17V16.5L14 13.5L17 10.5Z"
-                                                        fill="black" />
-                                                </svg>
-                                            </a>
-
-                                            &emsp;
-                                        @endif
-                                        {{--  --}}
+                                    @if ($koneksicl->cl_camb_2 != '')
                                         <a href="{{ asset('storage/supervisor/project/06_CL/' . $koneksicl->cl_camb_2) }}"
-                                            target="blank" download="" class="hover:underline">
-                                            {{ $koneksicl->cl_camb_2 }}</a>
-                                        {{-- == --}}
+                                            target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
+                                            <svg width="22" height="17" viewBox="0 0 22 17"
+                                                fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M11 0C6 0 1.73 3.11 0 7.5C1.73 11.89 6 15 11 15C11.36 15 11.72 15 12.08 14.95C12.03 14.63 12 14.32 12 14C12 13.44 12.08 12.88 12.24 12.34C11.83 12.44 11.42 12.5 11 12.5C8.24 12.5 6 10.26 6 7.5C6 4.74 8.24 2.5 11 2.5C13.76 2.5 16 4.74 16 7.5C16 7.79 15.97 8.09 15.92 8.38C16.58 8.13 17.29 8 18 8C19.17 8 20.31 8.34 21.29 9C21.56 8.5 21.8 8 22 7.5C20.27 3.11 16 0 11 0ZM11 4.5C9.34 4.5 8 5.84 8 7.5C8 9.16 9.34 10.5 11 10.5C12.66 10.5 14 9.16 14 7.5C14 5.84 12.66 4.5 11 4.5ZM17 10.5V12.5H21V14.5H17V16.5L14 13.5L17 10.5Z"
+                                                    fill="black" />
+                                            </svg>
+                                        </a>
 
-                                    </td>
-                                    <td>
-                                        @if ($koneksicl->up_by_camb_cl_2 != '')
-                                            <div
-                                                class="items-center py-1 px-2 text-sm font-medium text-center text-white bg-orange-500 w-[100] mx-auto rounded">
-                                                {{ $koneksicl->up_by_camb_cl_2 }}
-                                            </div>
-                                        @endif
-                                    </td>
-                                    <td class="text-center">{{ $koneksicl->date_cl_camb_2 }}</td>
-                                    <td class="space-y-2 py-3 px-2">
-                                        @if (($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Closed') && $koneksicl->cl_camb_2 == '')
+                                        &emsp;
+                                    @endif
+                                    {{--  --}}
+                                    <a href="{{ asset('storage/supervisor/project/06_CL/' . $koneksicl->cl_camb_2) }}"
+                                        target="blank" download="" class="hover:underline">
+                                        {{ $koneksicl->cl_camb_2 }}</a>
+                                    {{-- == --}}
+
+                                </td>
+                                <td>
+                                    @if ($koneksicl->up_by_camb_cl_2 != '')
+                                        <div
+                                            class="items-center py-1 px-2 text-sm font-medium text-center text-white bg-orange-500 w-[100] mx-auto rounded">
+                                            {{ $koneksicl->up_by_camb_cl_2 }}
+                                        </div>
+                                    @endif
+                                </td>
+                                <td class="text-center">{{ $koneksicl->date_cl_camb_2 }}</td>
+                                <td class="space-y-2 py-3 px-2">
+                                    @if (($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Closed') && $koneksicl->cl_camb_2 == '')
                                         <div class="justify-center flex space-x-2">
-                                            <input type="file" name="as_cl_camb_2"
-                                                id="fileInput_cl_camb_2" style="display: none;">
+                                            <input type="file" name="as_cl_camb_2" id="fileInput_cl_camb_2"
+                                                style="display: none;">
                                             <button type="button" onclick="openFileInput('cl_camb_2')"
                                                 class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md">
                                                 + Tambah dokumen
@@ -2138,109 +2021,108 @@
                                                 Ubah
                                             </button>
                                             <button data-dropdown-toggle="dropdown1" type="button"
-                                                        class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
-                                                            width="22" fill="white" viewBox="0 0 48 48">
-                                                            <path
-                                                                d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
-                                                            </path>
-                                                        </svg>
-                                                    </button>
+                                                class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                    width="22" fill="white" viewBox="0 0 48 48">
+                                                    <path
+                                                        d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                    </path>
+                                                </svg>
+                                            </button>
                                         </div>
                                     @endif
-                                    </td>
-                                    <input type="text" hidden name="as_up_by_camb_cl_2"
-                                        value="{{ Auth::user()->first_name }}">
-                                    <input type="date" hidden name="as_date_cl_camb_2"
-                                        value="{{ date('Y-m-d') }}">
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
+                                </td>
+                                <input type="text" hidden name="as_up_by_camb_cl_2"
+                                    value="{{ Auth::user()->first_name }}">
+                                <input type="date" hidden name="as_date_cl_camb_2"
+                                    value="{{ date('Y-m-d') }}">
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
 
-                    {{-- Instruction Manual --}}
-                    {{-- awal standar formulir --}}
-                    <div class="flex justify-between">
-                        <p class="font-medium text-lg bg-gray-800 px-4 py-1 w-fit text-white mb-2 rounded"> Instruction
-                            Manual
-                            @foreach ($standar_project as $spt)
-                                @if ($spt->file_cl_im_form != '')
-                                    <div class="flex justify-end mr-1 mt-4">
-                                        <a href="{{ asset('storage/supervisor/standarproject/' . $spt->file_cl_im_form) }}"
-                                            download="">
-                                            <div
-                                                class="w-fit items-center space-x-1 flex fill-blue-600 hover:fill-blue-800">
-                                                <svg width="15" height="" viewBox="0 0 52 52"
-                                                    xmlns="http://www.w3.org/2000/svg">
-                                                    <path
-                                                        d="m36.4 14.8h8.48a1.09 1.09 0 0 0 1.12-1.12 1 1 0 0 0 -.32-.8l-10.56-10.56a1 1 0 0 0 -.8-.32 1.09 1.09 0 0 0 -1.12 1.12v8.48a3.21 3.21 0 0 0 3.2 3.2z" />
+                {{-- Instruction Manual --}}
+                {{-- awal standar formulir --}}
+                <div class="flex justify-between">
+                    <p class="font-medium text-lg bg-gray-800 px-4 py-1 w-fit text-white mb-2 rounded"> Instruction
+                        Manual
+                        @foreach ($standar_project as $spt)
+                            @if ($spt->file_cl_im_form != '')
+                                <div class="flex justify-end mr-1 mt-4">
+                                    <a href="{{ asset('storage/supervisor/standarproject/' . $spt->file_cl_im_form) }}"
+                                        download="">
+                                        <div
+                                            class="w-fit items-center space-x-1 flex fill-blue-600 hover:fill-blue-800">
+                                            <svg width="15" height="" viewBox="0 0 52 52"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="m36.4 14.8h8.48a1.09 1.09 0 0 0 1.12-1.12 1 1 0 0 0 -.32-.8l-10.56-10.56a1 1 0 0 0 -.8-.32 1.09 1.09 0 0 0 -1.12 1.12v8.48a3.21 3.21 0 0 0 3.2 3.2z" />
 
-                                                    <path
-                                                        d="m44.4 19.6h-11.2a4.81 4.81 0 0 1 -4.8-4.8v-11.2a1.6 1.6 0 0 0 -1.6-1.6h-16a4.81 4.81 0 0 0 -4.8 4.8v38.4a4.81 4.81 0 0 0 4.8 4.8h30.4a4.81 4.81 0 0 0 4.8-4.8v-24a1.6 1.6 0 0 0 -1.6-1.6zm-32-1.6a1.62 1.62 0 0 1 1.6-1.55h6.55a1.56 1.56 0 0 1 1.57 1.55v1.59a1.63 1.63 0 0 1 -1.59 1.58h-6.53a1.55 1.55 0 0 1 -1.58-1.58zm24 20.77a1.6 1.6 0 0 1 -1.6 1.6h-20.8a1.6 1.6 0 0 1 -1.6-1.6v-1.57a1.6 1.6 0 0 1 1.6-1.6h20.8a1.6 1.6 0 0 1 1.6 1.6zm3.2-9.6a1.6 1.6 0 0 1 -1.6 1.63h-24a1.6 1.6 0 0 1 -1.6-1.6v-1.6a1.6 1.6 0 0 1 1.6-1.6h24a1.6 1.6 0 0 1 1.6 1.6z" />
-                                                </svg>
-                                                <p
-                                                    class="text-right hover:underline font-semibold text-md text-blue-600 hover:text-blue-800 ">
-                                                    Klik untuk mengunduh formulir kerja</p>
-                                            </div>
-                                        </a>
-                                    </div>
-                                @endif
-                            @endforeach
-                            {{-- tombol form --}}
-                    </div>
-                    {{-- akhir standar formulir --}}
+                                                <path
+                                                    d="m44.4 19.6h-11.2a4.81 4.81 0 0 1 -4.8-4.8v-11.2a1.6 1.6 0 0 0 -1.6-1.6h-16a4.81 4.81 0 0 0 -4.8 4.8v38.4a4.81 4.81 0 0 0 4.8 4.8h30.4a4.81 4.81 0 0 0 4.8-4.8v-24a1.6 1.6 0 0 0 -1.6-1.6zm-32-1.6a1.62 1.62 0 0 1 1.6-1.55h6.55a1.56 1.56 0 0 1 1.57 1.55v1.59a1.63 1.63 0 0 1 -1.59 1.58h-6.53a1.55 1.55 0 0 1 -1.58-1.58zm24 20.77a1.6 1.6 0 0 1 -1.6 1.6h-20.8a1.6 1.6 0 0 1 -1.6-1.6v-1.57a1.6 1.6 0 0 1 1.6-1.6h20.8a1.6 1.6 0 0 1 1.6 1.6zm3.2-9.6a1.6 1.6 0 0 1 -1.6 1.63h-24a1.6 1.6 0 0 1 -1.6-1.6v-1.6a1.6 1.6 0 0 1 1.6-1.6h24a1.6 1.6 0 0 1 1.6 1.6z" />
+                                            </svg>
+                                            <p
+                                                class="text-right hover:underline font-semibold text-md text-blue-600 hover:text-blue-800 ">
+                                                Klik untuk mengunduh formulir kerja</p>
+                                        </div>
+                                    </a>
+                                </div>
+                            @endif
+                        @endforeach
+                        {{-- tombol form --}}
+                </div>
+                {{-- akhir standar formulir --}}
 
-                    <div class="overflow-x-auto rounded-md mb-5 border">
-                        <table class="w-full">
-                            <thead class="bg-gray-300 text-gray-700 sticky top-0">
-                                <th class="py-2 w-[5%] font-medium">No.</th>
-                                <th class="w-[57%] font-medium">Nama File</th>
-                                <th class="w-[10%] font-medium">Uploaded by</th>
-                                <th class="w-[13%] font-medium">Last Update</th>
-                                <th class="w-[15%] font-medium">Aksi</th>
-                            </thead>
-                            <tbody class="text-left border">
-                                {{-- 1 --}}
-                                <tr
-                                    class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
-                                    <td class="py-4 font-bold text-center">1.</td>
-                                    <td class="flex justify-start py-4 items-center">
+                <div class="overflow-x-auto rounded-md mb-5 border">
+                    <table class="w-full">
+                        <thead class="bg-gray-300 text-gray-700 sticky top-0">
+                            <th class="py-2 w-[5%] font-medium">No.</th>
+                            <th class="w-[57%] font-medium">Nama File</th>
+                            <th class="w-[10%] font-medium">Uploaded by</th>
+                            <th class="w-[13%] font-medium">Last Update</th>
+                            <th class="w-[15%] font-medium">Aksi</th>
+                        </thead>
+                        <tbody class="text-left border">
+                            {{-- 1 --}}
+                            <tr class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
+                                <td class="py-4 font-bold text-center">1.</td>
+                                <td class="flex justify-start py-4 items-center">
 
-                                        @if ($koneksicl->cl_im_1 != '')
-                                            <a href="{{ asset('storage/supervisor/project/06_CL/' . $koneksicl->cl_im_1) }}"
-                                                target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
-                                                <svg width="22" height="17" viewBox="0 0 22 17"
-                                                    fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                    <path
-                                                        d="M11 0C6 0 1.73 3.11 0 7.5C1.73 11.89 6 15 11 15C11.36 15 11.72 15 12.08 14.95C12.03 14.63 12 14.32 12 14C12 13.44 12.08 12.88 12.24 12.34C11.83 12.44 11.42 12.5 11 12.5C8.24 12.5 6 10.26 6 7.5C6 4.74 8.24 2.5 11 2.5C13.76 2.5 16 4.74 16 7.5C16 7.79 15.97 8.09 15.92 8.38C16.58 8.13 17.29 8 18 8C19.17 8 20.31 8.34 21.29 9C21.56 8.5 21.8 8 22 7.5C20.27 3.11 16 0 11 0ZM11 4.5C9.34 4.5 8 5.84 8 7.5C8 9.16 9.34 10.5 11 10.5C12.66 10.5 14 9.16 14 7.5C14 5.84 12.66 4.5 11 4.5ZM17 10.5V12.5H21V14.5H17V16.5L14 13.5L17 10.5Z"
-                                                        fill="black" />
-                                                </svg>
-                                            </a>
-
-                                            &emsp;
-                                        @endif
-                                        {{--  --}}
+                                    @if ($koneksicl->cl_im_1 != '')
                                         <a href="{{ asset('storage/supervisor/project/06_CL/' . $koneksicl->cl_im_1) }}"
-                                            target="blank" download="" class="hover:underline">
-                                            {{ $koneksicl->cl_im_1 }}</a>
-                                        {{-- == --}}
+                                            target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
+                                            <svg width="22" height="17" viewBox="0 0 22 17"
+                                                fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M11 0C6 0 1.73 3.11 0 7.5C1.73 11.89 6 15 11 15C11.36 15 11.72 15 12.08 14.95C12.03 14.63 12 14.32 12 14C12 13.44 12.08 12.88 12.24 12.34C11.83 12.44 11.42 12.5 11 12.5C8.24 12.5 6 10.26 6 7.5C6 4.74 8.24 2.5 11 2.5C13.76 2.5 16 4.74 16 7.5C16 7.79 15.97 8.09 15.92 8.38C16.58 8.13 17.29 8 18 8C19.17 8 20.31 8.34 21.29 9C21.56 8.5 21.8 8 22 7.5C20.27 3.11 16 0 11 0ZM11 4.5C9.34 4.5 8 5.84 8 7.5C8 9.16 9.34 10.5 11 10.5C12.66 10.5 14 9.16 14 7.5C14 5.84 12.66 4.5 11 4.5ZM17 10.5V12.5H21V14.5H17V16.5L14 13.5L17 10.5Z"
+                                                    fill="black" />
+                                            </svg>
+                                        </a>
 
-                                    </td>
-                                    <td>
-                                        @if ($koneksicl->up_by_im_cl_1 != '')
-                                            <div
-                                                class="items-center py-1 px-2 text-sm font-medium text-center text-white bg-orange-500 w-[100] mx-auto rounded">
-                                                {{ $koneksicl->up_by_im_cl_1 }}
-                                            </div>
-                                        @endif
-                                    </td>
-                                    <div id="submit-1"></div>
-                                    <td class="text-center">{{ $koneksicl->date_cl_im_1 }}</td>
-                                    <td class="space-y-2 py-3 px-2">
-                                        @if (($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Closed') && $koneksicl->cl_im_1 == '')
+                                        &emsp;
+                                    @endif
+                                    {{--  --}}
+                                    <a href="{{ asset('storage/supervisor/project/06_CL/' . $koneksicl->cl_im_1) }}"
+                                        target="blank" download="" class="hover:underline">
+                                        {{ $koneksicl->cl_im_1 }}</a>
+                                    {{-- == --}}
+
+                                </td>
+                                <td>
+                                    @if ($koneksicl->up_by_im_cl_1 != '')
+                                        <div
+                                            class="items-center py-1 px-2 text-sm font-medium text-center text-white bg-orange-500 w-[100] mx-auto rounded">
+                                            {{ $koneksicl->up_by_im_cl_1 }}
+                                        </div>
+                                    @endif
+                                </td>
+                                <div id="submit-1"></div>
+                                <td class="text-center">{{ $koneksicl->date_cl_im_1 }}</td>
+                                <td class="space-y-2 py-3 px-2">
+                                    @if (($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Closed') && $koneksicl->cl_im_1 == '')
                                         <div class="justify-center flex space-x-2">
-                                            <input type="file" name="as_cl_im_1"
-                                                id="fileInput_cl_im_1" style="display: none;">
+                                            <input type="file" name="as_cl_im_1" id="fileInput_cl_im_1"
+                                                style="display: none;">
                                             <button type="button" onclick="openFileInput('cl_im_1')"
                                                 class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md">
                                                 + Tambah dokumen
@@ -2259,63 +2141,61 @@
                                                 Ubah
                                             </button>
                                             <button data-dropdown-toggle="dropdown1" type="button"
-                                                        class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
-                                                            width="22" fill="white" viewBox="0 0 48 48">
-                                                            <path
-                                                                d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
-                                                            </path>
-                                                        </svg>
-                                                    </button>
+                                                class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                    width="22" fill="white" viewBox="0 0 48 48">
+                                                    <path
+                                                        d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                    </path>
+                                                </svg>
+                                            </button>
                                         </div>
                                     @endif
-                                    </td>
-                                    <input type="text" hidden name="as_up_by_im_cl_1"
-                                        value="{{ Auth::user()->first_name }}">
-                                    <input type="date" hidden name="as_date_cl_im_1"
-                                        value="{{ date('Y-m-d') }}">
+                                </td>
+                                <input type="text" hidden name="as_up_by_im_cl_1"
+                                    value="{{ Auth::user()->first_name }}">
+                                <input type="date" hidden name="as_date_cl_im_1" value="{{ date('Y-m-d') }}">
 
-                                </tr>
-                                {{-- 2 --}}
-                                <tr
-                                    class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
-                                    <td class="py-4 font-bold text-center">2.</td>
-                                    <td class="flex justify-start py-4 items-center">
+                            </tr>
+                            {{-- 2 --}}
+                            <tr class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
+                                <td class="py-4 font-bold text-center">2.</td>
+                                <td class="flex justify-start py-4 items-center">
 
-                                        @if ($koneksicl->cl_im_2 != '')
-                                            <a href="{{ asset('storage/supervisor/project/06_CL/' . $koneksicl->cl_im_2) }}"
-                                                target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
-                                                <svg width="22" height="17" viewBox="0 0 22 17"
-                                                    fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                    <path
-                                                        d="M11 0C6 0 1.73 3.11 0 7.5C1.73 11.89 6 15 11 15C11.36 15 11.72 15 12.08 14.95C12.03 14.63 12 14.32 12 14C12 13.44 12.08 12.88 12.24 12.34C11.83 12.44 11.42 12.5 11 12.5C8.24 12.5 6 10.26 6 7.5C6 4.74 8.24 2.5 11 2.5C13.76 2.5 16 4.74 16 7.5C16 7.79 15.97 8.09 15.92 8.38C16.58 8.13 17.29 8 18 8C19.17 8 20.31 8.34 21.29 9C21.56 8.5 21.8 8 22 7.5C20.27 3.11 16 0 11 0ZM11 4.5C9.34 4.5 8 5.84 8 7.5C8 9.16 9.34 10.5 11 10.5C12.66 10.5 14 9.16 14 7.5C14 5.84 12.66 4.5 11 4.5ZM17 10.5V12.5H21V14.5H17V16.5L14 13.5L17 10.5Z"
-                                                        fill="black" />
-                                                </svg>
-                                            </a>
-
-                                            &emsp;
-                                        @endif
-                                        {{--  --}}
+                                    @if ($koneksicl->cl_im_2 != '')
                                         <a href="{{ asset('storage/supervisor/project/06_CL/' . $koneksicl->cl_im_2) }}"
-                                            target="blank" download="" class="hover:underline">
-                                            {{ $koneksicl->cl_im_2 }}</a>
-                                        {{-- == --}}
+                                            target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
+                                            <svg width="22" height="17" viewBox="0 0 22 17"
+                                                fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M11 0C6 0 1.73 3.11 0 7.5C1.73 11.89 6 15 11 15C11.36 15 11.72 15 12.08 14.95C12.03 14.63 12 14.32 12 14C12 13.44 12.08 12.88 12.24 12.34C11.83 12.44 11.42 12.5 11 12.5C8.24 12.5 6 10.26 6 7.5C6 4.74 8.24 2.5 11 2.5C13.76 2.5 16 4.74 16 7.5C16 7.79 15.97 8.09 15.92 8.38C16.58 8.13 17.29 8 18 8C19.17 8 20.31 8.34 21.29 9C21.56 8.5 21.8 8 22 7.5C20.27 3.11 16 0 11 0ZM11 4.5C9.34 4.5 8 5.84 8 7.5C8 9.16 9.34 10.5 11 10.5C12.66 10.5 14 9.16 14 7.5C14 5.84 12.66 4.5 11 4.5ZM17 10.5V12.5H21V14.5H17V16.5L14 13.5L17 10.5Z"
+                                                    fill="black" />
+                                            </svg>
+                                        </a>
 
-                                    </td>
-                                    <td>
-                                        @if ($koneksicl->up_by_im_cl_2 != '')
-                                            <div
-                                                class="items-center py-1 px-2 text-sm font-medium text-center text-white bg-orange-500 w-[100] mx-auto rounded">
-                                                {{ $koneksicl->up_by_im_cl_2 }}
-                                            </div>
-                                        @endif
-                                    </td>
-                                    <td class="text-center">{{ $koneksicl->date_cl_im_2 }}</td>
-                                    <td class="space-y-2 py-3 px-2">
-                                        @if (($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Closed') && $koneksicl->cl_im_2 == '')
+                                        &emsp;
+                                    @endif
+                                    {{--  --}}
+                                    <a href="{{ asset('storage/supervisor/project/06_CL/' . $koneksicl->cl_im_2) }}"
+                                        target="blank" download="" class="hover:underline">
+                                        {{ $koneksicl->cl_im_2 }}</a>
+                                    {{-- == --}}
+
+                                </td>
+                                <td>
+                                    @if ($koneksicl->up_by_im_cl_2 != '')
+                                        <div
+                                            class="items-center py-1 px-2 text-sm font-medium text-center text-white bg-orange-500 w-[100] mx-auto rounded">
+                                            {{ $koneksicl->up_by_im_cl_2 }}
+                                        </div>
+                                    @endif
+                                </td>
+                                <td class="text-center">{{ $koneksicl->date_cl_im_2 }}</td>
+                                <td class="space-y-2 py-3 px-2">
+                                    @if (($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Closed') && $koneksicl->cl_im_2 == '')
                                         <div class="justify-center flex space-x-2">
-                                            <input type="file" name="as_cl_im_2"
-                                                id="fileInput_cl_im_2" style="display: none;">
+                                            <input type="file" name="as_cl_im_2" id="fileInput_cl_im_2"
+                                                style="display: none;">
                                             <button type="button" onclick="openFileInput('cl_im_2')"
                                                 class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md">
                                                 + Tambah dokumen
@@ -2334,63 +2214,61 @@
                                                 Ubah
                                             </button>
                                             <button data-dropdown-toggle="dropdown1" type="button"
-                                                        class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
-                                                            width="22" fill="white" viewBox="0 0 48 48">
-                                                            <path
-                                                                d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
-                                                            </path>
-                                                        </svg>
-                                                    </button>
+                                                class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                    width="22" fill="white" viewBox="0 0 48 48">
+                                                    <path
+                                                        d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                    </path>
+                                                </svg>
+                                            </button>
                                         </div>
                                     @endif
-                                    </td>
-                                    <input type="text" hidden name="as_up_by_im_cl_2"
-                                        value="{{ Auth::user()->first_name }}">
-                                    <input type="date" hidden name="as_date_cl_im_2"
-                                        value="{{ date('Y-m-d') }}">
+                                </td>
+                                <input type="text" hidden name="as_up_by_im_cl_2"
+                                    value="{{ Auth::user()->first_name }}">
+                                <input type="date" hidden name="as_date_cl_im_2" value="{{ date('Y-m-d') }}">
 
-                                </tr>
-                                {{-- 3 --}}
-                                <tr
-                                    class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
-                                    <td class="py-4 font-bold text-center">3.</td>
-                                    <td class="flex justify-start py-4 items-center">
+                            </tr>
+                            {{-- 3 --}}
+                            <tr class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
+                                <td class="py-4 font-bold text-center">3.</td>
+                                <td class="flex justify-start py-4 items-center">
 
-                                        @if ($koneksicl->cl_im_3 != '')
-                                            <a href="{{ asset('storage/supervisor/project/06_CL/' . $koneksicl->cl_im_3) }}"
-                                                target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
-                                                <svg width="22" height="17" viewBox="0 0 22 17"
-                                                    fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                    <path
-                                                        d="M11 0C6 0 1.73 3.11 0 7.5C1.73 11.89 6 15 11 15C11.36 15 11.72 15 12.08 14.95C12.03 14.63 12 14.32 12 14C12 13.44 12.08 12.88 12.24 12.34C11.83 12.44 11.42 12.5 11 12.5C8.24 12.5 6 10.26 6 7.5C6 4.74 8.24 2.5 11 2.5C13.76 2.5 16 4.74 16 7.5C16 7.79 15.97 8.09 15.92 8.38C16.58 8.13 17.29 8 18 8C19.17 8 20.31 8.34 21.29 9C21.56 8.5 21.8 8 22 7.5C20.27 3.11 16 0 11 0ZM11 4.5C9.34 4.5 8 5.84 8 7.5C8 9.16 9.34 10.5 11 10.5C12.66 10.5 14 9.16 14 7.5C14 5.84 12.66 4.5 11 4.5ZM17 10.5V12.5H21V14.5H17V16.5L14 13.5L17 10.5Z"
-                                                        fill="black" />
-                                                </svg>
-                                            </a>
-
-                                            &emsp;
-                                        @endif
-                                        {{--  --}}
+                                    @if ($koneksicl->cl_im_3 != '')
                                         <a href="{{ asset('storage/supervisor/project/06_CL/' . $koneksicl->cl_im_3) }}"
-                                            target="blank" download="" class="hover:underline">
-                                            {{ $koneksicl->cl_im_3 }}</a>
-                                        {{-- == --}}
+                                            target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
+                                            <svg width="22" height="17" viewBox="0 0 22 17"
+                                                fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M11 0C6 0 1.73 3.11 0 7.5C1.73 11.89 6 15 11 15C11.36 15 11.72 15 12.08 14.95C12.03 14.63 12 14.32 12 14C12 13.44 12.08 12.88 12.24 12.34C11.83 12.44 11.42 12.5 11 12.5C8.24 12.5 6 10.26 6 7.5C6 4.74 8.24 2.5 11 2.5C13.76 2.5 16 4.74 16 7.5C16 7.79 15.97 8.09 15.92 8.38C16.58 8.13 17.29 8 18 8C19.17 8 20.31 8.34 21.29 9C21.56 8.5 21.8 8 22 7.5C20.27 3.11 16 0 11 0ZM11 4.5C9.34 4.5 8 5.84 8 7.5C8 9.16 9.34 10.5 11 10.5C12.66 10.5 14 9.16 14 7.5C14 5.84 12.66 4.5 11 4.5ZM17 10.5V12.5H21V14.5H17V16.5L14 13.5L17 10.5Z"
+                                                    fill="black" />
+                                            </svg>
+                                        </a>
 
-                                    </td>
-                                    <td>
-                                        @if ($koneksicl->up_by_im_cl_3 != '')
-                                            <div
-                                                class="items-center py-1 px-2 text-sm font-medium text-center text-white bg-orange-500 w-[100] mx-auto rounded">
-                                                {{ $koneksicl->up_by_im_cl_3 }}
-                                            </div>
-                                        @endif
-                                    </td>
-                                    <td class="text-center">{{ $koneksicl->date_cl_im_3 }}</td>
-                                    <td class="space-y-2 py-3 px-2">
-                                        @if (($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Closed') && $koneksicl->cl_im_3 == '')
+                                        &emsp;
+                                    @endif
+                                    {{--  --}}
+                                    <a href="{{ asset('storage/supervisor/project/06_CL/' . $koneksicl->cl_im_3) }}"
+                                        target="blank" download="" class="hover:underline">
+                                        {{ $koneksicl->cl_im_3 }}</a>
+                                    {{-- == --}}
+
+                                </td>
+                                <td>
+                                    @if ($koneksicl->up_by_im_cl_3 != '')
+                                        <div
+                                            class="items-center py-1 px-2 text-sm font-medium text-center text-white bg-orange-500 w-[100] mx-auto rounded">
+                                            {{ $koneksicl->up_by_im_cl_3 }}
+                                        </div>
+                                    @endif
+                                </td>
+                                <td class="text-center">{{ $koneksicl->date_cl_im_3 }}</td>
+                                <td class="space-y-2 py-3 px-2">
+                                    @if (($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Closed') && $koneksicl->cl_im_3 == '')
                                         <div class="justify-center flex space-x-2">
-                                            <input type="file" name="as_cl_im_3"
-                                                id="fileInput_cl_im_3" style="display: none;">
+                                            <input type="file" name="as_cl_im_3" id="fileInput_cl_im_3"
+                                                style="display: none;">
                                             <button type="button" onclick="openFileInput('cl_im_3')"
                                                 class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md">
                                                 + Tambah dokumen
@@ -2409,62 +2287,60 @@
                                                 Ubah
                                             </button>
                                             <button data-dropdown-toggle="dropdown1" type="button"
-                                                        class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
-                                                            width="22" fill="white" viewBox="0 0 48 48">
-                                                            <path
-                                                                d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
-                                                            </path>
-                                                        </svg>
-                                                    </button>
+                                                class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                    width="22" fill="white" viewBox="0 0 48 48">
+                                                    <path
+                                                        d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                    </path>
+                                                </svg>
+                                            </button>
                                         </div>
                                     @endif
-                                    </td>
-                                    <input type="text" hidden name="as_up_by_im_cl_3"
-                                        value="{{ Auth::user()->first_name }}">
-                                    <input type="date" hidden name="as_date_cl_im_3"
-                                        value="{{ date('Y-m-d') }}">
-                                </tr>
-                                {{-- 4 --}}
-                                <tr
-                                    class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
-                                    <td class="py-4 font-bold text-center">4.</td>
-                                    <td class="flex justify-start py-4 items-center">
+                                </td>
+                                <input type="text" hidden name="as_up_by_im_cl_3"
+                                    value="{{ Auth::user()->first_name }}">
+                                <input type="date" hidden name="as_date_cl_im_3" value="{{ date('Y-m-d') }}">
+                            </tr>
+                            {{-- 4 --}}
+                            <tr class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
+                                <td class="py-4 font-bold text-center">4.</td>
+                                <td class="flex justify-start py-4 items-center">
 
-                                        @if ($koneksicl->cl_im_4 != '')
-                                            <a href="{{ asset('storage/supervisor/project/06_CL/' . $koneksicl->cl_im_4) }}"
-                                                target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
-                                                <svg width="22" height="17" viewBox="0 0 22 17"
-                                                    fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                    <path
-                                                        d="M11 0C6 0 1.73 3.11 0 7.5C1.73 11.89 6 15 11 15C11.36 15 11.72 15 12.08 14.95C12.03 14.63 12 14.32 12 14C12 13.44 12.08 12.88 12.24 12.34C11.83 12.44 11.42 12.5 11 12.5C8.24 12.5 6 10.26 6 7.5C6 4.74 8.24 2.5 11 2.5C13.76 2.5 16 4.74 16 7.5C16 7.79 15.97 8.09 15.92 8.38C16.58 8.13 17.29 8 18 8C19.17 8 20.31 8.34 21.29 9C21.56 8.5 21.8 8 22 7.5C20.27 3.11 16 0 11 0ZM11 4.5C9.34 4.5 8 5.84 8 7.5C8 9.16 9.34 10.5 11 10.5C12.66 10.5 14 9.16 14 7.5C14 5.84 12.66 4.5 11 4.5ZM17 10.5V12.5H21V14.5H17V16.5L14 13.5L17 10.5Z"
-                                                        fill="black" />
-                                                </svg>
-                                            </a>
-
-                                            &emsp;
-                                        @endif
-                                        {{--  --}}
+                                    @if ($koneksicl->cl_im_4 != '')
                                         <a href="{{ asset('storage/supervisor/project/06_CL/' . $koneksicl->cl_im_4) }}"
-                                            target="blank" download="" class="hover:underline">
-                                            {{ $koneksicl->cl_im_4 }}</a>
-                                        {{-- == --}}
+                                            target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
+                                            <svg width="22" height="17" viewBox="0 0 22 17"
+                                                fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M11 0C6 0 1.73 3.11 0 7.5C1.73 11.89 6 15 11 15C11.36 15 11.72 15 12.08 14.95C12.03 14.63 12 14.32 12 14C12 13.44 12.08 12.88 12.24 12.34C11.83 12.44 11.42 12.5 11 12.5C8.24 12.5 6 10.26 6 7.5C6 4.74 8.24 2.5 11 2.5C13.76 2.5 16 4.74 16 7.5C16 7.79 15.97 8.09 15.92 8.38C16.58 8.13 17.29 8 18 8C19.17 8 20.31 8.34 21.29 9C21.56 8.5 21.8 8 22 7.5C20.27 3.11 16 0 11 0ZM11 4.5C9.34 4.5 8 5.84 8 7.5C8 9.16 9.34 10.5 11 10.5C12.66 10.5 14 9.16 14 7.5C14 5.84 12.66 4.5 11 4.5ZM17 10.5V12.5H21V14.5H17V16.5L14 13.5L17 10.5Z"
+                                                    fill="black" />
+                                            </svg>
+                                        </a>
 
-                                    </td>
-                                    <td>
-                                        @if ($koneksicl->up_by_im_cl_4 != '')
-                                            <div
-                                                class="items-center py-1 px-2 text-sm font-medium text-center text-white bg-orange-500 w-[100] mx-auto rounded">
-                                                {{ $koneksicl->up_by_im_cl_4 }}
-                                            </div>
-                                        @endif
-                                    </td>
-                                    <td class="text-center">{{ $koneksicl->date_cl_im_4 }}</td>
-                                    <td class="space-y-2 py-3 px-2">
-                                        @if (($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Closed') && $koneksicl->cl_im_4 == '')
+                                        &emsp;
+                                    @endif
+                                    {{--  --}}
+                                    <a href="{{ asset('storage/supervisor/project/06_CL/' . $koneksicl->cl_im_4) }}"
+                                        target="blank" download="" class="hover:underline">
+                                        {{ $koneksicl->cl_im_4 }}</a>
+                                    {{-- == --}}
+
+                                </td>
+                                <td>
+                                    @if ($koneksicl->up_by_im_cl_4 != '')
+                                        <div
+                                            class="items-center py-1 px-2 text-sm font-medium text-center text-white bg-orange-500 w-[100] mx-auto rounded">
+                                            {{ $koneksicl->up_by_im_cl_4 }}
+                                        </div>
+                                    @endif
+                                </td>
+                                <td class="text-center">{{ $koneksicl->date_cl_im_4 }}</td>
+                                <td class="space-y-2 py-3 px-2">
+                                    @if (($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Closed') && $koneksicl->cl_im_4 == '')
                                         <div class="justify-center flex space-x-2">
-                                            <input type="file" name="as_cl_im_4"
-                                                id="fileInput_cl_im_4" style="display: none;">
+                                            <input type="file" name="as_cl_im_4" id="fileInput_cl_im_4"
+                                                style="display: none;">
                                             <button type="button" onclick="openFileInput('cl_im_4')"
                                                 class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md">
                                                 + Tambah dokumen
@@ -2483,63 +2359,61 @@
                                                 Ubah
                                             </button>
                                             <button data-dropdown-toggle="dropdown1" type="button"
-                                                        class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
-                                                            width="22" fill="white" viewBox="0 0 48 48">
-                                                            <path
-                                                                d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
-                                                            </path>
-                                                        </svg>
-                                                    </button>
+                                                class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                    width="22" fill="white" viewBox="0 0 48 48">
+                                                    <path
+                                                        d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                    </path>
+                                                </svg>
+                                            </button>
                                         </div>
                                     @endif
-                                    </td>
-                                    <input type="text" hidden name="as_up_by_im_cl_4"
-                                        value="{{ Auth::user()->first_name }}">
-                                    <input type="date" hidden name="as_date_cl_im_4"
-                                        value="{{ date('Y-m-d') }}">
+                                </td>
+                                <input type="text" hidden name="as_up_by_im_cl_4"
+                                    value="{{ Auth::user()->first_name }}">
+                                <input type="date" hidden name="as_date_cl_im_4" value="{{ date('Y-m-d') }}">
 
-                                </tr>
-                                {{-- 5 --}}
-                                <tr
-                                    class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
-                                    <td class="py-4 font-bold text-center">5.</td>
-                                    <td class="flex justify-start py-4 items-center">
+                            </tr>
+                            {{-- 5 --}}
+                            <tr class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
+                                <td class="py-4 font-bold text-center">5.</td>
+                                <td class="flex justify-start py-4 items-center">
 
-                                        @if ($koneksicl->cl_im_5 != '')
-                                            <a href="{{ asset('storage/supervisor/project/06_CL/' . $koneksicl->cl_im_5) }}"
-                                                target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
-                                                <svg width="22" height="17" viewBox="0 0 22 17"
-                                                    fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                    <path
-                                                        d="M11 0C6 0 1.73 3.11 0 7.5C1.73 11.89 6 15 11 15C11.36 15 11.72 15 12.08 14.95C12.03 14.63 12 14.32 12 14C12 13.44 12.08 12.88 12.24 12.34C11.83 12.44 11.42 12.5 11 12.5C8.24 12.5 6 10.26 6 7.5C6 4.74 8.24 2.5 11 2.5C13.76 2.5 16 4.74 16 7.5C16 7.79 15.97 8.09 15.92 8.38C16.58 8.13 17.29 8 18 8C19.17 8 20.31 8.34 21.29 9C21.56 8.5 21.8 8 22 7.5C20.27 3.11 16 0 11 0ZM11 4.5C9.34 4.5 8 5.84 8 7.5C8 9.16 9.34 10.5 11 10.5C12.66 10.5 14 9.16 14 7.5C14 5.84 12.66 4.5 11 4.5ZM17 10.5V12.5H21V14.5H17V16.5L14 13.5L17 10.5Z"
-                                                        fill="black" />
-                                                </svg>
-                                            </a>
-
-                                            &emsp;
-                                        @endif
-                                        {{--  --}}
+                                    @if ($koneksicl->cl_im_5 != '')
                                         <a href="{{ asset('storage/supervisor/project/06_CL/' . $koneksicl->cl_im_5) }}"
-                                            target="blank" download="" class="hover:underline">
-                                            {{ $koneksicl->cl_im_5 }}</a>
-                                        {{-- == --}}
+                                            target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
+                                            <svg width="22" height="17" viewBox="0 0 22 17"
+                                                fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M11 0C6 0 1.73 3.11 0 7.5C1.73 11.89 6 15 11 15C11.36 15 11.72 15 12.08 14.95C12.03 14.63 12 14.32 12 14C12 13.44 12.08 12.88 12.24 12.34C11.83 12.44 11.42 12.5 11 12.5C8.24 12.5 6 10.26 6 7.5C6 4.74 8.24 2.5 11 2.5C13.76 2.5 16 4.74 16 7.5C16 7.79 15.97 8.09 15.92 8.38C16.58 8.13 17.29 8 18 8C19.17 8 20.31 8.34 21.29 9C21.56 8.5 21.8 8 22 7.5C20.27 3.11 16 0 11 0ZM11 4.5C9.34 4.5 8 5.84 8 7.5C8 9.16 9.34 10.5 11 10.5C12.66 10.5 14 9.16 14 7.5C14 5.84 12.66 4.5 11 4.5ZM17 10.5V12.5H21V14.5H17V16.5L14 13.5L17 10.5Z"
+                                                    fill="black" />
+                                            </svg>
+                                        </a>
 
-                                    </td>
-                                    <td>
-                                        @if ($koneksicl->up_by_im_cl_5 != '')
-                                            <div
-                                                class="items-center py-1 px-2 text-sm font-medium text-center text-white bg-orange-500 w-[100] mx-auto rounded">
-                                                {{ $koneksicl->up_by_im_cl_5 }}
-                                            </div>
-                                        @endif
-                                    </td>
-                                    <td class="text-center">{{ $koneksicl->date_cl_im_5 }}</td>
-                                    <td class="space-y-2 py-3 px-2">
-                                        @if (($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Closed') && $koneksicl->cl_im_5 == '')
+                                        &emsp;
+                                    @endif
+                                    {{--  --}}
+                                    <a href="{{ asset('storage/supervisor/project/06_CL/' . $koneksicl->cl_im_5) }}"
+                                        target="blank" download="" class="hover:underline">
+                                        {{ $koneksicl->cl_im_5 }}</a>
+                                    {{-- == --}}
+
+                                </td>
+                                <td>
+                                    @if ($koneksicl->up_by_im_cl_5 != '')
+                                        <div
+                                            class="items-center py-1 px-2 text-sm font-medium text-center text-white bg-orange-500 w-[100] mx-auto rounded">
+                                            {{ $koneksicl->up_by_im_cl_5 }}
+                                        </div>
+                                    @endif
+                                </td>
+                                <td class="text-center">{{ $koneksicl->date_cl_im_5 }}</td>
+                                <td class="space-y-2 py-3 px-2">
+                                    @if (($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Closed') && $koneksicl->cl_im_5 == '')
                                         <div class="justify-center flex space-x-2">
-                                            <input type="file" name="as_cl_im_5"
-                                                id="fileInput_cl_im_5" style="display: none;">
+                                            <input type="file" name="as_cl_im_5" id="fileInput_cl_im_5"
+                                                style="display: none;">
                                             <button type="button" onclick="openFileInput('cl_im_5')"
                                                 class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md">
                                                 + Tambah dokumen
@@ -2558,110 +2432,108 @@
                                                 Ubah
                                             </button>
                                             <button data-dropdown-toggle="dropdown1" type="button"
-                                                        class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
-                                                            width="22" fill="white" viewBox="0 0 48 48">
-                                                            <path
-                                                                d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
-                                                            </path>
-                                                        </svg>
-                                                    </button>
+                                                class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                    width="22" fill="white" viewBox="0 0 48 48">
+                                                    <path
+                                                        d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                    </path>
+                                                </svg>
+                                            </button>
                                         </div>
                                     @endif
-                                    </td>
-                                    <input type="text" hidden name="as_up_by_im_cl_5"
-                                        value="{{ Auth::user()->first_name }}">
-                                    <input type="date" hidden name="as_date_cl_im_5"
-                                        value="{{ date('Y-m-d') }}">
+                                </td>
+                                <input type="text" hidden name="as_up_by_im_cl_5"
+                                    value="{{ Auth::user()->first_name }}">
+                                <input type="date" hidden name="as_date_cl_im_5" value="{{ date('Y-m-d') }}">
 
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    {{-- Akhir --}}
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                {{-- Akhir --}}
 
-                    {{-- Completion and Handover Report --}}
-                    {{-- awal standar formulir --}}
-                    <div class="flex justify-between">
-                        <p class="font-medium text-lg bg-gray-800 px-4 py-1 w-fit text-white mb-2 rounded"> Completion
-                            and Handover Report
-                            @foreach ($standar_project as $spt)
-                                @if ($spt->file_chor_form != '')
-                                    <div class="flex justify-end mr-1 mt-4">
-                                        <a href="{{ asset('storage/supervisor/standarproject/' . $spt->file_chor_form) }}"
-                                            download="">
-                                            <div
-                                                class="w-fit items-center space-x-1 flex fill-blue-600 hover:fill-blue-800">
-                                                <svg width="15" height="" viewBox="0 0 52 52"
-                                                    xmlns="http://www.w3.org/2000/svg">
-                                                    <path
-                                                        d="m36.4 14.8h8.48a1.09 1.09 0 0 0 1.12-1.12 1 1 0 0 0 -.32-.8l-10.56-10.56a1 1 0 0 0 -.8-.32 1.09 1.09 0 0 0 -1.12 1.12v8.48a3.21 3.21 0 0 0 3.2 3.2z" />
-                                                    <path
-                                                        d="m44.4 19.6h-11.2a4.81 4.81 0 0 1 -4.8-4.8v-11.2a1.6 1.6 0 0 0 -1.6-1.6h-16a4.81 4.81 0 0 0 -4.8 4.8v38.4a4.81 4.81 0 0 0 4.8 4.8h30.4a4.81 4.81 0 0 0 4.8-4.8v-24a1.6 1.6 0 0 0 -1.6-1.6zm-32-1.6a1.62 1.62 0 0 1 1.6-1.55h6.55a1.56 1.56 0 0 1 1.57 1.55v1.59a1.63 1.63 0 0 1 -1.59 1.58h-6.53a1.55 1.55 0 0 1 -1.58-1.58zm24 20.77a1.6 1.6 0 0 1 -1.6 1.6h-20.8a1.6 1.6 0 0 1 -1.6-1.6v-1.57a1.6 1.6 0 0 1 1.6-1.6h20.8a1.6 1.6 0 0 1 1.6 1.6zm3.2-9.6a1.6 1.6 0 0 1 -1.6 1.63h-24a1.6 1.6 0 0 1 -1.6-1.6v-1.6a1.6 1.6 0 0 1 1.6-1.6h24a1.6 1.6 0 0 1 1.6 1.6z" />
-                                                </svg>
-                                                <p
-                                                    class="text-right hover:underline font-semibold text-md text-blue-600 hover:text-blue-800 ">
-                                                    Klik untuk mengunduh formulir kerja</p>
-                                            </div>
-                                        </a>
-                                    </div>
-                                @endif
-                            @endforeach
-                            {{-- tombol form --}}
-                    </div>
-                    {{-- akhir standar formulir --}}
+                {{-- Completion and Handover Report --}}
+                {{-- awal standar formulir --}}
+                <div class="flex justify-between">
+                    <p class="font-medium text-lg bg-gray-800 px-4 py-1 w-fit text-white mb-2 rounded"> Completion
+                        and Handover Report
+                        @foreach ($standar_project as $spt)
+                            @if ($spt->file_chor_form != '')
+                                <div class="flex justify-end mr-1 mt-4">
+                                    <a href="{{ asset('storage/supervisor/standarproject/' . $spt->file_chor_form) }}"
+                                        download="">
+                                        <div
+                                            class="w-fit items-center space-x-1 flex fill-blue-600 hover:fill-blue-800">
+                                            <svg width="15" height="" viewBox="0 0 52 52"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="m36.4 14.8h8.48a1.09 1.09 0 0 0 1.12-1.12 1 1 0 0 0 -.32-.8l-10.56-10.56a1 1 0 0 0 -.8-.32 1.09 1.09 0 0 0 -1.12 1.12v8.48a3.21 3.21 0 0 0 3.2 3.2z" />
+                                                <path
+                                                    d="m44.4 19.6h-11.2a4.81 4.81 0 0 1 -4.8-4.8v-11.2a1.6 1.6 0 0 0 -1.6-1.6h-16a4.81 4.81 0 0 0 -4.8 4.8v38.4a4.81 4.81 0 0 0 4.8 4.8h30.4a4.81 4.81 0 0 0 4.8-4.8v-24a1.6 1.6 0 0 0 -1.6-1.6zm-32-1.6a1.62 1.62 0 0 1 1.6-1.55h6.55a1.56 1.56 0 0 1 1.57 1.55v1.59a1.63 1.63 0 0 1 -1.59 1.58h-6.53a1.55 1.55 0 0 1 -1.58-1.58zm24 20.77a1.6 1.6 0 0 1 -1.6 1.6h-20.8a1.6 1.6 0 0 1 -1.6-1.6v-1.57a1.6 1.6 0 0 1 1.6-1.6h20.8a1.6 1.6 0 0 1 1.6 1.6zm3.2-9.6a1.6 1.6 0 0 1 -1.6 1.63h-24a1.6 1.6 0 0 1 -1.6-1.6v-1.6a1.6 1.6 0 0 1 1.6-1.6h24a1.6 1.6 0 0 1 1.6 1.6z" />
+                                            </svg>
+                                            <p
+                                                class="text-right hover:underline font-semibold text-md text-blue-600 hover:text-blue-800 ">
+                                                Klik untuk mengunduh formulir kerja</p>
+                                        </div>
+                                    </a>
+                                </div>
+                            @endif
+                        @endforeach
+                        {{-- tombol form --}}
+                </div>
+                {{-- akhir standar formulir --}}
 
-                    <div class="overflow-x-auto rounded-md mb-5">
-                        <table class="w-full">
-                            <thead class="bg-gray-300 text-gray-700">
-                                <th class="py-2 w-[5%] font-medium">No.</th>
-                                <th class="w-[57%] font-medium">Nama File</th>
-                                <th class="w-[10%] font-medium">Uploaded by</th>
-                                <th class="w-[13%] font-medium">Last Update</th>
-                                <th class="w-[15%] font-medium">Aksi</th>
-                            </thead>
-                            <tbody class="text-left border">
-                                {{-- 1 --}}
-                                <tr
-                                    class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
-                                    <td class="py-4 font-bold text-center">1.</td>
-                                    <td class="flex justify-start py-4 items-center">
+                <div class="overflow-x-auto rounded-md mb-5">
+                    <table class="w-full">
+                        <thead class="bg-gray-300 text-gray-700">
+                            <th class="py-2 w-[5%] font-medium">No.</th>
+                            <th class="w-[57%] font-medium">Nama File</th>
+                            <th class="w-[10%] font-medium">Uploaded by</th>
+                            <th class="w-[13%] font-medium">Last Update</th>
+                            <th class="w-[15%] font-medium">Aksi</th>
+                        </thead>
+                        <tbody class="text-left border">
+                            {{-- 1 --}}
+                            <tr class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
+                                <td class="py-4 font-bold text-center">1.</td>
+                                <td class="flex justify-start py-4 items-center">
 
-                                        @if ($koneksicl->cl_chor_1 != '')
-                                            <a href="{{ asset('storage/supervisor/project/06_CL/' . $koneksicl->cl_chor_1) }}"
-                                                target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
-                                                <svg width="22" height="17" viewBox="0 0 22 17"
-                                                    fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                    <path
-                                                        d="M11 0C6 0 1.73 3.11 0 7.5C1.73 11.89 6 15 11 15C11.36 15 11.72 15 12.08 14.95C12.03 14.63 12 14.32 12 14C12 13.44 12.08 12.88 12.24 12.34C11.83 12.44 11.42 12.5 11 12.5C8.24 12.5 6 10.26 6 7.5C6 4.74 8.24 2.5 11 2.5C13.76 2.5 16 4.74 16 7.5C16 7.79 15.97 8.09 15.92 8.38C16.58 8.13 17.29 8 18 8C19.17 8 20.31 8.34 21.29 9C21.56 8.5 21.8 8 22 7.5C20.27 3.11 16 0 11 0ZM11 4.5C9.34 4.5 8 5.84 8 7.5C8 9.16 9.34 10.5 11 10.5C12.66 10.5 14 9.16 14 7.5C14 5.84 12.66 4.5 11 4.5ZM17 10.5V12.5H21V14.5H17V16.5L14 13.5L17 10.5Z"
-                                                        fill="black" />
-                                                </svg>
-                                            </a>
-
-                                            &emsp;
-                                        @endif
-                                        {{--  --}}
+                                    @if ($koneksicl->cl_chor_1 != '')
                                         <a href="{{ asset('storage/supervisor/project/06_CL/' . $koneksicl->cl_chor_1) }}"
-                                            target="blank" download="" class="hover:underline">
-                                            {{ $koneksicl->cl_chor_1 }}</a>
-                                        {{-- == --}}
+                                            target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
+                                            <svg width="22" height="17" viewBox="0 0 22 17"
+                                                fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M11 0C6 0 1.73 3.11 0 7.5C1.73 11.89 6 15 11 15C11.36 15 11.72 15 12.08 14.95C12.03 14.63 12 14.32 12 14C12 13.44 12.08 12.88 12.24 12.34C11.83 12.44 11.42 12.5 11 12.5C8.24 12.5 6 10.26 6 7.5C6 4.74 8.24 2.5 11 2.5C13.76 2.5 16 4.74 16 7.5C16 7.79 15.97 8.09 15.92 8.38C16.58 8.13 17.29 8 18 8C19.17 8 20.31 8.34 21.29 9C21.56 8.5 21.8 8 22 7.5C20.27 3.11 16 0 11 0ZM11 4.5C9.34 4.5 8 5.84 8 7.5C8 9.16 9.34 10.5 11 10.5C12.66 10.5 14 9.16 14 7.5C14 5.84 12.66 4.5 11 4.5ZM17 10.5V12.5H21V14.5H17V16.5L14 13.5L17 10.5Z"
+                                                    fill="black" />
+                                            </svg>
+                                        </a>
 
-                                    </td>
-                                    <td>
-                                        @if ($koneksicl->up_by_chor_cl_1 != '')
-                                            <div
-                                                class="items-center py-1 px-2 text-sm font-medium text-center text-white bg-orange-500 w-[100] mx-auto rounded">
-                                                {{ $koneksicl->up_by_chor_cl_1 }}
-                                            </div>
-                                        @endif
-                                    </td>
-                                    <td class="text-center">{{ $koneksicl->date_cl_chor_1 }}</td>
+                                        &emsp;
+                                    @endif
+                                    {{--  --}}
+                                    <a href="{{ asset('storage/supervisor/project/06_CL/' . $koneksicl->cl_chor_1) }}"
+                                        target="blank" download="" class="hover:underline">
+                                        {{ $koneksicl->cl_chor_1 }}</a>
+                                    {{-- == --}}
 
-                                    <td class="space-y-2 py-3 px-2">
-                                        @if (($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Closed') && $koneksicl->cl_chor_1 == '')
+                                </td>
+                                <td>
+                                    @if ($koneksicl->up_by_chor_cl_1 != '')
+                                        <div
+                                            class="items-center py-1 px-2 text-sm font-medium text-center text-white bg-orange-500 w-[100] mx-auto rounded">
+                                            {{ $koneksicl->up_by_chor_cl_1 }}
+                                        </div>
+                                    @endif
+                                </td>
+                                <td class="text-center">{{ $koneksicl->date_cl_chor_1 }}</td>
+
+                                <td class="space-y-2 py-3 px-2">
+                                    @if (($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Closed') && $koneksicl->cl_chor_1 == '')
                                         <div class="justify-center flex space-x-2">
-                                            <input type="file" name="as_cl_chor_1"
-                                                id="fileInput_cl_chor_1" style="display: none;">
+                                            <input type="file" name="as_cl_chor_1" id="fileInput_cl_chor_1"
+                                                style="display: none;">
                                             <button type="button" onclick="openFileInput('cl_chor_1')"
                                                 class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md">
                                                 + Tambah dokumen
@@ -2680,63 +2552,62 @@
                                                 Ubah
                                             </button>
                                             <button data-dropdown-toggle="dropdown1" type="button"
-                                                        class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
-                                                            width="22" fill="white" viewBox="0 0 48 48">
-                                                            <path
-                                                                d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
-                                                            </path>
-                                                        </svg>
-                                                    </button>
+                                                class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                    width="22" fill="white" viewBox="0 0 48 48">
+                                                    <path
+                                                        d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                    </path>
+                                                </svg>
+                                            </button>
                                         </div>
                                     @endif
-                                    </td>
-                                    <input type="text" hidden name="as_up_by_chor_cl_1"
-                                        value="{{ Auth::user()->first_name }}">
-                                    <input type="date" hidden name="as_date_cl_chor_1"
-                                        value="{{ date('Y-m-d') }}">
+                                </td>
+                                <input type="text" hidden name="as_up_by_chor_cl_1"
+                                    value="{{ Auth::user()->first_name }}">
+                                <input type="date" hidden name="as_date_cl_chor_1"
+                                    value="{{ date('Y-m-d') }}">
 
-                                </tr>
-                                {{-- 2 --}}
-                                <tr
-                                    class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
-                                    <td class="py-4 font-bold text-center">2.</td>
-                                    <td class="flex justify-start py-4 items-center">
+                            </tr>
+                            {{-- 2 --}}
+                            <tr class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
+                                <td class="py-4 font-bold text-center">2.</td>
+                                <td class="flex justify-start py-4 items-center">
 
-                                        @if ($koneksicl->cl_chor_2 != '')
-                                            <a href="{{ asset('storage/supervisor/project/06_CL/' . $koneksicl->cl_chor_2) }}"
-                                                target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
-                                                <svg width="22" height="17" viewBox="0 0 22 17"
-                                                    fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                    <path
-                                                        d="M11 0C6 0 1.73 3.11 0 7.5C1.73 11.89 6 15 11 15C11.36 15 11.72 15 12.08 14.95C12.03 14.63 12 14.32 12 14C12 13.44 12.08 12.88 12.24 12.34C11.83 12.44 11.42 12.5 11 12.5C8.24 12.5 6 10.26 6 7.5C6 4.74 8.24 2.5 11 2.5C13.76 2.5 16 4.74 16 7.5C16 7.79 15.97 8.09 15.92 8.38C16.58 8.13 17.29 8 18 8C19.17 8 20.31 8.34 21.29 9C21.56 8.5 21.8 8 22 7.5C20.27 3.11 16 0 11 0ZM11 4.5C9.34 4.5 8 5.84 8 7.5C8 9.16 9.34 10.5 11 10.5C12.66 10.5 14 9.16 14 7.5C14 5.84 12.66 4.5 11 4.5ZM17 10.5V12.5H21V14.5H17V16.5L14 13.5L17 10.5Z"
-                                                        fill="black" />
-                                                </svg>
-                                            </a>
-
-                                            &emsp;
-                                        @endif
-                                        {{--  --}}
+                                    @if ($koneksicl->cl_chor_2 != '')
                                         <a href="{{ asset('storage/supervisor/project/06_CL/' . $koneksicl->cl_chor_2) }}"
-                                            target="blank" download="" class="hover:underline">
-                                            {{ $koneksicl->cl_chor_2 }}</a>
-                                        {{-- == --}}
+                                            target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
+                                            <svg width="22" height="17" viewBox="0 0 22 17"
+                                                fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M11 0C6 0 1.73 3.11 0 7.5C1.73 11.89 6 15 11 15C11.36 15 11.72 15 12.08 14.95C12.03 14.63 12 14.32 12 14C12 13.44 12.08 12.88 12.24 12.34C11.83 12.44 11.42 12.5 11 12.5C8.24 12.5 6 10.26 6 7.5C6 4.74 8.24 2.5 11 2.5C13.76 2.5 16 4.74 16 7.5C16 7.79 15.97 8.09 15.92 8.38C16.58 8.13 17.29 8 18 8C19.17 8 20.31 8.34 21.29 9C21.56 8.5 21.8 8 22 7.5C20.27 3.11 16 0 11 0ZM11 4.5C9.34 4.5 8 5.84 8 7.5C8 9.16 9.34 10.5 11 10.5C12.66 10.5 14 9.16 14 7.5C14 5.84 12.66 4.5 11 4.5ZM17 10.5V12.5H21V14.5H17V16.5L14 13.5L17 10.5Z"
+                                                    fill="black" />
+                                            </svg>
+                                        </a>
 
-                                    </td>
-                                    <td>
-                                        @if ($koneksicl->up_by_chor_cl_2 != '')
-                                            <div
-                                                class="items-center py-1 px-2 text-sm font-medium text-center text-white bg-orange-500 w-[100] mx-auto rounded">
-                                                {{ $koneksicl->up_by_chor_cl_2 }}
-                                            </div>
-                                        @endif
-                                    </td>
-                                    <td class="text-center">{{ $koneksicl->date_cl_chor_2 }}</td>
-                                    <td class="space-y-2 py-3 px-2">
-                                        @if (($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Closed') && $koneksicl->cl_chor_2 == '')
+                                        &emsp;
+                                    @endif
+                                    {{--  --}}
+                                    <a href="{{ asset('storage/supervisor/project/06_CL/' . $koneksicl->cl_chor_2) }}"
+                                        target="blank" download="" class="hover:underline">
+                                        {{ $koneksicl->cl_chor_2 }}</a>
+                                    {{-- == --}}
+
+                                </td>
+                                <td>
+                                    @if ($koneksicl->up_by_chor_cl_2 != '')
+                                        <div
+                                            class="items-center py-1 px-2 text-sm font-medium text-center text-white bg-orange-500 w-[100] mx-auto rounded">
+                                            {{ $koneksicl->up_by_chor_cl_2 }}
+                                        </div>
+                                    @endif
+                                </td>
+                                <td class="text-center">{{ $koneksicl->date_cl_chor_2 }}</td>
+                                <td class="space-y-2 py-3 px-2">
+                                    @if (($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Closed') && $koneksicl->cl_chor_2 == '')
                                         <div class="justify-center flex space-x-2">
-                                            <input type="file" name="as_cl_chor_2"
-                                                id="fileInput_cl_chor_2" style="display: none;">
+                                            <input type="file" name="as_cl_chor_2" id="fileInput_cl_chor_2"
+                                                style="display: none;">
                                             <button type="button" onclick="openFileInput('cl_chor_2')"
                                                 class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md">
                                                 + Tambah dokumen
@@ -2755,27 +2626,27 @@
                                                 Ubah
                                             </button>
                                             <button data-dropdown-toggle="dropdown1" type="button"
-                                                        class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
-                                                            width="22" fill="white" viewBox="0 0 48 48">
-                                                            <path
-                                                                d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
-                                                            </path>
-                                                        </svg>
-                                                    </button>
+                                                class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                    width="22" fill="white" viewBox="0 0 48 48">
+                                                    <path
+                                                        d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                    </path>
+                                                </svg>
+                                            </button>
                                         </div>
                                     @endif
-                                    </td>
-                                    <input type="text" hidden name="as_up_by_chor_cl_2"
-                                        value="{{ Auth::user()->first_name }}">
-                                    <input type="date" hidden name="as_date_cl_chor_2"
-                                        value="{{ date('Y-m-d') }}">
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
+                                </td>
+                                <input type="text" hidden name="as_up_by_chor_cl_2"
+                                    value="{{ Auth::user()->first_name }}">
+                                <input type="date" hidden name="as_date_cl_chor_2"
+                                    value="{{ date('Y-m-d') }}">
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
-                {{-- bungkus --}}
+            </div>
+            {{-- bungkus --}}
 
             {{-- modal ubah --}}
             @php
@@ -3298,107 +3169,113 @@
     </div>
     {{-- Akhir progress file --}}
 
-    @if(/* 1 */
-    $koneksicl->cl_i_periksa_m_1 ||
-        $koneksicl->cl_i_periksa_m_2 ||
-        $koneksicl->cl_i_periksa_m_3 ||
-        /* 2 */
-        $koneksicl->cl_qas_1 ||
-        $koneksicl->cl_qas_2 ||
-        /* 3 */
-        $koneksicl->cl_i_pakai_m_1 ||
-        $koneksicl->cl_i_pakai_m_2 ||
-        /* 4 */
-        $koneksicl->cl_training_1 ||
-        $koneksicl->cl_training_2 ||
-        $koneksicl->cl_training_3 ||
-        $koneksicl->cl_training_4 ||
-        $koneksicl->cl_training_5 ||
-        /* 5 */
-        $koneksicl->cl_l_trouble_1 ||
-        $koneksicl->cl_l_trouble_2 ||
-        /* 6 */
-        $koneksicl->cl_camb_1 ||
-        $koneksicl->cl_camb_2 ||
-        /* 7 */
-        $koneksicl->cl_imb_1 ||
-        $koneksicl->cl_imb_2 ||
-        $koneksicl->cl_imb_3 ||
-        $koneksicl->cl_imb_4 ||
-        $koneksicl->cl_imb_5 ||
-        /* 8 */
-        $koneksicl->cl_chor_1 ||
-        $koneksicl->cl_chor_2 != '')
-    {{-- Tombol Approve --}}
-    <div class="grid grid-cols-2 gap-2 mt-4">
-        @if ($koneksifr->status_fr == 'Complete' &&
-        $koneksiar->status_ar == 'Complete' &&
-            $koneksipr->status_pr_01 == 'Complete' &&
-            $koneksipa->status_pa_02 == 'Complete' &&
-            $koneksipo->status_po_03 == 'Complete' &&
-            $koneksipay->status_pay_04 == 'Complete' &&
-            $koneksiin->status_in == 'Complete' &&
-            $koneksicl->status_cl != 'Complete')
-        <form action="" method="post" enctype="multipart/form-data">
-            @csrf
-            @method('PUT')
-            <input type="text" name="check" value="donecheck" hidden>
-            <input type="text" name="progress" value="Closed" hidden>
-            <input type="text" name="status_cl" value="Complete" hidden>
-            <input type="date" hidden name="status_cl_date" value="{{ date('Y-m-d') }}">
-            <input type="text" name="approval_by" value="{{ Auth::user()->first_name }}" hidden>
-            <input type="text" name="approval_date" value="{{ date('Y-m-d') }}" hidden>
-            <p class="font-semibold text-md">Dengan menekan tombol Approve, proyek ini akan dinyatakan selesai (Closed).</p>
-            <div class="flex space-x-1 w-full">
-                <button type="submit"
-                    class="rounded-lg items-center p-3 my-1 w-full hover:bg-green-800 bg-green-600 flex">
-                    <div class="flex mx-auto space-x-2 items-center">
-                        <svg width="20" height="auto" viewBox="0 0 80 80" fill="none"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                d="M36 57.6L17.2 38.8L22.8 33.2L36 46.4L69.6 12.8C62 5.2 51.6 0 40 0C18 0 0 18 0 40C0 62 18 80 40 80C62 80 80 62 80 40C80 32.4 78 25.6 74.4 19.6L36 57.6Z"
-                                fill="white" />
-                        </svg>
-                        <p class="text-white font-medium">
-                            Approve Progress
-                        </p>
+    @if (
+        /* 1 */
+        $koneksicl->cl_i_periksa_m_1 ||
+            $koneksicl->cl_i_periksa_m_2 ||
+            $koneksicl->cl_i_periksa_m_3 ||
+            /* 2 */
+            $koneksicl->cl_qas_1 ||
+            $koneksicl->cl_qas_2 ||
+            /* 3 */
+            $koneksicl->cl_i_pakai_m_1 ||
+            $koneksicl->cl_i_pakai_m_2 ||
+            /* 4 */
+            $koneksicl->cl_training_1 ||
+            $koneksicl->cl_training_2 ||
+            $koneksicl->cl_training_3 ||
+            $koneksicl->cl_training_4 ||
+            $koneksicl->cl_training_5 ||
+            /* 5 */
+            $koneksicl->cl_l_trouble_1 ||
+            $koneksicl->cl_l_trouble_2 ||
+            /* 6 */
+            $koneksicl->cl_camb_1 ||
+            $koneksicl->cl_camb_2 ||
+            /* 7 */
+            $koneksicl->cl_imb_1 ||
+            $koneksicl->cl_imb_2 ||
+            $koneksicl->cl_imb_3 ||
+            $koneksicl->cl_imb_4 ||
+            $koneksicl->cl_imb_5 ||
+            /* 8 */
+            $koneksicl->cl_chor_1 ||
+            $koneksicl->cl_chor_2 != '')
+        {{-- Tombol Approve --}}
+        <div class="grid grid-cols-2 gap-2 mt-4">
+            @if (
+                $koneksifr->status_fr == 'Complete' &&
+                    $koneksiar->status_ar == 'Complete' &&
+                    $koneksipr->status_pr_01 == 'Complete' &&
+                    $koneksipa->status_pa_02 == 'Complete' &&
+                    $koneksipo->status_po_03 == 'Complete' &&
+                    $koneksipay->status_pay_04 == 'Complete' &&
+                    $koneksimn->status_mn == 'Complete' &&
+                    $koneksiin->status_in == 'Complete' &&
+                    $koneksicl->status_cl != 'Complete')
+                <form action="" method="post" enctype="multipart/form-data">
+                    @csrf
+                    @method('PUT')
+                    <input type="text" name="check" value="donecheck" hidden>
+                    <input type="text" name="progress" value="Closed" hidden>
+                    <input type="text" name="status_cl" value="Complete" hidden>
+                    <input type="date" hidden name="status_cl_date" value="{{ date('Y-m-d') }}">
+                    <input type="text" name="approval_by" value="{{ Auth::user()->first_name }}" hidden>
+                    <input type="text" name="approval_date" value="{{ date('Y-m-d') }}" hidden>
+                    <p class="font-semibold text-md">Dengan menekan tombol Approve, proyek ini akan dinyatakan selesai
+                        (Closed).</p>
+                    <div class="flex space-x-1 w-full">
+                        <button type="submit"
+                            class="rounded-lg items-center p-3 my-1 w-full hover:bg-green-800 bg-green-600 flex">
+                            <div class="flex mx-auto space-x-2 items-center">
+                                <svg width="20" height="auto" viewBox="0 0 80 80" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M36 57.6L17.2 38.8L22.8 33.2L36 46.4L69.6 12.8C62 5.2 51.6 0 40 0C18 0 0 18 0 40C0 62 18 80 40 80C62 80 80 62 80 40C80 32.4 78 25.6 74.4 19.6L36 57.6Z"
+                                        fill="white" />
+                                </svg>
+                                <p class="text-white font-medium">
+                                    Approve Progress
+                                </p>
+                            </div>
+                        </button>
                     </div>
-                </button>
-            </div>
-        </form>
-        @elseif($koneksicl->status_cl != 'Complete')
-        <p class="flex text-center text-sm items-center justify-center p-2 font-semibold text-white bg-gray-800 border-red-600 border-8">Untuk menyetujui tahap ini, seluruh tahapan dari FR hingga IN harus disetujui terlebih dahulu.</p>
-        @endif
-        @if($koneksicl->status_cl != 'Revisi Handover')
-        <form action="" method="post" enctype="multipart/form-data">
-            @csrf
-            @method('PUT')
-            <input type="text" name="check" value="donecheck" hidden>
-            <input type="text" name="progress" value="Waiting Approval Closed" hidden>
-            <input type="text" name="status_cl" value="Revisi Handover" hidden>
-            <input type="date" hidden name="status_cl_date" value="{{ date('Y-m-d') }}">
-            <input type="text" name="approval_by" value="{{ Auth::user()->first_name }}" hidden>
-            <input type="text" name="approval_date" value="{{ date('Y-m-d') }}" hidden>
-            @if ($koneksicl->status_cl != 'Complete')
-            &nbsp
+                </form>
+            @elseif($koneksicl->status_cl != 'Complete')
+                <p
+                    class="flex text-center text-sm items-center justify-center p-2 font-semibold text-white bg-gray-800 border-red-600 border-8">
+                    Untuk menyetujui tahap ini, seluruh tahapan dari FR hingga IN harus disetujui terlebih dahulu.</p>
             @endif
-            <button type="submit"
-                class="rounded-lg items-center text-white p-3 my-1 w-full hover:bg-yellow-600 bg-yellow-400 flex space-x-2">
-                <div class="flex mx-auto space-x-2 items-center">
-                    <svg width="20" height="auto" viewBox="0 0 80 80" fill="none"
-                        xmlns="http://www.w3.org/2000/svg">
-                        <path
-                            d="M40 0C17.92 0 0 17.92 0 40C0 62.08 17.92 80 40 80C62.08 80 80 62.08 80 40C80 17.92 62.08 0 40 0ZM44 60H36V52H44V60ZM44 44H36V20H44V44Z"
-                            fill="white" />
-                    </svg>
-                    <p class="text-white font-medium">
-                        Revisi Progress
-                    </p>
-                </div>
-            </button>
-        </form>
-        @endif
-    </div>
+            @if ($koneksicl->status_cl != 'Revisi Handover')
+                <form action="" method="post" enctype="multipart/form-data">
+                    @csrf
+                    @method('PUT')
+                    <input type="text" name="check" value="donecheck" hidden>
+                    <input type="text" name="progress" value="Waiting Approval Closed" hidden>
+                    <input type="text" name="status_cl" value="Revisi Handover" hidden>
+                    <input type="date" hidden name="status_cl_date" value="{{ date('Y-m-d') }}">
+                    <input type="text" name="approval_by" value="{{ Auth::user()->first_name }}" hidden>
+                    <input type="text" name="approval_date" value="{{ date('Y-m-d') }}" hidden>
+                    @if ($koneksicl->status_cl != 'Complete')
+                        &nbsp
+                    @endif
+                    <button type="submit"
+                        class="rounded-lg items-center text-white p-3 my-1 w-full hover:bg-yellow-600 bg-yellow-400 flex space-x-2">
+                        <div class="flex mx-auto space-x-2 items-center">
+                            <svg width="20" height="auto" viewBox="0 0 80 80" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M40 0C17.92 0 0 17.92 0 40C0 62.08 17.92 80 40 80C62.08 80 80 62.08 80 40C80 17.92 62.08 0 40 0ZM44 60H36V52H44V60ZM44 44H36V20H44V44Z"
+                                    fill="white" />
+                            </svg>
+                            <p class="text-white font-medium">
+                                Revisi Progress
+                            </p>
+                        </div>
+                    </button>
+                </form>
+            @endif
+        </div>
     @endif
     {{-- Akhir Tombol Approve --}}
 
@@ -3603,6 +3480,7 @@
         });
         document.dispatchEvent(escapeEvent);
     }
+
     function openFileInput(namaVariabel) {
         // Temukan elemen file input berdasarkan nama variabel
         const fileInput = document.getElementById('fileInput_' + namaVariabel);

@@ -198,15 +198,15 @@ class StaffProjectController extends Controller
         /* selesai kode cari */
 
         // dd(DB::getQueryLog());
-        $koneksifr = FRproject::select('id_fr_1')->get();
-        $koneksiar = ARproject::select('id_ar_2')->get();
-        $koneksipr = PRproject::select('id_pr_01_3')->get();
-        $koneksipa = PAproject::select('id_pa_02_3')->get();
-        $koneksipo = POproject::select('id_po_03_3')->get();
-        $koneksipay = PAYproject::select('id_pay_04_3')->get();
-        $koneksimn = MNproject::select('id_mn_4')->get();
-        $koneksiin = INproject::select('id_in_5')->get();
-        $koneksicl = CLproject::select('id_cl_6')->get();
+        $koneksifr = FRproject::select('id_fr_1','status_fr')->get();
+        $koneksiar = ARproject::select('id_ar_2','status_ar')->get();
+        $koneksipr = PRproject::select('id_pr_01_3','status_pr_01')->get();
+        $koneksipa = PAproject::select('id_pa_02_3','status_pa_02')->get();
+        $koneksipo = POproject::select('id_po_03_3','status_po_03')->get();
+        $koneksipay = PAYproject::select('id_pay_04_3','status_pay_04')->get();
+        $koneksimn = MNproject::select('id_mn_4','status_mn')->get();
+        $koneksiin = INproject::select('id_in_5','status_in')->get();
+        $koneksicl = CLproject::select('id_cl_6','status_cl')->get();
 
         return view('staff.project.00-landingproject', [
             'project' => $project,

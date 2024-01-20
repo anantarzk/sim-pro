@@ -4096,7 +4096,6 @@
                                                 value="{{ Auth::user()->first_name }}">
                                             <input type="date" hidden name="as_date_pa_parts_45"
                                                 value="{{ date('Y-m-d') }}">
-
                                         </tr>
                                     </tbody>
                                 </table>
@@ -7382,7 +7381,6 @@
                                                 value="{{ Auth::user()->first_name }}">
                                             <input type="date" hidden name="as_date_pa_epq_5"
                                                 value="{{ date('Y-m-d') }}">
-
                                         </tr>
                                     </tbody>
                                 </table>
@@ -7432,12 +7430,12 @@
                                             <input type="file"name="as_pa_parts_{{ $number }}"
                                                 id="">
                                             <div class="">
-                                                <input type="number" id="base-input"
+                                                <input type="text" id="base-input"
                                                     class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                    placeholder="Rp{{ number_format($koneksipa->{'mny_parts_pa_' . $number}, 0, ',', '.') }}"
+                                                    placeholder="Sesuaikan nilai finansial dengan dokumen"
                                                     min="0" max="999999999999"
                                                     value="{{ $koneksipa->{'mny_parts_pa_' . $number} ?? '' }}"
-                                                    oninput="validity.valid||(value='');"
+                                                    oninput="validity.valid||(value=''); formatAngka(this);"
                                                     name="as_mny_parts_pa_{{ $number }}">
                                             </div>
                                         </div>
@@ -7482,12 +7480,12 @@
                                             <input type="file"name="as_pa_jasa_{{ $number }}"
                                                 id="">
                                             <div class="">
-                                                <input type="number" id="base-input"
+                                                <input type="text" id="base-input"
                                                     class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                    placeholder="Rp{{ number_format($koneksipa->{'mny_jasa_pa_' . $number}, 0, ',', '.') }}"
+                                                    placeholder="Sesuaikan nilai finansial dengan dokumen"
                                                     min="0" max="999999999999"
                                                     value="{{ $koneksipa->{'mny_jasa_pa_' . $number} ?? '' }}"
-                                                    oninput="validity.valid||(value='');"
+                                                    oninput="validity.valid||(value=''); formatAngka(this);"
                                                     name="as_mny_jasa_pa_{{ $number }}">
                                             </div>
                                         </div>
@@ -7530,12 +7528,12 @@
                                             <input type="file"name="as_pa_mnftr_{{ $number }}"
                                                 id="">
                                             <div class="">
-                                                <input type="number" id="base-input"
+                                                <input type="text" id="base-input"
                                                     class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                    placeholder="Rp{{ number_format($koneksipa->{'mny_mnftr_pa_' . $number}, 0, ',', '.') }}"
+                                                    placeholder="Sesuaikan nilai finansial dengan dokumen"
                                                     min="0" max="999999999999"
                                                     value="{{ $koneksipa->{'mny_mnftr_pa_' . $number} ?? '' }}"
-                                                    oninput="validity.valid||(value='');"
+                                                    oninput="validity.valid||(value=''); formatAngka(this);"
                                                     name="as_mny_mnftr_pa_{{ $number }}">
                                             </div>
                                         </div>
@@ -7578,12 +7576,11 @@
                                             <input type="file"name="as_pa_epq_{{ $number }}"
                                                 id="">
                                             <div class="">
-                                                <input type="number" id="base-input"
+                                                <input type="text" id="base-input"
                                                     class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                    {{-- placeholder="Rp{{ number_format($koneksipa->{'as_mny_epq_pa_' . $number}, 0, ',', '.') }}" --}}
-                                                    value="{{ $koneksipa->{'mny_epq_pa_' . $number} ?? '' }}"
+                                                    placeholder="Sesuaikan nilai finansial dengan dokumen"
                                                     min="0" max="999999999999"
-                                                    oninput="validity.valid||(value='');"
+                                                    oninput="validity.valid||(value=''); formatAngka(this);"
                                                     name="as_mny_epq_pa_{{ $number }}">
                                             </div>
                                         </div>
@@ -7672,11 +7669,12 @@
                                                 <input type="file"name="as_pa_parts_{{ $number }}"
                                                     id="">
                                                 <div class="">
-                                                    <input type="number" id="base-input"
+                                                    <input type="text" id="base-input"
                                                         class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
                                                         placeholder="Rp{{ number_format($koneksipa->{'mny_parts_pa_' . $number}, 0, ',', '.') }}"
+                                                        value="{{ isset($koneksipa->{'mny_parts_pa_' . $number}) ? number_format($koneksipa->{'mny_parts_pa_' . $number}, 0, ',', '.') : '' }}"
                                                         min="0" max="999999999999"
-                                                        oninput="validity.valid||(value='');"
+                                                        oninput="validity.valid||(value=''); formatAngka(this);"
                                                         name="as_mny_parts_pa_{{ $number }}">
                                                 </div>
                                             </div>
@@ -7759,11 +7757,11 @@
                                                 <input type="file"name="as_pa_jasa_{{ $number }}"
                                                     id="">
                                                 <div class="">
-                                                    <input type="number" id="base-input"
+                                                    <input type="text" id="base-input"
                                                         class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp{{ number_format($koneksipa->{'mny_jasa_pa_' . $number}, 0, ',', '.') }}"
+                                                        value="{{ isset($koneksipa->{'mny_jasa_pa_' . $number}) ? number_format($koneksipa->{'mny_jasa_pa_' . $number}, 0, ',', '.') : '' }}"
                                                         min="0" max="999999999999"
-                                                        oninput="validity.valid||(value='');"
+                                                        oninput="validity.valid||(value=''); formatAngka(this);"
                                                         name="as_mny_jasa_pa_{{ $number }}">
                                                 </div>
                                             </div>
@@ -7846,11 +7844,11 @@
                                                 <input type="file"name="as_pa_mnftr_{{ $number }}"
                                                     id="">
                                                 <div class="">
-                                                    <input type="number" id="base-input"
+                                                    <input type="text" id="base-input"
                                                         class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp{{ number_format($koneksipa->{'mny_mnftr_pa_' . $number}, 0, ',', '.') }}"
+                                                        value="{{ isset($koneksipa->{'mny_mnftr_pa_' . $number}) ? number_format($koneksipa->{'mny_mnftr_pa_' . $number}, 0, ',', '.') : '' }}"
                                                         min="0" max="999999999999"
-                                                        oninput="validity.valid||(value='');"
+                                                        oninput="validity.valid||(value=''); formatAngka(this);"
                                                         name="as_mny_mnftr_pa_{{ $number }}">
                                                 </div>
                                             </div>
@@ -7931,11 +7929,10 @@
                                         <div class="grid grid-cols-2">
                                             <input type="file"name="as_pa_epq_{{ $number }}"
                                                 id="">
-                                                <input type="number" id="base-input"
+                                                <input type="text" id="base-input"
                                     class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                    {{-- placeholder="Rp{{ number_format($koneksipr->{'mny_epq_pa_' . $number}, 0, ',', '.') }}" --}}
-                                    value="{{$koneksipr->{'mny_epq_pa_' . $number}?? ''}}"
-                                    min="0" max="999999999999" oninput="validity.valid||(value='');"
+                                    value="{{ isset($koneksipa->{'mny_epq_pa_' . $number}) ? number_format($koneksipa->{'mny_epq_pa_' . $number}, 0, ',', '.') : '' }}"
+                                    min="0" max="999999999999" oninput="validity.valid||(value=''); formatAngka(this);"
                                     name="as_mny_epq_pa_{{ $number }}">
                                         </div>
                                         @else()
@@ -8123,6 +8120,17 @@
                 document.getElementById('uploadForm').submit();
             });
         }
+
+        function formatAngka(input) {
+        // Menghilangkan karakter selain angka
+        let angka = input.value.replace(/[^\d]/g, '');
+
+        // Menambahkan tanda titik setiap ribuan
+        angka = angka.replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+
+        // Update nilai input
+        input.value = angka;
+    }
     </script>
 </div>
 {{-- tutup bungkus --}}

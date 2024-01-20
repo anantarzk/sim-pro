@@ -45,8 +45,57 @@ class StaffProjectController extends Controller
             ->OrWhere('pic_3_mit', Auth::user()->first_name)
             ->count('id');
 
-            /* kode cari search */
-            if ($request->abc == '123' && $request->keyword == '' && $request->nilai_proyek_type == '' && $request->budget_amount_max == '' && $request->budget_amount_min == ''){
+        /* kode cari search */
+        if ($request->abc == '123' && $request->keyword == '' && $request->nilai_proyek_type == '' && $request->budget_amount_max == '' && $request->budget_amount_min == '') {
+            $project = CONTROLPROJECT::with(
+                'koneksikefr',
+                'koneksikear',
+                'koneksikepr01',
+                'koneksikepa02',
+                'koneksikepo03',
+                'koneksikepay04',
+                'koneksikemn',
+                'koneksikein',
+                'koneksikecl'
+            )
+                ->whereNull('archive_at')
+                ->Where('pic_1_me', 'LIKE', "%" . $request->pic_1_me . "%")
+                ->Where('pic_2_el', 'LIKE', "%" . $request->pic_2_el . "%")
+                ->Where('pic_3_mit', 'LIKE', "%" . $request->pic_3_mit . "%")
+                ->Where('ob_year', 'LIKE', "%" . $request->ob_year . "%")
+                ->Where('section', 'LIKE', "%" . $request->section . "%")
+                ->latest('updated_at')
+                ->paginate(20);
+        } else if ($request->abc == '123' && $request->keyword != '' && $request->budget_amount_max == '' && $request->budget_amount_min == '') {
+            $project = CONTROLPROJECT::with(
+                'koneksikefr',
+                'koneksikear',
+                'koneksikepr01',
+                'koneksikepa02',
+                'koneksikepo03',
+                'koneksikepay04',
+                'koneksikemn',
+                'koneksikein',
+                'koneksikecl'
+            )
+                ->whereNull('archive_at')
+                ->when($keyword, function ($query, $keyword) {
+                    $query->where(function ($query) use ($keyword) {
+                        $query->where('project_name', 'LIKE', "%{$keyword}%")
+                            ->orWhere('io_number', 'LIKE', "%{$keyword}%")
+                            ->orWhere('pic_1_me', 'LIKE', "%{$keyword}%")
+                            ->orWhere('pic_2_el', 'LIKE', "%{$keyword}%")
+                            ->orWhere('pic_3_mit', 'LIKE', "%{$keyword}%")
+                            ->orWhere('budget_amount', 'LIKE', "%{$keyword}%")
+                            ->orWhere('ob_year', 'LIKE', "%{$keyword}%")
+                            ->orWhere('section', 'LIKE', "%{$keyword}%");
+                    });
+                })
+                ->latest('updated_at')
+                ->paginate(20);
+        } else if ($request->abc == '123' && $request->nilai_proyek_type != '' && $request->budget_amount_max == '' && $request->budget_amount_min == '') {
+            $nilai_proyek_type = $request->nilai_proyek_type;
+            if ($nilai_proyek_type == 1) {
                 $project = CONTROLPROJECT::with(
                     'koneksikefr',
                     'koneksikear',
@@ -58,147 +107,95 @@ class StaffProjectController extends Controller
                     'koneksikein',
                     'koneksikecl'
                 )
-                    ->whereNull('archive_at')
-                    ->Where('pic_1_me', 'LIKE', "%". $request->pic_1_me ."%")
-                    ->Where('pic_2_el', 'LIKE', "%". $request->pic_2_el ."%")
-                    ->Where('pic_3_mit', 'LIKE', "%". $request->pic_3_mit ."%")
-                    ->Where('ob_year', 'LIKE', "%". $request->ob_year ."%")
-                    ->Where('section', 'LIKE', "%". $request->section ."%")
-                    ->latest('updated_at')
-                    ->paginate(20);
-            } else if ($request->abc == '123' && $request->keyword != ''&& $request->budget_amount_max == '' && $request->budget_amount_min == ''){
-                    $project = CONTROLPROJECT::with(
-                        'koneksikefr',
-                        'koneksikear',
-                        'koneksikepr01',
-                        'koneksikepa02',
-                        'koneksikepo03',
-                        'koneksikepay04',
-                        'koneksikemn',
-                        'koneksikein',
-                        'koneksikecl'
-                    )
-                        ->whereNull('archive_at')
-                        ->when($keyword, function ($query, $keyword) {
-                            $query->where(function ($query) use ($keyword) {
-                                $query->where('project_name', 'LIKE', "%{$keyword}%")
-                                    ->orWhere('io_number', 'LIKE', "%{$keyword}%")
-                                    ->orWhere('pic_1_me', 'LIKE', "%{$keyword}%")
-                                    ->orWhere('pic_2_el', 'LIKE', "%{$keyword}%")
-                                    ->orWhere('pic_3_mit', 'LIKE', "%{$keyword}%")
-                                    ->orWhere('budget_amount', 'LIKE', "%{$keyword}%")
-                                    ->orWhere('ob_year', 'LIKE', "%{$keyword}%")
-                                    ->orWhere('section', 'LIKE', "%{$keyword}%");
-                            });
-                        })
-                        ->latest('updated_at')
-                        ->paginate(20);
-            } else if ($request->abc == '123' && $request->nilai_proyek_type != ''&& $request->budget_amount_max == '' && $request->budget_amount_min == ''){
-                $nilai_proyek_type = $request->nilai_proyek_type;
-                if ($nilai_proyek_type == 1){
-                    $project = CONTROLPROJECT::with(
-                        'koneksikefr',
-                        'koneksikear',
-                        'koneksikepr01',
-                        'koneksikepa02',
-                        'koneksikepo03',
-                        'koneksikepay04',
-                        'koneksikemn',
-                        'koneksikein',
-                        'koneksikecl'
-                    )
                     ->whereNull('archive_at')
                     ->where('budget_amount', '<', 100000000)
                     ->latest('updated_at')
                     ->paginate(20);
-                } else if ($nilai_proyek_type == 2) {
-                    $project = CONTROLPROJECT::with(
-                        'koneksikefr',
-                        'koneksikear',
-                        'koneksikepr01',
-                        'koneksikepa02',
-                        'koneksikepo03',
-                        'koneksikepay04',
-                        'koneksikemn',
-                        'koneksikein',
-                        'koneksikecl'
-                    )
+            } else if ($nilai_proyek_type == 2) {
+                $project = CONTROLPROJECT::with(
+                    'koneksikefr',
+                    'koneksikear',
+                    'koneksikepr01',
+                    'koneksikepa02',
+                    'koneksikepo03',
+                    'koneksikepay04',
+                    'koneksikemn',
+                    'koneksikein',
+                    'koneksikecl'
+                )
                     ->whereNull('archive_at')
                     ->whereBetween('budget_amount', [100000000, 100000000000])
                     ->latest('updated_at')
                     ->paginate(20);
-                }
-                else if ($nilai_proyek_type == 3) {
-                    $project = CONTROLPROJECT::with(
-                        'koneksikefr',
-                        'koneksikear',
-                        'koneksikepr01',
-                        'koneksikepa02',
-                        'koneksikepo03',
-                        'koneksikepay04',
-                        'koneksikemn',
-                        'koneksikein',
-                        'koneksikecl'
-                    )
+            } else if ($nilai_proyek_type == 3) {
+                $project = CONTROLPROJECT::with(
+                    'koneksikefr',
+                    'koneksikear',
+                    'koneksikepr01',
+                    'koneksikepa02',
+                    'koneksikepo03',
+                    'koneksikepay04',
+                    'koneksikemn',
+                    'koneksikein',
+                    'koneksikecl'
+                )
                     ->whereNull('archive_at')
                     ->whereBetween('budget_amount', [100000000000, 1000000000000])
                     ->latest('updated_at')
                     ->paginate(20);
-                } else {
-                    $project = CONTROLPROJECT::with(
-                        'koneksikefr',
-                        'koneksikear',
-                        'koneksikepr01',
-                        'koneksikepa02',
-                        'koneksikepo03',
-                        'koneksikepay04',
-                        'koneksikemn',
-                        'koneksikein',
-                        'koneksikecl'
-                    )
+            } else {
+                $project = CONTROLPROJECT::with(
+                    'koneksikefr',
+                    'koneksikear',
+                    'koneksikepr01',
+                    'koneksikepa02',
+                    'koneksikepo03',
+                    'koneksikepay04',
+                    'koneksikemn',
+                    'koneksikein',
+                    'koneksikecl'
+                )
                     ->whereNull('archive_at')
                     ->where('budget_amount', '>', 1000000000000)
                     ->latest('updated_at')
                     ->paginate(20);
-                }
             }
-             else if ($request->abc == '123' && $request->budget_amount_max != '' && $request->budget_amount_min != '' && $request->keyword == ''){
-                $budget_amount_max = intval(str_replace('.', '', $request->budget_amount_max));
-                $budget_amount_min = intval(str_replace('.', '', $request->budget_amount_min));
-                $project = CONTROLPROJECT::with(
-                    'koneksikefr',
-                    'koneksikear',
-                    'koneksikepr01',
-                    'koneksikepa02',
-                    'koneksikepo03',
-                    'koneksikepay04',
-                    'koneksikemn',
-                    'koneksikein',
-                    'koneksikecl'
-                )
+        } else if ($request->abc == '123' && $request->budget_amount_max != '' && $request->budget_amount_min != '' && $request->keyword == '') {
+            $budget_amount_max = intval(str_replace('.', '', $request->budget_amount_max));
+            $budget_amount_min = intval(str_replace('.', '', $request->budget_amount_min));
+            $project = CONTROLPROJECT::with(
+                'koneksikefr',
+                'koneksikear',
+                'koneksikepr01',
+                'koneksikepa02',
+                'koneksikepo03',
+                'koneksikepay04',
+                'koneksikemn',
+                'koneksikein',
+                'koneksikecl'
+            )
                 ->whereNull('archive_at')
                 ->whereBetween('budget_amount', [$budget_amount_min,  $budget_amount_max])
                 ->latest('updated_at')
                 ->paginate(20);
-            }
-            else{
-                $project = CONTROLPROJECT::with(
-                    'koneksikefr',
-                    'koneksikear',
-                    'koneksikepr01',
-                    'koneksikepa02',
-                    'koneksikepo03',
-                    'koneksikepay04',
-                    'koneksikemn',
-                    'koneksikein',
-                    'koneksikecl'
-                )
-                    ->whereNull('archive_at')
-                    ->latest('updated_at')
-                    ->paginate(20);
-            }
-            //dd($project);
-/* selesai kode cari */
+        } else {
+            $project = CONTROLPROJECT::with(
+                'koneksikefr',
+                'koneksikear',
+                'koneksikepr01',
+                'koneksikepa02',
+                'koneksikepo03',
+                'koneksikepay04',
+                'koneksikemn',
+                'koneksikein',
+                'koneksikecl'
+            )
+                ->whereNull('archive_at')
+                ->latest('updated_at')
+                ->paginate(20);
+        }
+        //dd($project);
+        /* selesai kode cari */
 
         // dd(DB::getQueryLog());
         $koneksifr = FRproject::select('id_fr_1')->get();
@@ -7763,550 +7760,109 @@ class StaffProjectController extends Controller
         }
 
         // menyimpan jika kosong atau menimpa
-        if ($oldnamepr_parts1 != $newnamepr_parts1) {
-            $request['pr_parts_1'] = $newnamepr_parts1;
-            $request['up_by_parts_pr_1'] = $request['as_up_by_parts_pr_1'];
-            $request['mny_parts_pr_1'] = $request['as_mny_parts_pr_1'];
-            $request['date_pr_parts_1'] = $request['as_date_pr_parts_1'];
-        }
-        if ($oldnamepr_parts2 != $newnamepr_parts2) {
-            $request['pr_parts_2'] = $newnamepr_parts2;
-            $request['up_by_parts_pr_2'] = $request['as_up_by_parts_pr_2'];
-            $request['mny_parts_pr_2'] = $request['as_mny_parts_pr_2'];
-            $request['date_pr_parts_2'] = $request['as_date_pr_parts_2'];
-        }
-        if ($oldnamepr_parts3 != $newnamepr_parts3) {
-            $request['pr_parts_3'] = $newnamepr_parts3;
-            $request['up_by_parts_pr_3'] = $request['as_up_by_parts_pr_3'];
-            $request['mny_parts_pr_3'] = $request['as_mny_parts_pr_3'];
-            $request['date_pr_parts_3'] = $request['as_date_pr_parts_3'];
-        }
-        if ($oldnamepr_parts4 != $newnamepr_parts4) {
-            $request['pr_parts_4'] = $newnamepr_parts4;
-            $request['up_by_parts_pr_4'] = $request['as_up_by_parts_pr_4'];
-            $request['mny_parts_pr_4'] = $request['as_mny_parts_pr_4'];
-            $request['date_pr_parts_4'] = $request['as_date_pr_parts_4'];
-        }
-        if ($oldnamepr_parts5 != $newnamepr_parts5) {
-            $request['pr_parts_5'] = $newnamepr_parts5;
-            $request['up_by_parts_pr_5'] = $request['as_up_by_parts_pr_5'];
-            $request['mny_parts_pr_5'] = $request['as_mny_parts_pr_5'];
-            $request['date_pr_parts_5'] = $request['as_date_pr_parts_5'];
-        }
-        if ($oldnamepr_parts6 != $newnamepr_parts6) {
-            $request['pr_parts_6'] = $newnamepr_parts6;
-            $request['up_by_parts_pr_6'] = $request['as_up_by_parts_pr_6'];
-            $request['mny_parts_pr_6'] = $request['as_mny_parts_pr_6'];
-            $request['date_pr_parts_6'] = $request['as_date_pr_parts_6'];
-        }
-        if ($oldnamepr_parts7 != $newnamepr_parts7) {
-            $request['pr_parts_7'] = $newnamepr_parts7;
-            $request['up_by_parts_pr_7'] = $request['as_up_by_parts_pr_7'];
-            $request['mny_parts_pr_7'] = $request['as_mny_parts_pr_7'];
-            $request['date_pr_parts_7'] = $request['as_date_pr_parts_7'];
-        }
-        if ($oldnamepr_parts8 != $newnamepr_parts8) {
-            $request['pr_parts_8'] = $newnamepr_parts8;
-            $request['up_by_parts_pr_8'] = $request['as_up_by_parts_pr_8'];
-            $request['mny_parts_pr_8'] = $request['as_mny_parts_pr_8'];
-            $request['date_pr_parts_8'] = $request['as_date_pr_parts_8'];
-        }
-        if ($oldnamepr_parts9 != $newnamepr_parts9) {
-            $request['pr_parts_9'] = $newnamepr_parts9;
-            $request['up_by_parts_pr_9'] = $request['as_up_by_parts_pr_9'];
-            $request['mny_parts_pr_9'] = $request['as_mny_parts_pr_9'];
-            $request['date_pr_parts_9'] = $request['as_date_pr_parts_9'];
-        }
-        if ($oldnamepr_parts10 != $newnamepr_parts10) {
-            $request['pr_parts_10'] = $newnamepr_parts10;
-            $request['up_by_parts_pr_10'] = $request['as_up_by_parts_pr_10'];
-            $request['mny_parts_pr_10'] = $request['as_mny_parts_pr_10'];
-            $request['date_pr_parts_10'] = $request['as_date_pr_parts_10'];
-        }
-        if ($oldnamepr_parts11 != $newnamepr_parts11) {
-            $request['pr_parts_11'] = $newnamepr_parts11;
-            $request['up_by_parts_pr_11'] = $request['as_up_by_parts_pr_11'];
-            $request['mny_parts_pr_11'] = $request['as_mny_parts_pr_11'];
-            $request['date_pr_parts_11'] = $request['as_date_pr_parts_11'];
-        }
-        if ($oldnamepr_parts12 != $newnamepr_parts12) {
-            $request['pr_parts_12'] = $newnamepr_parts12;
-            $request['up_by_parts_pr_12'] = $request['as_up_by_parts_pr_12'];
-            $request['mny_parts_pr_12'] = $request['as_mny_parts_pr_12'];
-            $request['date_pr_parts_12'] = $request['as_date_pr_parts_12'];
-        }
-        if ($oldnamepr_parts13 != $newnamepr_parts13) {
-            $request['pr_parts_13'] = $newnamepr_parts13;
-            $request['up_by_parts_pr_13'] = $request['as_up_by_parts_pr_13'];
-            $request['mny_parts_pr_13'] = $request['as_mny_parts_pr_13'];
-            $request['date_pr_parts_13'] = $request['as_date_pr_parts_13'];
-        }
-        if ($oldnamepr_parts14 != $newnamepr_parts14) {
-            $request['pr_parts_14'] = $newnamepr_parts14;
-            $request['up_by_parts_pr_14'] = $request['as_up_by_parts_pr_14'];
-            $request['mny_parts_pr_14'] = $request['as_mny_parts_pr_14'];
-            $request['date_pr_parts_14'] = $request['as_date_pr_parts_14'];
-        }
-        if ($oldnamepr_parts15 != $newnamepr_parts15) {
-            $request['pr_parts_15'] = $newnamepr_parts15;
-            $request['up_by_parts_pr_15'] = $request['as_up_by_parts_pr_15'];
-            $request['mny_parts_pr_15'] = $request['as_mny_parts_pr_15'];
-            $request['date_pr_parts_15'] = $request['as_date_pr_parts_15'];
-        }
-        if ($oldnamepr_parts16 != $newnamepr_parts16) {
-            $request['pr_parts_16'] = $newnamepr_parts16;
-            $request['up_by_parts_pr_16'] = $request['as_up_by_parts_pr_16'];
-            $request['mny_parts_pr_16'] = $request['as_mny_parts_pr_16'];
-            $request['date_pr_parts_16'] = $request['as_date_pr_parts_16'];
-        }
-        if ($oldnamepr_parts17 != $newnamepr_parts17) {
-            $request['pr_parts_17'] = $newnamepr_parts17;
-            $request['up_by_parts_pr_17'] = $request['as_up_by_parts_pr_17'];
-            $request['mny_parts_pr_17'] = $request['as_mny_parts_pr_17'];
-            $request['date_pr_parts_17'] = $request['as_date_pr_parts_17'];
-        }
-        if ($oldnamepr_parts18 != $newnamepr_parts18) {
-            $request['pr_parts_18'] = $newnamepr_parts18;
-            $request['up_by_parts_pr_18'] = $request['as_up_by_parts_pr_18'];
-            $request['mny_parts_pr_18'] = $request['as_mny_parts_pr_18'];
-            $request['date_pr_parts_18'] = $request['as_date_pr_parts_18'];
-        }
-        if ($oldnamepr_parts19 != $newnamepr_parts19) {
-            $request['pr_parts_19'] = $newnamepr_parts19;
-            $request['up_by_parts_pr_19'] = $request['as_up_by_parts_pr_19'];
-            $request['mny_parts_pr_19'] = $request['as_mny_parts_pr_19'];
-            $request['date_pr_parts_19'] = $request['as_date_pr_parts_19'];
-        }
-        if ($oldnamepr_parts20 != $newnamepr_parts20) {
-            $request['pr_parts_20'] = $newnamepr_parts20;
-            $request['up_by_parts_pr_20'] = $request['as_up_by_parts_pr_20'];
-            $request['mny_parts_pr_20'] = $request['as_mny_parts_pr_20'];
-            $request['date_pr_parts_20'] = $request['as_date_pr_parts_20'];
-        }
-        if ($oldnamepr_parts21 != $newnamepr_parts21) {
-            $request['pr_parts_21'] = $newnamepr_parts21;
-            $request['up_by_parts_pr_21'] = $request['as_up_by_parts_pr_21'];
-            $request['mny_parts_pr_21'] = $request['as_mny_parts_pr_21'];
-            $request['date_pr_parts_21'] = $request['as_date_pr_parts_21'];
-        }
-        if ($oldnamepr_parts22 != $newnamepr_parts22) {
-            $request['pr_parts_22'] = $newnamepr_parts22;
-            $request['up_by_parts_pr_22'] = $request['as_up_by_parts_pr_22'];
-            $request['mny_parts_pr_22'] = $request['as_mny_parts_pr_22'];
-            $request['date_pr_parts_22'] = $request['as_date_pr_parts_22'];
-        }
-        if ($oldnamepr_parts23 != $newnamepr_parts23) {
-            $request['pr_parts_23'] = $newnamepr_parts23;
-            $request['up_by_parts_pr_23'] = $request['as_up_by_parts_pr_23'];
-            $request['mny_parts_pr_23'] = $request['as_mny_parts_pr_23'];
-            $request['date_pr_parts_23'] = $request['as_date_pr_parts_23'];
-        }
-        if ($oldnamepr_parts24 != $newnamepr_parts24) {
-            $request['pr_parts_24'] = $newnamepr_parts24;
-            $request['up_by_parts_pr_24'] = $request['as_up_by_parts_pr_24'];
-            $request['mny_parts_pr_24'] = $request['as_mny_parts_pr_24'];
-            $request['date_pr_parts_24'] = $request['as_date_pr_parts_24'];
-        }
-        if ($oldnamepr_parts25 != $newnamepr_parts25) {
-            $request['pr_parts_25'] = $newnamepr_parts25;
-            $request['up_by_parts_pr_25'] = $request['as_up_by_parts_pr_25'];
-            $request['mny_parts_pr_25'] = $request['as_mny_parts_pr_25'];
-            $request['date_pr_parts_25'] = $request['as_date_pr_parts_25'];
-        }
-        if ($oldnamepr_parts26 != $newnamepr_parts26) {
-            $request['pr_parts_26'] = $newnamepr_parts26;
-            $request['up_by_parts_pr_26'] = $request['as_up_by_parts_pr_26'];
-            $request['mny_parts_pr_26'] = $request['as_mny_parts_pr_26'];
-            $request['date_pr_parts_26'] = $request['as_date_pr_parts_26'];
-        }
-        if ($oldnamepr_parts27 != $newnamepr_parts27) {
-            $request['pr_parts_27'] = $newnamepr_parts27;
-            $request['up_by_parts_pr_27'] = $request['as_up_by_parts_pr_27'];
-            $request['mny_parts_pr_27'] = $request['as_mny_parts_pr_27'];
-            $request['date_pr_parts_27'] = $request['as_date_pr_parts_27'];
-        }
-        if ($oldnamepr_parts28 != $newnamepr_parts28) {
-            $request['pr_parts_28'] = $newnamepr_parts28;
-            $request['up_by_parts_pr_28'] = $request['as_up_by_parts_pr_28'];
-            $request['mny_parts_pr_28'] = $request['as_mny_parts_pr_28'];
-            $request['date_pr_parts_28'] = $request['as_date_pr_parts_28'];
-        }
-        if ($oldnamepr_parts29 != $newnamepr_parts29) {
-            $request['pr_parts_29'] = $newnamepr_parts29;
-            $request['up_by_parts_pr_29'] = $request['as_up_by_parts_pr_29'];
-            $request['mny_parts_pr_29'] = $request['as_mny_parts_pr_29'];
-            $request['date_pr_parts_29'] = $request['as_date_pr_parts_29'];
-        }
-        if ($oldnamepr_parts30 != $newnamepr_parts30) {
-            $request['pr_parts_30'] = $newnamepr_parts30;
-            $request['up_by_parts_pr_30'] = $request['as_up_by_parts_pr_30'];
-            $request['mny_parts_pr_30'] = $request['as_mny_parts_pr_30'];
-            $request['date_pr_parts_30'] = $request['as_date_pr_parts_30'];
-        }
-        if ($oldnamepr_parts31 != $newnamepr_parts31) {
-            $request['pr_parts_31'] = $newnamepr_parts31;
-            $request['up_by_parts_pr_31'] = $request['as_up_by_parts_pr_31'];
-            $request['mny_parts_pr_31'] = $request['as_mny_parts_pr_31'];
-            $request['date_pr_parts_31'] = $request['as_date_pr_parts_31'];
-        }
-        if ($oldnamepr_parts32 != $newnamepr_parts32) {
-            $request['pr_parts_32'] = $newnamepr_parts32;
-            $request['up_by_parts_pr_32'] = $request['as_up_by_parts_pr_32'];
-            $request['mny_parts_pr_32'] = $request['as_mny_parts_pr_32'];
-            $request['date_pr_parts_32'] = $request['as_date_pr_parts_32'];
-        }
-        if ($oldnamepr_parts33 != $newnamepr_parts33) {
-            $request['pr_parts_33'] = $newnamepr_parts33;
-            $request['up_by_parts_pr_33'] = $request['as_up_by_parts_pr_33'];
-            $request['mny_parts_pr_33'] = $request['as_mny_parts_pr_33'];
-            $request['date_pr_parts_33'] = $request['as_date_pr_parts_33'];
-        }
-        if ($oldnamepr_parts34 != $newnamepr_parts34) {
-            $request['pr_parts_34'] = $newnamepr_parts34;
-            $request['up_by_parts_pr_34'] = $request['as_up_by_parts_pr_34'];
-            $request['mny_parts_pr_34'] = $request['as_mny_parts_pr_34'];
-            $request['date_pr_parts_34'] = $request['as_date_pr_parts_34'];
-        }
-        if ($oldnamepr_parts35 != $newnamepr_parts35) {
-            $request['pr_parts_35'] = $newnamepr_parts35;
-            $request['up_by_parts_pr_35'] = $request['as_up_by_parts_pr_35'];
-            $request['mny_parts_pr_35'] = $request['as_mny_parts_pr_35'];
-            $request['date_pr_parts_35'] = $request['as_date_pr_parts_35'];
-        }
-        if ($oldnamepr_parts36 != $newnamepr_parts36) {
-            $request['pr_parts_36'] = $newnamepr_parts36;
-            $request['up_by_parts_pr_36'] = $request['as_up_by_parts_pr_36'];
-            $request['mny_parts_pr_36'] = $request['as_mny_parts_pr_36'];
-            $request['date_pr_parts_36'] = $request['as_date_pr_parts_36'];
-        }
-        if ($oldnamepr_parts37 != $newnamepr_parts37) {
-            $request['pr_parts_37'] = $newnamepr_parts37;
-            $request['up_by_parts_pr_37'] = $request['as_up_by_parts_pr_37'];
-            $request['mny_parts_pr_37'] = $request['as_mny_parts_pr_37'];
-            $request['date_pr_parts_37'] = $request['as_date_pr_parts_37'];
-        }
-        if ($oldnamepr_parts38 != $newnamepr_parts38) {
-            $request['pr_parts_38'] = $newnamepr_parts38;
-            $request['up_by_parts_pr_38'] = $request['as_up_by_parts_pr_38'];
-            $request['mny_parts_pr_38'] = $request['as_mny_parts_pr_38'];
-            $request['date_pr_parts_38'] = $request['as_date_pr_parts_38'];
-        }
-        if ($oldnamepr_parts39 != $newnamepr_parts39) {
-            $request['pr_parts_39'] = $newnamepr_parts39;
-            $request['up_by_parts_pr_39'] = $request['as_up_by_parts_pr_39'];
-            $request['mny_parts_pr_39'] = $request['as_mny_parts_pr_39'];
-            $request['date_pr_parts_39'] = $request['as_date_pr_parts_39'];
-        }
-        if ($oldnamepr_parts40 != $newnamepr_parts40) {
-            $request['pr_parts_40'] = $newnamepr_parts40;
-            $request['up_by_parts_pr_40'] = $request['as_up_by_parts_pr_40'];
-            $request['mny_parts_pr_40'] = $request['as_mny_parts_pr_40'];
-            $request['date_pr_parts_40'] = $request['as_date_pr_parts_40'];
-        }
-        if ($oldnamepr_parts41 != $newnamepr_parts41) {
-            $request['pr_parts_41'] = $newnamepr_parts41;
-            $request['up_by_parts_pr_41'] = $request['as_up_by_parts_pr_41'];
-            $request['mny_parts_pr_41'] = $request['as_mny_parts_pr_41'];
-            $request['date_pr_parts_41'] = $request['as_date_pr_parts_41'];
-        }
-        if ($oldnamepr_parts42 != $newnamepr_parts42) {
-            $request['pr_parts_42'] = $newnamepr_parts42;
-            $request['up_by_parts_pr_42'] = $request['as_up_by_parts_pr_42'];
-            $request['mny_parts_pr_42'] = $request['as_mny_parts_pr_42'];
-            $request['date_pr_parts_42'] = $request['as_date_pr_parts_42'];
-        }
-        if ($oldnamepr_parts43 != $newnamepr_parts43) {
-            $request['pr_parts_43'] = $newnamepr_parts43;
-            $request['up_by_parts_pr_43'] = $request['as_up_by_parts_pr_43'];
-            $request['mny_parts_pr_43'] = $request['as_mny_parts_pr_43'];
-            $request['date_pr_parts_43'] = $request['as_date_pr_parts_43'];
-        }
-        if ($oldnamepr_parts44 != $newnamepr_parts44) {
-            $request['pr_parts_44'] = $newnamepr_parts44;
-            $request['up_by_parts_pr_44'] = $request['as_up_by_parts_pr_44'];
-            $request['mny_parts_pr_44'] = $request['as_mny_parts_pr_44'];
-            $request['date_pr_parts_44'] = $request['as_date_pr_parts_44'];
-        }
-        if ($oldnamepr_parts45 != $newnamepr_parts45) {
-            $request['pr_parts_45'] = $newnamepr_parts45;
-            $request['up_by_parts_pr_45'] = $request['as_up_by_parts_pr_45'];
-            $request['mny_parts_pr_45'] = $request['as_mny_parts_pr_45'];
-            $request['date_pr_parts_45'] = $request['as_date_pr_parts_45'];
+        for ($i = 1; $i <= 45; $i++) {
+            $mnyPartsPR = "as_mny_parts_pr_$i";
+
+            if ($request->has($mnyPartsPR)) {
+                $request["nparts_pr_$i"] = intval(str_replace('.', '', $request->$mnyPartsPR));
+            }
         }
 
-        if ($oldnamepr_jasa1 != $newnamepr_jasa1) {
-            $request['pr_jasa_1'] = $newnamepr_jasa1;
-            $request['up_by_jasa_pr_1'] = $request['as_up_by_jasa_pr_1'];
-            $request['mny_jasa_pr_1'] = $request['as_mny_jasa_pr_1'];
-            $request['date_pr_jasa_1'] = $request['as_date_pr_jasa_1'];
-        }
-        if ($oldnamepr_jasa2 != $newnamepr_jasa2) {
-            $request['pr_jasa_2'] = $newnamepr_jasa2;
-            $request['up_by_jasa_pr_2'] = $request['as_up_by_jasa_pr_2'];
-            $request['mny_jasa_pr_2'] = $request['as_mny_jasa_pr_2'];
-            $request['date_pr_jasa_2'] = $request['as_date_pr_jasa_2'];
-        }
-        if ($oldnamepr_jasa3 != $newnamepr_jasa3) {
-            $request['pr_jasa_3'] = $newnamepr_jasa3;
-            $request['up_by_jasa_pr_3'] = $request['as_up_by_jasa_pr_3'];
-            $request['mny_jasa_pr_3'] = $request['as_mny_jasa_pr_3'];
-            $request['date_pr_jasa_3'] = $request['as_date_pr_jasa_3'];
-        }
-        if ($oldnamepr_jasa4 != $newnamepr_jasa4) {
-            $request['pr_jasa_4'] = $newnamepr_jasa4;
-            $request['up_by_jasa_pr_4'] = $request['as_up_by_jasa_pr_4'];
-            $request['mny_jasa_pr_4'] = $request['as_mny_jasa_pr_4'];
-            $request['date_pr_jasa_4'] = $request['as_date_pr_jasa_4'];
-        }
-        if ($oldnamepr_jasa5 != $newnamepr_jasa5) {
-            $request['pr_jasa_5'] = $newnamepr_jasa5;
-            $request['up_by_jasa_pr_5'] = $request['as_up_by_jasa_pr_5'];
-            $request['mny_jasa_pr_5'] = $request['as_mny_jasa_pr_5'];
-            $request['date_pr_jasa_5'] = $request['as_date_pr_jasa_5'];
-        }
-        if ($oldnamepr_jasa6 != $newnamepr_jasa6) {
-            $request['pr_jasa_6'] = $newnamepr_jasa6;
-            $request['up_by_jasa_pr_6'] = $request['as_up_by_jasa_pr_6'];
-            $request['mny_jasa_pr_6'] = $request['as_mny_jasa_pr_6'];
-            $request['date_pr_jasa_6'] = $request['as_date_pr_jasa_6'];
-        }
-        if ($oldnamepr_jasa7 != $newnamepr_jasa7) {
-            $request['pr_jasa_7'] = $newnamepr_jasa7;
-            $request['up_by_jasa_pr_7'] = $request['as_up_by_jasa_pr_7'];
-            $request['mny_jasa_pr_7'] = $request['as_mny_jasa_pr_7'];
-            $request['date_pr_jasa_7'] = $request['as_date_pr_jasa_7'];
-        }
-        if ($oldnamepr_jasa8 != $newnamepr_jasa8) {
-            $request['pr_jasa_8'] = $newnamepr_jasa8;
-            $request['up_by_jasa_pr_8'] = $request['as_up_by_jasa_pr_8'];
-            $request['mny_jasa_pr_8'] = $request['as_mny_jasa_pr_8'];
-            $request['date_pr_jasa_8'] = $request['as_date_pr_jasa_8'];
-        }
-        if ($oldnamepr_jasa9 != $newnamepr_jasa9) {
-            $request['pr_jasa_9'] = $newnamepr_jasa9;
-            $request['up_by_jasa_pr_9'] = $request['as_up_by_jasa_pr_9'];
-            $request['mny_jasa_pr_9'] = $request['as_mny_jasa_pr_9'];
-            $request['date_pr_jasa_9'] = $request['as_date_pr_jasa_9'];
-        }
-        if ($oldnamepr_jasa10 != $newnamepr_jasa10) {
-            $request['pr_jasa_10'] = $newnamepr_jasa10;
-            $request['up_by_jasa_pr_10'] = $request['as_up_by_jasa_pr_10'];
-            $request['mny_jasa_pr_10'] = $request['as_mny_jasa_pr_10'];
-            $request['date_pr_jasa_10'] = $request['as_date_pr_jasa_10'];
-        }
-        if ($oldnamepr_jasa11 != $newnamepr_jasa11) {
-            $request['pr_jasa_11'] = $newnamepr_jasa11;
-            $request['up_by_jasa_pr_11'] = $request['as_up_by_jasa_pr_11'];
-            $request['mny_jasa_pr_11'] = $request['as_mny_jasa_pr_11'];
-            $request['date_pr_jasa_11'] = $request['as_date_pr_jasa_11'];
-        }
-        if ($oldnamepr_jasa12 != $newnamepr_jasa12) {
-            $request['pr_jasa_12'] = $newnamepr_jasa12;
-            $request['up_by_jasa_pr_12'] = $request['as_up_by_jasa_pr_12'];
-            $request['mny_jasa_pr_12'] = $request['as_mny_jasa_pr_12'];
-            $request['date_pr_jasa_12'] = $request['as_date_pr_jasa_12'];
-        }
-        if ($oldnamepr_jasa13 != $newnamepr_jasa13) {
-            $request['pr_jasa_13'] = $newnamepr_jasa13;
-            $request['up_by_jasa_pr_13'] = $request['as_up_by_jasa_pr_13'];
-            $request['mny_jasa_pr_13'] = $request['as_mny_jasa_pr_13'];
-            $request['date_pr_jasa_13'] = $request['as_date_pr_jasa_13'];
-        }
-        if ($oldnamepr_jasa14 != $newnamepr_jasa14) {
-            $request['pr_jasa_14'] = $newnamepr_jasa14;
-            $request['up_by_jasa_pr_14'] = $request['as_up_by_jasa_pr_14'];
-            $request['mny_jasa_pr_14'] = $request['as_mny_jasa_pr_14'];
-            $request['date_pr_jasa_14'] = $request['as_date_pr_jasa_14'];
-        }
-        if ($oldnamepr_jasa15 != $newnamepr_jasa15) {
-            $request['pr_jasa_15'] = $newnamepr_jasa15;
-            $request['up_by_jasa_pr_15'] = $request['as_up_by_jasa_pr_15'];
-            $request['mny_jasa_pr_15'] = $request['as_mny_jasa_pr_15'];
-            $request['date_pr_jasa_15'] = $request['as_date_pr_jasa_15'];
-        }
-        if ($oldnamepr_jasa16 != $newnamepr_jasa16) {
-            $request['pr_jasa_16'] = $newnamepr_jasa16;
-            $request['up_by_jasa_pr_16'] = $request['as_up_by_jasa_pr_16'];
-            $request['mny_jasa_pr_16'] = $request['as_mny_jasa_pr_16'];
-            $request['date_pr_jasa_16'] = $request['as_date_pr_jasa_16'];
-        }
-        if ($oldnamepr_jasa17 != $newnamepr_jasa17) {
-            $request['pr_jasa_17'] = $newnamepr_jasa17;
-            $request['up_by_jasa_pr_17'] = $request['as_up_by_jasa_pr_17'];
-            $request['mny_jasa_pr_17'] = $request['as_mny_jasa_pr_17'];
-            $request['date_pr_jasa_17'] = $request['as_date_pr_jasa_17'];
-        }
-        if ($oldnamepr_jasa18 != $newnamepr_jasa18) {
-            $request['pr_jasa_18'] = $newnamepr_jasa18;
-            $request['up_by_jasa_pr_18'] = $request['as_up_by_jasa_pr_18'];
-            $request['mny_jasa_pr_18'] = $request['as_mny_jasa_pr_18'];
-            $request['date_pr_jasa_18'] = $request['as_date_pr_jasa_18'];
-        }
-        if ($oldnamepr_jasa19 != $newnamepr_jasa19) {
-            $request['pr_jasa_19'] = $newnamepr_jasa19;
-            $request['up_by_jasa_pr_19'] = $request['as_up_by_jasa_pr_19'];
-            $request['mny_jasa_pr_19'] = $request['as_mny_jasa_pr_19'];
-            $request['date_pr_jasa_19'] = $request['as_date_pr_jasa_19'];
-        }
-        if ($oldnamepr_jasa20 != $newnamepr_jasa20) {
-            $request['pr_jasa_20'] = $newnamepr_jasa20;
-            $request['up_by_jasa_pr_20'] = $request['as_up_by_jasa_pr_20'];
-            $request['mny_jasa_pr_20'] = $request['as_mny_jasa_pr_20'];
-            $request['date_pr_jasa_20'] = $request['as_date_pr_jasa_20'];
-        }
-        if ($oldnamepr_jasa21 != $newnamepr_jasa21) {
-            $request['pr_jasa_21'] = $newnamepr_jasa21;
-            $request['up_by_jasa_pr_21'] = $request['as_up_by_jasa_pr_21'];
-            $request['mny_jasa_pr_21'] = $request['as_mny_jasa_pr_21'];
-            $request['date_pr_jasa_21'] = $request['as_date_pr_jasa_21'];
-        }
-        if ($oldnamepr_jasa22 != $newnamepr_jasa22) {
-            $request['pr_jasa_22'] = $newnamepr_jasa22;
-            $request['up_by_jasa_pr_22'] = $request['as_up_by_jasa_pr_22'];
-            $request['mny_jasa_pr_22'] = $request['as_mny_jasa_pr_22'];
-            $request['date_pr_jasa_22'] = $request['as_date_pr_jasa_22'];
-        }
-        if ($oldnamepr_jasa23 != $newnamepr_jasa23) {
-            $request['pr_jasa_23'] = $newnamepr_jasa23;
-            $request['up_by_jasa_pr_23'] = $request['as_up_by_jasa_pr_23'];
-            $request['mny_jasa_pr_23'] = $request['as_mny_jasa_pr_23'];
-            $request['date_pr_jasa_23'] = $request['as_date_pr_jasa_23'];
-        }
-        if ($oldnamepr_jasa24 != $newnamepr_jasa24) {
-            $request['pr_jasa_24'] = $newnamepr_jasa24;
-            $request['up_by_jasa_pr_24'] = $request['as_up_by_jasa_pr_24'];
-            $request['mny_jasa_pr_24'] = $request['as_mny_jasa_pr_24'];
-            $request['date_pr_jasa_24'] = $request['as_date_pr_jasa_24'];
-        }
-        if ($oldnamepr_jasa25 != $newnamepr_jasa25) {
-            $request['pr_jasa_25'] = $newnamepr_jasa25;
-            $request['up_by_jasa_pr_25'] = $request['as_up_by_jasa_pr_25'];
-            $request['mny_jasa_pr_25'] = $request['as_mny_jasa_pr_25'];
-            $request['date_pr_jasa_25'] = $request['as_date_pr_jasa_25'];
-        }
-        if ($oldnamepr_jasa26 != $newnamepr_jasa26) {
-            $request['pr_jasa_26'] = $newnamepr_jasa26;
-            $request['up_by_jasa_pr_26'] = $request['as_up_by_jasa_pr_26'];
-            $request['mny_jasa_pr_26'] = $request['as_mny_jasa_pr_26'];
-            $request['date_pr_jasa_26'] = $request['as_date_pr_jasa_26'];
-        }
-        if ($oldnamepr_jasa27 != $newnamepr_jasa27) {
-            $request['pr_jasa_27'] = $newnamepr_jasa27;
-            $request['up_by_jasa_pr_27'] = $request['as_up_by_jasa_pr_27'];
-            $request['mny_jasa_pr_27'] = $request['as_mny_jasa_pr_27'];
-            $request['date_pr_jasa_27'] = $request['as_date_pr_jasa_27'];
-        }
-        if ($oldnamepr_jasa28 != $newnamepr_jasa28) {
-            $request['pr_jasa_28'] = $newnamepr_jasa28;
-            $request['up_by_jasa_pr_28'] = $request['as_up_by_jasa_pr_28'];
-            $request['mny_jasa_pr_28'] = $request['as_mny_jasa_pr_28'];
-            $request['date_pr_jasa_28'] = $request['as_date_pr_jasa_28'];
-        }
-        if ($oldnamepr_jasa29 != $newnamepr_jasa29) {
-            $request['pr_jasa_29'] = $newnamepr_jasa29;
-            $request['up_by_jasa_pr_29'] = $request['as_up_by_jasa_pr_29'];
-            $request['mny_jasa_pr_29'] = $request['as_mny_jasa_pr_29'];
-            $request['date_pr_jasa_29'] = $request['as_date_pr_jasa_29'];
-        }
-        if ($oldnamepr_jasa30 != $newnamepr_jasa30) {
-            $request['pr_jasa_30'] = $newnamepr_jasa30;
-            $request['up_by_jasa_pr_30'] = $request['as_up_by_jasa_pr_30'];
-            $request['mny_jasa_pr_30'] = $request['as_mny_jasa_pr_30'];
-            $request['date_pr_jasa_30'] = $request['as_date_pr_jasa_30'];
-        }
-        if ($oldnamepr_mnftr1 != $newnamepr_mnftr1) {
-            $request['pr_mnftr_1'] = $newnamepr_mnftr1;
-            $request['up_by_mnftr_pr_1'] = $request['as_up_by_mnftr_pr_1'];
-            $request['mny_mnftr_pr_1'] = $request['as_mny_mnftr_pr_1'];
-            $request['date_pr_mnftr_1'] = $request['as_date_pr_mnftr_1'];
-        }
-        if ($oldnamepr_mnftr2 != $newnamepr_mnftr2) {
-            $request['pr_mnftr_2'] = $newnamepr_mnftr2;
-            $request['up_by_mnftr_pr_2'] = $request['as_up_by_mnftr_pr_2'];
-            $request['mny_mnftr_pr_2'] = $request['as_mny_mnftr_pr_2'];
-            $request['date_pr_mnftr_2'] = $request['as_date_pr_mnftr_2'];
-        }
-        if ($oldnamepr_mnftr3 != $newnamepr_mnftr3) {
-            $request['pr_mnftr_3'] = $newnamepr_mnftr3;
-            $request['up_by_mnftr_pr_3'] = $request['as_up_by_mnftr_pr_3'];
-            $request['mny_mnftr_pr_3'] = $request['as_mny_mnftr_pr_3'];
-            $request['date_pr_mnftr_3'] = $request['as_date_pr_mnftr_3'];
-        }
-        if ($oldnamepr_mnftr4 != $newnamepr_mnftr4) {
-            $request['pr_mnftr_4'] = $newnamepr_mnftr4;
-            $request['up_by_mnftr_pr_4'] = $request['as_up_by_mnftr_pr_4'];
-            $request['mny_mnftr_pr_4'] = $request['as_mny_mnftr_pr_4'];
-            $request['date_pr_mnftr_4'] = $request['as_date_pr_mnftr_4'];
-        }
-        if ($oldnamepr_mnftr5 != $newnamepr_mnftr5) {
-            $request['pr_mnftr_5'] = $newnamepr_mnftr5;
-            $request['up_by_mnftr_pr_5'] = $request['as_up_by_mnftr_pr_5'];
-            $request['mny_mnftr_pr_5'] = $request['as_mny_mnftr_pr_5'];
-            $request['date_pr_mnftr_5'] = $request['as_date_pr_mnftr_5'];
-        }
-        if ($oldnamepr_mnftr6 != $newnamepr_mnftr6) {
-            $request['pr_mnftr_6'] = $newnamepr_mnftr6;
-            $request['up_by_mnftr_pr_6'] = $request['as_up_by_mnftr_pr_6'];
-            $request['mny_mnftr_pr_6'] = $request['as_mny_mnftr_pr_6'];
-            $request['date_pr_mnftr_6'] = $request['as_date_pr_mnftr_6'];
-        }
-        if ($oldnamepr_mnftr7 != $newnamepr_mnftr7) {
-            $request['pr_mnftr_7'] = $newnamepr_mnftr7;
-            $request['up_by_mnftr_pr_7'] = $request['as_up_by_mnftr_pr_7'];
-            $request['mny_mnftr_pr_7'] = $request['as_mny_mnftr_pr_7'];
-            $request['date_pr_mnftr_7'] = $request['as_date_pr_mnftr_7'];
-        }
-        if ($oldnamepr_mnftr8 != $newnamepr_mnftr8) {
-            $request['pr_mnftr_8'] = $newnamepr_mnftr8;
-            $request['up_by_mnftr_pr_8'] = $request['as_up_by_mnftr_pr_8'];
-            $request['mny_mnftr_pr_8'] = $request['as_mny_mnftr_pr_8'];
-            $request['date_pr_mnftr_8'] = $request['as_date_pr_mnftr_8'];
-        }
-        if ($oldnamepr_mnftr9 != $newnamepr_mnftr9) {
-            $request['pr_mnftr_9'] = $newnamepr_mnftr9;
-            $request['up_by_mnftr_pr_9'] = $request['as_up_by_mnftr_pr_9'];
-            $request['mny_mnftr_pr_9'] = $request['as_mny_mnftr_pr_9'];
-            $request['date_pr_mnftr_9'] = $request['as_date_pr_mnftr_9'];
-        }
-        if ($oldnamepr_mnftr10 != $newnamepr_mnftr10) {
-            $request['pr_mnftr_10'] = $newnamepr_mnftr10;
-            $request['up_by_mnftr_pr_10'] = $request['as_up_by_mnftr_pr_10'];
-            $request['mny_mnftr_pr_10'] = $request['as_mny_mnftr_pr_10'];
-            $request['date_pr_mnftr_10'] = $request['as_date_pr_mnftr_10'];
+        for ($i = 1; $i <= 45; $i++) {
+            $oldName = "oldnamepr_parts{$i}";
+            $newName = "newnamepr_parts{$i}";
+            $npartsName = "nparts_pr_{$i}";
+
+            $requestKeyPR = "pr_parts_{$i}";
+            $requestKeyUpBy = "up_by_parts_pr_{$i}";
+            $requestKeyMny = "mny_parts_pr_{$i}";
+            $requestKeyDate = "date_pr_parts_{$i}";
+
+            if ($$oldName != $$newName) {
+                $request[$requestKeyPR] = $$newName;
+                $request[$requestKeyUpBy] = $request["as_up_by_parts_pr_$i"];
+                $request[$requestKeyMny] = $request[$npartsName];
+                $request[$requestKeyDate] = $request["as_date_pr_parts_$i"];
+            }
         }
 
-        if ($oldnamepr_rfq1 != $newnamepr_rfq1) {
-            $request['pr_rfq_1'] = $newnamepr_rfq1;
-            $request['up_by_rfq_pr_1'] = $request['as_up_by_rfq_pr_1'];
-            $request['mny_rfq_pr_1'] = $request['as_mny_rfq_pr_1'];
-            $request['date_pr_rfq_1'] = $request['as_date_pr_rfq_1'];
+        for ($i = 1; $i <= 30; $i++) {
+            $mnyJasapr = "as_mny_jasa_pr_$i";
+
+            if ($request->has($mnyJasapr)) {
+                $request["njasa_pr_$i"] = intval(str_replace('.', '', $request->$mnyJasapr));
+            }
         }
-        if ($oldnamepr_rfq2 != $newnamepr_rfq2) {
-            $request['pr_rfq_2'] = $newnamepr_rfq2;
-            $request['up_by_rfq_pr_2'] = $request['as_up_by_rfq_pr_2'];
-            $request['mny_rfq_pr_2'] = $request['as_mny_rfq_pr_2'];
-            $request['date_pr_rfq_2'] = $request['as_date_pr_rfq_2'];
+
+        for ($i = 1; $i <= 30; $i++) {
+            $oldName = "oldnamepr_jasa{$i}";
+            $newName = "newnamepr_jasa{$i}";
+            $njasaName = "njasa_pr_{$i}";
+
+            $requestKeyPR = "pr_jasa_{$i}";
+            $requestKeyUpBy = "up_by_jasa_pr_{$i}";
+            $requestKeyMny = "mny_jasa_pr_{$i}";
+            $requestKeyDate = "date_pr_jasa_{$i}";
+
+            if ($$oldName != $$newName) {
+                $request[$requestKeyPR] = $$newName;
+                $request[$requestKeyUpBy] = $request["as_up_by_jasa_pr_$i"];
+                $request[$requestKeyMny] = $request[$njasaName];
+                $request[$requestKeyDate] = $request["as_date_pr_jasa_$i"];
+            }
         }
-        if ($oldnamepr_rfq3 != $newnamepr_rfq3) {
-            $request['pr_rfq_3'] = $newnamepr_rfq3;
-            $request['up_by_rfq_pr_3'] = $request['as_up_by_rfq_pr_3'];
-            $request['mny_rfq_pr_3'] = $request['as_mny_rfq_pr_3'];
-            $request['date_pr_rfq_3'] = $request['as_date_pr_rfq_3'];
+
+        for ($i = 1; $i <= 10; $i++) {
+            $mnyMnftr = "as_mny_mnftr_pr_$i";
+
+            if ($request->has($mnyMnftr)) {
+                $request["nmnftr_pr_$i"] = intval(str_replace('.', '', $request->$mnyMnftr));
+            }
         }
-        if ($oldnamepr_rfq4 != $newnamepr_rfq4) {
-            $request['pr_rfq_4'] = $newnamepr_rfq4;
-            $request['up_by_rfq_pr_4'] = $request['as_up_by_rfq_pr_4'];
-            $request['mny_rfq_pr_4'] = $request['as_mny_rfq_pr_4'];
-            $request['date_pr_rfq_4'] = $request['as_date_pr_rfq_4'];
+
+        for ($i = 1; $i <= 10; $i++) {
+            $oldName = "oldnamepr_mnftr{$i}";
+            $newName = "newnamepr_mnftr{$i}";
+            $nmnftrName = "nmnftr_pr_$i";
+
+            $requestKeyPR = "pr_mnftr_{$i}";
+            $requestKeyUpBy = "up_by_mnftr_pr_{$i}";
+            $requestKeyMny = "mny_mnftr_pr_{$i}";
+            $requestKeyDate = "date_pr_mnftr_{$i}";
+
+            if ($$oldName != $$newName) {
+                $request[$requestKeyPR] = $$newName;
+                $request[$requestKeyUpBy] = $request["as_up_by_mnftr_pr_$i"];
+                $request[$requestKeyMny] = $request[$nmnftrName];
+                $request[$requestKeyDate] = $request["as_date_pr_mnftr_$i"];
+            }
         }
-        if ($oldnamepr_rfq5 != $newnamepr_rfq5) {
-            $request['pr_rfq_5'] = $newnamepr_rfq5;
-            $request['up_by_rfq_pr_5'] = $request['as_up_by_rfq_pr_5'];
-            $request['mny_rfq_pr_5'] = $request['as_mny_rfq_pr_5'];
-            $request['date_pr_rfq_5'] = $request['as_date_pr_rfq_5'];
+
+        for ($i = 1; $i <= 5; $i++) {
+            $mnyRfqpr = "as_mny_rfq_pr_$i";
+
+            if ($request->has($mnyRfqpr)) {
+                $request["nrfq_pr_$i"] = intval(str_replace('.', '', $request->$mnyRfqpr));
+            }
         }
-        /* dd($request->as_pr_parts_3, $request->mny_parts_pr_3); */
-       /*  dd($request->as_pr_rfq_3, $request->mny_rfq_pr_3); */
+
+        for ($i = 1; $i <= 5; $i++) {
+            $oldName = "oldnamepr_rfq{$i}";
+            $newName = "newnamepr_rfq{$i}";
+            $nrfqName = "nrfq_pr_{$i}";
+
+            $requestKeyPR = "pr_rfq_{$i}";
+            $requestKeyUpBy = "up_by_rfq_pr_{$i}";
+            $requestKeyMny = "mny_rfq_pr_{$i}";
+            $requestKeyDate = "date_pr_rfq_{$i}";
+
+            if ($$oldName != $$newName) {
+                $request[$requestKeyPR] = $$newName;
+                $request[$requestKeyUpBy] = $request["as_up_by_rfq_pr_$i"];
+                $request[$requestKeyMny] = $request[$nrfqName];
+                $request[$requestKeyDate] = $request["as_date_pr_rfq_$i"];
+            }
+        }
         // menyimpan seluruh ke table purchasing 01
         $viewdataproject->update($request->all());
         $koneksipr->update($request->all());
@@ -8327,7 +7883,7 @@ class StaffProjectController extends Controller
             ]
         );
     }
-/* Purchase Approval PA */
+    /* Purchase Approval PA */
     public function TigaTitikDuaFormProgress(
         Request $request,
         $id,
@@ -12881,549 +12437,108 @@ class StaffProjectController extends Controller
         }
 
         // menyimpan jika kosong atau menimpa
+        for ($i = 1; $i <= 45; $i++) {
+            $mnyPartsPA = "as_mny_parts_pa_$i";
 
-        if ($oldnamepa_parts1 != $newnamepa_parts1) {
-            $request['pa_parts_1'] = $newnamepa_parts1;
-            $request['up_by_parts_pa_1'] = $request['as_up_by_parts_pa_1'];
-            $request['mny_parts_pa_1'] = $request['as_mny_parts_pa_1'];
-            $request['date_pa_parts_1'] = $request['as_date_pa_parts_1'];
-        }
-        if ($oldnamepa_parts2 != $newnamepa_parts2) {
-            $request['pa_parts_2'] = $newnamepa_parts2;
-            $request['up_by_parts_pa_2'] = $request['as_up_by_parts_pa_2'];
-            $request['mny_parts_pa_2'] = $request['as_mny_parts_pa_2'];
-            $request['date_pa_parts_2'] = $request['as_date_pa_parts_2'];
-        }
-        if ($oldnamepa_parts3 != $newnamepa_parts3) {
-            $request['pa_parts_3'] = $newnamepa_parts3;
-            $request['up_by_parts_pa_3'] = $request['as_up_by_parts_pa_3'];
-            $request['mny_parts_pa_3'] = $request['as_mny_parts_pa_3'];
-            $request['date_pa_parts_3'] = $request['as_date_pa_parts_3'];
-        }
-        if ($oldnamepa_parts4 != $newnamepa_parts4) {
-            $request['pa_parts_4'] = $newnamepa_parts4;
-            $request['up_by_parts_pa_4'] = $request['as_up_by_parts_pa_4'];
-            $request['mny_parts_pa_4'] = $request['as_mny_parts_pa_4'];
-            $request['date_pa_parts_4'] = $request['as_date_pa_parts_4'];
-        }
-        if ($oldnamepa_parts5 != $newnamepa_parts5) {
-            $request['pa_parts_5'] = $newnamepa_parts5;
-            $request['up_by_parts_pa_5'] = $request['as_up_by_parts_pa_5'];
-            $request['mny_parts_pa_5'] = $request['as_mny_parts_pa_5'];
-            $request['date_pa_parts_5'] = $request['as_date_pa_parts_5'];
-        }
-        if ($oldnamepa_parts6 != $newnamepa_parts6) {
-            $request['pa_parts_6'] = $newnamepa_parts6;
-            $request['up_by_parts_pa_6'] = $request['as_up_by_parts_pa_6'];
-            $request['mny_parts_pa_6'] = $request['as_mny_parts_pa_6'];
-            $request['date_pa_parts_6'] = $request['as_date_pa_parts_6'];
-        }
-        if ($oldnamepa_parts7 != $newnamepa_parts7) {
-            $request['pa_parts_7'] = $newnamepa_parts7;
-            $request['up_by_parts_pa_7'] = $request['as_up_by_parts_pa_7'];
-            $request['mny_parts_pa_7'] = $request['as_mny_parts_pa_7'];
-            $request['date_pa_parts_7'] = $request['as_date_pa_parts_7'];
-        }
-        if ($oldnamepa_parts8 != $newnamepa_parts8) {
-            $request['pa_parts_8'] = $newnamepa_parts8;
-            $request['up_by_parts_pa_8'] = $request['as_up_by_parts_pa_8'];
-            $request['mny_parts_pa_8'] = $request['as_mny_parts_pa_8'];
-            $request['date_pa_parts_8'] = $request['as_date_pa_parts_8'];
-        }
-        if ($oldnamepa_parts9 != $newnamepa_parts9) {
-            $request['pa_parts_9'] = $newnamepa_parts9;
-            $request['up_by_parts_pa_9'] = $request['as_up_by_parts_pa_9'];
-            $request['mny_parts_pa_9'] = $request['as_mny_parts_pa_9'];
-            $request['date_pa_parts_9'] = $request['as_date_pa_parts_9'];
-        }
-        if ($oldnamepa_parts10 != $newnamepa_parts10) {
-            $request['pa_parts_10'] = $newnamepa_parts10;
-            $request['up_by_parts_pa_10'] = $request['as_up_by_parts_pa_10'];
-            $request['mny_parts_pa_10'] = $request['as_mny_parts_pa_10'];
-            $request['date_pa_parts_10'] = $request['as_date_pa_parts_10'];
-        }
-        if ($oldnamepa_parts11 != $newnamepa_parts11) {
-            $request['pa_parts_11'] = $newnamepa_parts11;
-            $request['up_by_parts_pa_11'] = $request['as_up_by_parts_pa_11'];
-            $request['mny_parts_pa_11'] = $request['as_mny_parts_pa_11'];
-            $request['date_pa_parts_11'] = $request['as_date_pa_parts_11'];
-        }
-        if ($oldnamepa_parts12 != $newnamepa_parts12) {
-            $request['pa_parts_12'] = $newnamepa_parts12;
-            $request['up_by_parts_pa_12'] = $request['as_up_by_parts_pa_12'];
-            $request['mny_parts_pa_12'] = $request['as_mny_parts_pa_12'];
-            $request['date_pa_parts_12'] = $request['as_date_pa_parts_12'];
-        }
-        if ($oldnamepa_parts13 != $newnamepa_parts13) {
-            $request['pa_parts_13'] = $newnamepa_parts13;
-            $request['up_by_parts_pa_13'] = $request['as_up_by_parts_pa_13'];
-            $request['mny_parts_pa_13'] = $request['as_mny_parts_pa_13'];
-            $request['date_pa_parts_13'] = $request['as_date_pa_parts_13'];
-        }
-        if ($oldnamepa_parts14 != $newnamepa_parts14) {
-            $request['pa_parts_14'] = $newnamepa_parts14;
-            $request['up_by_parts_pa_14'] = $request['as_up_by_parts_pa_14'];
-            $request['mny_parts_pa_14'] = $request['as_mny_parts_pa_14'];
-            $request['date_pa_parts_14'] = $request['as_date_pa_parts_14'];
-        }
-        if ($oldnamepa_parts15 != $newnamepa_parts15) {
-            $request['pa_parts_15'] = $newnamepa_parts15;
-            $request['up_by_parts_pa_15'] = $request['as_up_by_parts_pa_15'];
-            $request['mny_parts_pa_15'] = $request['as_mny_parts_pa_15'];
-            $request['date_pa_parts_15'] = $request['as_date_pa_parts_15'];
-        }
-        if ($oldnamepa_parts16 != $newnamepa_parts16) {
-            $request['pa_parts_16'] = $newnamepa_parts16;
-            $request['up_by_parts_pa_16'] = $request['as_up_by_parts_pa_16'];
-            $request['mny_parts_pa_16'] = $request['as_mny_parts_pa_16'];
-            $request['date_pa_parts_16'] = $request['as_date_pa_parts_16'];
-        }
-        if ($oldnamepa_parts17 != $newnamepa_parts17) {
-            $request['pa_parts_17'] = $newnamepa_parts17;
-            $request['up_by_parts_pa_17'] = $request['as_up_by_parts_pa_17'];
-            $request['mny_parts_pa_17'] = $request['as_mny_parts_pa_17'];
-            $request['date_pa_parts_17'] = $request['as_date_pa_parts_17'];
-        }
-        if ($oldnamepa_parts18 != $newnamepa_parts18) {
-            $request['pa_parts_18'] = $newnamepa_parts18;
-            $request['up_by_parts_pa_18'] = $request['as_up_by_parts_pa_18'];
-            $request['mny_parts_pa_18'] = $request['as_mny_parts_pa_18'];
-            $request['date_pa_parts_18'] = $request['as_date_pa_parts_18'];
-        }
-        if ($oldnamepa_parts19 != $newnamepa_parts19) {
-            $request['pa_parts_19'] = $newnamepa_parts19;
-            $request['up_by_parts_pa_19'] = $request['as_up_by_parts_pa_19'];
-            $request['mny_parts_pa_19'] = $request['as_mny_parts_pa_19'];
-            $request['date_pa_parts_19'] = $request['as_date_pa_parts_19'];
-        }
-        if ($oldnamepa_parts20 != $newnamepa_parts20) {
-            $request['pa_parts_20'] = $newnamepa_parts20;
-            $request['up_by_parts_pa_20'] = $request['as_up_by_parts_pa_20'];
-            $request['mny_parts_pa_20'] = $request['as_mny_parts_pa_20'];
-            $request['date_pa_parts_20'] = $request['as_date_pa_parts_20'];
-        }
-        if ($oldnamepa_parts21 != $newnamepa_parts21) {
-            $request['pa_parts_21'] = $newnamepa_parts21;
-            $request['up_by_parts_pa_21'] = $request['as_up_by_parts_pa_21'];
-            $request['mny_parts_pa_21'] = $request['as_mny_parts_pa_21'];
-            $request['date_pa_parts_21'] = $request['as_date_pa_parts_21'];
-        }
-        if ($oldnamepa_parts22 != $newnamepa_parts22) {
-            $request['pa_parts_22'] = $newnamepa_parts22;
-            $request['up_by_parts_pa_22'] = $request['as_up_by_parts_pa_22'];
-            $request['mny_parts_pa_22'] = $request['as_mny_parts_pa_22'];
-            $request['date_pa_parts_22'] = $request['as_date_pa_parts_22'];
-        }
-        if ($oldnamepa_parts23 != $newnamepa_parts23) {
-            $request['pa_parts_23'] = $newnamepa_parts23;
-            $request['up_by_parts_pa_23'] = $request['as_up_by_parts_pa_23'];
-            $request['mny_parts_pa_23'] = $request['as_mny_parts_pa_23'];
-            $request['date_pa_parts_23'] = $request['as_date_pa_parts_23'];
-        }
-        if ($oldnamepa_parts24 != $newnamepa_parts24) {
-            $request['pa_parts_24'] = $newnamepa_parts24;
-            $request['up_by_parts_pa_24'] = $request['as_up_by_parts_pa_24'];
-            $request['mny_parts_pa_24'] = $request['as_mny_parts_pa_24'];
-            $request['date_pa_parts_24'] = $request['as_date_pa_parts_24'];
-        }
-        if ($oldnamepa_parts25 != $newnamepa_parts25) {
-            $request['pa_parts_25'] = $newnamepa_parts25;
-            $request['up_by_parts_pa_25'] = $request['as_up_by_parts_pa_25'];
-            $request['mny_parts_pa_25'] = $request['as_mny_parts_pa_25'];
-            $request['date_pa_parts_25'] = $request['as_date_pa_parts_25'];
-        }
-        if ($oldnamepa_parts26 != $newnamepa_parts26) {
-            $request['pa_parts_26'] = $newnamepa_parts26;
-            $request['up_by_parts_pa_26'] = $request['as_up_by_parts_pa_26'];
-            $request['mny_parts_pa_26'] = $request['as_mny_parts_pa_26'];
-            $request['date_pa_parts_26'] = $request['as_date_pa_parts_26'];
-        }
-        if ($oldnamepa_parts27 != $newnamepa_parts27) {
-            $request['pa_parts_27'] = $newnamepa_parts27;
-            $request['up_by_parts_pa_27'] = $request['as_up_by_parts_pa_27'];
-            $request['mny_parts_pa_27'] = $request['as_mny_parts_pa_27'];
-            $request['date_pa_parts_27'] = $request['as_date_pa_parts_27'];
-        }
-        if ($oldnamepa_parts28 != $newnamepa_parts28) {
-            $request['pa_parts_28'] = $newnamepa_parts28;
-            $request['up_by_parts_pa_28'] = $request['as_up_by_parts_pa_28'];
-            $request['mny_parts_pa_28'] = $request['as_mny_parts_pa_28'];
-            $request['date_pa_parts_28'] = $request['as_date_pa_parts_28'];
-        }
-        if ($oldnamepa_parts29 != $newnamepa_parts29) {
-            $request['pa_parts_29'] = $newnamepa_parts29;
-            $request['up_by_parts_pa_29'] = $request['as_up_by_parts_pa_29'];
-            $request['mny_parts_pa_29'] = $request['as_mny_parts_pa_29'];
-            $request['date_pa_parts_29'] = $request['as_date_pa_parts_29'];
-        }
-        if ($oldnamepa_parts30 != $newnamepa_parts30) {
-            $request['pa_parts_30'] = $newnamepa_parts30;
-            $request['up_by_parts_pa_30'] = $request['as_up_by_parts_pa_30'];
-            $request['mny_parts_pa_30'] = $request['as_mny_parts_pa_30'];
-            $request['date_pa_parts_30'] = $request['as_date_pa_parts_30'];
-        }
-        if ($oldnamepa_parts31 != $newnamepa_parts31) {
-            $request['pa_parts_31'] = $newnamepa_parts31;
-            $request['up_by_parts_pa_31'] = $request['as_up_by_parts_pa_31'];
-            $request['mny_parts_pa_31'] = $request['as_mny_parts_pa_31'];
-            $request['date_pa_parts_31'] = $request['as_date_pa_parts_31'];
-        }
-        if ($oldnamepa_parts32 != $newnamepa_parts32) {
-            $request['pa_parts_32'] = $newnamepa_parts32;
-            $request['up_by_parts_pa_32'] = $request['as_up_by_parts_pa_32'];
-            $request['mny_parts_pa_32'] = $request['as_mny_parts_pa_32'];
-            $request['date_pa_parts_32'] = $request['as_date_pa_parts_32'];
-        }
-        if ($oldnamepa_parts33 != $newnamepa_parts33) {
-            $request['pa_parts_33'] = $newnamepa_parts33;
-            $request['up_by_parts_pa_33'] = $request['as_up_by_parts_pa_33'];
-            $request['mny_parts_pa_33'] = $request['as_mny_parts_pa_33'];
-            $request['date_pa_parts_33'] = $request['as_date_pa_parts_33'];
-        }
-        if ($oldnamepa_parts34 != $newnamepa_parts34) {
-            $request['pa_parts_34'] = $newnamepa_parts34;
-            $request['up_by_parts_pa_34'] = $request['as_up_by_parts_pa_34'];
-            $request['mny_parts_pa_34'] = $request['as_mny_parts_pa_34'];
-            $request['date_pa_parts_34'] = $request['as_date_pa_parts_34'];
-        }
-        if ($oldnamepa_parts35 != $newnamepa_parts35) {
-            $request['pa_parts_35'] = $newnamepa_parts35;
-            $request['up_by_parts_pa_35'] = $request['as_up_by_parts_pa_35'];
-            $request['mny_parts_pa_35'] = $request['as_mny_parts_pa_35'];
-            $request['date_pa_parts_35'] = $request['as_date_pa_parts_35'];
-        }
-        if ($oldnamepa_parts36 != $newnamepa_parts36) {
-            $request['pa_parts_36'] = $newnamepa_parts36;
-            $request['up_by_parts_pa_36'] = $request['as_up_by_parts_pa_36'];
-            $request['mny_parts_pa_36'] = $request['as_mny_parts_pa_36'];
-            $request['date_pa_parts_36'] = $request['as_date_pa_parts_36'];
-        }
-        if ($oldnamepa_parts37 != $newnamepa_parts37) {
-            $request['pa_parts_37'] = $newnamepa_parts37;
-            $request['up_by_parts_pa_37'] = $request['as_up_by_parts_pa_37'];
-            $request['mny_parts_pa_37'] = $request['as_mny_parts_pa_37'];
-            $request['date_pa_parts_37'] = $request['as_date_pa_parts_37'];
-        }
-        if ($oldnamepa_parts38 != $newnamepa_parts38) {
-            $request['pa_parts_38'] = $newnamepa_parts38;
-            $request['up_by_parts_pa_38'] = $request['as_up_by_parts_pa_38'];
-            $request['mny_parts_pa_38'] = $request['as_mny_parts_pa_38'];
-            $request['date_pa_parts_38'] = $request['as_date_pa_parts_38'];
-        }
-        if ($oldnamepa_parts39 != $newnamepa_parts39) {
-            $request['pa_parts_39'] = $newnamepa_parts39;
-            $request['up_by_parts_pa_39'] = $request['as_up_by_parts_pa_39'];
-            $request['mny_parts_pa_39'] = $request['as_mny_parts_pa_39'];
-            $request['date_pa_parts_39'] = $request['as_date_pa_parts_39'];
-        }
-        if ($oldnamepa_parts40 != $newnamepa_parts40) {
-            $request['pa_parts_40'] = $newnamepa_parts40;
-            $request['up_by_parts_pa_40'] = $request['as_up_by_parts_pa_40'];
-            $request['mny_parts_pa_40'] = $request['as_mny_parts_pa_40'];
-            $request['date_pa_parts_40'] = $request['as_date_pa_parts_40'];
-        }
-        if ($oldnamepa_parts41 != $newnamepa_parts41) {
-            $request['pa_parts_41'] = $newnamepa_parts41;
-            $request['up_by_parts_pa_41'] = $request['as_up_by_parts_pa_41'];
-            $request['mny_parts_pa_41'] = $request['as_mny_parts_pa_41'];
-            $request['date_pa_parts_41'] = $request['as_date_pa_parts_41'];
-        }
-        if ($oldnamepa_parts42 != $newnamepa_parts42) {
-            $request['pa_parts_42'] = $newnamepa_parts42;
-            $request['up_by_parts_pa_42'] = $request['as_up_by_parts_pa_42'];
-            $request['mny_parts_pa_42'] = $request['as_mny_parts_pa_42'];
-            $request['date_pa_parts_42'] = $request['as_date_pa_parts_42'];
-        }
-        if ($oldnamepa_parts43 != $newnamepa_parts43) {
-            $request['pa_parts_43'] = $newnamepa_parts43;
-            $request['up_by_parts_pa_43'] = $request['as_up_by_parts_pa_43'];
-            $request['mny_parts_pa_43'] = $request['as_mny_parts_pa_43'];
-            $request['date_pa_parts_43'] = $request['as_date_pa_parts_43'];
-        }
-        if ($oldnamepa_parts44 != $newnamepa_parts44) {
-            $request['pa_parts_44'] = $newnamepa_parts44;
-            $request['up_by_parts_pa_44'] = $request['as_up_by_parts_pa_44'];
-            $request['mny_parts_pa_44'] = $request['as_mny_parts_pa_44'];
-            $request['date_pa_parts_44'] = $request['as_date_pa_parts_44'];
-        }
-        if ($oldnamepa_parts45 != $newnamepa_parts45) {
-            $request['pa_parts_45'] = $newnamepa_parts45;
-            $request['up_by_parts_pa_45'] = $request['as_up_by_parts_pa_45'];
-            $request['mny_parts_pa_45'] = $request['as_mny_parts_pa_45'];
-            $request['date_pa_parts_45'] = $request['as_date_pa_parts_45'];
+            if ($request->has($mnyPartsPA)) {
+                $request["nparts_pa_$i"] = intval(str_replace('.', '', $request->$mnyPartsPA));
+            }
         }
 
-        if ($oldnamepa_jasa1 != $newnamepa_jasa1) {
-            $request['pa_jasa_1'] = $newnamepa_jasa1;
-            $request['up_by_jasa_pa_1'] = $request['as_up_by_jasa_pa_1'];
-            $request['mny_jasa_pa_1'] = $request['as_mny_jasa_pa_1'];
-            $request['date_pa_jasa_1'] = $request['as_date_pa_jasa_1'];
-        }
-        if ($oldnamepa_jasa2 != $newnamepa_jasa2) {
-            $request['pa_jasa_2'] = $newnamepa_jasa2;
-            $request['up_by_jasa_pa_2'] = $request['as_up_by_jasa_pa_2'];
-            $request['mny_jasa_pa_2'] = $request['as_mny_jasa_pa_2'];
-            $request['date_pa_jasa_2'] = $request['as_date_pa_jasa_2'];
-        }
-        if ($oldnamepa_jasa3 != $newnamepa_jasa3) {
-            $request['pa_jasa_3'] = $newnamepa_jasa3;
-            $request['up_by_jasa_pa_3'] = $request['as_up_by_jasa_pa_3'];
-            $request['mny_jasa_pa_3'] = $request['as_mny_jasa_pa_3'];
-            $request['date_pa_jasa_3'] = $request['as_date_pa_jasa_3'];
-        }
-        if ($oldnamepa_jasa4 != $newnamepa_jasa4) {
-            $request['pa_jasa_4'] = $newnamepa_jasa4;
-            $request['up_by_jasa_pa_4'] = $request['as_up_by_jasa_pa_4'];
-            $request['mny_jasa_pa_4'] = $request['as_mny_jasa_pa_4'];
-            $request['date_pa_jasa_4'] = $request['as_date_pa_jasa_4'];
-        }
-        if ($oldnamepa_jasa5 != $newnamepa_jasa5) {
-            $request['pa_jasa_5'] = $newnamepa_jasa5;
-            $request['up_by_jasa_pa_5'] = $request['as_up_by_jasa_pa_5'];
-            $request['mny_jasa_pa_5'] = $request['as_mny_jasa_pa_5'];
-            $request['date_pa_jasa_5'] = $request['as_date_pa_jasa_5'];
-        }
-        if ($oldnamepa_jasa6 != $newnamepa_jasa6) {
-            $request['pa_jasa_6'] = $newnamepa_jasa6;
-            $request['up_by_jasa_pa_6'] = $request['as_up_by_jasa_pa_6'];
-            $request['mny_jasa_pa_6'] = $request['as_mny_jasa_pa_6'];
-            $request['date_pa_jasa_6'] = $request['as_date_pa_jasa_6'];
-        }
-        if ($oldnamepa_jasa7 != $newnamepa_jasa7) {
-            $request['pa_jasa_7'] = $newnamepa_jasa7;
-            $request['up_by_jasa_pa_7'] = $request['as_up_by_jasa_pa_7'];
-            $request['mny_jasa_pa_7'] = $request['as_mny_jasa_pa_7'];
-            $request['date_pa_jasa_7'] = $request['as_date_pa_jasa_7'];
-        }
-        if ($oldnamepa_jasa8 != $newnamepa_jasa8) {
-            $request['pa_jasa_8'] = $newnamepa_jasa8;
-            $request['up_by_jasa_pa_8'] = $request['as_up_by_jasa_pa_8'];
-            $request['mny_jasa_pa_8'] = $request['as_mny_jasa_pa_8'];
-            $request['date_pa_jasa_8'] = $request['as_date_pa_jasa_8'];
-        }
-        if ($oldnamepa_jasa9 != $newnamepa_jasa9) {
-            $request['pa_jasa_9'] = $newnamepa_jasa9;
-            $request['up_by_jasa_pa_9'] = $request['as_up_by_jasa_pa_9'];
-            $request['mny_jasa_pa_9'] = $request['as_mny_jasa_pa_9'];
-            $request['date_pa_jasa_9'] = $request['as_date_pa_jasa_9'];
-        }
-        if ($oldnamepa_jasa10 != $newnamepa_jasa10) {
-            $request['pa_jasa_10'] = $newnamepa_jasa10;
-            $request['up_by_jasa_pa_10'] = $request['as_up_by_jasa_pa_10'];
-            $request['mny_jasa_pa_10'] = $request['as_mny_jasa_pa_10'];
-            $request['date_pa_jasa_10'] = $request['as_date_pa_jasa_10'];
-        }
-        if ($oldnamepa_jasa11 != $newnamepa_jasa11) {
-            $request['pa_jasa_11'] = $newnamepa_jasa11;
-            $request['up_by_jasa_pa_11'] = $request['as_up_by_jasa_pa_11'];
-            $request['mny_jasa_pa_11'] = $request['as_mny_jasa_pa_11'];
-            $request['date_pa_jasa_11'] = $request['as_date_pa_jasa_11'];
-        }
-        if ($oldnamepa_jasa12 != $newnamepa_jasa12) {
-            $request['pa_jasa_12'] = $newnamepa_jasa12;
-            $request['up_by_jasa_pa_12'] = $request['as_up_by_jasa_pa_12'];
-            $request['mny_jasa_pa_12'] = $request['as_mny_jasa_pa_12'];
-            $request['date_pa_jasa_12'] = $request['as_date_pa_jasa_12'];
-        }
-        if ($oldnamepa_jasa13 != $newnamepa_jasa13) {
-            $request['pa_jasa_13'] = $newnamepa_jasa13;
-            $request['up_by_jasa_pa_13'] = $request['as_up_by_jasa_pa_13'];
-            $request['mny_jasa_pa_13'] = $request['as_mny_jasa_pa_13'];
-            $request['date_pa_jasa_13'] = $request['as_date_pa_jasa_13'];
-        }
-        if ($oldnamepa_jasa14 != $newnamepa_jasa14) {
-            $request['pa_jasa_14'] = $newnamepa_jasa14;
-            $request['up_by_jasa_pa_14'] = $request['as_up_by_jasa_pa_14'];
-            $request['mny_jasa_pa_14'] = $request['as_mny_jasa_pa_14'];
-            $request['date_pa_jasa_14'] = $request['as_date_pa_jasa_14'];
-        }
-        if ($oldnamepa_jasa15 != $newnamepa_jasa15) {
-            $request['pa_jasa_15'] = $newnamepa_jasa15;
-            $request['up_by_jasa_pa_15'] = $request['as_up_by_jasa_pa_15'];
-            $request['mny_jasa_pa_15'] = $request['as_mny_jasa_pa_15'];
-            $request['date_pa_jasa_15'] = $request['as_date_pa_jasa_15'];
-        }
-        if ($oldnamepa_jasa16 != $newnamepa_jasa16) {
-            $request['pa_jasa_16'] = $newnamepa_jasa16;
-            $request['up_by_jasa_pa_16'] = $request['as_up_by_jasa_pa_16'];
-            $request['mny_jasa_pa_16'] = $request['as_mny_jasa_pa_16'];
-            $request['date_pa_jasa_16'] = $request['as_date_pa_jasa_16'];
-        }
-        if ($oldnamepa_jasa17 != $newnamepa_jasa17) {
-            $request['pa_jasa_17'] = $newnamepa_jasa17;
-            $request['up_by_jasa_pa_17'] = $request['as_up_by_jasa_pa_17'];
-            $request['mny_jasa_pa_17'] = $request['as_mny_jasa_pa_17'];
-            $request['date_pa_jasa_17'] = $request['as_date_pa_jasa_17'];
-        }
-        if ($oldnamepa_jasa18 != $newnamepa_jasa18) {
-            $request['pa_jasa_18'] = $newnamepa_jasa18;
-            $request['up_by_jasa_pa_18'] = $request['as_up_by_jasa_pa_18'];
-            $request['mny_jasa_pa_18'] = $request['as_mny_jasa_pa_18'];
-            $request['date_pa_jasa_18'] = $request['as_date_pa_jasa_18'];
-        }
-        if ($oldnamepa_jasa19 != $newnamepa_jasa19) {
-            $request['pa_jasa_19'] = $newnamepa_jasa19;
-            $request['up_by_jasa_pa_19'] = $request['as_up_by_jasa_pa_19'];
-            $request['mny_jasa_pa_19'] = $request['as_mny_jasa_pa_19'];
-            $request['date_pa_jasa_19'] = $request['as_date_pa_jasa_19'];
-        }
-        if ($oldnamepa_jasa20 != $newnamepa_jasa20) {
-            $request['pa_jasa_20'] = $newnamepa_jasa20;
-            $request['up_by_jasa_pa_20'] = $request['as_up_by_jasa_pa_20'];
-            $request['mny_jasa_pa_20'] = $request['as_mny_jasa_pa_20'];
-            $request['date_pa_jasa_20'] = $request['as_date_pa_jasa_20'];
-        }
-        if ($oldnamepa_jasa21 != $newnamepa_jasa21) {
-            $request['pa_jasa_21'] = $newnamepa_jasa21;
-            $request['up_by_jasa_pa_21'] = $request['as_up_by_jasa_pa_21'];
-            $request['mny_jasa_pa_21'] = $request['as_mny_jasa_pa_21'];
-            $request['date_pa_jasa_21'] = $request['as_date_pa_jasa_21'];
-        }
-        if ($oldnamepa_jasa22 != $newnamepa_jasa22) {
-            $request['pa_jasa_22'] = $newnamepa_jasa22;
-            $request['up_by_jasa_pa_22'] = $request['as_up_by_jasa_pa_22'];
-            $request['mny_jasa_pa_22'] = $request['as_mny_jasa_pa_22'];
-            $request['date_pa_jasa_22'] = $request['as_date_pa_jasa_22'];
-        }
-        if ($oldnamepa_jasa23 != $newnamepa_jasa23) {
-            $request['pa_jasa_23'] = $newnamepa_jasa23;
-            $request['up_by_jasa_pa_23'] = $request['as_up_by_jasa_pa_23'];
-            $request['mny_jasa_pa_23'] = $request['as_mny_jasa_pa_23'];
-            $request['date_pa_jasa_23'] = $request['as_date_pa_jasa_23'];
-        }
-        if ($oldnamepa_jasa24 != $newnamepa_jasa24) {
-            $request['pa_jasa_24'] = $newnamepa_jasa24;
-            $request['up_by_jasa_pa_24'] = $request['as_up_by_jasa_pa_24'];
-            $request['mny_jasa_pa_24'] = $request['as_mny_jasa_pa_24'];
-            $request['date_pa_jasa_24'] = $request['as_date_pa_jasa_24'];
-        }
-        if ($oldnamepa_jasa25 != $newnamepa_jasa25) {
-            $request['pa_jasa_25'] = $newnamepa_jasa25;
-            $request['up_by_jasa_pa_25'] = $request['as_up_by_jasa_pa_25'];
-            $request['mny_jasa_pa_25'] = $request['as_mny_jasa_pa_25'];
-            $request['date_pa_jasa_25'] = $request['as_date_pa_jasa_25'];
-        }
-        if ($oldnamepa_jasa26 != $newnamepa_jasa26) {
-            $request['pa_jasa_26'] = $newnamepa_jasa26;
-            $request['up_by_jasa_pa_26'] = $request['as_up_by_jasa_pa_26'];
-            $request['mny_jasa_pa_26'] = $request['as_mny_jasa_pa_26'];
-            $request['date_pa_jasa_26'] = $request['as_date_pa_jasa_26'];
-        }
-        if ($oldnamepa_jasa27 != $newnamepa_jasa27) {
-            $request['pa_jasa_27'] = $newnamepa_jasa27;
-            $request['up_by_jasa_pa_27'] = $request['as_up_by_jasa_pa_27'];
-            $request['mny_jasa_pa_27'] = $request['as_mny_jasa_pa_27'];
-            $request['date_pa_jasa_27'] = $request['as_date_pa_jasa_27'];
-        }
-        if ($oldnamepa_jasa28 != $newnamepa_jasa28) {
-            $request['pa_jasa_28'] = $newnamepa_jasa28;
-            $request['up_by_jasa_pa_28'] = $request['as_up_by_jasa_pa_28'];
-            $request['mny_jasa_pa_28'] = $request['as_mny_jasa_pa_28'];
-            $request['date_pa_jasa_28'] = $request['as_date_pa_jasa_28'];
-        }
-        if ($oldnamepa_jasa29 != $newnamepa_jasa29) {
-            $request['pa_jasa_29'] = $newnamepa_jasa29;
-            $request['up_by_jasa_pa_29'] = $request['as_up_by_jasa_pa_29'];
-            $request['mny_jasa_pa_29'] = $request['as_mny_jasa_pa_29'];
-            $request['date_pa_jasa_29'] = $request['as_date_pa_jasa_29'];
-        }
-        if ($oldnamepa_jasa30 != $newnamepa_jasa30) {
-            $request['pa_jasa_30'] = $newnamepa_jasa30;
-            $request['up_by_jasa_pa_30'] = $request['as_up_by_jasa_pa_30'];
-            $request['mny_jasa_pa_30'] = $request['as_mny_jasa_pa_30'];
-            $request['date_pa_jasa_30'] = $request['as_date_pa_jasa_30'];
+        for ($i = 1; $i <= 45; $i++) {
+            $oldName = "oldnamepa_parts{$i}";
+            $newName = "newnamepa_parts{$i}";
+            $npartsName = "nparts_pa_{$i}";
+
+            $requestKeyPA = "pa_parts_{$i}";
+            $requestKeyUpBy = "up_by_parts_pa_{$i}";
+            $requestKeyMny = "mny_parts_pa_{$i}";
+            $requestKeyDate = "date_pa_parts_{$i}";
+
+            if ($$oldName != $$newName) {
+                $request[$requestKeyPA] = $$newName;
+                $request[$requestKeyUpBy] = $request["as_up_by_parts_pa_$i"];
+                $request[$requestKeyMny] = $request[$npartsName];
+                $request[$requestKeyDate] = $request["as_date_pa_parts_$i"];
+            }
         }
 
-        if ($oldnamepa_mnftr1 != $newnamepa_mnftr1) {
-            $request['pa_mnftr_1'] = $newnamepa_mnftr1;
-            $request['up_by_mnftr_pa_1'] = $request['as_up_by_mnftr_pa_1'];
-            $request['mny_mnftr_pa_1'] = $request['as_mny_mnftr_pa_1'];
-            $request['date_pa_mnftr_1'] = $request['as_date_pa_mnftr_1'];
-        }
-        if ($oldnamepa_mnftr2 != $newnamepa_mnftr2) {
-            $request['pa_mnftr_2'] = $newnamepa_mnftr2;
-            $request['up_by_mnftr_pa_2'] = $request['as_up_by_mnftr_pa_2'];
-            $request['mny_mnftr_pa_2'] = $request['as_mny_mnftr_pa_2'];
-            $request['date_pa_mnftr_2'] = $request['as_date_pa_mnftr_2'];
-        }
-        if ($oldnamepa_mnftr3 != $newnamepa_mnftr3) {
-            $request['pa_mnftr_3'] = $newnamepa_mnftr3;
-            $request['up_by_mnftr_pa_3'] = $request['as_up_by_mnftr_pa_3'];
-            $request['mny_mnftr_pa_3'] = $request['as_mny_mnftr_pa_3'];
-            $request['date_pa_mnftr_3'] = $request['as_date_pa_mnftr_3'];
-        }
-        if ($oldnamepa_mnftr4 != $newnamepa_mnftr4) {
-            $request['pa_mnftr_4'] = $newnamepa_mnftr4;
-            $request['up_by_mnftr_pa_4'] = $request['as_up_by_mnftr_pa_4'];
-            $request['mny_mnftr_pa_4'] = $request['as_mny_mnftr_pa_4'];
-            $request['date_pa_mnftr_4'] = $request['as_date_pa_mnftr_4'];
-        }
-        if ($oldnamepa_mnftr5 != $newnamepa_mnftr5) {
-            $request['pa_mnftr_5'] = $newnamepa_mnftr5;
-            $request['up_by_mnftr_pa_5'] = $request['as_up_by_mnftr_pa_5'];
-            $request['mny_mnftr_pa_5'] = $request['as_mny_mnftr_pa_5'];
-            $request['date_pa_mnftr_5'] = $request['as_date_pa_mnftr_5'];
-        }
-        if ($oldnamepa_mnftr6 != $newnamepa_mnftr6) {
-            $request['pa_mnftr_6'] = $newnamepa_mnftr6;
-            $request['up_by_mnftr_pa_6'] = $request['as_up_by_mnftr_pa_6'];
-            $request['mny_mnftr_pa_6'] = $request['as_mny_mnftr_pa_6'];
-            $request['date_pa_mnftr_6'] = $request['as_date_pa_mnftr_6'];
-        }
-        if ($oldnamepa_mnftr7 != $newnamepa_mnftr7) {
-            $request['pa_mnftr_7'] = $newnamepa_mnftr7;
-            $request['up_by_mnftr_pa_7'] = $request['as_up_by_mnftr_pa_7'];
-            $request['mny_mnftr_pa_7'] = $request['as_mny_mnftr_pa_7'];
-            $request['date_pa_mnftr_7'] = $request['as_date_pa_mnftr_7'];
-        }
-        if ($oldnamepa_mnftr8 != $newnamepa_mnftr8) {
-            $request['pa_mnftr_8'] = $newnamepa_mnftr8;
-            $request['up_by_mnftr_pa_8'] = $request['as_up_by_mnftr_pa_8'];
-            $request['mny_mnftr_pa_8'] = $request['as_mny_mnftr_pa_8'];
-            $request['date_pa_mnftr_8'] = $request['as_date_pa_mnftr_8'];
-        }
-        if ($oldnamepa_mnftr9 != $newnamepa_mnftr9) {
-            $request['pa_mnftr_9'] = $newnamepa_mnftr9;
-            $request['up_by_mnftr_pa_9'] = $request['as_up_by_mnftr_pa_9'];
-            $request['mny_mnftr_pa_9'] = $request['as_mny_mnftr_pa_9'];
-            $request['date_pa_mnftr_9'] = $request['as_date_pa_mnftr_9'];
-        }
-        if ($oldnamepa_mnftr10 != $newnamepa_mnftr10) {
-            $request['pa_mnftr_10'] = $newnamepa_mnftr10;
-            $request['up_by_mnftr_pa_10'] = $request['as_up_by_mnftr_pa_10'];
-            $request['mny_mnftr_pa_10'] = $request['as_mny_mnftr_pa_10'];
-            $request['date_pa_mnftr_10'] = $request['as_date_pa_mnftr_10'];
+        for ($i = 1; $i <= 30; $i++) {
+            $mnyJasapa = "as_mny_jasa_pa_$i";
+
+            if ($request->has($mnyJasapa)) {
+                $request["njasa_pa_$i"] = intval(str_replace('.', '', $request->$mnyJasapa));
+            }
         }
 
-        if ($oldnamepa_epq1 != $newnamepa_epq1) {
-            $request['pa_epq_1'] = $newnamepa_epq1;
-            $request['up_by_epq_pa_1'] = $request['as_up_by_epq_pa_1'];
-            $request['mny_epq_pa_1'] = $request['as_mny_epq_pa_1'];
-            $request['date_pa_epq_1'] = $request['as_date_pa_epq_1'];
+        for ($i = 1; $i <= 30; $i++) {
+            $oldName = "oldnamepa_jasa{$i}";
+            $newName = "newnamepa_jasa{$i}";
+            $njasaName = "njasa_pa_{$i}";
+
+            $requestKeyPA = "pa_jasa_{$i}";
+            $requestKeyUpBy = "up_by_jasa_pa_{$i}";
+            $requestKeyMny = "mny_jasa_pa_{$i}";
+            $requestKeyDate = "date_pa_jasa_{$i}";
+
+            if ($$oldName != $$newName) {
+                $request[$requestKeyPA] = $$newName;
+                $request[$requestKeyUpBy] = $request["as_up_by_jasa_pa_$i"];
+                $request[$requestKeyMny] = $request[$njasaName];
+                $request[$requestKeyDate] = $request["as_date_pa_jasa_$i"];
+            }
         }
-        if ($oldnamepa_epq2 != $newnamepa_epq2) {
-            $request['pa_epq_2'] = $newnamepa_epq2;
-            $request['up_by_epq_pa_2'] = $request['as_up_by_epq_pa_2'];
-            $request['mny_epq_pa_2'] = $request['as_mny_epq_pa_2'];
-            $request['date_pa_epq_2'] = $request['as_date_pa_epq_2'];
+
+        for ($i = 1; $i <= 10; $i++) {
+            $mnyMnftr = "as_mny_mnftr_pa_$i";
+
+            if ($request->has($mnyMnftr)) {
+                $request["nmnftr_pa_$i"] = intval(str_replace('.', '', $request->$mnyMnftr));
+            }
         }
-        if ($oldnamepa_epq3 != $newnamepa_epq3) {
-            $request['pa_epq_3'] = $newnamepa_epq3;
-            $request['up_by_epq_pa_3'] = $request['as_up_by_epq_pa_3'];
-            $request['mny_epq_pa_3'] = $request['as_mny_epq_pa_3'];
-            $request['date_pa_epq_3'] = $request['as_date_pa_epq_3'];
+
+        for ($i = 1; $i <= 10; $i++) {
+            $oldName = "oldnamepa_mnftr{$i}";
+            $newName = "newnamepa_mnftr{$i}";
+            $nmnftrName = "nmnftr_pa_$i";
+
+            $requestKeyPA = "pa_mnftr_{$i}";
+            $requestKeyUpBy = "up_by_mnftr_pa_{$i}";
+            $requestKeyMny = "mny_mnftr_pa_{$i}";
+            $requestKeyDate = "date_pa_mnftr_{$i}";
+
+            if ($$oldName != $$newName) {
+                $request[$requestKeyPA] = $$newName;
+                $request[$requestKeyUpBy] = $request["as_up_by_mnftr_pa_$i"];
+                $request[$requestKeyMny] = $request[$nmnftrName];
+                $request[$requestKeyDate] = $request["as_date_pa_mnftr_$i"];
+            }
         }
-        if ($oldnamepa_epq4 != $newnamepa_epq4) {
-            $request['pa_epq_4'] = $newnamepa_epq4;
-            $request['up_by_epq_pa_4'] = $request['as_up_by_epq_pa_4'];
-            $request['mny_epq_pa_4'] = $request['as_mny_epq_pa_4'];
-            $request['date_pa_epq_4'] = $request['as_date_pa_epq_4'];
+
+        for ($i = 1; $i <= 5; $i++) {
+            $mnyEpqPA = "as_mny_epq_pa_$i";
+
+            if ($request->has($mnyEpqPA)) {
+                $request["nepq_pa_$i"] = intval(str_replace('.', '', $request->$mnyEpqPA));
+            }
         }
-        if ($oldnamepa_epq5 != $newnamepa_epq5) {
-            $request['pa_epq_5'] = $newnamepa_epq5;
-            $request['up_by_epq_pa_5'] = $request['as_up_by_epq_pa_5'];
-            $request['mny_epq_pa_5'] = $request['as_mny_epq_pa_5'];
-            $request['date_pa_epq_5'] = $request['as_date_pa_epq_5'];
+
+        for ($i = 1; $i <= 5; $i++) {
+            $oldName = "oldnamepa_epq{$i}";
+            $newName = "newnamepa_epq{$i}";
+            $nepqName = "nepq_pa_{$i}";
+
+            $requestKeyPA = "pa_epq_{$i}";
+            $requestKeyUpBy = "up_by_epq_pa_{$i}";
+            $requestKeyMny = "mny_epq_pa_{$i}";
+            $requestKeyDate = "date_pa_epq_{$i}";
+
+            if ($$oldName != $$newName) {
+                $request[$requestKeyPA] = $$newName;
+                $request[$requestKeyUpBy] = $request["as_up_by_epq_pa_$i"];
+                $request[$requestKeyMny] = $request[$nepqName];
+                $request[$requestKeyDate] = $request["as_date_pa_epq_$i"];
+            }
         }
 
         // menyimpan seluruh ke table purchasing 01
@@ -17814,7 +16929,7 @@ class StaffProjectController extends Controller
                 ->storeAs('supervisor/project/03_03_PR', $newnamepo_mnftr10);
         }
 
-        // inputan rfq
+        // inputan capo
 
         // inputan 1
         if ($request->file('as_po_capo_1')) {
@@ -18008,558 +17123,114 @@ class StaffProjectController extends Controller
         }
 
         // menyimpan jika kosong atau menimpa
+        for ($i = 1; $i <= 45; $i++) {
+            $mnyPartsPO = "as_mny_parts_po_$i";
 
-        if ($oldnamepo_parts1 != $newnamepo_parts1) {
-            $request['po_parts_1'] = $newnamepo_parts1;
-            $request['up_by_parts_po_1'] = $request['as_up_by_parts_po_1'];
-            $request['mny_parts_po_1'] = $request['as_mny_parts_po_1'];
-            $request['date_po_parts_1'] = $request['as_date_po_parts_1'];
-        }
-        if ($oldnamepo_parts2 != $newnamepo_parts2) {
-            $request['po_parts_2'] = $newnamepo_parts2;
-            $request['up_by_parts_po_2'] = $request['as_up_by_parts_po_2'];
-            $request['mny_parts_po_2'] = $request['as_mny_parts_po_2'];
-            $request['date_po_parts_2'] = $request['as_date_po_parts_2'];
-        }
-        if ($oldnamepo_parts3 != $newnamepo_parts3) {
-            $request['po_parts_3'] = $newnamepo_parts3;
-            $request['up_by_parts_po_3'] = $request['as_up_by_parts_po_3'];
-            $request['mny_parts_po_3'] = $request['as_mny_parts_po_3'];
-            $request['date_po_parts_3'] = $request['as_date_po_parts_3'];
-        }
-        if ($oldnamepo_parts4 != $newnamepo_parts4) {
-            $request['po_parts_4'] = $newnamepo_parts4;
-            $request['up_by_parts_po_4'] = $request['as_up_by_parts_po_4'];
-            $request['mny_parts_po_4'] = $request['as_mny_parts_po_4'];
-            $request['date_po_parts_4'] = $request['as_date_po_parts_4'];
-        }
-        if ($oldnamepo_parts5 != $newnamepo_parts5) {
-            $request['po_parts_5'] = $newnamepo_parts5;
-            $request['up_by_parts_po_5'] = $request['as_up_by_parts_po_5'];
-            $request['mny_parts_po_5'] = $request['as_mny_parts_po_5'];
-            $request['date_po_parts_5'] = $request['as_date_po_parts_5'];
-        }
-        if ($oldnamepo_parts6 != $newnamepo_parts6) {
-            $request['po_parts_6'] = $newnamepo_parts6;
-            $request['up_by_parts_po_6'] = $request['as_up_by_parts_po_6'];
-            $request['mny_parts_po_6'] = $request['as_mny_parts_po_6'];
-            $request['date_po_parts_6'] = $request['as_date_po_parts_6'];
-        }
-        if ($oldnamepo_parts7 != $newnamepo_parts7) {
-            $request['po_parts_7'] = $newnamepo_parts7;
-            $request['up_by_parts_po_7'] = $request['as_up_by_parts_po_7'];
-            $request['mny_parts_po_7'] = $request['as_mny_parts_po_7'];
-            $request['date_po_parts_7'] = $request['as_date_po_parts_7'];
-        }
-        if ($oldnamepo_parts8 != $newnamepo_parts8) {
-            $request['po_parts_8'] = $newnamepo_parts8;
-            $request['up_by_parts_po_8'] = $request['as_up_by_parts_po_8'];
-            $request['mny_parts_po_8'] = $request['as_mny_parts_po_8'];
-            $request['date_po_parts_8'] = $request['as_date_po_parts_8'];
-        }
-        if ($oldnamepo_parts9 != $newnamepo_parts9) {
-            $request['po_parts_9'] = $newnamepo_parts9;
-            $request['up_by_parts_po_9'] = $request['as_up_by_parts_po_9'];
-            $request['mny_parts_po_9'] = $request['as_mny_parts_po_9'];
-            $request['date_po_parts_9'] = $request['as_date_po_parts_9'];
-        }
-        if ($oldnamepo_parts10 != $newnamepo_parts10) {
-            $request['po_parts_10'] = $newnamepo_parts10;
-            $request['up_by_parts_po_10'] = $request['as_up_by_parts_po_10'];
-            $request['mny_parts_po_10'] = $request['as_mny_parts_po_10'];
-            $request['date_po_parts_10'] = $request['as_date_po_parts_10'];
-        }
-        if ($oldnamepo_parts11 != $newnamepo_parts11) {
-            $request['po_parts_11'] = $newnamepo_parts11;
-            $request['up_by_parts_po_11'] = $request['as_up_by_parts_po_11'];
-            $request['mny_parts_po_11'] = $request['as_mny_parts_po_11'];
-            $request['date_po_parts_11'] = $request['as_date_po_parts_11'];
-        }
-        if ($oldnamepo_parts12 != $newnamepo_parts12) {
-            $request['po_parts_12'] = $newnamepo_parts12;
-            $request['up_by_parts_po_12'] = $request['as_up_by_parts_po_12'];
-            $request['mny_parts_po_12'] = $request['as_mny_parts_po_12'];
-            $request['date_po_parts_12'] = $request['as_date_po_parts_12'];
-        }
-        if ($oldnamepo_parts13 != $newnamepo_parts13) {
-            $request['po_parts_13'] = $newnamepo_parts13;
-            $request['up_by_parts_po_13'] = $request['as_up_by_parts_po_13'];
-            $request['mny_parts_po_13'] = $request['as_mny_parts_po_13'];
-            $request['date_po_parts_13'] = $request['as_date_po_parts_13'];
-        }
-        if ($oldnamepo_parts14 != $newnamepo_parts14) {
-            $request['po_parts_14'] = $newnamepo_parts14;
-            $request['up_by_parts_po_14'] = $request['as_up_by_parts_po_14'];
-            $request['mny_parts_po_14'] = $request['as_mny_parts_po_14'];
-            $request['date_po_parts_14'] = $request['as_date_po_parts_14'];
-        }
-        if ($oldnamepo_parts15 != $newnamepo_parts15) {
-            $request['po_parts_15'] = $newnamepo_parts15;
-            $request['up_by_parts_po_15'] = $request['as_up_by_parts_po_15'];
-            $request['mny_parts_po_15'] = $request['as_mny_parts_po_15'];
-            $request['date_po_parts_15'] = $request['as_date_po_parts_15'];
-        }
-        if ($oldnamepo_parts16 != $newnamepo_parts16) {
-            $request['po_parts_16'] = $newnamepo_parts16;
-            $request['up_by_parts_po_16'] = $request['as_up_by_parts_po_16'];
-            $request['mny_parts_po_16'] = $request['as_mny_parts_po_16'];
-            $request['date_po_parts_16'] = $request['as_date_po_parts_16'];
-        }
-        if ($oldnamepo_parts17 != $newnamepo_parts17) {
-            $request['po_parts_17'] = $newnamepo_parts17;
-            $request['up_by_parts_po_17'] = $request['as_up_by_parts_po_17'];
-            $request['mny_parts_po_17'] = $request['as_mny_parts_po_17'];
-            $request['date_po_parts_17'] = $request['as_date_po_parts_17'];
-        }
-        if ($oldnamepo_parts18 != $newnamepo_parts18) {
-            $request['po_parts_18'] = $newnamepo_parts18;
-            $request['up_by_parts_po_18'] = $request['as_up_by_parts_po_18'];
-            $request['mny_parts_po_18'] = $request['as_mny_parts_po_18'];
-            $request['date_po_parts_18'] = $request['as_date_po_parts_18'];
-        }
-        if ($oldnamepo_parts19 != $newnamepo_parts19) {
-            $request['po_parts_19'] = $newnamepo_parts19;
-            $request['up_by_parts_po_19'] = $request['as_up_by_parts_po_19'];
-            $request['mny_parts_po_19'] = $request['as_mny_parts_po_19'];
-            $request['date_po_parts_19'] = $request['as_date_po_parts_19'];
-        }
-        if ($oldnamepo_parts20 != $newnamepo_parts20) {
-            $request['po_parts_20'] = $newnamepo_parts20;
-            $request['up_by_parts_po_20'] = $request['as_up_by_parts_po_20'];
-            $request['mny_parts_po_20'] = $request['as_mny_parts_po_20'];
-            $request['date_po_parts_20'] = $request['as_date_po_parts_20'];
-        }
-        if ($oldnamepo_parts21 != $newnamepo_parts21) {
-            $request['po_parts_21'] = $newnamepo_parts21;
-            $request['up_by_parts_po_21'] = $request['as_up_by_parts_po_21'];
-            $request['mny_parts_po_21'] = $request['as_mny_parts_po_21'];
-            $request['date_po_parts_21'] = $request['as_date_po_parts_21'];
-        }
-        if ($oldnamepo_parts22 != $newnamepo_parts22) {
-            $request['po_parts_22'] = $newnamepo_parts22;
-            $request['up_by_parts_po_22'] = $request['as_up_by_parts_po_22'];
-            $request['mny_parts_po_22'] = $request['as_mny_parts_po_22'];
-            $request['date_po_parts_22'] = $request['as_date_po_parts_22'];
-        }
-        if ($oldnamepo_parts23 != $newnamepo_parts23) {
-            $request['po_parts_23'] = $newnamepo_parts23;
-            $request['up_by_parts_po_23'] = $request['as_up_by_parts_po_23'];
-            $request['mny_parts_po_23'] = $request['as_mny_parts_po_23'];
-            $request['date_po_parts_23'] = $request['as_date_po_parts_23'];
-        }
-        if ($oldnamepo_parts24 != $newnamepo_parts24) {
-            $request['po_parts_24'] = $newnamepo_parts24;
-            $request['up_by_parts_po_24'] = $request['as_up_by_parts_po_24'];
-            $request['mny_parts_po_24'] = $request['as_mny_parts_po_24'];
-            $request['date_po_parts_24'] = $request['as_date_po_parts_24'];
-        }
-        if ($oldnamepo_parts25 != $newnamepo_parts25) {
-            $request['po_parts_25'] = $newnamepo_parts25;
-            $request['up_by_parts_po_25'] = $request['as_up_by_parts_po_25'];
-            $request['mny_parts_po_25'] = $request['as_mny_parts_po_25'];
-            $request['date_po_parts_25'] = $request['as_date_po_parts_25'];
-        }
-        if ($oldnamepo_parts26 != $newnamepo_parts26) {
-            $request['po_parts_26'] = $newnamepo_parts26;
-            $request['up_by_parts_po_26'] = $request['as_up_by_parts_po_26'];
-            $request['mny_parts_po_26'] = $request['as_mny_parts_po_26'];
-            $request['date_po_parts_26'] = $request['as_date_po_parts_26'];
-        }
-        if ($oldnamepo_parts27 != $newnamepo_parts27) {
-            $request['po_parts_27'] = $newnamepo_parts27;
-            $request['up_by_parts_po_27'] = $request['as_up_by_parts_po_27'];
-            $request['mny_parts_po_27'] = $request['as_mny_parts_po_27'];
-            $request['date_po_parts_27'] = $request['as_date_po_parts_27'];
-        }
-        if ($oldnamepo_parts28 != $newnamepo_parts28) {
-            $request['po_parts_28'] = $newnamepo_parts28;
-            $request['up_by_parts_po_28'] = $request['as_up_by_parts_po_28'];
-            $request['mny_parts_po_28'] = $request['as_mny_parts_po_28'];
-            $request['date_po_parts_28'] = $request['as_date_po_parts_28'];
-        }
-        if ($oldnamepo_parts29 != $newnamepo_parts29) {
-            $request['po_parts_29'] = $newnamepo_parts29;
-            $request['up_by_parts_po_29'] = $request['as_up_by_parts_po_29'];
-            $request['mny_parts_po_29'] = $request['as_mny_parts_po_29'];
-            $request['date_po_parts_29'] = $request['as_date_po_parts_29'];
-        }
-        if ($oldnamepo_parts30 != $newnamepo_parts30) {
-            $request['po_parts_30'] = $newnamepo_parts30;
-            $request['up_by_parts_po_30'] = $request['as_up_by_parts_po_30'];
-            $request['mny_parts_po_30'] = $request['as_mny_parts_po_30'];
-            $request['date_po_parts_30'] = $request['as_date_po_parts_30'];
-        }
-        if ($oldnamepo_parts31 != $newnamepo_parts31) {
-            $request['po_parts_31'] = $newnamepo_parts31;
-            $request['up_by_parts_po_31'] = $request['as_up_by_parts_po_31'];
-            $request['mny_parts_po_31'] = $request['as_mny_parts_po_31'];
-            $request['date_po_parts_31'] = $request['as_date_po_parts_31'];
-        }
-        if ($oldnamepo_parts32 != $newnamepo_parts32) {
-            $request['po_parts_32'] = $newnamepo_parts32;
-            $request['up_by_parts_po_32'] = $request['as_up_by_parts_po_32'];
-            $request['mny_parts_po_32'] = $request['as_mny_parts_po_32'];
-            $request['date_po_parts_32'] = $request['as_date_po_parts_32'];
-        }
-        if ($oldnamepo_parts33 != $newnamepo_parts33) {
-            $request['po_parts_33'] = $newnamepo_parts33;
-            $request['up_by_parts_po_33'] = $request['as_up_by_parts_po_33'];
-            $request['mny_parts_po_33'] = $request['as_mny_parts_po_33'];
-            $request['date_po_parts_33'] = $request['as_date_po_parts_33'];
-        }
-        if ($oldnamepo_parts34 != $newnamepo_parts34) {
-            $request['po_parts_34'] = $newnamepo_parts34;
-            $request['up_by_parts_po_34'] = $request['as_up_by_parts_po_34'];
-            $request['mny_parts_po_34'] = $request['as_mny_parts_po_34'];
-            $request['date_po_parts_34'] = $request['as_date_po_parts_34'];
-        }
-        if ($oldnamepo_parts35 != $newnamepo_parts35) {
-            $request['po_parts_35'] = $newnamepo_parts35;
-            $request['up_by_parts_po_35'] = $request['as_up_by_parts_po_35'];
-            $request['mny_parts_po_35'] = $request['as_mny_parts_po_35'];
-            $request['date_po_parts_35'] = $request['as_date_po_parts_35'];
-        }
-        if ($oldnamepo_parts36 != $newnamepo_parts36) {
-            $request['po_parts_36'] = $newnamepo_parts36;
-            $request['up_by_parts_po_36'] = $request['as_up_by_parts_po_36'];
-            $request['mny_parts_po_36'] = $request['as_mny_parts_po_36'];
-            $request['date_po_parts_36'] = $request['as_date_po_parts_36'];
-        }
-        if ($oldnamepo_parts37 != $newnamepo_parts37) {
-            $request['po_parts_37'] = $newnamepo_parts37;
-            $request['up_by_parts_po_37'] = $request['as_up_by_parts_po_37'];
-            $request['mny_parts_po_37'] = $request['as_mny_parts_po_37'];
-            $request['date_po_parts_37'] = $request['as_date_po_parts_37'];
-        }
-        if ($oldnamepo_parts38 != $newnamepo_parts38) {
-            $request['po_parts_38'] = $newnamepo_parts38;
-            $request['up_by_parts_po_38'] = $request['as_up_by_parts_po_38'];
-            $request['mny_parts_po_38'] = $request['as_mny_parts_po_38'];
-            $request['date_po_parts_38'] = $request['as_date_po_parts_38'];
-        }
-        if ($oldnamepo_parts39 != $newnamepo_parts39) {
-            $request['po_parts_39'] = $newnamepo_parts39;
-            $request['up_by_parts_po_39'] = $request['as_up_by_parts_po_39'];
-            $request['mny_parts_po_39'] = $request['as_mny_parts_po_39'];
-            $request['date_po_parts_39'] = $request['as_date_po_parts_39'];
-        }
-        if ($oldnamepo_parts40 != $newnamepo_parts40) {
-            $request['po_parts_40'] = $newnamepo_parts40;
-            $request['up_by_parts_po_40'] = $request['as_up_by_parts_po_40'];
-            $request['mny_parts_po_40'] = $request['as_mny_parts_po_40'];
-            $request['date_po_parts_40'] = $request['as_date_po_parts_40'];
-        }
-        if ($oldnamepo_parts41 != $newnamepo_parts41) {
-            $request['po_parts_41'] = $newnamepo_parts41;
-            $request['up_by_parts_po_41'] = $request['as_up_by_parts_po_41'];
-            $request['mny_parts_po_41'] = $request['as_mny_parts_po_41'];
-            $request['date_po_parts_41'] = $request['as_date_po_parts_41'];
-        }
-        if ($oldnamepo_parts42 != $newnamepo_parts42) {
-            $request['po_parts_42'] = $newnamepo_parts42;
-            $request['up_by_parts_po_42'] = $request['as_up_by_parts_po_42'];
-            $request['mny_parts_po_42'] = $request['as_mny_parts_po_42'];
-            $request['date_po_parts_42'] = $request['as_date_po_parts_42'];
-        }
-        if ($oldnamepo_parts43 != $newnamepo_parts43) {
-            $request['po_parts_43'] = $newnamepo_parts43;
-            $request['up_by_parts_po_43'] = $request['as_up_by_parts_po_43'];
-            $request['mny_parts_po_43'] = $request['as_mny_parts_po_43'];
-            $request['date_po_parts_43'] = $request['as_date_po_parts_43'];
-        }
-        if ($oldnamepo_parts44 != $newnamepo_parts44) {
-            $request['po_parts_44'] = $newnamepo_parts44;
-            $request['up_by_parts_po_44'] = $request['as_up_by_parts_po_44'];
-            $request['mny_parts_po_44'] = $request['as_mny_parts_po_44'];
-            $request['date_po_parts_44'] = $request['as_date_po_parts_44'];
-        }
-        if ($oldnamepo_parts45 != $newnamepo_parts45) {
-            $request['po_parts_45'] = $newnamepo_parts45;
-            $request['up_by_parts_po_45'] = $request['as_up_by_parts_po_45'];
-            $request['mny_parts_po_45'] = $request['as_mny_parts_po_45'];
-            $request['date_po_parts_45'] = $request['as_date_po_parts_45'];
+            if ($request->has($mnyPartsPO)) {
+                $request["nparts_po_$i"] = intval(str_replace('.', '', $request->$mnyPartsPO));
+            }
         }
 
-        if ($oldnamepo_jasa1 != $newnamepo_jasa1) {
-            $request['po_jasa_1'] = $newnamepo_jasa1;
-            $request['up_by_jasa_po_1'] = $request['as_up_by_jasa_po_1'];
-            $request['mny_jasa_po_1'] = $request['as_mny_jasa_po_1'];
-            $request['date_po_jasa_1'] = $request['as_date_po_jasa_1'];
-        }
-        if ($oldnamepo_jasa2 != $newnamepo_jasa2) {
-            $request['po_jasa_2'] = $newnamepo_jasa2;
-            $request['up_by_jasa_po_2'] = $request['as_up_by_jasa_po_2'];
-            $request['mny_jasa_po_2'] = $request['as_mny_jasa_po_2'];
-            $request['date_po_jasa_2'] = $request['as_date_po_jasa_2'];
-        }
-        if ($oldnamepo_jasa3 != $newnamepo_jasa3) {
-            $request['po_jasa_3'] = $newnamepo_jasa3;
-            $request['up_by_jasa_po_3'] = $request['as_up_by_jasa_po_3'];
-            $request['mny_jasa_po_3'] = $request['as_mny_jasa_po_3'];
-            $request['date_po_jasa_3'] = $request['as_date_po_jasa_3'];
-        }
-        if ($oldnamepo_jasa4 != $newnamepo_jasa4) {
-            $request['po_jasa_4'] = $newnamepo_jasa4;
-            $request['up_by_jasa_po_4'] = $request['as_up_by_jasa_po_4'];
-            $request['mny_jasa_po_4'] = $request['as_mny_jasa_po_4'];
-            $request['date_po_jasa_4'] = $request['as_date_po_jasa_4'];
-        }
-        if ($oldnamepo_jasa5 != $newnamepo_jasa5) {
-            $request['po_jasa_5'] = $newnamepo_jasa5;
-            $request['up_by_jasa_po_5'] = $request['as_up_by_jasa_po_5'];
-            $request['mny_jasa_po_5'] = $request['as_mny_jasa_po_5'];
-            $request['date_po_jasa_5'] = $request['as_date_po_jasa_5'];
-        }
-        if ($oldnamepo_jasa6 != $newnamepo_jasa6) {
-            $request['po_jasa_6'] = $newnamepo_jasa6;
-            $request['up_by_jasa_po_6'] = $request['as_up_by_jasa_po_6'];
-            $request['mny_jasa_po_6'] = $request['as_mny_jasa_po_6'];
-            $request['date_po_jasa_6'] = $request['as_date_po_jasa_6'];
-        }
-        if ($oldnamepo_jasa7 != $newnamepo_jasa7) {
-            $request['po_jasa_7'] = $newnamepo_jasa7;
-            $request['up_by_jasa_po_7'] = $request['as_up_by_jasa_po_7'];
-            $request['mny_jasa_po_7'] = $request['as_mny_jasa_po_7'];
-            $request['date_po_jasa_7'] = $request['as_date_po_jasa_7'];
-        }
-        if ($oldnamepo_jasa8 != $newnamepo_jasa8) {
-            $request['po_jasa_8'] = $newnamepo_jasa8;
-            $request['up_by_jasa_po_8'] = $request['as_up_by_jasa_po_8'];
-            $request['mny_jasa_po_8'] = $request['as_mny_jasa_po_8'];
-            $request['date_po_jasa_8'] = $request['as_date_po_jasa_8'];
-        }
-        if ($oldnamepo_jasa9 != $newnamepo_jasa9) {
-            $request['po_jasa_9'] = $newnamepo_jasa9;
-            $request['up_by_jasa_po_9'] = $request['as_up_by_jasa_po_9'];
-            $request['mny_jasa_po_9'] = $request['as_mny_jasa_po_9'];
-            $request['date_po_jasa_9'] = $request['as_date_po_jasa_9'];
-        }
-        if ($oldnamepo_jasa10 != $newnamepo_jasa10) {
-            $request['po_jasa_10'] = $newnamepo_jasa10;
-            $request['up_by_jasa_po_10'] = $request['as_up_by_jasa_po_10'];
-            $request['mny_jasa_po_10'] = $request['as_mny_jasa_po_10'];
-            $request['date_po_jasa_10'] = $request['as_date_po_jasa_10'];
-        }
-        if ($oldnamepo_jasa11 != $newnamepo_jasa11) {
-            $request['po_jasa_11'] = $newnamepo_jasa11;
-            $request['up_by_jasa_po_11'] = $request['as_up_by_jasa_po_11'];
-            $request['mny_jasa_po_11'] = $request['as_mny_jasa_po_11'];
-            $request['date_po_jasa_11'] = $request['as_date_po_jasa_11'];
-        }
-        if ($oldnamepo_jasa12 != $newnamepo_jasa12) {
-            $request['po_jasa_12'] = $newnamepo_jasa12;
-            $request['up_by_jasa_po_12'] = $request['as_up_by_jasa_po_12'];
-            $request['mny_jasa_po_12'] = $request['as_mny_jasa_po_12'];
-            $request['date_po_jasa_12'] = $request['as_date_po_jasa_12'];
-        }
-        if ($oldnamepo_jasa13 != $newnamepo_jasa13) {
-            $request['po_jasa_13'] = $newnamepo_jasa13;
-            $request['up_by_jasa_po_13'] = $request['as_up_by_jasa_po_13'];
-            $request['mny_jasa_po_13'] = $request['as_mny_jasa_po_13'];
-            $request['date_po_jasa_13'] = $request['as_date_po_jasa_13'];
-        }
-        if ($oldnamepo_jasa14 != $newnamepo_jasa14) {
-            $request['po_jasa_14'] = $newnamepo_jasa14;
-            $request['up_by_jasa_po_14'] = $request['as_up_by_jasa_po_14'];
-            $request['mny_jasa_po_14'] = $request['as_mny_jasa_po_14'];
-            $request['date_po_jasa_14'] = $request['as_date_po_jasa_14'];
-        }
-        if ($oldnamepo_jasa15 != $newnamepo_jasa15) {
-            $request['po_jasa_15'] = $newnamepo_jasa15;
-            $request['up_by_jasa_po_15'] = $request['as_up_by_jasa_po_15'];
-            $request['mny_jasa_po_15'] = $request['as_mny_jasa_po_15'];
-            $request['date_po_jasa_15'] = $request['as_date_po_jasa_15'];
-        }
-        if ($oldnamepo_jasa16 != $newnamepo_jasa16) {
-            $request['po_jasa_16'] = $newnamepo_jasa16;
-            $request['up_by_jasa_po_16'] = $request['as_up_by_jasa_po_16'];
-            $request['mny_jasa_po_16'] = $request['as_mny_jasa_po_16'];
-            $request['date_po_jasa_16'] = $request['as_date_po_jasa_16'];
-        }
-        if ($oldnamepo_jasa17 != $newnamepo_jasa17) {
-            $request['po_jasa_17'] = $newnamepo_jasa17;
-            $request['up_by_jasa_po_17'] = $request['as_up_by_jasa_po_17'];
-            $request['mny_jasa_po_17'] = $request['as_mny_jasa_po_17'];
-            $request['date_po_jasa_17'] = $request['as_date_po_jasa_17'];
-        }
-        if ($oldnamepo_jasa18 != $newnamepo_jasa18) {
-            $request['po_jasa_18'] = $newnamepo_jasa18;
-            $request['up_by_jasa_po_18'] = $request['as_up_by_jasa_po_18'];
-            $request['mny_jasa_po_18'] = $request['as_mny_jasa_po_18'];
-            $request['date_po_jasa_18'] = $request['as_date_po_jasa_18'];
-        }
-        if ($oldnamepo_jasa19 != $newnamepo_jasa19) {
-            $request['po_jasa_19'] = $newnamepo_jasa19;
-            $request['up_by_jasa_po_19'] = $request['as_up_by_jasa_po_19'];
-            $request['mny_jasa_po_19'] = $request['as_mny_jasa_po_19'];
-            $request['date_po_jasa_19'] = $request['as_date_po_jasa_19'];
-        }
-        if ($oldnamepo_jasa20 != $newnamepo_jasa20) {
-            $request['po_jasa_20'] = $newnamepo_jasa20;
-            $request['up_by_jasa_po_20'] = $request['as_up_by_jasa_po_20'];
-            $request['mny_jasa_po_20'] = $request['as_mny_jasa_po_20'];
-            $request['date_po_jasa_20'] = $request['as_date_po_jasa_20'];
-        }
-        if ($oldnamepo_jasa21 != $newnamepo_jasa21) {
-            $request['po_jasa_21'] = $newnamepo_jasa21;
-            $request['up_by_jasa_po_21'] = $request['as_up_by_jasa_po_21'];
-            $request['mny_jasa_po_21'] = $request['as_mny_jasa_po_21'];
-            $request['date_po_jasa_21'] = $request['as_date_po_jasa_21'];
-        }
-        if ($oldnamepo_jasa22 != $newnamepo_jasa22) {
-            $request['po_jasa_22'] = $newnamepo_jasa22;
-            $request['up_by_jasa_po_22'] = $request['as_up_by_jasa_po_22'];
-            $request['mny_jasa_po_22'] = $request['as_mny_jasa_po_22'];
-            $request['date_po_jasa_22'] = $request['as_date_po_jasa_22'];
-        }
-        if ($oldnamepo_jasa23 != $newnamepo_jasa23) {
-            $request['po_jasa_23'] = $newnamepo_jasa23;
-            $request['up_by_jasa_po_23'] = $request['as_up_by_jasa_po_23'];
-            $request['mny_jasa_po_23'] = $request['as_mny_jasa_po_23'];
-            $request['date_po_jasa_23'] = $request['as_date_po_jasa_23'];
-        }
-        if ($oldnamepo_jasa24 != $newnamepo_jasa24) {
-            $request['po_jasa_24'] = $newnamepo_jasa24;
-            $request['up_by_jasa_po_24'] = $request['as_up_by_jasa_po_24'];
-            $request['mny_jasa_po_24'] = $request['as_mny_jasa_po_24'];
-            $request['date_po_jasa_24'] = $request['as_date_po_jasa_24'];
-        }
-        if ($oldnamepo_jasa25 != $newnamepo_jasa25) {
-            $request['po_jasa_25'] = $newnamepo_jasa25;
-            $request['up_by_jasa_po_25'] = $request['as_up_by_jasa_po_25'];
-            $request['mny_jasa_po_25'] = $request['as_mny_jasa_po_25'];
-            $request['date_po_jasa_25'] = $request['as_date_po_jasa_25'];
-        }
-        if ($oldnamepo_jasa26 != $newnamepo_jasa26) {
-            $request['po_jasa_26'] = $newnamepo_jasa26;
-            $request['up_by_jasa_po_26'] = $request['as_up_by_jasa_po_26'];
-            $request['mny_jasa_po_26'] = $request['as_mny_jasa_po_26'];
-            $request['date_po_jasa_26'] = $request['as_date_po_jasa_26'];
-        }
-        if ($oldnamepo_jasa27 != $newnamepo_jasa27) {
-            $request['po_jasa_27'] = $newnamepo_jasa27;
-            $request['up_by_jasa_po_27'] = $request['as_up_by_jasa_po_27'];
-            $request['mny_jasa_po_27'] = $request['as_mny_jasa_po_27'];
-            $request['date_po_jasa_27'] = $request['as_date_po_jasa_27'];
-        }
-        if ($oldnamepo_jasa28 != $newnamepo_jasa28) {
-            $request['po_jasa_28'] = $newnamepo_jasa28;
-            $request['up_by_jasa_po_28'] = $request['as_up_by_jasa_po_28'];
-            $request['mny_jasa_po_28'] = $request['as_mny_jasa_po_28'];
-            $request['date_po_jasa_28'] = $request['as_date_po_jasa_28'];
-        }
-        if ($oldnamepo_jasa29 != $newnamepo_jasa29) {
-            $request['po_jasa_29'] = $newnamepo_jasa29;
-            $request['up_by_jasa_po_29'] = $request['as_up_by_jasa_po_29'];
-            $request['mny_jasa_po_29'] = $request['as_mny_jasa_po_29'];
-            $request['date_po_jasa_29'] = $request['as_date_po_jasa_29'];
-        }
-        if ($oldnamepo_jasa30 != $newnamepo_jasa30) {
-            $request['po_jasa_30'] = $newnamepo_jasa30;
-            $request['up_by_jasa_po_30'] = $request['as_up_by_jasa_po_30'];
-            $request['mny_jasa_po_30'] = $request['as_mny_jasa_po_30'];
-            $request['date_po_jasa_30'] = $request['as_date_po_jasa_30'];
+        for ($i = 1; $i <= 45; $i++) {
+            $oldName = "oldnamepo_parts{$i}";
+            $newName = "newnamepo_parts{$i}";
+            $npartsName = "nparts_po_{$i}";
+
+            $requestKeyPO = "po_parts_{$i}";
+            $requestKeyUpBy = "up_by_parts_po_{$i}";
+            $requestKeyMny = "mny_parts_po_{$i}";
+            $requestKeyDate = "date_po_parts_{$i}";
+
+            if ($$oldName != $$newName) {
+                $request[$requestKeyPO] = $$newName;
+                $request[$requestKeyUpBy] = $request["as_up_by_parts_po_$i"];
+                $request[$requestKeyMny] = $request[$npartsName];
+                $request[$requestKeyDate] = $request["as_date_po_parts_$i"];
+            }
         }
 
-        if ($oldnamepo_mnftr1 != $newnamepo_mnftr1) {
-            $request['po_mnftr_1'] = $newnamepo_mnftr1;
-            $request['up_by_mnftr_po_1'] = $request['as_up_by_mnftr_po_1'];
-            $request['mny_mnftr_po_1'] = $request['as_mny_mnftr_po_1'];
-            $request['date_po_mnftr_1'] = $request['as_date_po_mnftr_1'];
-        }
-        if ($oldnamepo_mnftr2 != $newnamepo_mnftr2) {
-            $request['po_mnftr_2'] = $newnamepo_mnftr2;
-            $request['up_by_mnftr_po_2'] = $request['as_up_by_mnftr_po_2'];
-            $request['mny_mnftr_po_2'] = $request['as_mny_mnftr_po_2'];
-            $request['date_po_mnftr_2'] = $request['as_date_po_mnftr_2'];
-        }
-        if ($oldnamepo_mnftr3 != $newnamepo_mnftr3) {
-            $request['po_mnftr_3'] = $newnamepo_mnftr3;
-            $request['up_by_mnftr_po_3'] = $request['as_up_by_mnftr_po_3'];
-            $request['mny_mnftr_po_3'] = $request['as_mny_mnftr_po_3'];
-            $request['date_po_mnftr_3'] = $request['as_date_po_mnftr_3'];
-        }
-        if ($oldnamepo_mnftr4 != $newnamepo_mnftr4) {
-            $request['po_mnftr_4'] = $newnamepo_mnftr4;
-            $request['up_by_mnftr_po_4'] = $request['as_up_by_mnftr_po_4'];
-            $request['mny_mnftr_po_4'] = $request['as_mny_mnftr_po_4'];
-            $request['date_po_mnftr_4'] = $request['as_date_po_mnftr_4'];
-        }
-        if ($oldnamepo_mnftr5 != $newnamepo_mnftr5) {
-            $request['po_mnftr_5'] = $newnamepo_mnftr5;
-            $request['up_by_mnftr_po_5'] = $request['as_up_by_mnftr_po_5'];
-            $request['mny_mnftr_po_5'] = $request['as_mny_mnftr_po_5'];
-            $request['date_po_mnftr_5'] = $request['as_date_po_mnftr_5'];
-        }
-        if ($oldnamepo_mnftr6 != $newnamepo_mnftr6) {
-            $request['po_mnftr_6'] = $newnamepo_mnftr6;
-            $request['up_by_mnftr_po_6'] = $request['as_up_by_mnftr_po_6'];
-            $request['mny_mnftr_po_6'] = $request['as_mny_mnftr_po_6'];
-            $request['date_po_mnftr_6'] = $request['as_date_po_mnftr_6'];
-        }
-        if ($oldnamepo_mnftr7 != $newnamepo_mnftr7) {
-            $request['po_mnftr_7'] = $newnamepo_mnftr7;
-            $request['up_by_mnftr_po_7'] = $request['as_up_by_mnftr_po_7'];
-            $request['mny_mnftr_po_7'] = $request['as_mny_mnftr_po_7'];
-            $request['date_po_mnftr_7'] = $request['as_date_po_mnftr_7'];
-        }
-        if ($oldnamepo_mnftr8 != $newnamepo_mnftr8) {
-            $request['po_mnftr_8'] = $newnamepo_mnftr8;
-            $request['up_by_mnftr_po_8'] = $request['as_up_by_mnftr_po_8'];
-            $request['mny_mnftr_po_8'] = $request['as_mny_mnftr_po_8'];
-            $request['date_po_mnftr_8'] = $request['as_date_po_mnftr_8'];
-        }
-        if ($oldnamepo_mnftr9 != $newnamepo_mnftr9) {
-            $request['po_mnftr_9'] = $newnamepo_mnftr9;
-            $request['up_by_mnftr_po_9'] = $request['as_up_by_mnftr_po_9'];
-            $request['mny_mnftr_po_9'] = $request['as_mny_mnftr_po_9'];
-            $request['date_po_mnftr_9'] = $request['as_date_po_mnftr_9'];
-        }
-        if ($oldnamepo_mnftr10 != $newnamepo_mnftr10) {
-            $request['po_mnftr_10'] = $newnamepo_mnftr10;
-            $request['up_by_mnftr_po_10'] = $request['as_up_by_mnftr_po_10'];
-            $request['mny_mnftr_po_10'] = $request['as_mny_mnftr_po_10'];
-            $request['date_po_mnftr_10'] = $request['as_date_po_mnftr_10'];
+        for ($i = 1; $i <= 30; $i++) {
+            $mnyJasaPO = "as_mny_jasa_po_$i";
+
+            if ($request->has($mnyJasaPO)) {
+                $request["njasa_po_$i"] = intval(str_replace('.', '', $request->$mnyJasaPO));
+            }
         }
 
-        if ($oldnamepo_capo1 != $newnamepo_capo1) {
-            $request['po_capo_1'] = $newnamepo_capo1;
-            $request['up_by_capo_po_1'] = $request['as_up_by_capo_po_1'];
-            $request['mny_capo_po_1'] = $request['as_mny_capo_po_1'];
-            $request['date_po_capo_1'] = $request['as_date_po_capo_1'];
-        }
-        if ($oldnamepo_capo2 != $newnamepo_capo2) {
-            $request['po_capo_2'] = $newnamepo_capo2;
-            $request['up_by_capo_po_2'] = $request['as_up_by_capo_po_2'];
-            $request['mny_capo_po_2'] = $request['as_mny_capo_po_2'];
-            $request['date_po_capo_2'] = $request['as_date_po_capo_2'];
-        }
-        if ($oldnamepo_capo3 != $newnamepo_capo3) {
-            $request['po_capo_3'] = $newnamepo_capo3;
-            $request['up_by_capo_po_3'] = $request['as_up_by_capo_po_3'];
-            $request['mny_capo_po_3'] = $request['as_mny_capo_po_3'];
-            $request['date_po_capo_3'] = $request['as_date_po_capo_3'];
-        }
-        if ($oldnamepo_capo4 != $newnamepo_capo4) {
-            $request['po_capo_4'] = $newnamepo_capo4;
-            $request['up_by_capo_po_4'] = $request['as_up_by_capo_po_4'];
-            $request['mny_capo_po_4'] = $request['as_mny_capo_po_4'];
-            $request['date_po_capo_4'] = $request['as_date_po_capo_4'];
-        }
-        if ($oldnamepo_capo5 != $newnamepo_capo5) {
-            $request['po_capo_5'] = $newnamepo_capo5;
-            $request['up_by_capo_po_5'] = $request['as_up_by_capo_po_5'];
-            $request['mny_capo_po_5'] = $request['as_mny_capo_po_5'];
-            $request['date_po_capo_5'] = $request['as_date_po_capo_5'];
+        for ($i = 1; $i <= 30; $i++) {
+            $oldName = "oldnamepo_jasa{$i}";
+            $newName = "newnamepo_jasa{$i}";
+            $njasaName = "njasa_po_{$i}";
+
+            $requestKeyPO = "po_jasa_{$i}";
+            $requestKeyUpBy = "up_by_jasa_po_{$i}";
+            $requestKeyMny = "mny_jasa_po_{$i}";
+            $requestKeyDate = "date_po_jasa_{$i}";
+
+            if ($$oldName != $$newName) {
+                $request[$requestKeyPO] = $$newName;
+                $request[$requestKeyUpBy] = $request["as_up_by_jasa_po_$i"];
+                $request[$requestKeyMny] = $request[$njasaName];
+                $request[$requestKeyDate] = $request["as_date_po_jasa_$i"];
+            }
         }
 
-        // menyimpan seluruh ke table purchasing 01
+        for ($i = 1; $i <= 10; $i++) {
+            $mnyMnftr = "as_mny_mnftr_po_$i";
+
+            if ($request->has($mnyMnftr)) {
+                $request["nmnftr_po_$i"] = intval(str_replace('.', '', $request->$mnyMnftr));
+            }
+        }
+
+        for ($i = 1; $i <= 10; $i++) {
+            $oldName = "oldnamepo_mnftr{$i}";
+            $newName = "newnamepo_mnftr{$i}";
+            $nmnftrName = "nmnftr_po_$i";
+
+            $requestKeyPO = "po_mnftr_{$i}";
+            $requestKeyUpBy = "up_by_mnftr_po_{$i}";
+            $requestKeyMny = "mny_mnftr_po_{$i}";
+            $requestKeyDate = "date_po_mnftr_{$i}";
+
+            if ($$oldName != $$newName) {
+                $request[$requestKeyPO] = $$newName;
+                $request[$requestKeyUpBy] = $request["as_up_by_mnftr_po_$i"];
+                $request[$requestKeyMny] = $request[$nmnftrName];
+                $request[$requestKeyDate] = $request["as_date_po_mnftr_$i"];
+            }
+        }
+
+        for ($i = 1; $i <= 5; $i++) {
+            $mnyCapoPO = "as_mny_capo_po_$i";
+
+            if ($request->has($mnyCapoPO)) {
+                $request["ncapo_po_$i"] = intval(str_replace('.', '', $request->$mnyCapoPO));
+            }
+        }
+
+        for ($i = 1; $i <= 5; $i++) {
+            $oldName = "oldnamepo_capo{$i}";
+            $newName = "newnamepo_capo{$i}";
+            $ncapoName = "ncapo_po_{$i}";
+
+            $requestKeyPO = "po_capo_{$i}";
+            $requestKeyUpBy = "up_by_capo_po_{$i}";
+            $requestKeyMny = "mny_capo_po_{$i}";
+            $requestKeyDate = "date_po_capo_{$i}";
+
+            if ($$oldName != $$newName) {
+                $request[$requestKeyPO] = $$newName;
+                $request[$requestKeyUpBy] = $request["as_up_by_capo_po_$i"];
+                $request[$requestKeyMny] = $request[$ncapoName];
+                $request[$requestKeyDate] = $request["as_date_po_capo_$i"];
+            }
+        }
+        // menyimpan seluruh ke table purchasing 03
         $viewdataproject->update($request->all());
         $koneksipo->update($request->all());
         //untuk update status purchasing
         $koneksipr->update($request->all());
-
-
         return redirect()->action(
             [StaffProjectController::class, 'TigaTitikTigaFormProgress'],
             [
@@ -23153,15 +21824,7 @@ class StaffProjectController extends Controller
                 ->storeAs('supervisor/project/03_04_PR', $newnamepay_da5);
         }
 
-      /*   for ($i = 1; $i <= 50; $i++) {
-            $inputName = "as_mny_parts_pay_$i";
-
-            if ($request->has($inputName)) {
-                $variableName = "numparts_pay_$i";
-                $$variableName = intval(str_replace('.', '', $request->$inputName));
-            }
-        } */
-
+        //proses penyimpanan dgn substitusi nama
         for ($i = 1; $i <= 45; $i++) {
             $mnyPartsPay = "as_mny_parts_pay_$i";
 
@@ -23214,9 +21877,6 @@ class StaffProjectController extends Controller
             }
         }
 
-        /* dd($numpay_parts_1); */
-        // menyimpan jika kosong atau menimpa
-        // Process 'mnftr' fields
         for ($i = 1; $i <= 10; $i++) {
             $mnyMnftr = "as_mny_mnftr_pay_$i";
 
@@ -23225,11 +21885,10 @@ class StaffProjectController extends Controller
             }
         }
 
-        // Further processing using the processed values
         for ($i = 1; $i <= 10; $i++) {
             $oldName = "oldnamepay_mnftr{$i}";
             $newName = "newnamepay_mnftr{$i}";
-            $nmnftrName = "nmnftr_pay_$i";  // This should be consistent with the key set in the first loop
+            $nmnftrName = "nmnftr_pay_$i";
 
             $requestKeyPay = "pay_mnftr_{$i}";
             $requestKeyUpBy = "up_by_mnftr_pay_{$i}";
@@ -23239,12 +21898,11 @@ class StaffProjectController extends Controller
             if ($$oldName != $$newName) {
                 $request[$requestKeyPay] = $$newName;
                 $request[$requestKeyUpBy] = $request["as_up_by_mnftr_pay_$i"];
-                $request[$requestKeyMny] = $request[$nmnftrName];  // Use the correct key
+                $request[$requestKeyMny] = $request[$nmnftrName];
                 $request[$requestKeyDate] = $request["as_date_pay_mnftr_$i"];
             }
         }
 
-        // Process 'da' fields
         for ($i = 1; $i <= 5; $i++) {
             $mnyDaPay = "as_mny_da_pay_$i";
 
@@ -23253,11 +21911,10 @@ class StaffProjectController extends Controller
             }
         }
 
-        // Further processing using the processed values
         for ($i = 1; $i <= 5; $i++) {
             $oldName = "oldnamepay_da{$i}";
             $newName = "newnamepay_da{$i}";
-            $ndaName = "nda_pay_{$i}";  // This should be consistent with the key set in the first loop
+            $ndaName = "nda_pay_{$i}";
 
             $requestKeyPay = "pay_da_{$i}";
             $requestKeyUpBy = "up_by_da_pay_{$i}";
@@ -23267,11 +21924,10 @@ class StaffProjectController extends Controller
             if ($$oldName != $$newName) {
                 $request[$requestKeyPay] = $$newName;
                 $request[$requestKeyUpBy] = $request["as_up_by_da_pay_$i"];
-                $request[$requestKeyMny] = $request[$ndaName];  // Use the correct key
+                $request[$requestKeyMny] = $request[$ndaName];
                 $request[$requestKeyDate] = $request["as_date_pay_da_$i"];
             }
         }
-
 
         // menyimpan seluruh ke table purchasing 01
         $viewdataproject->update($request->all());
@@ -28257,7 +26913,7 @@ class StaffProjectController extends Controller
         $viewdataproject->update($request->all());
         $koneksicl->update($request->all());
 
-return redirect()->action(
+        return redirect()->action(
             [StaffProjectController::class, 'EnamFormProgress'],
             [
                 'id' => $viewdataproject->id,

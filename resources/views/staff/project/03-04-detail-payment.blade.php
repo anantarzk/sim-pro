@@ -4135,7 +4135,7 @@
                                 </tbody>
                             </table>
                         </div>
-                        {{-- Akhir material --}}
+                        {{-- Akhir material parts --}}
 
                         {{-- PR Pekerjaan/Jasa --}}
                         {{-- awal standar formulir --}}
@@ -7458,7 +7458,7 @@
                                 </tbody>
                             </table>
                         </div>
-                        {{-- Akhir manufaktur --}}
+                        {{-- Akhir da --}}
                     </div>
                 </div>
                 {{-- tabcontent --}}
@@ -7504,9 +7504,9 @@
                                         <div class="">
                                             <input type="text" id="base-input"
                                                 class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                placeholder="Rp{{ number_format($koneksipay->{'mny_parts_pay_' . $number}, 0, ',', '.') }}"
+                                                placeholder="Sesuaikan nilai finansial dengan dokumen"
                                                 min="0" max="999999999999"
-                                                oninput="validity.valid||(value='');  formatAngka(this);"
+                                                oninput="validity.valid||(value=''); formatAngka(this);"
                                                 name="as_mny_parts_pay_{{ $number }}">
                                         </div>
                                     </div>
@@ -7553,9 +7553,9 @@
                                         <div class="">
                                             <input type="text" id="base-input"
                                                 class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                placeholder="Rp{{ number_format($koneksipay->{'mny_jasa_pay_' . $number}, 0, ',', '.') }}"
+                                                placeholder="Sesuaikan nilai finansial dengan dokumen"
                                                 min="0" max="999999999999"
-                                                oninput="validity.valid||(value='');  formatAngka(this);"
+                                                oninput="validity.valid||(value=''); formatAngka(this);"
                                                 name="as_mny_jasa_pay_{{ $number }}">
                                         </div>
                                     </div>
@@ -7599,9 +7599,9 @@
                                         <div class="">
                                             <input type="text" id="base-input"
                                                 class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                placeholder="Rp{{ number_format($koneksipay->{'mny_mnftr_pay_' . $number}, 0, ',', '.') }}"
+                                                placeholder="Sesuaikan nilai finansial dengan dokumen"
                                                 min="0" max="999999999999"
-                                                oninput="validity.valid||(value='');  formatAngka(this);"
+                                                oninput="validity.valid||(value=''); formatAngka(this);"
                                                 name="as_mny_mnftr_pay_{{ $number }}">
                                         </div>
                                     </div>
@@ -7646,10 +7646,9 @@
                                     <div class="">
                                         <input type="text" id="base-input"
                                             class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                            {{-- placeholder="Rp{{ number_format($koneksipay->{'as_mny_da_pay_' . $number}, 0, ',', '.') }}" --}}
-                                            value="{{ $koneksipay->{'mny_da_pay_' . $number} ?? '' }}"
+                                            placeholder="Sesuaikan nilai finansial dengan dokumen"
                                             min="0" max="999999999999"
-                                            oninput="validity.valid||(value='');  formatAngka(this);"
+                                            oninput="validity.valid||(value=''); formatAngka(this);"
                                             name="as_mny_da_pay_{{ $number }}">
                                     </div>
                                 </div>
@@ -7735,9 +7734,9 @@
                                             <div class="">
                                                 <input type="text" id="base-input"
                                                     class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                    placeholder="Rp{{ number_format($koneksipay->{'mny_parts_pay_' . $number}, 0, ',', '.') }}"
+                                                    value="{{ isset($koneksipay->{'mny_parts_pay_' . $number}) ? number_format($koneksipay->{'mny_parts_pay_' . $number}, 0, ',', '.') : '' }}"
                                                     min="0" max="999999999999"
-                                                    oninput="validity.valid||(value='');  formatAngka(this);"
+                                                    oninput="validity.valid||(value=''); formatAngka(this);"
                                                     name="as_mny_parts_pay_{{ $number }}">
                                             </div>
                                         </div>
@@ -7820,9 +7819,9 @@
                                             <div class="">
                                                 <input type="text" id="base-input"
                                                     class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                    placeholder="Rp{{ number_format($koneksipay->{'mny_jasa_pay_' . $number}, 0, ',', '.') }}"
+                                                    value="{{ isset($koneksipay->{'mny_jasa_pay_' . $number}) ? number_format($koneksipay->{'mny_jasa_pay_' . $number}, 0, ',', '.') : '' }}"
                                                     min="0" max="999999999999"
-                                                    oninput="validity.valid||(value='');  formatAngka(this);"
+                                                    oninput="validity.valid||(value=''); formatAngka(this);"
                                                     name="as_mny_jasa_pay_{{ $number }}">
                                             </div>
                                         </div>
@@ -7905,9 +7904,9 @@
                                             <div class="">
                                                 <input type="text" id="base-input"
                                                     class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                    placeholder="Rp{{ number_format($koneksipay->{'mny_mnftr_pay_' . $number}, 0, ',', '.') }}"
+                                                    value="{{ isset($koneksipay->{'mny_mnftr_pay_' . $number}) ? number_format($koneksipay->{'mny_mnftr_pay_' . $number}, 0, ',', '.') : '' }}"
                                                     min="0" max="999999999999"
-                                                    oninput="validity.valid||(value='');  formatAngka(this);"
+                                                    oninput="validity.valid||(value=''); formatAngka(this);"
                                                     name="as_mny_mnftr_pay_{{ $number }}">
                                             </div>
                                         </div>
@@ -7977,7 +7976,7 @@
                             <!-- Modal footer -->
                             <div class="items-center px-5 py-2 border-t border-gray-200 rounded-b">
                                 <p class="font-light text-lg">
-                                    Unggah dokumen baru
+                                    Unggah dokumen dan nilai finansial baru
                                 </p>
                                 <p class="text-sm font-bold">*Pastikan isi kedua bidang isian (file & nilai finansial)
                                     untuk dapat mengubah ajuan</p>
@@ -7987,10 +7986,9 @@
                                         <input type="file"name="as_pay_da_{{ $number }}" id="">
                                         <input type="text" id="base-input"
                                             class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                            {{-- placeholder="Rp{{ number_format($koneksipay->{'as_mny_da_pay_' . $number}, 0, ',', '.') }}" --}}
-                                            value="{{ $koneksipay->{'mny_da_pay_' . $number} ?? '' }}"
+                                            value="{{ isset($koneksipay->{'mny_da_pay_' . $number}) ? number_format($koneksipay->{'mny_da_pay_' . $number}, 0, ',', '.') : '' }}"
                                             min="0" max="999999999999"
-                                            oninput="validity.valid||(value='');  formatAngka(this);"
+                                            oninput="validity.valid||(value=''); formatAngka(this);"
                                             name="as_mny_da_pay_{{ $number }}">
                                     </div>
                                     @else()

@@ -566,7 +566,8 @@
         <div class="flex justify-between items-center">
             <div class="flex">
                 <p>Diperiksa oleh: &nbsp;
-                <div class="items-center py-1 px-2 text-sm font-medium text-center text-white bg-orange-500 mr-2 rounded">
+                <div
+                    class="items-center py-1 px-2 text-sm font-medium text-center text-white bg-orange-500 mr-2 rounded">
                     {{ $koneksifr->approval_by }}
                 </div>
                 </p>
@@ -685,7 +686,7 @@
 
         {{-- Yang diganti pertahapnya --}}
 
-        <form action="" method="post" enctype="multipart/form-data">
+        <form action="" method="post" enctype="multipart/form-data" id="uploadForm">
             @csrf
             @method('PUT')
             <div class="overflow-x-auto rounded-md">
@@ -698,9 +699,8 @@
                         <th class="w-[15%] font-medium">Aksi</th>
                     </thead>
                     <tbody class="text-left border">
-
                         <tr class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
-                            <td class="py-4 font-bold text-center">1.</td>
+                            <td class="py-4 text-center">1.</td>
                             <td class="flex justify-start py-4 items-center">
                                 @if ($koneksifr->atribut_1 != '')
                                     <a href="{{ asset('storage/supervisor/project/01_FR/' . $koneksifr->atribut_1) }}"
@@ -730,12 +730,23 @@
                             </td>
                             <td class="text-center">{{ $koneksifr->date_atribut_1 }}</td>
                             <td>
-                                @if ($koneksifr->atribut_1 != '')
+                                @if (($koneksifr->status_fr == '-' || $koneksifr->status_fr == 'Revisi Fund Request') && $koneksifr->atribut_1 == '')
+                                    <input type="file" name="as_atribut_1" id="fileInput_atribut_1"
+                                        style="display: none;">
+                                    <button type="button" onclick="openFileInput('atribut_1')"
+                                        class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md">
+                                        + Tambah dokumen
+                                    </button>
+                                @elseif (
+                                    ($koneksifr->status_fr == '-' || $koneksifr->status_fr == 'Revisi Fund Request') &&
+                                        $koneksifr->atribut_1 != '' &&
+                                        $koneksifr->status_fr != 'Complete' &&
+                                        $koneksifr->status_fr != 'Waiting Approval')
                                     <div class="justify-center flex space-x-2">
                                         <button type="button"
-                                            class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
-                                            data-modal-target="modal1" data-modal-show="modal1"
-                                            data-modal-toggle="modal1">
+                                            class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                            data-modal-target="modal" data-modal-show="modal"
+                                            data-modal-toggle="modal">
                                             Ubah
                                         </button>
                                         <button data-dropdown-toggle="dropdown1" type="button"
@@ -748,8 +759,6 @@
                                             </svg>
                                         </button>
                                     </div>
-                                @else
-                                    <input type="file" name="as_atribut_1" id="">
                                 @endif
                             </td>
                             <input type="text" hidden name="as_up_by_1" value="{{ Auth::user()->first_name }}">
@@ -757,7 +766,7 @@
                         </tr>
 
                         <tr class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
-                            <td class="py-4 font-bold text-center">2.</td>
+                            <td class="py-4 text-center">2.</td>
                             <td class="flex justify-start py-4 items-center">
 
                                 @if ($koneksifr->atribut_2 != '')
@@ -778,8 +787,6 @@
                                     target="blank" download="" class="hover:underline ">
                                     {{ $koneksifr->atribut_2 }}</a>
                                 {{-- == --}}
-
-
                             </td>
                             <td>
                                 @if ($koneksifr->up_by_2 != '')
@@ -791,13 +798,25 @@
                             </td>
                             <td class="text-center">{{ $koneksifr->date_atribut_2 }}</td>
                             <td>
-                                @if ($koneksifr->atribut_2 != '')
+                                @if (($koneksifr->status_fr == '-' || $koneksifr->status_fr == 'Revisi Fund Request') && $koneksifr->atribut_2 == '')
+                                    <input type="file" name="as_atribut_2" id="fileInput_atribut_2"
+                                        style="display: none;">
+                                    <button type="button" onclick="openFileInput('atribut_2')"
+                                        class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md">
+                                        + Tambah dokumen
+                                    </button>
+                                @elseif (
+                                    ($koneksifr->status_fr == '-' || $koneksifr->status_fr == 'Revisi Fund Request') &&
+                                        $koneksifr->atribut_2 != '' &&
+                                        $koneksifr->status_fr != 'Complete' &&
+                                        $koneksifr->status_fr != 'Waiting Approval')
                                     <div class="justify-center flex space-x-2">
                                         <button type="button"
-                                            class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                            class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                             data-modal-target="modal2" data-modal-show="modal2"
                                             data-modal-toggle="modal2">
-                                            Ubah</button>
+                                            Ubah
+                                        </button>
                                         <button data-dropdown-toggle="dropdown2" type="button"
                                             class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
                                             <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="22"
@@ -807,10 +826,7 @@
                                                 </path>
                                             </svg>
                                         </button>
-
                                     </div>
-                                @else
-                                    <input type="file" name="as_atribut_2" id="">
                                 @endif
                             </td>
                             <input type="text" hidden name="as_up_by_2" value="{{ Auth::user()->first_name }}">
@@ -818,7 +834,7 @@
                         </tr>
 
                         <tr class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
-                            <td class="py-4 font-bold text-center">3.</td>
+                            <td class="py-4 text-center">3.</td>
                             <td class="flex justify-start py-4 items-center">
 
                                 @if ($koneksifr->atribut_3 != '')
@@ -851,12 +867,25 @@
                             </td>
                             <td class="text-center">{{ $koneksifr->date_atribut_3 }}</td>
                             <td>
-                                @if ($koneksifr->atribut_3 != '')
+                                @if (($koneksifr->status_fr == '-' || $koneksifr->status_fr == 'Revisi Fund Request') && $koneksifr->atribut_3 == '')
+                                    <input type="file" name="as_atribut_3" id="fileInput_atribut_3"
+                                        style="display: none;">
+                                    <button type="button" onclick="openFileInput('atribut_3')"
+                                        class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md">
+                                        + Tambah dokumen
+                                    </button>
+                                @elseif (
+                                    ($koneksifr->status_fr == '-' || $koneksifr->status_fr == 'Revisi Fund Request') &&
+                                        $koneksifr->atribut_3 != '' &&
+                                        $koneksifr->status_fr != 'Complete' &&
+                                        $koneksifr->status_fr != 'Waiting Approval')
                                     <div class="justify-center flex space-x-2">
                                         <button type="button"
                                             class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                             data-modal-target="modal3" data-modal-show="modal3"
-                                            data-modal-toggle="modal3">Ubah</button>
+                                            data-modal-toggle="modal3">
+                                            Ubah
+                                        </button>
                                         <button data-dropdown-toggle="dropdown3" type="button"
                                             class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
                                             <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="22"
@@ -867,8 +896,6 @@
                                             </svg>
                                         </button>
                                     </div>
-                                @else
-                                    <input type="file" name="as_atribut_3" id="">
                                 @endif
                             </td>
                             <input type="text" hidden name="as_up_by_3" value="{{ Auth::user()->first_name }}">
@@ -876,7 +903,7 @@
                         </tr>
 
                         <tr class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
-                            <td class="py-4 font-bold text-center">4.</td>
+                            <td class="py-4 text-center">4.</td>
                             <td class="flex justify-start py-4 items-center">
 
                                 @if ($koneksifr->atribut_4 != '')
@@ -909,12 +936,25 @@
                             </td>
                             <td class="text-center">{{ $koneksifr->date_atribut_4 }}</td>
                             <td>
-                                @if ($koneksifr->atribut_4 != '')
+                                @if (($koneksifr->status_fr == '-' || $koneksifr->status_fr == 'Revisi Fund Request') && $koneksifr->atribut_4 == '')
+                                    <input type="file" name="as_atribut_4" id="fileInput_atribut_4"
+                                        style="display: none;">
+                                    <button type="button" onclick="openFileInput('atribut_4')"
+                                        class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md">
+                                        + Tambah dokumen
+                                    </button>
+                                @elseif (
+                                    ($koneksifr->status_fr == '-' || $koneksifr->status_fr == 'Revisi Fund Request') &&
+                                        $koneksifr->atribut_4 != '' &&
+                                        $koneksifr->status_fr != 'Complete' &&
+                                        $koneksifr->status_fr != 'Waiting Approval')
                                     <div class="justify-center flex space-x-2">
                                         <button type="button"
-                                            class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                            class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                             data-modal-target="modal4" data-modal-show="modal4"
-                                            data-modal-toggle="modal4">Ubah</button>
+                                            data-modal-toggle="modal4">
+                                            Ubah
+                                        </button>
                                         <button data-dropdown-toggle="dropdown4" type="button"
                                             class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
                                             <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="22"
@@ -925,8 +965,6 @@
                                             </svg>
                                         </button>
                                     </div>
-                                @else
-                                    <input type="file" name="as_atribut_4" id="">
                                 @endif
                             </td>
                             <input type="text" hidden name="as_up_by_4" value="{{ Auth::user()->first_name }}">
@@ -934,7 +972,7 @@
                         </tr>
 
                         <tr class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
-                            <td class="py-4 font-bold text-center">5.</td>
+                            <td class="py-4 text-center">5.</td>
                             <td class="flex justify-start py-4 items-center">
 
                                 @if ($koneksifr->atribut_5 != '')
@@ -967,12 +1005,25 @@
                             </td>
                             <td class="text-center">{{ $koneksifr->date_atribut_5 }}</td>
                             <td>
-                                @if ($koneksifr->atribut_5 != '')
+                                @if (($koneksifr->status_fr == '-' || $koneksifr->status_fr == 'Revisi Fund Request') && $koneksifr->atribut_5 == '')
+                                    <input type="file" name="as_atribut_5" id="fileInput_atribut_5"
+                                        style="display: none;">
+                                    <button type="button" onclick="openFileInput('atribut_5')"
+                                        class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md">
+                                        + Tambah dokumen
+                                    </button>
+                                @elseif (
+                                    ($koneksifr->status_fr == '-' || $koneksifr->status_fr == 'Revisi Fund Request') &&
+                                        $koneksifr->atribut_5 != '' &&
+                                        $koneksifr->status_fr != 'Complete' &&
+                                        $koneksifr->status_fr != 'Waiting Approval')
                                     <div class="justify-center flex space-x-2">
                                         <button type="button"
-                                            class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                            class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                             data-modal-target="modal5" data-modal-show="modal5"
-                                            data-modal-toggle="modal5">Ubah</button>
+                                            data-modal-toggle="modal5">
+                                            Ubah
+                                        </button>
                                         <button data-dropdown-toggle="dropdown5" type="button"
                                             class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
                                             <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="22"
@@ -983,8 +1034,6 @@
                                             </svg>
                                         </button>
                                     </div>
-                                @else
-                                    <input type="file" name="as_atribut_5" id="">
                                 @endif
                             </td>
 
@@ -995,32 +1044,6 @@
                     </tbody>
                 </table>
             </div>
-
-            {{-- input ke table project --}}
-            <input type="text" name="status_fr" value="Complete" hidden>
-            <input type="date" hidden name="status_fr_date" value="{{ date('Y-m-d') }}">
-            {{-- table project --}}
-            <input type="text" name="check" value="donecheck" hidden>
-            <input type="text" name="progress" value="Fund Request" hidden>
-            <input type="text" name="last_update_name" value="{{ Auth::user()->first_name }}" hidden>
-            <input type="text" name="last_update_date" value="{{ date('d-M-Y') }}" hidden>
-
-            <input type="text" name="approval_by" value="{{ Auth::user()->first_name }}" hidden>
-            <input type="text" name="approval_date" value="{{ date('Y-m-d') }}" hidden>
-
-            @if (
-                $koneksifr->atribut_1 &&
-                    $koneksifr->atribut_2 &&
-                    $koneksifr->atribut_3 &&
-                    $koneksifr->atribut_4 &&
-                    $koneksifr->atribut_5 != '')
-            @else
-                <button type="submit"
-                    class="bg-orange-500 w-full hover:bg-orange-600 text-white font-bold py-2 rounded-b-lg shadow-md mb-3">Klik
-                    untuk submit dokumen</button>
-            @endif
-
-            <br>
 
             @php
                 $n = range(1, 5);
@@ -1088,69 +1111,84 @@
                     </div>
                 </div>
             @endforeach
-        </form>
-        {{-- Tombol Approve --}}
-        <div class="grid grid-cols-2 gap-2">
-            <form action="" method="post" enctype="multipart/form-data">
-                @csrf
-                @method('PUT')
-                {{-- tabel fr --}}
-                <input type="text" name="status_fr" value="Complete" hidden>
-                <input type="date" hidden name="status_fr_date" value="{{ date('Y-m-d') }}">
-                {{-- tabel project --}}
-                <input type="text" name="check" value="donecheck" hidden>
-                <input type="text" name="progress" value="Fund Request" hidden>
-                <input type="text" name="approval_by" value="{{ Auth::user()->first_name }}" hidden>
-                <input type="text" name="approval_date" value="{{ date('Y-m-d') }}" hidden>
 
-                {{-- submit --}}
-                <div class="flex space-x-1 w-full">
+            <input type="text" name="last_update_name" value="{{ Auth::user()->first_name }}" hidden>
+            <input type="text" name="last_update_date" value="{{ date('d-M-Y') }}" hidden>
+        </form>
+    </div>
+    {{-- Akhir progress file --}}
+
+    @if (
+        $koneksifr->atribut_1 ||
+            $koneksifr->atribut_2 ||
+            $koneksifr->atribut_3 ||
+            $koneksifr->atribut_4 ||
+            $koneksifr->atribut_5 != '')
+        {{-- Tombol Approve --}}
+        <div class="grid grid-cols-2 gap-2 mt-3">
+            @if ($koneksifr->status_fr != 'Complete')
+                <form action="" method="post" enctype="multipart/form-data">
+                    @csrf
+                    @method('PUT')
+                    {{-- tabel fr --}}
+                    <input type="text" name="status_fr" value="Complete" hidden>
+                    <input type="date" hidden name="status_fr_date" value="{{ date('Y-m-d') }}">
+                    {{-- tabel project --}}
+                    <input type="text" name="check" value="donecheck" hidden>
+                    <input type="text" name="progress" value="Fund Request" hidden>
+                    <input type="text" name="approval_by" value="{{ Auth::user()->first_name }}" hidden>
+                    <input type="text" name="approval_date" value="{{ date('Y-m-d') }}" hidden>
+
+                    {{-- submit --}}
+                    <div class="flex space-x-1 w-full">
+                        <button type="submit"
+                            class="rounded-lg items-center p-3 my-1 w-full hover:bg-green-800 bg-green-600 flex">
+                            <div class="flex mx-auto space-x-2 items-center">
+                                <svg width="20" height="auto" viewBox="0 0 80 80" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M36 57.6L17.2 38.8L22.8 33.2L36 46.4L69.6 12.8C62 5.2 51.6 0 40 0C18 0 0 18 0 40C0 62 18 80 40 80C62 80 80 62 80 40C80 32.4 78 25.6 74.4 19.6L36 57.6Z"
+                                        fill="white" />
+                                </svg>
+                                <p class="text-white font-medium">
+                                    Approve Progress
+                                </p>
+                            </div>
+                        </button>
+                    </div>
+                </form>
+            @endif
+            @if ($koneksifr->status_fr != 'Revisi Fund Request' && $koneksicl->status_cl != 'Complete')
+                <form action="" method="post" enctype="multipart/form-data">
+                    @csrf
+                    @method('PUT')
+                    <input type="text" name="check" value="donecheck" hidden>
+                    <input type="text" name="progress" value="Waiting Approval Fund Request" hidden>
+                    <input type="text" name="status_fr" value="Revisi Fund Request" hidden>
+                    <input type="date" hidden name="status_fr_date" value="{{ date('Y-m-d') }}">
+                    <input type="text" name="approval_by" value="{{ Auth::user()->first_name }}" hidden>
+                    <input type="text" name="approval_date" value="{{ date('Y-m-d') }}" hidden>
+
                     <button type="submit"
-                        class="rounded-lg items-center p-3 my-1 w-full hover:bg-green-800 bg-green-600 flex">
+                        class="rounded-lg items-center text-white p-3 my-1 w-full hover:bg-yellow-600 bg-yellow-400 flex space-x-2">
                         <div class="flex mx-auto space-x-2 items-center">
                             <svg width="20" height="auto" viewBox="0 0 80 80" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <path
-                                    d="M36 57.6L17.2 38.8L22.8 33.2L36 46.4L69.6 12.8C62 5.2 51.6 0 40 0C18 0 0 18 0 40C0 62 18 80 40 80C62 80 80 62 80 40C80 32.4 78 25.6 74.4 19.6L36 57.6Z"
+                                    d="M40 0C17.92 0 0 17.92 0 40C0 62.08 17.92 80 40 80C62.08 80 80 62.08 80 40C80 17.92 62.08 0 40 0ZM44 60H36V52H44V60ZM44 44H36V20H44V44Z"
                                     fill="white" />
                             </svg>
                             <p class="text-white font-medium">
-                                Approve Progress
+                                Revisi Progress
                             </p>
                         </div>
                     </button>
-                </div>
-            </form>
-            <form action="" method="post" enctype="multipart/form-data">
-                @csrf
-                @method('PUT')
-                <input type="text" name="check" value="donecheck" hidden>
-                <input type="text" name="progress" value="Waiting Approval Fund Request" hidden>
-                <input type="text" name="status_fr" value="Revisi Fund Request" hidden>
-                <input type="date" hidden name="status_fr_date" value="{{ date('Y-m-d') }}">
-                <input type="text" name="approval_by" value="{{ Auth::user()->first_name }}" hidden>
-                <input type="text" name="approval_date" value="{{ date('Y-m-d') }}" hidden>
-
-                <button type="submit"
-                    class="rounded-lg items-center text-white p-3 my-1 w-full hover:bg-yellow-600 bg-yellow-400 flex space-x-2">
-                    <div class="flex mx-auto space-x-2 items-center">
-                        <svg width="20" height="auto" viewBox="0 0 80 80" fill="none"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                d="M40 0C17.92 0 0 17.92 0 40C0 62.08 17.92 80 40 80C62.08 80 80 62.08 80 40C80 17.92 62.08 0 40 0ZM44 60H36V52H44V60ZM44 44H36V20H44V44Z"
-                                fill="white" />
-                        </svg>
-                        <p class="text-white font-medium">
-                            Revisi Progress
-                        </p>
-                    </div>
-                </button>
-            </form>
+                </form>
+            @endif
         </div>
-        {{-- Akhir Tombol Approve --}}
+    @endif
+    {{-- Akhir Tombol Approve --}}
 
-    </div>
-    {{-- Akhir progress file --}}
     <script>
         function simulateEscape() {
             // Create a new KeyboardEvent for the "Escape" key
@@ -1161,6 +1199,23 @@
                 which: 27,
             });
             document.dispatchEvent(escapeEvent);
+        }
+
+        function openFileInput(namaVariabel) {
+            // Temukan elemen file input berdasarkan nama variabel
+            const fileInput = document.getElementById('fileInput_' + namaVariabel);
+
+            // Klik pada elemen file input
+            fileInput.click();
+
+            // Tambahkan event listener untuk menangani perubahan file
+            fileInput.addEventListener('change', function(event) {
+                const selectedFile = event.target.files[0];
+                console.log('File yang dipilih untuk ' + namaVariabel + ':', selectedFile.name);
+
+                // Sekarang, kirim formulir
+                document.getElementById('uploadForm').submit();
+            });
         }
     </script>
 

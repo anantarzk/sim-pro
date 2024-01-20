@@ -466,7 +466,8 @@
                     <div class="absolute top-0 -ml-10 text-center mt-14 w-32 text-sm font-medium">
                         <a
                             href="/03-01-PR-purchasing-proyek/{{ $viewdataproject->id }}/{{ $koneksifr->id_fr_1 }}/{{ $koneksiar->id_ar_2 }}/{{ $koneksipr->id_pr_01_3 }}/{{ $koneksipa->id_pa_02_3 }}/{{ $koneksipo->id_po_03_3 }}/{{ $koneksipay->id_pay_04_3 }}/{{ $koneksimn->id_mn_4 }}/{{ $koneksiin->id_in_5 }}/{{ $koneksicl->id_cl_6 }}">
-                            <p class="font-semibold text-lg text-gray-900 hover:underline">Purchasing<span class="text-red-600">*</span>
+                            <p class="font-semibold text-lg text-gray-900 hover:underline">Purchasing<span
+                                    class="text-red-600">*</span>
                             </p>
                         </a>
                         <p class="uppercase text-xs">{{ $koneksipr->status_purchasing }}</p>
@@ -520,7 +521,8 @@
                     <div class="absolute top-0 -ml-10 text-center mt-14 w-32 text-sm font-medium">
                         <a
                             href="/05-installation-proyek/{{ $viewdataproject->id }}/{{ $koneksifr->id_fr_1 }}/{{ $koneksiar->id_ar_2 }}/{{ $koneksipr->id_pr_01_3 }}/{{ $koneksipa->id_pa_02_3 }}/{{ $koneksipo->id_po_03_3 }}/{{ $koneksipay->id_pay_04_3 }}/{{ $koneksimn->id_mn_4 }}/{{ $koneksiin->id_in_5 }}/{{ $koneksicl->id_cl_6 }}">
-                            <p class="font-semibold text-lg text-gray-900 hover:underline">Installation<span class="text-red-600">*</span>
+                            <p class="font-semibold text-lg text-gray-900 hover:underline">Installation<span
+                                    class="text-red-600">*</span>
                             </p>
                         </a>
                         <p class="uppercase text-xs">{{ $koneksiin->status_in }}</p>
@@ -547,7 +549,8 @@
                     <div class="absolute top-0 -ml-10 text-center mt-14 w-32 text-sm font-medium">
                         <a
                             href="/06-closed-proyek/{{ $viewdataproject->id }}/{{ $koneksifr->id_fr_1 }}/{{ $koneksiar->id_ar_2 }}/{{ $koneksipr->id_pr_01_3 }}/{{ $koneksipa->id_pa_02_3 }}/{{ $koneksipo->id_po_03_3 }}/{{ $koneksipay->id_pay_04_3 }}/{{ $koneksimn->id_mn_4 }}/{{ $koneksiin->id_in_5 }}/{{ $koneksicl->id_cl_6 }}">
-                            <p class="font-semibold text-lg text-gray-900 hover:underline">Handover<span class="text-red-600">*</span>
+                            <p class="font-semibold text-lg text-gray-900 hover:underline">Handover<span
+                                    class="text-red-600">*</span>
                             </p>
                         </a>
                         <p class="uppercase text-xs">{{ $koneksicl->status_cl }}</p>
@@ -567,7 +570,8 @@
         <div class="flex justify-between items-center mb-3">
             <div class="flex">
                 <p>Diperiksa oleh: &nbsp;
-                <div class="items-center py-1 px-2 text-sm font-medium text-center text-white bg-orange-500 mr-2 rounded">
+                <div
+                    class="items-center py-1 px-2 text-sm font-medium text-center text-white bg-orange-500 mr-2 rounded">
                     {{ $koneksimn->approval_by }}
                 </div>
                 </p>
@@ -585,11 +589,9 @@
                     <div class="">
                         <svg width="18" height="auto" viewBox="0 0 24 24" fill="none"
                             xmlns="http://www.w3.org/2000/svg">
-
                             <path
                                 d="M12 0C5.376 0 0 5.376 0 12C0 18.624 5.376 24 12 24C18.624 24 24 18.624 24 12C24 5.376 18.624 0 12 0ZM9.6 18L3.6 12L5.292 10.308L9.6 14.604L18.708 5.496L20.4 7.2L9.6 18Z"
                                 fill="white" />
-
                         </svg>
                     </div>
                     <div class="text-white font-medium ml-3">
@@ -659,37 +661,35 @@
         {{-- awal standar formulir --}}
         <hr class="mb-2 mt-2 w-full border">
         <div class="flex justify-between">
-            <p class="font-medium text-lg bg-gray-800 px-4 py-1 w-fit text-white mb-2 rounded"> Inspection Report and others
-            @foreach ($standar_project as $spt)
-                @if ($spt->file_mn_ir_form != '')
-                    <div class="flex justify-end mr-1 mt-4">
-                        <a href="{{ asset('storage/supervisor/standarproject/' . $spt->file_mn_ir_form) }}"
-                            download="">
-                            <div class="w-fit items-center space-x-1 flex fill-blue-600 hover:fill-blue-800">
-                                <svg width="15" height="" viewBox="0 0 52 52"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="m36.4 14.8h8.48a1.09 1.09 0 0 0 1.12-1.12 1 1 0 0 0 -.32-.8l-10.56-10.56a1 1 0 0 0 -.8-.32 1.09 1.09 0 0 0 -1.12 1.12v8.48a3.21 3.21 0 0 0 3.2 3.2z" />
+            <p class="font-medium text-lg bg-gray-800 px-4 py-1 w-fit text-white mb-2 rounded"> Inspection Report and
+                others
+                @foreach ($standar_project as $spt)
+                    @if ($spt->file_mn_ir_form != '')
+                        <div class="flex justify-end mr-1 mt-4">
+                            <a href="{{ asset('storage/supervisor/standarproject/' . $spt->file_mn_ir_form) }}"
+                                download="">
+                                <div class="w-fit items-center space-x-1 flex fill-blue-600 hover:fill-blue-800">
+                                    <svg width="15" height="" viewBox="0 0 52 52"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="m36.4 14.8h8.48a1.09 1.09 0 0 0 1.12-1.12 1 1 0 0 0 -.32-.8l-10.56-10.56a1 1 0 0 0 -.8-.32 1.09 1.09 0 0 0 -1.12 1.12v8.48a3.21 3.21 0 0 0 3.2 3.2z" />
 
-                                    <path
-                                        d="m44.4 19.6h-11.2a4.81 4.81 0 0 1 -4.8-4.8v-11.2a1.6 1.6 0 0 0 -1.6-1.6h-16a4.81 4.81 0 0 0 -4.8 4.8v38.4a4.81 4.81 0 0 0 4.8 4.8h30.4a4.81 4.81 0 0 0 4.8-4.8v-24a1.6 1.6 0 0 0 -1.6-1.6zm-32-1.6a1.62 1.62 0 0 1 1.6-1.55h6.55a1.56 1.56 0 0 1 1.57 1.55v1.59a1.63 1.63 0 0 1 -1.59 1.58h-6.53a1.55 1.55 0 0 1 -1.58-1.58zm24 20.77a1.6 1.6 0 0 1 -1.6 1.6h-20.8a1.6 1.6 0 0 1 -1.6-1.6v-1.57a1.6 1.6 0 0 1 1.6-1.6h20.8a1.6 1.6 0 0 1 1.6 1.6zm3.2-9.6a1.6 1.6 0 0 1 -1.6 1.63h-24a1.6 1.6 0 0 1 -1.6-1.6v-1.6a1.6 1.6 0 0 1 1.6-1.6h24a1.6 1.6 0 0 1 1.6 1.6z" />
-                                </svg>
-                                <p
-                                    class="text-right hover:underline font-semibold text-md text-blue-600 hover:text-blue-800 ">
-                                    Klik untuk mengunduh formulir kerja</p>
-                            </div>
-                        </a>
-                    </div>
-                @endif
-            @endforeach
-            {{-- tombol form --}}
+                                        <path
+                                            d="m44.4 19.6h-11.2a4.81 4.81 0 0 1 -4.8-4.8v-11.2a1.6 1.6 0 0 0 -1.6-1.6h-16a4.81 4.81 0 0 0 -4.8 4.8v38.4a4.81 4.81 0 0 0 4.8 4.8h30.4a4.81 4.81 0 0 0 4.8-4.8v-24a1.6 1.6 0 0 0 -1.6-1.6zm-32-1.6a1.62 1.62 0 0 1 1.6-1.55h6.55a1.56 1.56 0 0 1 1.57 1.55v1.59a1.63 1.63 0 0 1 -1.59 1.58h-6.53a1.55 1.55 0 0 1 -1.58-1.58zm24 20.77a1.6 1.6 0 0 1 -1.6 1.6h-20.8a1.6 1.6 0 0 1 -1.6-1.6v-1.57a1.6 1.6 0 0 1 1.6-1.6h20.8a1.6 1.6 0 0 1 1.6 1.6zm3.2-9.6a1.6 1.6 0 0 1 -1.6 1.63h-24a1.6 1.6 0 0 1 -1.6-1.6v-1.6a1.6 1.6 0 0 1 1.6-1.6h24a1.6 1.6 0 0 1 1.6 1.6z" />
+                                    </svg>
+                                    <p
+                                        class="text-right hover:underline font-semibold text-md text-blue-600 hover:text-blue-800 ">
+                                        Klik untuk mengunduh formulir kerja</p>
+                                </div>
+                            </a>
+                        </div>
+                    @endif
+                @endforeach
+                {{-- tombol form --}}
         </div>
         {{-- akhir standar formulir --}}
-
-
-
         {{-- Yang diganti pertahapnya --}}
-        <form action="" method="post" enctype="multipart/form-data">
+        <form action="" method="post" enctype="multipart/form-data" id="uploadForm">
             @csrf
             @method('PUT')
             <div class="overflow-x-auto rounded-md">
@@ -718,7 +718,6 @@
                                                 fill="black" />
                                         </svg>
                                     </a>
-
                                     &emsp;
                                 @endif
                                 {{--  --}}
@@ -726,9 +725,6 @@
                                     target="blank" download="" class="hover:underline">
                                     {{ $koneksimn->mn_atribut_1 }}</a>
                                 {{-- == --}}
-
-
-
                             </td>
                             <td>
                                 @if ($koneksimn->up_by_atribut_mn_1 != '')
@@ -740,12 +736,27 @@
                             </td>
                             <td class="text-center">{{ $koneksimn->date_mn_atribut_1 }}</td>
                             <td>
-                                @if ($koneksimn->mn_atribut_1 != '')
+                                @if (($koneksimn->status_mn == '-' || $koneksimn->status_mn == 'Revisi Manufacturing') && $koneksimn->mn_atribut_1 == '')
+                                    <div class="justify-center flex space-x-2">
+                                        <input type="file" name="as_mn_atribut_1" id="fileInput_mn_atribut_1"
+                                            style="display: none;">
+                                        <button type="button" onclick="openFileInput('mn_atribut_1')"
+                                            class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md">
+                                            + Tambah dokumen
+                                        </button>
+                                    </div>
+                                @elseif (
+                                    ($koneksimn->status_mn == '-' || $koneksimn->status_mn == 'Revisi Manufacturing') &&
+                                        $koneksimn->mn_atribut_1 != '' &&
+                                        $koneksimn->status_mn != 'Complete' &&
+                                        $koneksimn->status_mn != 'Waiting Approval')
                                     <div class="justify-center flex space-x-2">
                                         <button type="button"
-                                            class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                            class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                             data-modal-target="modal1" data-modal-show="modal1"
-                                            data-modal-toggle="modal1">Ubah</button>
+                                            data-modal-toggle="modal1">
+                                            Ubah
+                                        </button>
                                         <button data-dropdown-toggle="dropdown1" type="button"
                                             class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
                                             <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="22"
@@ -756,8 +767,6 @@
                                             </svg>
                                         </button>
                                     </div>
-                                @else
-                                    <input type="file" name="as_mn_atribut_1" id="">
                                 @endif
                             </td>
                             <input type="text" hidden name="as_up_by_atribut_mn_1"
@@ -802,12 +811,27 @@
                             </td>
                             <td class="text-center">{{ $koneksimn->date_mn_atribut_2 }}</td>
                             <td>
-                                @if ($koneksimn->mn_atribut_2 != '')
+                                @if (($koneksimn->status_mn == '-' || $koneksimn->status_mn == 'Revisi Manufacturing') && $koneksimn->mn_atribut_2 == '')
+                                    <div class="justify-center flex space-x-2">
+                                        <input type="file" name="as_mn_atribut_2" id="fileInput_mn_atribut_2"
+                                            style="display: none;">
+                                        <button type="button" onclick="openFileInput('mn_atribut_2')"
+                                            class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md">
+                                            + Tambah dokumen
+                                        </button>
+                                    </div>
+                                @elseif (
+                                    ($koneksimn->status_mn == '-' || $koneksimn->status_mn == 'Revisi Manufacturing') &&
+                                        $koneksimn->mn_atribut_2 != '' &&
+                                        $koneksimn->status_mn != 'Complete' &&
+                                        $koneksimn->status_mn != 'Waiting Approval')
                                     <div class="justify-center flex space-x-2">
                                         <button type="button"
-                                            class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                            class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                             data-modal-target="modal2" data-modal-show="modal2"
-                                            data-modal-toggle="modal2">Ubah</button>
+                                            data-modal-toggle="modal2">
+                                            Ubah
+                                        </button>
                                         <button data-dropdown-toggle="dropdown2" type="button"
                                             class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
                                             <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="22"
@@ -818,8 +842,6 @@
                                             </svg>
                                         </button>
                                     </div>
-                                @else
-                                    <input type="file" name="as_mn_atribut_2" id="">
                                 @endif
                             </td>
                             <input type="text" hidden name="as_up_by_atribut_mn_2"
@@ -864,12 +886,27 @@
                             </td>
                             <td class="text-center">{{ $koneksimn->date_mn_atribut_3 }}</td>
                             <td>
-                                @if ($koneksimn->mn_atribut_3 != '')
+                                @if (($koneksimn->status_mn == '-' || $koneksimn->status_mn == 'Revisi Manufacturing') && $koneksimn->mn_atribut_3 == '')
+                                    <div class="justify-center flex space-x-2">
+                                        <input type="file" name="as_mn_atribut_3" id="fileInput_mn_atribut_3"
+                                            style="display: none;">
+                                        <button type="button" onclick="openFileInput('mn_atribut_3')"
+                                            class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md">
+                                            + Tambah dokumen
+                                        </button>
+                                    </div>
+                                @elseif (
+                                    ($koneksimn->status_mn == '-' || $koneksimn->status_mn == 'Revisi Manufacturing') &&
+                                        $koneksimn->mn_atribut_3 != '' &&
+                                        $koneksimn->status_mn != 'Complete' &&
+                                        $koneksimn->status_mn != 'Waiting Approval')
                                     <div class="justify-center flex space-x-2">
                                         <button type="button"
-                                            class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                            class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                             data-modal-target="modal3" data-modal-show="modal3"
-                                            data-modal-toggle="modal3">Ubah</button>
+                                            data-modal-toggle="modal3">
+                                            Ubah
+                                        </button>
                                         <button data-dropdown-toggle="dropdown3" type="button"
                                             class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
                                             <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="22"
@@ -880,8 +917,6 @@
                                             </svg>
                                         </button>
                                     </div>
-                                @else
-                                    <input type="file" name="as_mn_atribut_3" id="">
                                 @endif
                             </td>
                             <input type="text" hidden name="as_up_by_atribut_mn_3"
@@ -912,9 +947,6 @@
                                     target="blank" download="" class="hover:underline">
                                     {{ $koneksimn->mn_atribut_4 }}</a>
                                 {{-- == --}}
-
-
-
                             </td>
                             <td>
                                 @if ($koneksimn->up_by_atribut_mn_4 != '')
@@ -926,12 +958,27 @@
                             </td>
                             <td class="text-center">{{ $koneksimn->date_mn_atribut_4 }}</td>
                             <td>
-                                @if ($koneksimn->mn_atribut_4 != '')
+                                @if (($koneksimn->status_mn == '-' || $koneksimn->status_mn == 'Revisi Manufacturing') && $koneksimn->mn_atribut_4 == '')
+                                    <div class="justify-center flex space-x-2">
+                                        <input type="file" name="as_mn_atribut_4" id="fileInput_mn_atribut_4"
+                                            style="display: none;">
+                                        <button type="button" onclick="openFileInput('mn_atribut_4')"
+                                            class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md">
+                                            + Tambah dokumen
+                                        </button>
+                                    </div>
+                                @elseif (
+                                    ($koneksimn->status_mn == '-' || $koneksimn->status_mn == 'Revisi Manufacturing') &&
+                                        $koneksimn->mn_atribut_4 != '' &&
+                                        $koneksimn->status_mn != 'Complete' &&
+                                        $koneksimn->status_mn != 'Waiting Approval')
                                     <div class="justify-center flex space-x-2">
                                         <button type="button"
-                                            class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                            class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                             data-modal-target="modal4" data-modal-show="modal4"
-                                            data-modal-toggle="modal4">Ubah</button>
+                                            data-modal-toggle="modal4">
+                                            Ubah
+                                        </button>
                                         <button data-dropdown-toggle="dropdown4" type="button"
                                             class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
                                             <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="22"
@@ -942,10 +989,7 @@
                                             </svg>
                                         </button>
                                     </div>
-                                @else
-                                    <input type="file" name="as_mn_atribut_4" id="">
                                 @endif
-
                             </td>
                             <input type="text" hidden name="as_up_by_atribut_mn_4"
                                 value="{{ Auth::user()->first_name }}">
@@ -975,9 +1019,6 @@
                                     target="blank" download="" class="hover:underline">
                                     {{ $koneksimn->mn_atribut_5 }}</a>
                                 {{-- == --}}
-
-
-
                             </td>
                             <td>
                                 @if ($koneksimn->up_by_atribut_mn_5 != '')
@@ -989,12 +1030,27 @@
                             </td>
                             <td class="text-center">{{ $koneksimn->date_mn_atribut_5 }}</td>
                             <td>
-                                @if ($koneksimn->mn_atribut_5 != '')
+                                @if (($koneksimn->status_mn == '-' || $koneksimn->status_mn == 'Revisi Manufacturing') && $koneksimn->mn_atribut_5 == '')
+                                    <div class="justify-center flex space-x-2">
+                                        <input type="file" name="as_mn_atribut_5" id="fileInput_mn_atribut_5"
+                                            style="display: none;">
+                                        <button type="button" onclick="openFileInput('mn_atribut_5')"
+                                            class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md">
+                                            + Tambah dokumen
+                                        </button>
+                                    </div>
+                                @elseif (
+                                    ($koneksimn->status_mn == '-' || $koneksimn->status_mn == 'Revisi Manufacturing') &&
+                                        $koneksimn->mn_atribut_5 != '' &&
+                                        $koneksimn->status_mn != 'Complete' &&
+                                        $koneksimn->status_mn != 'Waiting Approval')
                                     <div class="justify-center flex space-x-2">
                                         <button type="button"
-                                            class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                            class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                             data-modal-target="modal5" data-modal-show="modal5"
-                                            data-modal-toggle="modal5">Ubah</button>
+                                            data-modal-toggle="modal5">
+                                            Ubah
+                                        </button>
                                         <button data-dropdown-toggle="dropdown5" type="button"
                                             class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
                                             <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="22"
@@ -1005,8 +1061,6 @@
                                             </svg>
                                         </button>
                                     </div>
-                                @else
-                                    <input type="file" name="as_mn_atribut_5" id="">
                                 @endif
                             </td>
                             <input type="text" hidden name="as_up_by_atribut_mn_5"
@@ -1038,9 +1092,6 @@
                                     target="blank" download="" class="hover:underline">
                                     {{ $koneksimn->mn_atribut_6 }}</a>
                                 {{-- == --}}
-
-
-
                             </td>
                             <td>
                                 @if ($koneksimn->up_by_atribut_mn_6 != '')
@@ -1052,12 +1103,27 @@
                             </td>
                             <td class="text-center">{{ $koneksimn->date_mn_atribut_6 }}</td>
                             <td>
-                                @if ($koneksimn->mn_atribut_6 != '')
+                                @if (($koneksimn->status_mn == '-' || $koneksimn->status_mn == 'Revisi Manufacturing') && $koneksimn->mn_atribut_6 == '')
+                                    <div class="justify-center flex space-x-2">
+                                        <input type="file" name="as_mn_atribut_6" id="fileInput_mn_atribut_6"
+                                            style="display: none;">
+                                        <button type="button" onclick="openFileInput('mn_atribut_6')"
+                                            class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md">
+                                            + Tambah dokumen
+                                        </button>
+                                    </div>
+                                @elseif (
+                                    ($koneksimn->status_mn == '-' || $koneksimn->status_mn == 'Revisi Manufacturing') &&
+                                        $koneksimn->mn_atribut_6 != '' &&
+                                        $koneksimn->status_mn != 'Complete' &&
+                                        $koneksimn->status_mn != 'Waiting Approval')
                                     <div class="justify-center flex space-x-2">
                                         <button type="button"
-                                            class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                            class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                             data-modal-target="modal6" data-modal-show="modal6"
-                                            data-modal-toggle="modal6">Ubah</button>
+                                            data-modal-toggle="modal6">
+                                            Ubah
+                                        </button>
                                         <button data-dropdown-toggle="dropdown6" type="button"
                                             class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
                                             <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="22"
@@ -1068,10 +1134,7 @@
                                             </svg>
                                         </button>
                                     </div>
-                                @else
-                                    <input type="file" name="as_mn_atribut_6" id="">
                                 @endif
-
                             </td>
                             <input type="text" hidden name="as_up_by_atribut_mn_6"
                                 value="{{ Auth::user()->first_name }}">
@@ -1115,12 +1178,27 @@
                             </td>
                             <td class="text-center">{{ $koneksimn->date_mn_atribut_7 }}</td>
                             <td>
-                                @if ($koneksimn->mn_atribut_7 != '')
+                                @if (($koneksimn->status_mn == '-' || $koneksimn->status_mn == 'Revisi Manufacturing') && $koneksimn->mn_atribut_7 == '')
+                                    <div class="justify-center flex space-x-2">
+                                        <input type="file" name="as_mn_atribut_7" id="fileInput_mn_atribut_7"
+                                            style="display: none;">
+                                        <button type="button" onclick="openFileInput('mn_atribut_7')"
+                                            class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md">
+                                            + Tambah dokumen
+                                        </button>
+                                    </div>
+                                @elseif (
+                                    ($koneksimn->status_mn == '-' || $koneksimn->status_mn == 'Revisi Manufacturing') &&
+                                        $koneksimn->mn_atribut_7 != '' &&
+                                        $koneksimn->status_mn != 'Complete' &&
+                                        $koneksimn->status_mn != 'Waiting Approval')
                                     <div class="justify-center flex space-x-2">
                                         <button type="button"
-                                            class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                            class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                             data-modal-target="modal7" data-modal-show="modal7"
-                                            data-modal-toggle="modal7">Ubah</button>
+                                            data-modal-toggle="modal7">
+                                            Ubah
+                                        </button>
                                         <button data-dropdown-toggle="dropdown7" type="button"
                                             class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
                                             <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="22"
@@ -1131,10 +1209,7 @@
                                             </svg>
                                         </button>
                                     </div>
-                                @else
-                                    <input type="file" name="as_mn_atribut_7" id="">
                                 @endif
-
                             </td>
                             <input type="text" hidden name="as_up_by_atribut_mn_7"
                                 value="{{ Auth::user()->first_name }}">
@@ -1164,9 +1239,6 @@
                                     target="blank" download="" class="hover:underline">
                                     {{ $koneksimn->mn_atribut_8 }}</a>
                                 {{-- == --}}
-
-
-
                             </td>
                             <td>
                                 @if ($koneksimn->up_by_atribut_mn_8 != '')
@@ -1178,12 +1250,27 @@
                             </td>
                             <td class="text-center">{{ $koneksimn->date_mn_atribut_8 }}</td>
                             <td>
-                                @if ($koneksimn->mn_atribut_8 != '')
+                                @if (($koneksimn->status_mn == '-' || $koneksimn->status_mn == 'Revisi Manufacturing') && $koneksimn->mn_atribut_8 == '')
+                                    <div class="justify-center flex space-x-2">
+                                        <input type="file" name="as_mn_atribut_8" id="fileInput_mn_atribut_8"
+                                            style="display: none;">
+                                        <button type="button" onclick="openFileInput('mn_atribut_8')"
+                                            class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md">
+                                            + Tambah dokumen
+                                        </button>
+                                    </div>
+                                @elseif (
+                                    ($koneksimn->status_mn == '-' || $koneksimn->status_mn == 'Revisi Manufacturing') &&
+                                        $koneksimn->mn_atribut_8 != '' &&
+                                        $koneksimn->status_mn != 'Complete' &&
+                                        $koneksimn->status_mn != 'Waiting Approval')
                                     <div class="justify-center flex space-x-2">
                                         <button type="button"
-                                            class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                            class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                             data-modal-target="modal8" data-modal-show="modal8"
-                                            data-modal-toggle="modal8">Ubah</button>
+                                            data-modal-toggle="modal8">
+                                            Ubah
+                                        </button>
                                         <button data-dropdown-toggle="dropdown8" type="button"
                                             class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
                                             <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="22"
@@ -1194,10 +1281,7 @@
                                             </svg>
                                         </button>
                                     </div>
-                                @else
-                                    <input type="file" name="as_mn_atribut_8" id="">
                                 @endif
-
                             </td>
                             <input type="text" hidden name="as_up_by_atribut_mn_8"
                                 value="{{ Auth::user()->first_name }}">
@@ -1227,9 +1311,6 @@
                                     target="blank" download="" class="hover:underline">
                                     {{ $koneksimn->mn_atribut_9 }}</a>
                                 {{-- == --}}
-
-
-
                             </td>
                             <td>
                                 @if ($koneksimn->up_by_atribut_mn_9 != '')
@@ -1241,12 +1322,27 @@
                             </td>
                             <td class="text-center">{{ $koneksimn->date_mn_atribut_9 }}</td>
                             <td>
-                                @if ($koneksimn->mn_atribut_9 != '')
+                                @if (($koneksimn->status_mn == '-' || $koneksimn->status_mn == 'Revisi Manufacturing') && $koneksimn->mn_atribut_9 == '')
+                                    <div class="justify-center flex space-x-2">
+                                        <input type="file" name="as_mn_atribut_9" id="fileInput_mn_atribut_9"
+                                            style="display: none;">
+                                        <button type="button" onclick="openFileInput('mn_atribut_9')"
+                                            class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md">
+                                            + Tambah dokumen
+                                        </button>
+                                    </div>
+                                @elseif (
+                                    ($koneksimn->status_mn == '-' || $koneksimn->status_mn == 'Revisi Manufacturing') &&
+                                        $koneksimn->mn_atribut_9 != '' &&
+                                        $koneksimn->status_mn != 'Complete' &&
+                                        $koneksimn->status_mn != 'Waiting Approval')
                                     <div class="justify-center flex space-x-2">
                                         <button type="button"
-                                            class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                            class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                             data-modal-target="modal9" data-modal-show="modal9"
-                                            data-modal-toggle="modal9">Ubah</button>
+                                            data-modal-toggle="modal9">
+                                            Ubah
+                                        </button>
                                         <button data-dropdown-toggle="dropdown9" type="button"
                                             class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
                                             <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="22"
@@ -1257,10 +1353,7 @@
                                             </svg>
                                         </button>
                                     </div>
-                                @else
-                                    <input type="file" name="as_mn_atribut_9" id="">
                                 @endif
-
                             </td>
                             <input type="text" hidden name="as_up_by_atribut_mn_9"
                                 value="{{ Auth::user()->first_name }}">
@@ -1304,12 +1397,29 @@
                             </td>
                             <td class="text-center">{{ $koneksimn->date_mn_atribut_10 }}</td>
                             <td>
-                                @if ($koneksimn->mn_atribut_10 != '')
+                                @if (
+                                    ($koneksimn->status_mn == '-' || $koneksimn->status_mn == 'Revisi Manufacturing') &&
+                                        $koneksimn->mn_atribut_10 == '')
+                                    <div class="justify-center flex space-x-2">
+                                        <input type="file" name="as_mn_atribut_10" id="fileInput_mn_atribut_10"
+                                            style="display: none;">
+                                        <button type="button" onclick="openFileInput('mn_atribut_10')"
+                                            class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md">
+                                            + Tambah dokumen
+                                        </button>
+                                    </div>
+                                @elseif (
+                                    ($koneksimn->status_mn == '-' || $koneksimn->status_mn == 'Revisi Manufacturing') &&
+                                        $koneksimn->mn_atribut_10 != '' &&
+                                        $koneksimn->status_mn != 'Complete' &&
+                                        $koneksimn->status_mn != 'Waiting Approval')
                                     <div class="justify-center flex space-x-2">
                                         <button type="button"
-                                            class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                            class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                             data-modal-target="modal10" data-modal-show="modal10"
-                                            data-modal-toggle="modal10">Ubah</button>
+                                            data-modal-toggle="modal10">
+                                            Ubah
+                                        </button>
                                         <button data-dropdown-toggle="dropdown10" type="button"
                                             class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
                                             <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="22"
@@ -1320,8 +1430,6 @@
                                             </svg>
                                         </button>
                                     </div>
-                                @else
-                                    <input type="file" name="as_mn_atribut_10" id="">
                                 @endif
                             </td>
                             <input type="text" hidden name="as_up_by_atribut_mn_10"
@@ -1332,38 +1440,8 @@
                     </tbody>
                 </table>
             </div>
-
-            {{-- input ke table project --}}
-            <input type="text" name="approval_by" value="{{ Auth::user()->first_name }}" hidden>
-            <input type="text" name="approval_date" value="{{ date('Y-m-d') }}" hidden>
-            <input type="text" name="status_mn" value="Complete" hidden>
-            <input type="date" hidden name="status_mn_date" value="{{ date('Y-m-d') }}">
-            {{-- table project --}}
-            <input type="text" name="check" value="donecheck" hidden>
-            <input type="text" name="progress" value="Manufacturing" hidden>
             <input type="text" name="last_update_name" value="{{ Auth::user()->first_name }}" hidden>
             <input type="text" name="last_update_date" value="{{ date('d-M-Y') }}" hidden>
-
-            @if (
-                $koneksimn->mn_atribut_1 &&
-                    $koneksimn->mn_atribut_2 &&
-                    $koneksimn->mn_atribut_3 &&
-                    $koneksimn->mn_atribut_4 &&
-                    $koneksimn->mn_atribut_5 &&
-                    $koneksimn->mn_atribut_6 &&
-                    $koneksimn->mn_atribut_7 &&
-                    $koneksimn->mn_atribut_8 &&
-                    $koneksimn->mn_atribut_9 &&
-                    $koneksimn->mn_atribut_10 != '')
-            @else
-                <button type="submit"
-                    class="bg-orange-500 w-full hover:bg-orange-600 text-white font-bold py-2 rounded-b-lg shadow-md mb-3">Klik
-                    untuk submit dokumen</button>
-            @endif
-
-            <br>
-
-
             {{-- modal ubah --}}
             @php
                 $n = range(1, 10);
@@ -1420,7 +1498,8 @@
                                 </p>
                                 <div class="items-center justify-center w-full border my-4">
                                     @if ($koneksimn->{'mn_atribut_' . $number} != '')
-                                        <input type="file"name="as_mn_atribut_{{ $number }}" id="">
+                                        <input type="file"name="as_mn_atribut_{{ $number }}"
+                                            id="">
                                     @else()
                                     @endif
                                 </div>
@@ -1432,70 +1511,73 @@
                 </div>
             @endforeach
         </form>
+    </div>
+    {{-- Akhir progress file --}}
+    @if ($koneksimn->status_mn != '-')
+    {{-- Tombol Approve --}}
+    <div class="grid grid-cols-2 gap-2 mt-4">
+        @if($koneksimn->status_mn != 'Complete')
+        <form action="" method="post" enctype="multipart/form-data">
+            @csrf
+            @method('PUT')
+            <input type="text" name="check" value="donecheck" hidden>
+            <input type="text" name="progress" value="Manufacturing" hidden>
+            <input type="text" name="status_mn" value="Complete" hidden>
+            <input type="date" hidden name="status_mn_date" value="{{ date('Y-m-d') }}">
+            <input type="text" name="approval_by" value="{{ Auth::user()->first_name }}" hidden>
+            <input type="text" name="approval_date" value="{{ date('Y-m-d') }}" hidden>
 
-        {{-- Tombol Approve --}}
-        <div class="grid grid-cols-2 gap-2">
-            <form action="" method="post" enctype="multipart/form-data">
-                @csrf
-                @method('PUT')
-                <input type="text" name="check" value="donecheck" hidden>
-                <input type="text" name="progress" value="Manufacturing" hidden>
-                <input type="text" name="status_mn" value="Complete" hidden>
-                <input type="date" hidden name="status_mn_date" value="{{ date('Y-m-d') }}">
-                <input type="text" name="approval_by" value="{{ Auth::user()->first_name }}" hidden>
-                <input type="text" name="approval_date" value="{{ date('Y-m-d') }}" hidden>
-
-                <input type="text" hidden name="waktu" value="{{ date('d-m-Y H:i') }}">
-                <div class="flex space-x-1 w-full">
-                    <button type="submit"
-                        class="rounded-lg items-center p-3 my-1 w-full hover:bg-green-800 bg-green-600 flex">
-                        <div class="flex mx-auto space-x-2 items-center">
-                            <svg width="20" height="auto" viewBox="0 0 80 80" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M36 57.6L17.2 38.8L22.8 33.2L36 46.4L69.6 12.8C62 5.2 51.6 0 40 0C18 0 0 18 0 40C0 62 18 80 40 80C62 80 80 62 80 40C80 32.4 78 25.6 74.4 19.6L36 57.6Z"
-                                    fill="white" />
-                            </svg>
-                            <p class="text-white font-medium">
-                                Approve Progress
-                            </p>
-                        </div>
-                    </button>
-                </div>
-            </form>
-            <form action="" method="post" enctype="multipart/form-data">
-                @csrf
-                @method('PUT')
-                <input type="text" name="check" value="donecheck" hidden>
-                <input type="text" name="progress" value="Waiting Approval Manufacturing" hidden>
-                <input type="text" name="status_mn" value="Revisi Manufacturing" hidden>
-                <input type="date" hidden name="status_mn_date" value="{{ date('Y-m-d') }}">
-                <input type="text" name="approval_by" value="{{ Auth::user()->first_name }}" hidden>
-                <input type="text" name="approval_date" value="{{ date('Y-m-d') }}" hidden>
-
-                <input type="text" hidden name="waktu" value="{{ date('d-m-Y H:i') }}">
-
+            <input type="text" hidden name="waktu" value="{{ date('d-m-Y H:i') }}">
+            <div class="flex space-x-1 w-full">
                 <button type="submit"
-                    class="rounded-lg items-center text-white p-3 my-1 w-full hover:bg-yellow-600 bg-yellow-400 flex space-x-2">
+                    class="rounded-lg items-center p-3 my-1 w-full hover:bg-green-800 bg-green-600 flex">
                     <div class="flex mx-auto space-x-2 items-center">
                         <svg width="20" height="auto" viewBox="0 0 80 80" fill="none"
                             xmlns="http://www.w3.org/2000/svg">
                             <path
-                                d="M40 0C17.92 0 0 17.92 0 40C0 62.08 17.92 80 40 80C62.08 80 80 62.08 80 40C80 17.92 62.08 0 40 0ZM44 60H36V52H44V60ZM44 44H36V20H44V44Z"
+                                d="M36 57.6L17.2 38.8L22.8 33.2L36 46.4L69.6 12.8C62 5.2 51.6 0 40 0C18 0 0 18 0 40C0 62 18 80 40 80C62 80 80 62 80 40C80 32.4 78 25.6 74.4 19.6L36 57.6Z"
                                 fill="white" />
                         </svg>
                         <p class="text-white font-medium">
-                            Revisi Progress
+                            Approve Progress
                         </p>
                     </div>
-
                 </button>
-            </form>
-        </div>
-        {{-- Akhir Tombol Approve --}}
+            </div>
+        </form>
+        @endif
+        @if ($koneksimn->status_mn != 'Revisi Manufacturing' && $koneksicl->status_cl != 'Complete')
+        <form action="" method="post" enctype="multipart/form-data">
+            @csrf
+            @method('PUT')
+            <input type="text" name="check" value="donecheck" hidden>
+            <input type="text" name="progress" value="Waiting Approval Manufacturing" hidden>
+            <input type="text" name="status_mn" value="Revisi Manufacturing" hidden>
+            <input type="date" hidden name="status_mn_date" value="{{ date('Y-m-d') }}">
+            <input type="text" name="approval_by" value="{{ Auth::user()->first_name }}" hidden>
+            <input type="text" name="approval_date" value="{{ date('Y-m-d') }}" hidden>
 
+            <input type="text" hidden name="waktu" value="{{ date('d-m-Y H:i') }}">
+
+            <button type="submit"
+                class="rounded-lg items-center text-white p-3 my-1 w-full hover:bg-yellow-600 bg-yellow-400 flex space-x-2">
+                <div class="flex mx-auto space-x-2 items-center">
+                    <svg width="20" height="auto" viewBox="0 0 80 80" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M40 0C17.92 0 0 17.92 0 40C0 62.08 17.92 80 40 80C62.08 80 80 62.08 80 40C80 17.92 62.08 0 40 0ZM44 60H36V52H44V60ZM44 44H36V20H44V44Z"
+                            fill="white" />
+                    </svg>
+                    <p class="text-white font-medium">
+                        Revisi Progress
+                    </p>
+                </div>
+            </button>
+        </form>
+        @endif
     </div>
-    {{-- Akhir progress file --}}
+    @endif
+    {{-- Akhir Tombol Approve --}}
 
     <script>
         function simulateEscape() {
@@ -1507,6 +1589,23 @@
                 which: 27,
             });
             document.dispatchEvent(escapeEvent);
+        }
+
+        function openFileInput(namaVariabel) {
+            // Temukan elemen file input berdasarkan nama variabel
+            const fileInput = document.getElementById('fileInput_' + namaVariabel);
+
+            // Klik pada elemen file input
+            fileInput.click();
+
+            // Tambahkan event listener untuk menangani perubahan file
+            fileInput.addEventListener('change', function(event) {
+                const selectedFile = event.target.files[0];
+                console.log('File yang dipilih untuk ' + namaVariabel + ':', selectedFile.name);
+
+                // Sekarang, kirim formulir
+                document.getElementById('uploadForm').submit();
+            });
         }
     </script>
 

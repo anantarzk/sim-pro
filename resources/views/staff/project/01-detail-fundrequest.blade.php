@@ -1,8 +1,6 @@
 @extends('layouts.layout_staff')
 @section('title_page', 'Fund Request - Project')
 
-
-
 <div class="mx-10 my-20">
     {{-- header --}}
     <div class="tracking-wide mb-2">
@@ -730,8 +728,8 @@
                             <td class="text-center">{{ $koneksifr->date_atribut_1 }}</td>
                             <td>
                                 @if (($koneksifr->status_fr == '-' || $koneksifr->status_fr == 'Revisi Fund Request') && $koneksifr->atribut_1 == '')
-                                    <input type="file" name="as_atribut_1" id="fileInput" style="display: none;">
-                                    <button type="button" onclick="openFileInput()"
+                                    <input type="file" name="as_atribut_1" id="fileInput_atribut_1" style="display: none;">
+                                    <button type="button" onclick="openFileInput('atribut_1')"
                                         class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md">
                                         + Tambah dokumen
                                     </button>
@@ -788,8 +786,8 @@
                             <td class="text-center">{{ $koneksifr->date_atribut_2 }}</td>
                             <td>
                                 @if (($koneksifr->status_fr == '-' || $koneksifr->status_fr == 'Revisi Fund Request') && $koneksifr->atribut_2 == '')
-                                    <input type="file" name="as_atribut_2" id="fileInput" style="display: none;">
-                                    <button type="button" onclick="openFileInput()"
+                                    <input type="file" name="as_atribut_2" id="fileInput_atribut_2" style="display: none;">
+                                    <button type="button" onclick="openFileInput('atribut_2')"
                                         class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md">
                                         + Tambah dokumen
                                     </button>
@@ -847,8 +845,8 @@
                             <td class="text-center">{{ $koneksifr->date_atribut_3 }}</td>
                             <td>
                                 @if (($koneksifr->status_fr == '-' || $koneksifr->status_fr == 'Revisi Fund Request') && $koneksifr->atribut_3 == '')
-                                    <input type="file" name="as_atribut_3" id="fileInput" style="display: none;">
-                                    <button type="button" onclick="openFileInput()"
+                                    <input type="file" name="as_atribut_3" id="fileInput_atribut_3" style="display: none;">
+                                    <button type="button" onclick="openFileInput('atribut_3')"
                                         class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md">
                                         + Tambah dokumen
                                     </button>
@@ -906,8 +904,8 @@
                             <td class="text-center">{{ $koneksifr->date_atribut_4 }}</td>
                             <td>
                                 @if (($koneksifr->status_fr == '-' || $koneksifr->status_fr == 'Revisi Fund Request') && $koneksifr->atribut_4 == '')
-                                    <input type="file" name="as_atribut_4" id="fileInput" style="display: none;">
-                                    <button type="button" onclick="openFileInput()"
+                                    <input type="file" name="as_atribut_4" id="fileInput_atribut_4" style="display: none;">
+                                    <button type="button" onclick="openFileInput('atribut_4')"
                                         class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md">
                                         + Tambah dokumen
                                     </button>
@@ -965,8 +963,8 @@
                             <td class="text-center">{{ $koneksifr->date_atribut_5 }}</td>
                             <td>
                                 @if (($koneksifr->status_fr == '-' || $koneksifr->status_fr == 'Revisi Fund Request') && $koneksifr->atribut_5 == '')
-                                    <input type="file" name="as_atribut_5" id="fileInput" style="display: none;">
-                                    <button type="button" onclick="openFileInput()"
+                                    <input type="file" name="as_atribut_5" id="fileInput_atribut_5" style="display: none;">
+                                    <button type="button" onclick="openFileInput('atribut_5')"
                                         class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md">
                                         + Tambah dokumen
                                     </button>
@@ -1124,18 +1122,21 @@
             document.dispatchEvent(escapeEvent);
         }
 
-        function openFileInput() {
-            const fileInput = document.getElementById('fileInput');
-            fileInput.click();
-            fileInput.addEventListener('change', handleFileSelect);
-        }
+        function openFileInput(namaVariabel) {
+            // Temukan elemen file input berdasarkan nama variabel
+            const fileInput = document.getElementById('fileInput_' + namaVariabel);
 
-        function handleFileSelect(event) {
-            const selectedFile = event.target.files[0];
-            // Anda dapat melakukan sesuatu dengan file yang dipilih jika diperlukan
-            console.log('File yang dipilih:', selectedFile.name);
-            // Mengirimkan formulir secara otomatis saat file dipilih
-            document.getElementById('uploadForm').submit();
+            // Klik pada elemen file input
+            fileInput.click();
+
+            // Tambahkan event listener untuk menangani perubahan file
+            fileInput.addEventListener('change', function(event) {
+                const selectedFile = event.target.files[0];
+                console.log('File yang dipilih untuk ' + namaVariabel + ':', selectedFile.name);
+
+                // Sekarang, kirim formulir
+                document.getElementById('uploadForm').submit();
+            });
         }
     </script>
 </div>

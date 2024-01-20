@@ -16,6 +16,9 @@
 
 @section('konten')
 
+    <head>
+        <meta http-equiv="refresh" content="5">
+    </head>
     <div class="my-20 mx-10">
 
         <div class="flex justify-between items-center">
@@ -162,7 +165,6 @@
                                         </div>
                                     </div>
                                     <div class="bg-white border shadow-md rounded px-2 py-3">
-                                        <p class="text-xl font-light">Financial Tracker - All Projects</p>
                                         <hr>
                                         <canvas id="finance" class="max-h-60"></canvas>
                                     </div>
@@ -181,31 +183,9 @@
                                             {{ $totalprojectapproval }}
                                         </p>
                                         <p class="font-normal text-lg">
-                                            Ajuan menunggu approval
+                                            Ajuan menunggu persetujuan
                                         </p>
                                     </div>
-                                    {{-- Tombol Pencarian --}}
-                                    <div class="w-2.5/ mt-3">
-                                        <form class="" action="" method="get">
-                                            <div class="flex">
-                                                <input type="search" id="keyword" name="keyword"
-                                                    class="p-2 py-3 text-sm text-gray-900 bg-gray-50 border rounded-l border-gray-300  focus:ring-orange-400 focus:border-orange-400"
-                                                    style="width: 350px;" placeholder="Type your search here" required>
-                                                <button type="submit"
-                                                    class="text-white right-2.5 bottom-2.5 bg-orange-400 hover:bg-orange-500 focus:ring-4 focus:outline-none focus:ring-orange-300 font-medium rounded-r-lg text-sm px-3 py-2">
-                                                    <svg aria-hidden="true" class="w-5 h-5 text-white" fill="none"
-                                                        stroke="currentColor" viewBox="0 0 24 24"
-                                                        xmlns="http://www.w3.org/2000/svg">
-                                                        <path stroke-linecap="round" stroke-linejoin="round"
-                                                            stroke-width="2"
-                                                            d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
-                                                    </svg>
-                                                </button>
-                                            </div>
-                                        </form>
-
-                                    </div>
-                                    {{-- Akhir Tombol Pencarian --}}
                                 </div>
                                 <div class="rounded-lg overflow-hidden bg-white">
                                     <table class="w-full">
@@ -276,6 +256,7 @@
     {{-- <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> --}}
 
     <script type="module" src="{{ asset('./chart.js/chart.js') }}"></script>
+    {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.min.js"></script> --}}
     {{-- <script src="{{ asset('chart.js/chart.js') }}"></script> --}}
     {{-- <script src="{{ mix('node_modules/chart.js/dist/chart.js') }}"></script> --}}
     <script>
@@ -447,7 +428,7 @@
             // Financial info semua proyek
             const dtfinance = {
                 labels: [
-                    'PR', 'PA', 'PO', 'Payment'
+                    'PR', 'PA', 'PO', 'PAY'
                 ],
                 datasets: [{
                     type: 'line',
@@ -463,12 +444,12 @@
                         '{{ $mny_pay }}',
                     ],
                     fill: true,
-                    label: 'Actual PR PA PO Payment',
+                    label: 'Kumulatif PR PA PO PAY',
                     backgroundColor: [
                         'orange',
                         'skyblue',
                         '#1BF286',
-                        '#2F97DE',
+                        '##fcba03',
                     ],
                     borderWidth: 2
                 }, ],

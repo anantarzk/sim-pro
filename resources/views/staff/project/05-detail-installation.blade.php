@@ -788,7 +788,7 @@
                                             </div>
                                         @elseif (
                                             ($koneksiin->status_in == '-' || $koneksiin->status_in == 'Revisi Installation') &&
-                                                $koneksimn->in_ipo_1 != '' &&
+                                                $koneksiin->in_ipo_1 != '' &&
                                                 $koneksiin->status_in != 'Complete' &&
                                                 $koneksiin->status_in != 'Waiting Approval')
                                             <div class="justify-center flex space-x-2">
@@ -854,7 +854,7 @@
                                             </div>
                                         @elseif (
                                             ($koneksiin->status_in == '-' || $koneksiin->status_in == 'Revisi Installation') &&
-                                                $koneksimn->in_ipo_2 != '' &&
+                                                $koneksiin->in_ipo_2 != '' &&
                                                 $koneksiin->status_in != 'Complete' &&
                                                 $koneksiin->status_in != 'Waiting Approval')
                                             <div class="justify-center flex space-x-2">
@@ -919,7 +919,7 @@
                                             </div>
                                         @elseif (
                                             ($koneksiin->status_in == '-' || $koneksiin->status_in == 'Revisi Installation') &&
-                                                $koneksimn->in_ipo_3 != '' &&
+                                                $koneksiin->in_ipo_3 != '' &&
                                                 $koneksiin->status_in != 'Complete' &&
                                                 $koneksiin->status_in != 'Waiting Approval')
                                             <div class="justify-center flex space-x-2">
@@ -1032,7 +1032,7 @@
                                             </div>
                                         @elseif (
                                             ($koneksiin->status_in == '-' || $koneksiin->status_in == 'Revisi Installation') &&
-                                                $koneksimn->in_ecr_1 != '' &&
+                                                $koneksiin->in_ecr_1 != '' &&
                                                 $koneksiin->status_in != 'Complete' &&
                                                 $koneksiin->status_in != 'Waiting Approval')
                                             <div class="justify-center flex space-x-2">
@@ -1098,7 +1098,7 @@
                                             </div>
                                         @elseif (
                                             ($koneksiin->status_in == '-' || $koneksiin->status_in == 'Revisi Installation') &&
-                                                $koneksimn->in_ecr_2 != '' &&
+                                                $koneksiin->in_ecr_2 != '' &&
                                                 $koneksiin->status_in != 'Complete' &&
                                                 $koneksiin->status_in != 'Waiting Approval')
                                             <div class="justify-center flex space-x-2">
@@ -1164,7 +1164,7 @@
                                             </div>
                                         @elseif (
                                             ($koneksiin->status_in == '-' || $koneksiin->status_in == 'Revisi Installation') &&
-                                                $koneksimn->in_ecr_3 != '' &&
+                                                $koneksiin->in_ecr_3 != '' &&
                                                 $koneksiin->status_in != 'Complete' &&
                                                 $koneksiin->status_in != 'Waiting Approval')
                                             <div class="justify-center flex space-x-2">
@@ -1230,7 +1230,7 @@
                                             </div>
                                         @elseif (
                                             ($koneksiin->status_in == '-' || $koneksiin->status_in == 'Revisi Installation') &&
-                                                $koneksimn->in_ecr_4 != '' &&
+                                                $koneksiin->in_ecr_4 != '' &&
                                                 $koneksiin->status_in != 'Complete' &&
                                                 $koneksiin->status_in != 'Waiting Approval')
                                             <div class="justify-center flex space-x-2">
@@ -1342,7 +1342,7 @@
                                             </div>
                                         @elseif (
                                             ($koneksiin->status_in == '-' || $koneksiin->status_in == 'Revisi Installation') &&
-                                                $koneksimn->in_sc_1 != '' &&
+                                                $koneksiin->in_sc_1 != '' &&
                                                 $koneksiin->status_in != 'Complete' &&
                                                 $koneksiin->status_in != 'Waiting Approval')
                                             <div class="justify-center flex space-x-2">
@@ -1408,7 +1408,7 @@
                                             </div>
                                         @elseif (
                                             ($koneksiin->status_in == '-' || $koneksiin->status_in == 'Revisi Installation') &&
-                                                $koneksimn->in_sc_2 != '' &&
+                                                $koneksiin->in_sc_2 != '' &&
                                                 $koneksiin->status_in != 'Complete' &&
                                                 $koneksiin->status_in != 'Waiting Approval')
                                             <div class="justify-center flex space-x-2">
@@ -1522,7 +1522,7 @@
                                             </div>
                                         @elseif (
                                             ($koneksiin->status_in == '-' || $koneksiin->status_in == 'Revisi Installation') &&
-                                                $koneksimn->in_sccs_1 != '' &&
+                                                $koneksiin->in_sccs_1 != '' &&
                                                 $koneksiin->status_in != 'Complete' &&
                                                 $koneksiin->status_in != 'Waiting Approval')
                                             <div class="justify-center flex space-x-2">
@@ -1588,7 +1588,7 @@
                                             </div>
                                         @elseif (
                                             ($koneksiin->status_in == '-' || $koneksiin->status_in == 'Revisi Installation') &&
-                                                $koneksimn->in_sccs_2 != '' &&
+                                                $koneksiin->in_sccs_2 != '' &&
                                                 $koneksiin->status_in != 'Complete' &&
                                                 $koneksiin->status_in != 'Waiting Approval')
                                             <div class="justify-center flex space-x-2">
@@ -1654,7 +1654,7 @@
                                             </div>
                                         @elseif (
                                             ($koneksiin->status_in == '-' || $koneksiin->status_in == 'Revisi Installation') &&
-                                                $koneksimn->in_sccs_3 != '' &&
+                                                $koneksiin->in_sccs_3 != '' &&
                                                 $koneksiin->status_in != 'Complete' &&
                                                 $koneksiin->status_in != 'Waiting Approval')
                                             <div class="justify-center flex space-x-2">
@@ -1769,7 +1769,7 @@
                                                 </div>
                                             @elseif (
                                                 ($koneksiin->status_in == '-' || $koneksiin->status_in == 'Revisi Installation') &&
-                                                    $koneksimn->in_ir_1 != '' &&
+                                                    $koneksiin->in_ir_1 != '' &&
                                                     $koneksiin->status_in != 'Complete' &&
                                                     $koneksiin->status_in != 'Waiting Approval')
                                                 <div class="justify-center flex space-x-2">
@@ -1835,7 +1835,7 @@
                                                 </div>
                                             @elseif (
                                                 ($koneksiin->status_in == '-' || $koneksiin->status_in == 'Revisi Installation') &&
-                                                    $koneksimn->in_ir_2 != '' &&
+                                                    $koneksiin->in_ir_2 != '' &&
                                                     $koneksiin->status_in != 'Complete' &&
                                                     $koneksiin->status_in != 'Waiting Approval')
                                                 <div class="justify-center flex space-x-2">
@@ -1857,7 +1857,7 @@
                                 </tbody>
                             </table>
                         </div>
-                        {{-- Akhir pekerjaan --}}
+                        {{-- Akhir inspeksi report --}}
                     </div>
                 </div>
                 {{-- bungkus --}}

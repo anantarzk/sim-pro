@@ -35,7 +35,7 @@
 
 </head>
 
-<body class="{{-- bg-[url('image/BSIN-K.jpg')] bg-no-repeat bg-cover bg-center --}} bg-gray-200">
+<body class="bg-gray-200">
 
     {{-- Navbar --}}
     <div class="container mb-20">
@@ -212,9 +212,6 @@
 
 
     @yield('konten')
-
-
-    {{-- Awal Footer --}}
     <div class="flex mt-96"></div>
 
 

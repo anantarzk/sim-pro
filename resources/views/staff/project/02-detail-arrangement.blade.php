@@ -672,7 +672,6 @@
             <hr class="mb-2">
 
             {{-- approval abu2 slesai --}}
-
             {{-- Yang diganti pertahapnya --}}
             <form action="" method="post" enctype="multipart/form-data" id="uploadForm">
                 @csrf
@@ -2576,8 +2575,6 @@
             </form>
         </div>
         {{-- Akhir progress file --}}
-
-
         @if ($koneksiar->status_ar == '-' || $koneksiar->status_ar == 'Revisi Arrangement')
         {{-- tidak wajib maka tidak perlu ada at least 1 file --}}
             <p class="mb-1 mt-3">

@@ -1307,7 +1307,6 @@
                             <tr class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
                                 <td class="py-4 font-bold text-center">10.</td>
                                 <td class="flex justify-start py-4 items-center">
-
                                     @if ($koneksimn->mn_atribut_10 != '')
                                         <a href="{{ asset('storage/supervisor/project/04_MN/' . $koneksimn->mn_atribut_10) }}"
                                             target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
@@ -1318,7 +1317,6 @@
                                                     fill="black" />
                                             </svg>
                                         </a>
-
                                         &emsp;
                                     @endif
                                     {{--  --}}
@@ -1326,9 +1324,6 @@
                                         target="blank" download="" class="hover:underline">
                                         {{ $koneksimn->mn_atribut_10 }}</a>
                                     {{-- == --}}
-
-
-
                                 </td>
                                 <td>
                                     @if ($koneksimn->up_by_atribut_mn_10 != '')

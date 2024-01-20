@@ -1,33 +1,7 @@
 @extends('layouts.layout_supervisor')
 @section('title_page', 'Installation - Project')
 
-
-<a href="#submit-1">
-    <button class="fixed right-0 bottom-0 m-2 z-10 bg-orange-400 rounded-lg p-2 opacity-70 hover:opacity-90">
-        <svg width="10" height="auto" viewBox="0 0 39 42" fill="none" xmlns="http://www.w3.org/2000/svg"
-            class="fill-black">
-            <path
-                d="M1.75887 24.1504L1.75888 24.1504L17.6684 40.0595C18.1543 40.5454 18.8133 40.8183 19.5004 40.8183C20.1875 40.8183 20.8466 40.5453 21.3324 40.0594C21.3325 40.0594 21.3325 40.0593 21.3325 40.0593L37.2411 24.1503C38.253 23.1384 38.253 21.498 37.2411 20.4862C36.2295 19.4746 34.589 19.4742 33.5771 20.4863C33.5771 20.4863 33.5771 20.4864 33.577 20.4864L19.5004 34.5633L5.42295 20.4862C4.41129 19.4745 2.77075 19.4743 1.75887 20.4863C0.747043 21.4981 0.747043 23.1385 1.75887 24.1504ZM33.577 1.75887L33.577 1.75888L19.5003 15.8359L5.42302 1.75893C5.42299 1.75891 5.42297 1.75889 5.42295 1.75886C4.41117 0.746989 2.77065 0.747099 1.75887 1.75887C0.747043 2.7707 0.747043 4.41113 1.75887 5.42296L1.75888 5.42296L17.6684 21.3322C18.1543 21.8181 18.8133 22.091 19.5004 22.091C20.1875 22.091 20.8466 21.818 21.3324 21.3321C21.3325 21.332 21.3325 21.332 21.3325 21.332L37.2411 5.42295C38.2529 4.41115 38.253 2.77077 37.2412 1.75893C36.2294 0.746989 34.5888 0.747076 33.577 1.75887Z"
-                stroke-width="2" />
-        </svg>
-    </button>
-</a>
-
-<a href="#submit-2">
-    <button class="fixed right-0 bottom-9 m-2 z-10 bg-orange-400 rounded-lg p-2 opacity-70 hover:opacity-90">
-        <svg width="10" height="auto" viewBox="0 0 39 42" fill="none" xmlns="http://www.w3.org/2000/svg"
-            class="fill-black rotate-180">
-            <path
-                d="M1.75887 24.1504L1.75888 24.1504L17.6684 40.0595C18.1543 40.5454 18.8133 40.8183 19.5004 40.8183C20.1875 40.8183 20.8466 40.5453 21.3324 40.0594C21.3325 40.0594 21.3325 40.0593 21.3325 40.0593L37.2411 24.1503C38.253 23.1384 38.253 21.498 37.2411 20.4862C36.2295 19.4746 34.589 19.4742 33.5771 20.4863C33.5771 20.4863 33.5771 20.4864 33.577 20.4864L19.5004 34.5633L5.42295 20.4862C4.41129 19.4745 2.77075 19.4743 1.75887 20.4863C0.747043 21.4981 0.747043 23.1385 1.75887 24.1504ZM33.577 1.75887L33.577 1.75888L19.5003 15.8359L5.42302 1.75893C5.42299 1.75891 5.42297 1.75889 5.42295 1.75886C4.41117 0.746989 2.77065 0.747099 1.75887 1.75887C0.747043 2.7707 0.747043 4.41113 1.75887 5.42296L1.75888 5.42296L17.6684 21.3322C18.1543 21.8181 18.8133 22.091 19.5004 22.091C20.1875 22.091 20.8466 21.818 21.3324 21.3321C21.3325 21.332 21.3325 21.332 21.3325 21.332L37.2411 5.42295C38.2529 4.41115 38.253 2.77077 37.2412 1.75893C36.2294 0.746989 34.5888 0.747076 33.577 1.75887Z"
-                stroke-width="2" />
-        </svg>
-    </button>
-</a>
-
 <div class="mx-10 my-20">
-
-
-
     {{-- header --}}
     <div class="tracking-wide mb-2">
         <p class=" font-mono font-bold text-3xl mb-3">Detail proyek - IN:</p>
@@ -487,7 +461,8 @@
                     <div class="absolute top-0 -ml-10 text-center mt-14 w-32 text-sm font-medium">
                         <a
                             href="/03-01-PR-purchasing-proyek/{{ $viewdataproject->id }}/{{ $koneksifr->id_fr_1 }}/{{ $koneksiar->id_ar_2 }}/{{ $koneksipr->id_pr_01_3 }}/{{ $koneksipa->id_pa_02_3 }}/{{ $koneksipo->id_po_03_3 }}/{{ $koneksipay->id_pay_04_3 }}/{{ $koneksimn->id_mn_4 }}/{{ $koneksiin->id_in_5 }}/{{ $koneksicl->id_cl_6 }}">
-                            <p class="font-semibold text-lg text-gray-900 hover:underline">Purchasing<span class="text-red-600">*</span>
+                            <p class="font-semibold text-lg text-gray-900 hover:underline">Purchasing<span
+                                    class="text-red-600">*</span>
                             </p>
                         </a>
                         <p class="uppercase text-xs">{{ $koneksipr->status_purchasing }}</p>
@@ -541,7 +516,8 @@
                     <div class="absolute top-0 -ml-10 text-center mt-14 w-32 text-sm font-medium">
                         <a
                             href="/05-installation-proyek/{{ $viewdataproject->id }}/{{ $koneksifr->id_fr_1 }}/{{ $koneksiar->id_ar_2 }}/{{ $koneksipr->id_pr_01_3 }}/{{ $koneksipa->id_pa_02_3 }}/{{ $koneksipo->id_po_03_3 }}/{{ $koneksipay->id_pay_04_3 }}/{{ $koneksimn->id_mn_4 }}/{{ $koneksiin->id_in_5 }}/{{ $koneksicl->id_cl_6 }}">
-                            <p class="font-semibold text-lg text-gray-900 hover:underline">Installation<span class="text-red-600">*</span>
+                            <p class="font-semibold text-lg text-gray-900 hover:underline">Installation<span
+                                    class="text-red-600">*</span>
                             </p>
                         </a>
                         <p class="uppercase text-xs">{{ $koneksiin->status_in }}</p>
@@ -568,7 +544,8 @@
                     <div class="absolute top-0 -ml-10 text-center mt-14 w-32 text-sm font-medium">
                         <a
                             href="/06-closed-proyek/{{ $viewdataproject->id }}/{{ $koneksifr->id_fr_1 }}/{{ $koneksiar->id_ar_2 }}/{{ $koneksipr->id_pr_01_3 }}/{{ $koneksipa->id_pa_02_3 }}/{{ $koneksipo->id_po_03_3 }}/{{ $koneksipay->id_pay_04_3 }}/{{ $koneksimn->id_mn_4 }}/{{ $koneksiin->id_in_5 }}/{{ $koneksicl->id_cl_6 }}">
-                            <p class="font-semibold text-lg text-gray-900 hover:underline">Handover<span class="text-red-600">*</span>
+                            <p class="font-semibold text-lg text-gray-900 hover:underline">Handover<span
+                                    class="text-red-600">*</span>
                             </p>
                         </a>
                         <p class="uppercase text-xs">{{ $koneksicl->status_cl }}</p>
@@ -590,7 +567,8 @@
             {{-- status approval row --}}
             <div class="flex">
                 <p>Diperiksa oleh: &nbsp;
-                <div class="items-center py-1 px-2 text-sm font-medium text-center text-white bg-orange-500 mr-2 rounded">
+                <div
+                    class="items-center py-1 px-2 text-sm font-medium text-center text-white bg-orange-500 mr-2 rounded">
                     {{ $koneksiin->approval_by }}
                 </div>
                 </p>
@@ -681,21 +659,23 @@
         {{-- selesai status approval row --}}
 
         {{-- Yang diganti pertahapnya --}}
-        <form action="" method="post" enctype="multipart/form-data">
+        <form action="" method="post" enctype="multipart/form-data" id="uploadForm">
             @csrf
             @method('PUT')
             {{-- atas form --}}
             <div class="w-full bg-white rounded-t-lg  mt-3">
-                    {{-- Izin Power On --}}
-                    {{-- awal standar formulir --}}
-                    <div class="flex justify-between">
-                        <p class="font-medium text-lg bg-gray-800 px-4 py-1 w-fit text-white mb-2 rounded"> Izin power on
+                {{-- Izin Power On --}}
+                {{-- awal standar formulir --}}
+                <div class="flex justify-between">
+                    <p class="font-medium text-lg bg-gray-800 px-4 py-1 w-fit text-white mb-2 rounded"> Izin power
+                        on
                         @foreach ($standar_project as $spt)
                             @if ($spt->file_ipo_form != '')
                                 <div class="flex justify-end mr-1 mt-4">
                                     <a href="{{ asset('storage/supervisor/standarproject/' . $spt->file_ipo_form) }}"
                                         download="">
-                                        <div class="w-fit items-center space-x-1 flex fill-blue-600 hover:fill-blue-800">
+                                        <div
+                                            class="w-fit items-center space-x-1 flex fill-blue-600 hover:fill-blue-800">
                                             <svg width="15" height="" viewBox="0 0 52 52"
                                                 xmlns="http://www.w3.org/2000/svg">
                                                 <path
@@ -713,219 +693,254 @@
                             @endif
                         @endforeach
                         {{-- tombol form --}}
-                    </div>
-                    {{-- akhir standar formulir --}}
+                </div>
+                {{-- akhir standar formulir --}}
 
-                    <div class="overflow-x-auto rounded-md mb-5 border">
-                        <table class="w-full ">
-                            <thead class="bg-gray-300 text-gray-700 sticky top-0">
-                                <th class="py-2 w-[5%] font-medium">No.</th>
-                                <th class="w-[57%] font-medium">Nama File</th>
-                                <th class="w-[10%] font-medium">Uploaded by</th>
-                                <th class="w-[13%] font-medium">Last Update</th>
-                                <th class="w-[15%] font-medium">Aksi</th>
-                            </thead>
-                            <tbody class="text-left border">
-                                {{-- 1 --}}
-                                <tr
-                                    class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
-                                    <td class="py-4 font-bold text-center">1.</td>
-                                    <td class="flex justify-start py-4 items-center">
+                <div class="overflow-x-auto rounded-md mb-5 border">
+                    <table class="w-full ">
+                        <thead class="bg-gray-300 text-gray-700 sticky top-0">
+                            <th class="py-2 w-[5%] font-medium">No.</th>
+                            <th class="w-[57%] font-medium">Nama File</th>
+                            <th class="w-[10%] font-medium">Uploaded by</th>
+                            <th class="w-[13%] font-medium">Last Update</th>
+                            <th class="w-[15%] font-medium">Aksi</th>
+                        </thead>
+                        <tbody class="text-left border">
+                            {{-- 1 --}}
+                            <tr class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
+                                <td class="py-4 font-bold text-center">1.</td>
+                                <td class="flex justify-start py-4 items-center">
 
-                                        @if ($koneksiin->in_ipo_1 != '')
-                                            <a href="{{ asset('storage/supervisor/project/05_IN/' . $koneksiin->in_ipo_1) }}"
-                                                target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
-                                                <svg width="22" height="17" viewBox="0 0 22 17"
-                                                    fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                    <path
-                                                        d="M11 0C6 0 1.73 3.11 0 7.5C1.73 11.89 6 15 11 15C11.36 15 11.72 15 12.08 14.95C12.03 14.63 12 14.32 12 14C12 13.44 12.08 12.88 12.24 12.34C11.83 12.44 11.42 12.5 11 12.5C8.24 12.5 6 10.26 6 7.5C6 4.74 8.24 2.5 11 2.5C13.76 2.5 16 4.74 16 7.5C16 7.79 15.97 8.09 15.92 8.38C16.58 8.13 17.29 8 18 8C19.17 8 20.31 8.34 21.29 9C21.56 8.5 21.8 8 22 7.5C20.27 3.11 16 0 11 0ZM11 4.5C9.34 4.5 8 5.84 8 7.5C8 9.16 9.34 10.5 11 10.5C12.66 10.5 14 9.16 14 7.5C14 5.84 12.66 4.5 11 4.5ZM17 10.5V12.5H21V14.5H17V16.5L14 13.5L17 10.5Z"
-                                                        fill="black" />
-                                                </svg>
-                                            </a>
-
-                                            &emsp;
-                                        @endif
-                                        {{--  --}}
+                                    @if ($koneksiin->in_ipo_1 != '')
                                         <a href="{{ asset('storage/supervisor/project/05_IN/' . $koneksiin->in_ipo_1) }}"
-                                            target="blank" download="" class="hover:underline">
-                                            {{ $koneksiin->in_ipo_1 }}</a>
-                                        {{-- == --}}
+                                            target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
+                                            <svg width="22" height="17" viewBox="0 0 22 17" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M11 0C6 0 1.73 3.11 0 7.5C1.73 11.89 6 15 11 15C11.36 15 11.72 15 12.08 14.95C12.03 14.63 12 14.32 12 14C12 13.44 12.08 12.88 12.24 12.34C11.83 12.44 11.42 12.5 11 12.5C8.24 12.5 6 10.26 6 7.5C6 4.74 8.24 2.5 11 2.5C13.76 2.5 16 4.74 16 7.5C16 7.79 15.97 8.09 15.92 8.38C16.58 8.13 17.29 8 18 8C19.17 8 20.31 8.34 21.29 9C21.56 8.5 21.8 8 22 7.5C20.27 3.11 16 0 11 0ZM11 4.5C9.34 4.5 8 5.84 8 7.5C8 9.16 9.34 10.5 11 10.5C12.66 10.5 14 9.16 14 7.5C14 5.84 12.66 4.5 11 4.5ZM17 10.5V12.5H21V14.5H17V16.5L14 13.5L17 10.5Z"
+                                                    fill="black" />
+                                            </svg>
+                                        </a>
 
-                                    </td>
-                                    <td>
-                                        @if ($koneksiin->up_by_ipo_in_1 != '')
-                                            <div
-                                                class="items-center py-1 px-2 text-sm font-medium text-center text-white bg-orange-500 w-[100] mx-auto rounded">
-                                                {{ $koneksiin->up_by_ipo_in_1 }}
-                                            </div>
-                                        @endif
-                                    </td>
-                                    <td class="text-center">{{ $koneksiin->date_in_ipo_1 }}</td>
-                                    <td class="space-y-2 py-3 px-2">
-                                        @if ($koneksiin->in_ipo_1 != '')
-                                            <div class="justify-center flex space-x-2">
-                                                <button type="button"
-                                                    class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
-                                                    data-modal-target="modal11" data-modal-show="modal11"
-                                                    data-modal-toggle="modal11">Ubah</button>
-                                                <button data-dropdown-toggle="dropdown11" type="button"
-                                                    class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
-                                                        width="22" fill="white" viewBox="0 0 48 48">
-                                                        <path
-                                                            d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
-                                                        </path>
-                                                    </svg>
-                                                </button>
-                                            </div>
-                                        @else
-                                            <input type="file" name="as_in_ipo_1" id="">
-                                        @endif
-                                    </td>
-                                    <input type="text" hidden name="as_up_by_ipo_in_1"
-                                        value="{{ Auth::user()->first_name }}">
-                                    <input type="date" hidden name="as_date_in_ipo_1"
-                                        value="{{ date('Y-m-d') }}">
+                                        &emsp;
+                                    @endif
+                                    {{--  --}}
+                                    <a href="{{ asset('storage/supervisor/project/05_IN/' . $koneksiin->in_ipo_1) }}"
+                                        target="blank" download="" class="hover:underline">
+                                        {{ $koneksiin->in_ipo_1 }}</a>
+                                    {{-- == --}}
 
-                                </tr>
-                                {{-- 2 --}}
-                                <tr
-                                    class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
-                                    <td class="py-4 font-bold text-center">2.</td>
-                                    <td class="flex justify-start py-4 items-center">
-
-                                        @if ($koneksiin->in_ipo_2 != '')
-                                            <a href="{{ asset('storage/supervisor/project/05_IN/' . $koneksiin->in_ipo_2) }}"
-                                                target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
-                                                <svg width="22" height="17" viewBox="0 0 22 17"
-                                                    fill="none" xmlns="http://www.w3.org/2000/svg">
+                                </td>
+                                <td>
+                                    @if ($koneksiin->up_by_ipo_in_1 != '')
+                                        <div
+                                            class="items-center py-1 px-2 text-sm font-medium text-center text-white bg-orange-500 w-[100] mx-auto rounded">
+                                            {{ $koneksiin->up_by_ipo_in_1 }}
+                                        </div>
+                                    @endif
+                                </td>
+                                <td class="text-center">{{ $koneksiin->date_in_ipo_1 }}</td>
+                                <td class="space-y-2 py-3 px-2">
+                                    @if (($koneksiin->status_in == '-' || $koneksiin->status_in == 'Revisi Installation') && $koneksiin->in_ipo_1 == '')
+                                        <div class="justify-center flex space-x-2">
+                                            <input type="file" name="as_in_ipo_1" id="fileInput_in_ipo_1"
+                                                style="display: none;">
+                                            <button type="button" onclick="openFileInput('in_ipo_1')"
+                                                class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md">
+                                                + Tambah dokumen
+                                            </button>
+                                        </div>
+                                    @elseif (
+                                        ($koneksiin->status_in == '-' || $koneksiin->status_in == 'Revisi Installation') &&
+                                            $koneksiin->in_ipo_1 != '' &&
+                                            $koneksiin->status_in != 'Complete' &&
+                                            $koneksiin->status_in != 'Waiting Approval')
+                                        <div class="justify-center flex space-x-2">
+                                            <button type="button"
+                                                class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                data-modal-target="modal11" data-modal-show="modal11"
+                                                data-modal-toggle="modal11">
+                                                Ubah
+                                            </button>
+                                            <button data-dropdown-toggle="dropdown1" type="button"
+                                                class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="22"
+                                                    fill="white" viewBox="0 0 48 48">
                                                     <path
-                                                        d="M11 0C6 0 1.73 3.11 0 7.5C1.73 11.89 6 15 11 15C11.36 15 11.72 15 12.08 14.95C12.03 14.63 12 14.32 12 14C12 13.44 12.08 12.88 12.24 12.34C11.83 12.44 11.42 12.5 11 12.5C8.24 12.5 6 10.26 6 7.5C6 4.74 8.24 2.5 11 2.5C13.76 2.5 16 4.74 16 7.5C16 7.79 15.97 8.09 15.92 8.38C16.58 8.13 17.29 8 18 8C19.17 8 20.31 8.34 21.29 9C21.56 8.5 21.8 8 22 7.5C20.27 3.11 16 0 11 0ZM11 4.5C9.34 4.5 8 5.84 8 7.5C8 9.16 9.34 10.5 11 10.5C12.66 10.5 14 9.16 14 7.5C14 5.84 12.66 4.5 11 4.5ZM17 10.5V12.5H21V14.5H17V16.5L14 13.5L17 10.5Z"
-                                                        fill="black" />
+                                                        d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                    </path>
                                                 </svg>
-                                            </a>
+                                            </button>
+                                        </div>
+                                    @endif
+                                </td>
+                                <input type="text" hidden name="as_up_by_ipo_in_1"
+                                    value="{{ Auth::user()->first_name }}">
+                                <input type="date" hidden name="as_date_in_ipo_1" value="{{ date('Y-m-d') }}">
 
-                                            &emsp;
-                                        @endif
-                                        {{--  --}}
+                            </tr>
+                            {{-- 2 --}}
+                            <tr class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
+                                <td class="py-4 font-bold text-center">2.</td>
+                                <td class="flex justify-start py-4 items-center">
+
+                                    @if ($koneksiin->in_ipo_2 != '')
                                         <a href="{{ asset('storage/supervisor/project/05_IN/' . $koneksiin->in_ipo_2) }}"
-                                            target="blank" download="" class="hover:underline">
-                                            {{ $koneksiin->in_ipo_2 }}</a>
-                                        {{-- == --}}
+                                            target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
+                                            <svg width="22" height="17" viewBox="0 0 22 17" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M11 0C6 0 1.73 3.11 0 7.5C1.73 11.89 6 15 11 15C11.36 15 11.72 15 12.08 14.95C12.03 14.63 12 14.32 12 14C12 13.44 12.08 12.88 12.24 12.34C11.83 12.44 11.42 12.5 11 12.5C8.24 12.5 6 10.26 6 7.5C6 4.74 8.24 2.5 11 2.5C13.76 2.5 16 4.74 16 7.5C16 7.79 15.97 8.09 15.92 8.38C16.58 8.13 17.29 8 18 8C19.17 8 20.31 8.34 21.29 9C21.56 8.5 21.8 8 22 7.5C20.27 3.11 16 0 11 0ZM11 4.5C9.34 4.5 8 5.84 8 7.5C8 9.16 9.34 10.5 11 10.5C12.66 10.5 14 9.16 14 7.5C14 5.84 12.66 4.5 11 4.5ZM17 10.5V12.5H21V14.5H17V16.5L14 13.5L17 10.5Z"
+                                                    fill="black" />
+                                            </svg>
+                                        </a>
 
-                                    </td>
-                                    <td>
-                                        @if ($koneksiin->up_by_ipo_in_2 != '')
-                                            <div
-                                                class="items-center py-1 px-2 text-sm font-medium text-center text-white bg-orange-500 w-[100] mx-auto rounded">
-                                                {{ $koneksiin->up_by_ipo_in_2 }}
-                                            </div>
-                                        @endif
-                                    </td>
-                                    <td class="text-center">{{ $koneksiin->date_in_ipo_2 }}</td>
-                                    <td class="space-y-2 py-3 px-2">
-                                        @if ($koneksiin->in_ipo_2 != '')
-                                            <div class="justify-center flex space-x-2">
-                                                <button type="button"
-                                                    class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
-                                                    data-modal-target="modal12" data-modal-show="modal12"
-                                                    data-modal-toggle="modal12">Ubah</button>
-                                                <button data-dropdown-toggle="dropdown12" type="button"
-                                                    class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
-                                                        width="22" fill="white" viewBox="0 0 48 48">
-                                                        <path
-                                                            d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
-                                                        </path>
-                                                    </svg>
-                                                </button>
-                                            </div>
-                                        @else
-                                            <input type="file" name="as_in_ipo_2" id="">
-                                        @endif
-                                    </td>
-                                    <input type="text" hidden name="as_up_by_ipo_in_2"
-                                        value="{{ Auth::user()->first_name }}">
-                                    <input type="date" hidden name="as_date_in_ipo_2"
-                                        value="{{ date('Y-m-d') }}">
-                                </tr>
+                                        &emsp;
+                                    @endif
+                                    {{--  --}}
+                                    <a href="{{ asset('storage/supervisor/project/05_IN/' . $koneksiin->in_ipo_2) }}"
+                                        target="blank" download="" class="hover:underline">
+                                        {{ $koneksiin->in_ipo_2 }}</a>
+                                    {{-- == --}}
 
-                                {{-- 3 --}}
-                                <tr
-                                    class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
-                                    <td class="py-4 font-bold text-center">3.</td>
-                                    <td class="flex justify-start py-4 items-center">
-                                        @if ($koneksiin->in_ipo_3 != '')
-                                            <a href="{{ asset('storage/supervisor/project/05_IN/' . $koneksiin->in_ipo_3) }}"
-                                                target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
-                                                <svg width="22" height="17" viewBox="0 0 22 17"
-                                                    fill="none" xmlns="http://www.w3.org/2000/svg">
+                                </td>
+                                <td>
+                                    @if ($koneksiin->up_by_ipo_in_2 != '')
+                                        <div
+                                            class="items-center py-1 px-2 text-sm font-medium text-center text-white bg-orange-500 w-[100] mx-auto rounded">
+                                            {{ $koneksiin->up_by_ipo_in_2 }}
+                                        </div>
+                                    @endif
+                                </td>
+                                <td class="text-center">{{ $koneksiin->date_in_ipo_2 }}</td>
+                                <td class="space-y-2 py-3 px-2">
+                                    @if (($koneksiin->status_in == '-' || $koneksiin->status_in == 'Revisi Installation') && $koneksiin->in_ipo_2 == '')
+                                        <div class="justify-center flex space-x-2">
+                                            <input type="file" name="as_in_ipo_2" id="fileInput_in_ipo_2"
+                                                style="display: none;">
+                                            <button type="button" onclick="openFileInput('in_ipo_2')"
+                                                class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md">
+                                                + Tambah dokumen
+                                            </button>
+                                        </div>
+                                    @elseif (
+                                        ($koneksiin->status_in == '-' || $koneksiin->status_in == 'Revisi Installation') &&
+                                            $koneksiin->in_ipo_2 != '' &&
+                                            $koneksiin->status_in != 'Complete' &&
+                                            $koneksiin->status_in != 'Waiting Approval')
+                                        <div class="justify-center flex space-x-2">
+                                            <button type="button"
+                                                class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                data-modal-target="modal12" data-modal-show="modal12"
+                                                data-modal-toggle="modal12">
+                                                Ubah
+                                            </button>
+                                            <button data-dropdown-toggle="dropdown1" type="button"
+                                                class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="22"
+                                                    fill="white" viewBox="0 0 48 48">
                                                     <path
-                                                        d="M11 0C6 0 1.73 3.11 0 7.5C1.73 11.89 6 15 11 15C11.36 15 11.72 15 12.08 14.95C12.03 14.63 12 14.32 12 14C12 13.44 12.08 12.88 12.24 12.34C11.83 12.44 11.42 12.5 11 12.5C8.24 12.5 6 10.26 6 7.5C6 4.74 8.24 2.5 11 2.5C13.76 2.5 16 4.74 16 7.5C16 7.79 15.97 8.09 15.92 8.38C16.58 8.13 17.29 8 18 8C19.17 8 20.31 8.34 21.29 9C21.56 8.5 21.8 8 22 7.5C20.27 3.11 16 0 11 0ZM11 4.5C9.34 4.5 8 5.84 8 7.5C8 9.16 9.34 10.5 11 10.5C12.66 10.5 14 9.16 14 7.5C14 5.84 12.66 4.5 11 4.5ZM17 10.5V12.5H21V14.5H17V16.5L14 13.5L17 10.5Z"
-                                                        fill="black" />
+                                                        d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                    </path>
                                                 </svg>
-                                            </a>
+                                            </button>
+                                        </div>
+                                    @endif
+                                </td>
+                                <input type="text" hidden name="as_up_by_ipo_in_2"
+                                    value="{{ Auth::user()->first_name }}">
+                                <input type="date" hidden name="as_date_in_ipo_2" value="{{ date('Y-m-d') }}">
+                            </tr>
 
-                                            &emsp;
-                                        @endif
-                                        {{--  --}}
+                            {{-- 3 --}}
+                            <tr class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
+                                <td class="py-4 font-bold text-center">3.</td>
+                                <td class="flex justify-start py-4 items-center">
+                                    @if ($koneksiin->in_ipo_3 != '')
                                         <a href="{{ asset('storage/supervisor/project/05_IN/' . $koneksiin->in_ipo_3) }}"
-                                            target="blank" download="" class="hover:underline">
-                                            {{ $koneksiin->in_ipo_3 }}</a>
-                                        {{-- == --}}
+                                            target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
+                                            <svg width="22" height="17" viewBox="0 0 22 17" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M11 0C6 0 1.73 3.11 0 7.5C1.73 11.89 6 15 11 15C11.36 15 11.72 15 12.08 14.95C12.03 14.63 12 14.32 12 14C12 13.44 12.08 12.88 12.24 12.34C11.83 12.44 11.42 12.5 11 12.5C8.24 12.5 6 10.26 6 7.5C6 4.74 8.24 2.5 11 2.5C13.76 2.5 16 4.74 16 7.5C16 7.79 15.97 8.09 15.92 8.38C16.58 8.13 17.29 8 18 8C19.17 8 20.31 8.34 21.29 9C21.56 8.5 21.8 8 22 7.5C20.27 3.11 16 0 11 0ZM11 4.5C9.34 4.5 8 5.84 8 7.5C8 9.16 9.34 10.5 11 10.5C12.66 10.5 14 9.16 14 7.5C14 5.84 12.66 4.5 11 4.5ZM17 10.5V12.5H21V14.5H17V16.5L14 13.5L17 10.5Z"
+                                                    fill="black" />
+                                            </svg>
+                                        </a>
 
-                                    </td>
-                                    <td>
-                                        @if ($koneksiin->up_by_ipo_in_3 != '')
-                                            <div
-                                                class="items-center py-1 px-2 text-sm font-medium text-center text-white bg-orange-500 w-[100] mx-auto rounded">
-                                                {{ $koneksiin->up_by_ipo_in_3 }}
-                                            </div>
-                                        @endif
-                                    </td>
-                                    <td class="text-center">{{ $koneksiin->date_in_ipo_3 }}</td>
-                                    <td class="space-y-2 py-3 px-2">
-                                        @if ($koneksiin->in_ipo_3 != '')
-                                            <div class="justify-center flex space-x-2">
-                                                <button type="button"
-                                                    class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
-                                                    data-modal-target="modal13" data-modal-show="modal13"
-                                                    data-modal-toggle="modal13">Ubah</button>
-                                                <button data-dropdown-toggle="dropdown13" type="button"
-                                                    class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
-                                                        width="22" fill="white" viewBox="0 0 48 48">
-                                                        <path
-                                                            d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
-                                                        </path>
-                                                    </svg>
-                                                </button>
-                                            </div>
-                                        @else
-                                            <input type="file" name="as_in_ipo_3" id="">
-                                        @endif
-                                    </td>
-                                    <input type="text" hidden name="as_up_by_ipo_in_3"
-                                        value="{{ Auth::user()->first_name }}">
-                                    <input type="date" hidden name="as_date_in_ipo_3"
-                                        value="{{ date('Y-m-d') }}">
+                                        &emsp;
+                                    @endif
+                                    {{--  --}}
+                                    <a href="{{ asset('storage/supervisor/project/05_IN/' . $koneksiin->in_ipo_3) }}"
+                                        target="blank" download="" class="hover:underline">
+                                        {{ $koneksiin->in_ipo_3 }}</a>
+                                    {{-- == --}}
 
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    {{-- Akhir --}}
+                                </td>
+                                <td>
+                                    @if ($koneksiin->up_by_ipo_in_3 != '')
+                                        <div
+                                            class="items-center py-1 px-2 text-sm font-medium text-center text-white bg-orange-500 w-[100] mx-auto rounded">
+                                            {{ $koneksiin->up_by_ipo_in_3 }}
+                                        </div>
+                                    @endif
+                                </td>
+                                <td class="text-center">{{ $koneksiin->date_in_ipo_3 }}</td>
+                                <td class="space-y-2 py-3 px-2">
+                                    @if (($koneksiin->status_in == '-' || $koneksiin->status_in == 'Revisi Installation') && $koneksiin->in_ipo_3 == '')
+                                        <div class="justify-center flex space-x-2">
+                                            <input type="file" name="as_in_ipo_3" id="fileInput_in_ipo_3"
+                                                style="display: none;">
+                                            <button type="button" onclick="openFileInput('in_ipo_3')"
+                                                class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md">
+                                                + Tambah dokumen
+                                            </button>
+                                        </div>
+                                    @elseif (
+                                        ($koneksiin->status_in == '-' || $koneksiin->status_in == 'Revisi Installation') &&
+                                            $koneksiin->in_ipo_3 != '' &&
+                                            $koneksiin->status_in != 'Complete' &&
+                                            $koneksiin->status_in != 'Waiting Approval')
+                                        <div class="justify-center flex space-x-2">
+                                            <button type="button"
+                                                class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                data-modal-target="modal13" data-modal-show="modal13"
+                                                data-modal-toggle="modal13">
+                                                Ubah
+                                            </button>
+                                            <button data-dropdown-toggle="dropdown1" type="button"
+                                                class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="22"
+                                                    fill="white" viewBox="0 0 48 48">
+                                                    <path
+                                                        d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                    </path>
+                                                </svg>
+                                            </button>
+                                        </div>
+                                    @endif
+                                </td>
+                                <input type="text" hidden name="as_up_by_ipo_in_3"
+                                    value="{{ Auth::user()->first_name }}">
+                                <input type="date" hidden name="as_date_in_ipo_3" value="{{ date('Y-m-d') }}">
 
-                    {{-- Equipment Check Report --}}
-                    {{-- awal standar formulir --}}
-                    <div class="flex justify-between">
-                        <p class="font-medium text-lg bg-gray-800 px-4 py-1 w-fit text-white mb-2 rounded"> Equipment Check Report - Mechanical & Electrical
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                {{-- Akhir --}}
+
+                {{-- Equipment Check Report --}}
+                {{-- awal standar formulir --}}
+                <div class="flex justify-between">
+                    <p class="font-medium text-lg bg-gray-800 px-4 py-1 w-fit text-white mb-2 rounded"> Equipment
+                        Check Report - Mechanical & Electrical
                         @foreach ($standar_project as $spt)
                             @if ($spt->file_ecr_form != '')
                                 <div class="flex justify-end mr-1 mt-4">
                                     <a href="{{ asset('storage/supervisor/standarproject/' . $spt->file_ecr_form) }}"
                                         download="">
-                                        <div class="w-fit items-center space-x-1 flex fill-blue-600 hover:fill-blue-800">
+                                        <div
+                                            class="w-fit items-center space-x-1 flex fill-blue-600 hover:fill-blue-800">
                                             <svg width="15" height="" viewBox="0 0 52 52"
                                                 xmlns="http://www.w3.org/2000/svg">
                                                 <path
@@ -943,283 +958,327 @@
                             @endif
                         @endforeach
                         {{-- tombol form --}}
-                    </div>
-                    {{-- akhir standar formulir --}}
+                </div>
+                {{-- akhir standar formulir --}}
 
-                    <div class="overflow-x-auto rounded-md mb-5 border">
-                        <table class="w-full ">
-                            <thead class="bg-gray-300 text-gray-700 sticky top-0">
-                                <th class="py-2 w-[5%] font-medium">No.</th>
-                                <th class="w-[57%] font-medium">Nama File</th>
-                                <th class="w-[10%] font-medium">Uploaded by</th>
-                                <th class="w-[13%] font-medium">Last Update</th>
-                                <th class="w-[15%] font-medium">Upload</th>
-                            </thead>
-                            <tbody class="text-left border">
-                                {{-- 1 --}}
-                                <tr
-                                    class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
-                                    <td class="py-4 font-bold text-center">1.</td>
-                                    <td class="flex justify-start py-4 items-center">
+                <div class="overflow-x-auto rounded-md mb-5 border">
+                    <table class="w-full ">
+                        <thead class="bg-gray-300 text-gray-700 sticky top-0">
+                            <th class="py-2 w-[5%] font-medium">No.</th>
+                            <th class="w-[57%] font-medium">Nama File</th>
+                            <th class="w-[10%] font-medium">Uploaded by</th>
+                            <th class="w-[13%] font-medium">Last Update</th>
+                            <th class="w-[15%] font-medium">Upload</th>
+                        </thead>
+                        <tbody class="text-left border">
+                            {{-- 1 --}}
+                            <tr class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
+                                <td class="py-4 font-bold text-center">1.</td>
+                                <td class="flex justify-start py-4 items-center">
 
-                                        @if ($koneksiin->in_ecr_1 != '')
-                                            <a href="{{ asset('storage/supervisor/project/05_IN/' . $koneksiin->in_ecr_1) }}"
-                                                target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
-                                                <svg width="22" height="17" viewBox="0 0 22 17"
-                                                    fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                    <path
-                                                        d="M11 0C6 0 1.73 3.11 0 7.5C1.73 11.89 6 15 11 15C11.36 15 11.72 15 12.08 14.95C12.03 14.63 12 14.32 12 14C12 13.44 12.08 12.88 12.24 12.34C11.83 12.44 11.42 12.5 11 12.5C8.24 12.5 6 10.26 6 7.5C6 4.74 8.24 2.5 11 2.5C13.76 2.5 16 4.74 16 7.5C16 7.79 15.97 8.09 15.92 8.38C16.58 8.13 17.29 8 18 8C19.17 8 20.31 8.34 21.29 9C21.56 8.5 21.8 8 22 7.5C20.27 3.11 16 0 11 0ZM11 4.5C9.34 4.5 8 5.84 8 7.5C8 9.16 9.34 10.5 11 10.5C12.66 10.5 14 9.16 14 7.5C14 5.84 12.66 4.5 11 4.5ZM17 10.5V12.5H21V14.5H17V16.5L14 13.5L17 10.5Z"
-                                                        fill="black" />
-                                                </svg>
-                                            </a>
-
-                                            &emsp;
-                                        @endif
-                                        {{--  --}}
+                                    @if ($koneksiin->in_ecr_1 != '')
                                         <a href="{{ asset('storage/supervisor/project/05_IN/' . $koneksiin->in_ecr_1) }}"
-                                            target="blank" download="" class="hover:underline">
-                                            {{ $koneksiin->in_ecr_1 }}</a>
-                                        {{-- == --}}
+                                            target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
+                                            <svg width="22" height="17" viewBox="0 0 22 17" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M11 0C6 0 1.73 3.11 0 7.5C1.73 11.89 6 15 11 15C11.36 15 11.72 15 12.08 14.95C12.03 14.63 12 14.32 12 14C12 13.44 12.08 12.88 12.24 12.34C11.83 12.44 11.42 12.5 11 12.5C8.24 12.5 6 10.26 6 7.5C6 4.74 8.24 2.5 11 2.5C13.76 2.5 16 4.74 16 7.5C16 7.79 15.97 8.09 15.92 8.38C16.58 8.13 17.29 8 18 8C19.17 8 20.31 8.34 21.29 9C21.56 8.5 21.8 8 22 7.5C20.27 3.11 16 0 11 0ZM11 4.5C9.34 4.5 8 5.84 8 7.5C8 9.16 9.34 10.5 11 10.5C12.66 10.5 14 9.16 14 7.5C14 5.84 12.66 4.5 11 4.5ZM17 10.5V12.5H21V14.5H17V16.5L14 13.5L17 10.5Z"
+                                                    fill="black" />
+                                            </svg>
+                                        </a>
 
-                                    </td>
-                                    <td>
-                                        @if ($koneksiin->up_by_ecr_in_1 != '')
-                                            <div
-                                                class="items-center py-1 px-2 text-sm font-medium text-center text-white bg-orange-500 w-[100] mx-auto rounded">
-                                                {{ $koneksiin->up_by_ecr_in_1 }}
-                                            </div>
-                                        @endif
-                                    </td>
-                                    <td class="text-center">{{ $koneksiin->date_in_ecr_1 }}</td>
-                                    <td class="space-y-2 py-3 px-2">
-                                        @if ($koneksiin->in_ecr_1 != '')
-                                            <div class="justify-center flex space-x-2">
-                                                <button type="button"
-                                                    class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
-                                                    data-modal-target="modal21" data-modal-show="modal21"
-                                                    data-modal-toggle="modal21">Ubah</button>
-                                                <button data-dropdown-toggle="dropdown21" type="button"
-                                                    class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
-                                                        width="22" fill="white" viewBox="0 0 48 48">
-                                                        <path
-                                                            d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
-                                                        </path>
-                                                    </svg>
-                                                </button>
-                                            </div>
-                                        @else
-                                            <input type="file" name="as_in_ecr_1" id="">
-                                        @endif
+                                        &emsp;
+                                    @endif
+                                    {{--  --}}
+                                    <a href="{{ asset('storage/supervisor/project/05_IN/' . $koneksiin->in_ecr_1) }}"
+                                        target="blank" download="" class="hover:underline">
+                                        {{ $koneksiin->in_ecr_1 }}</a>
+                                    {{-- == --}}
 
-                                    </td>
-                                    <input type="text" hidden name="as_up_by_ecr_in_1"
-                                        value="{{ Auth::user()->first_name }}">
-                                    <input type="date" hidden name="as_date_in_ecr_1"
-                                        value="{{ date('Y-m-d') }}">
-
-                                </tr>
-                                {{-- 2 --}}
-                                <tr
-                                    class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
-                                    <td class="py-4 font-bold text-center">2.</td>
-                                    <td class="flex justify-start py-4 items-center">
-
-                                        @if ($koneksiin->in_ecr_2 != '')
-                                            <a href="{{ asset('storage/supervisor/project/05_IN/' . $koneksiin->in_ecr_2) }}"
-                                                target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
-                                                <svg width="22" height="17" viewBox="0 0 22 17"
-                                                    fill="none" xmlns="http://www.w3.org/2000/svg">
+                                </td>
+                                <td>
+                                    @if ($koneksiin->up_by_ecr_in_1 != '')
+                                        <div
+                                            class="items-center py-1 px-2 text-sm font-medium text-center text-white bg-orange-500 w-[100] mx-auto rounded">
+                                            {{ $koneksiin->up_by_ecr_in_1 }}
+                                        </div>
+                                    @endif
+                                </td>
+                                <td class="text-center">{{ $koneksiin->date_in_ecr_1 }}</td>
+                                <td class="space-y-2 py-3 px-2">
+                                    @if (($koneksiin->status_in == '-' || $koneksiin->status_in == 'Revisi Installation') && $koneksiin->in_ecr_1 == '')
+                                        <div class="justify-center flex space-x-2">
+                                            <input type="file" name="as_in_ecr_1" id="fileInput_in_ecr_1"
+                                                style="display: none;">
+                                            <button type="button" onclick="openFileInput('in_ecr_1')"
+                                                class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md">
+                                                + Tambah dokumen
+                                            </button>
+                                        </div>
+                                    @elseif (
+                                        ($koneksiin->status_in == '-' || $koneksiin->status_in == 'Revisi Installation') &&
+                                            $koneksiin->in_ecr_1 != '' &&
+                                            $koneksiin->status_in != 'Complete' &&
+                                            $koneksiin->status_in != 'Waiting Approval')
+                                        <div class="justify-center flex space-x-2">
+                                            <button type="button"
+                                                class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                data-modal-target="modal21" data-modal-show="modal21"
+                                                data-modal-toggle="modal21">
+                                                Ubah
+                                            </button>
+                                            <button data-dropdown-toggle="dropdown1" type="button"
+                                                class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="22"
+                                                    fill="white" viewBox="0 0 48 48">
                                                     <path
-                                                        d="M11 0C6 0 1.73 3.11 0 7.5C1.73 11.89 6 15 11 15C11.36 15 11.72 15 12.08 14.95C12.03 14.63 12 14.32 12 14C12 13.44 12.08 12.88 12.24 12.34C11.83 12.44 11.42 12.5 11 12.5C8.24 12.5 6 10.26 6 7.5C6 4.74 8.24 2.5 11 2.5C13.76 2.5 16 4.74 16 7.5C16 7.79 15.97 8.09 15.92 8.38C16.58 8.13 17.29 8 18 8C19.17 8 20.31 8.34 21.29 9C21.56 8.5 21.8 8 22 7.5C20.27 3.11 16 0 11 0ZM11 4.5C9.34 4.5 8 5.84 8 7.5C8 9.16 9.34 10.5 11 10.5C12.66 10.5 14 9.16 14 7.5C14 5.84 12.66 4.5 11 4.5ZM17 10.5V12.5H21V14.5H17V16.5L14 13.5L17 10.5Z"
-                                                        fill="black" />
+                                                        d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                    </path>
                                                 </svg>
-                                            </a>
+                                            </button>
+                                        </div>
+                                    @endif
+                                </td>
+                                <input type="text" hidden name="as_up_by_ecr_in_1"
+                                    value="{{ Auth::user()->first_name }}">
+                                <input type="date" hidden name="as_date_in_ecr_1" value="{{ date('Y-m-d') }}">
 
-                                            &emsp;
-                                        @endif
-                                        {{--  --}}
+                            </tr>
+                            {{-- 2 --}}
+                            <tr class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
+                                <td class="py-4 font-bold text-center">2.</td>
+                                <td class="flex justify-start py-4 items-center">
+
+                                    @if ($koneksiin->in_ecr_2 != '')
                                         <a href="{{ asset('storage/supervisor/project/05_IN/' . $koneksiin->in_ecr_2) }}"
-                                            target="blank" download="" class="hover:underline">
-                                            {{ $koneksiin->in_ecr_2 }}</a>
-                                        {{-- == --}}
+                                            target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
+                                            <svg width="22" height="17" viewBox="0 0 22 17" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M11 0C6 0 1.73 3.11 0 7.5C1.73 11.89 6 15 11 15C11.36 15 11.72 15 12.08 14.95C12.03 14.63 12 14.32 12 14C12 13.44 12.08 12.88 12.24 12.34C11.83 12.44 11.42 12.5 11 12.5C8.24 12.5 6 10.26 6 7.5C6 4.74 8.24 2.5 11 2.5C13.76 2.5 16 4.74 16 7.5C16 7.79 15.97 8.09 15.92 8.38C16.58 8.13 17.29 8 18 8C19.17 8 20.31 8.34 21.29 9C21.56 8.5 21.8 8 22 7.5C20.27 3.11 16 0 11 0ZM11 4.5C9.34 4.5 8 5.84 8 7.5C8 9.16 9.34 10.5 11 10.5C12.66 10.5 14 9.16 14 7.5C14 5.84 12.66 4.5 11 4.5ZM17 10.5V12.5H21V14.5H17V16.5L14 13.5L17 10.5Z"
+                                                    fill="black" />
+                                            </svg>
+                                        </a>
 
-                                    </td>
-                                    <td>
-                                        @if ($koneksiin->up_by_ecr_in_2 != '')
-                                            <div
-                                                class="items-center py-1 px-2 text-sm font-medium text-center text-white bg-orange-500 w-[100] mx-auto rounded">
-                                                {{ $koneksiin->up_by_ecr_in_2 }}
-                                            </div>
-                                        @endif
-                                    </td>
-                                    <td class="text-center">{{ $koneksiin->date_in_ecr_2 }}</td>
-                                    <td class="space-y-2 py-3 px-2">
-                                        @if ($koneksiin->in_ecr_2 != '')
-                                            <div class="justify-center flex space-x-2">
-                                                <button type="button"
-                                                    class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
-                                                    data-modal-target="modal22" data-modal-show="modal22"
-                                                    data-modal-toggle="modal22">Ubah</button>
-                                                <button data-dropdown-toggle="dropdown22" type="button"
-                                                    class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
-                                                        width="22" fill="white" viewBox="0 0 48 48">
-                                                        <path
-                                                            d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
-                                                        </path>
-                                                    </svg>
-                                                </button>
-                                            </div>
-                                        @else
-                                            <input type="file" name="as_in_ecr_2" id="">
-                                        @endif
+                                        &emsp;
+                                    @endif
+                                    {{--  --}}
+                                    <a href="{{ asset('storage/supervisor/project/05_IN/' . $koneksiin->in_ecr_2) }}"
+                                        target="blank" download="" class="hover:underline">
+                                        {{ $koneksiin->in_ecr_2 }}</a>
+                                    {{-- == --}}
 
-                                    </td>
-                                    <input type="text" hidden name="as_up_by_ecr_in_2"
-                                        value="{{ Auth::user()->first_name }}">
-                                    <input type="date" hidden name="as_date_in_ecr_2"
-                                        value="{{ date('Y-m-d') }}">
-
-                                </tr>
-                                {{-- 3 --}}
-                                <tr
-                                    class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
-                                    <td class="py-4 font-bold text-center">3.</td>
-                                    <td class="flex justify-start py-4 items-center">
-
-                                        @if ($koneksiin->in_ecr_3 != '')
-                                            <a href="{{ asset('storage/supervisor/project/05_IN/' . $koneksiin->in_ecr_3) }}"
-                                                target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
-                                                <svg width="22" height="17" viewBox="0 0 22 17"
-                                                    fill="none" xmlns="http://www.w3.org/2000/svg">
+                                </td>
+                                <td>
+                                    @if ($koneksiin->up_by_ecr_in_2 != '')
+                                        <div
+                                            class="items-center py-1 px-2 text-sm font-medium text-center text-white bg-orange-500 w-[100] mx-auto rounded">
+                                            {{ $koneksiin->up_by_ecr_in_2 }}
+                                        </div>
+                                    @endif
+                                </td>
+                                <td class="text-center">{{ $koneksiin->date_in_ecr_2 }}</td>
+                                <td class="space-y-2 py-3 px-2">
+                                    @if (($koneksiin->status_in == '-' || $koneksiin->status_in == 'Revisi Installation') && $koneksiin->in_ecr_2 == '')
+                                        <div class="justify-center flex space-x-2">
+                                            <input type="file" name="as_in_ecr_2" id="fileInput_in_ecr_2"
+                                                style="display: none;">
+                                            <button type="button" onclick="openFileInput('in_ecr_2')"
+                                                class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md">
+                                                + Tambah dokumen
+                                            </button>
+                                        </div>
+                                    @elseif (
+                                        ($koneksiin->status_in == '-' || $koneksiin->status_in == 'Revisi Installation') &&
+                                            $koneksiin->in_ecr_2 != '' &&
+                                            $koneksiin->status_in != 'Complete' &&
+                                            $koneksiin->status_in != 'Waiting Approval')
+                                        <div class="justify-center flex space-x-2">
+                                            <button type="button"
+                                                class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                data-modal-target="modal22" data-modal-show="modal22"
+                                                data-modal-toggle="modal22">
+                                                Ubah
+                                            </button>
+                                            <button data-dropdown-toggle="dropdown1" type="button"
+                                                class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="22"
+                                                    fill="white" viewBox="0 0 48 48">
                                                     <path
-                                                        d="M11 0C6 0 1.73 3.11 0 7.5C1.73 11.89 6 15 11 15C11.36 15 11.72 15 12.08 14.95C12.03 14.63 12 14.32 12 14C12 13.44 12.08 12.88 12.24 12.34C11.83 12.44 11.42 12.5 11 12.5C8.24 12.5 6 10.26 6 7.5C6 4.74 8.24 2.5 11 2.5C13.76 2.5 16 4.74 16 7.5C16 7.79 15.97 8.09 15.92 8.38C16.58 8.13 17.29 8 18 8C19.17 8 20.31 8.34 21.29 9C21.56 8.5 21.8 8 22 7.5C20.27 3.11 16 0 11 0ZM11 4.5C9.34 4.5 8 5.84 8 7.5C8 9.16 9.34 10.5 11 10.5C12.66 10.5 14 9.16 14 7.5C14 5.84 12.66 4.5 11 4.5ZM17 10.5V12.5H21V14.5H17V16.5L14 13.5L17 10.5Z"
-                                                        fill="black" />
+                                                        d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                    </path>
                                                 </svg>
-                                            </a>
+                                            </button>
+                                        </div>
+                                    @endif
+                                </td>
+                                <input type="text" hidden name="as_up_by_ecr_in_2"
+                                    value="{{ Auth::user()->first_name }}">
+                                <input type="date" hidden name="as_date_in_ecr_2" value="{{ date('Y-m-d') }}">
 
-                                            &emsp;
-                                        @endif
-                                        {{--  --}}
+                            </tr>
+                            {{-- 3 --}}
+                            <tr class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
+                                <td class="py-4 font-bold text-center">3.</td>
+                                <td class="flex justify-start py-4 items-center">
+
+                                    @if ($koneksiin->in_ecr_3 != '')
                                         <a href="{{ asset('storage/supervisor/project/05_IN/' . $koneksiin->in_ecr_3) }}"
-                                            target="blank" download="" class="hover:underline">
-                                            {{ $koneksiin->in_ecr_3 }}</a>
-                                        {{-- == --}}
+                                            target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
+                                            <svg width="22" height="17" viewBox="0 0 22 17" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M11 0C6 0 1.73 3.11 0 7.5C1.73 11.89 6 15 11 15C11.36 15 11.72 15 12.08 14.95C12.03 14.63 12 14.32 12 14C12 13.44 12.08 12.88 12.24 12.34C11.83 12.44 11.42 12.5 11 12.5C8.24 12.5 6 10.26 6 7.5C6 4.74 8.24 2.5 11 2.5C13.76 2.5 16 4.74 16 7.5C16 7.79 15.97 8.09 15.92 8.38C16.58 8.13 17.29 8 18 8C19.17 8 20.31 8.34 21.29 9C21.56 8.5 21.8 8 22 7.5C20.27 3.11 16 0 11 0ZM11 4.5C9.34 4.5 8 5.84 8 7.5C8 9.16 9.34 10.5 11 10.5C12.66 10.5 14 9.16 14 7.5C14 5.84 12.66 4.5 11 4.5ZM17 10.5V12.5H21V14.5H17V16.5L14 13.5L17 10.5Z"
+                                                    fill="black" />
+                                            </svg>
+                                        </a>
 
-                                    </td>
-                                    <td>
-                                        @if ($koneksiin->up_by_ecr_in_3 != '')
-                                            <div
-                                                class="items-center py-1 px-2 text-sm font-medium text-center text-white bg-orange-500 w-[100] mx-auto rounded">
-                                                {{ $koneksiin->up_by_ecr_in_3 }}
-                                            </div>
-                                        @endif
-                                    </td>
-                                    <td class="text-center">{{ $koneksiin->date_in_ecr_3 }}</td>
-                                    <td class="space-y-2 py-3 px-2">
-                                        @if ($koneksiin->in_ecr_3 != '')
-                                            <div class="justify-center flex space-x-2">
-                                                <button type="button"
-                                                    class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
-                                                    data-modal-target="modal23" data-modal-show="modal23"
-                                                    data-modal-toggle="modal23">Ubah</button>
-                                                <button data-dropdown-toggle="dropdown23" type="button"
-                                                    class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
-                                                        width="22" fill="white" viewBox="0 0 48 48">
-                                                        <path
-                                                            d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
-                                                        </path>
-                                                    </svg>
-                                                </button>
-                                            </div>
-                                        @else
-                                            <input type="file" name="as_in_ecr_3" id="">
-                                        @endif
-                                    </td>
-                                    <input type="text" hidden name="as_up_by_ecr_in_3"
-                                        value="{{ Auth::user()->first_name }}">
-                                    <input type="date" hidden name="as_date_in_ecr_3"
-                                        value="{{ date('Y-m-d') }}">
+                                        &emsp;
+                                    @endif
+                                    {{--  --}}
+                                    <a href="{{ asset('storage/supervisor/project/05_IN/' . $koneksiin->in_ecr_3) }}"
+                                        target="blank" download="" class="hover:underline">
+                                        {{ $koneksiin->in_ecr_3 }}</a>
+                                    {{-- == --}}
 
-                                </tr>
-                                {{-- 4 --}}
-                                <tr
-                                    class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
-                                    <td class="py-4 font-bold text-center">4.</td>
-                                    <td class="flex justify-start py-4 items-center">
-
-                                        @if ($koneksiin->in_ecr_4 != '')
-                                            <a href="{{ asset('storage/supervisor/project/05_IN/' . $koneksiin->in_ecr_4) }}"
-                                                target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
-                                                <svg width="22" height="17" viewBox="0 0 22 17"
-                                                    fill="none" xmlns="http://www.w3.org/2000/svg">
+                                </td>
+                                <td>
+                                    @if ($koneksiin->up_by_ecr_in_3 != '')
+                                        <div
+                                            class="items-center py-1 px-2 text-sm font-medium text-center text-white bg-orange-500 w-[100] mx-auto rounded">
+                                            {{ $koneksiin->up_by_ecr_in_3 }}
+                                        </div>
+                                    @endif
+                                </td>
+                                <td class="text-center">{{ $koneksiin->date_in_ecr_3 }}</td>
+                                <td class="space-y-2 py-3 px-2">
+                                    @if (($koneksiin->status_in == '-' || $koneksiin->status_in == 'Revisi Installation') && $koneksiin->in_ecr_3 == '')
+                                        <div class="justify-center flex space-x-2">
+                                            <input type="file" name="as_in_ecr_3" id="fileInput_in_ecr_3"
+                                                style="display: none;">
+                                            <button type="button" onclick="openFileInput('in_ecr_3')"
+                                                class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md">
+                                                + Tambah dokumen
+                                            </button>
+                                        </div>
+                                    @elseif (
+                                        ($koneksiin->status_in == '-' || $koneksiin->status_in == 'Revisi Installation') &&
+                                            $koneksiin->in_ecr_3 != '' &&
+                                            $koneksiin->status_in != 'Complete' &&
+                                            $koneksiin->status_in != 'Waiting Approval')
+                                        <div class="justify-center flex space-x-2">
+                                            <button type="button"
+                                                class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                data-modal-target="modal23" data-modal-show="modal23"
+                                                data-modal-toggle="modal23">
+                                                Ubah
+                                            </button>
+                                            <button data-dropdown-toggle="dropdown1" type="button"
+                                                class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="22"
+                                                    fill="white" viewBox="0 0 48 48">
                                                     <path
-                                                        d="M11 0C6 0 1.73 3.11 0 7.5C1.73 11.89 6 15 11 15C11.36 15 11.72 15 12.08 14.95C12.03 14.63 12 14.32 12 14C12 13.44 12.08 12.88 12.24 12.34C11.83 12.44 11.42 12.5 11 12.5C8.24 12.5 6 10.26 6 7.5C6 4.74 8.24 2.5 11 2.5C13.76 2.5 16 4.74 16 7.5C16 7.79 15.97 8.09 15.92 8.38C16.58 8.13 17.29 8 18 8C19.17 8 20.31 8.34 21.29 9C21.56 8.5 21.8 8 22 7.5C20.27 3.11 16 0 11 0ZM11 4.5C9.34 4.5 8 5.84 8 7.5C8 9.16 9.34 10.5 11 10.5C12.66 10.5 14 9.16 14 7.5C14 5.84 12.66 4.5 11 4.5ZM17 10.5V12.5H21V14.5H17V16.5L14 13.5L17 10.5Z"
-                                                        fill="black" />
+                                                        d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                    </path>
                                                 </svg>
-                                            </a>
+                                            </button>
+                                        </div>
+                                    @endif
+                                </td>
+                                <input type="text" hidden name="as_up_by_ecr_in_3"
+                                    value="{{ Auth::user()->first_name }}">
+                                <input type="date" hidden name="as_date_in_ecr_3" value="{{ date('Y-m-d') }}">
 
-                                            &emsp;
-                                        @endif
-                                        {{--  --}}
+                            </tr>
+                            {{-- 4 --}}
+                            <tr class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
+                                <td class="py-4 font-bold text-center">4.</td>
+                                <td class="flex justify-start py-4 items-center">
+
+                                    @if ($koneksiin->in_ecr_4 != '')
                                         <a href="{{ asset('storage/supervisor/project/05_IN/' . $koneksiin->in_ecr_4) }}"
-                                            target="blank" download="" class="hover:underline">
-                                            {{ $koneksiin->in_ecr_4 }}</a>
-                                        {{-- == --}}
+                                            target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
+                                            <svg width="22" height="17" viewBox="0 0 22 17" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M11 0C6 0 1.73 3.11 0 7.5C1.73 11.89 6 15 11 15C11.36 15 11.72 15 12.08 14.95C12.03 14.63 12 14.32 12 14C12 13.44 12.08 12.88 12.24 12.34C11.83 12.44 11.42 12.5 11 12.5C8.24 12.5 6 10.26 6 7.5C6 4.74 8.24 2.5 11 2.5C13.76 2.5 16 4.74 16 7.5C16 7.79 15.97 8.09 15.92 8.38C16.58 8.13 17.29 8 18 8C19.17 8 20.31 8.34 21.29 9C21.56 8.5 21.8 8 22 7.5C20.27 3.11 16 0 11 0ZM11 4.5C9.34 4.5 8 5.84 8 7.5C8 9.16 9.34 10.5 11 10.5C12.66 10.5 14 9.16 14 7.5C14 5.84 12.66 4.5 11 4.5ZM17 10.5V12.5H21V14.5H17V16.5L14 13.5L17 10.5Z"
+                                                    fill="black" />
+                                            </svg>
+                                        </a>
 
-                                    </td>
-                                    <td>
-                                        @if ($koneksiin->up_by_ecr_in_4 != '')
-                                            <div
-                                                class="items-center py-1 px-2 text-sm font-medium text-center text-white bg-orange-500 w-[100] mx-auto rounded">
-                                                {{ $koneksiin->up_by_ecr_in_4 }}
-                                            </div>
-                                        @endif
-                                    </td>
-                                    <td class="text-center">{{ $koneksiin->date_in_ecr_4 }}</td>
-                                    <td class="space-y-2 py-3 px-2">
-                                        @if ($koneksiin->in_ecr_4 != '')
-                                            <div class="justify-center flex space-x-2">
-                                                <button type="button"
-                                                    class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
-                                                    data-modal-target="modal24" data-modal-show="modal24"
-                                                    data-modal-toggle="modal24">Ubah</button>
-                                                <button data-dropdown-toggle="dropdown24" type="button"
-                                                    class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
-                                                        width="22" fill="white" viewBox="0 0 48 48">
-                                                        <path
-                                                            d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
-                                                        </path>
-                                                    </svg>
-                                                </button>
-                                            </div>
-                                        @else
-                                            <input type="file" name="as_in_ecr_4" id="">
-                                        @endif
-                                    </td>
-                                    <input type="text" hidden name="as_up_by_ecr_in_4"
-                                        value="{{ Auth::user()->first_name }}">
-                                    <input type="date" hidden name="as_date_in_ecr_4"
-                                        value="{{ date('Y-m-d') }}">
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    {{-- Akhir --}}
+                                        &emsp;
+                                    @endif
+                                    {{--  --}}
+                                    <a href="{{ asset('storage/supervisor/project/05_IN/' . $koneksiin->in_ecr_4) }}"
+                                        target="blank" download="" class="hover:underline">
+                                        {{ $koneksiin->in_ecr_4 }}</a>
+                                    {{-- == --}}
 
-                    {{-- Safety Check --}}
-                    {{-- awal standar formulir --}}
-                    <div class="flex justify-between">
-                        <p class="font-medium text-lg bg-gray-800 px-4 py-1 w-fit text-white mb-2 rounded"> Safety Check
+                                </td>
+                                <td>
+                                    @if ($koneksiin->up_by_ecr_in_4 != '')
+                                        <div
+                                            class="items-center py-1 px-2 text-sm font-medium text-center text-white bg-orange-500 w-[100] mx-auto rounded">
+                                            {{ $koneksiin->up_by_ecr_in_4 }}
+                                        </div>
+                                    @endif
+                                </td>
+                                <td class="text-center">{{ $koneksiin->date_in_ecr_4 }}</td>
+                                <td class="space-y-2 py-3 px-2">
+                                    @if (($koneksiin->status_in == '-' || $koneksiin->status_in == 'Revisi Installation') && $koneksiin->in_ecr_4 == '')
+                                        <div class="justify-center flex space-x-2">
+                                            <input type="file" name="as_in_ecr_4" id="fileInput_in_ecr_4"
+                                                style="display: none;">
+                                            <button type="button" onclick="openFileInput('in_ecr_4')"
+                                                class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md">
+                                                + Tambah dokumen
+                                            </button>
+                                        </div>
+                                    @elseif (
+                                        ($koneksiin->status_in == '-' || $koneksiin->status_in == 'Revisi Installation') &&
+                                            $koneksiin->in_ecr_4 != '' &&
+                                            $koneksiin->status_in != 'Complete' &&
+                                            $koneksiin->status_in != 'Waiting Approval')
+                                        <div class="justify-center flex space-x-2">
+                                            <button type="button"
+                                                class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                data-modal-target="modal24" data-modal-show="modal24"
+                                                data-modal-toggle="modal24">
+                                                Ubah
+                                            </button>
+                                            <button data-dropdown-toggle="dropdown1" type="button"
+                                                class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="22"
+                                                    fill="white" viewBox="0 0 48 48">
+                                                    <path
+                                                        d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                    </path>
+                                                </svg>
+                                            </button>
+                                        </div>
+                                    @endif
+                                </td>
+                                <input type="text" hidden name="as_up_by_ecr_in_4"
+                                    value="{{ Auth::user()->first_name }}">
+                                <input type="date" hidden name="as_date_in_ecr_4" value="{{ date('Y-m-d') }}">
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                {{-- Akhir --}}
+
+                {{-- Safety Check --}}
+                {{-- awal standar formulir --}}
+                <div class="flex justify-between">
+                    <p class="font-medium text-lg bg-gray-800 px-4 py-1 w-fit text-white mb-2 rounded"> Safety
+                        Check
                         @foreach ($standar_project as $spt)
                             @if ($spt->file_sc_form != '')
                                 <div class="flex justify-end mr-1 mt-4">
                                     <a href="{{ asset('storage/supervisor/standarproject/' . $spt->file_sc_form) }}"
                                         download="">
-                                        <div class="w-fit items-center space-x-1 flex fill-blue-600 hover:fill-blue-800">
+                                        <div
+                                            class="w-fit items-center space-x-1 flex fill-blue-600 hover:fill-blue-800">
                                             <svg width="15" height="" viewBox="0 0 52 52"
                                                 xmlns="http://www.w3.org/2000/svg">
                                                 <path
@@ -1237,159 +1296,182 @@
                             @endif
                         @endforeach
                         {{-- tombol form --}}
-                    </div>
-                    {{-- akhir standar formulir --}}
+                </div>
+                {{-- akhir standar formulir --}}
 
-                    <div class="overflow-x-auto rounded-md mb-5 border">
-                        <table class="w-full ">
-                            <thead class="bg-gray-300 text-gray-700 sticky top-0">
-                                <th class="py-2 w-[5%] font-medium">No.</th>
-                                <th class="w-[57%] font-medium">Nama File</th>
-                                <th class="w-[10%] font-medium">Uploaded by</th>
-                                <th class="w-[13%] font-medium">Last Update</th>
-                                <th class="w-[15%] font-medium">Upload</th>
-                            </thead>
-                            <tbody class="text-left border">
-                                {{-- 1 --}}
-                                <tr
-                                    class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
-                                    <td class="py-4 font-bold text-center">1.</td>
-                                    <td class="flex justify-start py-4 items-center">
+                <div class="overflow-x-auto rounded-md mb-5 border">
+                    <table class="w-full ">
+                        <thead class="bg-gray-300 text-gray-700 sticky top-0">
+                            <th class="py-2 w-[5%] font-medium">No.</th>
+                            <th class="w-[57%] font-medium">Nama File</th>
+                            <th class="w-[10%] font-medium">Uploaded by</th>
+                            <th class="w-[13%] font-medium">Last Update</th>
+                            <th class="w-[15%] font-medium">Upload</th>
+                        </thead>
+                        <tbody class="text-left border">
+                            {{-- 1 --}}
+                            <tr class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
+                                <td class="py-4 font-bold text-center">1.</td>
+                                <td class="flex justify-start py-4 items-center">
 
-                                        @if ($koneksiin->in_sc_1 != '')
-                                            <a href="{{ asset('storage/supervisor/project/05_IN/' . $koneksiin->in_sc_1) }}"
-                                                target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
-                                                <svg width="22" height="17" viewBox="0 0 22 17"
-                                                    fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                    <path
-                                                        d="M11 0C6 0 1.73 3.11 0 7.5C1.73 11.89 6 15 11 15C11.36 15 11.72 15 12.08 14.95C12.03 14.63 12 14.32 12 14C12 13.44 12.08 12.88 12.24 12.34C11.83 12.44 11.42 12.5 11 12.5C8.24 12.5 6 10.26 6 7.5C6 4.74 8.24 2.5 11 2.5C13.76 2.5 16 4.74 16 7.5C16 7.79 15.97 8.09 15.92 8.38C16.58 8.13 17.29 8 18 8C19.17 8 20.31 8.34 21.29 9C21.56 8.5 21.8 8 22 7.5C20.27 3.11 16 0 11 0ZM11 4.5C9.34 4.5 8 5.84 8 7.5C8 9.16 9.34 10.5 11 10.5C12.66 10.5 14 9.16 14 7.5C14 5.84 12.66 4.5 11 4.5ZM17 10.5V12.5H21V14.5H17V16.5L14 13.5L17 10.5Z"
-                                                        fill="black" />
-                                                </svg>
-                                            </a>
-
-                                            &emsp;
-                                        @endif
-                                        {{--  --}}
+                                    @if ($koneksiin->in_sc_1 != '')
                                         <a href="{{ asset('storage/supervisor/project/05_IN/' . $koneksiin->in_sc_1) }}"
-                                            target="blank" download="" class="hover:underline">
-                                            {{ $koneksiin->in_sc_1 }}</a>
-                                        {{-- == --}}
+                                            target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
+                                            <svg width="22" height="17" viewBox="0 0 22 17" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M11 0C6 0 1.73 3.11 0 7.5C1.73 11.89 6 15 11 15C11.36 15 11.72 15 12.08 14.95C12.03 14.63 12 14.32 12 14C12 13.44 12.08 12.88 12.24 12.34C11.83 12.44 11.42 12.5 11 12.5C8.24 12.5 6 10.26 6 7.5C6 4.74 8.24 2.5 11 2.5C13.76 2.5 16 4.74 16 7.5C16 7.79 15.97 8.09 15.92 8.38C16.58 8.13 17.29 8 18 8C19.17 8 20.31 8.34 21.29 9C21.56 8.5 21.8 8 22 7.5C20.27 3.11 16 0 11 0ZM11 4.5C9.34 4.5 8 5.84 8 7.5C8 9.16 9.34 10.5 11 10.5C12.66 10.5 14 9.16 14 7.5C14 5.84 12.66 4.5 11 4.5ZM17 10.5V12.5H21V14.5H17V16.5L14 13.5L17 10.5Z"
+                                                    fill="black" />
+                                            </svg>
+                                        </a>
 
-                                    </td>
-                                    <td>
-                                        @if ($koneksiin->up_by_sc_in_1 != '')
-                                            <div
-                                                class="items-center py-1 px-2 text-sm font-medium text-center text-white bg-orange-500 w-[100] mx-auto rounded">
-                                                {{ $koneksiin->up_by_sc_in_1 }}
-                                            </div>
-                                        @endif
-                                    </td>
-                                    <td class="text-center">{{ $koneksiin->date_in_sc_1 }}</td>
-                                    <td class="space-y-2 py-3 px-2">
-                                        @if ($koneksiin->in_sc_1 != '')
-                                            <div class="justify-center flex space-x-2">
-                                                <button type="button"
-                                                    class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
-                                                    data-modal-target="modal31" data-modal-show="modal31"
-                                                    data-modal-toggle="modal31">Ubah</button>
-                                                <button data-dropdown-toggle="dropdown31" type="button"
-                                                    class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
-                                                        width="22" fill="white" viewBox="0 0 48 48">
-                                                        <path
-                                                            d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
-                                                        </path>
-                                                    </svg>
-                                                </button>
-                                            </div>
-                                        @else
-                                            <input type="file" name="as_in_sc_1" id="">
-                                        @endif
-                                    </td>
-                                    <input type="text" hidden name="as_up_by_sc_in_1"
-                                        value="{{ Auth::user()->first_name }}">
-                                    <input type="date" hidden name="as_date_in_sc_1"
-                                        value="{{ date('Y-m-d') }}">
+                                        &emsp;
+                                    @endif
+                                    {{--  --}}
+                                    <a href="{{ asset('storage/supervisor/project/05_IN/' . $koneksiin->in_sc_1) }}"
+                                        target="blank" download="" class="hover:underline">
+                                        {{ $koneksiin->in_sc_1 }}</a>
+                                    {{-- == --}}
 
-                                </tr>
-                                {{-- 2 --}}
-                                <tr
-                                    class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
-                                    <td class="py-4 font-bold text-center">2.</td>
-                                    <td class="flex justify-start py-4 items-center">
-                                        <div id="submit-1"></div>
-                                        @if ($koneksiin->in_sc_2 != '')
-                                            <a href="{{ asset('storage/supervisor/project/05_IN/' . $koneksiin->in_sc_2) }}"
-                                                target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
-                                                <svg width="22" height="17" viewBox="0 0 22 17"
-                                                    fill="none" xmlns="http://www.w3.org/2000/svg">
+                                </td>
+                                <td>
+                                    @if ($koneksiin->up_by_sc_in_1 != '')
+                                        <div
+                                            class="items-center py-1 px-2 text-sm font-medium text-center text-white bg-orange-500 w-[100] mx-auto rounded">
+                                            {{ $koneksiin->up_by_sc_in_1 }}
+                                        </div>
+                                    @endif
+                                </td>
+                                <td class="text-center">{{ $koneksiin->date_in_sc_1 }}</td>
+                                <td class="space-y-2 py-3 px-2">
+                                    @if (($koneksiin->status_in == '-' || $koneksiin->status_in == 'Revisi Installation') && $koneksiin->in_sc_1 == '')
+                                        <div class="justify-center flex space-x-2">
+                                            <input type="file" name="as_in_sc_1" id="fileInput_in_sc_1"
+                                                style="display: none;">
+                                            <button type="button" onclick="openFileInput('in_sc_1')"
+                                                class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md">
+                                                + Tambah dokumen
+                                            </button>
+                                        </div>
+                                    @elseif (
+                                        ($koneksiin->status_in == '-' || $koneksiin->status_in == 'Revisi Installation') &&
+                                            $koneksiin->in_sc_1 != '' &&
+                                            $koneksiin->status_in != 'Complete' &&
+                                            $koneksiin->status_in != 'Waiting Approval')
+                                        <div class="justify-center flex space-x-2">
+                                            <button type="button"
+                                                class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                data-modal-target="modal31" data-modal-show="modal31"
+                                                data-modal-toggle="modal31">
+                                                Ubah
+                                            </button>
+                                            <button data-dropdown-toggle="dropdown1" type="button"
+                                                class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="22"
+                                                    fill="white" viewBox="0 0 48 48">
                                                     <path
-                                                        d="M11 0C6 0 1.73 3.11 0 7.5C1.73 11.89 6 15 11 15C11.36 15 11.72 15 12.08 14.95C12.03 14.63 12 14.32 12 14C12 13.44 12.08 12.88 12.24 12.34C11.83 12.44 11.42 12.5 11 12.5C8.24 12.5 6 10.26 6 7.5C6 4.74 8.24 2.5 11 2.5C13.76 2.5 16 4.74 16 7.5C16 7.79 15.97 8.09 15.92 8.38C16.58 8.13 17.29 8 18 8C19.17 8 20.31 8.34 21.29 9C21.56 8.5 21.8 8 22 7.5C20.27 3.11 16 0 11 0ZM11 4.5C9.34 4.5 8 5.84 8 7.5C8 9.16 9.34 10.5 11 10.5C12.66 10.5 14 9.16 14 7.5C14 5.84 12.66 4.5 11 4.5ZM17 10.5V12.5H21V14.5H17V16.5L14 13.5L17 10.5Z"
-                                                        fill="black" />
+                                                        d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                    </path>
                                                 </svg>
-                                            </a>
+                                            </button>
+                                        </div>
+                                    @endif
+                                </td>
+                                <input type="text" hidden name="as_up_by_sc_in_1"
+                                    value="{{ Auth::user()->first_name }}">
+                                <input type="date" hidden name="as_date_in_sc_1" value="{{ date('Y-m-d') }}">
 
-                                            &emsp;
-                                        @endif
-                                        {{--  --}}
+                            </tr>
+                            {{-- 2 --}}
+                            <tr class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
+                                <td class="py-4 font-bold text-center">2.</td>
+                                <td class="flex justify-start py-4 items-center">
+                                    @if ($koneksiin->in_sc_2 != '')
                                         <a href="{{ asset('storage/supervisor/project/05_IN/' . $koneksiin->in_sc_2) }}"
-                                            target="blank" download="" class="hover:underline">
-                                            {{ $koneksiin->in_sc_2 }}</a>
-                                        {{-- == --}}
+                                            target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
+                                            <svg width="22" height="17" viewBox="0 0 22 17" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M11 0C6 0 1.73 3.11 0 7.5C1.73 11.89 6 15 11 15C11.36 15 11.72 15 12.08 14.95C12.03 14.63 12 14.32 12 14C12 13.44 12.08 12.88 12.24 12.34C11.83 12.44 11.42 12.5 11 12.5C8.24 12.5 6 10.26 6 7.5C6 4.74 8.24 2.5 11 2.5C13.76 2.5 16 4.74 16 7.5C16 7.79 15.97 8.09 15.92 8.38C16.58 8.13 17.29 8 18 8C19.17 8 20.31 8.34 21.29 9C21.56 8.5 21.8 8 22 7.5C20.27 3.11 16 0 11 0ZM11 4.5C9.34 4.5 8 5.84 8 7.5C8 9.16 9.34 10.5 11 10.5C12.66 10.5 14 9.16 14 7.5C14 5.84 12.66 4.5 11 4.5ZM17 10.5V12.5H21V14.5H17V16.5L14 13.5L17 10.5Z"
+                                                    fill="black" />
+                                            </svg>
+                                        </a>
 
-                                    </td>
-                                    <td>
-                                        @if ($koneksiin->up_by_sc_in_2 != '')
-                                            <div
-                                                class="items-center py-1 px-2 text-sm font-medium text-center text-white bg-orange-500 w-[100] mx-auto rounded">
-                                                {{ $koneksiin->up_by_sc_in_2 }}
-                                            </div>
-                                        @endif
-                                    </td>
-                                    <td class="text-center">{{ $koneksiin->date_in_sc_2 }}</td>
-                                    <td class="space-y-2 py-3 px-2">
-                                        @if ($koneksiin->in_sc_2 != '')
-                                            <div class="justify-center flex space-x-2">
-                                                <button type="button"
-                                                    class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
-                                                    data-modal-target="modal32" data-modal-show="modal32"
-                                                    data-modal-toggle="modal32">Ubah</button>
-                                                <button data-dropdown-toggle="dropdown32" type="button"
-                                                    class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
-                                                        width="22" fill="white" viewBox="0 0 48 48">
-                                                        <path
-                                                            d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
-                                                        </path>
-                                                    </svg>
-                                                </button>
-                                            </div>
-                                        @else
-                                            <input type="file" name="as_in_sc_2" id="">
-                                        @endif
-                                    </td>
-                                    <input type="text" hidden name="as_up_by_sc_in_2"
-                                        value="{{ Auth::user()->first_name }}">
-                                    <input type="date" hidden name="as_date_in_sc_2"
-                                        value="{{ date('Y-m-d') }}">
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    {{-- Akhir --}}
+                                        &emsp;
+                                    @endif
+                                    {{--  --}}
+                                    <a href="{{ asset('storage/supervisor/project/05_IN/' . $koneksiin->in_sc_2) }}"
+                                        target="blank" download="" class="hover:underline">
+                                        {{ $koneksiin->in_sc_2 }}</a>
+                                    {{-- == --}}
+
+                                </td>
+                                <td>
+                                    @if ($koneksiin->up_by_sc_in_2 != '')
+                                        <div
+                                            class="items-center py-1 px-2 text-sm font-medium text-center text-white bg-orange-500 w-[100] mx-auto rounded">
+                                            {{ $koneksiin->up_by_sc_in_2 }}
+                                        </div>
+                                    @endif
+                                </td>
+                                <td class="text-center">{{ $koneksiin->date_in_sc_2 }}</td>
+                                <td class="space-y-2 py-3 px-2">
+                                    @if (($koneksiin->status_in == '-' || $koneksiin->status_in == 'Revisi Installation') && $koneksiin->in_sc_2 == '')
+                                        <div class="justify-center flex space-x-2">
+                                            <input type="file" name="as_in_sc_2" id="fileInput_in_sc_2"
+                                                style="display: none;">
+                                            <button type="button" onclick="openFileInput('in_sc_2')"
+                                                class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md">
+                                                + Tambah dokumen
+                                            </button>
+                                        </div>
+                                    @elseif (
+                                        ($koneksiin->status_in == '-' || $koneksiin->status_in == 'Revisi Installation') &&
+                                            $koneksiin->in_sc_2 != '' &&
+                                            $koneksiin->status_in != 'Complete' &&
+                                            $koneksiin->status_in != 'Waiting Approval')
+                                        <div class="justify-center flex space-x-2">
+                                            <button type="button"
+                                                class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                data-modal-target="modal32" data-modal-show="modal32"
+                                                data-modal-toggle="modal32">
+                                                Ubah
+                                            </button>
+                                            <button data-dropdown-toggle="dropdown1" type="button"
+                                                class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="22"
+                                                    fill="white" viewBox="0 0 48 48">
+                                                    <path
+                                                        d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                    </path>
+                                                </svg>
+                                            </button>
+                                        </div>
+                                    @endif
+                                </td>
+                                <input type="text" hidden name="as_up_by_sc_in_2"
+                                    value="{{ Auth::user()->first_name }}">
+                                <input type="date" hidden name="as_date_in_sc_2" value="{{ date('Y-m-d') }}">
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                {{-- Akhir --}}
 
 
 
-                    {{-- Safety Completeness Check --}}
-                    {{-- awal standar formulir --}}
-                    <div class="flex justify-between">
-                        <p class="font-medium text-lg bg-gray-800 px-4 py-1 w-fit text-white mb-2 rounded"> Safety Completeness Check
+                {{-- Safety Completeness Check --}}
+                {{-- awal standar formulir --}}
+                <div class="flex justify-between">
+                    <p class="font-medium text-lg bg-gray-800 px-4 py-1 w-fit text-white mb-2 rounded"> Safety
+                        Completeness Check
                         @foreach ($standar_project as $spt)
                             @if ($spt->file_sccs_form != '')
                                 <div class="flex justify-end mr-1 mt-4">
                                     <a href="{{ asset('storage/supervisor/standarproject/' . $spt->file_sccs_form) }}"
                                         download="">
-                                        <div class="w-fit items-center space-x-1 flex fill-blue-600 hover:fill-blue-800">
+                                        <div
+                                            class="w-fit items-center space-x-1 flex fill-blue-600 hover:fill-blue-800">
                                             <svg width="15" height="" viewBox="0 0 52 52"
                                                 xmlns="http://www.w3.org/2000/svg">
                                                 <path
@@ -1407,238 +1489,273 @@
                             @endif
                         @endforeach
                         {{-- tombol form --}}
-                    </div>
-                    {{-- akhir standar formulir --}}
+                </div>
+                {{-- akhir standar formulir --}}
 
-                    <div class="overflow-x-auto rounded-md mb-5 border">
-                        <table class="w-full ">
-                            <thead class="bg-gray-300 text-gray-700 sticky top-0">
-                                <th class="py-2 w-[5%] font-medium">No.</th>
-                                <th class="w-[57%] font-medium">Nama File</th>
-                                <th class="w-[10%] font-medium">Uploaded by</th>
-                                <th class="w-[13%] font-medium">Last Update</th>
-                                <th class="w-[15%] font-medium">Upload</th>
-                            </thead>
-                            <tbody class="text-left border">
-                                {{-- 1 --}}
-                                <tr
-                                    class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
-                                    <td class="py-4 font-bold text-center">1.</td>
-                                    <td class="flex justify-start py-4 items-center">
+                <div class="overflow-x-auto rounded-md mb-5 border">
+                    <table class="w-full ">
+                        <thead class="bg-gray-300 text-gray-700 sticky top-0">
+                            <th class="py-2 w-[5%] font-medium">No.</th>
+                            <th class="w-[57%] font-medium">Nama File</th>
+                            <th class="w-[10%] font-medium">Uploaded by</th>
+                            <th class="w-[13%] font-medium">Last Update</th>
+                            <th class="w-[15%] font-medium">Upload</th>
+                        </thead>
+                        <tbody class="text-left border">
+                            {{-- 1 --}}
+                            <tr class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
+                                <td class="py-4 font-bold text-center">1.</td>
+                                <td class="flex justify-start py-4 items-center">
 
-                                        @if ($koneksiin->in_sccs_1 != '')
-                                            <a href="{{ asset('storage/supervisor/project/05_IN/' . $koneksiin->in_sccs_1) }}"
-                                                target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
-                                                <svg width="22" height="17" viewBox="0 0 22 17"
-                                                    fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                    <path
-                                                        d="M11 0C6 0 1.73 3.11 0 7.5C1.73 11.89 6 15 11 15C11.36 15 11.72 15 12.08 14.95C12.03 14.63 12 14.32 12 14C12 13.44 12.08 12.88 12.24 12.34C11.83 12.44 11.42 12.5 11 12.5C8.24 12.5 6 10.26 6 7.5C6 4.74 8.24 2.5 11 2.5C13.76 2.5 16 4.74 16 7.5C16 7.79 15.97 8.09 15.92 8.38C16.58 8.13 17.29 8 18 8C19.17 8 20.31 8.34 21.29 9C21.56 8.5 21.8 8 22 7.5C20.27 3.11 16 0 11 0ZM11 4.5C9.34 4.5 8 5.84 8 7.5C8 9.16 9.34 10.5 11 10.5C12.66 10.5 14 9.16 14 7.5C14 5.84 12.66 4.5 11 4.5ZM17 10.5V12.5H21V14.5H17V16.5L14 13.5L17 10.5Z"
-                                                        fill="black" />
-                                                </svg>
-                                            </a>
-
-                                            &emsp;
-                                        @endif
-                                        {{--  --}}
+                                    @if ($koneksiin->in_sccs_1 != '')
                                         <a href="{{ asset('storage/supervisor/project/05_IN/' . $koneksiin->in_sccs_1) }}"
-                                            target="blank" download="" class="hover:underline">
-                                            {{ $koneksiin->in_sccs_1 }}</a>
-                                        {{-- == --}}
+                                            target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
+                                            <svg width="22" height="17" viewBox="0 0 22 17" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M11 0C6 0 1.73 3.11 0 7.5C1.73 11.89 6 15 11 15C11.36 15 11.72 15 12.08 14.95C12.03 14.63 12 14.32 12 14C12 13.44 12.08 12.88 12.24 12.34C11.83 12.44 11.42 12.5 11 12.5C8.24 12.5 6 10.26 6 7.5C6 4.74 8.24 2.5 11 2.5C13.76 2.5 16 4.74 16 7.5C16 7.79 15.97 8.09 15.92 8.38C16.58 8.13 17.29 8 18 8C19.17 8 20.31 8.34 21.29 9C21.56 8.5 21.8 8 22 7.5C20.27 3.11 16 0 11 0ZM11 4.5C9.34 4.5 8 5.84 8 7.5C8 9.16 9.34 10.5 11 10.5C12.66 10.5 14 9.16 14 7.5C14 5.84 12.66 4.5 11 4.5ZM17 10.5V12.5H21V14.5H17V16.5L14 13.5L17 10.5Z"
+                                                    fill="black" />
+                                            </svg>
+                                        </a>
 
-                                    </td>
-                                    <td>
-                                        @if ($koneksiin->up_by_sccs_in_1 != '')
-                                            <div
-                                                class="items-center py-1 px-2 text-sm font-medium text-center text-white bg-orange-500 w-[100] mx-auto rounded">
-                                                {{ $koneksiin->up_by_sccs_in_1 }}
-                                            </div>
-                                        @endif
-                                    </td>
-                                    <td class="text-center">{{ $koneksiin->date_in_sccs_1 }}</td>
-                                    <td class="space-y-2 py-3 px-2">
-                                        @if ($koneksiin->in_sccs_1 != '')
-                                            <div class="justify-center flex space-x-2">
-                                                <button type="button"
-                                                    class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
-                                                    data-modal-target="modal41" data-modal-show="modal41"
-                                                    data-modal-toggle="modal41">Ubah</button>
-                                                <button data-dropdown-toggle="dropdown41" type="button"
-                                                    class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
-                                                        width="22" fill="white" viewBox="0 0 48 48">
-                                                        <path
-                                                            d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
-                                                        </path>
-                                                    </svg>
-                                                </button>
-                                            </div>
-                                        @else
-                                            <input type="file" name="as_in_sccs_1" id="">
-                                        @endif
-                                    </td>
-                                    <input type="text" hidden name="as_up_by_sccs_in_1"
-                                        value="{{ Auth::user()->first_name }}">
-                                    <input type="date" hidden name="as_date_in_sccs_1"
-                                        value="{{ date('Y-m-d') }}">
+                                        &emsp;
+                                    @endif
+                                    {{--  --}}
+                                    <a href="{{ asset('storage/supervisor/project/05_IN/' . $koneksiin->in_sccs_1) }}"
+                                        target="blank" download="" class="hover:underline">
+                                        {{ $koneksiin->in_sccs_1 }}</a>
+                                    {{-- == --}}
 
-                                </tr>
-                                {{-- 2 --}}
-                                <tr
-                                    class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
-                                    <td class="py-4 font-bold text-center">2.</td>
-                                    <td class="flex justify-start py-4 items-center">
-
-                                        @if ($koneksiin->in_sccs_2 != '')
-                                            <a href="{{ asset('storage/supervisor/project/05_IN/' . $koneksiin->in_sccs_2) }}"
-                                                target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
-                                                <svg width="22" height="17" viewBox="0 0 22 17"
-                                                    fill="none" xmlns="http://www.w3.org/2000/svg">
+                                </td>
+                                <td>
+                                    @if ($koneksiin->up_by_sccs_in_1 != '')
+                                        <div
+                                            class="items-center py-1 px-2 text-sm font-medium text-center text-white bg-orange-500 w-[100] mx-auto rounded">
+                                            {{ $koneksiin->up_by_sccs_in_1 }}
+                                        </div>
+                                    @endif
+                                </td>
+                                <td class="text-center">{{ $koneksiin->date_in_sccs_1 }}</td>
+                                <td class="space-y-2 py-3 px-2">
+                                    @if (($koneksiin->status_in == '-' || $koneksiin->status_in == 'Revisi Installation') && $koneksiin->in_sccs_1 == '')
+                                        <div class="justify-center flex space-x-2">
+                                            <input type="file" name="as_in_sccs_1" id="fileInput_in_sccs_1"
+                                                style="display: none;">
+                                            <button type="button" onclick="openFileInput('in_sccs_1')"
+                                                class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md">
+                                                + Tambah dokumen
+                                            </button>
+                                        </div>
+                                    @elseif (
+                                        ($koneksiin->status_in == '-' || $koneksiin->status_in == 'Revisi Installation') &&
+                                            $koneksiin->in_sccs_1 != '' &&
+                                            $koneksiin->status_in != 'Complete' &&
+                                            $koneksiin->status_in != 'Waiting Approval')
+                                        <div class="justify-center flex space-x-2">
+                                            <button type="button"
+                                                class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                data-modal-target="modal41" data-modal-show="modal41"
+                                                data-modal-toggle="modal41">
+                                                Ubah
+                                            </button>
+                                            <button data-dropdown-toggle="dropdown1" type="button"
+                                                class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="22"
+                                                    fill="white" viewBox="0 0 48 48">
                                                     <path
-                                                        d="M11 0C6 0 1.73 3.11 0 7.5C1.73 11.89 6 15 11 15C11.36 15 11.72 15 12.08 14.95C12.03 14.63 12 14.32 12 14C12 13.44 12.08 12.88 12.24 12.34C11.83 12.44 11.42 12.5 11 12.5C8.24 12.5 6 10.26 6 7.5C6 4.74 8.24 2.5 11 2.5C13.76 2.5 16 4.74 16 7.5C16 7.79 15.97 8.09 15.92 8.38C16.58 8.13 17.29 8 18 8C19.17 8 20.31 8.34 21.29 9C21.56 8.5 21.8 8 22 7.5C20.27 3.11 16 0 11 0ZM11 4.5C9.34 4.5 8 5.84 8 7.5C8 9.16 9.34 10.5 11 10.5C12.66 10.5 14 9.16 14 7.5C14 5.84 12.66 4.5 11 4.5ZM17 10.5V12.5H21V14.5H17V16.5L14 13.5L17 10.5Z"
-                                                        fill="black" />
+                                                        d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                    </path>
                                                 </svg>
-                                            </a>
+                                            </button>
+                                        </div>
+                                    @endif
+                                </td>
+                                <input type="text" hidden name="as_up_by_sccs_in_1"
+                                    value="{{ Auth::user()->first_name }}">
+                                <input type="date" hidden name="as_date_in_sccs_1" value="{{ date('Y-m-d') }}">
 
-                                            &emsp;
-                                        @endif
-                                        {{--  --}}
+                            </tr>
+                            {{-- 2 --}}
+                            <tr class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
+                                <td class="py-4 font-bold text-center">2.</td>
+                                <td class="flex justify-start py-4 items-center">
+
+                                    @if ($koneksiin->in_sccs_2 != '')
                                         <a href="{{ asset('storage/supervisor/project/05_IN/' . $koneksiin->in_sccs_2) }}"
-                                            target="blank" download="" class="hover:underline">
-                                            {{ $koneksiin->in_sccs_2 }}</a>
-                                        {{-- == --}}
+                                            target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
+                                            <svg width="22" height="17" viewBox="0 0 22 17" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M11 0C6 0 1.73 3.11 0 7.5C1.73 11.89 6 15 11 15C11.36 15 11.72 15 12.08 14.95C12.03 14.63 12 14.32 12 14C12 13.44 12.08 12.88 12.24 12.34C11.83 12.44 11.42 12.5 11 12.5C8.24 12.5 6 10.26 6 7.5C6 4.74 8.24 2.5 11 2.5C13.76 2.5 16 4.74 16 7.5C16 7.79 15.97 8.09 15.92 8.38C16.58 8.13 17.29 8 18 8C19.17 8 20.31 8.34 21.29 9C21.56 8.5 21.8 8 22 7.5C20.27 3.11 16 0 11 0ZM11 4.5C9.34 4.5 8 5.84 8 7.5C8 9.16 9.34 10.5 11 10.5C12.66 10.5 14 9.16 14 7.5C14 5.84 12.66 4.5 11 4.5ZM17 10.5V12.5H21V14.5H17V16.5L14 13.5L17 10.5Z"
+                                                    fill="black" />
+                                            </svg>
+                                        </a>
 
-                                    </td>
-                                    <td>
-                                        @if ($koneksiin->up_by_sccs_in_2 != '')
-                                            <div
-                                                class="items-center py-1 px-2 text-sm font-medium text-center text-white bg-orange-500 w-[100] mx-auto rounded">
-                                                {{ $koneksiin->up_by_sccs_in_2 }}
-                                            </div>
-                                        @endif
-                                    </td>
-                                    <td class="text-center">{{ $koneksiin->date_in_sccs_2 }}</td>
-                                    <td class="space-y-2 py-3 px-2">
-                                        @if ($koneksiin->in_sccs_2 != '')
-                                            <div class="justify-center flex space-x-2">
-                                                <button type="button"
-                                                    class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
-                                                    data-modal-target="modal42" data-modal-show="modal42"
-                                                    data-modal-toggle="modal42">Ubah</button>
-                                                <button data-dropdown-toggle="dropdown42" type="button"
-                                                    class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
-                                                        width="22" fill="white" viewBox="0 0 48 48">
-                                                        <path
-                                                            d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
-                                                        </path>
-                                                    </svg>
-                                                </button>
-                                            </div>
-                                        @else
-                                            <input type="file" name="as_in_sccs_2" id="">
-                                        @endif
-                                    </td>
-                                    <input type="text" hidden name="as_up_by_sccs_in_2"
-                                        value="{{ Auth::user()->first_name }}">
-                                    <input type="date" hidden name="as_date_in_sccs_2"
-                                        value="{{ date('Y-m-d') }}">
+                                        &emsp;
+                                    @endif
+                                    {{--  --}}
+                                    <a href="{{ asset('storage/supervisor/project/05_IN/' . $koneksiin->in_sccs_2) }}"
+                                        target="blank" download="" class="hover:underline">
+                                        {{ $koneksiin->in_sccs_2 }}</a>
+                                    {{-- == --}}
 
-                                </tr>
-                                {{-- 3 --}}
-                                <tr
-                                    class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
-                                    <td class="py-4 font-bold text-center">3.</td>
-                                    <td class="flex justify-start py-4 items-center">
-
-                                        @if ($koneksiin->in_sccs_3 != '')
-                                            <a href="{{ asset('storage/supervisor/project/05_IN/' . $koneksiin->in_sccs_3) }}"
-                                                target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
-                                                <svg width="22" height="17" viewBox="0 0 22 17"
-                                                    fill="none" xmlns="http://www.w3.org/2000/svg">
+                                </td>
+                                <td>
+                                    @if ($koneksiin->up_by_sccs_in_2 != '')
+                                        <div
+                                            class="items-center py-1 px-2 text-sm font-medium text-center text-white bg-orange-500 w-[100] mx-auto rounded">
+                                            {{ $koneksiin->up_by_sccs_in_2 }}
+                                        </div>
+                                    @endif
+                                </td>
+                                <td class="text-center">{{ $koneksiin->date_in_sccs_2 }}</td>
+                                <td class="space-y-2 py-3 px-2">
+                                    @if (($koneksiin->status_in == '-' || $koneksiin->status_in == 'Revisi Installation') && $koneksiin->in_sccs_2 == '')
+                                        <div class="justify-center flex space-x-2">
+                                            <input type="file" name="as_in_sccs_2" id="fileInput_in_sccs_2"
+                                                style="display: none;">
+                                            <button type="button" onclick="openFileInput('in_sccs_2')"
+                                                class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md">
+                                                + Tambah dokumen
+                                            </button>
+                                        </div>
+                                    @elseif (
+                                        ($koneksiin->status_in == '-' || $koneksiin->status_in == 'Revisi Installation') &&
+                                            $koneksiin->in_sccs_2 != '' &&
+                                            $koneksiin->status_in != 'Complete' &&
+                                            $koneksiin->status_in != 'Waiting Approval')
+                                        <div class="justify-center flex space-x-2">
+                                            <button type="button"
+                                                class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                data-modal-target="modal42" data-modal-show="modal42"
+                                                data-modal-toggle="modal42">
+                                                Ubah
+                                            </button>
+                                            <button data-dropdown-toggle="dropdown1" type="button"
+                                                class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="22"
+                                                    fill="white" viewBox="0 0 48 48">
                                                     <path
-                                                        d="M11 0C6 0 1.73 3.11 0 7.5C1.73 11.89 6 15 11 15C11.36 15 11.72 15 12.08 14.95C12.03 14.63 12 14.32 12 14C12 13.44 12.08 12.88 12.24 12.34C11.83 12.44 11.42 12.5 11 12.5C8.24 12.5 6 10.26 6 7.5C6 4.74 8.24 2.5 11 2.5C13.76 2.5 16 4.74 16 7.5C16 7.79 15.97 8.09 15.92 8.38C16.58 8.13 17.29 8 18 8C19.17 8 20.31 8.34 21.29 9C21.56 8.5 21.8 8 22 7.5C20.27 3.11 16 0 11 0ZM11 4.5C9.34 4.5 8 5.84 8 7.5C8 9.16 9.34 10.5 11 10.5C12.66 10.5 14 9.16 14 7.5C14 5.84 12.66 4.5 11 4.5ZM17 10.5V12.5H21V14.5H17V16.5L14 13.5L17 10.5Z"
-                                                        fill="black" />
+                                                        d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                    </path>
                                                 </svg>
-                                            </a>
+                                            </button>
+                                        </div>
+                                    @endif
+                                </td>
+                                <input type="text" hidden name="as_up_by_sccs_in_2"
+                                    value="{{ Auth::user()->first_name }}">
+                                <input type="date" hidden name="as_date_in_sccs_2" value="{{ date('Y-m-d') }}">
 
-                                            &emsp;
-                                        @endif
-                                        {{--  --}}
+                            </tr>
+                            {{-- 3 --}}
+                            <tr class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
+                                <td class="py-4 font-bold text-center">3.</td>
+                                <td class="flex justify-start py-4 items-center">
+
+                                    @if ($koneksiin->in_sccs_3 != '')
                                         <a href="{{ asset('storage/supervisor/project/05_IN/' . $koneksiin->in_sccs_3) }}"
-                                            target="blank" download="" class="hover:underline">
-                                            {{ $koneksiin->in_sccs_3 }}</a>
-                                        {{-- == --}}
+                                            target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
+                                            <svg width="22" height="17" viewBox="0 0 22 17" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M11 0C6 0 1.73 3.11 0 7.5C1.73 11.89 6 15 11 15C11.36 15 11.72 15 12.08 14.95C12.03 14.63 12 14.32 12 14C12 13.44 12.08 12.88 12.24 12.34C11.83 12.44 11.42 12.5 11 12.5C8.24 12.5 6 10.26 6 7.5C6 4.74 8.24 2.5 11 2.5C13.76 2.5 16 4.74 16 7.5C16 7.79 15.97 8.09 15.92 8.38C16.58 8.13 17.29 8 18 8C19.17 8 20.31 8.34 21.29 9C21.56 8.5 21.8 8 22 7.5C20.27 3.11 16 0 11 0ZM11 4.5C9.34 4.5 8 5.84 8 7.5C8 9.16 9.34 10.5 11 10.5C12.66 10.5 14 9.16 14 7.5C14 5.84 12.66 4.5 11 4.5ZM17 10.5V12.5H21V14.5H17V16.5L14 13.5L17 10.5Z"
+                                                    fill="black" />
+                                            </svg>
+                                        </a>
 
-                                    </td>
-                                    <td>
-                                        @if ($koneksiin->up_by_sccs_in_3 != '')
-                                            <div
-                                                class="items-center py-1 px-2 text-sm font-medium text-center text-white bg-orange-500 w-[100] mx-auto rounded">
-                                                {{ $koneksiin->up_by_sccs_in_3 }}
-                                            </div>
-                                        @endif
-                                    </td>
-                                    <td class="text-center">{{ $koneksiin->date_in_sccs_3 }}</td>
-                                    <td class="space-y-2 py-3 px-2">
-                                        @if ($koneksiin->in_sccs_3 != '')
-                                            <div class="justify-center flex space-x-2">
-                                                <button type="button"
-                                                    class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
-                                                    data-modal-target="modal43" data-modal-show="modal43"
-                                                    data-modal-toggle="modal43">Ubah</button>
-                                                <button data-dropdown-toggle="dropdown43" type="button"
-                                                    class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
-                                                        width="22" fill="white" viewBox="0 0 48 48">
-                                                        <path
-                                                            d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
-                                                        </path>
-                                                    </svg>
-                                                </button>
-                                            </div>
-                                        @else
-                                            <input type="file" name="as_in_sccs_3" id="">
-                                        @endif
-                                    </td>
-                                    <input type="text" hidden name="as_up_by_sccs_in_3"
-                                        value="{{ Auth::user()->first_name }}">
-                                    <input type="date" hidden name="as_date_in_sccs_3"
-                                        value="{{ date('Y-m-d') }}">
+                                        &emsp;
+                                    @endif
+                                    {{--  --}}
+                                    <a href="{{ asset('storage/supervisor/project/05_IN/' . $koneksiin->in_sccs_3) }}"
+                                        target="blank" download="" class="hover:underline">
+                                        {{ $koneksiin->in_sccs_3 }}</a>
+                                    {{-- == --}}
 
-                                </tr>
+                                </td>
+                                <td>
+                                    @if ($koneksiin->up_by_sccs_in_3 != '')
+                                        <div
+                                            class="items-center py-1 px-2 text-sm font-medium text-center text-white bg-orange-500 w-[100] mx-auto rounded">
+                                            {{ $koneksiin->up_by_sccs_in_3 }}
+                                        </div>
+                                    @endif
+                                </td>
+                                <td class="text-center">{{ $koneksiin->date_in_sccs_3 }}</td>
+                                <td class="space-y-2 py-3 px-2">
+                                    @if (($koneksiin->status_in == '-' || $koneksiin->status_in == 'Revisi Installation') && $koneksiin->in_sccs_3 == '')
+                                        <div class="justify-center flex space-x-2">
+                                            <input type="file" name="as_in_sccs_3" id="fileInput_in_sccs_3"
+                                                style="display: none;">
+                                            <button type="button" onclick="openFileInput('in_sccs_3')"
+                                                class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md">
+                                                + Tambah dokumen
+                                            </button>
+                                        </div>
+                                    @elseif (
+                                        ($koneksiin->status_in == '-' || $koneksiin->status_in == 'Revisi Installation') &&
+                                            $koneksiin->in_sccs_3 != '' &&
+                                            $koneksiin->status_in != 'Complete' &&
+                                            $koneksiin->status_in != 'Waiting Approval')
+                                        <div class="justify-center flex space-x-2">
+                                            <button type="button"
+                                                class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                data-modal-target="modal43" data-modal-show="modal43"
+                                                data-modal-toggle="modal43">
+                                                Ubah
+                                            </button>
+                                            <button data-dropdown-toggle="dropdown1" type="button"
+                                                class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="22"
+                                                    fill="white" viewBox="0 0 48 48">
+                                                    <path
+                                                        d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                    </path>
+                                                </svg>
+                                            </button>
+                                        </div>
+                                    @endif
+                                </td>
+                                <input type="text" hidden name="as_up_by_sccs_in_3"
+                                    value="{{ Auth::user()->first_name }}">
+                                <input type="date" hidden name="as_date_in_sccs_3" value="{{ date('Y-m-d') }}">
 
-                            </tbody>
-                        </table>
-                    </div>
-                    {{-- Akhir --}}
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+                {{-- Akhir --}}
 
                 {{-- inspection report --}}
                 {{-- awal standar formulir --}}
                 <div class="flex justify-between">
-                    <p class="font-medium text-lg bg-gray-800 px-4 py-1 w-fit text-white mb-2 rounded"> Inspection Report
-                    @foreach ($standar_project as $spt)
-                        @if ($spt->file_in_ir_form != '')
-                            <div class="flex justify-end mr-1 mt-4">
-                                <a href="{{ asset('storage/supervisor/standarproject/' . $spt->file_in_ir_form) }}"
-                                    download="">
-                                    <div class="w-fit items-center space-x-1 flex fill-blue-600 hover:fill-blue-800">
-                                        <svg width="15" height="" viewBox="0 0 52 52"
-                                            xmlns="http://www.w3.org/2000/svg">
-                                            <path
-                                                d="m36.4 14.8h8.48a1.09 1.09 0 0 0 1.12-1.12 1 1 0 0 0 -.32-.8l-10.56-10.56a1 1 0 0 0 -.8-.32 1.09 1.09 0 0 0 -1.12 1.12v8.48a3.21 3.21 0 0 0 3.2 3.2z" />
+                    <p class="font-medium text-lg bg-gray-800 px-4 py-1 w-fit text-white mb-2 rounded"> Inspection
+                        Report
+                        @foreach ($standar_project as $spt)
+                            @if ($spt->file_in_ir_form != '')
+                                <div class="flex justify-end mr-1 mt-4">
+                                    <a href="{{ asset('storage/supervisor/standarproject/' . $spt->file_in_ir_form) }}"
+                                        download="">
+                                        <div
+                                            class="w-fit items-center space-x-1 flex fill-blue-600 hover:fill-blue-800">
+                                            <svg width="15" height="" viewBox="0 0 52 52"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="m36.4 14.8h8.48a1.09 1.09 0 0 0 1.12-1.12 1 1 0 0 0 -.32-.8l-10.56-10.56a1 1 0 0 0 -.8-.32 1.09 1.09 0 0 0 -1.12 1.12v8.48a3.21 3.21 0 0 0 3.2 3.2z" />
 
-                                            <path
-                                                d="m44.4 19.6h-11.2a4.81 4.81 0 0 1 -4.8-4.8v-11.2a1.6 1.6 0 0 0 -1.6-1.6h-16a4.81 4.81 0 0 0 -4.8 4.8v38.4a4.81 4.81 0 0 0 4.8 4.8h30.4a4.81 4.81 0 0 0 4.8-4.8v-24a1.6 1.6 0 0 0 -1.6-1.6zm-32-1.6a1.62 1.62 0 0 1 1.6-1.55h6.55a1.56 1.56 0 0 1 1.57 1.55v1.59a1.63 1.63 0 0 1 -1.59 1.58h-6.53a1.55 1.55 0 0 1 -1.58-1.58zm24 20.77a1.6 1.6 0 0 1 -1.6 1.6h-20.8a1.6 1.6 0 0 1 -1.6-1.6v-1.57a1.6 1.6 0 0 1 1.6-1.6h20.8a1.6 1.6 0 0 1 1.6 1.6zm3.2-9.6a1.6 1.6 0 0 1 -1.6 1.63h-24a1.6 1.6 0 0 1 -1.6-1.6v-1.6a1.6 1.6 0 0 1 1.6-1.6h24a1.6 1.6 0 0 1 1.6 1.6z" />
-                                        </svg>
-                                        <p
-                                            class="text-right hover:underline font-semibold text-md text-blue-600 hover:text-blue-800 ">
-                                            Klik untuk mengunduh formulir kerja</p>
-                                    </div>
-                                </a>
-                            </div>
-                        @endif
-                    @endforeach
-                    {{-- tombol form --}}
+                                                <path
+                                                    d="m44.4 19.6h-11.2a4.81 4.81 0 0 1 -4.8-4.8v-11.2a1.6 1.6 0 0 0 -1.6-1.6h-16a4.81 4.81 0 0 0 -4.8 4.8v38.4a4.81 4.81 0 0 0 4.8 4.8h30.4a4.81 4.81 0 0 0 4.8-4.8v-24a1.6 1.6 0 0 0 -1.6-1.6zm-32-1.6a1.62 1.62 0 0 1 1.6-1.55h6.55a1.56 1.56 0 0 1 1.57 1.55v1.59a1.63 1.63 0 0 1 -1.59 1.58h-6.53a1.55 1.55 0 0 1 -1.58-1.58zm24 20.77a1.6 1.6 0 0 1 -1.6 1.6h-20.8a1.6 1.6 0 0 1 -1.6-1.6v-1.57a1.6 1.6 0 0 1 1.6-1.6h20.8a1.6 1.6 0 0 1 1.6 1.6zm3.2-9.6a1.6 1.6 0 0 1 -1.6 1.63h-24a1.6 1.6 0 0 1 -1.6-1.6v-1.6a1.6 1.6 0 0 1 1.6-1.6h24a1.6 1.6 0 0 1 1.6 1.6z" />
+                                            </svg>
+                                            <p
+                                                class="text-right hover:underline font-semibold text-md text-blue-600 hover:text-blue-800 ">
+                                                Klik untuk mengunduh formulir kerja</p>
+                                        </div>
+                                    </a>
+                                </div>
+                            @endif
+                        @endforeach
+                        {{-- tombol form --}}
                 </div>
                 {{-- akhir standar formulir --}}
                 <div class="">
@@ -1689,13 +1806,28 @@
                                     </td>
                                     <td class="text-center">{{ $koneksiin->date_in_ir_1 }}</td>
                                     <td class="space-y-2 py-3 px-2">
-                                        @if ($koneksiin->in_ir_1 != '')
+                                        @if (($koneksiin->status_in == '-' || $koneksiin->status_in == 'Revisi Installation') && $koneksiin->in_ir_1 == '')
+                                            <div class="justify-center flex space-x-2">
+                                                <input type="file" name="as_in_ir_1" id="fileInput_in_ir_1"
+                                                    style="display: none;">
+                                                <button type="button" onclick="openFileInput('in_ir_1')"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md">
+                                                    + Tambah dokumen
+                                                </button>
+                                            </div>
+                                        @elseif (
+                                            ($koneksiin->status_in == '-' || $koneksiin->status_in == 'Revisi Installation') &&
+                                                $koneksiin->in_ir_1 != '' &&
+                                                $koneksiin->status_in != 'Complete' &&
+                                                $koneksiin->status_in != 'Waiting Approval')
                                             <div class="justify-center flex space-x-2">
                                                 <button type="button"
-                                                    class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                    class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                     data-modal-target="modal51" data-modal-show="modal51"
-                                                    data-modal-toggle="modal51">Ubah</button>
-                                                <button data-dropdown-toggle="dropdown51" type="button"
+                                                    data-modal-toggle="modal51">
+                                                    Ubah
+                                                </button>
+                                                <button data-dropdown-toggle="dropdown1" type="button"
                                                     class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
                                                     <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
                                                         width="22" fill="white" viewBox="0 0 48 48">
@@ -1705,8 +1837,6 @@
                                                     </svg>
                                                 </button>
                                             </div>
-                                        @else
-                                            <input type="file" name="as_in_ir_1" id="">
                                         @endif
                                     </td>
                                     <input type="text" hidden name="as_up_by_ir_in_1"
@@ -1751,13 +1881,28 @@
                                     </td>
                                     <td class="text-center">{{ $koneksiin->date_in_ir_2 }}</td>
                                     <td class="space-y-2 py-3 px-2">
-                                        @if ($koneksiin->in_ir_2 != '')
+                                        @if (($koneksiin->status_in == '-' || $koneksiin->status_in == 'Revisi Installation') && $koneksiin->in_ir_2 == '')
+                                            <div class="justify-center flex space-x-2">
+                                                <input type="file" name="as_in_ir_2" id="fileInput_in_ir_2"
+                                                    style="display: none;">
+                                                <button type="button" onclick="openFileInput('in_ir_2')"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md">
+                                                    + Tambah dokumen
+                                                </button>
+                                            </div>
+                                        @elseif (
+                                            ($koneksiin->status_in == '-' || $koneksiin->status_in == 'Revisi Installation') &&
+                                                $koneksiin->in_ir_2 != '' &&
+                                                $koneksiin->status_in != 'Complete' &&
+                                                $koneksiin->status_in != 'Waiting Approval')
                                             <div class="justify-center flex space-x-2">
                                                 <button type="button"
-                                                    class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                    class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                     data-modal-target="modal52" data-modal-show="modal52"
-                                                    data-modal-toggle="modal52">Ubah</button>
-                                                <button data-dropdown-toggle="dropdown52" type="button"
+                                                    data-modal-toggle="modal52">
+                                                    Ubah
+                                                </button>
+                                                <button data-dropdown-toggle="dropdown1" type="button"
                                                     class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
                                                     <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
                                                         width="22" fill="white" viewBox="0 0 48 48">
@@ -1767,8 +1912,6 @@
                                                     </svg>
                                                 </button>
                                             </div>
-                                        @else
-                                            <input type="file" name="as_in_ir_2" id="">
                                         @endif
                                     </td>
                                     <input type="text" hidden name="as_up_by_ir_in_2"
@@ -1780,47 +1923,10 @@
                             </tbody>
                         </table>
                     </div>
-                    {{-- Akhir pekerjaan --}}
+                    {{-- Akhir inspeksi report --}}
                 </div>
             </div>
             {{-- bungkus --}}
-            <input type="text" name="approval_by" value="{{ Auth::user()->first_name }}" hidden>
-            <input type="text" name="approval_date" value="{{ date('Y-m-d') }}" hidden>
-
-
-            <input type="text" name="status_in" value="Complete" hidden>
-            <input type="date" hidden name="status_in_date" value="{{ date('Y-m-d') }}">
-            {{-- table project --}}
-            <input type="text" name="check" value="donecheck" hidden>
-            <input type="text" name="progress" value="Installation" hidden>
-            <input type="text" name="last_update_name" value="{{ Auth::user()->first_name }}" hidden>
-            <input type="text" name="last_update_date" value="{{ date('d-M-Y') }}" hidden>
-
-            @if (
-                /* 1m */
-                $koneksiin->in_ipo_1 &&
-                    $koneksiin->in_ipo_2 &&
-                    $koneksiin->in_ipo_3 &&
-                    /* 2n */
-                    $koneksiin->in_ecr_1 &&
-                    $koneksiin->in_ecr_2 &&
-                    $koneksiin->in_ecr_3 &&
-                    $koneksiin->in_ecr_4 &&
-                    /* 3o */
-                    $koneksiin->in_sc_1 &&
-                    $koneksiin->in_sc_2 &&
-                    /* 4p */
-                    $koneksiin->in_sccs_1 &&
-                    $koneksiin->in_sccs_2 &&
-                    $koneksiin->in_sccs_3 &&
-                    /* 5q */
-                    $koneksiin->in_ir_1 &&
-                    $koneksiin->in_ir_2 != '')
-            @else
-                <button type="submit"
-                    class="bg-orange-500 w-full hover:bg-orange-600 text-white font-bold py-2 rounded-lg mt-3 shadow-md">Klik
-                    untuk submit dokumen</button>
-            @endif
 
             {{-- modal ubah --}}
             @php
@@ -2004,8 +2110,7 @@
                                 </p>
                                 <div class="items-center justify-center w-full border my-4">
                                     @if ($koneksiin->{'in_sc_' . $number} != '')
-                                        <input type="file"name="as_in_sc_{{ $number }}"
-                                            id="">
+                                        <input type="file"name="as_in_sc_{{ $number }}" id="">
                                     @else()
                                     @endif
                                 </div>
@@ -2068,8 +2173,7 @@
                                 </p>
                                 <div class="items-center justify-center w-full border my-4">
                                     @if ($koneksiin->{'in_sccs_' . $number} != '')
-                                        <input type="file"name="as_in_sccs_{{ $number }}"
-                                            id="">
+                                        <input type="file"name="as_in_sccs_{{ $number }}" id="">
                                     @else()
                                     @endif
                                 </div>
@@ -2132,8 +2236,7 @@
                                 </p>
                                 <div class="items-center justify-center w-full border my-4">
                                     @if ($koneksiin->{'in_ir_' . $number} != '')
-                                        <input type="file"name="as_in_ir_{{ $number }}"
-                                            id="">
+                                        <input type="file"name="as_in_ir_{{ $number }}" id="">
                                     @else()
                                     @endif
                                 </div>
@@ -2145,81 +2248,94 @@
                 </div>
             @endforeach
             {{-- selesai modal ubah --}}
+            <input type="text" name="last_update_name" value="{{ Auth::user()->first_name }}" hidden>
+            <input type="text" name="last_update_date" value="{{ date('d-M-Y') }}" hidden>
         </form>
+    </div>
+    {{-- Akhir progress file --}}
 
+
+    @if (
+        /* 1m */
+        $koneksiin->in_ipo_1 ||
+            $koneksiin->in_ipo_2 ||
+            $koneksiin->in_ipo_3 ||
+            /* 2n */
+            $koneksiin->in_ecr_1 ||
+            $koneksiin->in_ecr_2 ||
+            $koneksiin->in_ecr_3 ||
+            $koneksiin->in_ecr_4 ||
+            /* 3o */
+            $koneksiin->in_sc_1 ||
+            $koneksiin->in_sc_2 ||
+            /* 4p */
+            $koneksiin->in_sccs_1 ||
+            $koneksiin->in_sccs_2 ||
+            $koneksiin->in_sccs_3 ||
+            /* 5q */
+            $koneksiin->in_ir_1 ||
+            $koneksiin->in_ir_2 != '')
         {{-- Tombol Approve --}}
-        <div class="grid grid-cols-2 gap-2">
-            <form action="" method="post" enctype="multipart/form-data">
-                @csrf
-                @method('PUT')
-                <input type="text" name="check" value="donecheck" hidden>
-                <input type="text" name="progress" value="Installation" hidden>
-                <input type="text" name="status_in" value="Complete" hidden>
-                <input type="date" hidden name="status_in_date" value="{{ date('Y-m-d') }}">
-                <input type="text" name="approval_by" value="{{ Auth::user()->first_name }}" hidden>
-                <input type="text" name="approval_date" value="{{ date('Y-m-d') }}" hidden>
+        <div class="grid grid-cols-2 gap-2 mt-4">
+            @if ($koneksiin->status_in != 'Complete')
+                <form action="" method="post" enctype="multipart/form-data">
+                    @csrf
+                    @method('PUT')
+                    <input type="text" name="check" value="donecheck" hidden>
+                    <input type="text" name="progress" value="Installation" hidden>
+                    <input type="text" name="status_in" value="Complete" hidden>
+                    <input type="date" hidden name="status_in_date" value="{{ date('Y-m-d') }}">
+                    <input type="text" name="approval_by" value="{{ Auth::user()->first_name }}" hidden>
+                    <input type="text" name="approval_date" value="{{ date('Y-m-d') }}" hidden>
 
-                <div class="flex space-x-1 w-full">
+                    <div class="flex space-x-1 w-full">
+                        <button type="submit"
+                            class="rounded-lg items-center p-3 my-1 w-full hover:bg-green-800 bg-green-600 flex">
+                            <div class="flex mx-auto space-x-2 items-center">
+                                <svg width="20" height="auto" viewBox="0 0 80 80" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M36 57.6L17.2 38.8L22.8 33.2L36 46.4L69.6 12.8C62 5.2 51.6 0 40 0C18 0 0 18 0 40C0 62 18 80 40 80C62 80 80 62 80 40C80 32.4 78 25.6 74.4 19.6L36 57.6Z"
+                                        fill="white" />
+                                </svg>
+                                <p class="text-white font-medium">
+                                    Approve Progress
+                                </p>
+                            </div>
+                        </button>
+                    </div>
+                </form>
+            @endif
+            @if ($koneksiin->status_in != 'Revisi Installation' && $koneksicl->status_cl != 'Complete')
+                <form action="" method="post" enctype="multipart/form-data">
+                    @csrf
+                    @method('PUT')
+                    <input type="text" name="check" value="donecheck" hidden>
+                    <input type="text" name="progress" value="Waiting Approval Installation" hidden>
+                    <input type="text" name="status_in" value="Revisi Installation" hidden>
+                    <input type="date" hidden name="status_in_date" value="{{ date('Y-m-d') }}">
+                    <input type="text" name="approval_by" value="{{ Auth::user()->first_name }}" hidden>
+                    <input type="text" name="approval_date" value="{{ date('Y-m-d') }}" hidden>
+
                     <button type="submit"
-                        class="rounded-lg items-center p-3 my-1 w-full hover:bg-green-800 bg-green-600 flex">
+                        class="rounded-lg items-center text-white p-3 my-1 w-full hover:bg-yellow-600 bg-yellow-400 flex space-x-2">
                         <div class="flex mx-auto space-x-2 items-center">
                             <svg width="20" height="auto" viewBox="0 0 80 80" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <path
-                                    d="M36 57.6L17.2 38.8L22.8 33.2L36 46.4L69.6 12.8C62 5.2 51.6 0 40 0C18 0 0 18 0 40C0 62 18 80 40 80C62 80 80 62 80 40C80 32.4 78 25.6 74.4 19.6L36 57.6Z"
+                                    d="M40 0C17.92 0 0 17.92 0 40C0 62.08 17.92 80 40 80C62.08 80 80 62.08 80 40C80 17.92 62.08 0 40 0ZM44 60H36V52H44V60ZM44 44H36V20H44V44Z"
                                     fill="white" />
                             </svg>
                             <p class="text-white font-medium">
-                                Approve Progress
+                                Revisi Progress
                             </p>
                         </div>
                     </button>
-                </div>
-            </form>
-            <form action="" method="post" enctype="multipart/form-data">
-                @csrf
-                @method('PUT')
-                <input type="text" name="check" value="donecheck" hidden>
-                <input type="text" name="progress" value="Waiting Approval Installation" hidden>
-                <input type="text" name="status_in" value="Revisi Installation" hidden>
-                <input type="date" hidden name="status_in_date" value="{{ date('Y-m-d') }}">
-                <input type="text" name="approval_by" value="{{ Auth::user()->first_name }}" hidden>
-                <input type="text" name="approval_date" value="{{ date('Y-m-d') }}" hidden>
-
-                <button type="submit"
-                    class="rounded-lg items-center text-white p-3 my-1 w-full hover:bg-yellow-600 bg-yellow-400 flex space-x-2">
-                    <div class="flex mx-auto space-x-2 items-center">
-                        <svg width="20" height="auto" viewBox="0 0 80 80" fill="none"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                d="M40 0C17.92 0 0 17.92 0 40C0 62.08 17.92 80 40 80C62.08 80 80 62.08 80 40C80 17.92 62.08 0 40 0ZM44 60H36V52H44V60ZM44 44H36V20H44V44Z"
-                                fill="white" />
-                        </svg>
-                        <p class="text-white font-medium">
-                            Revisi Progress
-                        </p>
-                    </div>
-
-                </button>
-            </form>
+                </form>
+            @endif
         </div>
-        {{-- Akhir Tombol Approve --}}
-
-    </div>
-    {{-- Akhir progress file --}}
-
-    <script>
-        function simulateEscape() {
-            // Create a new KeyboardEvent for the "Escape" key
-            const escapeEvent = new KeyboardEvent('keydown', {
-                key: 'Escape',
-                code: 'Escape',
-                keyCode: 27,
-                which: 27,
-            });
-            document.dispatchEvent(escapeEvent);
-        }
-    </script>
+    @endif
+    {{-- Akhir Tombol Approve --}}
 
     @php
         $num = range(1, 4);
@@ -2341,5 +2457,35 @@
 
 </div>
 {{-- tutup bungkus --}}
+
+<script>
+    function simulateEscape() {
+        // Create a new KeyboardEvent for the "Escape" key
+        const escapeEvent = new KeyboardEvent('keydown', {
+            key: 'Escape',
+            code: 'Escape',
+            keyCode: 27,
+            which: 27,
+        });
+        document.dispatchEvent(escapeEvent);
+    }
+
+    function openFileInput(namaVariabel) {
+        // Temukan elemen file input berdasarkan nama variabel
+        const fileInput = document.getElementById('fileInput_' + namaVariabel);
+
+        // Klik pada elemen file input
+        fileInput.click();
+
+        // Tambahkan event listener untuk menangani perubahan file
+        fileInput.addEventListener('change', function(event) {
+            const selectedFile = event.target.files[0];
+            console.log('File yang dipilih untuk ' + namaVariabel + ':', selectedFile.name);
+
+            // Sekarang, kirim formulir
+            document.getElementById('uploadForm').submit();
+        });
+    }
+</script>
 
 </div>

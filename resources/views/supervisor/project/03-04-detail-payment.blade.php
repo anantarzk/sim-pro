@@ -1,34 +1,7 @@
 @extends('layouts.layout_supervisor')
 @section('title_page', 'Purchasing - PAY - Project')
 
-
-<a href="#submit-1">
-    <button class="fixed right-0 bottom-0 m-2 z-10 bg-orange-400 rounded-lg p-2 opacity-70 hover:opacity-90">
-        <svg width="10" height="auto" viewBox="0 0 39 42" fill="none" xmlns="http://www.w3.org/2000/svg"
-            class="fill-black">
-            <path
-                d="M1.75887 24.1504L1.75888 24.1504L17.6684 40.0595C18.1543 40.5454 18.8133 40.8183 19.5004 40.8183C20.1875 40.8183 20.8466 40.5453 21.3324 40.0594C21.3325 40.0594 21.3325 40.0593 21.3325 40.0593L37.2411 24.1503C38.253 23.1384 38.253 21.498 37.2411 20.4862C36.2295 19.4746 34.589 19.4742 33.5771 20.4863C33.5771 20.4863 33.5771 20.4864 33.577 20.4864L19.5004 34.5633L5.42295 20.4862C4.41129 19.4745 2.77075 19.4743 1.75887 20.4863C0.747043 21.4981 0.747043 23.1385 1.75887 24.1504ZM33.577 1.75887L33.577 1.75888L19.5003 15.8359L5.42302 1.75893C5.42299 1.75891 5.42297 1.75889 5.42295 1.75886C4.41117 0.746989 2.77065 0.747099 1.75887 1.75887C0.747043 2.7707 0.747043 4.41113 1.75887 5.42296L1.75888 5.42296L17.6684 21.3322C18.1543 21.8181 18.8133 22.091 19.5004 22.091C20.1875 22.091 20.8466 21.818 21.3324 21.3321C21.3325 21.332 21.3325 21.332 21.3325 21.332L37.2411 5.42295C38.2529 4.41115 38.253 2.77077 37.2412 1.75893C36.2294 0.746989 34.5888 0.747076 33.577 1.75887Z"
-                stroke-width="2" />
-        </svg>
-    </button>
-</a>
-
-<a href="#submit-2">
-    <button class="fixed right-0 bottom-9 m-2 z-10 bg-orange-400 rounded-lg p-2 opacity-70 hover:opacity-90">
-        <svg width="10" height="auto" viewBox="0 0 39 42" fill="none" xmlns="http://www.w3.org/2000/svg"
-            class="fill-black rotate-180">
-            <path
-                d="M1.75887 24.1504L1.75888 24.1504L17.6684 40.0595C18.1543 40.5454 18.8133 40.8183 19.5004 40.8183C20.1875 40.8183 20.8466 40.5453 21.3324 40.0594C21.3325 40.0594 21.3325 40.0593 21.3325 40.0593L37.2411 24.1503C38.253 23.1384 38.253 21.498 37.2411 20.4862C36.2295 19.4746 34.589 19.4742 33.5771 20.4863C33.5771 20.4863 33.5771 20.4864 33.577 20.4864L19.5004 34.5633L5.42295 20.4862C4.41129 19.4745 2.77075 19.4743 1.75887 20.4863C0.747043 21.4981 0.747043 23.1385 1.75887 24.1504ZM33.577 1.75887L33.577 1.75888L19.5003 15.8359L5.42302 1.75893C5.42299 1.75891 5.42297 1.75889 5.42295 1.75886C4.41117 0.746989 2.77065 0.747099 1.75887 1.75887C0.747043 2.7707 0.747043 4.41113 1.75887 5.42296L1.75888 5.42296L17.6684 21.3322C18.1543 21.8181 18.8133 22.091 19.5004 22.091C20.1875 22.091 20.8466 21.818 21.3324 21.3321C21.3325 21.332 21.3325 21.332 21.3325 21.332L37.2411 5.42295C38.2529 4.41115 38.253 2.77077 37.2412 1.75893C36.2294 0.746989 34.5888 0.747076 33.577 1.75887Z"
-                stroke-width="2" />
-        </svg>
-    </button>
-</a>
-
-
 <div class="mx-10 my-20">
-
-
-
     {{-- header --}}
     <div class="tracking-wide mb-2">
         <p class=" font-mono font-bold text-3xl mb-3">Detail proyek - PAY:</p>
@@ -487,44 +460,15 @@
                         </div>
                     @endif
                     <div class="absolute top-0 -ml-10 text-center mt-14 w-32 text-sm font-medium">
-                    @if ($koneksipr->status_pr_01 == 'Purchasing - PR' &&
-                    $koneksipa->status_pa_02 == 'Purchasing - PA' &&
-                    $koneksipo->status_po_03 == 'Purchasing - PO' &&
-                    $koneksipay->status_pay_04 == 'Purchasing - PAY')
-                    <form action="" method="post" enctype="multipart/form-data">
-                    @csrf
-                    @method('PUT')
-                    <input type="text" name="check" value="donecheck" hidden>
-                    <input type="text" name="progress" value="Purchasing" hidden>
-                    <input type="text" name="status_purchasing" value="Complete" hidden>
-                    <input type="date" hidden name="status_purchasing_date" value="{{ date('Y-m-d') }}">
-                    <div class="flex space-x-1 w-fit ml-4">
-                        <button type="submit"
-                            class="rounded-lg items-center shadow-sm p-3 my-1 w-full hover:bg-green-800 bg-green-600 flex">
-                            <div class="flex mx-auto space-x-2 items-center">
-                                <svg width="12" height="auto" viewBox="0 0 80 80" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="M36 57.6L17.2 38.8L22.8 33.2L36 46.4L69.6 12.8C62 5.2 51.6 0 40 0C18 0 0 18 0 40C0 62 18 80 40 80C62 80 80 62 80 40C80 32.4 78 25.6 74.4 19.6L36 57.6Z"
-                                        fill="white" />
-                                </svg>
-                                <p class="text-white font-medium text-sm">
-                                    Approve
-                                </p>
-                            </div>
-                        </button>
-                    </div>
-                    </form>
-                    @else
-                            <a
+                        <a
                             href="/03-01-PR-purchasing-proyek/{{ $viewdataproject->id }}/{{ $koneksifr->id_fr_1 }}/{{ $koneksiar->id_ar_2 }}/{{ $koneksipr->id_pr_01_3 }}/{{ $koneksipa->id_pa_02_3 }}/{{ $koneksipo->id_po_03_3 }}/{{ $koneksipay->id_pay_04_3 }}/{{ $koneksimn->id_mn_4 }}/{{ $koneksiin->id_in_5 }}/{{ $koneksicl->id_cl_6 }}">
-                            <p class="font-semibold text-lg text-gray-900 hover:underline">Purchasing<span class="text-red-600">*</span>
+                            <p class="font-semibold text-lg text-gray-900 hover:underline">Purchasing<span
+                                    class="text-red-600">*</span>
                             </p>
                         </a>
                         <p class="uppercase text-xs">{{ $koneksipr->status_purchasing }}</p>
                         <p>{{ $koneksipr->status_purchasing_date }}</p>
                     </div>
-                    @endif
                 </div>
 
                 <div class="flex-auto border-t-2 border-gray-300"></div>
@@ -573,7 +517,8 @@
                     <div class="absolute top-0 -ml-10 text-center mt-14 w-32 text-sm font-medium">
                         <a
                             href="/05-installation-proyek/{{ $viewdataproject->id }}/{{ $koneksifr->id_fr_1 }}/{{ $koneksiar->id_ar_2 }}/{{ $koneksipr->id_pr_01_3 }}/{{ $koneksipa->id_pa_02_3 }}/{{ $koneksipo->id_po_03_3 }}/{{ $koneksipay->id_pay_04_3 }}/{{ $koneksimn->id_mn_4 }}/{{ $koneksiin->id_in_5 }}/{{ $koneksicl->id_cl_6 }}">
-                            <p class="font-semibold text-lg text-gray-900 hover:underline">Installation<span class="text-red-600">*</span>
+                            <p class="font-semibold text-lg text-gray-900 hover:underline">Installation<span
+                                    class="text-red-600">*</span>
                             </p>
                         </a>
                         <p class="uppercase text-xs">{{ $koneksiin->status_in }}</p>
@@ -600,7 +545,8 @@
                     <div class="absolute top-0 -ml-10 text-center mt-14 w-32 text-sm font-medium">
                         <a
                             href="/06-closed-proyek/{{ $viewdataproject->id }}/{{ $koneksifr->id_fr_1 }}/{{ $koneksiar->id_ar_2 }}/{{ $koneksipr->id_pr_01_3 }}/{{ $koneksipa->id_pa_02_3 }}/{{ $koneksipo->id_po_03_3 }}/{{ $koneksipay->id_pay_04_3 }}/{{ $koneksimn->id_mn_4 }}/{{ $koneksiin->id_in_5 }}/{{ $koneksicl->id_cl_6 }}">
-                            <p class="font-semibold text-lg text-gray-900 hover:underline">Handover<span class="text-red-600">*</span>
+                            <p class="font-semibold text-lg text-gray-900 hover:underline">Handover<span
+                                    class="text-red-600">*</span>
                             </p>
                         </a>
                         <p class="uppercase text-xs">{{ $koneksicl->status_cl }}</p>
@@ -738,7 +684,8 @@
             {{-- status approval row --}}
             <div class="flex">
                 <p>Diperiksa oleh: &nbsp;
-                <div class="items-center py-1 px-2 text-sm font-medium text-center text-white bg-orange-500 mr-2 rounded">
+                <div
+                    class="items-center py-1 px-2 text-sm font-medium text-center text-white bg-orange-500 mr-2 rounded">
                     {{ $koneksipay->approval_by }}
                 </div>
                 </p>
@@ -860,30 +807,32 @@
                         {{-- PR Parts & Material --}}
                         {{-- awal standar formulir --}}
                         <div class="flex justify-between">
-                            <p class="font-medium text-lg bg-gray-800 px-4 py-1 w-fit text-white mb-2 rounded"> PAY Parts & Material
-                            @foreach ($standar_project as $spt)
-                                @if ($spt->file_pr_parts_material_form != '')
-                                    <div class="flex justify-end mr-1 mt-4">
-                                        <a href="{{ asset('storage/supervisor/standarproject/' . $spt->file_pr_parts_material_form) }}"
-                                            download="">
-                                            <div class="w-fit items-center space-x-1 flex fill-blue-600 hover:fill-blue-800">
-                                                <svg width="15" height="" viewBox="0 0 52 52"
-                                                    xmlns="http://www.w3.org/2000/svg">
-                                                    <path
-                                                        d="m36.4 14.8h8.48a1.09 1.09 0 0 0 1.12-1.12 1 1 0 0 0 -.32-.8l-10.56-10.56a1 1 0 0 0 -.8-.32 1.09 1.09 0 0 0 -1.12 1.12v8.48a3.21 3.21 0 0 0 3.2 3.2z" />
+                            <p class="font-medium text-lg bg-gray-800 px-4 py-1 w-fit text-white mb-2 rounded"> PAY
+                                Parts & Material
+                                @foreach ($standar_project as $spt)
+                                    @if ($spt->file_pr_parts_material_form != '')
+                                        <div class="flex justify-end mr-1 mt-4">
+                                            <a href="{{ asset('storage/supervisor/standarproject/' . $spt->file_pr_parts_material_form) }}"
+                                                download="">
+                                                <div
+                                                    class="w-fit items-center space-x-1 flex fill-blue-600 hover:fill-blue-800">
+                                                    <svg width="15" height="" viewBox="0 0 52 52"
+                                                        xmlns="http://www.w3.org/2000/svg">
+                                                        <path
+                                                            d="m36.4 14.8h8.48a1.09 1.09 0 0 0 1.12-1.12 1 1 0 0 0 -.32-.8l-10.56-10.56a1 1 0 0 0 -.8-.32 1.09 1.09 0 0 0 -1.12 1.12v8.48a3.21 3.21 0 0 0 3.2 3.2z" />
 
-                                                    <path
-                                                        d="m44.4 19.6h-11.2a4.81 4.81 0 0 1 -4.8-4.8v-11.2a1.6 1.6 0 0 0 -1.6-1.6h-16a4.81 4.81 0 0 0 -4.8 4.8v38.4a4.81 4.81 0 0 0 4.8 4.8h30.4a4.81 4.81 0 0 0 4.8-4.8v-24a1.6 1.6 0 0 0 -1.6-1.6zm-32-1.6a1.62 1.62 0 0 1 1.6-1.55h6.55a1.56 1.56 0 0 1 1.57 1.55v1.59a1.63 1.63 0 0 1 -1.59 1.58h-6.53a1.55 1.55 0 0 1 -1.58-1.58zm24 20.77a1.6 1.6 0 0 1 -1.6 1.6h-20.8a1.6 1.6 0 0 1 -1.6-1.6v-1.57a1.6 1.6 0 0 1 1.6-1.6h20.8a1.6 1.6 0 0 1 1.6 1.6zm3.2-9.6a1.6 1.6 0 0 1 -1.6 1.63h-24a1.6 1.6 0 0 1 -1.6-1.6v-1.6a1.6 1.6 0 0 1 1.6-1.6h24a1.6 1.6 0 0 1 1.6 1.6z" />
-                                                </svg>
-                                                <p
-                                                    class="text-right hover:underline font-semibold text-md text-blue-600 hover:text-blue-800 ">
-                                                    Klik untuk mengunduh formulir kerja</p>
-                                            </div>
-                                        </a>
-                                    </div>
-                                @endif
-                            @endforeach
-                            {{-- tombol form --}}
+                                                        <path
+                                                            d="m44.4 19.6h-11.2a4.81 4.81 0 0 1 -4.8-4.8v-11.2a1.6 1.6 0 0 0 -1.6-1.6h-16a4.81 4.81 0 0 0 -4.8 4.8v38.4a4.81 4.81 0 0 0 4.8 4.8h30.4a4.81 4.81 0 0 0 4.8-4.8v-24a1.6 1.6 0 0 0 -1.6-1.6zm-32-1.6a1.62 1.62 0 0 1 1.6-1.55h6.55a1.56 1.56 0 0 1 1.57 1.55v1.59a1.63 1.63 0 0 1 -1.59 1.58h-6.53a1.55 1.55 0 0 1 -1.58-1.58zm24 20.77a1.6 1.6 0 0 1 -1.6 1.6h-20.8a1.6 1.6 0 0 1 -1.6-1.6v-1.57a1.6 1.6 0 0 1 1.6-1.6h20.8a1.6 1.6 0 0 1 1.6 1.6zm3.2-9.6a1.6 1.6 0 0 1 -1.6 1.63h-24a1.6 1.6 0 0 1 -1.6-1.6v-1.6a1.6 1.6 0 0 1 1.6-1.6h24a1.6 1.6 0 0 1 1.6 1.6z" />
+                                                    </svg>
+                                                    <p
+                                                        class="text-right hover:underline font-semibold text-md text-blue-600 hover:text-blue-800 ">
+                                                        Klik untuk mengunduh formulir kerja</p>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    @endif
+                                @endforeach
+                                {{-- tombol form --}}
                         </div>
                         {{-- akhir standar formulir --}}
 
@@ -891,11 +840,11 @@
                             <table class="w-full ">
                                 <thead class="bg-gray-300 text-gray-700 sticky top-0">
                                     <th class="py-2 w-[5%] font-medium">No.</th>
-                                        <th class="w-[45%]  font-medium">Nama File</th>
-                                        <th class="w-[11%]  font-medium">Diunggah oleh</th>
-                                        <th class="w-[10%]  font-medium">Terakhir diubah</th>
-                                        <th class="w-[14%]  font-medium">Jumlah PAY</th>
-                                        <th class="w-[14%]  font-medium">Aksi</th>
+                                    <th class="w-[45%]  font-medium">Nama File</th>
+                                    <th class="w-[11%]  font-medium">Diunggah oleh</th>
+                                    <th class="w-[10%]  font-medium">Terakhir diubah</th>
+                                    <th class="w-[14%]  font-medium">Jumlah PAY</th>
+                                    <th class="w-[14%]  font-medium">Aksi</th>
                                 </thead>
                                 <tbody class="text-left border">
                                     {{-- 1 --}}
@@ -903,24 +852,24 @@
                                         class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
                                         <td class="py-4 font-bold text-center">1.</td>
                                         <td class="flex items-center my-4">
-                                        @if ($koneksipay->pay_parts_1 != '')
-                                            <a href="{{ asset('storage/supervisor/project/03_04_PR/' . $koneksipay->pay_parts_1) }}"
-                                                target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
-                                                <svg width="22" height="17" viewBox="0 0 22 17"
-                                                    fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                    <path
-                                                        d="M11 0C6 0 1.73 3.11 0 7.5C1.73 11.89 6 15 11 15C11.36 15 11.72 15 12.08 14.95C12.03 14.63 12 14.32 12 14C12 13.44 12.08 12.88 12.24 12.34C11.83 12.44 11.42 12.5 11 12.5C8.24 12.5 6 10.26 6 7.5C6 4.74 8.24 2.5 11 2.5C13.76 2.5 16 4.74 16 7.5C16 7.79 15.97 8.09 15.92 8.38C16.58 8.13 17.29 8 18 8C19.17 8 20.31 8.34 21.29 9C21.56 8.5 21.8 8 22 7.5C20.27 3.11 16 0 11 0ZM11 4.5C9.34 4.5 8 5.84 8 7.5C8 9.16 9.34 10.5 11 10.5C12.66 10.5 14 9.16 14 7.5C14 5.84 12.66 4.5 11 4.5ZM17 10.5V12.5H21V14.5H17V16.5L14 13.5L17 10.5Z"
-                                                        fill="black" />
-                                                </svg>
-                                            </a>
+                                            @if ($koneksipay->pay_parts_1 != '')
+                                                <a href="{{ asset('storage/supervisor/project/03_04_PR/' . $koneksipay->pay_parts_1) }}"
+                                                    target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
+                                                    <svg width="22" height="17" viewBox="0 0 22 17"
+                                                        fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path
+                                                            d="M11 0C6 0 1.73 3.11 0 7.5C1.73 11.89 6 15 11 15C11.36 15 11.72 15 12.08 14.95C12.03 14.63 12 14.32 12 14C12 13.44 12.08 12.88 12.24 12.34C11.83 12.44 11.42 12.5 11 12.5C8.24 12.5 6 10.26 6 7.5C6 4.74 8.24 2.5 11 2.5C13.76 2.5 16 4.74 16 7.5C16 7.79 15.97 8.09 15.92 8.38C16.58 8.13 17.29 8 18 8C19.17 8 20.31 8.34 21.29 9C21.56 8.5 21.8 8 22 7.5C20.27 3.11 16 0 11 0ZM11 4.5C9.34 4.5 8 5.84 8 7.5C8 9.16 9.34 10.5 11 10.5C12.66 10.5 14 9.16 14 7.5C14 5.84 12.66 4.5 11 4.5ZM17 10.5V12.5H21V14.5H17V16.5L14 13.5L17 10.5Z"
+                                                            fill="black" />
+                                                    </svg>
+                                                </a>
 
-                                            &emsp;
-                                        @endif
-                                        {{--  --}}
-                                        <a href="{{ asset('storage/supervisor/project/03_04_PR/' . $koneksipay->pay_parts_1) }}"
-                                            target="blank" download="" class="hover:underline">
-                                            {{ $koneksipay->pay_parts_1 }}</a>
-                                        {{-- == --}}
+                                                &emsp;
+                                            @endif
+                                            {{--  --}}
+                                            <a href="{{ asset('storage/supervisor/project/03_04_PR/' . $koneksipay->pay_parts_1) }}"
+                                                target="blank" download="" class="hover:underline">
+                                                {{ $koneksipay->pay_parts_1 }}</a>
+                                            {{-- == --}}
 
                                         </td>
                                         <td>
@@ -940,37 +889,37 @@
 
                                         <td class="space-y-2 py-3 px-2">
                                             @if (
-                                                    ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
-                                                        $koneksipay->pay_parts_1 == '')
-                                                    <button type="button"
-                                                        class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
-                                                        data-modal-target="modala11" data-modal-show="modala11"
-                                                        data-modal-toggle="modala11">
-                                                        + Tambah dokumen
-                                                    </button>
-                                                @elseif (
-                                                    ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
-                                                        $koneksipay->pay_parts_1 != '' &&
-                                                        $koneksipay->status_pay_04 != 'Complete' &&
-                                                        $koneksipay->status_pay_04 != 'Waiting Approval')
-                                                    <div class="justify-center flex space-x-2">
-                                                        <button type="button"
-                                                            class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
-                                                            data-modal-target="modal11" data-modal-show="modal11"
-                                                            data-modal-toggle="modal11">
-                                                            Ubah
-                                                        </button>
-                                                        <button data-dropdown-toggle="dropdown11" type="button"
-                                                    class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
-                                                        width="22" fill="white" viewBox="0 0 48 48">
-                                                        <path
-                                                            d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
-                                                        </path>
-                                                    </svg>
+                                                ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                    $koneksipay->pay_parts_1 == '')
+                                                <button type="button"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
+                                                    data-modal-target="modala11" data-modal-show="modala11"
+                                                    data-modal-toggle="modala11">
+                                                    + Tambah dokumen
                                                 </button>
-                                                    </div>
-                                                @endif
+                                            @elseif (
+                                                ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                    $koneksipay->pay_parts_1 != '' &&
+                                                    $koneksipay->status_pay_04 != 'Complete' &&
+                                                    $koneksipay->status_pay_04 != 'Waiting Approval')
+                                                <div class="justify-center flex space-x-2">
+                                                    <button type="button"
+                                                        class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        data-modal-target="modal11" data-modal-show="modal11"
+                                                        data-modal-toggle="modal11">
+                                                        Ubah
+                                                    </button>
+                                                    <button data-dropdown-toggle="dropdown11" type="button"
+                                                        class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                            width="22" fill="white" viewBox="0 0 48 48">
+                                                            <path
+                                                                d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                            </path>
+                                                        </svg>
+                                                    </button>
+                                                </div>
+                                            @endif
                                         </td>
                                         <input type="text" hidden name="as_up_by_parts_pay_1"
                                             value="{{ Auth::user()->first_name }}">
@@ -983,24 +932,24 @@
                                         class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
                                         <td class="py-4 font-bold text-center">2.</td>
                                         <td class="flex items-center my-4">
-                                        @if ($koneksipay->pay_parts_2 != '')
-                                            <a href="{{ asset('storage/supervisor/project/03_04_PR/' . $koneksipay->pay_parts_2) }}"
-                                                target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
-                                                <svg width="22" height="17" viewBox="0 0 22 17"
-                                                    fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                    <path
-                                                        d="M11 0C6 0 1.73 3.11 0 7.5C1.73 11.89 6 15 11 15C11.36 15 11.72 15 12.08 14.95C12.03 14.63 12 14.32 12 14C12 13.44 12.08 12.88 12.24 12.34C11.83 12.44 11.42 12.5 11 12.5C8.24 12.5 6 10.26 6 7.5C6 4.74 8.24 2.5 11 2.5C13.76 2.5 16 4.74 16 7.5C16 7.79 15.97 8.09 15.92 8.38C16.58 8.13 17.29 8 18 8C19.17 8 20.31 8.34 21.29 9C21.56 8.5 21.8 8 22 7.5C20.27 3.11 16 0 11 0ZM11 4.5C9.34 4.5 8 5.84 8 7.5C8 9.16 9.34 10.5 11 10.5C12.66 10.5 14 9.16 14 7.5C14 5.84 12.66 4.5 11 4.5ZM17 10.5V12.5H21V14.5H17V16.5L14 13.5L17 10.5Z"
-                                                        fill="black" />
-                                                </svg>
-                                            </a>
+                                            @if ($koneksipay->pay_parts_2 != '')
+                                                <a href="{{ asset('storage/supervisor/project/03_04_PR/' . $koneksipay->pay_parts_2) }}"
+                                                    target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
+                                                    <svg width="22" height="17" viewBox="0 0 22 17"
+                                                        fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path
+                                                            d="M11 0C6 0 1.73 3.11 0 7.5C1.73 11.89 6 15 11 15C11.36 15 11.72 15 12.08 14.95C12.03 14.63 12 14.32 12 14C12 13.44 12.08 12.88 12.24 12.34C11.83 12.44 11.42 12.5 11 12.5C8.24 12.5 6 10.26 6 7.5C6 4.74 8.24 2.5 11 2.5C13.76 2.5 16 4.74 16 7.5C16 7.79 15.97 8.09 15.92 8.38C16.58 8.13 17.29 8 18 8C19.17 8 20.31 8.34 21.29 9C21.56 8.5 21.8 8 22 7.5C20.27 3.11 16 0 11 0ZM11 4.5C9.34 4.5 8 5.84 8 7.5C8 9.16 9.34 10.5 11 10.5C12.66 10.5 14 9.16 14 7.5C14 5.84 12.66 4.5 11 4.5ZM17 10.5V12.5H21V14.5H17V16.5L14 13.5L17 10.5Z"
+                                                            fill="black" />
+                                                    </svg>
+                                                </a>
 
-                                            &emsp;
-                                        @endif
-                                        {{--  --}}
-                                        <a href="{{ asset('storage/supervisor/project/03_04_PR/' . $koneksipay->pay_parts_2) }}"
-                                            target="blank" download="" class="hover:underline">
-                                            {{ $koneksipay->pay_parts_2 }}</a>
-                                        {{-- == --}}
+                                                &emsp;
+                                            @endif
+                                            {{--  --}}
+                                            <a href="{{ asset('storage/supervisor/project/03_04_PR/' . $koneksipay->pay_parts_2) }}"
+                                                target="blank" download="" class="hover:underline">
+                                                {{ $koneksipay->pay_parts_2 }}</a>
+                                            {{-- == --}}
 
                                         </td>
                                         <td>
@@ -1020,37 +969,37 @@
 
                                         <td class="space-y-2 py-3 px-2">
                                             @if (
-                                                    ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
-                                                        $koneksipay->pay_parts_2 == '')
-                                                    <button type="button"
-                                                        class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
-                                                        data-modal-target="modala12" data-modal-show="modala12"
-                                                        data-modal-toggle="modala12">
-                                                        + Tambah dokumen
-                                                    </button>
-                                                @elseif (
-                                                    ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
-                                                        $koneksipay->pay_parts_2 != '' &&
-                                                        $koneksipay->status_pay_04 != 'Complete' &&
-                                                        $koneksipay->status_pay_04 != 'Waiting Approval')
-                                                    <div class="justify-center flex space-x-2">
-                                                        <button type="button"
-                                                            class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
-                                                            data-modal-target="modal12" data-modal-show="modal12"
-                                                            data-modal-toggle="modal12">
-                                                            Ubah
-                                                        </button>
-                                                        <button data-dropdown-toggle="dropdown12" type="button"
-                                                    class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
-                                                        width="22" fill="white" viewBox="0 0 48 48">
-                                                        <path
-                                                            d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
-                                                        </path>
-                                                    </svg>
+                                                ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                    $koneksipay->pay_parts_2 == '')
+                                                <button type="button"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
+                                                    data-modal-target="modala12" data-modal-show="modala12"
+                                                    data-modal-toggle="modala12">
+                                                    + Tambah dokumen
                                                 </button>
-                                                    </div>
-                                                @endif
+                                            @elseif (
+                                                ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                    $koneksipay->pay_parts_2 != '' &&
+                                                    $koneksipay->status_pay_04 != 'Complete' &&
+                                                    $koneksipay->status_pay_04 != 'Waiting Approval')
+                                                <div class="justify-center flex space-x-2">
+                                                    <button type="button"
+                                                        class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        data-modal-target="modal12" data-modal-show="modal12"
+                                                        data-modal-toggle="modal12">
+                                                        Ubah
+                                                    </button>
+                                                    <button data-dropdown-toggle="dropdown12" type="button"
+                                                        class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                            width="22" fill="white" viewBox="0 0 48 48">
+                                                            <path
+                                                                d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                            </path>
+                                                        </svg>
+                                                    </button>
+                                                </div>
+                                            @endif
                                         </td>
                                         <input type="text" hidden name="as_up_by_parts_pay_2"
                                             value="{{ Auth::user()->first_name }}">
@@ -1102,37 +1051,37 @@
 
                                         <td class="space-y-2 py-3 px-2">
                                             @if (
-                                                    ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
-                                                        $koneksipay->pay_parts_3 == '')
-                                                    <button type="button"
-                                                        class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
-                                                        data-modal-target="modala13" data-modal-show="modala13"
-                                                        data-modal-toggle="modala13">
-                                                        + Tambah dokumen
-                                                    </button>
-                                                @elseif (
-                                                    ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
-                                                        $koneksipay->pay_parts_3 != '' &&
-                                                        $koneksipay->status_pay_04 != 'Complete' &&
-                                                        $koneksipay->status_pay_04 != 'Waiting Approval')
-                                                    <div class="justify-center flex space-x-2">
-                                                        <button type="button"
-                                                            class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
-                                                            data-modal-target="modal13" data-modal-show="modal13"
-                                                            data-modal-toggle="modal13">
-                                                            Ubah
-                                                        </button>
-                                                        <button data-dropdown-toggle="dropdown13" type="button"
-                                                    class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
-                                                        width="22" fill="white" viewBox="0 0 48 48">
-                                                        <path
-                                                            d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
-                                                        </path>
-                                                    </svg>
+                                                ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                    $koneksipay->pay_parts_3 == '')
+                                                <button type="button"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
+                                                    data-modal-target="modala13" data-modal-show="modala13"
+                                                    data-modal-toggle="modala13">
+                                                    + Tambah dokumen
                                                 </button>
-                                                    </div>
-                                                @endif
+                                            @elseif (
+                                                ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                    $koneksipay->pay_parts_3 != '' &&
+                                                    $koneksipay->status_pay_04 != 'Complete' &&
+                                                    $koneksipay->status_pay_04 != 'Waiting Approval')
+                                                <div class="justify-center flex space-x-2">
+                                                    <button type="button"
+                                                        class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        data-modal-target="modal13" data-modal-show="modal13"
+                                                        data-modal-toggle="modal13">
+                                                        Ubah
+                                                    </button>
+                                                    <button data-dropdown-toggle="dropdown13" type="button"
+                                                        class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                            width="22" fill="white" viewBox="0 0 48 48">
+                                                            <path
+                                                                d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                            </path>
+                                                        </svg>
+                                                    </button>
+                                                </div>
+                                            @endif
                                         </td>
                                         <input type="text" hidden name="as_up_by_parts_pay_3"
                                             value="{{ Auth::user()->first_name }}">
@@ -1184,37 +1133,37 @@
 
                                         <td class="space-y-2 py-3 px-2">
                                             @if (
-                                                    ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
-                                                        $koneksipay->pay_parts_4 == '')
-                                                    <button type="button"
-                                                        class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
-                                                        data-modal-target="modala14" data-modal-show="modala14"
-                                                        data-modal-toggle="modala14">
-                                                        + Tambah dokumen
-                                                    </button>
-                                                @elseif (
-                                                    ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
-                                                        $koneksipay->pay_parts_4 != '' &&
-                                                        $koneksipay->status_pay_04 != 'Complete' &&
-                                                        $koneksipay->status_pay_04 != 'Waiting Approval')
-                                                    <div class="justify-center flex space-x-2">
-                                                        <button type="button"
-                                                            class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
-                                                            data-modal-target="modal14" data-modal-show="modal14"
-                                                            data-modal-toggle="modal14">
-                                                            Ubah
-                                                        </button>
-                                                        <button data-dropdown-toggle="dropdown14" type="button"
-                                                    class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
-                                                        width="22" fill="white" viewBox="0 0 48 48">
-                                                        <path
-                                                            d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
-                                                        </path>
-                                                    </svg>
+                                                ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                    $koneksipay->pay_parts_4 == '')
+                                                <button type="button"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
+                                                    data-modal-target="modala14" data-modal-show="modala14"
+                                                    data-modal-toggle="modala14">
+                                                    + Tambah dokumen
                                                 </button>
-                                                    </div>
-                                                @endif
+                                            @elseif (
+                                                ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                    $koneksipay->pay_parts_4 != '' &&
+                                                    $koneksipay->status_pay_04 != 'Complete' &&
+                                                    $koneksipay->status_pay_04 != 'Waiting Approval')
+                                                <div class="justify-center flex space-x-2">
+                                                    <button type="button"
+                                                        class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        data-modal-target="modal14" data-modal-show="modal14"
+                                                        data-modal-toggle="modal14">
+                                                        Ubah
+                                                    </button>
+                                                    <button data-dropdown-toggle="dropdown14" type="button"
+                                                        class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                            width="22" fill="white" viewBox="0 0 48 48">
+                                                            <path
+                                                                d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                            </path>
+                                                        </svg>
+                                                    </button>
+                                                </div>
+                                            @endif
                                         </td>
                                         <input type="text" hidden name="as_up_by_parts_pay_4"
                                             value="{{ Auth::user()->first_name }}">
@@ -1266,37 +1215,37 @@
 
                                         <td class="space-y-2 py-3 px-2">
                                             @if (
-                                                    ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
-                                                        $koneksipay->pay_parts_5 == '')
-                                                    <button type="button"
-                                                        class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
-                                                        data-modal-target="modala15" data-modal-show="modala15"
-                                                        data-modal-toggle="modala15">
-                                                        + Tambah dokumen
-                                                    </button>
-                                                @elseif (
-                                                    ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
-                                                        $koneksipay->pay_parts_5 != '' &&
-                                                        $koneksipay->status_pay_04 != 'Complete' &&
-                                                        $koneksipay->status_pay_04 != 'Waiting Approval')
-                                                    <div class="justify-center flex space-x-2">
-                                                        <button type="button"
-                                                            class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
-                                                            data-modal-target="modal15" data-modal-show="modal15"
-                                                            data-modal-toggle="modal15">
-                                                            Ubah
-                                                        </button>
-                                                        <button data-dropdown-toggle="dropdown15" type="button"
-                                                    class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
-                                                        width="22" fill="white" viewBox="0 0 48 48">
-                                                        <path
-                                                            d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
-                                                        </path>
-                                                    </svg>
+                                                ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                    $koneksipay->pay_parts_5 == '')
+                                                <button type="button"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
+                                                    data-modal-target="modala15" data-modal-show="modala15"
+                                                    data-modal-toggle="modala15">
+                                                    + Tambah dokumen
                                                 </button>
-                                                    </div>
-                                                @endif
+                                            @elseif (
+                                                ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                    $koneksipay->pay_parts_5 != '' &&
+                                                    $koneksipay->status_pay_04 != 'Complete' &&
+                                                    $koneksipay->status_pay_04 != 'Waiting Approval')
+                                                <div class="justify-center flex space-x-2">
+                                                    <button type="button"
+                                                        class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        data-modal-target="modal15" data-modal-show="modal15"
+                                                        data-modal-toggle="modal15">
+                                                        Ubah
+                                                    </button>
+                                                    <button data-dropdown-toggle="dropdown15" type="button"
+                                                        class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                            width="22" fill="white" viewBox="0 0 48 48">
+                                                            <path
+                                                                d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                            </path>
+                                                        </svg>
+                                                    </button>
+                                                </div>
+                                            @endif
                                         </td>
                                         <input type="text" hidden name="as_up_by_parts_pay_5"
                                             value="{{ Auth::user()->first_name }}">
@@ -1349,37 +1298,37 @@
 
                                         <td class="space-y-2 py-3 px-2">
                                             @if (
-                                                    ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
-                                                        $koneksipay->pay_parts_6 == '')
-                                                    <button type="button"
-                                                        class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
-                                                        data-modal-target="modala16" data-modal-show="modala16"
-                                                        data-modal-toggle="modala16">
-                                                        + Tambah dokumen
-                                                    </button>
-                                                @elseif (
-                                                    ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
-                                                        $koneksipay->pay_parts_6 != '' &&
-                                                        $koneksipay->status_pay_04 != 'Complete' &&
-                                                        $koneksipay->status_pay_04 != 'Waiting Approval')
-                                                    <div class="justify-center flex space-x-2">
-                                                        <button type="button"
-                                                            class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
-                                                            data-modal-target="modal16" data-modal-show="modal16"
-                                                            data-modal-toggle="modal16">
-                                                            Ubah
-                                                        </button>
-                                                        <button data-dropdown-toggle="dropdown16" type="button"
-                                                    class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
-                                                        width="22" fill="white" viewBox="0 0 48 48">
-                                                        <path
-                                                            d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
-                                                        </path>
-                                                    </svg>
+                                                ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                    $koneksipay->pay_parts_6 == '')
+                                                <button type="button"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
+                                                    data-modal-target="modala16" data-modal-show="modala16"
+                                                    data-modal-toggle="modala16">
+                                                    + Tambah dokumen
                                                 </button>
-                                                    </div>
-                                                @endif
+                                            @elseif (
+                                                ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                    $koneksipay->pay_parts_6 != '' &&
+                                                    $koneksipay->status_pay_04 != 'Complete' &&
+                                                    $koneksipay->status_pay_04 != 'Waiting Approval')
+                                                <div class="justify-center flex space-x-2">
+                                                    <button type="button"
+                                                        class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        data-modal-target="modal16" data-modal-show="modal16"
+                                                        data-modal-toggle="modal16">
+                                                        Ubah
+                                                    </button>
+                                                    <button data-dropdown-toggle="dropdown16" type="button"
+                                                        class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                            width="22" fill="white" viewBox="0 0 48 48">
+                                                            <path
+                                                                d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                            </path>
+                                                        </svg>
+                                                    </button>
+                                                </div>
+                                            @endif
                                         </td>
                                         <input type="text" hidden name="as_up_by_parts_pay_6"
                                             value="{{ Auth::user()->first_name }}">
@@ -1430,37 +1379,37 @@
 
                                         <td class="space-y-2 py-3 px-2">
                                             @if (
-                                                    ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
-                                                        $koneksipay->pay_parts_7 == '')
-                                                    <button type="button"
-                                                        class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
-                                                        data-modal-target="modala17" data-modal-show="modala17"
-                                                        data-modal-toggle="modala17">
-                                                        + Tambah dokumen
-                                                    </button>
-                                                @elseif (
-                                                    ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
-                                                        $koneksipay->pay_parts_7 != '' &&
-                                                        $koneksipay->status_pay_04 != 'Complete' &&
-                                                        $koneksipay->status_pay_04 != 'Waiting Approval')
-                                                    <div class="justify-center flex space-x-2">
-                                                        <button type="button"
-                                                            class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
-                                                            data-modal-target="modal17" data-modal-show="modal17"
-                                                            data-modal-toggle="modal17">
-                                                            Ubah
-                                                        </button>
-                                                        <button data-dropdown-toggle="dropdown17" type="button"
-                                                    class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
-                                                        width="22" fill="white" viewBox="0 0 48 48">
-                                                        <path
-                                                            d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
-                                                        </path>
-                                                    </svg>
+                                                ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                    $koneksipay->pay_parts_7 == '')
+                                                <button type="button"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
+                                                    data-modal-target="modala17" data-modal-show="modala17"
+                                                    data-modal-toggle="modala17">
+                                                    + Tambah dokumen
                                                 </button>
-                                                    </div>
-                                                @endif
+                                            @elseif (
+                                                ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                    $koneksipay->pay_parts_7 != '' &&
+                                                    $koneksipay->status_pay_04 != 'Complete' &&
+                                                    $koneksipay->status_pay_04 != 'Waiting Approval')
+                                                <div class="justify-center flex space-x-2">
+                                                    <button type="button"
+                                                        class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        data-modal-target="modal17" data-modal-show="modal17"
+                                                        data-modal-toggle="modal17">
+                                                        Ubah
+                                                    </button>
+                                                    <button data-dropdown-toggle="dropdown17" type="button"
+                                                        class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                            width="22" fill="white" viewBox="0 0 48 48">
+                                                            <path
+                                                                d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                            </path>
+                                                        </svg>
+                                                    </button>
+                                                </div>
+                                            @endif
                                         </td>
                                         <input type="text" hidden name="as_up_by_parts_pay_7"
                                             value="{{ Auth::user()->first_name }}">
@@ -1512,37 +1461,37 @@
 
                                         <td class="space-y-2 py-3 px-2">
                                             @if (
-                                                    ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
-                                                        $koneksipay->pay_parts_8 == '')
-                                                    <button type="button"
-                                                        class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
-                                                        data-modal-target="modala18" data-modal-show="modala18"
-                                                        data-modal-toggle="modala18">
-                                                        + Tambah dokumen
-                                                    </button>
-                                                @elseif (
-                                                    ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
-                                                        $koneksipay->pay_parts_8 != '' &&
-                                                        $koneksipay->status_pay_04 != 'Complete' &&
-                                                        $koneksipay->status_pay_04 != 'Waiting Approval')
-                                                    <div class="justify-center flex space-x-2">
-                                                        <button type="button"
-                                                            class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
-                                                            data-modal-target="modal18" data-modal-show="modal18"
-                                                            data-modal-toggle="modal18">
-                                                            Ubah
-                                                        </button>
-                                                        <button data-dropdown-toggle="dropdown18" type="button"
-                                                    class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
-                                                        width="22" fill="white" viewBox="0 0 48 48">
-                                                        <path
-                                                            d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
-                                                        </path>
-                                                    </svg>
+                                                ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                    $koneksipay->pay_parts_8 == '')
+                                                <button type="button"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
+                                                    data-modal-target="modala18" data-modal-show="modala18"
+                                                    data-modal-toggle="modala18">
+                                                    + Tambah dokumen
                                                 </button>
-                                                    </div>
-                                                @endif
+                                            @elseif (
+                                                ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                    $koneksipay->pay_parts_8 != '' &&
+                                                    $koneksipay->status_pay_04 != 'Complete' &&
+                                                    $koneksipay->status_pay_04 != 'Waiting Approval')
+                                                <div class="justify-center flex space-x-2">
+                                                    <button type="button"
+                                                        class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        data-modal-target="modal18" data-modal-show="modal18"
+                                                        data-modal-toggle="modal18">
+                                                        Ubah
+                                                    </button>
+                                                    <button data-dropdown-toggle="dropdown18" type="button"
+                                                        class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                            width="22" fill="white" viewBox="0 0 48 48">
+                                                            <path
+                                                                d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                            </path>
+                                                        </svg>
+                                                    </button>
+                                                </div>
+                                            @endif
                                         </td>
                                         <input type="text" hidden name="as_up_by_parts_pay_8"
                                             value="{{ Auth::user()->first_name }}">
@@ -1594,37 +1543,37 @@
 
                                         <td class="space-y-2 py-3 px-2">
                                             @if (
-                                                    ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
-                                                        $koneksipay->pay_parts_9 == '')
-                                                    <button type="button"
-                                                        class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
-                                                        data-modal-target="modala19" data-modal-show="modala19"
-                                                        data-modal-toggle="modala19">
-                                                        + Tambah dokumen
-                                                    </button>
-                                                @elseif (
-                                                    ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
-                                                        $koneksipay->pay_parts_9 != '' &&
-                                                        $koneksipay->status_pay_04 != 'Complete' &&
-                                                        $koneksipay->status_pay_04 != 'Waiting Approval')
-                                                    <div class="justify-center flex space-x-2">
-                                                        <button type="button"
-                                                            class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
-                                                            data-modal-target="modal19" data-modal-show="modal19"
-                                                            data-modal-toggle="modal19">
-                                                            Ubah
-                                                        </button>
-                                                        <button data-dropdown-toggle="dropdown19" type="button"
-                                                    class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
-                                                        width="22" fill="white" viewBox="0 0 48 48">
-                                                        <path
-                                                            d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
-                                                        </path>
-                                                    </svg>
+                                                ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                    $koneksipay->pay_parts_9 == '')
+                                                <button type="button"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
+                                                    data-modal-target="modala19" data-modal-show="modala19"
+                                                    data-modal-toggle="modala19">
+                                                    + Tambah dokumen
                                                 </button>
-                                                    </div>
-                                                @endif
+                                            @elseif (
+                                                ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                    $koneksipay->pay_parts_9 != '' &&
+                                                    $koneksipay->status_pay_04 != 'Complete' &&
+                                                    $koneksipay->status_pay_04 != 'Waiting Approval')
+                                                <div class="justify-center flex space-x-2">
+                                                    <button type="button"
+                                                        class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        data-modal-target="modal19" data-modal-show="modal19"
+                                                        data-modal-toggle="modal19">
+                                                        Ubah
+                                                    </button>
+                                                    <button data-dropdown-toggle="dropdown19" type="button"
+                                                        class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                            width="22" fill="white" viewBox="0 0 48 48">
+                                                            <path
+                                                                d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                            </path>
+                                                        </svg>
+                                                    </button>
+                                                </div>
+                                            @endif
                                         </td>
                                         <input type="text" hidden name="as_up_by_parts_pay_9"
                                             value="{{ Auth::user()->first_name }}">
@@ -1676,37 +1625,37 @@
 
                                         <td class="space-y-2 py-3 px-2">
                                             @if (
-                                                    ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
-                                                        $koneksipay->pay_parts_10 == '')
-                                                    <button type="button"
-                                                        class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
-                                                        data-modal-target="modala110" data-modal-show="modala110"
-                                                        data-modal-toggle="modala110">
-                                                        + Tambah dokumen
-                                                    </button>
-                                                @elseif (
-                                                    ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
-                                                        $koneksipay->pay_parts_10 != '' &&
-                                                        $koneksipay->status_pay_04 != 'Complete' &&
-                                                        $koneksipay->status_pay_04 != 'Waiting Approval')
-                                                    <div class="justify-center flex space-x-2">
-                                                        <button type="button"
-                                                            class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
-                                                            data-modal-target="modal110" data-modal-show="modal110"
-                                                            data-modal-toggle="modal110">
-                                                            Ubah
-                                                        </button>
-                                                        <button data-dropdown-toggle="dropdown110" type="button"
-                                                    class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
-                                                        width="22" fill="white" viewBox="0 0 48 48">
-                                                        <path
-                                                            d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
-                                                        </path>
-                                                    </svg>
+                                                ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                    $koneksipay->pay_parts_10 == '')
+                                                <button type="button"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
+                                                    data-modal-target="modala110" data-modal-show="modala110"
+                                                    data-modal-toggle="modala110">
+                                                    + Tambah dokumen
                                                 </button>
-                                                    </div>
-                                                @endif
+                                            @elseif (
+                                                ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                    $koneksipay->pay_parts_10 != '' &&
+                                                    $koneksipay->status_pay_04 != 'Complete' &&
+                                                    $koneksipay->status_pay_04 != 'Waiting Approval')
+                                                <div class="justify-center flex space-x-2">
+                                                    <button type="button"
+                                                        class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        data-modal-target="modal110" data-modal-show="modal110"
+                                                        data-modal-toggle="modal110">
+                                                        Ubah
+                                                    </button>
+                                                    <button data-dropdown-toggle="dropdown110" type="button"
+                                                        class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                            width="22" fill="white" viewBox="0 0 48 48">
+                                                            <path
+                                                                d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                            </path>
+                                                        </svg>
+                                                    </button>
+                                                </div>
+                                            @endif
                                         </td>
                                         <input type="text" hidden name="as_up_by_parts_pay_10"
                                             value="{{ Auth::user()->first_name }}">
@@ -1759,37 +1708,37 @@
 
                                         <td class="space-y-2 py-3 px-2">
                                             @if (
-                                                    ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
-                                                        $koneksipay->pay_parts_11 == '')
-                                                    <button type="button"
-                                                        class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
-                                                        data-modal-target="modala111" data-modal-show="modala111"
-                                                        data-modal-toggle="modala111">
-                                                        + Tambah dokumen
-                                                    </button>
-                                                @elseif (
-                                                    ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
-                                                        $koneksipay->pay_parts_11 != '' &&
-                                                        $koneksipay->status_pay_04 != 'Complete' &&
-                                                        $koneksipay->status_pay_04 != 'Waiting Approval')
-                                                    <div class="justify-center flex space-x-2">
-                                                        <button type="button"
-                                                            class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
-                                                            data-modal-target="modal111" data-modal-show="modal111"
-                                                            data-modal-toggle="modal111">
-                                                            Ubah
-                                                        </button>
-                                                        <button data-dropdown-toggle="dropdown111" type="button"
-                                                    class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
-                                                        width="22" fill="white" viewBox="0 0 48 48">
-                                                        <path
-                                                            d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
-                                                        </path>
-                                                    </svg>
+                                                ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                    $koneksipay->pay_parts_11 == '')
+                                                <button type="button"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
+                                                    data-modal-target="modala111" data-modal-show="modala111"
+                                                    data-modal-toggle="modala111">
+                                                    + Tambah dokumen
                                                 </button>
-                                                    </div>
-                                                @endif
+                                            @elseif (
+                                                ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                    $koneksipay->pay_parts_11 != '' &&
+                                                    $koneksipay->status_pay_04 != 'Complete' &&
+                                                    $koneksipay->status_pay_04 != 'Waiting Approval')
+                                                <div class="justify-center flex space-x-2">
+                                                    <button type="button"
+                                                        class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        data-modal-target="modal111" data-modal-show="modal111"
+                                                        data-modal-toggle="modal111">
+                                                        Ubah
+                                                    </button>
+                                                    <button data-dropdown-toggle="dropdown111" type="button"
+                                                        class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                            width="22" fill="white" viewBox="0 0 48 48">
+                                                            <path
+                                                                d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                            </path>
+                                                        </svg>
+                                                    </button>
+                                                </div>
+                                            @endif
                                         </td>
                                         <input type="text" hidden name="as_up_by_parts_pay_11"
                                             value="{{ Auth::user()->first_name }}">
@@ -1840,37 +1789,37 @@
 
                                         <td class="space-y-2 py-3 px-2">
                                             @if (
-                                                    ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
-                                                        $koneksipay->pay_parts_12 == '')
-                                                    <button type="button"
-                                                        class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
-                                                        data-modal-target="modala112" data-modal-show="modala112"
-                                                        data-modal-toggle="modala112">
-                                                        + Tambah dokumen
-                                                    </button>
-                                                @elseif (
-                                                    ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
-                                                        $koneksipay->pay_parts_12 != '' &&
-                                                        $koneksipay->status_pay_04 != 'Complete' &&
-                                                        $koneksipay->status_pay_04 != 'Waiting Approval')
-                                                    <div class="justify-center flex space-x-2">
-                                                        <button type="button"
-                                                            class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
-                                                            data-modal-target="modal112" data-modal-show="modal112"
-                                                            data-modal-toggle="modal112">
-                                                            Ubah
-                                                        </button>
-                                                        <button data-dropdown-toggle="dropdown12" type="button"
-                                                    class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
-                                                        width="22" fill="white" viewBox="0 0 48 48">
-                                                        <path
-                                                            d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
-                                                        </path>
-                                                    </svg>
+                                                ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                    $koneksipay->pay_parts_12 == '')
+                                                <button type="button"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
+                                                    data-modal-target="modala112" data-modal-show="modala112"
+                                                    data-modal-toggle="modala112">
+                                                    + Tambah dokumen
                                                 </button>
-                                                    </div>
-                                                @endif
+                                            @elseif (
+                                                ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                    $koneksipay->pay_parts_12 != '' &&
+                                                    $koneksipay->status_pay_04 != 'Complete' &&
+                                                    $koneksipay->status_pay_04 != 'Waiting Approval')
+                                                <div class="justify-center flex space-x-2">
+                                                    <button type="button"
+                                                        class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        data-modal-target="modal112" data-modal-show="modal112"
+                                                        data-modal-toggle="modal112">
+                                                        Ubah
+                                                    </button>
+                                                    <button data-dropdown-toggle="dropdown12" type="button"
+                                                        class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                            width="22" fill="white" viewBox="0 0 48 48">
+                                                            <path
+                                                                d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                            </path>
+                                                        </svg>
+                                                    </button>
+                                                </div>
+                                            @endif
                                         </td>
                                         <input type="text" hidden name="as_up_by_parts_pay_12"
                                             value="{{ Auth::user()->first_name }}">
@@ -1922,37 +1871,37 @@
 
                                         <td class="space-y-2 py-3 px-2">
                                             @if (
-                                                    ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
-                                                        $koneksipay->pay_parts_13 == '')
-                                                    <button type="button"
-                                                        class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
-                                                        data-modal-target="modala113" data-modal-show="modala113"
-                                                        data-modal-toggle="modala113">
-                                                        + Tambah dokumen
-                                                    </button>
-                                                @elseif (
-                                                    ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
-                                                        $koneksipay->pay_parts_13 != '' &&
-                                                        $koneksipay->status_pay_04 != 'Complete' &&
-                                                        $koneksipay->status_pay_04 != 'Waiting Approval')
-                                                    <div class="justify-center flex space-x-2">
-                                                        <button type="button"
-                                                            class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
-                                                            data-modal-target="modal113" data-modal-show="modal113"
-                                                            data-modal-toggle="modal113">
-                                                            Ubah
-                                                        </button>
-                                                        <button data-dropdown-toggle="dropdown13" type="button"
-                                                    class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
-                                                        width="22" fill="white" viewBox="0 0 48 48">
-                                                        <path
-                                                            d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
-                                                        </path>
-                                                    </svg>
+                                                ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                    $koneksipay->pay_parts_13 == '')
+                                                <button type="button"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
+                                                    data-modal-target="modala113" data-modal-show="modala113"
+                                                    data-modal-toggle="modala113">
+                                                    + Tambah dokumen
                                                 </button>
-                                                    </div>
-                                                @endif
+                                            @elseif (
+                                                ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                    $koneksipay->pay_parts_13 != '' &&
+                                                    $koneksipay->status_pay_04 != 'Complete' &&
+                                                    $koneksipay->status_pay_04 != 'Waiting Approval')
+                                                <div class="justify-center flex space-x-2">
+                                                    <button type="button"
+                                                        class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        data-modal-target="modal113" data-modal-show="modal113"
+                                                        data-modal-toggle="modal113">
+                                                        Ubah
+                                                    </button>
+                                                    <button data-dropdown-toggle="dropdown13" type="button"
+                                                        class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                            width="22" fill="white" viewBox="0 0 48 48">
+                                                            <path
+                                                                d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                            </path>
+                                                        </svg>
+                                                    </button>
+                                                </div>
+                                            @endif
                                         </td>
                                         <input type="text" hidden name="as_up_by_parts_pay_13"
                                             value="{{ Auth::user()->first_name }}">
@@ -2004,37 +1953,37 @@
 
                                         <td class="space-y-2 py-3 px-2">
                                             @if (
-                                                    ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
-                                                        $koneksipay->pay_parts_14 == '')
-                                                    <button type="button"
-                                                        class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
-                                                        data-modal-target="modala114" data-modal-show="modala114"
-                                                        data-modal-toggle="modala114">
-                                                        + Tambah dokumen
-                                                    </button>
-                                                @elseif (
-                                                    ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
-                                                        $koneksipay->pay_parts_14 != '' &&
-                                                        $koneksipay->status_pay_04 != 'Complete' &&
-                                                        $koneksipay->status_pay_04 != 'Waiting Approval')
-                                                    <div class="justify-center flex space-x-2">
-                                                        <button type="button"
-                                                            class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
-                                                            data-modal-target="modal114" data-modal-show="modal114"
-                                                            data-modal-toggle="modal114">
-                                                            Ubah
-                                                        </button>
-                                                        <button data-dropdown-toggle="dropdown14" type="button"
-                                                    class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
-                                                        width="22" fill="white" viewBox="0 0 48 48">
-                                                        <path
-                                                            d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
-                                                        </path>
-                                                    </svg>
+                                                ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                    $koneksipay->pay_parts_14 == '')
+                                                <button type="button"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
+                                                    data-modal-target="modala114" data-modal-show="modala114"
+                                                    data-modal-toggle="modala114">
+                                                    + Tambah dokumen
                                                 </button>
-                                                    </div>
-                                                @endif
+                                            @elseif (
+                                                ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                    $koneksipay->pay_parts_14 != '' &&
+                                                    $koneksipay->status_pay_04 != 'Complete' &&
+                                                    $koneksipay->status_pay_04 != 'Waiting Approval')
+                                                <div class="justify-center flex space-x-2">
+                                                    <button type="button"
+                                                        class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        data-modal-target="modal114" data-modal-show="modal114"
+                                                        data-modal-toggle="modal114">
+                                                        Ubah
+                                                    </button>
+                                                    <button data-dropdown-toggle="dropdown14" type="button"
+                                                        class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                            width="22" fill="white" viewBox="0 0 48 48">
+                                                            <path
+                                                                d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                            </path>
+                                                        </svg>
+                                                    </button>
+                                                </div>
+                                            @endif
                                         </td>
                                         <input type="text" hidden name="as_up_by_parts_pay_14"
                                             value="{{ Auth::user()->first_name }}">
@@ -2086,37 +2035,37 @@
 
                                         <td class="space-y-2 py-3 px-2">
                                             @if (
-                                                    ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
-                                                        $koneksipay->pay_parts_15 == '')
-                                                    <button type="button"
-                                                        class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
-                                                        data-modal-target="modala115" data-modal-show="modala115"
-                                                        data-modal-toggle="modala115">
-                                                        + Tambah dokumen
-                                                    </button>
-                                                @elseif (
-                                                    ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
-                                                        $koneksipay->pay_parts_15 != '' &&
-                                                        $koneksipay->status_pay_04 != 'Complete' &&
-                                                        $koneksipay->status_pay_04 != 'Waiting Approval')
-                                                    <div class="justify-center flex space-x-2">
-                                                        <button type="button"
-                                                            class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
-                                                            data-modal-target="modal115" data-modal-show="modal115"
-                                                            data-modal-toggle="modal115">
-                                                            Ubah
-                                                        </button>
-                                                        <button data-dropdown-toggle="dropdown15" type="button"
-                                                    class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
-                                                        width="22" fill="white" viewBox="0 0 48 48">
-                                                        <path
-                                                            d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
-                                                        </path>
-                                                    </svg>
+                                                ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                    $koneksipay->pay_parts_15 == '')
+                                                <button type="button"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
+                                                    data-modal-target="modala115" data-modal-show="modala115"
+                                                    data-modal-toggle="modala115">
+                                                    + Tambah dokumen
                                                 </button>
-                                                    </div>
-                                                @endif
+                                            @elseif (
+                                                ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                    $koneksipay->pay_parts_15 != '' &&
+                                                    $koneksipay->status_pay_04 != 'Complete' &&
+                                                    $koneksipay->status_pay_04 != 'Waiting Approval')
+                                                <div class="justify-center flex space-x-2">
+                                                    <button type="button"
+                                                        class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        data-modal-target="modal115" data-modal-show="modal115"
+                                                        data-modal-toggle="modal115">
+                                                        Ubah
+                                                    </button>
+                                                    <button data-dropdown-toggle="dropdown15" type="button"
+                                                        class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                            width="22" fill="white" viewBox="0 0 48 48">
+                                                            <path
+                                                                d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                            </path>
+                                                        </svg>
+                                                    </button>
+                                                </div>
+                                            @endif
                                         </td>
                                         <input type="text" hidden name="as_up_by_parts_pay_15"
                                             value="{{ Auth::user()->first_name }}">
@@ -2169,37 +2118,37 @@
 
                                         <td class="space-y-2 py-3 px-2">
                                             @if (
-                                                    ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
-                                                        $koneksipay->pay_parts_16 == '')
-                                                    <button type="button"
-                                                        class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
-                                                        data-modal-target="modala116" data-modal-show="modala116"
-                                                        data-modal-toggle="modala116">
-                                                        + Tambah dokumen
-                                                    </button>
-                                                @elseif (
-                                                    ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
-                                                        $koneksipay->pay_parts_16 != '' &&
-                                                        $koneksipay->status_pay_04 != 'Complete' &&
-                                                        $koneksipay->status_pay_04 != 'Waiting Approval')
-                                                    <div class="justify-center flex space-x-2">
-                                                        <button type="button"
-                                                            class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
-                                                            data-modal-target="modal116" data-modal-show="modal116"
-                                                            data-modal-toggle="modal116">
-                                                            Ubah
-                                                        </button>
-                                                        <button data-dropdown-toggle="dropdown16" type="button"
-                                                    class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
-                                                        width="22" fill="white" viewBox="0 0 48 48">
-                                                        <path
-                                                            d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
-                                                        </path>
-                                                    </svg>
+                                                ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                    $koneksipay->pay_parts_16 == '')
+                                                <button type="button"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
+                                                    data-modal-target="modala116" data-modal-show="modala116"
+                                                    data-modal-toggle="modala116">
+                                                    + Tambah dokumen
                                                 </button>
-                                                    </div>
-                                                @endif
+                                            @elseif (
+                                                ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                    $koneksipay->pay_parts_16 != '' &&
+                                                    $koneksipay->status_pay_04 != 'Complete' &&
+                                                    $koneksipay->status_pay_04 != 'Waiting Approval')
+                                                <div class="justify-center flex space-x-2">
+                                                    <button type="button"
+                                                        class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        data-modal-target="modal116" data-modal-show="modal116"
+                                                        data-modal-toggle="modal116">
+                                                        Ubah
+                                                    </button>
+                                                    <button data-dropdown-toggle="dropdown16" type="button"
+                                                        class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                            width="22" fill="white" viewBox="0 0 48 48">
+                                                            <path
+                                                                d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                            </path>
+                                                        </svg>
+                                                    </button>
+                                                </div>
+                                            @endif
                                         </td>
                                         <input type="text" hidden name="as_up_by_parts_pay_16"
                                             value="{{ Auth::user()->first_name }}">
@@ -2250,37 +2199,37 @@
 
                                         <td class="space-y-2 py-3 px-2">
                                             @if (
-                                                    ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
-                                                        $koneksipay->pay_parts_17 == '')
-                                                    <button type="button"
-                                                        class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
-                                                        data-modal-target="modala117" data-modal-show="modala117"
-                                                        data-modal-toggle="modala117">
-                                                        + Tambah dokumen
-                                                    </button>
-                                                @elseif (
-                                                    ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
-                                                        $koneksipay->pay_parts_17 != '' &&
-                                                        $koneksipay->status_pay_04 != 'Complete' &&
-                                                        $koneksipay->status_pay_04 != 'Waiting Approval')
-                                                    <div class="justify-center flex space-x-2">
-                                                        <button type="button"
-                                                            class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
-                                                            data-modal-target="modal117" data-modal-show="modal117"
-                                                            data-modal-toggle="modal117">
-                                                            Ubah
-                                                        </button>
-                                                        <button data-dropdown-toggle="dropdown17" type="button"
-                                                    class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
-                                                        width="22" fill="white" viewBox="0 0 48 48">
-                                                        <path
-                                                            d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
-                                                        </path>
-                                                    </svg>
+                                                ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                    $koneksipay->pay_parts_17 == '')
+                                                <button type="button"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
+                                                    data-modal-target="modala117" data-modal-show="modala117"
+                                                    data-modal-toggle="modala117">
+                                                    + Tambah dokumen
                                                 </button>
-                                                    </div>
-                                                @endif
+                                            @elseif (
+                                                ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                    $koneksipay->pay_parts_17 != '' &&
+                                                    $koneksipay->status_pay_04 != 'Complete' &&
+                                                    $koneksipay->status_pay_04 != 'Waiting Approval')
+                                                <div class="justify-center flex space-x-2">
+                                                    <button type="button"
+                                                        class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        data-modal-target="modal117" data-modal-show="modal117"
+                                                        data-modal-toggle="modal117">
+                                                        Ubah
+                                                    </button>
+                                                    <button data-dropdown-toggle="dropdown17" type="button"
+                                                        class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                            width="22" fill="white" viewBox="0 0 48 48">
+                                                            <path
+                                                                d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                            </path>
+                                                        </svg>
+                                                    </button>
+                                                </div>
+                                            @endif
                                         </td>
                                         <input type="text" hidden name="as_up_by_parts_pay_17"
                                             value="{{ Auth::user()->first_name }}">
@@ -2332,37 +2281,37 @@
 
                                         <td class="space-y-2 py-3 px-2">
                                             @if (
-                                                    ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
-                                                        $koneksipay->pay_parts_18 == '')
-                                                    <button type="button"
-                                                        class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
-                                                        data-modal-target="modala118" data-modal-show="modala118"
-                                                        data-modal-toggle="modala118">
-                                                        + Tambah dokumen
-                                                    </button>
-                                                @elseif (
-                                                    ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
-                                                        $koneksipay->pay_parts_18 != '' &&
-                                                        $koneksipay->status_pay_04 != 'Complete' &&
-                                                        $koneksipay->status_pay_04 != 'Waiting Approval')
-                                                    <div class="justify-center flex space-x-2">
-                                                        <button type="button"
-                                                            class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
-                                                            data-modal-target="modal118" data-modal-show="modal118"
-                                                            data-modal-toggle="modal118">
-                                                            Ubah
-                                                        </button>
-                                                        <button data-dropdown-toggle="dropdown18" type="button"
-                                                    class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
-                                                        width="22" fill="white" viewBox="0 0 48 48">
-                                                        <path
-                                                            d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
-                                                        </path>
-                                                    </svg>
+                                                ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                    $koneksipay->pay_parts_18 == '')
+                                                <button type="button"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
+                                                    data-modal-target="modala118" data-modal-show="modala118"
+                                                    data-modal-toggle="modala118">
+                                                    + Tambah dokumen
                                                 </button>
-                                                    </div>
-                                                @endif
+                                            @elseif (
+                                                ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                    $koneksipay->pay_parts_18 != '' &&
+                                                    $koneksipay->status_pay_04 != 'Complete' &&
+                                                    $koneksipay->status_pay_04 != 'Waiting Approval')
+                                                <div class="justify-center flex space-x-2">
+                                                    <button type="button"
+                                                        class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        data-modal-target="modal118" data-modal-show="modal118"
+                                                        data-modal-toggle="modal118">
+                                                        Ubah
+                                                    </button>
+                                                    <button data-dropdown-toggle="dropdown18" type="button"
+                                                        class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                            width="22" fill="white" viewBox="0 0 48 48">
+                                                            <path
+                                                                d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                            </path>
+                                                        </svg>
+                                                    </button>
+                                                </div>
+                                            @endif
                                         </td>
                                         <input type="text" hidden name="as_up_by_parts_pay_18"
                                             value="{{ Auth::user()->first_name }}">
@@ -2416,37 +2365,37 @@
 
                                         <td class="space-y-2 py-3 px-2">
                                             @if (
-                                                    ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
-                                                        $koneksipay->pay_parts_19 == '')
-                                                    <button type="button"
-                                                        class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
-                                                        data-modal-target="modala119" data-modal-show="modala119"
-                                                        data-modal-toggle="modala119">
-                                                        + Tambah dokumen
-                                                    </button>
-                                                @elseif (
-                                                    ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
-                                                        $koneksipay->pay_parts_19 != '' &&
-                                                        $koneksipay->status_pay_04 != 'Complete' &&
-                                                        $koneksipay->status_pay_04 != 'Waiting Approval')
-                                                    <div class="justify-center flex space-x-2">
-                                                        <button type="button"
-                                                            class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
-                                                            data-modal-target="modal119" data-modal-show="modal119"
-                                                            data-modal-toggle="modal119">
-                                                            Ubah
-                                                        </button>
-                                                        <button data-dropdown-toggle="dropdown19" type="button"
-                                                    class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
-                                                        width="22" fill="white" viewBox="0 0 48 48">
-                                                        <path
-                                                            d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
-                                                        </path>
-                                                    </svg>
+                                                ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                    $koneksipay->pay_parts_19 == '')
+                                                <button type="button"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
+                                                    data-modal-target="modala119" data-modal-show="modala119"
+                                                    data-modal-toggle="modala119">
+                                                    + Tambah dokumen
                                                 </button>
-                                                    </div>
-                                                @endif
+                                            @elseif (
+                                                ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                    $koneksipay->pay_parts_19 != '' &&
+                                                    $koneksipay->status_pay_04 != 'Complete' &&
+                                                    $koneksipay->status_pay_04 != 'Waiting Approval')
+                                                <div class="justify-center flex space-x-2">
+                                                    <button type="button"
+                                                        class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        data-modal-target="modal119" data-modal-show="modal119"
+                                                        data-modal-toggle="modal119">
+                                                        Ubah
+                                                    </button>
+                                                    <button data-dropdown-toggle="dropdown19" type="button"
+                                                        class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                            width="22" fill="white" viewBox="0 0 48 48">
+                                                            <path
+                                                                d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                            </path>
+                                                        </svg>
+                                                    </button>
+                                                </div>
+                                            @endif
                                         </td>
                                         <input type="text" hidden name="as_up_by_parts_pay_19"
                                             value="{{ Auth::user()->first_name }}">
@@ -2497,37 +2446,37 @@
 
                                         <td class="space-y-2 py-3 px-2">
                                             @if (
-                                                    ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
-                                                        $koneksipay->pay_parts_20 == '')
-                                                    <button type="button"
-                                                        class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
-                                                        data-modal-target="modala120" data-modal-show="modala120"
-                                                        data-modal-toggle="modala120">
-                                                        + Tambah dokumen
-                                                    </button>
-                                                @elseif (
-                                                    ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
-                                                        $koneksipay->pay_parts_20 != '' &&
-                                                        $koneksipay->status_pay_04 != 'Complete' &&
-                                                        $koneksipay->status_pay_04 != 'Waiting Approval')
-                                                    <div class="justify-center flex space-x-2">
-                                                        <button type="button"
-                                                            class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
-                                                            data-modal-target="modal120" data-modal-show="modal120"
-                                                            data-modal-toggle="modal120">
-                                                            Ubah
-                                                        </button>
-                                                        <button data-dropdown-toggle="dropdown120" type="button"
-                                                    class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
-                                                        width="22" fill="white" viewBox="0 0 48 48">
-                                                        <path
-                                                            d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
-                                                        </path>
-                                                    </svg>
+                                                ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                    $koneksipay->pay_parts_20 == '')
+                                                <button type="button"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
+                                                    data-modal-target="modala120" data-modal-show="modala120"
+                                                    data-modal-toggle="modala120">
+                                                    + Tambah dokumen
                                                 </button>
-                                                    </div>
-                                                @endif
+                                            @elseif (
+                                                ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                    $koneksipay->pay_parts_20 != '' &&
+                                                    $koneksipay->status_pay_04 != 'Complete' &&
+                                                    $koneksipay->status_pay_04 != 'Waiting Approval')
+                                                <div class="justify-center flex space-x-2">
+                                                    <button type="button"
+                                                        class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        data-modal-target="modal120" data-modal-show="modal120"
+                                                        data-modal-toggle="modal120">
+                                                        Ubah
+                                                    </button>
+                                                    <button data-dropdown-toggle="dropdown120" type="button"
+                                                        class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                            width="22" fill="white" viewBox="0 0 48 48">
+                                                            <path
+                                                                d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                            </path>
+                                                        </svg>
+                                                    </button>
+                                                </div>
+                                            @endif
                                         </td>
                                         <input type="text" hidden name="as_up_by_parts_pay_20"
                                             value="{{ Auth::user()->first_name }}">
@@ -2602,14 +2551,14 @@
                                                         Ubah
                                                     </button>
                                                     <button data-dropdown-toggle="dropdown121" type="button"
-                                                    class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
-                                                        width="22" fill="white" viewBox="0 0 48 48">
-                                                        <path
-                                                            d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
-                                                        </path>
-                                                    </svg>
-                                                </button>
+                                                        class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                            width="22" fill="white" viewBox="0 0 48 48">
+                                                            <path
+                                                                d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                            </path>
+                                                        </svg>
+                                                    </button>
                                                 </div>
                                             @endif
                                         </td>
@@ -2683,14 +2632,14 @@
                                                         Ubah
                                                     </button>
                                                     <button data-dropdown-toggle="dropdown122" type="button"
-                                                    class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
-                                                        width="22" fill="white" viewBox="0 0 48 48">
-                                                        <path
-                                                            d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
-                                                        </path>
-                                                    </svg>
-                                                </button>
+                                                        class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                            width="22" fill="white" viewBox="0 0 48 48">
+                                                            <path
+                                                                d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                            </path>
+                                                        </svg>
+                                                    </button>
                                                 </div>
                                             @endif
                                         </td>
@@ -2764,14 +2713,14 @@
                                                         Ubah
                                                     </button>
                                                     <button data-dropdown-toggle="dropdown123" type="button"
-                                                    class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
-                                                        width="22" fill="white" viewBox="0 0 48 48">
-                                                        <path
-                                                            d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
-                                                        </path>
-                                                    </svg>
-                                                </button>
+                                                        class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                            width="22" fill="white" viewBox="0 0 48 48">
+                                                            <path
+                                                                d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                            </path>
+                                                        </svg>
+                                                    </button>
                                                 </div>
                                             @endif
                                         </td>
@@ -2845,14 +2794,14 @@
                                                         Ubah
                                                     </button>
                                                     <button data-dropdown-toggle="dropdown124" type="button"
-                                                    class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
-                                                        width="22" fill="white" viewBox="0 0 48 48">
-                                                        <path
-                                                            d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
-                                                        </path>
-                                                    </svg>
-                                                </button>
+                                                        class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                            width="22" fill="white" viewBox="0 0 48 48">
+                                                            <path
+                                                                d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                            </path>
+                                                        </svg>
+                                                    </button>
                                                 </div>
                                             @endif
                                         </td>
@@ -2926,14 +2875,14 @@
                                                         Ubah
                                                     </button>
                                                     <button data-dropdown-toggle="dropdown125" type="button"
-                                                    class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
-                                                        width="22" fill="white" viewBox="0 0 48 48">
-                                                        <path
-                                                            d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
-                                                        </path>
-                                                    </svg>
-                                                </button>
+                                                        class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                            width="22" fill="white" viewBox="0 0 48 48">
+                                                            <path
+                                                                d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                            </path>
+                                                        </svg>
+                                                    </button>
                                                 </div>
                                             @endif
                                         </td>
@@ -3007,14 +2956,14 @@
                                                         Ubah
                                                     </button>
                                                     <button data-dropdown-toggle="dropdown126" type="button"
-                                                    class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
-                                                        width="22" fill="white" viewBox="0 0 48 48">
-                                                        <path
-                                                            d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
-                                                        </path>
-                                                    </svg>
-                                                </button>
+                                                        class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                            width="22" fill="white" viewBox="0 0 48 48">
+                                                            <path
+                                                                d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                            </path>
+                                                        </svg>
+                                                    </button>
                                                 </div>
                                             @endif
                                         </td>
@@ -3088,14 +3037,14 @@
                                                         Ubah
                                                     </button>
                                                     <button data-dropdown-toggle="dropdown127" type="button"
-                                                    class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
-                                                        width="22" fill="white" viewBox="0 0 48 48">
-                                                        <path
-                                                            d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
-                                                        </path>
-                                                    </svg>
-                                                </button>
+                                                        class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                            width="22" fill="white" viewBox="0 0 48 48">
+                                                            <path
+                                                                d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                            </path>
+                                                        </svg>
+                                                    </button>
                                                 </div>
                                             @endif
                                         </td>
@@ -3169,14 +3118,14 @@
                                                         Ubah
                                                     </button>
                                                     <button data-dropdown-toggle="dropdown128" type="button"
-                                                    class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
-                                                        width="22" fill="white" viewBox="0 0 48 48">
-                                                        <path
-                                                            d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
-                                                        </path>
-                                                    </svg>
-                                                </button>
+                                                        class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                            width="22" fill="white" viewBox="0 0 48 48">
+                                                            <path
+                                                                d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                            </path>
+                                                        </svg>
+                                                    </button>
                                                 </div>
                                             @endif
                                         </td>
@@ -3250,14 +3199,14 @@
                                                         Ubah
                                                     </button>
                                                     <button data-dropdown-toggle="dropdown129" type="button"
-                                                    class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
-                                                        width="22" fill="white" viewBox="0 0 48 48">
-                                                        <path
-                                                            d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
-                                                        </path>
-                                                    </svg>
-                                                </button>
+                                                        class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                            width="22" fill="white" viewBox="0 0 48 48">
+                                                            <path
+                                                                d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                            </path>
+                                                        </svg>
+                                                    </button>
                                                 </div>
                                             @endif
                                         </td>
@@ -3331,14 +3280,14 @@
                                                         Ubah
                                                     </button>
                                                     <button data-dropdown-toggle="dropdown130" type="button"
-                                                    class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
-                                                        width="22" fill="white" viewBox="0 0 48 48">
-                                                        <path
-                                                            d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
-                                                        </path>
-                                                    </svg>
-                                                </button>
+                                                        class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                            width="22" fill="white" viewBox="0 0 48 48">
+                                                            <path
+                                                                d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                            </path>
+                                                        </svg>
+                                                    </button>
                                                 </div>
                                             @endif
                                         </td>
@@ -3414,14 +3363,14 @@
                                                         Ubah
                                                     </button>
                                                     <button data-dropdown-toggle="dropdown131" type="button"
-                                                    class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
-                                                        width="22" fill="white" viewBox="0 0 48 48">
-                                                        <path
-                                                            d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
-                                                        </path>
-                                                    </svg>
-                                                </button>
+                                                        class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                            width="22" fill="white" viewBox="0 0 48 48">
+                                                            <path
+                                                                d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                            </path>
+                                                        </svg>
+                                                    </button>
                                                 </div>
                                             @endif
                                         </td>
@@ -3495,14 +3444,14 @@
                                                         Ubah
                                                     </button>
                                                     <button data-dropdown-toggle="dropdown132" type="button"
-                                                    class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
-                                                        width="22" fill="white" viewBox="0 0 48 48">
-                                                        <path
-                                                            d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
-                                                        </path>
-                                                    </svg>
-                                                </button>
+                                                        class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                            width="22" fill="white" viewBox="0 0 48 48">
+                                                            <path
+                                                                d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                            </path>
+                                                        </svg>
+                                                    </button>
                                                 </div>
                                             @endif
                                         </td>
@@ -3576,14 +3525,14 @@
                                                         Ubah
                                                     </button>
                                                     <button data-dropdown-toggle="dropdown133" type="button"
-                                                    class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
-                                                        width="22" fill="white" viewBox="0 0 48 48">
-                                                        <path
-                                                            d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
-                                                        </path>
-                                                    </svg>
-                                                </button>
+                                                        class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                            width="22" fill="white" viewBox="0 0 48 48">
+                                                            <path
+                                                                d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                            </path>
+                                                        </svg>
+                                                    </button>
                                                 </div>
                                             @endif
                                         </td>
@@ -3657,14 +3606,14 @@
                                                         Ubah
                                                     </button>
                                                     <button data-dropdown-toggle="dropdown134" type="button"
-                                                    class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
-                                                        width="22" fill="white" viewBox="0 0 48 48">
-                                                        <path
-                                                            d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
-                                                        </path>
-                                                    </svg>
-                                                </button>
+                                                        class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                            width="22" fill="white" viewBox="0 0 48 48">
+                                                            <path
+                                                                d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                            </path>
+                                                        </svg>
+                                                    </button>
                                                 </div>
                                             @endif
                                         </td>
@@ -3738,14 +3687,14 @@
                                                         Ubah
                                                     </button>
                                                     <button data-dropdown-toggle="dropdown135" type="button"
-                                                    class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
-                                                        width="22" fill="white" viewBox="0 0 48 48">
-                                                        <path
-                                                            d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
-                                                        </path>
-                                                    </svg>
-                                                </button>
+                                                        class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                            width="22" fill="white" viewBox="0 0 48 48">
+                                                            <path
+                                                                d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                            </path>
+                                                        </svg>
+                                                    </button>
                                                 </div>
                                             @endif
                                         </td>
@@ -3819,14 +3768,14 @@
                                                         Ubah
                                                     </button>
                                                     <button data-dropdown-toggle="dropdown136" type="button"
-                                                    class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
-                                                        width="22" fill="white" viewBox="0 0 48 48">
-                                                        <path
-                                                            d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
-                                                        </path>
-                                                    </svg>
-                                                </button>
+                                                        class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                            width="22" fill="white" viewBox="0 0 48 48">
+                                                            <path
+                                                                d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                            </path>
+                                                        </svg>
+                                                    </button>
                                                 </div>
                                             @endif
                                         </td>
@@ -3901,14 +3850,14 @@
                                                         Ubah
                                                     </button>
                                                     <button data-dropdown-toggle="dropdown137" type="button"
-                                                    class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
-                                                        width="22" fill="white" viewBox="0 0 48 48">
-                                                        <path
-                                                            d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
-                                                        </path>
-                                                    </svg>
-                                                </button>
+                                                        class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                            width="22" fill="white" viewBox="0 0 48 48">
+                                                            <path
+                                                                d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                            </path>
+                                                        </svg>
+                                                    </button>
                                                 </div>
                                             @endif
                                         </td>
@@ -3982,14 +3931,14 @@
                                                         Ubah
                                                     </button>
                                                     <button data-dropdown-toggle="dropdown138" type="button"
-                                                    class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
-                                                        width="22" fill="white" viewBox="0 0 48 48">
-                                                        <path
-                                                            d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
-                                                        </path>
-                                                    </svg>
-                                                </button>
+                                                        class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                            width="22" fill="white" viewBox="0 0 48 48">
+                                                            <path
+                                                                d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                            </path>
+                                                        </svg>
+                                                    </button>
                                                 </div>
                                             @endif
                                         </td>
@@ -4063,14 +4012,14 @@
                                                         Ubah
                                                     </button>
                                                     <button data-dropdown-toggle="dropdown139" type="button"
-                                                    class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
-                                                        width="22" fill="white" viewBox="0 0 48 48">
-                                                        <path
-                                                            d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
-                                                        </path>
-                                                    </svg>
-                                                </button>
+                                                        class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                            width="22" fill="white" viewBox="0 0 48 48">
+                                                            <path
+                                                                d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                            </path>
+                                                        </svg>
+                                                    </button>
                                                 </div>
                                             @endif
                                         </td>
@@ -4144,14 +4093,14 @@
                                                         Ubah
                                                     </button>
                                                     <button data-dropdown-toggle="dropdown140" type="button"
-                                                    class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
-                                                        width="22" fill="white" viewBox="0 0 48 48">
-                                                        <path
-                                                            d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
-                                                        </path>
-                                                    </svg>
-                                                </button>
+                                                        class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                            width="22" fill="white" viewBox="0 0 48 48">
+                                                            <path
+                                                                d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                            </path>
+                                                        </svg>
+                                                    </button>
                                                 </div>
                                             @endif
                                         </td>
@@ -4226,14 +4175,14 @@
                                                         Ubah
                                                     </button>
                                                     <button data-dropdown-toggle="dropdown141" type="button"
-                                                    class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
-                                                        width="22" fill="white" viewBox="0 0 48 48">
-                                                        <path
-                                                            d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
-                                                        </path>
-                                                    </svg>
-                                                </button>
+                                                        class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                            width="22" fill="white" viewBox="0 0 48 48">
+                                                            <path
+                                                                d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                            </path>
+                                                        </svg>
+                                                    </button>
                                                 </div>
                                             @endif
                                         </td>
@@ -4307,14 +4256,14 @@
                                                         Ubah
                                                     </button>
                                                     <button data-dropdown-toggle="dropdown142" type="button"
-                                                    class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
-                                                        width="22" fill="white" viewBox="0 0 48 48">
-                                                        <path
-                                                            d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
-                                                        </path>
-                                                    </svg>
-                                                </button>
+                                                        class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                            width="22" fill="white" viewBox="0 0 48 48">
+                                                            <path
+                                                                d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                            </path>
+                                                        </svg>
+                                                    </button>
                                                 </div>
                                             @endif
                                         </td>
@@ -4388,14 +4337,14 @@
                                                         Ubah
                                                     </button>
                                                     <button data-dropdown-toggle="dropdown143" type="button"
-                                                    class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
-                                                        width="22" fill="white" viewBox="0 0 48 48">
-                                                        <path
-                                                            d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
-                                                        </path>
-                                                    </svg>
-                                                </button>
+                                                        class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                            width="22" fill="white" viewBox="0 0 48 48">
+                                                            <path
+                                                                d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                            </path>
+                                                        </svg>
+                                                    </button>
                                                 </div>
                                             @endif
                                         </td>
@@ -4469,14 +4418,14 @@
                                                         Ubah
                                                     </button>
                                                     <button data-dropdown-toggle="dropdown144" type="button"
-                                                    class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
-                                                        width="22" fill="white" viewBox="0 0 48 48">
-                                                        <path
-                                                            d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
-                                                        </path>
-                                                    </svg>
-                                                </button>
+                                                        class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                            width="22" fill="white" viewBox="0 0 48 48">
+                                                            <path
+                                                                d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                            </path>
+                                                        </svg>
+                                                    </button>
                                                 </div>
                                             @endif
                                         </td>
@@ -4550,16 +4499,16 @@
                                                         Ubah
                                                     </button>
                                                     <button data-dropdown-toggle="dropdown145" type="button"
-                                                    class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
-                                                        width="22" fill="white" viewBox="0 0 48 48">
-                                                        <path
-                                                            d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
-                                                        </path>
-                                                    </svg>
-                                                </button>
+                                                        class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                            width="22" fill="white" viewBox="0 0 48 48">
+                                                            <path
+                                                                d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                            </path>
+                                                        </svg>
+                                                    </button>
                                                 </div>
-                                    @endif
+                                            @endif
                                         </td>
                                         <input type="text" hidden name="as_up_by_parts_pay_45"
                                             value="{{ Auth::user()->first_name }}">
@@ -4574,30 +4523,32 @@
                         {{-- PR Pekerjaan/Jasa --}}
                         {{-- awal standar formulir --}}
                         <div class="flex justify-between">
-                            <p class="font-medium text-lg bg-gray-800 px-4 py-1 w-fit text-white mb-2 rounded"> PAY Pekerjaan/Jasa
-                            @foreach ($standar_project as $spt)
-                                @if ($spt->file_pr_pekerjaan_jasa_form != '')
-                                    <div class="flex justify-end mr-1 mt-4">
-                                        <a href="{{ asset('storage/supervisor/standarproject/' . $spt->file_pr_pekerjaan_jasa_form) }}"
-                                            download="">
-                                            <div class="w-fit items-center space-x-1 flex fill-blue-600 hover:fill-blue-800">
-                                                <svg width="15" height="" viewBox="0 0 52 52"
-                                                    xmlns="http://www.w3.org/2000/svg">
-                                                    <path
-                                                        d="m36.4 14.8h8.48a1.09 1.09 0 0 0 1.12-1.12 1 1 0 0 0 -.32-.8l-10.56-10.56a1 1 0 0 0 -.8-.32 1.09 1.09 0 0 0 -1.12 1.12v8.48a3.21 3.21 0 0 0 3.2 3.2z" />
+                            <p class="font-medium text-lg bg-gray-800 px-4 py-1 w-fit text-white mb-2 rounded"> PAY
+                                Pekerjaan/Jasa
+                                @foreach ($standar_project as $spt)
+                                    @if ($spt->file_pr_pekerjaan_jasa_form != '')
+                                        <div class="flex justify-end mr-1 mt-4">
+                                            <a href="{{ asset('storage/supervisor/standarproject/' . $spt->file_pr_pekerjaan_jasa_form) }}"
+                                                download="">
+                                                <div
+                                                    class="w-fit items-center space-x-1 flex fill-blue-600 hover:fill-blue-800">
+                                                    <svg width="15" height="" viewBox="0 0 52 52"
+                                                        xmlns="http://www.w3.org/2000/svg">
+                                                        <path
+                                                            d="m36.4 14.8h8.48a1.09 1.09 0 0 0 1.12-1.12 1 1 0 0 0 -.32-.8l-10.56-10.56a1 1 0 0 0 -.8-.32 1.09 1.09 0 0 0 -1.12 1.12v8.48a3.21 3.21 0 0 0 3.2 3.2z" />
 
-                                                    <path
-                                                        d="m44.4 19.6h-11.2a4.81 4.81 0 0 1 -4.8-4.8v-11.2a1.6 1.6 0 0 0 -1.6-1.6h-16a4.81 4.81 0 0 0 -4.8 4.8v38.4a4.81 4.81 0 0 0 4.8 4.8h30.4a4.81 4.81 0 0 0 4.8-4.8v-24a1.6 1.6 0 0 0 -1.6-1.6zm-32-1.6a1.62 1.62 0 0 1 1.6-1.55h6.55a1.56 1.56 0 0 1 1.57 1.55v1.59a1.63 1.63 0 0 1 -1.59 1.58h-6.53a1.55 1.55 0 0 1 -1.58-1.58zm24 20.77a1.6 1.6 0 0 1 -1.6 1.6h-20.8a1.6 1.6 0 0 1 -1.6-1.6v-1.57a1.6 1.6 0 0 1 1.6-1.6h20.8a1.6 1.6 0 0 1 1.6 1.6zm3.2-9.6a1.6 1.6 0 0 1 -1.6 1.63h-24a1.6 1.6 0 0 1 -1.6-1.6v-1.6a1.6 1.6 0 0 1 1.6-1.6h24a1.6 1.6 0 0 1 1.6 1.6z" />
-                                                </svg>
-                                                <p
-                                                    class="text-right hover:underline font-semibold text-md text-blue-600 hover:text-blue-800 ">
-                                                    Klik untuk mengunduh formulir kerja</p>
-                                            </div>
-                                        </a>
-                                    </div>
-                                @endif
-                            @endforeach
-                            {{-- tombol form --}}
+                                                        <path
+                                                            d="m44.4 19.6h-11.2a4.81 4.81 0 0 1 -4.8-4.8v-11.2a1.6 1.6 0 0 0 -1.6-1.6h-16a4.81 4.81 0 0 0 -4.8 4.8v38.4a4.81 4.81 0 0 0 4.8 4.8h30.4a4.81 4.81 0 0 0 4.8-4.8v-24a1.6 1.6 0 0 0 -1.6-1.6zm-32-1.6a1.62 1.62 0 0 1 1.6-1.55h6.55a1.56 1.56 0 0 1 1.57 1.55v1.59a1.63 1.63 0 0 1 -1.59 1.58h-6.53a1.55 1.55 0 0 1 -1.58-1.58zm24 20.77a1.6 1.6 0 0 1 -1.6 1.6h-20.8a1.6 1.6 0 0 1 -1.6-1.6v-1.57a1.6 1.6 0 0 1 1.6-1.6h20.8a1.6 1.6 0 0 1 1.6 1.6zm3.2-9.6a1.6 1.6 0 0 1 -1.6 1.63h-24a1.6 1.6 0 0 1 -1.6-1.6v-1.6a1.6 1.6 0 0 1 1.6-1.6h24a1.6 1.6 0 0 1 1.6 1.6z" />
+                                                    </svg>
+                                                    <p
+                                                        class="text-right hover:underline font-semibold text-md text-blue-600 hover:text-blue-800 ">
+                                                        Klik untuk mengunduh formulir kerja</p>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    @endif
+                                @endforeach
+                                {{-- tombol form --}}
                         </div>
                         {{-- akhir standar formulir --}}
 
@@ -4675,14 +4626,14 @@
                                                         Ubah
                                                     </button>
                                                     <button data-dropdown-toggle="dropdown21" type="button"
-                                                    class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
-                                                        width="22" fill="white" viewBox="0 0 48 48">
-                                                        <path
-                                                            d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
-                                                        </path>
-                                                    </svg>
-                                                </button>
+                                                        class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                            width="22" fill="white" viewBox="0 0 48 48">
+                                                            <path
+                                                                d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                            </path>
+                                                        </svg>
+                                                    </button>
                                                 </div>
                                             @endif
                                         </td>
@@ -4755,14 +4706,14 @@
                                                         Ubah
                                                     </button>
                                                     <button data-dropdown-toggle="dropdown22" type="button"
-                                                    class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
-                                                        width="22" fill="white" viewBox="0 0 48 48">
-                                                        <path
-                                                            d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
-                                                        </path>
-                                                    </svg>
-                                                </button>
+                                                        class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                            width="22" fill="white" viewBox="0 0 48 48">
+                                                            <path
+                                                                d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                            </path>
+                                                        </svg>
+                                                    </button>
                                                 </div>
                                             @endif
                                         </td>
@@ -4836,14 +4787,14 @@
                                                         Ubah
                                                     </button>
                                                     <button data-dropdown-toggle="dropdown23" type="button"
-                                                    class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
-                                                        width="22" fill="white" viewBox="0 0 48 48">
-                                                        <path
-                                                            d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
-                                                        </path>
-                                                    </svg>
-                                                </button>
+                                                        class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                            width="22" fill="white" viewBox="0 0 48 48">
+                                                            <path
+                                                                d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                            </path>
+                                                        </svg>
+                                                    </button>
                                                 </div>
                                             @endif
                                         </td>
@@ -4917,14 +4868,14 @@
                                                         Ubah
                                                     </button>
                                                     <button data-dropdown-toggle="dropdown24" type="button"
-                                                    class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
-                                                        width="22" fill="white" viewBox="0 0 48 48">
-                                                        <path
-                                                            d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
-                                                        </path>
-                                                    </svg>
-                                                </button>
+                                                        class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                            width="22" fill="white" viewBox="0 0 48 48">
+                                                            <path
+                                                                d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                            </path>
+                                                        </svg>
+                                                    </button>
                                                 </div>
                                             @endif
                                         </td>
@@ -4997,14 +4948,14 @@
                                                         Ubah
                                                     </button>
                                                     <button data-dropdown-toggle="dropdown25" type="button"
-                                                    class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
-                                                        width="22" fill="white" viewBox="0 0 48 48">
-                                                        <path
-                                                            d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
-                                                        </path>
-                                                    </svg>
-                                                </button>
+                                                        class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                            width="22" fill="white" viewBox="0 0 48 48">
+                                                            <path
+                                                                d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                            </path>
+                                                        </svg>
+                                                    </button>
                                                 </div>
                                             @endif
                                         </td>
@@ -5076,14 +5027,14 @@
                                                         Ubah
                                                     </button>
                                                     <button data-dropdown-toggle="dropdown26" type="button"
-                                                    class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
-                                                        width="22" fill="white" viewBox="0 0 48 48">
-                                                        <path
-                                                            d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
-                                                        </path>
-                                                    </svg>
-                                                </button>
+                                                        class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                            width="22" fill="white" viewBox="0 0 48 48">
+                                                            <path
+                                                                d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                            </path>
+                                                        </svg>
+                                                    </button>
                                                 </div>
                                             @endif
                                         </td>
@@ -5156,14 +5107,14 @@
                                                         Ubah
                                                     </button>
                                                     <button data-dropdown-toggle="dropdown27" type="button"
-                                                    class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
-                                                        width="22" fill="white" viewBox="0 0 48 48">
-                                                        <path
-                                                            d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
-                                                        </path>
-                                                    </svg>
-                                                </button>
+                                                        class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                            width="22" fill="white" viewBox="0 0 48 48">
+                                                            <path
+                                                                d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                            </path>
+                                                        </svg>
+                                                    </button>
                                                 </div>
                                             @endif
                                         </td>
@@ -5236,14 +5187,14 @@
                                                         Ubah
                                                     </button>
                                                     <button data-dropdown-toggle="dropdown28" type="button"
-                                                    class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
-                                                        width="22" fill="white" viewBox="0 0 48 48">
-                                                        <path
-                                                            d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
-                                                        </path>
-                                                    </svg>
-                                                </button>
+                                                        class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                            width="22" fill="white" viewBox="0 0 48 48">
+                                                            <path
+                                                                d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                            </path>
+                                                        </svg>
+                                                    </button>
                                                 </div>
                                             @endif
                                         </td>
@@ -5316,14 +5267,14 @@
                                                         Ubah
                                                     </button>
                                                     <button data-dropdown-toggle="dropdown29" type="button"
-                                                    class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
-                                                        width="22" fill="white" viewBox="0 0 48 48">
-                                                        <path
-                                                            d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
-                                                        </path>
-                                                    </svg>
-                                                </button>
+                                                        class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                            width="22" fill="white" viewBox="0 0 48 48">
+                                                            <path
+                                                                d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                            </path>
+                                                        </svg>
+                                                    </button>
                                                 </div>
                                             @endif
                                         </td>
@@ -5396,14 +5347,14 @@
                                                         Ubah
                                                     </button>
                                                     <button data-dropdown-toggle="dropdown210" type="button"
-                                                    class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
-                                                        width="22" fill="white" viewBox="0 0 48 48">
-                                                        <path
-                                                            d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
-                                                        </path>
-                                                    </svg>
-                                                </button>
+                                                        class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                            width="22" fill="white" viewBox="0 0 48 48">
+                                                            <path
+                                                                d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                            </path>
+                                                        </svg>
+                                                    </button>
                                                 </div>
                                             @endif
                                         </td>
@@ -5476,14 +5427,14 @@
                                                         Ubah
                                                     </button>
                                                     <button data-dropdown-toggle="dropdown211" type="button"
-                                                    class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
-                                                        width="22" fill="white" viewBox="0 0 48 48">
-                                                        <path
-                                                            d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
-                                                        </path>
-                                                    </svg>
-                                                </button>
+                                                        class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                            width="22" fill="white" viewBox="0 0 48 48">
+                                                            <path
+                                                                d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                            </path>
+                                                        </svg>
+                                                    </button>
                                                 </div>
                                             @endif
                                         </td>
@@ -5556,14 +5507,14 @@
                                                         Ubah
                                                     </button>
                                                     <button data-dropdown-toggle="dropdown212" type="button"
-                                                    class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
-                                                        width="22" fill="white" viewBox="0 0 48 48">
-                                                        <path
-                                                            d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
-                                                        </path>
-                                                    </svg>
-                                                </button>
+                                                        class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                            width="22" fill="white" viewBox="0 0 48 48">
+                                                            <path
+                                                                d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                            </path>
+                                                        </svg>
+                                                    </button>
                                                 </div>
                                             @endif
                                         </td>
@@ -5636,14 +5587,14 @@
                                                         Ubah
                                                     </button>
                                                     <button data-dropdown-toggle="dropdown213" type="button"
-                                                    class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
-                                                        width="22" fill="white" viewBox="0 0 48 48">
-                                                        <path
-                                                            d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
-                                                        </path>
-                                                    </svg>
-                                                </button>
+                                                        class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                            width="22" fill="white" viewBox="0 0 48 48">
+                                                            <path
+                                                                d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                            </path>
+                                                        </svg>
+                                                    </button>
                                                 </div>
                                             @endif
                                         </td>
@@ -5716,14 +5667,14 @@
                                                         Ubah
                                                     </button>
                                                     <button data-dropdown-toggle="dropdown214" type="button"
-                                                    class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
-                                                        width="22" fill="white" viewBox="0 0 48 48">
-                                                        <path
-                                                            d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
-                                                        </path>
-                                                    </svg>
-                                                </button>
+                                                        class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                            width="22" fill="white" viewBox="0 0 48 48">
+                                                            <path
+                                                                d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                            </path>
+                                                        </svg>
+                                                    </button>
                                                 </div>
                                             @endif
                                         </td>
@@ -5796,14 +5747,14 @@
                                                         Ubah
                                                     </button>
                                                     <button data-dropdown-toggle="dropdown215" type="button"
-                                                    class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
-                                                        width="22" fill="white" viewBox="0 0 48 48">
-                                                        <path
-                                                            d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
-                                                        </path>
-                                                    </svg>
-                                                </button>
+                                                        class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                            width="22" fill="white" viewBox="0 0 48 48">
+                                                            <path
+                                                                d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                            </path>
+                                                        </svg>
+                                                    </button>
                                                 </div>
                                             @endif
                                         </td>
@@ -5876,14 +5827,14 @@
                                                         Ubah
                                                     </button>
                                                     <button data-dropdown-toggle="dropdown216" type="button"
-                                                    class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
-                                                        width="22" fill="white" viewBox="0 0 48 48">
-                                                        <path
-                                                            d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
-                                                        </path>
-                                                    </svg>
-                                                </button>
+                                                        class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                            width="22" fill="white" viewBox="0 0 48 48">
+                                                            <path
+                                                                d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                            </path>
+                                                        </svg>
+                                                    </button>
                                                 </div>
                                             @endif
                                         </td>
@@ -5956,14 +5907,14 @@
                                                         Ubah
                                                     </button>
                                                     <button data-dropdown-toggle="dropdown217" type="button"
-                                                    class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
-                                                        width="22" fill="white" viewBox="0 0 48 48">
-                                                        <path
-                                                            d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
-                                                        </path>
-                                                    </svg>
-                                                </button>
+                                                        class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                            width="22" fill="white" viewBox="0 0 48 48">
+                                                            <path
+                                                                d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                            </path>
+                                                        </svg>
+                                                    </button>
                                                 </div>
                                             @endif
                                         </td>
@@ -6036,14 +5987,14 @@
                                                         Ubah
                                                     </button>
                                                     <button data-dropdown-toggle="dropdown218" type="button"
-                                                    class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
-                                                        width="22" fill="white" viewBox="0 0 48 48">
-                                                        <path
-                                                            d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
-                                                        </path>
-                                                    </svg>
-                                                </button>
+                                                        class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                            width="22" fill="white" viewBox="0 0 48 48">
+                                                            <path
+                                                                d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                            </path>
+                                                        </svg>
+                                                    </button>
                                                 </div>
                                             @endif
                                         </td>
@@ -6116,14 +6067,14 @@
                                                         Ubah
                                                     </button>
                                                     <button data-dropdown-toggle="dropdown219" type="button"
-                                                    class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
-                                                        width="22" fill="white" viewBox="0 0 48 48">
-                                                        <path
-                                                            d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
-                                                        </path>
-                                                    </svg>
-                                                </button>
+                                                        class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                            width="22" fill="white" viewBox="0 0 48 48">
+                                                            <path
+                                                                d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                            </path>
+                                                        </svg>
+                                                    </button>
                                                 </div>
                                             @endif
                                         </td>
@@ -6196,14 +6147,14 @@
                                                         Ubah
                                                     </button>
                                                     <button data-dropdown-toggle="dropdown220" type="button"
-                                                    class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
-                                                        width="22" fill="white" viewBox="0 0 48 48">
-                                                        <path
-                                                            d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
-                                                        </path>
-                                                    </svg>
-                                                </button>
+                                                        class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                            width="22" fill="white" viewBox="0 0 48 48">
+                                                            <path
+                                                                d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                            </path>
+                                                        </svg>
+                                                    </button>
                                                 </div>
                                             @endif
                                         </td>
@@ -6276,14 +6227,14 @@
                                                         Ubah
                                                     </button>
                                                     <button data-dropdown-toggle="dropdown221" type="button"
-                                                    class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
-                                                        width="22" fill="white" viewBox="0 0 48 48">
-                                                        <path
-                                                            d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
-                                                        </path>
-                                                    </svg>
-                                                </button>
+                                                        class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                            width="22" fill="white" viewBox="0 0 48 48">
+                                                            <path
+                                                                d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                            </path>
+                                                        </svg>
+                                                    </button>
                                                 </div>
                                             @endif
                                         </td>
@@ -6356,14 +6307,14 @@
                                                         Ubah
                                                     </button>
                                                     <button data-dropdown-toggle="dropdown222" type="button"
-                                                    class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
-                                                        width="22" fill="white" viewBox="0 0 48 48">
-                                                        <path
-                                                            d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
-                                                        </path>
-                                                    </svg>
-                                                </button>
+                                                        class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                            width="22" fill="white" viewBox="0 0 48 48">
+                                                            <path
+                                                                d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                            </path>
+                                                        </svg>
+                                                    </button>
                                                 </div>
                                             @endif
                                         </td>
@@ -6436,14 +6387,14 @@
                                                         Ubah
                                                     </button>
                                                     <button data-dropdown-toggle="dropdown223" type="button"
-                                                    class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
-                                                        width="22" fill="white" viewBox="0 0 48 48">
-                                                        <path
-                                                            d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
-                                                        </path>
-                                                    </svg>
-                                                </button>
+                                                        class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                            width="22" fill="white" viewBox="0 0 48 48">
+                                                            <path
+                                                                d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                            </path>
+                                                        </svg>
+                                                    </button>
                                                 </div>
                                             @endif
                                         </td>
@@ -6516,14 +6467,14 @@
                                                         Ubah
                                                     </button>
                                                     <button data-dropdown-toggle="dropdown224" type="button"
-                                                    class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
-                                                        width="22" fill="white" viewBox="0 0 48 48">
-                                                        <path
-                                                            d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
-                                                        </path>
-                                                    </svg>
-                                                </button>
+                                                        class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                            width="22" fill="white" viewBox="0 0 48 48">
+                                                            <path
+                                                                d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                            </path>
+                                                        </svg>
+                                                    </button>
                                                 </div>
                                             @endif
                                         </td>
@@ -6596,14 +6547,14 @@
                                                         Ubah
                                                     </button>
                                                     <button data-dropdown-toggle="dropdown225" type="button"
-                                                    class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
-                                                        width="22" fill="white" viewBox="0 0 48 48">
-                                                        <path
-                                                            d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
-                                                        </path>
-                                                    </svg>
-                                                </button>
+                                                        class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                            width="22" fill="white" viewBox="0 0 48 48">
+                                                            <path
+                                                                d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                            </path>
+                                                        </svg>
+                                                    </button>
                                                 </div>
                                             @endif
                                         </td>
@@ -6676,14 +6627,14 @@
                                                         Ubah
                                                     </button>
                                                     <button data-dropdown-toggle="dropdown226" type="button"
-                                                    class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
-                                                        width="22" fill="white" viewBox="0 0 48 48">
-                                                        <path
-                                                            d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
-                                                        </path>
-                                                    </svg>
-                                                </button>
+                                                        class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                            width="22" fill="white" viewBox="0 0 48 48">
+                                                            <path
+                                                                d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                            </path>
+                                                        </svg>
+                                                    </button>
                                                 </div>
                                             @endif
                                         </td>
@@ -6756,14 +6707,14 @@
                                                         Ubah
                                                     </button>
                                                     <button data-dropdown-toggle="dropdown227" type="button"
-                                                    class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
-                                                        width="22" fill="white" viewBox="0 0 48 48">
-                                                        <path
-                                                            d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
-                                                        </path>
-                                                    </svg>
-                                                </button>
+                                                        class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                            width="22" fill="white" viewBox="0 0 48 48">
+                                                            <path
+                                                                d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                            </path>
+                                                        </svg>
+                                                    </button>
                                                 </div>
                                             @endif
                                         </td>
@@ -6836,14 +6787,14 @@
                                                         Ubah
                                                     </button>
                                                     <button data-dropdown-toggle="dropdown228" type="button"
-                                                    class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
-                                                        width="22" fill="white" viewBox="0 0 48 48">
-                                                        <path
-                                                            d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
-                                                        </path>
-                                                    </svg>
-                                                </button>
+                                                        class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                            width="22" fill="white" viewBox="0 0 48 48">
+                                                            <path
+                                                                d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                            </path>
+                                                        </svg>
+                                                    </button>
                                                 </div>
                                             @endif
                                         </td>
@@ -6916,14 +6867,14 @@
                                                         Ubah
                                                     </button>
                                                     <button data-dropdown-toggle="dropdown229" type="button"
-                                                    class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
-                                                        width="22" fill="white" viewBox="0 0 48 48">
-                                                        <path
-                                                            d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
-                                                        </path>
-                                                    </svg>
-                                                </button>
+                                                        class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                            width="22" fill="white" viewBox="0 0 48 48">
+                                                            <path
+                                                                d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                            </path>
+                                                        </svg>
+                                                    </button>
                                                 </div>
                                             @endif
                                         </td>
@@ -6996,14 +6947,14 @@
                                                         Ubah
                                                     </button>
                                                     <button data-dropdown-toggle="dropdown230" type="button"
-                                                    class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
-                                                        width="22" fill="white" viewBox="0 0 48 48">
-                                                        <path
-                                                            d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
-                                                        </path>
-                                                    </svg>
-                                                </button>
+                                                        class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                            width="22" fill="white" viewBox="0 0 48 48">
+                                                            <path
+                                                                d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                            </path>
+                                                        </svg>
+                                                    </button>
                                                 </div>
                                             @endif
                                         </td>
@@ -7023,30 +6974,32 @@
                         {{-- PR Manufaktur --}}
                         {{-- awal standar formulir --}}
                         <div class="flex justify-between">
-                            <p class="font-medium text-lg bg-gray-800 px-4 py-1 w-fit text-white mb-2 rounded"> PAY Manufaktur
-                            @foreach ($standar_project as $spt)
-                                @if ($spt->file_pr_manufaktur_form != '')
-                                    <div class="flex justify-end mr-1 mt-4">
-                                        <a href="{{ asset('storage/supervisor/standarproject/' . $spt->file_pr_manufaktur_form) }}"
-                                            download="">
-                                            <div class="w-fit items-center space-x-1 flex fill-blue-600 hover:fill-blue-800">
-                                                <svg width="15" height="" viewBox="0 0 52 52"
-                                                    xmlns="http://www.w3.org/2000/svg">
-                                                    <path
-                                                        d="m36.4 14.8h8.48a1.09 1.09 0 0 0 1.12-1.12 1 1 0 0 0 -.32-.8l-10.56-10.56a1 1 0 0 0 -.8-.32 1.09 1.09 0 0 0 -1.12 1.12v8.48a3.21 3.21 0 0 0 3.2 3.2z" />
+                            <p class="font-medium text-lg bg-gray-800 px-4 py-1 w-fit text-white mb-2 rounded"> PAY
+                                Manufaktur
+                                @foreach ($standar_project as $spt)
+                                    @if ($spt->file_pr_manufaktur_form != '')
+                                        <div class="flex justify-end mr-1 mt-4">
+                                            <a href="{{ asset('storage/supervisor/standarproject/' . $spt->file_pr_manufaktur_form) }}"
+                                                download="">
+                                                <div
+                                                    class="w-fit items-center space-x-1 flex fill-blue-600 hover:fill-blue-800">
+                                                    <svg width="15" height="" viewBox="0 0 52 52"
+                                                        xmlns="http://www.w3.org/2000/svg">
+                                                        <path
+                                                            d="m36.4 14.8h8.48a1.09 1.09 0 0 0 1.12-1.12 1 1 0 0 0 -.32-.8l-10.56-10.56a1 1 0 0 0 -.8-.32 1.09 1.09 0 0 0 -1.12 1.12v8.48a3.21 3.21 0 0 0 3.2 3.2z" />
 
-                                                    <path
-                                                        d="m44.4 19.6h-11.2a4.81 4.81 0 0 1 -4.8-4.8v-11.2a1.6 1.6 0 0 0 -1.6-1.6h-16a4.81 4.81 0 0 0 -4.8 4.8v38.4a4.81 4.81 0 0 0 4.8 4.8h30.4a4.81 4.81 0 0 0 4.8-4.8v-24a1.6 1.6 0 0 0 -1.6-1.6zm-32-1.6a1.62 1.62 0 0 1 1.6-1.55h6.55a1.56 1.56 0 0 1 1.57 1.55v1.59a1.63 1.63 0 0 1 -1.59 1.58h-6.53a1.55 1.55 0 0 1 -1.58-1.58zm24 20.77a1.6 1.6 0 0 1 -1.6 1.6h-20.8a1.6 1.6 0 0 1 -1.6-1.6v-1.57a1.6 1.6 0 0 1 1.6-1.6h20.8a1.6 1.6 0 0 1 1.6 1.6zm3.2-9.6a1.6 1.6 0 0 1 -1.6 1.63h-24a1.6 1.6 0 0 1 -1.6-1.6v-1.6a1.6 1.6 0 0 1 1.6-1.6h24a1.6 1.6 0 0 1 1.6 1.6z" />
-                                                </svg>
-                                                <p
-                                                    class="text-right hover:underline font-semibold text-md text-blue-600 hover:text-blue-800 ">
-                                                    Klik untuk mengunduh formulir kerja</p>
-                                            </div>
-                                        </a>
-                                    </div>
-                                @endif
-                            @endforeach
-                            {{-- tombol form --}}
+                                                        <path
+                                                            d="m44.4 19.6h-11.2a4.81 4.81 0 0 1 -4.8-4.8v-11.2a1.6 1.6 0 0 0 -1.6-1.6h-16a4.81 4.81 0 0 0 -4.8 4.8v38.4a4.81 4.81 0 0 0 4.8 4.8h30.4a4.81 4.81 0 0 0 4.8-4.8v-24a1.6 1.6 0 0 0 -1.6-1.6zm-32-1.6a1.62 1.62 0 0 1 1.6-1.55h6.55a1.56 1.56 0 0 1 1.57 1.55v1.59a1.63 1.63 0 0 1 -1.59 1.58h-6.53a1.55 1.55 0 0 1 -1.58-1.58zm24 20.77a1.6 1.6 0 0 1 -1.6 1.6h-20.8a1.6 1.6 0 0 1 -1.6-1.6v-1.57a1.6 1.6 0 0 1 1.6-1.6h20.8a1.6 1.6 0 0 1 1.6 1.6zm3.2-9.6a1.6 1.6 0 0 1 -1.6 1.63h-24a1.6 1.6 0 0 1 -1.6-1.6v-1.6a1.6 1.6 0 0 1 1.6-1.6h24a1.6 1.6 0 0 1 1.6 1.6z" />
+                                                    </svg>
+                                                    <p
+                                                        class="text-right hover:underline font-semibold text-md text-blue-600 hover:text-blue-800 ">
+                                                        Klik untuk mengunduh formulir kerja</p>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    @endif
+                                @endforeach
+                                {{-- tombol form --}}
                         </div>
                         {{-- akhir standar formulir --}}
 
@@ -7124,14 +7077,14 @@
                                                         Ubah
                                                     </button>
                                                     <button data-dropdown-toggle="dropdown31" type="button"
-                                                    class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
-                                                        width="22" fill="white" viewBox="0 0 48 48">
-                                                        <path
-                                                            d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
-                                                        </path>
-                                                    </svg>
-                                                </button>
+                                                        class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                            width="22" fill="white" viewBox="0 0 48 48">
+                                                            <path
+                                                                d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                            </path>
+                                                        </svg>
+                                                    </button>
                                                 </div>
                                             @endif
                                         </td>
@@ -7204,14 +7157,14 @@
                                                         Ubah
                                                     </button>
                                                     <button data-dropdown-toggle="dropdown32" type="button"
-                                                    class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
-                                                        width="22" fill="white" viewBox="0 0 48 48">
-                                                        <path
-                                                            d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
-                                                        </path>
-                                                    </svg>
-                                                </button>
+                                                        class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                            width="22" fill="white" viewBox="0 0 48 48">
+                                                            <path
+                                                                d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                            </path>
+                                                        </svg>
+                                                    </button>
                                                 </div>
                                             @endif
                                         </td>
@@ -7285,14 +7238,14 @@
                                                         Ubah
                                                     </button>
                                                     <button data-dropdown-toggle="dropdown33" type="button"
-                                                    class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
-                                                        width="22" fill="white" viewBox="0 0 48 48">
-                                                        <path
-                                                            d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
-                                                        </path>
-                                                    </svg>
-                                                </button>
+                                                        class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                            width="22" fill="white" viewBox="0 0 48 48">
+                                                            <path
+                                                                d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                            </path>
+                                                        </svg>
+                                                    </button>
                                                 </div>
                                             @endif
                                         </td>
@@ -7366,14 +7319,14 @@
                                                         Ubah
                                                     </button>
                                                     <button data-dropdown-toggle="dropdown34" type="button"
-                                                    class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
-                                                        width="22" fill="white" viewBox="0 0 48 48">
-                                                        <path
-                                                            d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
-                                                        </path>
-                                                    </svg>
-                                                </button>
+                                                        class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                            width="22" fill="white" viewBox="0 0 48 48">
+                                                            <path
+                                                                d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                            </path>
+                                                        </svg>
+                                                    </button>
                                                 </div>
                                             @endif
                                         </td>
@@ -7446,14 +7399,14 @@
                                                         Ubah
                                                     </button>
                                                     <button data-dropdown-toggle="dropdown35" type="button"
-                                                    class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
-                                                        width="22" fill="white" viewBox="0 0 48 48">
-                                                        <path
-                                                            d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
-                                                        </path>
-                                                    </svg>
-                                                </button>
+                                                        class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                            width="22" fill="white" viewBox="0 0 48 48">
+                                                            <path
+                                                                d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                            </path>
+                                                        </svg>
+                                                    </button>
                                                 </div>
                                             @endif
                                         </td>
@@ -7526,14 +7479,14 @@
                                                         Ubah
                                                     </button>
                                                     <button data-dropdown-toggle="dropdown36" type="button"
-                                                    class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
-                                                        width="22" fill="white" viewBox="0 0 48 48">
-                                                        <path
-                                                            d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
-                                                        </path>
-                                                    </svg>
-                                                </button>
+                                                        class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                            width="22" fill="white" viewBox="0 0 48 48">
+                                                            <path
+                                                                d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                            </path>
+                                                        </svg>
+                                                    </button>
                                                 </div>
                                             @endif
                                         </td>
@@ -7606,14 +7559,14 @@
                                                         Ubah
                                                     </button>
                                                     <button data-dropdown-toggle="dropdown37" type="button"
-                                                    class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
-                                                        width="22" fill="white" viewBox="0 0 48 48">
-                                                        <path
-                                                            d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
-                                                        </path>
-                                                    </svg>
-                                                </button>
+                                                        class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                            width="22" fill="white" viewBox="0 0 48 48">
+                                                            <path
+                                                                d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                            </path>
+                                                        </svg>
+                                                    </button>
                                                 </div>
                                             @endif
                                         </td>
@@ -7686,14 +7639,14 @@
                                                         Ubah
                                                     </button>
                                                     <button data-dropdown-toggle="dropdown38" type="button"
-                                                    class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
-                                                        width="22" fill="white" viewBox="0 0 48 48">
-                                                        <path
-                                                            d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
-                                                        </path>
-                                                    </svg>
-                                                </button>
+                                                        class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                            width="22" fill="white" viewBox="0 0 48 48">
+                                                            <path
+                                                                d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                            </path>
+                                                        </svg>
+                                                    </button>
                                                 </div>
                                             @endif
                                         </td>
@@ -7766,14 +7719,14 @@
                                                         Ubah
                                                     </button>
                                                     <button data-dropdown-toggle="dropdown39" type="button"
-                                                    class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
-                                                        width="22" fill="white" viewBox="0 0 48 48">
-                                                        <path
-                                                            d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
-                                                        </path>
-                                                    </svg>
-                                                </button>
+                                                        class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                            width="22" fill="white" viewBox="0 0 48 48">
+                                                            <path
+                                                                d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                            </path>
+                                                        </svg>
+                                                    </button>
                                                 </div>
                                             @endif
                                         </td>
@@ -7846,14 +7799,14 @@
                                                         Ubah
                                                     </button>
                                                     <button data-dropdown-toggle="dropdown310" type="button"
-                                                    class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
-                                                        width="22" fill="white" viewBox="0 0 48 48">
-                                                        <path
-                                                            d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
-                                                        </path>
-                                                    </svg>
-                                                </button>
+                                                        class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                            width="22" fill="white" viewBox="0 0 48 48">
+                                                            <path
+                                                                d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                            </path>
+                                                        </svg>
+                                                    </button>
                                                 </div>
                                             @endif
                                         </td>
@@ -7937,27 +7890,27 @@
                                         </td>
                                         <td class="space-y-2 py-3 px-2">
                                             @if (
-                                                    ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
-                                                        $koneksipay->pay_da_1 == '')
-                                                    <button type="button"
+                                                ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                    $koneksipay->pay_da_1 == '')
+                                                <button type="button"
                                                     class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
                                                     data-modal-target="modala41" data-modal-show="modala41"
                                                     data-modal-toggle="modala41">
                                                     + Tambah dokumen
+                                                </button>
+                                            @elseif (
+                                                ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                    $koneksipay->pay_da_1 != '' &&
+                                                    $koneksipay->status_pay_04 != 'Complete' &&
+                                                    $koneksipay->status_pay_04 != 'Waiting Approval')
+                                                <div class="justify-center flex space-x-2">
+                                                    <button type="button"
+                                                        class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        data-modal-target="modal41" data-modal-show="modal41"
+                                                        data-modal-toggle="modal41">
+                                                        Ubah
                                                     </button>
-                                                @elseif (
-                                                    ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
-                                                        $koneksipay->pay_da_1 != '' &&
-                                                        $koneksipay->status_pay_04 != 'Complete' &&
-                                                        $koneksipay->status_pay_04 != 'Waiting Approval')
-                                                    <div class="justify-center flex space-x-2">
-                                                        <button type="button"
-                                                            class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
-                                                            data-modal-target="modal41" data-modal-show="modal41"
-                                                            data-modal-toggle="modal41">
-                                                            Ubah
-                                                        </button>
-                                                        <button data-dropdown-toggle="dropdown41" type="button"
+                                                    <button data-dropdown-toggle="dropdown41" type="button"
                                                         class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
                                                         <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
                                                             width="22" fill="white" viewBox="0 0 48 48">
@@ -7966,8 +7919,8 @@
                                                             </path>
                                                         </svg>
                                                     </button>
-                                                    </div>
-                                                @endif
+                                                </div>
+                                            @endif
                                         </td>
                                         <input type="text" hidden name="as_up_by_da_pay_1"
                                             value="{{ Auth::user()->first_name }}">
@@ -8017,27 +7970,27 @@
                                         </td>
                                         <td class="space-y-2 py-3 px-2">
                                             @if (
-                                                    ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
-                                                        $koneksipay->pay_da_2 == '')
-                                                    <button type="button"
+                                                ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                    $koneksipay->pay_da_2 == '')
+                                                <button type="button"
                                                     class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
                                                     data-modal-target="modala42" data-modal-show="modala42"
                                                     data-modal-toggle="modala42">
                                                     + Tambah dokumen
                                                 </button>
-                                                @elseif (
-                                                    ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
-                                                        $koneksipay->pay_da_2 != '' &&
-                                                        $koneksipay->status_pay_04 != 'Complete' &&
-                                                        $koneksipay->status_pay_04 != 'Waiting Approval')
-                                                    <div class="justify-center flex space-x-2">
-                                                        <button type="button"
-                                                            class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
-                                                            data-modal-target="modal42" data-modal-show="modal42"
-                                                            data-modal-toggle="modal42">
-                                                            Ubah
-                                                        </button>
-                                                        <button data-dropdown-toggle="dropdown42" type="button"
+                                            @elseif (
+                                                ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                    $koneksipay->pay_da_2 != '' &&
+                                                    $koneksipay->status_pay_04 != 'Complete' &&
+                                                    $koneksipay->status_pay_04 != 'Waiting Approval')
+                                                <div class="justify-center flex space-x-2">
+                                                    <button type="button"
+                                                        class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        data-modal-target="modal42" data-modal-show="modal42"
+                                                        data-modal-toggle="modal42">
+                                                        Ubah
+                                                    </button>
+                                                    <button data-dropdown-toggle="dropdown42" type="button"
                                                         class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
                                                         <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
                                                             width="22" fill="white" viewBox="0 0 48 48">
@@ -8046,8 +7999,8 @@
                                                             </path>
                                                         </svg>
                                                     </button>
-                                                    </div>
-                                                @endif
+                                                </div>
+                                            @endif
                                         </td>
                                         <input type="text" hidden name="as_up_by_da_pay_2"
                                             value="{{ Auth::user()->first_name }}">
@@ -8097,27 +8050,27 @@
                                         </td>
                                         <td class="space-y-2 py-3 px-2">
                                             @if (
-                                                    ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
-                                                        $koneksipay->pay_da_3 == '')
-                                                    <button type="button"
+                                                ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                    $koneksipay->pay_da_3 == '')
+                                                <button type="button"
                                                     class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
                                                     data-modal-target="modala43" data-modal-show="modala43"
                                                     data-modal-toggle="modala43">
                                                     + Tambah dokumen
                                                 </button>
-                                                @elseif (
-                                                    ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
-                                                        $koneksipay->pay_da_3 != '' &&
-                                                        $koneksipay->status_pay_04 != 'Complete' &&
-                                                        $koneksipay->status_pay_04 != 'Waiting Approval')
-                                                    <div class="justify-center flex space-x-2">
-                                                        <button type="button"
-                                                            class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
-                                                            data-modal-target="modal43" data-modal-show="modal43"
-                                                            data-modal-toggle="modal43">
-                                                            Ubah
-                                                        </button>
-                                                        <button data-dropdown-toggle="dropdown43" type="button"
+                                            @elseif (
+                                                ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                    $koneksipay->pay_da_3 != '' &&
+                                                    $koneksipay->status_pay_04 != 'Complete' &&
+                                                    $koneksipay->status_pay_04 != 'Waiting Approval')
+                                                <div class="justify-center flex space-x-2">
+                                                    <button type="button"
+                                                        class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        data-modal-target="modal43" data-modal-show="modal43"
+                                                        data-modal-toggle="modal43">
+                                                        Ubah
+                                                    </button>
+                                                    <button data-dropdown-toggle="dropdown43" type="button"
                                                         class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
                                                         <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
                                                             width="22" fill="white" viewBox="0 0 48 48">
@@ -8126,8 +8079,8 @@
                                                             </path>
                                                         </svg>
                                                     </button>
-                                                    </div>
-                                                @endif
+                                                </div>
+                                            @endif
                                         </td>
                                         <input type="text" hidden name="as_up_by_da_pay_3"
                                             value="{{ Auth::user()->first_name }}">
@@ -8177,27 +8130,27 @@
                                         </td>
                                         <td class="space-y-2 py-3 px-2">
                                             @if (
-                                                    ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
-                                                        $koneksipay->pay_da_4 == '')
-                                                    <button type="button"
+                                                ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                    $koneksipay->pay_da_4 == '')
+                                                <button type="button"
                                                     class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
                                                     data-modal-target="modala44" data-modal-show="modala44"
                                                     data-modal-toggle="modala44">
                                                     + Tambah dokumen
+                                                </button>
+                                            @elseif (
+                                                ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                    $koneksipay->pay_da_4 != '' &&
+                                                    $koneksipay->status_pay_04 != 'Complete' &&
+                                                    $koneksipay->status_pay_04 != 'Waiting Approval')
+                                                <div class="justify-center flex space-x-2">
+                                                    <button type="button"
+                                                        class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        data-modal-target="modal44" data-modal-show="modal44"
+                                                        data-modal-toggle="modal44">
+                                                        Ubah
                                                     </button>
-                                                @elseif (
-                                                    ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
-                                                        $koneksipay->pay_da_4 != '' &&
-                                                        $koneksipay->status_pay_04 != 'Complete' &&
-                                                        $koneksipay->status_pay_04 != 'Waiting Approval')
-                                                    <div class="justify-center flex space-x-2">
-                                                        <button type="button"
-                                                            class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
-                                                            data-modal-target="modal44" data-modal-show="modal44"
-                                                            data-modal-toggle="modal44">
-                                                            Ubah
-                                                        </button>
-                                                        <button data-dropdown-toggle="dropdown44" type="button"
+                                                    <button data-dropdown-toggle="dropdown44" type="button"
                                                         class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
                                                         <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
                                                             width="22" fill="white" viewBox="0 0 48 48">
@@ -8206,8 +8159,8 @@
                                                             </path>
                                                         </svg>
                                                     </button>
-                                                    </div>
-                                                @endif
+                                                </div>
+                                            @endif
                                         </td>
                                         <input type="text" hidden name="as_up_by_da_pay_4"
                                             value="{{ Auth::user()->first_name }}">
@@ -8257,27 +8210,27 @@
                                         </td>
                                         <td class="space-y-2 py-3 px-2">
                                             @if (
-                                                    ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
-                                                        $koneksipay->pay_da_5 == '')
-                                                    <button type="button"
+                                                ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                    $koneksipay->pay_da_5 == '')
+                                                <button type="button"
                                                     class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
                                                     data-modal-target="modala45" data-modal-show="modala45"
                                                     data-modal-toggle="modala45">
                                                     + Tambah dokumen
                                                 </button>
-                                                @elseif (
-                                                    ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
-                                                        $koneksipay->pay_da_5 != '' &&
-                                                        $koneksipay->status_pay_04 != 'Complete' &&
-                                                        $koneksipay->status_pay_04 != 'Waiting Approval')
-                                                    <div class="justify-center flex space-x-2">
-                                                        <button type="button"
-                                                            class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
-                                                            data-modal-target="modal45" data-modal-show="modal45"
-                                                            data-modal-toggle="modal45">
-                                                            Ubah
-                                                        </button>
-                                                        <button data-dropdown-toggle="dropdown45" type="button"
+                                            @elseif (
+                                                ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                    $koneksipay->pay_da_5 != '' &&
+                                                    $koneksipay->status_pay_04 != 'Complete' &&
+                                                    $koneksipay->status_pay_04 != 'Waiting Approval')
+                                                <div class="justify-center flex space-x-2">
+                                                    <button type="button"
+                                                        class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        data-modal-target="modal45" data-modal-show="modal45"
+                                                        data-modal-toggle="modal45">
+                                                        Ubah
+                                                    </button>
+                                                    <button data-dropdown-toggle="dropdown45" type="button"
                                                         class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
                                                         <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
                                                             width="22" fill="white" viewBox="0 0 48 48">
@@ -8286,8 +8239,8 @@
                                                             </path>
                                                         </svg>
                                                     </button>
-                                                    </div>
-                                                @endif
+                                                </div>
+                                            @endif
                                         </td>
                                         <input type="text" hidden name="as_up_by_da_pay_5"
                                             value="{{ Auth::user()->first_name }}">
@@ -8321,200 +8274,195 @@
                 class="bg-orange-500 w-full hover:bg-orange-600 text-white font-bold py-2 rounded-b-lg shadow-md">
                 Klik untuk submit dokumen</button> --}}
 
-                {{-- modal tambah --}}
-                @php
-                    $t = range(1, 50);
-                @endphp
-                {{-- tambah parts --}}
-                @foreach ($t as $index => $number)
-                    <div id="modala1{{ $number }}"
-                        class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 inset-0 justify-center items-center w-full max-h-full">
-                        <div class="relative p-4 w-full max-w-2xl max-h-full">
-                            <!-- Modal content -->
-                            <div class="relative bg-white rounded-lg shadow">
-                                <!-- Modal header -->
-                                <div class="flex items-center justify-between px-5 py-3 border-b rounded-t">
-                                    <p class="text-2xl font-semibold text-gray-900 font-mono">
-                                        Tambah dokumen dan nilai finansial - PAY Parts
-                                    </p>
-                                    <button type="button"
-                                        class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center"
-                                        onclick="simulateEscape()">
-                                        <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                                            fill="none" viewBox="0 0 14 14">
-                                            <path stroke="currentColor" stroke-linecap="round"
-                                                stroke-linejoin="round" stroke-width="2"
-                                                d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
-                                        </svg>
-                                        <span class="sr-only">Close modal</span>
-                                    </button>
-                                </div>
-                                <!-- Modal footer -->
-                                <div class="items-center px-5 py-2 border-t border-gray-200 rounded-b">
-                                    <p class="text-sm font-bold">*Pastikan isi kedua bidang isian (file & nilai
-                                        finansial)</p>
-                                    <div class="items-center justify-center w-full border my-4">
-                                        <div class="grid grid-cols-2">
-                                            <input type="file"name="as_pay_parts_{{ $number }}"
-                                                id="">
-                                            <div class="">
-                                                <input type="text" id="base-input"
-                                                    class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                    placeholder="Sesuaikan nilai finansial dengan dokumen"
-                                                    min="0" max="999999999999"
-                                                    oninput="validity.valid||(value=''); formatAngka(this);"
-                                                    name="as_mny_parts_pay_{{ $number }}">
-                                            </div>
+            {{-- modal tambah --}}
+            @php
+                $t = range(1, 50);
+            @endphp
+            {{-- tambah parts --}}
+            @foreach ($t as $index => $number)
+                <div id="modala1{{ $number }}"
+                    class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 inset-0 justify-center items-center w-full max-h-full">
+                    <div class="relative p-4 w-full max-w-2xl max-h-full">
+                        <!-- Modal content -->
+                        <div class="relative bg-white rounded-lg shadow">
+                            <!-- Modal header -->
+                            <div class="flex items-center justify-between px-5 py-3 border-b rounded-t">
+                                <p class="text-2xl font-semibold text-gray-900 font-mono">
+                                    Tambah dokumen dan nilai finansial - PAY Parts
+                                </p>
+                                <button type="button"
+                                    class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center"
+                                    onclick="simulateEscape()">
+                                    <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                        fill="none" viewBox="0 0 14 14">
+                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                            stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+                                    </svg>
+                                    <span class="sr-only">Close modal</span>
+                                </button>
+                            </div>
+                            <!-- Modal footer -->
+                            <div class="items-center px-5 py-2 border-t border-gray-200 rounded-b">
+                                <p class="text-sm font-bold">*Pastikan isi kedua bidang isian (file & nilai
+                                    finansial)</p>
+                                <div class="items-center justify-center w-full border my-4">
+                                    <div class="grid grid-cols-2">
+                                        <input type="file"name="as_pay_parts_{{ $number }}"
+                                            id="">
+                                        <div class="">
+                                            <input type="text" id="base-input"
+                                                class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
+                                                placeholder="Sesuaikan nilai finansial dengan dokumen"
+                                                min="0" max="999999999999"
+                                                oninput="validity.valid||(value=''); formatAngka(this);"
+                                                name="as_mny_parts_pay_{{ $number }}">
                                         </div>
                                     </div>
                                 </div>
-                                <button type="submit"
-                                    class="bg-orange-500 w-full hover:bg-orange-600 text-white font-bold py-2 rounded-b-lg shadow-md">Submit</button>
                             </div>
+                            <button type="submit"
+                                class="bg-orange-500 w-full hover:bg-orange-600 text-white font-bold py-2 rounded-b-lg shadow-md">Submit</button>
                         </div>
                     </div>
-                @endforeach
-                {{-- tambah pekerjaan jasa --}}
+                </div>
+            @endforeach
+            {{-- tambah pekerjaan jasa --}}
             @foreach ($t as $index => $number)
-            <div id="modala2{{ $number }}"
-                class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 inset-0 justify-center items-center w-full max-h-full">
-                <div class="relative p-4 w-full max-w-2xl max-h-full">
-                    <!-- Modal content -->
-                    <div class="relative bg-white rounded-lg shadow">
-                        <!-- Modal header -->
-                        <div class="flex items-center justify-between px-5 py-3 border-b rounded-t">
-                            <p class="text-2xl font-semibold text-gray-900 font-mono">
-                                Tambah dokumen dan nilai finansial - PAY Pekerjaan/jasa
-                            </p>
-                            <button type="button"
-                                class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center"
-                                onclick="simulateEscape()">
-                                <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                                    fill="none" viewBox="0 0 14 14">
-                                    <path stroke="currentColor" stroke-linecap="round"
-                                        stroke-linejoin="round" stroke-width="2"
-                                        d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
-                                </svg>
-                                <span class="sr-only">Close modal</span>
-                            </button>
-                        </div>
-                        <div class="items-center px-5 py-2 border-t border-gray-200 rounded-b">
-                            <p class="text-sm font-bold">*Pastikan isi kedua bidang isian (file & nilai
-                                finansial)
-                                untuk dapat mengubah ajuan</p>
-                            <div class="items-center justify-center w-full border my-4">
-                                <div class="grid grid-cols-2">
-                                    <input type="file"name="as_pay_jasa_{{ $number }}"
-                                        id="">
-                                    <div class="">
-                                        <input type="text" id="base-input"
-                                            class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                            placeholder="Sesuaikan nilai finansial dengan dokumen"
-                                            min="0" max="999999999999"
-                                            oninput="validity.valid||(value=''); formatAngka(this);"
-                                            name="as_mny_jasa_pay_{{ $number }}">
+                <div id="modala2{{ $number }}"
+                    class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 inset-0 justify-center items-center w-full max-h-full">
+                    <div class="relative p-4 w-full max-w-2xl max-h-full">
+                        <!-- Modal content -->
+                        <div class="relative bg-white rounded-lg shadow">
+                            <!-- Modal header -->
+                            <div class="flex items-center justify-between px-5 py-3 border-b rounded-t">
+                                <p class="text-2xl font-semibold text-gray-900 font-mono">
+                                    Tambah dokumen dan nilai finansial - PAY Pekerjaan/jasa
+                                </p>
+                                <button type="button"
+                                    class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center"
+                                    onclick="simulateEscape()">
+                                    <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                        fill="none" viewBox="0 0 14 14">
+                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                            stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+                                    </svg>
+                                    <span class="sr-only">Close modal</span>
+                                </button>
+                            </div>
+                            <div class="items-center px-5 py-2 border-t border-gray-200 rounded-b">
+                                <p class="text-sm font-bold">*Pastikan isi kedua bidang isian (file & nilai
+                                    finansial)
+                                    untuk dapat mengubah ajuan</p>
+                                <div class="items-center justify-center w-full border my-4">
+                                    <div class="grid grid-cols-2">
+                                        <input type="file"name="as_pay_jasa_{{ $number }}"
+                                            id="">
+                                        <div class="">
+                                            <input type="text" id="base-input"
+                                                class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
+                                                placeholder="Sesuaikan nilai finansial dengan dokumen"
+                                                min="0" max="999999999999"
+                                                oninput="validity.valid||(value=''); formatAngka(this);"
+                                                name="as_mny_jasa_pay_{{ $number }}">
+                                        </div>
                                     </div>
                                 </div>
                             </div>
+                            <button type="submit"
+                                class="bg-orange-500 w-full hover:bg-orange-600 text-white font-bold py-2 rounded-b-lg shadow-md">Submit</button>
                         </div>
-                        <button type="submit"
-                            class="bg-orange-500 w-full hover:bg-orange-600 text-white font-bold py-2 rounded-b-lg shadow-md">Submit</button>
                     </div>
                 </div>
-            </div>
-        @endforeach
-        {{-- tambah manufaktur --}}
-        @foreach ($t as $index => $number)
-        <div id="modala3{{ $number }}"
-            class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 inset-0 justify-center items-center w-full max-h-full">
-            <div class="relative p-4 w-full max-w-2xl max-h-full">
-                <!-- Modal content -->
-                <div class="relative bg-white rounded-lg shadow">
-                    <!-- Modal header -->
-                    <div class="flex items-center justify-between px-5 py-3 border-b rounded-t">
-                        <p class="text-2xl font-semibold text-gray-900 font-mono">
-                            Tambah dokumen dan nilai finansial - PAY Manufaktur
-                        </p>
-                        <button type="button"
-                            class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center"
-                            onclick="simulateEscape()">
-                            <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                                fill="none" viewBox="0 0 14 14">
-                                <path stroke="currentColor" stroke-linecap="round"
-                                    stroke-linejoin="round" stroke-width="2"
-                                    d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
-                            </svg>
-                            <span class="sr-only">Close modal</span>
-                        </button>
-                    </div>
-                    <div class="items-center px-5 py-2 border-t border-gray-200 rounded-b">
-                        <div class="items-center justify-center w-full border my-4">
-                            <div class="grid grid-cols-2">
-                                <input type="file"name="as_pay_mnftr_{{ $number }}"
-                                    id="">
-                                <div class="">
-                                    <input type="text" id="base-input"
-                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                        placeholder="Sesuaikan nilai finansial dengan dokumen"
-                                        min="0" max="999999999999"
-                                        oninput="validity.valid||(value=''); formatAngka(this);"
-                                        name="as_mny_mnftr_pay_{{ $number }}">
+            @endforeach
+            {{-- tambah manufaktur --}}
+            @foreach ($t as $index => $number)
+                <div id="modala3{{ $number }}"
+                    class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 inset-0 justify-center items-center w-full max-h-full">
+                    <div class="relative p-4 w-full max-w-2xl max-h-full">
+                        <!-- Modal content -->
+                        <div class="relative bg-white rounded-lg shadow">
+                            <!-- Modal header -->
+                            <div class="flex items-center justify-between px-5 py-3 border-b rounded-t">
+                                <p class="text-2xl font-semibold text-gray-900 font-mono">
+                                    Tambah dokumen dan nilai finansial - PAY Manufaktur
+                                </p>
+                                <button type="button"
+                                    class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center"
+                                    onclick="simulateEscape()">
+                                    <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                        fill="none" viewBox="0 0 14 14">
+                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                            stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+                                    </svg>
+                                    <span class="sr-only">Close modal</span>
+                                </button>
+                            </div>
+                            <div class="items-center px-5 py-2 border-t border-gray-200 rounded-b">
+                                <div class="items-center justify-center w-full border my-4">
+                                    <div class="grid grid-cols-2">
+                                        <input type="file"name="as_pay_mnftr_{{ $number }}"
+                                            id="">
+                                        <div class="">
+                                            <input type="text" id="base-input"
+                                                class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
+                                                placeholder="Sesuaikan nilai finansial dengan dokumen"
+                                                min="0" max="999999999999"
+                                                oninput="validity.valid||(value=''); formatAngka(this);"
+                                                name="as_mny_mnftr_pay_{{ $number }}">
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
+                            <button type="submit"
+                                class="bg-orange-500 w-full hover:bg-orange-600 text-white font-bold py-2 rounded-b-lg shadow-md">Submit</button>
                         </div>
                     </div>
-                    <button type="submit"
-                        class="bg-orange-500 w-full hover:bg-orange-600 text-white font-bold py-2 rounded-b-lg shadow-md">Submit</button>
                 </div>
-            </div>
-        </div>
-    @endforeach
-    {{-- tambah DA --}}
-    @foreach ($t as $index => $number)
-    <div id="modala4{{ $number }}"
-        class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 inset-0 justify-center items-center w-full max-h-full">
-        <div class="relative p-4 w-full max-w-2xl max-h-full">
-            <!-- Modal content -->
-            <div class="relative bg-white rounded-lg shadow">
-                <!-- Modal header -->
-                <div class="flex items-center justify-between px-5 py-3 border-b rounded-t">
-                    <p class="text-2xl font-semibold text-gray-900 font-mono">
-                        Tambah dokumen dan nilai finansial - DA
-                    </p>
-                    <button type="button"
-                        class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center"
-                        onclick="simulateEscape()">
-                        <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                            fill="none" viewBox="0 0 14 14">
-                            <path stroke="currentColor" stroke-linecap="round"
-                                stroke-linejoin="round" stroke-width="2"
-                                d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
-                        </svg>
-                        <span class="sr-only">Close modal</span>
-                    </button>
-                </div>
-                <div class="items-center px-5 py-2 border-t border-gray-200 rounded-b">
-                    <div class="items-center justify-center w-full border my-4">
-                        <div class="grid grid-cols-2">
-                            <input type="file"name="as_pay_da_{{ $number }}"
-                                id="">
-                            <div class="">
-                                <input type="text" id="base-input"
-                                    class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                    placeholder="Sesuaikan nilai finansial dengan dokumen"
-                                    min="0" max="999999999999"
-                                    oninput="validity.valid||(value=''); formatAngka(this);"
-                                    name="as_mny_da_pay_{{ $number }}">
+            @endforeach
+            {{-- tambah DA --}}
+            @foreach ($t as $index => $number)
+                <div id="modala4{{ $number }}"
+                    class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 inset-0 justify-center items-center w-full max-h-full">
+                    <div class="relative p-4 w-full max-w-2xl max-h-full">
+                        <!-- Modal content -->
+                        <div class="relative bg-white rounded-lg shadow">
+                            <!-- Modal header -->
+                            <div class="flex items-center justify-between px-5 py-3 border-b rounded-t">
+                                <p class="text-2xl font-semibold text-gray-900 font-mono">
+                                    Tambah dokumen dan nilai finansial - DA
+                                </p>
+                                <button type="button"
+                                    class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center"
+                                    onclick="simulateEscape()">
+                                    <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                        fill="none" viewBox="0 0 14 14">
+                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                            stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+                                    </svg>
+                                    <span class="sr-only">Close modal</span>
+                                </button>
                             </div>
+                            <div class="items-center px-5 py-2 border-t border-gray-200 rounded-b">
+                                <div class="items-center justify-center w-full border my-4">
+                                    <div class="grid grid-cols-2">
+                                        <input type="file"name="as_pay_da_{{ $number }}" id="">
+                                        <div class="">
+                                            <input type="text" id="base-input"
+                                                class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
+                                                placeholder="Sesuaikan nilai finansial dengan dokumen"
+                                                min="0" max="999999999999"
+                                                oninput="validity.valid||(value=''); formatAngka(this);"
+                                                name="as_mny_da_pay_{{ $number }}">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <button type="submit"
+                                class="bg-orange-500 w-full hover:bg-orange-600 text-white font-bold py-2 rounded-b-lg shadow-md">Submit</button>
                         </div>
                     </div>
                 </div>
-                <button type="submit"
-                    class="bg-orange-500 w-full hover:bg-orange-600 text-white font-bold py-2 rounded-b-lg shadow-md">Submit</button>
-            </div>
-        </div>
-    </div>
-@endforeach
+            @endforeach
 
             {{-- modal ubah --}}
             @php
@@ -8578,9 +8526,10 @@
                             <div class="items-center px-5 py-2 border-t border-gray-200 rounded-b">
                                 <p class="font-light text-lg">
                                     Unggah dokumen dan nilai finansial baru
-                                    <p class="text-sm font-bold">*Pastikan isi kedua bidang isian (file & nilai finansial) untuk dapat mengubah ajuan</p>
+                                <p class="text-sm font-bold">*Pastikan isi kedua bidang isian (file & nilai finansial)
+                                    untuk dapat mengubah ajuan</p>
                                 </p>
-                                                                <div class="items-center justify-center w-full border my-4">
+                                <div class="items-center justify-center w-full border my-4">
                                     @if ($koneksipay->{'pay_parts_' . $number} != '')
                                         <div class="grid grid-cols-2">
                                             <input type="file" name="as_pay_parts_{{ $number }}"
@@ -8663,7 +8612,8 @@
                                 <p class="font-light text-lg">
                                     Unggah dokumen dan nilai finansial baru
                                 </p>
-                                <p class="text-sm font-bold">*Pastikan isi kedua bidang isian (file & nilai finansial) untuk dapat mengubah ajuan</p>
+                                <p class="text-sm font-bold">*Pastikan isi kedua bidang isian (file & nilai finansial)
+                                    untuk dapat mengubah ajuan</p>
                                 <div class="items-center justify-center w-full border my-4">
                                     @if ($koneksipay->{'pay_jasa_' . $number} != '')
                                         <div class="grid grid-cols-2">
@@ -8747,7 +8697,8 @@
                                 <p class="font-light text-lg">
                                     Unggah dokumen dan nilai finansial baru
                                 </p>
-                                <p class="text-sm font-bold">*Pastikan isi kedua bidang isian (file & nilai finansial) untuk dapat mengubah ajuan</p>
+                                <p class="text-sm font-bold">*Pastikan isi kedua bidang isian (file & nilai finansial)
+                                    untuk dapat mengubah ajuan</p>
                                 <div class="items-center justify-center w-full border my-4">
                                     @if ($koneksipay->{'pay_mnftr_' . $number} != '')
                                         <div class="grid grid-cols-2">
@@ -8834,15 +8785,16 @@
                                     untuk dapat mengubah ajuan</p>
                                 <div class="items-center justify-center w-full border my-4">
                                     @if ($koneksipay->{'pay_da_' . $number} != '')
-                                    <div class="grid grid-cols-2">
-                                        <input type="file"name="as_pay_da_{{ $number }}" id="">
-                                        <input type="text" id="base-input"
-                                            class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                            value="{{ isset($koneksipay->{'mny_da_pay_' . $number}) ? number_format($koneksipay->{'mny_da_pay_' . $number}, 0, ',', '.') : '' }}"
-                                            min="0" max="999999999999"
-                                            oninput="validity.valid||(value=''); formatAngka(this);"
-                                            name="as_mny_da_pay_{{ $number }}">
-                                    </div>
+                                        <div class="grid grid-cols-2">
+                                            <input type="file"name="as_pay_da_{{ $number }}"
+                                                id="">
+                                            <input type="text" id="base-input"
+                                                class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
+                                                value="{{ isset($koneksipay->{'mny_da_pay_' . $number}) ? number_format($koneksipay->{'mny_da_pay_' . $number}, 0, ',', '.') : '' }}"
+                                                min="0" max="999999999999"
+                                                oninput="validity.valid||(value=''); formatAngka(this);"
+                                                name="as_mny_da_pay_{{ $number }}">
+                                        </div>
                                     @else()
                                     @endif
                                 </div>
@@ -8853,78 +8805,176 @@
                     </div>
                 </div>
             @endforeach
-
         </form>
     </div>
     {{-- Akhir progress file --}}
-    @if ($koneksipay->status_pay_04 != '-')
+    @if (
+        $koneksipay->pay_parts_1 ||
+            $koneksipay->pay_parts_2 ||
+            $koneksipay->pay_parts_3 ||
+            $koneksipay->pay_parts_4 ||
+            $koneksipay->pay_parts_5 ||
+            $koneksipay->pay_parts_6 ||
+            $koneksipay->pay_parts_7 ||
+            $koneksipay->pay_parts_8 ||
+            $koneksipay->pay_parts_9 ||
+            $koneksipay->pay_parts_10 ||
+            $koneksipay->pay_parts_11 ||
+            $koneksipay->pay_parts_12 ||
+            $koneksipay->pay_parts_13 ||
+            $koneksipay->pay_parts_14 ||
+            $koneksipay->pay_parts_15 ||
+            $koneksipay->pay_parts_16 ||
+            $koneksipay->pay_parts_17 ||
+            $koneksipay->pay_parts_18 ||
+            $koneksipay->pay_parts_19 ||
+            $koneksipay->pay_parts_20 ||
+            $koneksipay->pay_parts_21 ||
+            $koneksipay->pay_parts_22 ||
+            $koneksipay->pay_parts_23 ||
+            $koneksipay->pay_parts_24 ||
+            $koneksipay->pay_parts_25 ||
+            $koneksipay->pay_parts_26 ||
+            $koneksipay->pay_parts_27 ||
+            $koneksipay->pay_parts_28 ||
+            $koneksipay->pay_parts_29 ||
+            $koneksipay->pay_parts_30 ||
+            $koneksipay->pay_parts_31 ||
+            $koneksipay->pay_parts_32 ||
+            $koneksipay->pay_parts_33 ||
+            $koneksipay->pay_parts_34 ||
+            $koneksipay->pay_parts_35 ||
+            $koneksipay->pay_parts_36 ||
+            $koneksipay->pay_parts_37 ||
+            $koneksipay->pay_parts_38 ||
+            $koneksipay->pay_parts_39 ||
+            $koneksipay->pay_parts_40 ||
+            $koneksipay->pay_parts_41 ||
+            $koneksipay->pay_parts_42 ||
+            $koneksipay->pay_parts_43 ||
+            $koneksipay->pay_parts_44 ||
+            $koneksipay->pay_parts_45 ||
+            $koneksipay->pay_da_1 ||
+            $koneksipay->pay_da_2 ||
+            $koneksipay->pay_da_3 ||
+            $koneksipay->pay_da_4 ||
+            $koneksipay->pay_da_5 ||
+            $koneksipay->pay_jasa_1 ||
+            $koneksipay->pay_jasa_2 ||
+            $koneksipay->pay_jasa_3 ||
+            $koneksipay->pay_jasa_4 ||
+            $koneksipay->pay_jasa_5 ||
+            $koneksipay->pay_jasa_5 ||
+            $koneksipay->pay_jasa_6 ||
+            $koneksipay->pay_jasa_7 ||
+            $koneksipay->pay_jasa_8 ||
+            $koneksipay->pay_jasa_9 ||
+            $koneksipay->pay_jasa_10 ||
+            $koneksipay->pay_jasa_11 ||
+            $koneksipay->pay_jasa_12 ||
+            $koneksipay->pay_jasa_13 ||
+            $koneksipay->pay_jasa_14 ||
+            $koneksipay->pay_jasa_15 ||
+            $koneksipay->pay_jasa_16 ||
+            $koneksipay->pay_jasa_17 ||
+            $koneksipay->pay_jasa_18 ||
+            $koneksipay->pay_jasa_19 ||
+            $koneksipay->pay_jasa_20 ||
+            $koneksipay->pay_jasa_21 ||
+            $koneksipay->pay_jasa_22 ||
+            $koneksipay->pay_jasa_23 ||
+            $koneksipay->pay_jasa_24 ||
+            $koneksipay->pay_jasa_25 ||
+            $koneksipay->pay_jasa_26 ||
+            $koneksipay->pay_jasa_27 ||
+            $koneksipay->pay_jasa_28 ||
+            $koneksipay->pay_jasa_29 ||
+            $koneksipay->pay_jasa_30 ||
+            $koneksipay->pay_mnftr_1 ||
+            $koneksipay->pay_mnftr_2 ||
+            $koneksipay->pay_mnftr_3 ||
+            $koneksipay->pay_mnftr_4 ||
+            $koneksipay->pay_mnftr_5 ||
+            $koneksipay->pay_mnftr_6 ||
+            $koneksipay->pay_mnftr_7 ||
+            $koneksipay->pay_mnftr_8 ||
+            $koneksipay->pay_mnftr_9 ||
+            $koneksipay->pay_mnftr_10 != '')
         {{-- Tombol Approve --}}
         <div class="grid grid-cols-2 gap-2 mb-10 mt-3">
-            @if ($koneksipay->status_pay_04 != 'Complete')
-            <form action="" method="post" enctype="multipart/form-data">
-                @csrf
-                @method('PUT')
-                <input type="text" name="check" value="donecheck" hidden>
-                <input type="text" name="progress" value="Purchasing" hidden>
+            @if (
+                $koneksipay->status_pay_04 != 'Complete' &&
+                    $koneksipr->status_pr_01 == 'Complete' &&
+                    $koneksipa->status_pa_02 == 'Complete' &&
+                    $koneksipo->status_po_03 == 'Complete')
+                <form action="" method="post" enctype="multipart/form-data">
+                    @csrf
+                    @method('PUT')
+                    <input type="text" name="check" value="donecheck" hidden>
+                    <input type="text" name="progress" value="Purchasing" hidden>
 
-                <input type="text" name="status_purchasing" value="Purchasing - PAY" hidden>
-                <input type="date" hidden name="status_purchasing_date" value="{{ date('Y-m-d') }}">
+                    <input type="text" name="status_purchasing" value="Complete" hidden>
+                    <input type="date" hidden name="status_purchasing_date" value="{{ date('Y-m-d') }}">
 
-                <input type="text" name="status_pay_04" value="Complete" hidden>
-                <input type="date" hidden name="status_pay_04_date" value="{{ date('Y-m-d') }}">
+                    <input type="text" name="status_pay_04" value="Complete" hidden>
+                    <input type="date" hidden name="status_pay_04_date" value="{{ date('Y-m-d') }}">
 
-                <input type="text" name="approval_by" value="{{ Auth::user()->first_name }}" hidden>
-                <input type="text" name="approval_date" value="{{ date('Y-m-d') }}" hidden>
+                    <input type="text" name="approval_by" value="{{ Auth::user()->first_name }}" hidden>
+                    <input type="text" name="approval_date" value="{{ date('Y-m-d') }}" hidden>
 
-                <div class="flex space-x-1 w-full">
+                    <div class="flex space-x-1 w-full">
+                        <button type="submit"
+                            class="rounded-lg shadow-sm items-center p-3 my-1 w-full hover:bg-green-800 bg-green-600 flex">
+                            <div class="flex mx-auto space-x-2 items-center">
+                                <svg width="20" height="auto" viewBox="0 0 80 80" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M36 57.6L17.2 38.8L22.8 33.2L36 46.4L69.6 12.8C62 5.2 51.6 0 40 0C18 0 0 18 0 40C0 62 18 80 40 80C62 80 80 62 80 40C80 32.4 78 25.6 74.4 19.6L36 57.6Z"
+                                        fill="white" />
+                                </svg>
+                                <p class="text-white font-medium">
+                                    Approve Progress
+                                </p>
+                            </div>
+                        </button>
+                    </div>
+                </form>
+            @elseif ($koneksipay->status_pay_04 != 'Complete' && $koneksicl->status_cl != 'Complete')
+                <p
+                    class="flex text-center text-sm items-center justify-center p-2 font-semibold text-white bg-gray-800 border-red-600 border-8">
+                    Untuk menyetujui tahap ini, anda harus menyetujui PR - PA - PO terlebih dahulu</p>
+            @endif
+            @if ($koneksipay->status_pay_04 != 'Revisi Purchasing - PAY')
+                <form action="" method="post" enctype="multipart/form-data">
+                    @csrf
+                    @method('PUT')
+                    <input type="text" name="check" value="donecheck" hidden>
+                    <input type="text" name="progress" value="Waiting Approval Purchasing - PAY" hidden>
+
+                    <input type="text" name="status_purchasing" value="Revisi Purchasing - PAY" hidden>
+                    <input type="date" hidden name="status_purchasing_date" value="{{ date('Y-m-d') }}">
+
+                    <input type="text" name="status_pay_04" value="Revisi Purchasing - PAY" hidden>
+                    <input type="date" hidden name="status_pay_04_date" value="{{ date('Y-m-d') }}">
+
+                    <input type="text" name="approval_by" value="{{ Auth::user()->first_name }}" hidden>
+                    <input type="text" name="approval_date" value="{{ date('Y-m-d') }}" hidden>
+
                     <button type="submit"
-                        class="rounded-lg shadow-sm items-center p-3 my-1 w-full hover:bg-green-800 bg-green-600 flex">
+                        class="rounded-lg shadow-sm items-center text-white p-3 my-1 w-full hover:bg-yellow-600 bg-yellow-400 flex space-x-2">
                         <div class="flex mx-auto space-x-2 items-center">
                             <svg width="20" height="auto" viewBox="0 0 80 80" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <path
-                                    d="M36 57.6L17.2 38.8L22.8 33.2L36 46.4L69.6 12.8C62 5.2 51.6 0 40 0C18 0 0 18 0 40C0 62 18 80 40 80C62 80 80 62 80 40C80 32.4 78 25.6 74.4 19.6L36 57.6Z"
+                                    d="M40 0C17.92 0 0 17.92 0 40C0 62.08 17.92 80 40 80C62.08 80 80 62.08 80 40C80 17.92 62.08 0 40 0ZM44 60H36V52H44V60ZM44 44H36V20H44V44Z"
                                     fill="white" />
                             </svg>
                             <p class="text-white font-medium">
-                                Approve Progress
+                                Revisi Progress
                             </p>
                         </div>
                     </button>
-                </div>
-            </form>
-            @endif
-            @if ($koneksipay->status_pay_04 != 'Revisi Purchasing - PAY')
-            <form action="" method="post" enctype="multipart/form-data">
-                @csrf
-                @method('PUT')
-                <input type="text" name="check" value="donecheck" hidden>
-                <input type="text" name="progress" value="Waiting Approval Purchasing - PAY" hidden>
-
-                <input type="text" name="status_purchasing" value="Revisi Purchasing - PAY" hidden>
-                <input type="date" hidden name="status_purchasing_date" value="{{ date('Y-m-d') }}">
-
-                <input type="text" name="status_pay_04" value="Revisi Purchasing - PAY" hidden>
-                <input type="date" hidden name="status_pay_04_date" value="{{ date('Y-m-d') }}">
-
-                <input type="text" name="approval_by" value="{{ Auth::user()->first_name }}" hidden>
-                <input type="text" name="approval_date" value="{{ date('Y-m-d') }}" hidden>
-
-                <button type="submit"
-                    class="rounded-lg shadow-sm items-center text-white p-3 my-1 w-full hover:bg-yellow-600 bg-yellow-400 flex space-x-2">
-                    <div class="flex mx-auto space-x-2 items-center">
-                        <svg width="20" height="auto" viewBox="0 0 80 80" fill="none"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                d="M40 0C17.92 0 0 17.92 0 40C0 62.08 17.92 80 40 80C62.08 80 80 62.08 80 40C80 17.92 62.08 0 40 0ZM44 60H36V52H44V60ZM44 44H36V20H44V44Z"
-                                fill="white" />
-                        </svg>
-                        <p class="text-white font-medium">
-                            Revisi Progress
-                        </p>
-                    </div>
-                </button>
-            </form>
+                </form>
             @endif
         </div>
     @endif
@@ -9061,15 +9111,15 @@
         }
 
         function formatAngka(input) {
-        // Menghilangkan karakter selain angka
-        let angka = input.value.replace(/[^\d]/g, '');
+            // Menghilangkan karakter selain angka
+            let angka = input.value.replace(/[^\d]/g, '');
 
-        // Menambahkan tanda titik setiap ribuan
-        angka = angka.replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+            // Menambahkan tanda titik setiap ribuan
+            angka = angka.replace(/\B(?=(\d{3})+(?!\d))/g, '.');
 
-        // Update nilai input
-        input.value = angka;
-    }
+            // Update nilai input
+            input.value = angka;
+        }
     </script>
 </div>
 {{-- tutup bungkus --}}

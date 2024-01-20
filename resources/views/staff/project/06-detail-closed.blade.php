@@ -701,7 +701,6 @@
                 {{-- atas form --}}
 
                 <div class="w-full bg-white">
-
                     {{-- Ijin Pemeriksaan Mesin --}}
                     {{-- awal standar formulir --}}
                     <div class="flex justify-between">

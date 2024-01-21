@@ -44,13 +44,13 @@
     {{-- end notifikasi --}}
     @if ($spCount == 0)
         <div class="flex flex-col items-center justify-center mt-44">
-            <p>Klik Tombol dibawah untuk mulai mengelola Formulir Kerja Standar 6 Step Project</p>
+            <p>Klik Tombol di bawah untuk mulai mengelola Formulir Kerja Standar 6 Step Project</p>
             <br>
             <form action="" method="post">
                 @csrf
                 <input type="text" name="marking" value="Standar-1" hidden>
                 <button type="submit"
-                    class="text-orange-500 hover:text-white border border-orange-500 hover:bg-orange-500 focus:ring-4 focus:outline-none focus:ring-orange-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-orange-300 dark:text-orange-300 dark:hover:text-white dark:hover:bg-orange-500 dark:focus:ring-orange-800">Mulai
+                    class="text-orange-500 hover:text-white border-2 border-orange-500 hover:bg-orange-500 focus:ring-4 focus:outline-none focus:ring-orange-300 font-medium rounded-lg text-md px-5 py-2.5 text-center mr-2 mb-2 dark:border-orange-300 dark:text-orange-300 dark:hover:text-white dark:hover:bg-orange-500 dark:focus:ring-orange-800">Mulai
                     kelola Formulir Kerja</button>
             </form>
         </div>
@@ -2162,7 +2162,7 @@
 
             document.getElementById("default-tab").click();
         </script>
-    @endif
+
 
     <form action="" method="post" enctype="multipart/form-data">
         @csrf
@@ -2746,3 +2746,6 @@
         }
     </script>
 </div>
+    @endif
+
+

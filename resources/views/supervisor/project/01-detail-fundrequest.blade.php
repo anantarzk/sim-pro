@@ -641,8 +641,8 @@
                                     <div class="justify-center flex space-x-2">
                                         <button type="button"
                                             class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
-                                            data-modal-target="modal" data-modal-show="modal"
-                                            data-modal-toggle="modal">
+                                            data-modal-target="modal1" data-modal-show="modal1"
+                                            data-modal-toggle="modal1">
                                             Ubah
                                         </button>
                                         <button data-dropdown-toggle="dropdown1" type="button"

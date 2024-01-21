@@ -37,6 +37,8 @@ class StaffProjectController extends Controller
             'pic_1_me',
             'pic_2_el',
             'pic_3_mit',
+            'date_start',
+            'date_end',
             'archive_at'
         )
             ->whereNull('archive_at')
@@ -208,6 +210,7 @@ class StaffProjectController extends Controller
         $koneksiin = INproject::select('id_in_5','status_in')->get();
         $koneksicl = CLproject::select('id_cl_6','status_cl')->get();
 
+        /* @dd($project); */
         return view('staff.project.00-landingproject', [
             'project' => $project,
             'koneksifr' => $koneksifr,

@@ -388,13 +388,14 @@
                                 {{-- deadline tenggat waktu tooltip --}}
                                 <td>
                                     <div id="countdown-{{ $object->id }}"
-                                        class="items-center font-medium text-center text-lg rounded drop-shadow-md flex justify-center mr-4"
+                                        class="items-center py-1 px-2 font-medium text-center text-lg rounded drop-shadow-md flex justify-center mt-2"
                                         data-tooltip-target="tooltip-bottom"
-                                        data-tooltip-placement="bottom">
+                                        data-tooltip-placement="bottom"
+                                        style="background-color: {{ hitungMundur($object->date_end) }};">
+                                        {{ hitungMundur($object->date_end) }}
                                     </div>
                                     <div id="tooltip-bottom" role="tooltip"
-                                        class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip">
-                                        <div data-popper-arrow></div>
+                                        class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-600 rounded-lg shadow-sm opacity-0 tooltip">
                                         <div class="grid grid-cols-2 space-x-2">
                                             <div>
                                                 <p class="text-left">Tanggal mulai:</p>
@@ -516,9 +517,7 @@
                                             </div>
                                         </button>
                                     </a>
-
                                 </td>
-
                             </tr>
                         @endif
                     @endforeach
@@ -530,6 +529,29 @@
         {{ $project->withQueryString()->links() }}
     </div>
 </div>
+
+@php
+    function hitungMundur($dateEnd)
+    {
+        $sekarang = time();
+        $deadlineTimestamp = strtotime($dateEnd);
+        $selisihWaktu = $deadlineTimestamp - $sekarang;
+
+        $hari = floor($selisihWaktu / (60 * 60 * 24));
+
+        $warnaLatarBelakang = '';
+
+        if ($selisihWaktu <= 0) {
+            echo 'Proyek sudah melewati deadline.';
+            $warnaLatarBelakang = 'red';
+        } else {
+            echo "{$hari} hari";
+        }
+
+        // Output warna latar belakang
+        return $warnaLatarBelakang;
+    }
+@endphp
 <script>
     function simulateEscape() {
         // Create a new KeyboardEvent for the "Escape" key
@@ -582,49 +604,5 @@
         // Update nilai input
         input.value = angka;
     }
-
-    function hitungMundur(deadline, elementId) {
-        const sekarang = new Date();
-        const selisihWaktu = deadline - sekarang;
-        const hari = Math.floor(selisihWaktu / (1000 * 60 * 60 * 24));
-
-        let warnaLatarBelakang = '';
-
-        if (selisihWaktu <= 0) {
-            document.getElementById(elementId).innerText = "Proyek sudah melewati deadline.";
-            warnaLatarBelakang = 'red';
-        } else {
-            const jam = Math.floor((selisihWaktu % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const menit = Math.floor((selisihWaktu % (1000 * 60 * 60)) / (1000 * 60));
-
-            document.getElementById(elementId).innerText = `${hari} hari`;
-            /* hari, ${jam} jam, dan ${menit} menit. */
-
-            // Atur warna latar belakang berdasarkan rentang hari
-            if (hari > 150) {
-                warnaLatarBelakang = 'green';
-            } else if (hari > 100) {
-                warnaLatarBelakang = 'blue';
-            } else if (hari > 70) {
-                warnaLatarBelakang = 'yellow';
-            } else if (hari > 30) {
-                warnaLatarBelakang = 'orange';
-            } else {
-                warnaLatarBelakang = 'red';
-            }
-        }
-
-        // Atur latar belakang dan warna teks
-        document.getElementById(elementId).style.backgroundColor = warnaLatarBelakang;
-        document.getElementById(elementId).style.color = 'white';
-    }
-
-    // Gantilah dengan nilai date_end dari Laravel Blade template
-    const dateEndStr = "{{ $object->date_end }}";
-    const dateEnd = new Date(dateEndStr);
-
-    // Gantilah dengan id unik kartu proyek
-    const kartuProyekId = "{{ $object->id }}";
-    hitungMundur(dateEnd, `countdown-${kartuProyekId}`);
 </script>
 </div>

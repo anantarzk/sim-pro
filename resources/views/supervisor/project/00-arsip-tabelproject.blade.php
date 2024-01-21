@@ -11,7 +11,7 @@
                 {{-- kiri --}}
                 <div class="w-3.5/6 flex space-x-3">
                     {{-- dashboard status --}}
-                    <div class="flex items-center bg-emerald-700 text-white px-4 py-3">
+                    <div class="flex items-center bg-gray-700 text-white px-4 py-3">
                         <div class="font-bold text-3xl p-1">
                             {{ $totalproject }}
                         </div>
@@ -93,9 +93,9 @@
                         <th class="p-2 w-[5%] font-medium">No.</th>
                         <th class="w-[25%] font-medium">Nama Project</th>
                         <th class="w-[10%] font-medium">IO Number</th>
-                        <th class="w-[15%] font-medium">PIC</th>
+                        <th class="w-[20%] font-medium">PIC</th>
                         <th class="w-[10%] font-medium">Budget</th>
-                        <th class="w-[20%] font-medium">Progress</th>
+                        <th class="w-[15%] font-medium">Progress</th>
                         <th class="w-[5%] font-medium">Aksi</th>
                     </thead>
 

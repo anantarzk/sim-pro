@@ -8306,12 +8306,12 @@
                                 <div class="grid grid-cols-2">
                                     <input type="file"name="as_pr_parts_{{ $number }}" id="">
                                     <div class="">
-                                        <input type="number" id="base-input"
-                                            class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                            placeholder="Rp{{ number_format($koneksipr->{'mny_parts_pr_' . $number}, 0, ',', '.') }}"
-                                            min="0" max="999999999999"
-                                            oninput="validity.valid||(value='');"
-                                            name="as_mny_parts_pr_{{ $number }}">
+                                        <input type="text" id="base-input"
+                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
+                                        value="{{ isset($koneksipr->{'mny_parts_pr_' . $number}) ? number_format($koneksipr->{'mny_parts_pr_' . $number}, 0, ',', '.') : '' }}"
+                                        min="0" max="999999999999"
+                                        oninput="validity.valid||(value='');"
+                                        name="as_mny_parts_pr_{{ $number }}">
                                     </div>
                                 </div>
                             @else()
@@ -8391,12 +8391,12 @@
                                 <div class="grid grid-cols-2">
                                     <input type="file"name="as_pr_jasa_{{ $number }}" id="">
                                     <div class="">
-                                        <input type="number" id="base-input"
-                                            class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                            placeholder="Rp{{ number_format($koneksipr->{'mny_jasa_pr_' . $number}, 0, ',', '.') }}"
-                                            min="0" max="999999999999"
-                                            oninput="validity.valid||(value='');"
-                                            name="as_mny_jasa_pr_{{ $number }}">
+                                        <input type="text" id="base-input"
+                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
+                                        value="{{ isset($koneksipr->{'mny_jasa_pr_' . $number}) ? number_format($koneksipr->{'mny_jasa_pr_' . $number}, 0, ',', '.') : '' }}"
+                                        min="0" max="999999999999"
+                                        oninput="validity.valid||(value='');"
+                                        name="as_mny_jasa_pr_{{ $number }}">
                                     </div>
                                 </div>
                             @else()
@@ -8473,12 +8473,12 @@
                                 <div class="grid grid-cols-2">
                                     <input type="file"name="as_pr_mnftr_{{ $number }}" id="">
                                     <div class="">
-                                        <input type="number" id="base-input"
-                                            class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                            placeholder="Rp{{ number_format($koneksipr->{'mny_mnftr_pr_' . $number}, 0, ',', '.') }}"
-                                            min="0" max="999999999999"
-                                            oninput="validity.valid||(value='');"
-                                            name="as_mny_mnftr_pr_{{ $number }}">
+                                        <input type="text" id="base-input"
+                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
+                                        value="{{ isset($koneksipr->{'mny_mnftr_pr_' . $number}) ? number_format($koneksipr->{'mny_mnftr_pr_' . $number}, 0, ',', '.') : '' }}"
+                                        min="0" max="999999999999"
+                                        oninput="validity.valid||(value='');"
+                                        name="as_mny_mnftr_pr_{{ $number }}">
                                     </div>
                                 </div>
                             @else()
@@ -8557,11 +8557,11 @@
                                 <div class="grid grid-cols-2">
                                     <input type="file"name="as_pr_rfq_{{ $number }}" id="">
                                     <input type="text" id="base-input"
-                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                        value="{{ isset($koneksipr->{'mny_rfq_pr_' . $number}) ? number_format($koneksipr->{'mny_rfq_pr_' . $number}, 0, ',', '.') : '' }}"
-                                        min="0" max="999999999999"
-                                        oninput="validity.valid||(value=''); formatAngka(this);"
-                                        name="as_mny_rfq_pr_{{ $number }}">
+                                    class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
+                                    value="{{ isset($koneksipr->{'mny_rfq_pr_' . $number}) ? number_format($koneksipr->{'mny_rfq_pr_' . $number}, 0, ',', '.') : '' }}"
+                                    min="0" max="999999999999"
+                                    oninput="validity.valid||(value='');"
+                                    name="as_mny_rfq_pr_{{ $number }}">
                                 </div>
                             @else()
                             @endif
@@ -8757,6 +8757,17 @@
         });
         document.dispatchEvent(escapeEvent);
     }
+
+    function formatAngka(input) {
+            // Menghilangkan karakter selain angka
+            let angka = input.value.replace(/[^\d]/g, '');
+
+            // Menambahkan tanda titik setiap ribuan
+            angka = angka.replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+
+            // Update nilai input
+            input.value = angka;
+        }
 </script>
 
 {{-- hapus pr --}}

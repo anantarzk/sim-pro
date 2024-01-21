@@ -2,22 +2,10 @@
 
 @section('title_page', 'Dashboard OB')
 
-@section('custom_head')
-    <meta http-equiv="refresh" content="30">
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            setTimeout(function() {
-                location.reload();
-            }, 5000); // Reload every 30 seconds
-        });
-    </script>
-@endsection
-{{-- trim --}}
-
 @section('konten')
 
     <head>
-        <meta http-equiv="refresh" content="5">
+        <meta http-equiv="refresh" content="300">
     </head>
     <div class="my-20 mx-10">
 
@@ -30,6 +18,19 @@
                 </p>
             </div>
         </div>
+
+            @if (Session::has('status'))
+            <div class="flex p-4 mb-4 text-sm text-green-700 bg-green-100 rounded-lg dark:bg-green-200 dark:text-green-800"
+                role="alert">
+                <svg aria-hidden="true" class="flex-shrink-0 inline w-5 h-5 mr-3" fill="currentColor"
+                    viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd"
+                        d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"
+                        clip-rule="evenodd"></path>
+                </svg>
+                {{ Session::get('message') }}
+            </div>
+        @endif
 
         <div class="mx-auto mt-2 ">
             <!-- component -->
@@ -44,7 +45,7 @@
                     <li
                         class="w-full py-2 font-semibold text-gray-800 rounded-lg opacity-50 hover:bg-gray-200 flex justify-center ">
                         <a href="#second" class="hover:text-gray-500">
-                            Ajuan kemajuan proyek ({{ $totalprojectapproval }} Menunggu)
+                            Ajuan menunggu persetujuan ({{ $totalprojectapproval }} Menunggu)
                         </a>
                     </li>
                 </ul>
@@ -61,21 +62,21 @@
                                     <div class="w-1/2  p-1">
                                         <p class="font-bold text-xl text-center">Project Status</p>
                                         <hr>
-                                        <p class="font-light text-lg">Cancelled Projects:</p>
-                                        <p class="font-semibold text-base">{{ $cancel }} Projects</p>
+                                        <p class="text-sm">Cancelled Projects:</p>
+                                        <p class="font-semibold text-lg">{{ $cancel }} Projects</p>
                                         <hr>
-                                        <p class="font-light text-lg">Not Started Projects:</p>
-                                        <p class="font-semibold text-base">{{ $not_started }} Projects</p>
+                                        <p class="text-sm">Not Started Projects:</p>
+                                        <p class="font-semibold text-lg">{{ $not_started }} Projects</p>
                                         <hr>
-                                        <p class="font-light text-lg">In Progress Projects:</p>
-                                        <p class="font-semibold text-base">{{ $in_progress }} Projects</p>
+                                        <p class="text-sm">In Progress Projects:</p>
+                                        <p class="font-semibold text-lg">{{ $in_progress }} Projects</p>
                                         <hr>
-                                        <p class="font-light text-lg">Finished Projects:</p>
-                                        <p class="font-semibold text-base">{{ $finished }} Projects</p>
+                                        <p class="text-sm">Finished Projects:</p>
+                                        <p class="font-semibold text-lg">{{ $finished }} Projects</p>
                                         <hr>
 
                                         <div class="justify-center items-center">
-                                            <p class="font-light text-lg text-center">Total OB Projects:</p>
+                                            <p class="text-sm text-center">Total OB Projects:</p>
                                             <p class="font-semibold text-xl text-center">{{ $totalproject }}
                                                 Projects
                                             </p>
@@ -89,21 +90,18 @@
                                     <div class="w-1/2  p-1">
                                         <p class="font-bold text-xl text-center">FR Status</p>
                                         <hr>
-                                        <p class="font-light text-lg">Approved FR:</p>
-                                        <p class="font-semibold text-base">{{ $approved_fr }} Projects</p>
+                                        <p class="text-sm">Approved FR:</p>
+                                        <p class="font-semibold text-lg">{{ $approved_fr }} Projects</p>
                                         <hr>
-                                        <p class="font-light text-lg">Waiting Approval FR:</p>
-                                        <p class="font-semibold text-base">{{ $on_progress_fr }} Projects</p>
+                                        <p class="text-sm">Waiting Approval FR:</p>
+                                        <p class="font-semibold text-lg">{{ $on_progress_fr }} Projects</p>
                                         <hr>
-                                        {{-- <p class="font-light text-lg">Not Approved FR:</p>
-                                        <p class="font-semibold text-base">{{ $cancel }} Projects</p>
-                                         --}}
-                                        <p class="font-light text-lg">&nbsp;</p>
-                                        <p class="font-semibold text-base">&nbsp;</p>
+                                        <p class="text-sm">&nbsp;</p>
+                                        <p class="font-semibold text-lg">&nbsp;</p>
                                         <br>
 
                                         <div class="justify-center items-center ">
-                                            <p class="font-light text-lg text-center">Total FR:</p>
+                                            <p class="text-sm text-center">Total FR:</p>
                                             <p class="font-semibold text-xl text-center">{{ $totalproject }}
                                                 Projects
                                             </p>
@@ -141,23 +139,23 @@
                                                         </a>
                                                     </div>
                                                 </span>
-                                                <p class="font-light text-lg mt-2">Planned Target Payment:</p>
-                                                <p class="font-semibold text-base">
+                                                <p class="text-lg mt-2">Planned Target Payment:</p>
+                                                <p class="font-semibold text-lg">
                                                     Rp{{ number_format($sum_planned, 0, ',', '.') }}</p>
                                                 </p>
                                                 <hr>
-                                                <p class="font-light text-lg mt-1">Cumulative Actual Payment:</p>
-                                                <p class="font-semibold text-base">
+                                                <p class="text-lg mt-1">Kumulatif Actual Payment:</p>
+                                                <p class="font-semibold text-lg">
                                                     Rp{{ number_format($mny_pay, 0, ',', '.') }}</p>
                                                 <hr>
-                                                <p class="font-light text-lg mt-1">YearOB Budget:</p>
-                                                <p class="font-semibold text-base">
+                                                <p class="text-lg mt-1">YearOB Budget:</p>
+                                                <p class="font-semibold text-lg">
                                                     Rp{{ number_format($sum_ob, 0, ',', '.') }}</p>
                                                 </p>
                                                 <hr>
-                                                <p class="font-light text-lg mt-2">Difference <span class="text-xs">(YearOB
-                                                        Budget - Cumulative Actual Payment)</span>:</p>
-                                                <p class="font-semibold text-base">
+                                                <p class="text-lg mt-2">Difference <span class="text-xs">(YearOB
+                                                        Budget - Kumulatif Actual Payment)</span>:</p>
+                                                <p class="font-semibold text-lg">
                                                     Rp{{ number_format($total_sisa_budget_ob, 0, ',', '.') }}</p>
                                                 </p>
                                                 <hr>
@@ -190,7 +188,7 @@
                                 <div class="rounded-lg overflow-hidden bg-white">
                                     <table class="w-full">
                                         <thead
-                                            class="text-md text-white uppercase bg-green-600 text-center  border border-gray-500">
+                                            class="text-md text-gray-800 bg-gray-300 text-center">
                                             <th class="p-2 w-[5%]">No.</th>
                                             <th class="w-[25%]">Nama Proyek</th>
                                             <th class="w-[10%]">Fase</th>

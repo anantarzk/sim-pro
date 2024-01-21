@@ -368,65 +368,62 @@
                                         {{-- div row status --}}
                                         <div class="mt-3">
                                             <hr class="mb-2 w-full">
-                                            {{-- progress bar --}}
                                             @php
-                                                $totalStages = 9;
-                                                $completedStages = 0;
+                                        $totalStages = 9;
+                                        $completedStages = 0;
 
-                                                $statuses = [
-                                                    $koneksifr->status_fr,
-                                                    $koneksiar->status_ar,
-                                                    $koneksipr->status_pr_01,
-                                                    $koneksipa->status_pa_02,
-                                                    $koneksipo->status_po_03,
-                                                    $koneksipay->status_pay_04,
-                                                    $koneksimn->status_mn,
-                                                    $koneksiin->status_in,
-                                                    $koneksicl->status_cl,
-                                                ];
+                                        $statuses = [
+                                            $koneksifr->status_fr,
+                                            $koneksiar->status_ar,
+                                            $koneksipr->status_pr_01,
+                                            $koneksipa->status_pa_02,
+                                            $koneksipo->status_po_03,
+                                            $koneksipay->status_pay_04,
+                                            $koneksimn->status_mn,
+                                            $koneksiin->status_in,
+                                            $koneksicl->status_cl,
+                                        ];
 
-                                                foreach ($statuses as $status) {
-                                                    if ($status == 'Complete') {
-                                                        $completedStages++;
-                                                    }
-                                                }
+                                        foreach ($statuses as $status) {
+                                            if ($status == 'Complete') {
+                                                $completedStages++;
+                                            }
+                                        }
 
-                                                $purchasingPercentage = 70;
-                                                $otherStagesPercentage = 30;
+                                        $purchasingPercentage = 70;
+                                        $otherStagesPercentage = 30;
 
-                                                $overallProgress = ceil(($completedStages / $totalStages) * ($purchasingPercentage + $otherStagesPercentage));
+                                        $overallProgress = ceil(($completedStages / $totalStages) * ($purchasingPercentage + $otherStagesPercentage));
 
-                                                // Menetapkan warna berdasarkan persentase
-                                                $barColor = 'bg-red-500';
+                                        // Menetapkan warna berdasarkan persentase
+                                        $barColor = 'bg-red-500';
 
-                                                if ($overallProgress > 15) {
-                                                    $barColor = 'bg-orange-500';
-                                                }
-
-                                                if ($overallProgress > 30) {
-                                                    $barColor = 'bg-yellow-500';
-                                                }
-
-                                                if ($overallProgress > 50) {
-                                                    $barColor = 'bg-blue-500';
-                                                }
-
-                                                if ($overallProgress > 70) {
-                                                    $barColor = 'bg-green-500';
-                                                }
-
-                                                if ($overallProgress > 85) {
-                                                    $barColor = 'bg-green-700';
-                                                }
-                                            @endphp
-
-                                            <div class="w-full bg-gray-200 rounded-full my-2">
-                                                <div class="text-sm font-medium text-white text-center leading-none rounded-lg hover:cursor-default relative transition-all duration-500
-                                                    {{ $barColor }}"
-                                                    style="width: {{ $overallProgress }}%;">
-                                                    <p class="text-sm">{{ $overallProgress }}%</p>
-                                                </div>
-                                            </div>
+                                        if ($overallProgress = 0) {
+                                            $barColor = 'text-gray-800';
+                                        }
+                                        if ($overallProgress > 15) {
+                                            $barColor = 'bg-orange-500 text-white';
+                                        }
+                                        if ($overallProgress > 30) {
+                                            $barColor = 'bg-yellow-500 text-white';
+                                        }
+                                        if ($overallProgress > 50) {
+                                            $barColor = 'bg-blue-500 text-white';
+                                        }
+                                        if ($overallProgress > 70) {
+                                            $barColor = 'bg-green-500 text-white';
+                                        }
+                                        if ($overallProgress > 85) {
+                                            $barColor = 'bg-green-700 text-white';
+                                        }
+                                    @endphp
+                                    <div class="w-full bg-gray-200 rounded-full my-2">
+                                        <div class="text-sm font-medium text-center leading-none rounded-lg hover:cursor-default relative transition-all
+                                            {{ $barColor }}"
+                                            style="width: {{ $overallProgress }}%;">
+                                            <p class="text-sm">{{ $overallProgress }}%</p>
+                                        </div>
+                                    </div>
                                             {{-- akhir bar --}}
 
                                             {{-- status --}}
@@ -463,22 +460,28 @@
                                                             {{ $object->last_update_date }}
                                                         </div>
                                                     </div>
-
-
                                                 </div>
-                                                <div class="flex text-right">
-                                                    <div class="flex items-center space-x-2">
-                                                        {{-- Menampilkan PIC project --}}
-                                                        <p class="font-semibold">Start :</p>
-                                                        <div
-                                                            class="items-center py-1 px-2 font-medium text-center text-lg rounded drop-shadow-md ">
-                                                            {{ $object->date_start }}
+                                                {{-- deadline tenggat waktu popover tooltip --}}
+                                                <div id="countdown-{{ $object->id }}"
+                                                    class="items-center py-1 px-2 font-medium text-center text-lg rounded drop-shadow-md flex justify-center mt-2"
+                                                    data-tooltip-target="tooltip-bottom"
+                                                    data-tooltip-placement="bottom">
+                                                    Loading countdown...
+                                                </div>
+                                                <div id="tooltip-bottom" role="tooltip"
+                                                    class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip">
+                                                    <div data-popper-arrow></div>
+                                                    <div class="grid grid-cols-2 space-x-2">
+                                                        <div>
+                                                            <p class="font-semibold">Tanggal mulai:</p>
+                                                            <div class="text-lg ">
+                                                                {{ $object->date_start }}
+                                                            </div>
                                                         </div>
-
-                                                        <p class="font-semibold">End :</p>
-                                                        <div
-                                                            class="items-center py-1 px-2 font-medium text-center text-lg rounded drop-shadow-md">
-                                                            {{ $object->date_end }}
+                                                        <div>
+                                                            <p class="font-semibold">Tanggal Selesai:</p>
+                                                            <p class="text-lg ">
+                                                                {{ $object->date_end }}</p>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -551,4 +554,48 @@
         // Update nilai input
         input.value = angka;
     }
+
+    function hitungMundur(deadline, elementId) {
+        const sekarang = new Date();
+        const selisihWaktu = deadline - sekarang;
+        const hari = Math.floor(selisihWaktu / (1000 * 60 * 60 * 24));
+
+        let warnaLatarBelakang = '';
+
+        if (selisihWaktu <= 0) {
+            document.getElementById(elementId).innerText = "Proyek sudah melewati deadline.";
+            warnaLatarBelakang = 'red';
+        } else {
+            const jam = Math.floor((selisihWaktu % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const menit = Math.floor((selisihWaktu % (1000 * 60 * 60)) / (1000 * 60));
+
+            document.getElementById(elementId).innerText = `Deadline dalam ${hari} hari`;
+            /* hari, ${jam} jam, dan ${menit} menit. */
+
+            // Atur warna latar belakang berdasarkan rentang hari
+            if (hari > 150) {
+                warnaLatarBelakang = 'green';
+            } else if (hari > 100) {
+                warnaLatarBelakang = 'blue';
+            } else if (hari > 70) {
+                warnaLatarBelakang = 'yellow';
+            } else if (hari > 30) {
+                warnaLatarBelakang = 'orange';
+            } else {
+                warnaLatarBelakang = 'red';
+            }
+        }
+
+        // Atur latar belakang dan warna teks
+        document.getElementById(elementId).style.backgroundColor = warnaLatarBelakang;
+        document.getElementById(elementId).style.color = 'white';
+    }
+
+    // Gantilah dengan nilai date_end dari Laravel Blade template
+    const dateEndStr = "{{ $object->date_end }}";
+    const dateEnd = new Date(dateEndStr);
+
+    // Gantilah dengan id unik kartu proyek
+    const kartuProyekId = "{{ $object->id }}";
+    hitungMundur(dateEnd, `countdown-${kartuProyekId}`);
 </script>

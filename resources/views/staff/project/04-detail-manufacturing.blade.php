@@ -4,9 +4,6 @@
 
 
 <div class="mx-10 my-20">
-
-
-
     {{-- header --}}
     <div class="tracking-wide mb-2">
         <p class=" font-mono font-bold text-3xl mb-3">Detail proyek - MN:</p>

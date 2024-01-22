@@ -306,7 +306,7 @@
                     <th class="w-[25%] font-medium">Judul Proyek</th>
                     <th class="w-[10%] font-medium">IO Number</th>
                     <th class="w-[20%] font-medium">PIC</th>
-                    <th class="w-[10%] font-medium">Deadline</th>
+                    <th class="w-[10%] font-medium">Deadline dalam</th>
                     <th class="w-[15%] font-medium">Progress</th>
                     <th class="w-[5%] font-medium">Aksi</th>
                 </thead>
@@ -390,8 +390,7 @@
                                     <div id="countdown-{{ $object->id }}"
                                         class="items-center py-1 px-2 font-medium text-center text-lg rounded drop-shadow-md flex justify-center mt-2"
                                         data-tooltip-target="tooltip-bottom"
-                                        data-tooltip-placement="bottom"
-                                        style="background-color: {{ hitungMundur($object->date_end) }};">
+                                        data-tooltip-placement="bottom">
                                         {{ hitungMundur($object->date_end) }}
                                     </div>
                                     <div id="tooltip-bottom" role="tooltip"

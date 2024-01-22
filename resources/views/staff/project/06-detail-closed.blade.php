@@ -2,7 +2,7 @@
 @section('title_page', 'Handover - Project')
 
 
-<a href="#submit-1">
+{{-- <a href="#submit-1">
     <button class="fixed right-0 bottom-0 m-2 z-10 bg-orange-400 rounded-lg p-2 opacity-70 hover:opacity-90">
         <svg width="10" height="auto" viewBox="0 0 39 42" fill="none" xmlns="http://www.w3.org/2000/svg"
             class="fill-black">
@@ -22,7 +22,7 @@
                 stroke-width="2" />
         </svg>
     </button>
-</a>
+</a> --}}
 
 <div class="mx-10 my-20">
 

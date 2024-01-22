@@ -452,10 +452,9 @@
                                                 {{-- deadline tenggat waktu popover tooltip --}}
                                                 <div class="flex text-right">
                                                     <div id="countdown-{{ $object->id }}"
-                                                        class="items-center py-1 px-2 font-medium text-center text-lg rounded drop-shadow-md flex justify-center mt-2"
+                                                        class="items-center py-1 px-2 font-medium text-center text-lg rounded drop-shadow-md flex justify-center mt-2 bg-gray-700 text-white"
                                                         data-tooltip-target="tooltip-bottom"
-                                                        data-tooltip-placement="bottom"
-                                                        style="background-color: {{ hitungMundur($object->date_end) }};">
+                                                        data-tooltip-placement="bottom">
                                                         {{ hitungMundur($object->date_end) }}
                                                     </div>
                                                     <div id="tooltip-bottom" role="tooltip"

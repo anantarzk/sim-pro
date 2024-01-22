@@ -887,13 +887,6 @@
                 </table>
             </div>
 
-            {{--  @if ($koneksifr->atribut_1 && $koneksifr->atribut_2 && $koneksifr->atribut_3 && $koneksifr->atribut_4 && $koneksifr->atribut_5 != '')
-                @else
-                    <button type="submit"
-                        class="bg-orange-500 w-full hover:bg-orange-600 text-white font-bold py-2 rounded-b-lg shadow-md mb-3">Klik
-                        untuk submit dokumen</button>
-                @endif --}}
-
             @php
                 $n = range(1, 5);
             @endphp

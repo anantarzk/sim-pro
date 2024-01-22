@@ -32,7 +32,7 @@
             </div>
         @endif
 
-        <div class="mx-auto mt-2 ">
+        <div class="mx-auto mt-2">
             <!-- component -->
             <div class="w-full rounded">
                 <!-- Tabs -->
@@ -115,15 +115,11 @@
                                 <p class="text-2xl font-medium mb-1">Budget Control</p>
                                 <div class="flex flex-col">
                                     <div class="bg-white border shadow-md rounded mb-2 ">
-
                                         <div class="flex max-h-80">
-                                            <div class="w-[60%] p-2"><canvas id="bcontrol"></canvas></div>
-
-                                            <div class="w-[40%] p-2 ">
-
+                                            <div class="w-[65%] p-2"><canvas id="bcontrol"></canvas></div>
+                                            <div class="w-[35%] p-2">
                                                 <span class="text-xl font-semibold">Planned Target vs Actual Payment
                                                     <div class="my-1">
-
                                                         <a href="/budget-control-ob-supervisor">
                                                             <button
                                                                 class="hover:bg-blue-500 border-blue-500 border-2 hover:text-white text-blue-500 rounded py-1 px-1 flex items-center ">
@@ -132,21 +128,21 @@
                                                         </a>
                                                     </div>
                                                 </span>
-                                                <p class="text-lg mt-2">Planned Target Payment:</p>
+                                                <p class="text-sm mt-2">Planned Target Payment:</p>
                                                 <p class="font-semibold text-lg">
                                                     Rp{{ number_format($sum_planned, 0, ',', '.') }}</p>
                                                 </p>
                                                 <hr>
-                                                <p class="text-lg mt-1">Kumulatif Actual Payment:</p>
+                                                <p class="text-sm mt-1">Kumulatif Actual Payment:</p>
                                                 <p class="font-semibold text-lg">
                                                     Rp{{ number_format($mny_pay, 0, ',', '.') }}</p>
                                                 <hr>
-                                                <p class="text-lg mt-1">YearOB Budget:</p>
+                                                <p class="text-sm mt-1">YearOB Budget:</p>
                                                 <p class="font-semibold text-lg">
                                                     Rp{{ number_format($sum_ob, 0, ',', '.') }}</p>
                                                 </p>
                                                 <hr>
-                                                <p class="text-lg mt-2">Difference <span class="text-xs">(YearOB
+                                                <p class="text-sm mt-2">Difference <span class="text-xs">(YearOB
                                                         Budget - Kumulatif Actual Payment)</span>:</p>
                                                 <p class="font-semibold text-lg">
                                                     Rp{{ number_format($total_sisa_budget_ob, 0, ',', '.') }}</p>

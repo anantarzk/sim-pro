@@ -2,7 +2,7 @@
 @section('title_page', 'Purchasing - PO - Project')
 
 
-<a href="#submit-1">
+{{-- <a href="#submit-1">
     <button class="fixed right-0 bottom-0 m-2 z-10 bg-orange-400 rounded-lg p-2 opacity-70 hover:opacity-90">
         <svg width="10" height="auto" viewBox="0 0 39 42" fill="none" xmlns="http://www.w3.org/2000/svg"
             class="fill-black">
@@ -22,7 +22,7 @@
                 stroke-width="2" />
         </svg>
     </button>
-</a>
+</a> --}}
 
 
 
@@ -911,7 +911,7 @@
                                                         data-modal-toggle="modal12">
                                                         Ubah
                                                     </button>
-                                                    <button data-dropdown-toggle="dropdown11" type="button"
+                                                    <button data-dropdown-toggle="dropdown12" type="button"
                                                         class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
                                                         <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
                                                             width="22" fill="white" viewBox="0 0 48 48">
@@ -993,7 +993,7 @@
                                                         data-modal-toggle="modal13">
                                                         Ubah
                                                     </button>
-                                                    <button data-dropdown-toggle="dropdown11" type="button"
+                                                    <button data-dropdown-toggle="dropdown13" type="button"
                                                         class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
                                                         <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
                                                             width="22" fill="white" viewBox="0 0 48 48">
@@ -1075,7 +1075,7 @@
                                                         data-modal-toggle="modal14">
                                                         Ubah
                                                     </button>
-                                                    <button data-dropdown-toggle="dropdown11" type="button"
+                                                    <button data-dropdown-toggle="dropdown14" type="button"
                                                         class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
                                                         <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
                                                             width="22" fill="white" viewBox="0 0 48 48">
@@ -1157,7 +1157,7 @@
                                                         data-modal-toggle="modal15">
                                                         Ubah
                                                     </button>
-                                                    <button data-dropdown-toggle="dropdown11" type="button"
+                                                    <button data-dropdown-toggle="dropdown15" type="button"
                                                         class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
                                                         <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
                                                             width="22" fill="white" viewBox="0 0 48 48">
@@ -1240,7 +1240,7 @@
                                                         data-modal-toggle="modal16">
                                                         Ubah
                                                     </button>
-                                                    <button data-dropdown-toggle="dropdown11" type="button"
+                                                    <button data-dropdown-toggle="dropdown16" type="button"
                                                         class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
                                                         <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
                                                             width="22" fill="white" viewBox="0 0 48 48">
@@ -1321,7 +1321,7 @@
                                                         data-modal-toggle="modal17">
                                                         Ubah
                                                     </button>
-                                                    <button data-dropdown-toggle="dropdown11" type="button"
+                                                    <button data-dropdown-toggle="dropdown17" type="button"
                                                         class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
                                                         <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
                                                             width="22" fill="white" viewBox="0 0 48 48">
@@ -1403,7 +1403,7 @@
                                                         data-modal-toggle="modal18">
                                                         Ubah
                                                     </button>
-                                                    <button data-dropdown-toggle="dropdown11" type="button"
+                                                    <button data-dropdown-toggle="dropdown18" type="button"
                                                         class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
                                                         <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
                                                             width="22" fill="white" viewBox="0 0 48 48">
@@ -1485,7 +1485,7 @@
                                                         data-modal-toggle="modal19">
                                                         Ubah
                                                     </button>
-                                                    <button data-dropdown-toggle="dropdown11" type="button"
+                                                    <button data-dropdown-toggle="dropdown19" type="button"
                                                         class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
                                                         <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
                                                             width="22" fill="white" viewBox="0 0 48 48">
@@ -1567,7 +1567,7 @@
                                                         data-modal-toggle="modal110">
                                                         Ubah
                                                     </button>
-                                                    <button data-dropdown-toggle="dropdown11" type="button"
+                                                    <button data-dropdown-toggle="dropdown110" type="button"
                                                         class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
                                                         <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
                                                             width="22" fill="white" viewBox="0 0 48 48">
@@ -1650,7 +1650,7 @@
                                                         data-modal-toggle="modal111">
                                                         Ubah
                                                     </button>
-                                                    <button data-dropdown-toggle="dropdown11" type="button"
+                                                    <button data-dropdown-toggle="dropdown111" type="button"
                                                         class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
                                                         <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
                                                             width="22" fill="white" viewBox="0 0 48 48">
@@ -1731,7 +1731,7 @@
                                                         data-modal-toggle="modal112">
                                                         Ubah
                                                     </button>
-                                                    <button data-dropdown-toggle="dropdown11" type="button"
+                                                    <button data-dropdown-toggle="dropdown112" type="button"
                                                         class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
                                                         <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
                                                             width="22" fill="white" viewBox="0 0 48 48">
@@ -1813,7 +1813,7 @@
                                                         data-modal-toggle="modal113">
                                                         Ubah
                                                     </button>
-                                                    <button data-dropdown-toggle="dropdown11" type="button"
+                                                    <button data-dropdown-toggle="dropdown113" type="button"
                                                         class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
                                                         <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
                                                             width="22" fill="white" viewBox="0 0 48 48">
@@ -1895,7 +1895,7 @@
                                                         data-modal-toggle="modal114">
                                                         Ubah
                                                     </button>
-                                                    <button data-dropdown-toggle="dropdown11" type="button"
+                                                    <button data-dropdown-toggle="dropdown114" type="button"
                                                         class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
                                                         <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
                                                             width="22" fill="white" viewBox="0 0 48 48">
@@ -1977,7 +1977,7 @@
                                                         data-modal-toggle="modal115">
                                                         Ubah
                                                     </button>
-                                                    <button data-dropdown-toggle="dropdown11" type="button"
+                                                    <button data-dropdown-toggle="dropdown115" type="button"
                                                         class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
                                                         <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
                                                             width="22" fill="white" viewBox="0 0 48 48">
@@ -2060,7 +2060,7 @@
                                                         data-modal-toggle="modal116">
                                                         Ubah
                                                     </button>
-                                                    <button data-dropdown-toggle="dropdown11" type="button"
+                                                    <button data-dropdown-toggle="dropdown116" type="button"
                                                         class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
                                                         <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
                                                             width="22" fill="white" viewBox="0 0 48 48">
@@ -2141,7 +2141,7 @@
                                                         data-modal-toggle="modal117">
                                                         Ubah
                                                     </button>
-                                                    <button data-dropdown-toggle="dropdown11" type="button"
+                                                    <button data-dropdown-toggle="dropdown117" type="button"
                                                         class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
                                                         <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
                                                             width="22" fill="white" viewBox="0 0 48 48">
@@ -2222,7 +2222,7 @@
                                                         data-modal-toggle="modal118">
                                                         Ubah
                                                     </button>
-                                                    <button data-dropdown-toggle="dropdown11" type="button"
+                                                    <button data-dropdown-toggle="dropdown118" type="button"
                                                         class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
                                                         <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
                                                             width="22" fill="white" viewBox="0 0 48 48">
@@ -2306,7 +2306,7 @@
                                                         data-modal-toggle="modal119">
                                                         Ubah
                                                     </button>
-                                                    <button data-dropdown-toggle="dropdown11" type="button"
+                                                    <button data-dropdown-toggle="dropdown119" type="button"
                                                         class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
                                                         <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
                                                             width="22" fill="white" viewBox="0 0 48 48">
@@ -2387,7 +2387,7 @@
                                                         data-modal-toggle="modal120">
                                                         Ubah
                                                     </button>
-                                                    <button data-dropdown-toggle="dropdown11" type="button"
+                                                    <button data-dropdown-toggle="dropdown120" type="button"
                                                         class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
                                                         <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
                                                             width="22" fill="white" viewBox="0 0 48 48">
@@ -2471,7 +2471,7 @@
                                                         data-modal-toggle="modal121">
                                                         Ubah
                                                     </button>
-                                                    <button data-dropdown-toggle="dropdown11" type="button"
+                                                    <button data-dropdown-toggle="dropdown121" type="button"
                                                         class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
                                                         <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
                                                             width="22" fill="white" viewBox="0 0 48 48">
@@ -2552,7 +2552,7 @@
                                                         data-modal-toggle="modal122">
                                                         Ubah
                                                     </button>
-                                                    <button data-dropdown-toggle="dropdown11" type="button"
+                                                    <button data-dropdown-toggle="dropdown122" type="button"
                                                         class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
                                                         <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
                                                             width="22" fill="white" viewBox="0 0 48 48">
@@ -2633,7 +2633,7 @@
                                                         data-modal-toggle="modal123">
                                                         Ubah
                                                     </button>
-                                                    <button data-dropdown-toggle="dropdown11" type="button"
+                                                    <button data-dropdown-toggle="dropdown123" type="button"
                                                         class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
                                                         <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
                                                             width="22" fill="white" viewBox="0 0 48 48">
@@ -2714,7 +2714,7 @@
                                                         data-modal-toggle="modal124">
                                                         Ubah
                                                     </button>
-                                                    <button data-dropdown-toggle="dropdown11" type="button"
+                                                    <button data-dropdown-toggle="dropdown124" type="button"
                                                         class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
                                                         <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
                                                             width="22" fill="white" viewBox="0 0 48 48">
@@ -2795,7 +2795,7 @@
                                                         data-modal-toggle="modal125">
                                                         Ubah
                                                     </button>
-                                                    <button data-dropdown-toggle="dropdown11" type="button"
+                                                    <button data-dropdown-toggle="dropdown125" type="button"
                                                         class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
                                                         <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
                                                             width="22" fill="white" viewBox="0 0 48 48">
@@ -2876,7 +2876,7 @@
                                                         data-modal-toggle="modal126">
                                                         Ubah
                                                     </button>
-                                                    <button data-dropdown-toggle="dropdown11" type="button"
+                                                    <button data-dropdown-toggle="dropdown126" type="button"
                                                         class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
                                                         <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
                                                             width="22" fill="white" viewBox="0 0 48 48">
@@ -2957,7 +2957,7 @@
                                                         data-modal-toggle="modal127">
                                                         Ubah
                                                     </button>
-                                                    <button data-dropdown-toggle="dropdown11" type="button"
+                                                    <button data-dropdown-toggle="dropdown127" type="button"
                                                         class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
                                                         <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
                                                             width="22" fill="white" viewBox="0 0 48 48">
@@ -3038,7 +3038,7 @@
                                                         data-modal-toggle="modal128">
                                                         Ubah
                                                     </button>
-                                                    <button data-dropdown-toggle="dropdown11" type="button"
+                                                    <button data-dropdown-toggle="dropdown128" type="button"
                                                         class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
                                                         <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
                                                             width="22" fill="white" viewBox="0 0 48 48">
@@ -3119,7 +3119,7 @@
                                                         data-modal-toggle="modal129">
                                                         Ubah
                                                     </button>
-                                                    <button data-dropdown-toggle="dropdown11" type="button"
+                                                    <button data-dropdown-toggle="dropdown129" type="button"
                                                         class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
                                                         <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
                                                             width="22" fill="white" viewBox="0 0 48 48">
@@ -3200,7 +3200,7 @@
                                                         data-modal-toggle="modal130">
                                                         Ubah
                                                     </button>
-                                                    <button data-dropdown-toggle="dropdown11" type="button"
+                                                    <button data-dropdown-toggle="dropdown130" type="button"
                                                         class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
                                                         <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
                                                             width="22" fill="white" viewBox="0 0 48 48">
@@ -3283,7 +3283,7 @@
                                                         data-modal-toggle="modal131">
                                                         Ubah
                                                     </button>
-                                                    <button data-dropdown-toggle="dropdown11" type="button"
+                                                    <button data-dropdown-toggle="dropdown131" type="button"
                                                         class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
                                                         <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
                                                             width="22" fill="white" viewBox="0 0 48 48">
@@ -3364,7 +3364,7 @@
                                                         data-modal-toggle="modal132">
                                                         Ubah
                                                     </button>
-                                                    <button data-dropdown-toggle="dropdown11" type="button"
+                                                    <button data-dropdown-toggle="dropdown132" type="button"
                                                         class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
                                                         <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
                                                             width="22" fill="white" viewBox="0 0 48 48">
@@ -3445,7 +3445,7 @@
                                                         data-modal-toggle="modal133">
                                                         Ubah
                                                     </button>
-                                                    <button data-dropdown-toggle="dropdown11" type="button"
+                                                    <button data-dropdown-toggle="dropdown133" type="button"
                                                         class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
                                                         <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
                                                             width="22" fill="white" viewBox="0 0 48 48">
@@ -3526,7 +3526,7 @@
                                                         data-modal-toggle="modal134">
                                                         Ubah
                                                     </button>
-                                                    <button data-dropdown-toggle="dropdown11" type="button"
+                                                    <button data-dropdown-toggle="dropdown134" type="button"
                                                         class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
                                                         <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
                                                             width="22" fill="white" viewBox="0 0 48 48">
@@ -3607,7 +3607,7 @@
                                                         data-modal-toggle="modal135">
                                                         Ubah
                                                     </button>
-                                                    <button data-dropdown-toggle="dropdown11" type="button"
+                                                    <button data-dropdown-toggle="dropdown135" type="button"
                                                         class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
                                                         <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
                                                             width="22" fill="white" viewBox="0 0 48 48">
@@ -3688,7 +3688,7 @@
                                                         data-modal-toggle="modal136">
                                                         Ubah
                                                     </button>
-                                                    <button data-dropdown-toggle="dropdown11" type="button"
+                                                    <button data-dropdown-toggle="dropdown136" type="button"
                                                         class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
                                                         <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
                                                             width="22" fill="white" viewBox="0 0 48 48">
@@ -3770,7 +3770,7 @@
                                                         data-modal-toggle="modal137">
                                                         Ubah
                                                     </button>
-                                                    <button data-dropdown-toggle="dropdown11" type="button"
+                                                    <button data-dropdown-toggle="dropdown137" type="button"
                                                         class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
                                                         <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
                                                             width="22" fill="white" viewBox="0 0 48 48">
@@ -3851,7 +3851,7 @@
                                                         data-modal-toggle="modal138">
                                                         Ubah
                                                     </button>
-                                                    <button data-dropdown-toggle="dropdown11" type="button"
+                                                    <button data-dropdown-toggle="dropdown138" type="button"
                                                         class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
                                                         <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
                                                             width="22" fill="white" viewBox="0 0 48 48">
@@ -3932,7 +3932,7 @@
                                                         data-modal-toggle="modal139">
                                                         Ubah
                                                     </button>
-                                                    <button data-dropdown-toggle="dropdown11" type="button"
+                                                    <button data-dropdown-toggle="dropdown139" type="button"
                                                         class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
                                                         <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
                                                             width="22" fill="white" viewBox="0 0 48 48">
@@ -4013,7 +4013,7 @@
                                                         data-modal-toggle="modal140">
                                                         Ubah
                                                     </button>
-                                                    <button data-dropdown-toggle="dropdown11" type="button"
+                                                    <button data-dropdown-toggle="dropdown140" type="button"
                                                         class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
                                                         <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
                                                             width="22" fill="white" viewBox="0 0 48 48">
@@ -4095,7 +4095,7 @@
                                                         data-modal-toggle="modal141">
                                                         Ubah
                                                     </button>
-                                                    <button data-dropdown-toggle="dropdown11" type="button"
+                                                    <button data-dropdown-toggle="dropdown141" type="button"
                                                         class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
                                                         <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
                                                             width="22" fill="white" viewBox="0 0 48 48">
@@ -4176,7 +4176,7 @@
                                                         data-modal-toggle="modal142">
                                                         Ubah
                                                     </button>
-                                                    <button data-dropdown-toggle="dropdown11" type="button"
+                                                    <button data-dropdown-toggle="dropdown142" type="button"
                                                         class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
                                                         <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
                                                             width="22" fill="white" viewBox="0 0 48 48">
@@ -4257,7 +4257,7 @@
                                                         data-modal-toggle="modal143">
                                                         Ubah
                                                     </button>
-                                                    <button data-dropdown-toggle="dropdown11" type="button"
+                                                    <button data-dropdown-toggle="dropdown143" type="button"
                                                         class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
                                                         <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
                                                             width="22" fill="white" viewBox="0 0 48 48">
@@ -4338,7 +4338,7 @@
                                                         data-modal-toggle="modal144">
                                                         Ubah
                                                     </button>
-                                                    <button data-dropdown-toggle="dropdown11" type="button"
+                                                    <button data-dropdown-toggle="dropdown144" type="button"
                                                         class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
                                                         <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
                                                             width="22" fill="white" viewBox="0 0 48 48">
@@ -4419,7 +4419,7 @@
                                                         data-modal-toggle="modal145">
                                                         Ubah
                                                     </button>
-                                                    <button data-dropdown-toggle="dropdown11" type="button"
+                                                    <button data-dropdown-toggle="dropdown145" type="button"
                                                         class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
                                                         <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
                                                             width="22" fill="white" viewBox="0 0 48 48">
@@ -4546,7 +4546,7 @@
                                                         data-modal-toggle="modal21">
                                                         Ubah
                                                     </button>
-                                                    <button data-dropdown-toggle="dropdown11" type="button"
+                                                    <button data-dropdown-toggle="dropdown21" type="button"
                                                         class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
                                                         <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
                                                             width="22" fill="white" viewBox="0 0 48 48">
@@ -4626,7 +4626,7 @@
                                                         data-modal-toggle="modal22">
                                                         Ubah
                                                     </button>
-                                                    <button data-dropdown-toggle="dropdown11" type="button"
+                                                    <button data-dropdown-toggle="dropdown22" type="button"
                                                         class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
                                                         <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
                                                             width="22" fill="white" viewBox="0 0 48 48">
@@ -4707,7 +4707,7 @@
                                                         data-modal-toggle="modal23">
                                                         Ubah
                                                     </button>
-                                                    <button data-dropdown-toggle="dropdown11" type="button"
+                                                    <button data-dropdown-toggle="dropdown23" type="button"
                                                         class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
                                                         <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
                                                             width="22" fill="white" viewBox="0 0 48 48">
@@ -4788,7 +4788,7 @@
                                                         data-modal-toggle="modal24">
                                                         Ubah
                                                     </button>
-                                                    <button data-dropdown-toggle="dropdown11" type="button"
+                                                    <button data-dropdown-toggle="dropdown24" type="button"
                                                         class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
                                                         <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
                                                             width="22" fill="white" viewBox="0 0 48 48">
@@ -4868,7 +4868,7 @@
                                                         data-modal-toggle="modal25">
                                                         Ubah
                                                     </button>
-                                                    <button data-dropdown-toggle="dropdown11" type="button"
+                                                    <button data-dropdown-toggle="dropdown25" type="button"
                                                         class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
                                                         <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
                                                             width="22" fill="white" viewBox="0 0 48 48">
@@ -4947,7 +4947,7 @@
                                                         data-modal-toggle="modal26">
                                                         Ubah
                                                     </button>
-                                                    <button data-dropdown-toggle="dropdown11" type="button"
+                                                    <button data-dropdown-toggle="dropdown26" type="button"
                                                         class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
                                                         <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
                                                             width="22" fill="white" viewBox="0 0 48 48">
@@ -5027,7 +5027,7 @@
                                                         data-modal-toggle="modal27">
                                                         Ubah
                                                     </button>
-                                                    <button data-dropdown-toggle="dropdown11" type="button"
+                                                    <button data-dropdown-toggle="dropdown27" type="button"
                                                         class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
                                                         <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
                                                             width="22" fill="white" viewBox="0 0 48 48">
@@ -5107,7 +5107,7 @@
                                                         data-modal-toggle="modal28">
                                                         Ubah
                                                     </button>
-                                                    <button data-dropdown-toggle="dropdown11" type="button"
+                                                    <button data-dropdown-toggle="dropdown28" type="button"
                                                         class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
                                                         <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
                                                             width="22" fill="white" viewBox="0 0 48 48">
@@ -5187,7 +5187,7 @@
                                                         data-modal-toggle="modal29">
                                                         Ubah
                                                     </button>
-                                                    <button data-dropdown-toggle="dropdown11" type="button"
+                                                    <button data-dropdown-toggle="dropdown29" type="button"
                                                         class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
                                                         <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
                                                             width="22" fill="white" viewBox="0 0 48 48">
@@ -5267,7 +5267,7 @@
                                                         data-modal-toggle="modal210">
                                                         Ubah
                                                     </button>
-                                                    <button data-dropdown-toggle="dropdown11" type="button"
+                                                    <button data-dropdown-toggle="dropdown210" type="button"
                                                         class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
                                                         <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
                                                             width="22" fill="white" viewBox="0 0 48 48">
@@ -5347,7 +5347,7 @@
                                                         data-modal-toggle="modal211">
                                                         Ubah
                                                     </button>
-                                                    <button data-dropdown-toggle="dropdown11" type="button"
+                                                    <button data-dropdown-toggle="dropdown211" type="button"
                                                         class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
                                                         <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
                                                             width="22" fill="white" viewBox="0 0 48 48">
@@ -5427,7 +5427,7 @@
                                                         data-modal-toggle="modal212">
                                                         Ubah
                                                     </button>
-                                                    <button data-dropdown-toggle="dropdown11" type="button"
+                                                    <button data-dropdown-toggle="dropdown212" type="button"
                                                         class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
                                                         <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
                                                             width="22" fill="white" viewBox="0 0 48 48">
@@ -5507,7 +5507,7 @@
                                                         data-modal-toggle="modal213">
                                                         Ubah
                                                     </button>
-                                                    <button data-dropdown-toggle="dropdown11" type="button"
+                                                    <button data-dropdown-toggle="dropdown213" type="button"
                                                         class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
                                                         <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
                                                             width="22" fill="white" viewBox="0 0 48 48">
@@ -5587,7 +5587,7 @@
                                                         data-modal-toggle="modal214">
                                                         Ubah
                                                     </button>
-                                                    <button data-dropdown-toggle="dropdown11" type="button"
+                                                    <button data-dropdown-toggle="dropdown214" type="button"
                                                         class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
                                                         <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
                                                             width="22" fill="white" viewBox="0 0 48 48">
@@ -5667,7 +5667,7 @@
                                                         data-modal-toggle="modal215">
                                                         Ubah
                                                     </button>
-                                                    <button data-dropdown-toggle="dropdown11" type="button"
+                                                    <button data-dropdown-toggle="dropdown215" type="button"
                                                         class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
                                                         <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
                                                             width="22" fill="white" viewBox="0 0 48 48">
@@ -5747,7 +5747,7 @@
                                                         data-modal-toggle="modal216">
                                                         Ubah
                                                     </button>
-                                                    <button data-dropdown-toggle="dropdown11" type="button"
+                                                    <button data-dropdown-toggle="dropdown216" type="button"
                                                         class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
                                                         <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
                                                             width="22" fill="white" viewBox="0 0 48 48">
@@ -5827,7 +5827,7 @@
                                                         data-modal-toggle="modal217">
                                                         Ubah
                                                     </button>
-                                                    <button data-dropdown-toggle="dropdown11" type="button"
+                                                    <button data-dropdown-toggle="dropdown217" type="button"
                                                         class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
                                                         <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
                                                             width="22" fill="white" viewBox="0 0 48 48">
@@ -5907,7 +5907,7 @@
                                                         data-modal-toggle="modal218">
                                                         Ubah
                                                     </button>
-                                                    <button data-dropdown-toggle="dropdown11" type="button"
+                                                    <button data-dropdown-toggle="dropdown218" type="button"
                                                         class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
                                                         <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
                                                             width="22" fill="white" viewBox="0 0 48 48">
@@ -5987,7 +5987,7 @@
                                                         data-modal-toggle="modal219">
                                                         Ubah
                                                     </button>
-                                                    <button data-dropdown-toggle="dropdown11" type="button"
+                                                    <button data-dropdown-toggle="dropdown219" type="button"
                                                         class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
                                                         <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
                                                             width="22" fill="white" viewBox="0 0 48 48">
@@ -6067,7 +6067,7 @@
                                                         data-modal-toggle="modal220">
                                                         Ubah
                                                     </button>
-                                                    <button data-dropdown-toggle="dropdown11" type="button"
+                                                    <button data-dropdown-toggle="dropdown220" type="button"
                                                         class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
                                                         <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
                                                             width="22" fill="white" viewBox="0 0 48 48">
@@ -6147,7 +6147,7 @@
                                                         data-modal-toggle="modal221">
                                                         Ubah
                                                     </button>
-                                                    <button data-dropdown-toggle="dropdown11" type="button"
+                                                    <button data-dropdown-toggle="dropdown221" type="button"
                                                         class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
                                                         <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
                                                             width="22" fill="white" viewBox="0 0 48 48">
@@ -6227,7 +6227,7 @@
                                                         data-modal-toggle="modal222">
                                                         Ubah
                                                     </button>
-                                                    <button data-dropdown-toggle="dropdown11" type="button"
+                                                    <button data-dropdown-toggle="dropdown222" type="button"
                                                         class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
                                                         <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
                                                             width="22" fill="white" viewBox="0 0 48 48">
@@ -6307,7 +6307,7 @@
                                                         data-modal-toggle="modal223">
                                                         Ubah
                                                     </button>
-                                                    <button data-dropdown-toggle="dropdown11" type="button"
+                                                    <button data-dropdown-toggle="dropdown223" type="button"
                                                         class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
                                                         <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
                                                             width="22" fill="white" viewBox="0 0 48 48">
@@ -6387,7 +6387,7 @@
                                                         data-modal-toggle="modal224">
                                                         Ubah
                                                     </button>
-                                                    <button data-dropdown-toggle="dropdown11" type="button"
+                                                    <button data-dropdown-toggle="dropdown224" type="button"
                                                         class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
                                                         <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
                                                             width="22" fill="white" viewBox="0 0 48 48">
@@ -6467,7 +6467,7 @@
                                                         data-modal-toggle="modal225">
                                                         Ubah
                                                     </button>
-                                                    <button data-dropdown-toggle="dropdown11" type="button"
+                                                    <button data-dropdown-toggle="dropdown225" type="button"
                                                         class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
                                                         <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
                                                             width="22" fill="white" viewBox="0 0 48 48">
@@ -6547,7 +6547,7 @@
                                                         data-modal-toggle="modal226">
                                                         Ubah
                                                     </button>
-                                                    <button data-dropdown-toggle="dropdown11" type="button"
+                                                    <button data-dropdown-toggle="dropdown226" type="button"
                                                         class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
                                                         <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
                                                             width="22" fill="white" viewBox="0 0 48 48">
@@ -6627,7 +6627,7 @@
                                                         data-modal-toggle="modal227">
                                                         Ubah
                                                     </button>
-                                                    <button data-dropdown-toggle="dropdown11" type="button"
+                                                    <button data-dropdown-toggle="dropdown227" type="button"
                                                         class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
                                                         <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
                                                             width="22" fill="white" viewBox="0 0 48 48">
@@ -6707,7 +6707,7 @@
                                                         data-modal-toggle="modal228">
                                                         Ubah
                                                     </button>
-                                                    <button data-dropdown-toggle="dropdown11" type="button"
+                                                    <button data-dropdown-toggle="dropdown228" type="button"
                                                         class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
                                                         <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
                                                             width="22" fill="white" viewBox="0 0 48 48">
@@ -6787,7 +6787,7 @@
                                                         data-modal-toggle="modal229">
                                                         Ubah
                                                     </button>
-                                                    <button data-dropdown-toggle="dropdown11" type="button"
+                                                    <button data-dropdown-toggle="dropdown229" type="button"
                                                         class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
                                                         <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
                                                             width="22" fill="white" viewBox="0 0 48 48">
@@ -6867,7 +6867,7 @@
                                                         data-modal-toggle="modal230">
                                                         Ubah
                                                     </button>
-                                                    <button data-dropdown-toggle="dropdown11" type="button"
+                                                    <button data-dropdown-toggle="dropdown230" type="button"
                                                         class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
                                                         <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
                                                             width="22" fill="white" viewBox="0 0 48 48">
@@ -6994,7 +6994,7 @@
                                                         data-modal-toggle="modal31">
                                                         Ubah
                                                     </button>
-                                                    <button data-dropdown-toggle="dropdown11" type="button"
+                                                    <button data-dropdown-toggle="dropdown31" type="button"
                                                         class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
                                                         <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
                                                             width="22" fill="white" viewBox="0 0 48 48">
@@ -7074,7 +7074,7 @@
                                                         data-modal-toggle="modal32">
                                                         Ubah
                                                     </button>
-                                                    <button data-dropdown-toggle="dropdown11" type="button"
+                                                    <button data-dropdown-toggle="dropdown32" type="button"
                                                         class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
                                                         <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
                                                             width="22" fill="white" viewBox="0 0 48 48">
@@ -7154,7 +7154,7 @@
                                                         data-modal-toggle="modal33">
                                                         Ubah
                                                     </button>
-                                                    <button data-dropdown-toggle="dropdown11" type="button"
+                                                    <button data-dropdown-toggle="dropdown33" type="button"
                                                         class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
                                                         <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
                                                             width="22" fill="white" viewBox="0 0 48 48">
@@ -7235,7 +7235,7 @@
                                                         data-modal-toggle="modal34">
                                                         Ubah
                                                     </button>
-                                                    <button data-dropdown-toggle="dropdown11" type="button"
+                                                    <button data-dropdown-toggle="dropdown34" type="button"
                                                         class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
                                                         <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
                                                             width="22" fill="white" viewBox="0 0 48 48">
@@ -7315,7 +7315,7 @@
                                                         data-modal-toggle="modal35">
                                                         Ubah
                                                     </button>
-                                                    <button data-dropdown-toggle="dropdown11" type="button"
+                                                    <button data-dropdown-toggle="dropdown35" type="button"
                                                         class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
                                                         <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
                                                             width="22" fill="white" viewBox="0 0 48 48">
@@ -7395,7 +7395,7 @@
                                                         data-modal-toggle="modal36">
                                                         Ubah
                                                     </button>
-                                                    <button data-dropdown-toggle="dropdown11" type="button"
+                                                    <button data-dropdown-toggle="dropdown36" type="button"
                                                         class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
                                                         <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
                                                             width="22" fill="white" viewBox="0 0 48 48">
@@ -7475,7 +7475,7 @@
                                                         data-modal-toggle="modal37">
                                                         Ubah
                                                     </button>
-                                                    <button data-dropdown-toggle="dropdown11" type="button"
+                                                    <button data-dropdown-toggle="dropdown37" type="button"
                                                         class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
                                                         <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
                                                             width="22" fill="white" viewBox="0 0 48 48">
@@ -7555,7 +7555,7 @@
                                                         data-modal-toggle="modal38">
                                                         Ubah
                                                     </button>
-                                                    <button data-dropdown-toggle="dropdown11" type="button"
+                                                    <button data-dropdown-toggle="dropdown38" type="button"
                                                         class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
                                                         <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
                                                             width="22" fill="white" viewBox="0 0 48 48">
@@ -7635,7 +7635,7 @@
                                                         data-modal-toggle="modal39">
                                                         Ubah
                                                     </button>
-                                                    <button data-dropdown-toggle="dropdown11" type="button"
+                                                    <button data-dropdown-toggle="dropdown39" type="button"
                                                         class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
                                                         <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
                                                             width="22" fill="white" viewBox="0 0 48 48">
@@ -7715,7 +7715,7 @@
                                                         data-modal-toggle="modal310">
                                                         Ubah
                                                     </button>
-                                                    <button data-dropdown-toggle="dropdown11" type="button"
+                                                    <button data-dropdown-toggle="dropdown310" type="button"
                                                         class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
                                                         <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
                                                             width="22" fill="white" viewBox="0 0 48 48">
@@ -7827,7 +7827,7 @@
                                                         data-modal-toggle="modal41">
                                                         Ubah
                                                     </button>
-                                                    <button data-dropdown-toggle="dropdown11" type="button"
+                                                    <button data-dropdown-toggle="dropdown41" type="button"
                                                         class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
                                                         <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
                                                             width="22" fill="white" viewBox="0 0 48 48">
@@ -7907,7 +7907,7 @@
                                                         data-modal-toggle="modal42">
                                                         Ubah
                                                     </button>
-                                                    <button data-dropdown-toggle="dropdown11" type="button"
+                                                    <button data-dropdown-toggle="dropdown42" type="button"
                                                         class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
                                                         <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
                                                             width="22" fill="white" viewBox="0 0 48 48">
@@ -7988,7 +7988,7 @@
                                                         data-modal-toggle="modal43">
                                                         Ubah
                                                     </button>
-                                                    <button data-dropdown-toggle="dropdown11" type="button"
+                                                    <button data-dropdown-toggle="dropdown43" type="button"
                                                         class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
                                                         <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
                                                             width="22" fill="white" viewBox="0 0 48 48">
@@ -8068,7 +8068,7 @@
                                                         data-modal-toggle="modal44">
                                                         Ubah
                                                     </button>
-                                                    <button data-dropdown-toggle="dropdown11" type="button"
+                                                    <button data-dropdown-toggle="dropdown44" type="button"
                                                         class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
                                                         <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
                                                             width="22" fill="white" viewBox="0 0 48 48">
@@ -8148,7 +8148,7 @@
                                                         data-modal-toggle="modal45">
                                                         Ubah
                                                     </button>
-                                                    <button data-dropdown-toggle="dropdown11" type="button"
+                                                    <button data-dropdown-toggle="dropdown45" type="button"
                                                         class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
                                                         <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
                                                             width="22" fill="white" viewBox="0 0 48 48">
@@ -8175,24 +8175,7 @@
                 {{-- tabcontent --}}
             </div>
             {{-- bungkus --}}
-            {{-- <input type="text" name="approval_by" value="{{ Auth::user()->first_name }}" hidden>
-            <input type="text" name="approval_date" value="{{ date('Y-m-d') }}" hidden>
-
-            <input type="text" name="status_purchasing" value="Purchasing - PO" hidden>
-            <input type="date" hidden name="status_purchasing_date" value="{{ date('Y-m-d') }}">
-
-            <input type="text" name="status_po_03" value="Complete" hidden>
-            <input type="date" hidden name="status_po_03_date" value="{{ date('Y-m-d') }}">
-
-            <input type="text" name="check" value="donecheck" hidden>
-            <input type="text" name="progress" value="Purchasing - PO" hidden>
-            <input type="text" name="last_update_name" value="{{ Auth::user()->first_name }}" hidden>
-            <input type="text" name="last_update_date" value="{{ date('d-M-Y') }}" hidden>
-
-            <button type="submit"
-                class="bg-orange-500 w-full hover:bg-orange-600 text-white font-bold py-2 rounded-b-lg shadow-md">Klik untuk submit dokumen</button> --}}
-
-
+            
             @php
                 $t = range(1, 50);
             @endphp

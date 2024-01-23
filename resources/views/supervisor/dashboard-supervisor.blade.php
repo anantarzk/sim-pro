@@ -8,27 +8,33 @@
         <meta http-equiv="refresh" content="300">
     </head>
     <div class="my-20 mx-10">
-
         <div class="flex justify-between items-center">
-            <p class="text-3xl font-light">Selamat Datang, {{ Auth::user()->name }}</p>
+            <p class="text-2xl font-light">Selamat Datang, {{ Auth::user()->name }}</p>
             <div class="">
                 <span class="hidden">{{ date_default_timezone_set('Asia/Jakarta') }}</span>
-                <p class=" font-light text-2xl">
+                <p class=" font-light text-xl">
                     {{ $ldate = date('D, d-M-Y') }}
                 </p>
             </div>
         </div>
 
-            @if (Session::has('status'))
-            <div class="flex p-4 mb-4 text-sm text-green-700 bg-green-100 rounded-lg dark:bg-green-200 dark:text-green-800"
-                role="alert">
-                <svg aria-hidden="true" class="flex-shrink-0 inline w-5 h-5 mr-3" fill="currentColor"
-                    viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                    <path fill-rule="evenodd"
-                        d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"
-                        clip-rule="evenodd"></path>
-                </svg>
-                {{ Session::get('message') }}
+        @if ($totalprojectapproval > 0)
+            <div class="w-full py-2 pl-4 my-4 text-red-800 rounded-lg bg-red-300 flex" id="alert">
+                <marquee behavior="scrolling" direction="right" scrollamount="8">
+                    Anda memiliki <span class="font-bold">{{ $totalprojectapproval }} ajuan menunggu persetujuan</span>,
+                    segera lakukan tinjauan.
+                </marquee>
+                <button type="button"
+                    class="ml-auto mr-2 my-auto bg-red-200 text-red-300 rounded-lg focus:ring-2 focus:ring-red-400 p-1 hover:bg-red-200 hover:text-red-500 inline-flex h-6 w-6"
+                    data-dismiss-target="#alert" aria-label="Close">
+                    <span class="sr-only">Close</span>
+                    <svg aria-hidden="true" class="my-auto" fill="currentColor" viewBox="0 0 20 20"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd"
+                            d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                            clip-rule="evenodd"></path>
+                    </svg>
+                </button>
             </div>
         @endif
 
@@ -176,8 +182,7 @@
                                 </div>
                                 <div class="rounded-lg overflow-hidden bg-white">
                                     <table class="w-full">
-                                        <thead
-                                            class="text-md text-gray-800 bg-gray-300 text-center">
+                                        <thead class="text-md text-gray-800 bg-gray-300 text-center">
                                             <th class="p-2 w-[5%]">No.</th>
                                             <th class="w-[25%]">Nama Proyek</th>
                                             <th class="w-[10%]">Fase</th>

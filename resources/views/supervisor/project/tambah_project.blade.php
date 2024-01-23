@@ -97,7 +97,7 @@
                         <option disabled selected="" value="">Section<span class="text-red-600">*</span></option>
                         <option value="Design">Design</option>
                         <option value="IE">IE</option>
-                        <option value="Eng">Maintenance</option>
+                        <option value="Maintenance">Maintenance</option>
                         <option value="PC">PC</option>
                         <option value="Production">Production</option>
                         <option value="SHE">SHE</option>

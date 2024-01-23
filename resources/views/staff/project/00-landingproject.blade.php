@@ -7,12 +7,12 @@
         <!-- Modal content -->
         <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
             <!-- Modal header -->
-            <div class="flex items-center justify-between px-5 py-3 border-b rounded-t">
+            <div class="flex items-center justify-between px-5 py-2 border-b rounded-t">
                 <h3 class="text-xl font-semibold text-gray-900">
                     Pencarian proyek:
                 </h3>
                 <button type="button"
-                    class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center"
+                    class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ms-auto inline-flex justify-center items-center"
                     onclick="simulateEscape()">
                     <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
                         viewBox="0 0 14 14">
@@ -25,14 +25,14 @@
             <!-- Modal body -->
             <div class="px-4 md:px-5 space-y-4">
                 <form class="" action="" method="get">
+                    <input type="hidden" name="kondisi" value="cari">
                     <div class="items-center space-y-2 my-3">
                         <p class="text-md font-semibold">Judul proyek atau IO Number</p>
                         <div class="flex space-x-3">
                             <input type="search" id="keyword" name="keyword"
                                 class="p-2 py-3 text-sm text-gray-900 bg-gray-50 border rounded border-gray-300  focus:ring-orange-500 focus:border-orange-500 w-full"
                                 placeholder="Ketik kata kunci di sini">
-                            <p class="flex items-center">atau</p>
-                            <a class="flex items-center bg-orange-500 rounded-lg hover:bg-orange-600 px-2 focus:ring-blue-500 focus:border-blue-500"
+                            <a class="flex items-center bg-orange-500 rounded-lg hover:bg-orange-600 px-2 focus:bg-orange-600"
                                 data-collapse-toggle="dropdown" type="button" aria-controls="dropdown" href="#">
                                 <svg width="35" viewBox="0 0 24 24" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
@@ -101,6 +101,7 @@
                                                     <option value="">None</option>
                                                 </select>
                                             </div>
+
                                         </div>
                                     </div>
                                     <p class="mt-3 mb-2 text-md font-semibold">Nilai Proyek </p>
@@ -180,7 +181,7 @@
                                             <option disabled selected="" value="">Section</option>
                                             <option value="Design">Design</option>
                                             <option value="IE">IE</option>
-                                            <option value="Eng">Maintenance</option>
+                                            <option value="Maintenance">Maintenance</option>
                                             <option value="PC">PC</option>
                                             <option value="Production">Production</option>
                                             <option value="SHE">SHE</option>
@@ -195,9 +196,9 @@
             </div>
             <!-- Modal footer -->
 
-            <div class="p-5 border-t border-gray-200 rounded-b">
+            <div class="border-gray-200 rounded-b">
                 <button type="submit"
-                    class="text-white bg-orange-500 hover:bg-orange-600 focus:ring-4 focus:outline-none focus:ring-orange-300 font-medium rounded-lg text-lg py-2 w-full items-center flex justify-center space-x-1">
+                    class="text-white bg-orange-500 hover:bg-orange-600 focus:ring-4 focus:outline-none focus:ring-orange-300 font-medium rounded-b-lg text-lg py-2 w-full items-center flex justify-center space-x-1">
                     <svg aria-hidden="true" class="w-5 h-5 text-white" fill="none" stroke="currentColor"
                         viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -218,8 +219,7 @@
             <div>
                 <h1 class="text-3xl font-bold font-mono tracking-tight text-gray-900 text-left">
                     Proyek Saya
-                    <p class="text-base font-normal text-gray-500 ">
-                        Semua proyek yang anda laksanakan.</p>
+                    <p class="text-base font-normal text-gray-800">Semua proyek yang anda laksanakan.</p>
                 </h1>
             </div>
             <div class="">
@@ -244,8 +244,6 @@
                             Total Proyek Anda
                         </div>
                     </div>
-
-
                 </div>
 
                 {{-- kanan --}}
@@ -264,11 +262,10 @@
                 </button>
                 {{-- tombol pencarian --}}
             </div>
-
-
         </div>
         {{-- list proyek aktif --}}
         {{-- div wadah luar --}}
+        <p class="italic">{{ $filterMessage }}</p>
         <div class="mt-4">
 
             <div class="mx-auto md:mx-auto lg:w-9/12 xl:w-9/12 2xl:w-9/12">
@@ -386,27 +383,24 @@
                                                 // Menetapkan warna berdasarkan persentase
                                                 $barColor = 'bg-red-500';
 
-                                                if ($overallProgress = 0) {
-                                                    $barColor = 'text-gray-800';
-                                                }
                                                 if ($overallProgress > 15) {
-                                                    $barColor = 'bg-orange-500 text-white';
+                                                    $barColor = 'bg-orange-500';
                                                 }
                                                 if ($overallProgress > 30) {
-                                                    $barColor = 'bg-yellow-500 text-white';
+                                                    $barColor = 'bg-yellow-500';
                                                 }
                                                 if ($overallProgress > 50) {
-                                                    $barColor = 'bg-blue-500 text-white';
+                                                    $barColor = 'bg-blue-500';
                                                 }
                                                 if ($overallProgress > 70) {
-                                                    $barColor = 'bg-green-500 text-white';
+                                                    $barColor = 'bg-green-500';
                                                 }
                                                 if ($overallProgress > 85) {
-                                                    $barColor = 'bg-green-700 text-white';
+                                                    $barColor = 'bg-green-700';
                                                 }
                                             @endphp
                                             <div class="w-full bg-gray-200 rounded-full my-2">
-                                                <div class="text-sm font-medium text-center leading-none rounded-lg hover:cursor-default relative transition-all
+                                                <div class="text-sm font-medium text-white text-center leading-none rounded-lg hover:cursor-default relative transition-all duration-500
                                             {{ $barColor }}"
                                                     style="width: {{ $overallProgress }}%;">
                                                     <p class="text-sm">{{ $overallProgress }}%</p>
@@ -420,7 +414,7 @@
                                                     <div>
                                                         <div
                                                             class="items-center pt-1 pr-4 text-xs font-medium  text-gray-700">
-                                                            Keterangan :
+                                                            Keterangan:
                                                         </div>
                                                         {{-- Memamnggil Budget amount dari project --}}
                                                         <div class="items-center pr-4 text-sm font-medium">
@@ -430,7 +424,17 @@
                                                     <div>
                                                         <div
                                                             class="items-center pt-1 pr-4 text-xs font-medium  text-gray-700">
-                                                            Budget Amount :
+                                                            Keterangan:
+                                                        </div>
+                                                        {{-- Memamnggil Budget amount dari project --}}
+                                                        <div class="items-center pr-4 text-sm font-medium">
+                                                            {{ $object->progress }}
+                                                        </div>
+                                                    </div>
+                                                    <div>
+                                                        <div
+                                                            class="items-center pt-1 pr-4 text-xs font-medium  text-gray-700">
+                                                            Jumlah Budget:
                                                         </div>
                                                         {{-- Memamnggil Budget amount dari project --}}
                                                         <div class="items-center pr-4 text-sm font-medium">
@@ -440,8 +444,7 @@
                                                     <div>
                                                         <div
                                                             class="items-center pt-1 pr-4 text-xs font-medium  text-gray-700">
-                                                            Last
-                                                            updated:</div>
+                                                            Terakhir diperbaharui:</div>
                                                         {{-- Memanggil nama serta tanggal diupdate --}}
                                                         <div class="items-center pr-4 text-sm font-medium">
                                                             {{ $object->last_update_name }},
@@ -451,13 +454,56 @@
                                                 </div>
                                                 {{-- deadline tenggat waktu popover tooltip --}}
                                                 <div class="flex text-right">
-                                                    <div id="countdown-{{ $object->id }}"
-                                                        class="items-center py-1 px-2 font-medium text-center text-lg rounded drop-shadow-md flex justify-center mt-2 bg-gray-700 text-white"
-                                                        data-tooltip-target="tooltip-bottom"
-                                                        data-tooltip-placement="bottom">
-                                                        {{ hitungMundur($object->date_end) }}
-                                                    </div>
-                                                    <div id="tooltip-bottom" role="tooltip"
+                                                    @php
+                                                        $deadline = hitungMundur($object->date_end);
+                                                    @endphp
+                                                    @if ($object->progress == 'Closed')
+                                                        <div
+                                                            class=" space-x-1 font-medium items-center py-1 px-3 text-center text-lg rounded-xl drop-shadow-md flex justify-center w-fit bg-green-700 text-white mt-1">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" width="22"
+                                                                viewBox="0 0 24 24" fill="none">
+                                                                <g id="Interface / Check_All">
+                                                                    <path id="Vector"
+                                                                        d="M8 12.4854L12.2426 16.728L20.727 8.24268M3 12.4854L7.24264 16.728M15.7279 8.24268L12.5 11.5001"
+                                                                        stroke="#ffffff" stroke-width="2"
+                                                                        stroke-linecap="round"
+                                                                        stroke-linejoin="round" />
+                                                                </g>
+                                                            </svg>
+                                                            <p>
+                                                                Proyek telah SELESAI
+                                                            </p>
+                                                        </div>
+                                                    @else
+                                                        @if ($deadline > 150)
+                                                            <div
+                                                                class="items-center py-1 px-2 text-center text-lg rounded drop-shadow-md flex justify-center w-fit bg-green-500 text-white mt-1">
+                                                                Deadline dalam {{ $deadline }} hari
+                                                            </div>
+                                                        @elseif ($deadline > 100)
+                                                            <div
+                                                                class="items-center py-1 px-2 text-center text-lg rounded drop-shadow-md flex justify-center w-fit bg-blue-500 text-white mt-1">
+                                                                Deadline dalam {{ $deadline }} hari
+                                                            </div>
+                                                        @elseif ($deadline > 70)
+                                                            <div
+                                                                class="items-center py-1 px-2 text-center text-lg rounded drop-shadow-md flex justify-center w-fit bg-yellow-400 text-white mt-1">
+                                                                Deadline dalam {{ $deadline }} hari
+                                                            </div>
+                                                        @elseif ($deadline > 30)
+                                                            <div
+                                                                class="items-center py-1 px-2 text-center text-lg rounded drop-shadow-md flex justify-center w-fit bg-orange-400 text-white mt-1">
+                                                                Deadline dalam {{ $deadline }} hari
+                                                            </div>
+                                                        @else
+                                                            <div
+                                                                class="items-center py-1 px-2 text-center text-lg rounded drop-shadow-md flex justify-center w-fit bg-red-600 text-white mt-1">
+                                                                Deadline dalam {{ $deadline }} hari
+                                                            </div>
+                                                        @endif
+                                                    @endif
+
+                                                    {{-- <div id="tooltip-bottom" role="tooltip"
                                                         class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-600 rounded-lg shadow-sm opacity-0 tooltip">
                                                         <div class="grid grid-cols-2 space-x-2">
                                                             <div>
@@ -472,7 +518,7 @@
                                                                     {{ $object->date_end }}</p>
                                                             </div>
                                                         </div>
-                                                    </div>
+                                                    </div> --}}
                                                 </div>
                                             </div>
                                         </div>
@@ -503,14 +549,12 @@
         $warnaLatarBelakang = '';
 
         if ($selisihWaktu <= 0) {
-            echo 'Proyek sudah melewati deadline.';
-            $warnaLatarBelakang = 'red';
+            // Project has passed the deadline
+            return 'Proyek sudah melewati deadline.';
         } else {
-            echo "Deadline dalam {$hari} hari";
+            // Return the remaining days
+            return $hari;
         }
-
-        // Output warna latar belakang
-        return $warnaLatarBelakang;
     }
 @endphp
 <script>

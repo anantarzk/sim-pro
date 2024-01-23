@@ -126,17 +126,7 @@
                         $totalStages = 9;
                         $completedStages = 0;
 
-                        $statuses = [
-                            $koneksifr->status_fr,
-                            $koneksiar->status_ar,
-                            $koneksipr->status_pr_01,
-                            $koneksipa->status_pa_02,
-                            $koneksipo->status_po_03,
-                            $koneksipay->status_pay_04,
-                            $koneksimn->status_mn,
-                            $koneksiin->status_in,
-                            $koneksicl->status_cl,
-                        ];
+                        $statuses = [$koneksifr->status_fr, $koneksiar->status_ar, $koneksipr->status_pr_01, $koneksipa->status_pa_02, $koneksipo->status_po_03, $koneksipay->status_pay_04, $koneksimn->status_mn, $koneksiin->status_in, $koneksicl->status_cl];
 
                         foreach ($statuses as $status) {
                             if ($status == 'Complete') {
@@ -194,8 +184,7 @@
                                 </div>
                             </div>
                             <div>
-                                <div class="items-center pt-1 pr-4 text-sm font-medium  text-gray-600">Budget
-                                    Amount :
+                                <div class="items-center pt-1 pr-4 text-sm font-medium  text-gray-600">Jumlah Budget:
                                 </div>
                                 <div class="items-center pr-4 text-sm font-medium">
                                     Rp{{ number_format($viewdataproject->budget_amount, 0, ',', '.') }}
@@ -203,34 +192,50 @@
                             </div>
 
                             <div>
-                                <div class="items-center pt-1 pr-4 text-sm font-medium  text-gray-600">Last
-                                    updated:
+                                <div class="items-center pt-1 pr-4 text-sm font-medium  text-gray-600">Terakhir
+                                    diperbaharui:
                                 </div>
                                 <div class="items-center pr-4 text-sm font-medium">
                                     {{ $viewdataproject->last_update_name }},
                                     {{ $viewdataproject->last_update_date }}
-
                                 </div>
                             </div>
                         </div>
-                        {{-- button edit --}}
+                        {{-- deadline countdown --}}
                         <div class="flex text-right">
-
-
-                            <div class="flex items-center space-x-2">
-                                {{-- Menampilkan PIC project --}}
-                                <p class="font-semibold text-gray-600">Start :</p>
+                            @if ($viewdataproject->progress == 'Closed')
                                 <div
-                                    class="items-center py-1 px-2 text-lg font-medium text-center text-gray-900 rounded drop-shadow-md ">
-                                    {{ $viewdataproject->date_start }}
+                                    class=" space-x-1 font-medium items-center py-1 px-3 text-center text-lg rounded-xl drop-shadow-md flex justify-center w-fit bg-green-700 text-white mt-1" data-tooltip-target="tooltip-bottom" data-tooltip-placement="bottom">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="22" viewBox="0 0 24 24" fill="none">
+                                        <g id="Interface / Check_All">
+                                        <path id="Vector" d="M8 12.4854L12.2426 16.728L20.727 8.24268M3 12.4854L7.24264 16.728M15.7279 8.24268L12.5 11.5001" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        </g>
+                                    </svg>
+                                <p>
+                                    Proyek telah SELESAI
+                                </p>
                                 </div>
-
-                                <p class="font-semibold text-gray-600">End :</p>
-                                <div
-                                    class="items-center py-1 px-2 text-lg font-medium text-center text-gray-900 rounded drop-shadow-md">
-                                    {{ $viewdataproject->date_end }}
+                            @else
+                                <div id="countdown-{{ $viewdataproject->id }}"
+                                    class="items-center py-1 px-2 font-medium text-center text-lg rounded drop-shadow-md flex justify-center mt-2"
+                                    data-tooltip-target="tooltip-bottom" data-tooltip-placement="bottom">
                                 </div>
-
+                            @endif
+                            <div id="tooltip-bottom" role="tooltip"
+                                class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-600 rounded-lg shadow-sm opacity-0 tooltip">
+                                <div class="grid grid-cols-2 space-x-2">
+                                    <div>
+                                        <p class="text-left">Tanggal mulai:</p>
+                                        <div class="text-left">
+                                            {{ $viewdataproject->date_start }}
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <p class="text-left">Tanggal selesai:</p>
+                                        <p class="text-left">
+                                            {{ $viewdataproject->date_end }}</p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -473,7 +478,7 @@
 
     @if (
         $koneksifr->status_fr != 'Complete' ||
-        $koneksiar->status_ar != 'Complete' ||
+            $koneksiar->status_ar != 'Complete' ||
             $koneksipr->status_pr_01 != 'Complete' ||
             $koneksipa->status_pa_02 != 'Complete' ||
             $koneksipo->status_po_03 != 'Complete' ||
@@ -509,11 +514,9 @@
                         <div class="">
                             <svg width="18" height="auto" viewBox="0 0 24 24" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
-
                                 <path
                                     d="M12 0C5.376 0 0 5.376 0 12C0 18.624 5.376 24 12 24C18.624 24 24 18.624 24 12C24 5.376 18.624 0 12 0ZM9.6 18L3.6 12L5.292 10.308L9.6 14.604L18.708 5.496L20.4 7.2L9.6 18Z"
                                     fill="white" />
-
                             </svg>
                         </div>
                         <div class="text-white font-medium ml-3">
@@ -913,8 +916,8 @@
                                     <td class="space-y-2 py-3 px-2">
                                         @if (($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Closed') && $koneksicl->cl_qas_1 == '')
                                             <div class="justify-center flex space-x-2">
-                                                <input type="file" name="as_cl_qas_1"
-                                                    id="fileInput_cl_qas_1" style="display: none;">
+                                                <input type="file" name="as_cl_qas_1" id="fileInput_cl_qas_1"
+                                                    style="display: none;">
                                                 <button type="button" onclick="openFileInput('cl_qas_1')"
                                                     class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md">
                                                     + Tambah dokumen
@@ -978,8 +981,8 @@
                                     <td class="space-y-2 py-3 px-2">
                                         @if (($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Closed') && $koneksicl->cl_qas_2 == '')
                                             <div class="justify-center flex space-x-2">
-                                                <input type="file" name="as_cl_qas_2"
-                                                    id="fileInput_cl_qas_2" style="display: none;">
+                                                <input type="file" name="as_cl_qas_2" id="fileInput_cl_qas_2"
+                                                    style="display: none;">
                                                 <button type="button" onclick="openFileInput('cl_qas_2')"
                                                     class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md">
                                                     + Tambah dokumen
@@ -1155,28 +1158,28 @@
                                     <td class="text-center">{{ $koneksicl->date_cl_i_pakai_m_2 }}</td>
                                     <td class="space-y-2 py-3 px-2">
                                         @if (($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Closed') && $koneksicl->cl_i_pakai_m_2 == '')
-                                        <div class="justify-center flex space-x-2">
-                                            <input type="file" name="as_cl_i_pakai_m_2"
-                                                id="fileInput_cl_i_pakai_m_2" style="display: none;">
-                                            <button type="button" onclick="openFileInput('cl_i_pakai_m_2')"
-                                                class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md">
-                                                + Tambah dokumen
-                                            </button>
-                                        </div>
-                                    @elseif (
-                                        ($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Closed') &&
-                                            $koneksicl->cl_i_pakai_m_2 != '' &&
-                                            $koneksicl->status_cl != 'Complete' &&
-                                            $koneksicl->status_cl != 'Waiting Approval')
-                                        <div class="justify-center flex space-x-2">
-                                            <button type="button"
-                                                class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
-                                                data-modal-target="modal32" data-modal-show="modal32"
-                                                data-modal-toggle="modal32">
-                                                Ubah
-                                            </button>
-                                        </div>
-                                    @endif
+                                            <div class="justify-center flex space-x-2">
+                                                <input type="file" name="as_cl_i_pakai_m_2"
+                                                    id="fileInput_cl_i_pakai_m_2" style="display: none;">
+                                                <button type="button" onclick="openFileInput('cl_i_pakai_m_2')"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md">
+                                                    + Tambah dokumen
+                                                </button>
+                                            </div>
+                                        @elseif (
+                                            ($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Closed') &&
+                                                $koneksicl->cl_i_pakai_m_2 != '' &&
+                                                $koneksicl->status_cl != 'Complete' &&
+                                                $koneksicl->status_cl != 'Waiting Approval')
+                                            <div class="justify-center flex space-x-2">
+                                                <button type="button"
+                                                    class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                    data-modal-target="modal32" data-modal-show="modal32"
+                                                    data-modal-toggle="modal32">
+                                                    Ubah
+                                                </button>
+                                            </div>
+                                        @endif
                                     </td>
                                     <input type="text" hidden name="as_up_by_i_pakai_m_cl_2"
                                         value="{{ Auth::user()->first_name }}">
@@ -1267,28 +1270,28 @@
                                     <td class="text-center">{{ $koneksicl->date_cl_training_1 }}</td>
                                     <td class="space-y-2 py-3 px-2">
                                         @if (($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Closed') && $koneksicl->cl_training_1 == '')
-                                        <div class="justify-center flex space-x-2">
-                                            <input type="file" name="as_cl_training_1"
-                                                id="fileInput_cl_training_1" style="display: none;">
-                                            <button type="button" onclick="openFileInput('cl_training_1')"
-                                                class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md">
-                                                + Tambah dokumen
-                                            </button>
-                                        </div>
-                                    @elseif (
-                                        ($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Closed') &&
-                                            $koneksicl->cl_training_1 != '' &&
-                                            $koneksicl->status_cl != 'Complete' &&
-                                            $koneksicl->status_cl != 'Waiting Approval')
-                                        <div class="justify-center flex space-x-2">
-                                            <button type="button"
-                                                class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
-                                                data-modal-target="modal41" data-modal-show="modal41"
-                                                data-modal-toggle="modal41">
-                                                Ubah
-                                            </button>
-                                        </div>
-                                    @endif
+                                            <div class="justify-center flex space-x-2">
+                                                <input type="file" name="as_cl_training_1"
+                                                    id="fileInput_cl_training_1" style="display: none;">
+                                                <button type="button" onclick="openFileInput('cl_training_1')"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md">
+                                                    + Tambah dokumen
+                                                </button>
+                                            </div>
+                                        @elseif (
+                                            ($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Closed') &&
+                                                $koneksicl->cl_training_1 != '' &&
+                                                $koneksicl->status_cl != 'Complete' &&
+                                                $koneksicl->status_cl != 'Waiting Approval')
+                                            <div class="justify-center flex space-x-2">
+                                                <button type="button"
+                                                    class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                    data-modal-target="modal41" data-modal-show="modal41"
+                                                    data-modal-toggle="modal41">
+                                                    Ubah
+                                                </button>
+                                            </div>
+                                        @endif
                                     </td>
                                     <input type="text" hidden name="as_up_by_training_cl_1"
                                         value="{{ Auth::user()->first_name }}">
@@ -1330,28 +1333,28 @@
                                     <td class="text-center">{{ $koneksicl->date_cl_training_2 }}</td>
                                     <td class="space-y-2 py-3 px-2">
                                         @if (($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Closed') && $koneksicl->cl_training_2 == '')
-                                        <div class="justify-center flex space-x-2">
-                                            <input type="file" name="as_cl_training_2"
-                                                id="fileInput_cl_training_2" style="display: none;">
-                                            <button type="button" onclick="openFileInput('cl_training_2')"
-                                                class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md">
-                                                + Tambah dokumen
-                                            </button>
-                                        </div>
-                                    @elseif (
-                                        ($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Closed') &&
-                                            $koneksicl->cl_training_2 != '' &&
-                                            $koneksicl->status_cl != 'Complete' &&
-                                            $koneksicl->status_cl != 'Waiting Approval')
-                                        <div class="justify-center flex space-x-2">
-                                            <button type="button"
-                                                class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
-                                                data-modal-target="modal42" data-modal-show="modal42"
-                                                data-modal-toggle="modal42">
-                                                Ubah
-                                            </button>
-                                        </div>
-                                    @endif
+                                            <div class="justify-center flex space-x-2">
+                                                <input type="file" name="as_cl_training_2"
+                                                    id="fileInput_cl_training_2" style="display: none;">
+                                                <button type="button" onclick="openFileInput('cl_training_2')"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md">
+                                                    + Tambah dokumen
+                                                </button>
+                                            </div>
+                                        @elseif (
+                                            ($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Closed') &&
+                                                $koneksicl->cl_training_2 != '' &&
+                                                $koneksicl->status_cl != 'Complete' &&
+                                                $koneksicl->status_cl != 'Waiting Approval')
+                                            <div class="justify-center flex space-x-2">
+                                                <button type="button"
+                                                    class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                    data-modal-target="modal42" data-modal-show="modal42"
+                                                    data-modal-toggle="modal42">
+                                                    Ubah
+                                                </button>
+                                            </div>
+                                        @endif
                                     </td>
                                     <input type="text" hidden name="as_up_by_training_cl_2"
                                         value="{{ Auth::user()->first_name }}">
@@ -1396,28 +1399,28 @@
                                     <td class="text-center">{{ $koneksicl->date_cl_training_3 }}</td>
                                     <td class="space-y-2 py-3 px-2">
                                         @if (($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Closed') && $koneksicl->cl_training_3 == '')
-                                        <div class="justify-center flex space-x-2">
-                                            <input type="file" name="as_cl_training_3"
-                                                id="fileInput_cl_training_3" style="display: none;">
-                                            <button type="button" onclick="openFileInput('cl_training_3')"
-                                                class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md">
-                                                + Tambah dokumen
-                                            </button>
-                                        </div>
-                                    @elseif (
-                                        ($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Closed') &&
-                                            $koneksicl->cl_training_3 != '' &&
-                                            $koneksicl->status_cl != 'Complete' &&
-                                            $koneksicl->status_cl != 'Waiting Approval')
-                                        <div class="justify-center flex space-x-2">
-                                            <button type="button"
-                                                class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
-                                                data-modal-target="modal43" data-modal-show="modal43"
-                                                data-modal-toggle="modal43">
-                                                Ubah
-                                            </button>
-                                        </div>
-                                    @endif
+                                            <div class="justify-center flex space-x-2">
+                                                <input type="file" name="as_cl_training_3"
+                                                    id="fileInput_cl_training_3" style="display: none;">
+                                                <button type="button" onclick="openFileInput('cl_training_3')"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md">
+                                                    + Tambah dokumen
+                                                </button>
+                                            </div>
+                                        @elseif (
+                                            ($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Closed') &&
+                                                $koneksicl->cl_training_3 != '' &&
+                                                $koneksicl->status_cl != 'Complete' &&
+                                                $koneksicl->status_cl != 'Waiting Approval')
+                                            <div class="justify-center flex space-x-2">
+                                                <button type="button"
+                                                    class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                    data-modal-target="modal43" data-modal-show="modal43"
+                                                    data-modal-toggle="modal43">
+                                                    Ubah
+                                                </button>
+                                            </div>
+                                        @endif
                                     </td>
                                     <input type="text" hidden name="as_up_by_training_cl_3"
                                         value="{{ Auth::user()->first_name }}">
@@ -1461,28 +1464,28 @@
                                     <td class="text-center">{{ $koneksicl->date_cl_training_4 }}</td>
                                     <td class="space-y-2 py-3 px-2">
                                         @if (($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Closed') && $koneksicl->cl_training_4 == '')
-                                        <div class="justify-center flex space-x-2">
-                                            <input type="file" name="as_cl_training_4"
-                                                id="fileInput_cl_training_4" style="display: none;">
-                                            <button type="button" onclick="openFileInput('cl_training_4')"
-                                                class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md">
-                                                + Tambah dokumen
-                                            </button>
-                                        </div>
-                                    @elseif (
-                                        ($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Closed') &&
-                                            $koneksicl->cl_training_4 != '' &&
-                                            $koneksicl->status_cl != 'Complete' &&
-                                            $koneksicl->status_cl != 'Waiting Approval')
-                                        <div class="justify-center flex space-x-2">
-                                            <button type="button"
-                                                class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
-                                                data-modal-target="modal44" data-modal-show="modal44"
-                                                data-modal-toggle="modal44">
-                                                Ubah
-                                            </button>
-                                        </div>
-                                    @endif
+                                            <div class="justify-center flex space-x-2">
+                                                <input type="file" name="as_cl_training_4"
+                                                    id="fileInput_cl_training_4" style="display: none;">
+                                                <button type="button" onclick="openFileInput('cl_training_4')"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md">
+                                                    + Tambah dokumen
+                                                </button>
+                                            </div>
+                                        @elseif (
+                                            ($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Closed') &&
+                                                $koneksicl->cl_training_4 != '' &&
+                                                $koneksicl->status_cl != 'Complete' &&
+                                                $koneksicl->status_cl != 'Waiting Approval')
+                                            <div class="justify-center flex space-x-2">
+                                                <button type="button"
+                                                    class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                    data-modal-target="modal44" data-modal-show="modal44"
+                                                    data-modal-toggle="modal44">
+                                                    Ubah
+                                                </button>
+                                            </div>
+                                        @endif
                                     </td>
                                     <input type="text" hidden name="as_up_by_training_cl_4"
                                         value="{{ Auth::user()->first_name }}">
@@ -1527,28 +1530,28 @@
                                     <td class="text-center">{{ $koneksicl->date_cl_training_5 }}</td>
                                     <td class="space-y-2 py-3 px-2">
                                         @if (($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Closed') && $koneksicl->cl_training_5 == '')
-                                        <div class="justify-center flex space-x-2">
-                                            <input type="file" name="as_cl_training_5"
-                                                id="fileInput_cl_training_5" style="display: none;">
-                                            <button type="button" onclick="openFileInput('cl_training_5')"
-                                                class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md">
-                                                + Tambah dokumen
-                                            </button>
-                                        </div>
-                                    @elseif (
-                                        ($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Closed') &&
-                                            $koneksicl->cl_training_5 != '' &&
-                                            $koneksicl->status_cl != 'Complete' &&
-                                            $koneksicl->status_cl != 'Waiting Approval')
-                                        <div class="justify-center flex space-x-2">
-                                            <button type="button"
-                                                class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
-                                                data-modal-target="modal45" data-modal-show="modal45"
-                                                data-modal-toggle="modal45">
-                                                Ubah
-                                            </button>
-                                        </div>
-                                    @endif
+                                            <div class="justify-center flex space-x-2">
+                                                <input type="file" name="as_cl_training_5"
+                                                    id="fileInput_cl_training_5" style="display: none;">
+                                                <button type="button" onclick="openFileInput('cl_training_5')"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md">
+                                                    + Tambah dokumen
+                                                </button>
+                                            </div>
+                                        @elseif (
+                                            ($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Closed') &&
+                                                $koneksicl->cl_training_5 != '' &&
+                                                $koneksicl->status_cl != 'Complete' &&
+                                                $koneksicl->status_cl != 'Waiting Approval')
+                                            <div class="justify-center flex space-x-2">
+                                                <button type="button"
+                                                    class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                    data-modal-target="modal45" data-modal-show="modal45"
+                                                    data-modal-toggle="modal45">
+                                                    Ubah
+                                                </button>
+                                            </div>
+                                        @endif
                                     </td>
                                     <input type="text" hidden name="as_up_by_training_cl_5"
                                         value="{{ Auth::user()->first_name }}">
@@ -1639,28 +1642,28 @@
                                     <td class="text-center">{{ $koneksicl->date_cl_l_trouble_1 }}</td>
                                     <td class="space-y-2 py-3 px-2">
                                         @if (($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Closed') && $koneksicl->cl_l_trouble_1 == '')
-                                        <div class="justify-center flex space-x-2">
-                                            <input type="file" name="as_cl_l_trouble_1"
-                                                id="fileInput_cl_l_trouble_1" style="display: none;">
-                                            <button type="button" onclick="openFileInput('cl_l_trouble_1')"
-                                                class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md">
-                                                + Tambah dokumen
-                                            </button>
-                                        </div>
-                                    @elseif (
-                                        ($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Closed') &&
-                                            $koneksicl->cl_l_trouble_1 != '' &&
-                                            $koneksicl->status_cl != 'Complete' &&
-                                            $koneksicl->status_cl != 'Waiting Approval')
-                                        <div class="justify-center flex space-x-2">
-                                            <button type="button"
-                                                class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
-                                                data-modal-target="modal51" data-modal-show="modal51"
-                                                data-modal-toggle="modal51">
-                                                Ubah
-                                            </button>
-                                        </div>
-                                    @endif
+                                            <div class="justify-center flex space-x-2">
+                                                <input type="file" name="as_cl_l_trouble_1"
+                                                    id="fileInput_cl_l_trouble_1" style="display: none;">
+                                                <button type="button" onclick="openFileInput('cl_l_trouble_1')"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md">
+                                                    + Tambah dokumen
+                                                </button>
+                                            </div>
+                                        @elseif (
+                                            ($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Closed') &&
+                                                $koneksicl->cl_l_trouble_1 != '' &&
+                                                $koneksicl->status_cl != 'Complete' &&
+                                                $koneksicl->status_cl != 'Waiting Approval')
+                                            <div class="justify-center flex space-x-2">
+                                                <button type="button"
+                                                    class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                    data-modal-target="modal51" data-modal-show="modal51"
+                                                    data-modal-toggle="modal51">
+                                                    Ubah
+                                                </button>
+                                            </div>
+                                        @endif
                                     </td>
                                     <input type="text" hidden name="as_up_by_l_trouble_cl_1"
                                         value="{{ Auth::user()->first_name }}">
@@ -1705,28 +1708,28 @@
                                     <td class="text-center">{{ $koneksicl->date_cl_l_trouble_2 }}</td>
                                     <td class="space-y-2 py-3 px-2">
                                         @if (($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Closed') && $koneksicl->cl_l_trouble_2 == '')
-                                        <div class="justify-center flex space-x-2">
-                                            <input type="file" name="as_cl_l_trouble_2"
-                                                id="fileInput_cl_l_trouble_2" style="display: none;">
-                                            <button type="button" onclick="openFileInput('cl_l_trouble_2')"
-                                                class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md">
-                                                + Tambah dokumen
-                                            </button>
-                                        </div>
-                                    @elseif (
-                                        ($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Closed') &&
-                                            $koneksicl->cl_l_trouble_2 != '' &&
-                                            $koneksicl->status_cl != 'Complete' &&
-                                            $koneksicl->status_cl != 'Waiting Approval')
-                                        <div class="justify-center flex space-x-2">
-                                            <button type="button"
-                                                class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
-                                                data-modal-target="modal52" data-modal-show="modal52"
-                                                data-modal-toggle="modal52">
-                                                Ubah
-                                            </button>
-                                        </div>
-                                    @endif
+                                            <div class="justify-center flex space-x-2">
+                                                <input type="file" name="as_cl_l_trouble_2"
+                                                    id="fileInput_cl_l_trouble_2" style="display: none;">
+                                                <button type="button" onclick="openFileInput('cl_l_trouble_2')"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md">
+                                                    + Tambah dokumen
+                                                </button>
+                                            </div>
+                                        @elseif (
+                                            ($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Closed') &&
+                                                $koneksicl->cl_l_trouble_2 != '' &&
+                                                $koneksicl->status_cl != 'Complete' &&
+                                                $koneksicl->status_cl != 'Waiting Approval')
+                                            <div class="justify-center flex space-x-2">
+                                                <button type="button"
+                                                    class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                    data-modal-target="modal52" data-modal-show="modal52"
+                                                    data-modal-toggle="modal52">
+                                                    Ubah
+                                                </button>
+                                            </div>
+                                        @endif
                                     </td>
                                     <input type="text" hidden name="as_up_by_l_trouble_cl_2"
                                         value="{{ Auth::user()->first_name }}">
@@ -1818,28 +1821,28 @@
                                     <td class="text-center">{{ $koneksicl->date_cl_camb_1 }}</td>
                                     <td class="space-y-2 py-3 px-2">
                                         @if (($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Closed') && $koneksicl->cl_camb_1 == '')
-                                        <div class="justify-center flex space-x-2">
-                                            <input type="file" name="as_cl_camb_1"
-                                                id="fileInput_cl_camb_1" style="display: none;">
-                                            <button type="button" onclick="openFileInput('cl_camb_1')"
-                                                class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md">
-                                                + Tambah dokumen
-                                            </button>
-                                        </div>
-                                    @elseif (
-                                        ($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Closed') &&
-                                            $koneksicl->cl_camb_1 != '' &&
-                                            $koneksicl->status_cl != 'Complete' &&
-                                            $koneksicl->status_cl != 'Waiting Approval')
-                                        <div class="justify-center flex space-x-2">
-                                            <button type="button"
-                                                class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
-                                                data-modal-target="modal61" data-modal-show="modal61"
-                                                data-modal-toggle="modal61">
-                                                Ubah
-                                            </button>
-                                        </div>
-                                    @endif
+                                            <div class="justify-center flex space-x-2">
+                                                <input type="file" name="as_cl_camb_1" id="fileInput_cl_camb_1"
+                                                    style="display: none;">
+                                                <button type="button" onclick="openFileInput('cl_camb_1')"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md">
+                                                    + Tambah dokumen
+                                                </button>
+                                            </div>
+                                        @elseif (
+                                            ($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Closed') &&
+                                                $koneksicl->cl_camb_1 != '' &&
+                                                $koneksicl->status_cl != 'Complete' &&
+                                                $koneksicl->status_cl != 'Waiting Approval')
+                                            <div class="justify-center flex space-x-2">
+                                                <button type="button"
+                                                    class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                    data-modal-target="modal61" data-modal-show="modal61"
+                                                    data-modal-toggle="modal61">
+                                                    Ubah
+                                                </button>
+                                            </div>
+                                        @endif
                                     </td>
                                     <input type="text" hidden name="as_up_by_camb_cl_1"
                                         value="{{ Auth::user()->first_name }}">
@@ -1884,28 +1887,28 @@
                                     <td class="text-center">{{ $koneksicl->date_cl_camb_2 }}</td>
                                     <td class="space-y-2 py-3 px-2">
                                         @if (($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Closed') && $koneksicl->cl_camb_2 == '')
-                                        <div class="justify-center flex space-x-2">
-                                            <input type="file" name="as_cl_camb_2"
-                                                id="fileInput_cl_camb_2" style="display: none;">
-                                            <button type="button" onclick="openFileInput('cl_camb_2')"
-                                                class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md">
-                                                + Tambah dokumen
-                                            </button>
-                                        </div>
-                                    @elseif (
-                                        ($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Closed') &&
-                                            $koneksicl->cl_camb_2 != '' &&
-                                            $koneksicl->status_cl != 'Complete' &&
-                                            $koneksicl->status_cl != 'Waiting Approval')
-                                        <div class="justify-center flex space-x-2">
-                                            <button type="button"
-                                                class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
-                                                data-modal-target="modal62" data-modal-show="modal62"
-                                                data-modal-toggle="modal62">
-                                                Ubah
-                                            </button>
-                                        </div>
-                                    @endif
+                                            <div class="justify-center flex space-x-2">
+                                                <input type="file" name="as_cl_camb_2" id="fileInput_cl_camb_2"
+                                                    style="display: none;">
+                                                <button type="button" onclick="openFileInput('cl_camb_2')"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md">
+                                                    + Tambah dokumen
+                                                </button>
+                                            </div>
+                                        @elseif (
+                                            ($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Closed') &&
+                                                $koneksicl->cl_camb_2 != '' &&
+                                                $koneksicl->status_cl != 'Complete' &&
+                                                $koneksicl->status_cl != 'Waiting Approval')
+                                            <div class="justify-center flex space-x-2">
+                                                <button type="button"
+                                                    class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                    data-modal-target="modal62" data-modal-show="modal62"
+                                                    data-modal-toggle="modal62">
+                                                    Ubah
+                                                </button>
+                                            </div>
+                                        @endif
                                     </td>
                                     <input type="text" hidden name="as_up_by_camb_cl_2"
                                         value="{{ Auth::user()->first_name }}">
@@ -1996,28 +1999,28 @@
                                     <td class="text-center">{{ $koneksicl->date_cl_im_1 }}</td>
                                     <td class="space-y-2 py-3 px-2">
                                         @if (($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Closed') && $koneksicl->cl_im_1 == '')
-                                        <div class="justify-center flex space-x-2">
-                                            <input type="file" name="as_cl_im_1"
-                                                id="fileInput_cl_im_1" style="display: none;">
-                                            <button type="button" onclick="openFileInput('cl_im_1')"
-                                                class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md">
-                                                + Tambah dokumen
-                                            </button>
-                                        </div>
-                                    @elseif (
-                                        ($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Closed') &&
-                                            $koneksicl->cl_im_1 != '' &&
-                                            $koneksicl->status_cl != 'Complete' &&
-                                            $koneksicl->status_cl != 'Waiting Approval')
-                                        <div class="justify-center flex space-x-2">
-                                            <button type="button"
-                                                class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
-                                                data-modal-target="modal71" data-modal-show="modal71"
-                                                data-modal-toggle="modal71">
-                                                Ubah
-                                            </button>
-                                        </div>
-                                    @endif
+                                            <div class="justify-center flex space-x-2">
+                                                <input type="file" name="as_cl_im_1" id="fileInput_cl_im_1"
+                                                    style="display: none;">
+                                                <button type="button" onclick="openFileInput('cl_im_1')"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md">
+                                                    + Tambah dokumen
+                                                </button>
+                                            </div>
+                                        @elseif (
+                                            ($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Closed') &&
+                                                $koneksicl->cl_im_1 != '' &&
+                                                $koneksicl->status_cl != 'Complete' &&
+                                                $koneksicl->status_cl != 'Waiting Approval')
+                                            <div class="justify-center flex space-x-2">
+                                                <button type="button"
+                                                    class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                    data-modal-target="modal71" data-modal-show="modal71"
+                                                    data-modal-toggle="modal71">
+                                                    Ubah
+                                                </button>
+                                            </div>
+                                        @endif
                                     </td>
                                     <input type="text" hidden name="as_up_by_im_cl_1"
                                         value="{{ Auth::user()->first_name }}">
@@ -2062,28 +2065,28 @@
                                     <td class="text-center">{{ $koneksicl->date_cl_im_2 }}</td>
                                     <td class="space-y-2 py-3 px-2">
                                         @if (($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Closed') && $koneksicl->cl_im_2 == '')
-                                        <div class="justify-center flex space-x-2">
-                                            <input type="file" name="as_cl_im_2"
-                                                id="fileInput_cl_im_2" style="display: none;">
-                                            <button type="button" onclick="openFileInput('cl_im_2')"
-                                                class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md">
-                                                + Tambah dokumen
-                                            </button>
-                                        </div>
-                                    @elseif (
-                                        ($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Closed') &&
-                                            $koneksicl->cl_im_2 != '' &&
-                                            $koneksicl->status_cl != 'Complete' &&
-                                            $koneksicl->status_cl != 'Waiting Approval')
-                                        <div class="justify-center flex space-x-2">
-                                            <button type="button"
-                                                class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
-                                                data-modal-target="modal72" data-modal-show="modal72"
-                                                data-modal-toggle="modal72">
-                                                Ubah
-                                            </button>
-                                        </div>
-                                    @endif
+                                            <div class="justify-center flex space-x-2">
+                                                <input type="file" name="as_cl_im_2" id="fileInput_cl_im_2"
+                                                    style="display: none;">
+                                                <button type="button" onclick="openFileInput('cl_im_2')"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md">
+                                                    + Tambah dokumen
+                                                </button>
+                                            </div>
+                                        @elseif (
+                                            ($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Closed') &&
+                                                $koneksicl->cl_im_2 != '' &&
+                                                $koneksicl->status_cl != 'Complete' &&
+                                                $koneksicl->status_cl != 'Waiting Approval')
+                                            <div class="justify-center flex space-x-2">
+                                                <button type="button"
+                                                    class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                    data-modal-target="modal72" data-modal-show="modal72"
+                                                    data-modal-toggle="modal72">
+                                                    Ubah
+                                                </button>
+                                            </div>
+                                        @endif
                                     </td>
                                     <input type="text" hidden name="as_up_by_im_cl_2"
                                         value="{{ Auth::user()->first_name }}">
@@ -2128,28 +2131,28 @@
                                     <td class="text-center">{{ $koneksicl->date_cl_im_3 }}</td>
                                     <td class="space-y-2 py-3 px-2">
                                         @if (($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Closed') && $koneksicl->cl_im_3 == '')
-                                        <div class="justify-center flex space-x-2">
-                                            <input type="file" name="as_cl_im_3"
-                                                id="fileInput_cl_im_3" style="display: none;">
-                                            <button type="button" onclick="openFileInput('cl_im_3')"
-                                                class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md">
-                                                + Tambah dokumen
-                                            </button>
-                                        </div>
-                                    @elseif (
-                                        ($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Closed') &&
-                                            $koneksicl->cl_im_3 != '' &&
-                                            $koneksicl->status_cl != 'Complete' &&
-                                            $koneksicl->status_cl != 'Waiting Approval')
-                                        <div class="justify-center flex space-x-2">
-                                            <button type="button"
-                                                class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
-                                                data-modal-target="modal73" data-modal-show="modal73"
-                                                data-modal-toggle="modal73">
-                                                Ubah
-                                            </button>
-                                        </div>
-                                    @endif
+                                            <div class="justify-center flex space-x-2">
+                                                <input type="file" name="as_cl_im_3" id="fileInput_cl_im_3"
+                                                    style="display: none;">
+                                                <button type="button" onclick="openFileInput('cl_im_3')"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md">
+                                                    + Tambah dokumen
+                                                </button>
+                                            </div>
+                                        @elseif (
+                                            ($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Closed') &&
+                                                $koneksicl->cl_im_3 != '' &&
+                                                $koneksicl->status_cl != 'Complete' &&
+                                                $koneksicl->status_cl != 'Waiting Approval')
+                                            <div class="justify-center flex space-x-2">
+                                                <button type="button"
+                                                    class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                    data-modal-target="modal73" data-modal-show="modal73"
+                                                    data-modal-toggle="modal73">
+                                                    Ubah
+                                                </button>
+                                            </div>
+                                        @endif
                                     </td>
                                     <input type="text" hidden name="as_up_by_im_cl_3"
                                         value="{{ Auth::user()->first_name }}">
@@ -2193,28 +2196,28 @@
                                     <td class="text-center">{{ $koneksicl->date_cl_im_4 }}</td>
                                     <td class="space-y-2 py-3 px-2">
                                         @if (($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Closed') && $koneksicl->cl_im_4 == '')
-                                        <div class="justify-center flex space-x-2">
-                                            <input type="file" name="as_cl_im_4"
-                                                id="fileInput_cl_im_4" style="display: none;">
-                                            <button type="button" onclick="openFileInput('cl_im_4')"
-                                                class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md">
-                                                + Tambah dokumen
-                                            </button>
-                                        </div>
-                                    @elseif (
-                                        ($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Closed') &&
-                                            $koneksicl->cl_im_4 != '' &&
-                                            $koneksicl->status_cl != 'Complete' &&
-                                            $koneksicl->status_cl != 'Waiting Approval')
-                                        <div class="justify-center flex space-x-2">
-                                            <button type="button"
-                                                class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
-                                                data-modal-target="modal74" data-modal-show="modal74"
-                                                data-modal-toggle="modal74">
-                                                Ubah
-                                            </button>
-                                        </div>
-                                    @endif
+                                            <div class="justify-center flex space-x-2">
+                                                <input type="file" name="as_cl_im_4" id="fileInput_cl_im_4"
+                                                    style="display: none;">
+                                                <button type="button" onclick="openFileInput('cl_im_4')"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md">
+                                                    + Tambah dokumen
+                                                </button>
+                                            </div>
+                                        @elseif (
+                                            ($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Closed') &&
+                                                $koneksicl->cl_im_4 != '' &&
+                                                $koneksicl->status_cl != 'Complete' &&
+                                                $koneksicl->status_cl != 'Waiting Approval')
+                                            <div class="justify-center flex space-x-2">
+                                                <button type="button"
+                                                    class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                    data-modal-target="modal74" data-modal-show="modal74"
+                                                    data-modal-toggle="modal74">
+                                                    Ubah
+                                                </button>
+                                            </div>
+                                        @endif
                                     </td>
                                     <input type="text" hidden name="as_up_by_im_cl_4"
                                         value="{{ Auth::user()->first_name }}">
@@ -2259,28 +2262,28 @@
                                     <td class="text-center">{{ $koneksicl->date_cl_im_5 }}</td>
                                     <td class="space-y-2 py-3 px-2">
                                         @if (($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Closed') && $koneksicl->cl_im_5 == '')
-                                        <div class="justify-center flex space-x-2">
-                                            <input type="file" name="as_cl_im_5"
-                                                id="fileInput_cl_im_5" style="display: none;">
-                                            <button type="button" onclick="openFileInput('cl_im_5')"
-                                                class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md">
-                                                + Tambah dokumen
-                                            </button>
-                                        </div>
-                                    @elseif (
-                                        ($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Closed') &&
-                                            $koneksicl->cl_im_5 != '' &&
-                                            $koneksicl->status_cl != 'Complete' &&
-                                            $koneksicl->status_cl != 'Waiting Approval')
-                                        <div class="justify-center flex space-x-2">
-                                            <button type="button"
-                                                class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
-                                                data-modal-target="modal75" data-modal-show="modal75"
-                                                data-modal-toggle="modal75">
-                                                Ubah
-                                            </button>
-                                        </div>
-                                    @endif
+                                            <div class="justify-center flex space-x-2">
+                                                <input type="file" name="as_cl_im_5" id="fileInput_cl_im_5"
+                                                    style="display: none;">
+                                                <button type="button" onclick="openFileInput('cl_im_5')"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md">
+                                                    + Tambah dokumen
+                                                </button>
+                                            </div>
+                                        @elseif (
+                                            ($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Closed') &&
+                                                $koneksicl->cl_im_5 != '' &&
+                                                $koneksicl->status_cl != 'Complete' &&
+                                                $koneksicl->status_cl != 'Waiting Approval')
+                                            <div class="justify-center flex space-x-2">
+                                                <button type="button"
+                                                    class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                    data-modal-target="modal75" data-modal-show="modal75"
+                                                    data-modal-toggle="modal75">
+                                                    Ubah
+                                                </button>
+                                            </div>
+                                        @endif
                                     </td>
                                     <input type="text" hidden name="as_up_by_im_cl_5"
                                         value="{{ Auth::user()->first_name }}">
@@ -2372,28 +2375,28 @@
 
                                     <td class="space-y-2 py-3 px-2">
                                         @if (($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Closed') && $koneksicl->cl_chor_1 == '')
-                                        <div class="justify-center flex space-x-2">
-                                            <input type="file" name="as_cl_chor_1"
-                                                id="fileInput_cl_chor_1" style="display: none;">
-                                            <button type="button" onclick="openFileInput('cl_chor_1')"
-                                                class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md">
-                                                + Tambah dokumen
-                                            </button>
-                                        </div>
-                                    @elseif (
-                                        ($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Closed') &&
-                                            $koneksicl->cl_chor_1 != '' &&
-                                            $koneksicl->status_cl != 'Complete' &&
-                                            $koneksicl->status_cl != 'Waiting Approval')
-                                        <div class="justify-center flex space-x-2">
-                                            <button type="button"
-                                                class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
-                                                data-modal-target="modal81" data-modal-show="modal81"
-                                                data-modal-toggle="modal81">
-                                                Ubah
-                                            </button>
-                                        </div>
-                                    @endif
+                                            <div class="justify-center flex space-x-2">
+                                                <input type="file" name="as_cl_chor_1" id="fileInput_cl_chor_1"
+                                                    style="display: none;">
+                                                <button type="button" onclick="openFileInput('cl_chor_1')"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md">
+                                                    + Tambah dokumen
+                                                </button>
+                                            </div>
+                                        @elseif (
+                                            ($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Closed') &&
+                                                $koneksicl->cl_chor_1 != '' &&
+                                                $koneksicl->status_cl != 'Complete' &&
+                                                $koneksicl->status_cl != 'Waiting Approval')
+                                            <div class="justify-center flex space-x-2">
+                                                <button type="button"
+                                                    class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                    data-modal-target="modal81" data-modal-show="modal81"
+                                                    data-modal-toggle="modal81">
+                                                    Ubah
+                                                </button>
+                                            </div>
+                                        @endif
                                     </td>
                                     <input type="text" hidden name="as_up_by_chor_cl_1"
                                         value="{{ Auth::user()->first_name }}">
@@ -2438,28 +2441,28 @@
                                     <td class="text-center">{{ $koneksicl->date_cl_chor_2 }}</td>
                                     <td class="space-y-2 py-3 px-2">
                                         @if (($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Closed') && $koneksicl->cl_chor_2 == '')
-                                        <div class="justify-center flex space-x-2">
-                                            <input type="file" name="as_cl_chor_2"
-                                                id="fileInput_cl_chor_2" style="display: none;">
-                                            <button type="button" onclick="openFileInput('cl_chor_2')"
-                                                class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md">
-                                                + Tambah dokumen
-                                            </button>
-                                        </div>
-                                    @elseif (
-                                        ($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Closed') &&
-                                            $koneksicl->cl_chor_2 != '' &&
-                                            $koneksicl->status_cl != 'Complete' &&
-                                            $koneksicl->status_cl != 'Waiting Approval')
-                                        <div class="justify-center flex space-x-2">
-                                            <button type="button"
-                                                class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
-                                                data-modal-target="modal82" data-modal-show="modal82"
-                                                data-modal-toggle="modal82">
-                                                Ubah
-                                            </button>
-                                        </div>
-                                    @endif
+                                            <div class="justify-center flex space-x-2">
+                                                <input type="file" name="as_cl_chor_2" id="fileInput_cl_chor_2"
+                                                    style="display: none;">
+                                                <button type="button" onclick="openFileInput('cl_chor_2')"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md">
+                                                    + Tambah dokumen
+                                                </button>
+                                            </div>
+                                        @elseif (
+                                            ($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Closed') &&
+                                                $koneksicl->cl_chor_2 != '' &&
+                                                $koneksicl->status_cl != 'Complete' &&
+                                                $koneksicl->status_cl != 'Waiting Approval')
+                                            <div class="justify-center flex space-x-2">
+                                                <button type="button"
+                                                    class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                    data-modal-target="modal82" data-modal-show="modal82"
+                                                    data-modal-toggle="modal82">
+                                                    Ubah
+                                                </button>
+                                            </div>
+                                        @endif
                                     </td>
                                     <input type="text" hidden name="as_up_by_chor_cl_2"
                                         value="{{ Auth::user()->first_name }}">
@@ -3094,6 +3097,50 @@
                 document.getElementById('uploadForm').submit();
             });
         }
+
+        function hitungMundur(deadline, elementId) {
+            const sekarang = new Date();
+            const selisihWaktu = deadline - sekarang;
+            const hari = Math.floor(selisihWaktu / (1000 * 60 * 60 * 24));
+
+            let warnaLatarBelakang = '';
+
+            if (selisihWaktu <= 0) {
+                document.getElementById(elementId).innerText = "Proyek sudah melewati deadline.";
+                warnaLatarBelakang = 'red';
+            } else {
+                const jam = Math.floor((selisihWaktu % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const menit = Math.floor((selisihWaktu % (1000 * 60 * 60)) / (1000 * 60));
+
+                document.getElementById(elementId).innerText = `Deadline dalam ${hari} hari`;
+                /* hari, ${jam} jam, dan ${menit} menit. */
+
+                // Atur warna latar belakang berdasarkan rentang hari
+                if (hari > 150) {
+                    warnaLatarBelakang = 'green';
+                } else if (hari > 100) {
+                    warnaLatarBelakang = 'blue';
+                } else if (hari > 70) {
+                    warnaLatarBelakang = 'yellow';
+                } else if (hari > 30) {
+                    warnaLatarBelakang = 'orange';
+                } else {
+                    warnaLatarBelakang = 'red';
+                }
+            }
+
+            // Atur latar belakang dan warna teks
+            document.getElementById(elementId).style.backgroundColor = warnaLatarBelakang;
+            document.getElementById(elementId).style.color = 'white';
+        }
+
+        // Gantilah dengan nilai date_end dari Laravel Blade template
+        const dateEndStr = "{{ $viewdataproject->date_end }}";
+        const dateEnd = new Date(dateEndStr);
+
+        // Gantilah dengan id unik kartu proyek
+        const kartuProyekId = "{{ $viewdataproject->id }}";
+        hitungMundur(dateEnd, `countdown-${kartuProyekId}`);
     </script>
 </div>
 {{-- tutup bungkus --}}

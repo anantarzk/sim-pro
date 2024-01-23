@@ -194,8 +194,7 @@
                                 </div>
                             </div>
                             <div>
-                                <div class="items-center pt-1 pr-4 text-sm font-medium  text-gray-600">Budget
-                                    Amount :
+                                <div class="items-center pt-1 pr-4 text-sm font-medium  text-gray-600">Jumlah Budget:
                                 </div>
                                 <div class="items-center pr-4 text-sm font-medium">
                                     Rp{{ number_format($viewdataproject->budget_amount, 0, ',', '.') }}
@@ -203,44 +202,49 @@
                             </div>
 
                             <div>
-                                <div class="items-center pt-1 pr-4 text-sm font-medium  text-gray-600">Last
-                                    updated:
+                                <div class="items-center pt-1 pr-4 text-sm font-medium  text-gray-600">Terakhir diperbaharui:
                                 </div>
                                 <div class="items-center pr-4 text-sm font-medium">
                                     {{ $viewdataproject->last_update_name }},
                                     {{ $viewdataproject->last_update_date }}
-
                                 </div>
                             </div>
-                            <div>
-                                <div class="items-center pt-1 pr-4 text-sm font-medium  text-gray-600">Tahap
-                                    Project:
-                                </div>
-                                <div class="items-center pr-4 text-sm font-medium">
-                                    {{ $viewdataproject->progress }}
-
-                                </div>
-                            </div>
-
                         </div>
-                        {{-- button edit --}}
+                        {{-- deadline countdown --}}
                         <div class="flex text-right">
-
-
-                            <div class="flex items-center space-x-2">
-                                {{-- Menampilkan PIC project --}}
-                                <p class="font-semibold text-gray-600">Start :</p>
+                            @if ($viewdataproject->progress == 'Closed')
                                 <div
-                                    class="items-center py-1 px-2 text-lg font-medium text-center text-gray-900 rounded drop-shadow-md ">
-                                    {{ $viewdataproject->date_start }}
+                                    class=" space-x-1 font-medium items-center py-1 px-3 text-center text-lg rounded-xl drop-shadow-md flex justify-center w-fit bg-green-700 text-white mt-1" data-tooltip-target="tooltip-bottom" data-tooltip-placement="bottom">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="22" viewBox="0 0 24 24" fill="none">
+                                        <g id="Interface / Check_All">
+                                        <path id="Vector" d="M8 12.4854L12.2426 16.728L20.727 8.24268M3 12.4854L7.24264 16.728M15.7279 8.24268L12.5 11.5001" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        </g>
+                                    </svg>
+                                <p>
+                                    Proyek telah SELESAI
+                                </p>
                                 </div>
-
-                                <p class="font-semibold text-gray-600">End :</p>
-                                <div
-                                    class="items-center py-1 px-2 text-lg font-medium text-center text-gray-900 rounded drop-shadow-md">
-                                    {{ $viewdataproject->date_end }}
+                            @else
+                                <div id="countdown-{{ $viewdataproject->id }}"
+                                    class="items-center py-1 px-2 font-medium text-center text-lg rounded drop-shadow-md flex justify-center mt-2"
+                                    data-tooltip-target="tooltip-bottom" data-tooltip-placement="bottom">
                                 </div>
-
+                            @endif
+                            <div id="tooltip-bottom" role="tooltip"
+                                class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-600 rounded-lg shadow-sm opacity-0 tooltip">
+                                <div class="grid grid-cols-2 space-x-2">
+                                    <div>
+                                        <p class="text-left">Tanggal mulai:</p>
+                                        <div class="text-left">
+                                            {{ $viewdataproject->date_start }}
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <p class="text-left">Tanggal selesai:</p>
+                                        <p class="text-left">
+                                            {{ $viewdataproject->date_end }}</p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -2178,6 +2182,50 @@
                 document.getElementById('uploadForm').submit();
             });
         }
+
+        function hitungMundur(deadline, elementId) {
+        const sekarang = new Date();
+        const selisihWaktu = deadline - sekarang;
+        const hari = Math.floor(selisihWaktu / (1000 * 60 * 60 * 24));
+
+        let warnaLatarBelakang = '';
+
+        if (selisihWaktu <= 0) {
+            document.getElementById(elementId).innerText = "Proyek sudah melewati deadline.";
+            warnaLatarBelakang = 'red';
+        } else {
+            const jam = Math.floor((selisihWaktu % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const menit = Math.floor((selisihWaktu % (1000 * 60 * 60)) / (1000 * 60));
+
+            document.getElementById(elementId).innerText = `Deadline dalam ${hari} hari`;
+            /* hari, ${jam} jam, dan ${menit} menit. */
+
+            // Atur warna latar belakang berdasarkan rentang hari
+            if (hari > 150) {
+                warnaLatarBelakang = 'green';
+            } else if (hari > 100) {
+                warnaLatarBelakang = 'blue';
+            } else if (hari > 70) {
+                warnaLatarBelakang = 'yellow';
+            } else if (hari > 30) {
+                warnaLatarBelakang = 'orange';
+            } else {
+                warnaLatarBelakang = 'red';
+            }
+        }
+
+        // Atur latar belakang dan warna teks
+        document.getElementById(elementId).style.backgroundColor = warnaLatarBelakang;
+        document.getElementById(elementId).style.color = 'white';
+    }
+
+    // Gantilah dengan nilai date_end dari Laravel Blade template
+    const dateEndStr = "{{ $viewdataproject->date_end }}";
+    const dateEnd = new Date(dateEndStr);
+
+    // Gantilah dengan id unik kartu proyek
+    const kartuProyekId = "{{ $viewdataproject->id }}";
+    hitungMundur(dateEnd, `countdown-${kartuProyekId}`);
     </script>
 
 

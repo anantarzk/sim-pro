@@ -26,7 +26,7 @@ class StaffProjectController extends Controller
 {
     public function LandingSeluruhProject(Request $request)
     {
-        // if (isset($request->abc)) {
+        // if (isset($request->kondisi)cari
         //     dd($request->query);
         // }
         /* DB::enableQueryLog(); */
@@ -48,7 +48,7 @@ class StaffProjectController extends Controller
             ->count('id');
 
         /* kode cari search */
-        if ($request->abc == '123' && $request->keyword == '' && $request->nilai_proyek_type == '' && $request->budget_amount_max == '' && $request->budget_amount_min == '') {
+        /* if ($request->kondisi == 'cari' && $request->keyword == '' && $request->nilai_proyek_type == '' && $request->budget_amount_max == '' && $request->budget_amount_min == '') {
             $project = CONTROLPROJECT::with(
                 'koneksikefr',
                 'koneksikear',
@@ -68,7 +68,9 @@ class StaffProjectController extends Controller
                 ->Where('section', 'LIKE', "%" . $request->section . "%")
                 ->latest('updated_at')
                 ->paginate(20);
-        } else if ($request->abc == '123' && $request->keyword != '' && $request->budget_amount_max == '' && $request->budget_amount_min == '') {
+        }  */
+
+        /* if ($request->kondisi == 'cari' && $request->keyword != '' && $request->budget_amount_max == '' && $request->budget_amount_min == '') {
             $project = CONTROLPROJECT::with(
                 'koneksikefr',
                 'koneksikear',
@@ -95,7 +97,7 @@ class StaffProjectController extends Controller
                 })
                 ->latest('updated_at')
                 ->paginate(20);
-        } else if ($request->abc == '123' && $request->nilai_proyek_type != '' && $request->budget_amount_max == '' && $request->budget_amount_min == '') {
+        } else if ($request->kondisi == 'cari' && $request->nilai_proyek_type != '' && $request->budget_amount_max == '' && $request->budget_amount_min == '') {
             $nilai_proyek_type = $request->nilai_proyek_type;
             if ($nilai_proyek_type == 1) {
                 $project = CONTROLPROJECT::with(
@@ -162,7 +164,7 @@ class StaffProjectController extends Controller
                     ->latest('updated_at')
                     ->paginate(20);
             }
-        } else if ($request->abc == '123' && $request->budget_amount_max != '' && $request->budget_amount_min != '' && $request->keyword == '') {
+        } else if ($request->kondisi == 'cari' && $request->budget_amount_max != '' && $request->budget_amount_min != '' && $request->keyword == '') {
             $budget_amount_max = intval(str_replace('.', '', $request->budget_amount_max));
             $budget_amount_min = intval(str_replace('.', '', $request->budget_amount_min));
             $project = CONTROLPROJECT::with(
@@ -195,9 +197,203 @@ class StaffProjectController extends Controller
                 ->whereNull('archive_at')
                 ->latest('updated_at')
                 ->paginate(20);
-        }
+        } */
+
         //dd($project);
         /* selesai kode cari */
+        /* $request->keyword == '' && $request->nilai_proyek_type == '' && $request->budget_amount_max == '' && $request->budget_amount_min == '' */
+        $filterMessage = '';
+        if ($request->kondisi == 'cari' && ($request->pic_1_me || $request->pic_2_el || $request->pic_3_mit)) {
+            $project = CONTROLPROJECT::with(
+                'koneksikefr',
+                'koneksikear',
+                'koneksikepr01',
+                'koneksikepa02',
+                'koneksikepo03',
+                'koneksikepay04',
+                'koneksikemn',
+                'koneksikein',
+                'koneksikecl'
+            )
+                ->whereNull('archive_at')
+                ->Where('pic_1_me', 'LIKE', "%" . $request->pic_1_me . "%")
+                ->Where('pic_2_el', 'LIKE', "%" . $request->pic_2_el . "%")
+                ->Where('pic_3_mit', 'LIKE', "%" . $request->pic_3_mit . "%")
+                ->latest('updated_at')
+                ->paginate(20);
+            }
+        elseif ($request->kondisi == 'cari' && isset($request->section)) {
+            $project = CONTROLPROJECT::with(
+                'koneksikefr',
+                'koneksikear',
+                'koneksikepr01',
+                'koneksikepa02',
+                'koneksikepo03',
+                'koneksikepay04',
+                'koneksikemn',
+                'koneksikein',
+                'koneksikecl'
+            )
+                ->Where('section', 'LIKE', "%" . $request->section . "%")
+                ->latest('updated_at')
+                ->paginate(20);
+                $filterMessage = 'Menampilkan proyek untuk section: '. $request->section;
+        } else if ($request->kondisi == 'cari' &&  isset($request->keyword)) {
+            $project = CONTROLPROJECT::with(
+                'koneksikefr',
+                'koneksikear',
+                'koneksikepr01',
+                'koneksikepa02',
+                'koneksikepo03',
+                'koneksikepay04',
+                'koneksikemn',
+                'koneksikein',
+                'koneksikecl'
+            )
+                ->whereNull('archive_at')
+                ->when($keyword, function ($query, $keyword) {
+                    $query->where(function ($query) use ($keyword) {
+                        $query->where('project_name', 'LIKE', "%{$keyword}%")
+                            ->orWhere('io_number', 'LIKE', "%{$keyword}%")
+                            /* ->orWhere('pic_1_me', 'LIKE', "%{$keyword}%")
+                            ->orWhere('pic_2_el', 'LIKE', "%{$keyword}%")
+                            ->orWhere('pic_3_mit', 'LIKE', "%{$keyword}%")
+                            ->orWhere('budget_amount', 'LIKE', "%{$keyword}%")
+                            ->orWhere('ob_year', 'LIKE', "%{$keyword}%")
+                            ->orWhere('section', 'LIKE', "%{$keyword}%") */;
+                    });
+                })
+                ->latest('updated_at')
+                ->paginate(20);
+                $filterMessage = 'Menampilkan hasil pencarian untuk kata kunci: '. $request->keyword;
+        } else if ($request->kondisi == 'cari' &&  isset($request->nilai_proyek_type)) {
+            $nilai_proyek_type = $request->nilai_proyek_type;
+            if ($nilai_proyek_type == 1) {
+                $project = CONTROLPROJECT::with(
+                    'koneksikefr',
+                    'koneksikear',
+                    'koneksikepr01',
+                    'koneksikepa02',
+                    'koneksikepo03',
+                    'koneksikepay04',
+                    'koneksikemn',
+                    'koneksikein',
+                    'koneksikecl'
+                )
+                    ->whereNull('archive_at')
+                    ->where('budget_amount', '<', 100000000)
+                    ->latest('updated_at')
+                    ->paginate(20);
+                    $filterMessage = 'Menampilkan proyek dengan nilai budget kurang dari Rp100 Juta.';
+            } else if ($nilai_proyek_type == 2) {
+                $project = CONTROLPROJECT::with(
+                    'koneksikefr',
+                    'koneksikear',
+                    'koneksikepr01',
+                    'koneksikepa02',
+                    'koneksikepo03',
+                    'koneksikepay04',
+                    'koneksikemn',
+                    'koneksikein',
+                    'koneksikecl'
+                )
+                    ->whereNull('archive_at')
+                    ->whereBetween('budget_amount', [100000000, 100000000000])
+                    ->latest('updated_at')
+                    ->paginate(20);
+                    $filterMessage = 'Menampilkan proyek dengan nilai budget Rp100 Juta hingga Rp1 Milyar.';
+            } else if ($nilai_proyek_type == 3) {
+                $project = CONTROLPROJECT::with(
+                    'koneksikefr',
+                    'koneksikear',
+                    'koneksikepr01',
+                    'koneksikepa02',
+                    'koneksikepo03',
+                    'koneksikepay04',
+                    'koneksikemn',
+                    'koneksikein',
+                    'koneksikecl'
+                )
+                    ->whereNull('archive_at')
+                    ->whereBetween('budget_amount', [100000000000, 1000000000000])
+                    ->latest('updated_at')
+                    ->paginate(20);
+                    $filterMessage = 'Menampilkan proyek dengan nilai budget Rp1 Milyar hingga Rp10 Milyar.';
+            } else {
+                $project = CONTROLPROJECT::with(
+                    'koneksikefr',
+                    'koneksikear',
+                    'koneksikepr01',
+                    'koneksikepa02',
+                    'koneksikepo03',
+                    'koneksikepay04',
+                    'koneksikemn',
+                    'koneksikein',
+                    'koneksikecl'
+                )
+                    ->whereNull('archive_at')
+                    ->where('budget_amount', '>', 1000000000000)
+                    ->latest('updated_at')
+                    ->paginate(20);
+                    $filterMessage = 'Menampilkan proyek dengan nilai budget lebih dari Rp10 Milyar.';
+            }
+        } else if ($request->kondisi == 'cari' &&  isset($request->budget_amount_max) && isset($request->budget_amount_min)) {
+            $budget_amount_max = intval(str_replace('.', '', $request->budget_amount_max));
+            $budget_amount_min = intval(str_replace('.', '', $request->budget_amount_min));
+            $project = CONTROLPROJECT::with(
+                'koneksikefr',
+                'koneksikear',
+                'koneksikepr01',
+                'koneksikepa02',
+                'koneksikepo03',
+                'koneksikepay04',
+                'koneksikemn',
+                'koneksikein',
+                'koneksikecl'
+            )
+                ->whereNull('archive_at')
+                ->whereBetween('budget_amount', [$budget_amount_min,  $budget_amount_max])
+                ->latest('updated_at')
+                ->paginate(20);
+                $filterMessage = 'Menampilkan proyek dengan nilai budget Rp' . $request->budget_amount_min . ' hingga Rp'. $request->budget_amount_max . '.';
+        } else if ($request->kondisi == 'cari' &&  isset($request->ob_year)) {
+            $project = CONTROLPROJECT::with(
+                'koneksikefr',
+                'koneksikear',
+                'koneksikepr01',
+                'koneksikepa02',
+                'koneksikepo03',
+                'koneksikepay04',
+                'koneksikemn',
+                'koneksikein',
+                'koneksikecl'
+            )
+                ->where('ob_year', '=', $request->ob_year)
+                ->latest('updated_at')
+                ->paginate(20);
+            $filterMessage = 'Menampilkan proyek dengan Tahun proyek ' .  $request->ob_year . '.';
+        } else {
+            $project = CONTROLPROJECT::with(
+                'koneksikefr',
+                'koneksikear',
+                'koneksikepr01',
+                'koneksikepa02',
+                'koneksikepo03',
+                'koneksikepay04',
+                'koneksikemn',
+                'koneksikein',
+                'koneksikecl'
+            )
+                ->whereNull('archive_at')
+                ->latest('updated_at')
+                ->paginate(20);
+        }
+
+        if (!$project) {
+            $flagNoResult = True;
+        } else {
+            $flagNoResult = False;
+        }
 
         // dd(DB::getQueryLog());
         $koneksifr = FRproject::select('id_fr_1','status_fr')->get();
@@ -223,7 +419,9 @@ class StaffProjectController extends Controller
             'koneksiin' => $koneksiin,
             'koneksicl' => $koneksicl,
             'totalproject' => $totalproject,
-            'users' => $users
+            'users' => $users,
+            'filterMessage' => $filterMessage,
+            'flagNoResult' => $flagNoResult
         ]);
     }
     public function RedirectPage(

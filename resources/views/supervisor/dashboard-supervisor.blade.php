@@ -59,13 +59,13 @@
                 <div id="tab-contents" class="">
                     <div id="first" class="py-4">
 
-                        <div class="flex  max-h-fit">
+                        <div class="flex max-h-fit">
                             <div class=" w-1/3 flex flex-col mr-2">
                                 <p class="text-2xl font-medium mb-1">Yearly Project</p>
                                 <div class="bg-white border shadow-md rounded mb-2 flex h-fit">
-                                    <div class="w-1/2  p-1 "><canvas id="obproject" class=""></canvas>
+                                    <div class="w-1/2 mt-8"><canvas id="obproject" class=""></canvas>
                                     </div>
-                                    <div class="w-1/2  p-1">
+                                    <div class="w-1/2 p-1 my-1">
                                         <p class="font-bold text-xl text-center">Project Status</p>
                                         <hr>
                                         <p class="text-sm">Cancelled Projects:</p>
@@ -91,9 +91,8 @@
                                     </div>
                                 </div>
                                 <div class="bg-white border shadow-md rounded flex">
-                                    <div class="w-1/2  p-1"><canvas id="FR" class="max-h-64"></canvas></div>
-
-                                    <div class="w-1/2  p-1">
+                                    <div class="w-1/2 mt-8"><canvas id="FR" class="max-h-64"></canvas></div>
+                                    <div class="w-1/2 p-1 my-1">
                                         <p class="font-bold text-xl text-center">FR Status</p>
                                         <hr>
                                         <p class="text-sm">Approved FR:</p>
@@ -105,7 +104,6 @@
                                         <p class="text-sm">&nbsp;</p>
                                         <p class="font-semibold text-lg">&nbsp;</p>
                                         <br>
-
                                         <div class="justify-center items-center ">
                                             <p class="text-sm text-center">Total FR:</p>
                                             <p class="font-semibold text-xl text-center">{{ $totalproject }}
@@ -115,7 +113,6 @@
                                         <br>
                                     </div>
                                 </div>
-
                             </div>
                             <div class=" w-2/3">
                                 <p class="text-2xl font-medium mb-1">Budget Control</p>
@@ -124,17 +121,17 @@
                                         <div class="flex max-h-80">
                                             <div class="w-[65%] p-2"><canvas id="bcontrol"></canvas></div>
                                             <div class="w-[35%] p-2">
-                                                <span class="text-xl font-semibold">Planned Target vs Actual Payment
+                                                <span class="text-lg font-bold">Target vs Actual Payment
                                                     <div class="my-1">
                                                         <a href="/budget-control-ob-supervisor">
                                                             <button
-                                                                class="hover:bg-blue-500 border-blue-500 border-2 hover:text-white text-blue-500 rounded py-1 px-1 flex items-center ">
-                                                                <p class="text-sm">Ubah Planned Target Payment</p>
+                                                                class="bg-blue-500 hover:bg-blue-700 border-blue-500 border-2 text-white rounded py-1 px-1 flex items-center ">
+                                                                <p class="text-sm">Ubah Target Payment</p>
                                                             </button>
                                                         </a>
                                                     </div>
                                                 </span>
-                                                <p class="text-sm mt-2">Planned Target Payment:</p>
+                                                <p class="text-sm mt-2">Target Payment:</p>
                                                 <p class="font-semibold text-lg">
                                                     Rp{{ number_format($sum_planned, 0, ',', '.') }}</p>
                                                 </p>
@@ -143,27 +140,49 @@
                                                 <p class="font-semibold text-lg">
                                                     Rp{{ number_format($mny_pay, 0, ',', '.') }}</p>
                                                 <hr>
-                                                <p class="text-sm mt-1">YearOB Budget:</p>
+                                                <p class="text-sm mt-1">Year Total Budget (Seluruh proyek):</p>
                                                 <p class="font-semibold text-lg">
                                                     Rp{{ number_format($sum_ob, 0, ',', '.') }}</p>
                                                 </p>
                                                 <hr>
-                                                <p class="text-sm mt-2">Difference <span class="text-xs">(YearOB
-                                                        Budget - Kumulatif Actual Payment)</span>:</p>
-                                                <p class="font-semibold text-lg">
-                                                    Rp{{ number_format($total_sisa_budget_ob, 0, ',', '.') }}</p>
-                                                </p>
+                                                <div class="bg-gray-800 px-2">
+                                                    <p class="text-sm mt-2 text-white">Selisih <span class="text-xs">(Year Total
+                                                            Budget - Kumulatif Actual Payment)</span>:</p>
+                                                    <p class="font-semibold text-lg text-white">
+                                                        Rp{{ number_format($total_sisa_budget_ob, 0, ',', '.') }}</p>
+                                                    </p>
+                                                </div>
                                                 <hr>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="bg-white border shadow-md rounded px-2 py-3">
-                                        <hr>
+                                    <div class="bg-white border shadow-md rounded px-2 py-1">
                                         <canvas id="finance" class="max-h-60"></canvas>
+                                        <hr>
+                                        <p class="text-center font-bold text-lg">Target payment vs Kumulatif PR PA PO PAY</p>
                                     </div>
                                 </div>
                             </div>
                         </div>
+
+                <div class="grid grid-cols-4 space-x-4 mt-3">
+                    <div class="bg-white border shadow-md mb-2 rounded text-center py-5 ">
+                        <p class="text-gray-800 text-lg">Kumulatif PR:</p>
+                        <p class="text-gray-800 text-2xl font-bold">Rp{{ number_format($mny_pr, 0, ',', '.') }}</p>
+                    </div>
+                    <div class="bg-white border shadow-md mb-2 rounded text-center py-5 ">
+                        <p class="text-gray-800 text-lg">Kumulatif PA:</p>
+                        <p class="text-gray-800 text-2xl font-bold">Rp{{ number_format($mny_pa, 0, ',', '.') }}</p>
+                    </div>
+                    <div class="bg-white border shadow-md mb-2 rounded text-center py-5 ">
+                        <p class="text-gray-800 text-lg">Kumulatif PO:</p>
+                        <p class="text-gray-800 text-2xl font-bold">Rp{{ number_format($mny_po, 0, ',', '.') }}</p>
+                    </div>
+                    <div class="bg-white border shadow-md mb-2 rounded text-center py-5 ">
+                        <p class="text-gray-800 text-lg">Kumulatif PAY:</p>
+                        <p class="text-gray-800 text-2xl font-bold">Rp{{ number_format($mny_pay, 0, ',', '.') }}</p>
+                    </div>
+                </div>
                     </div>
                     {{-- dua --}}
                     <div id="second" class="hidden p-1">
@@ -194,8 +213,7 @@
                                                 <tr
                                                     class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border">
                                                     {{-- Loop i++ --}}
-                                                    <td
-                                                        class="p-2 font-medium text-center text-nite bg-teal-600 whitespace-nowrap text-white">
+                                                    <td class="p-2 font-medium text-center text-nite whitespace-nowrap">
                                                         {{ $loop->iteration }}
                                                     </td>
                                                     <td class="p-2 text-left">
@@ -240,6 +258,7 @@
                         </div>
                     </div>
                 </div>
+
             </div>
         </div>
     </div>
@@ -367,7 +386,7 @@
                     //     fill: false
                     // },
                     {
-                        label: "Planned Target Payment",
+                        label: "Target Payment",
                         type: "bar",
                         backgroundColor: "#4A93F7",
                         data: ['{{ $planned->planned_1 }}', '{{ $planned->planned_2 }}',
@@ -424,7 +443,7 @@
                 ],
                 datasets: [{
                     type: 'line',
-                    label: 'Target (Based on Target Payments)',
+                    label: 'Planned Target Payments',
                     // data ini sama dengan sum planned payments
                     data: ['{{ $sum_planned }}', '{{ $sum_planned }}', '{{ $sum_planned }}',
                         '{{ $sum_planned }}'

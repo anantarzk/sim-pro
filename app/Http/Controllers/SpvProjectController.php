@@ -272,10 +272,11 @@ class SpvProjectController extends Controller
             ->whereNull('archive_at')
             ->count('id');
 
-        /* kode cari search */
+        /* kode cari search switch case*/
 
         $filterMessage = '';
-        if ($request->kondisi == 'cari' && $request->keyword == '' && $request->nilai_proyek_type == '' && $request->budget_amount_max == '' && $request->budget_amount_min == '') {
+        /* all PIC */
+        if ($request->kondisi == 'cari' && isset($request->pic_1_me) && isset($request->pic_2_el) && isset($request->pic_3_mit)) {
             $project = CONTROLPROJECT::with(
                 'koneksikefr',
                 'koneksikear',
@@ -291,13 +292,123 @@ class SpvProjectController extends Controller
                 ->Where('pic_1_me', 'LIKE', "%" . $request->pic_1_me . "%")
                 ->Where('pic_2_el', 'LIKE', "%" . $request->pic_2_el . "%")
                 ->Where('pic_3_mit', 'LIKE', "%" . $request->pic_3_mit . "%")
-                ->Where('ob_year', 'LIKE', "%" . $request->ob_year . "%")
-                ->Where('section', 'LIKE', "%" . $request->section . "%")
                 ->latest('updated_at')
                 ->paginate(20);
-            }
-        elseif ($request->kondisi == 'cari' && isset($request->section)) {
-
+            $filterMessage = 'Menampilkan proyek untuk PIC: ' . $request->pic_1_me . ' & ' . $request->pic_2_el . ' & ' . $request->pic_3_mit;
+        }
+        /* me el */ elseif ($request->kondisi == 'cari' && isset($request->pic_1_me) && isset($request->pic_2_el)) {
+            $project = CONTROLPROJECT::with(
+                'koneksikefr',
+                'koneksikear',
+                'koneksikepr01',
+                'koneksikepa02',
+                'koneksikepo03',
+                'koneksikepay04',
+                'koneksikemn',
+                'koneksikein',
+                'koneksikecl'
+            )
+                ->whereNull('archive_at')
+                ->Where('pic_1_me', 'LIKE', "%" . $request->pic_1_me . "%")
+                ->Where('pic_2_el', 'LIKE', "%" . $request->pic_2_el . "%")
+                ->latest('updated_at')
+                ->paginate(20);
+            $filterMessage = 'Menampilkan proyek untuk PIC: ' . $request->pic_1_me . ' & ' . $request->pic_2_el;
+        }
+        /* me mit */ elseif ($request->kondisi == 'cari' && isset($request->pic_1_me) && isset($request->pic_3_mit)) {
+            $project = CONTROLPROJECT::with(
+                'koneksikefr',
+                'koneksikear',
+                'koneksikepr01',
+                'koneksikepa02',
+                'koneksikepo03',
+                'koneksikepay04',
+                'koneksikemn',
+                'koneksikein',
+                'koneksikecl'
+            )
+                ->whereNull('archive_at')
+                ->Where('pic_1_me', 'LIKE', "%" . $request->pic_1_me . "%")
+                ->Where('pic_3_mit', 'LIKE', "%" . $request->pic_3_mit . "%")
+                ->latest('updated_at')
+                ->paginate(20);
+            $filterMessage = 'Menampilkan proyek untuk PIC: ' . $request->pic_1_me . ' & ' . $request->pic_3_mit;
+            /* dd($noResult); */
+        }
+        /* el mit */ elseif ($request->kondisi == 'cari' && isset($request->pic_2_el) && isset($request->pic_3_mit)) {
+            $project = CONTROLPROJECT::with(
+                'koneksikefr',
+                'koneksikear',
+                'koneksikepr01',
+                'koneksikepa02',
+                'koneksikepo03',
+                'koneksikepay04',
+                'koneksikemn',
+                'koneksikein',
+                'koneksikecl'
+            )
+                ->whereNull('archive_at')
+                ->Where('pic_2_el', 'LIKE', "%" . $request->pic_2_el . "%")
+                ->Where('pic_3_mit', 'LIKE', "%" . $request->pic_3_mit . "%")
+                ->latest('updated_at')
+                ->paginate(20);
+            $filterMessage = 'Menampilkan proyek untuk PIC: ' . $request->pic_2_el . ' & ' . $request->pic_3_mit;
+        }
+        /* pic me */ elseif ($request->kondisi == 'cari' && isset($request->pic_1_me)) {
+            $project = CONTROLPROJECT::with(
+                'koneksikefr',
+                'koneksikear',
+                'koneksikepr01',
+                'koneksikepa02',
+                'koneksikepo03',
+                'koneksikepay04',
+                'koneksikemn',
+                'koneksikein',
+                'koneksikecl'
+            )
+                ->whereNull('archive_at')
+                ->Where('pic_1_me', 'LIKE', "%" . $request->pic_1_me . "%")
+                ->latest('updated_at')
+                ->paginate(20);
+            $filterMessage = 'Menampilkan proyek untuk PIC: ' . $request->pic_1_me;
+        }
+        /* pic el */ elseif ($request->kondisi == 'cari' && isset($request->pic_2_el)) {
+            $project = CONTROLPROJECT::with(
+                'koneksikefr',
+                'koneksikear',
+                'koneksikepr01',
+                'koneksikepa02',
+                'koneksikepo03',
+                'koneksikepay04',
+                'koneksikemn',
+                'koneksikein',
+                'koneksikecl'
+            )
+                ->whereNull('archive_at')
+                ->Where('pic_2_el', 'LIKE', "%" . $request->pic_2_el . "%")
+                ->latest('updated_at')
+                ->paginate(20);
+            $filterMessage = 'Menampilkan proyek untuk PIC: ' . $request->pic_2_el;
+        }
+        /* pic mit */ elseif ($request->kondisi == 'cari' && isset($request->pic_3_mit)) {
+            $project = CONTROLPROJECT::with(
+                'koneksikefr',
+                'koneksikear',
+                'koneksikepr01',
+                'koneksikepa02',
+                'koneksikepo03',
+                'koneksikepay04',
+                'koneksikemn',
+                'koneksikein',
+                'koneksikecl'
+            )
+                ->whereNull('archive_at')
+                ->Where('pic_3_mit', 'LIKE', "%" . $request->pic_3_mit . "%")
+                ->latest('updated_at')
+                ->paginate(20);
+            $filterMessage = 'Menampilkan proyek untuk PIC: ' . $request->pic_3_mit;
+        }
+        /* section */ elseif ($request->kondisi == 'cari' && isset($request->section)) {
             $project = CONTROLPROJECT::with(
                 'koneksikefr',
                 'koneksikear',
@@ -312,8 +423,8 @@ class SpvProjectController extends Controller
                 ->Where('section', 'LIKE', "%" . $request->section . "%")
                 ->latest('updated_at')
                 ->paginate(20);
-
-            } else if ($request->kondisi == 'cari' &&  isset($request->keyword)) {
+            $filterMessage = 'Menampilkan proyek untuk section: ' . $request->section;
+        } /* search bar */ else if ($request->kondisi == 'cari' &&  isset($request->keyword)) {
             $project = CONTROLPROJECT::with(
                 'koneksikefr',
                 'koneksikear',
@@ -329,18 +440,13 @@ class SpvProjectController extends Controller
                 ->when($keyword, function ($query, $keyword) {
                     $query->where(function ($query) use ($keyword) {
                         $query->where('project_name', 'LIKE', "%{$keyword}%")
-                            ->orWhere('io_number', 'LIKE', "%{$keyword}%")
-                            ->orWhere('pic_1_me', 'LIKE', "%{$keyword}%")
-                            ->orWhere('pic_2_el', 'LIKE', "%{$keyword}%")
-                            ->orWhere('pic_3_mit', 'LIKE', "%{$keyword}%")
-                            ->orWhere('budget_amount', 'LIKE', "%{$keyword}%")
-                            ->orWhere('ob_year', 'LIKE', "%{$keyword}%")
-                            ->orWhere('section', 'LIKE', "%{$keyword}%");
+                            ->orWhere('io_number', 'LIKE', "%{$keyword}%");
                     });
                 })
                 ->latest('updated_at')
                 ->paginate(20);
-        } else if ($request->kondisi == 'cari' &&  isset($request->nilai_proyek_type)) {
+            $filterMessage = 'Menampilkan hasil pencarian untuk kata kunci: ' . $request->keyword;
+        } /* radio 1 */ else if ($request->kondisi == 'cari' &&  isset($request->nilai_proyek_type)) {
             $nilai_proyek_type = $request->nilai_proyek_type;
             if ($nilai_proyek_type == 1) {
                 $project = CONTROLPROJECT::with(
@@ -358,7 +464,8 @@ class SpvProjectController extends Controller
                     ->where('budget_amount', '<', 100000000)
                     ->latest('updated_at')
                     ->paginate(20);
-            } else if ($nilai_proyek_type == 2) {
+                $filterMessage = 'Menampilkan proyek dengan nilai budget kurang dari Rp100 Juta.';
+            } /* radio 2 */ else if ($nilai_proyek_type == 2) {
                 $project = CONTROLPROJECT::with(
                     'koneksikefr',
                     'koneksikear',
@@ -374,7 +481,8 @@ class SpvProjectController extends Controller
                     ->whereBetween('budget_amount', [100000000, 100000000000])
                     ->latest('updated_at')
                     ->paginate(20);
-            } else if ($nilai_proyek_type == 3) {
+                $filterMessage = 'Menampilkan proyek dengan nilai budget Rp100 Juta hingga Rp1 Milyar.';
+            } /* radio 3 */ else if ($nilai_proyek_type == 3) {
                 $project = CONTROLPROJECT::with(
                     'koneksikefr',
                     'koneksikear',
@@ -390,7 +498,8 @@ class SpvProjectController extends Controller
                     ->whereBetween('budget_amount', [100000000000, 1000000000000])
                     ->latest('updated_at')
                     ->paginate(20);
-            } else {
+                $filterMessage = 'Menampilkan proyek dengan nilai budget Rp1 Milyar hingga Rp10 Milyar.';
+            } /* radio 4 */ else {
                 $project = CONTROLPROJECT::with(
                     'koneksikefr',
                     'koneksikear',
@@ -406,8 +515,9 @@ class SpvProjectController extends Controller
                     ->where('budget_amount', '>', 1000000000000)
                     ->latest('updated_at')
                     ->paginate(20);
+                $filterMessage = 'Menampilkan proyek dengan nilai budget lebih dari Rp10 Milyar.';
             }
-        } else if ($request->kondisi == 'cari' &&  isset($request->budget_amount_max) && isset($request->budget_amount_min)) {
+        } /* form budget */ else if ($request->kondisi == 'cari' &&  isset($request->budget_amount_max) && isset($request->budget_amount_min)) {
             $budget_amount_max = intval(str_replace('.', '', $request->budget_amount_max));
             $budget_amount_min = intval(str_replace('.', '', $request->budget_amount_min));
             $project = CONTROLPROJECT::with(
@@ -425,7 +535,8 @@ class SpvProjectController extends Controller
                 ->whereBetween('budget_amount', [$budget_amount_min,  $budget_amount_max])
                 ->latest('updated_at')
                 ->paginate(20);
-        } else if ($request->kondisi == 'cari' &&  isset($request->ob_year)) {
+            $filterMessage = 'Menampilkan proyek dengan nilai budget Rp' . $request->budget_amount_min . ' hingga Rp' . $request->budget_amount_max . '.';
+        } /* ob year */ else if ($request->kondisi == 'cari' &&  isset($request->ob_year)) {
             $project = CONTROLPROJECT::with(
                 'koneksikefr',
                 'koneksikear',
@@ -440,9 +551,8 @@ class SpvProjectController extends Controller
                 ->where('ob_year', '=', $request->ob_year)
                 ->latest('updated_at')
                 ->paginate(20);
-
-            $filterMessage = 'Menampilkan Filter untuk Tahun ' .  $request->ob_year;
-        } else {
+            $filterMessage = 'Menampilkan proyek dengan Tahun proyek ' .  $request->ob_year . '.';
+        } /* no filter */ else {
             $project = CONTROLPROJECT::with(
                 'koneksikefr',
                 'koneksikear',
@@ -457,14 +567,14 @@ class SpvProjectController extends Controller
                 ->whereNull('archive_at')
                 ->latest('updated_at')
                 ->paginate(20);
-            $filterMessage = 'Menampilkan seluruh project!';
         }
 
-        if (!$project) {
-            $flagNoResult = True;
-        } else {
-            $flagNoResult = False;
-        }
+        // Menggunakan total() untuk mendapatkan jumlah proyek
+        $totalProjects = $project->total();
+
+        // Mengatur $noResult berdasarkan jumlah proyek
+        $noResult = ($totalProjects == 0) ? 1 : 0;
+
         //dd($project);
         /* selesai kode cari */
 
@@ -492,7 +602,7 @@ class SpvProjectController extends Controller
             'totalproject' => $totalproject,
             'users' => $users,
             'filterMessage' => $filterMessage,
-            'flagNoResult' => $flagNoResult
+            'noResult' => $noResult
         ]);
     }
     public function ArsipLandingProjectSupervisor(Request $request)

@@ -7195,7 +7195,7 @@ class SupervisorController extends Controller
             $des_mny_jasa_pay_28 +
             $des_mny_jasa_pay_29 +
             $des_mny_jasa_pay_30 +
-            
+
             $des_mny_mnftr_pay_1 +
             $des_mny_mnftr_pay_2 +
             $des_mny_mnftr_pay_3 +
@@ -7212,7 +7212,10 @@ class SupervisorController extends Controller
             $des_mny_da_pay_4 +
             $des_mny_da_pay_5;
 
-        $sum_ob = CONTROLPROJECT::select('budget_amount')->sum('budget_amount');
+        $sum_ob = CONTROLPROJECT::whereNull('archive_at')->sum('budget_amount');
+
+
+
         $total_sisa_budget_ob = $sum_ob - $mny_pay;
         $sum_planned =
             $planned->planned_1 +
@@ -7448,81 +7451,14 @@ class SupervisorController extends Controller
             ->where('marking', 'Planned-1')
             ->first();
 
-        if ($request['as_year'] != '') {
-            $request['year'] = $request['as_year'];
-        }
-        if ($request['as_planned_1'] != '') {
-            $request['planned_1'] = $request['as_planned_1'];
-        }
-        if ($request['as_planned_2'] != '') {
-            $request['planned_2'] = $request['as_planned_2'];
-        }
-        if ($request['as_planned_3'] != '') {
-            $request['planned_3'] = $request['as_planned_3'];
-        }
-        if ($request['as_planned_4'] != '') {
-            $request['planned_4'] = $request['as_planned_4'];
-        }
-        if ($request['as_planned_5'] != '') {
-            $request['planned_5'] = $request['as_planned_5'];
-        }
-        if ($request['as_planned_6'] != '') {
-            $request['planned_6'] = $request['as_planned_6'];
-        }
-        if ($request['as_planned_7'] != '') {
-            $request['planned_7'] = $request['as_planned_7'];
-        }
-        if ($request['as_planned_8'] != '') {
-            $request['planned_8'] = $request['as_planned_8'];
-        }
-        if ($request['as_planned_9'] != '') {
-            $request['planned_9'] = $request['as_planned_9'];
-        }
-        if ($request['as_planned_10'] != '') {
-            $request['planned_10'] = $request['as_planned_10'];
-        }
-        if ($request['as_planned_11'] != '') {
-            $request['planned_11'] = $request['as_planned_11'];
-        }
-        if ($request['as_planned_12'] != '') {
-            $request['planned_12'] = $request['as_planned_12'];
-        }
-        if ($request['as_date_planned_1'] != '') {
-            $request['date_planned_1'] = $request['as_date_planned_1'];
-        }
-        if ($request['as_date_planned_2'] != '') {
-            $request['date_planned_2'] = $request['as_date_planned_2'];
-        }
-        if ($request['as_date_planned_3'] != '') {
-            $request['date_planned_3'] = $request['as_date_planned_3'];
-        }
-        if ($request['as_date_planned_4'] != '') {
-            $request['date_planned_4'] = $request['as_date_planned_4'];
-        }
-        if ($request['as_date_planned_5'] != '') {
-            $request['date_planned_5'] = $request['as_date_planned_5'];
-        }
-        if ($request['as_date_planned_6'] != '') {
-            $request['date_planned_6'] = $request['as_date_planned_6'];
-        }
-        if ($request['as_date_planned_7'] != '') {
-            $request['date_planned_7'] = $request['as_date_planned_7'];
-        }
-        if ($request['as_date_planned_8'] != '') {
-            $request['date_planned_8'] = $request['as_date_planned_8'];
-        }
-        if ($request['as_date_planned_9'] != '') {
-            $request['date_planned_9'] = $request['as_date_planned_9'];
-        }
-        if ($request['as_date_planned_10'] != '') {
-            $request['date_planned_10'] = $request['as_date_planned_10'];
-        }
-        if ($request['as_date_planned_11'] != '') {
-            $request['date_planned_11'] = $request['as_date_planned_11'];
-        }
-        if ($request['as_date_planned_12'] != '') {
-            $request['date_planned_12'] = $request['as_date_planned_12'];
-        }
+            for ($i = 1; $i <= 12; $i++) {
+                $asPlannedKey = 'as_planned_' . $i;
+                $plannedKey = 'planned_' . $i;
+
+                if ($request->has($asPlannedKey) && $request[$asPlannedKey] !== '') {
+                    $request[$plannedKey] = intval(str_replace('.', '', $request[$asPlannedKey]));
+                }
+            }
 
         $planned->update($request->all());
 

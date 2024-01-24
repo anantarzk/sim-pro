@@ -201,11 +201,24 @@
                         </div>
                         {{-- deadline countdown --}}
                         <div class="flex text-right">
-                            <div id="countdown-{{ $viewdataproject->id }}"
-                                class="items-center py-1 px-2 font-medium text-center text-lg rounded drop-shadow-md flex justify-center mt-2"
-                                data-tooltip-target="tooltip-bottom"
-                                data-tooltip-placement="bottom">
-                            </div>
+                            @if ($viewdataproject->progress == 'Closed')
+                                <div
+                                    class=" space-x-1 font-medium items-center py-1 px-3 text-center text-lg rounded-xl drop-shadow-md flex justify-center w-fit bg-green-700 text-white mt-1" data-tooltip-target="tooltip-bottom" data-tooltip-placement="bottom">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="22" viewBox="0 0 24 24" fill="none">
+                                        <g id="Interface / Check_All">
+                                        <path id="Vector" d="M8 12.4854L12.2426 16.728L20.727 8.24268M3 12.4854L7.24264 16.728M15.7279 8.24268L12.5 11.5001" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        </g>
+                                    </svg>
+                                <p>
+                                    Proyek telah SELESAI
+                                </p>
+                                </div>
+                            @else
+                                <div id="countdown-{{ $viewdataproject->id }}"
+                                    class="items-center py-1 px-2 font-medium text-center text-lg rounded drop-shadow-md flex justify-center mt-2"
+                                    data-tooltip-target="tooltip-bottom" data-tooltip-placement="bottom">
+                                </div>
+                            @endif
                             <div id="tooltip-bottom" role="tooltip"
                                 class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-600 rounded-lg shadow-sm opacity-0 tooltip">
                                 <div class="grid grid-cols-2 space-x-2">

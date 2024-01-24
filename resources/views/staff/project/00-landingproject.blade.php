@@ -269,267 +269,264 @@
         <div class="mt-4">
 
             <div class="mx-auto md:mx-auto lg:w-9/12 xl:w-9/12 2xl:w-9/12">
-                {{-- Memanggil seluruh project --}}
-                @foreach ($project as $object)
-                    @if ($object->archive_at == '')
-                        @if (
-                            $object->pic_1_me == Auth::user()->first_name ||
-                                $object->pic_2_el == Auth::user()->first_name ||
-                                $object->pic_3_mit == Auth::user()->first_name)
-                            {{-- kartu proyek --}}
-                            @php
-                                $koneksifr = $object->koneksikefr;
-                                $koneksiar = $object->koneksikear;
-                                $koneksipr = $object->koneksikepr01;
-                                $koneksipa = $object->koneksikepa02;
-                                $koneksipo = $object->koneksikepo03;
-                                $koneksipay = $object->koneksikepay04;
-                                $koneksimn = $object->koneksikemn;
-                                $koneksiin = $object->koneksikein;
-                                $koneksicl = $object->koneksikecl;
-                            @endphp
-                            {{-- kartu proyek --}}
 
-                            <div class="shadow-md p-4 rounded-xl mb-3 border bg-white">
-                                <div class=" flex overflow-x-auto">
-                                    <div class="w-full">
-                                        {{-- row judul proyek --}}
-                                        <div class="justify-between flex">
-                                            <div class="max-w-3xl">
-                                                <div class="container">
-                                                    {{-- Mengenerate project yang dipilih berdasarkan id --}}
+                @if ($noResult == 1)
 
-                                                    @if (
-                                                        $object->id == $object->koneksikefr->id_fr_1 &&
-                                                            $object->id == $object->koneksikear->id_ar_2 &&
-                                                            $object->id == $object->koneksikepr01->id_pr_01_3 &&
-                                                            $object->id == $object->koneksikepa02->id_pa_02_3 &&
-                                                            $object->id == $object->koneksikepo03->id_po_03_3 &&
-                                                            $object->id == $object->koneksikepay04->id_pay_04_3 &&
-                                                            $object->id == $object->koneksikemn->id_mn_4 &&
-                                                            $object->id == $object->koneksikein->id_in_5 &&
-                                                            $object->id == $object->koneksikecl->id_cl_6)
-                                                        <a
-                                                            href="/staff-redirect-proyek/{{ $object->id }}/{{ $object->koneksikefr->id_fr_1 }}/{{ $object->koneksikear->id_ar_2 }}/{{ $object->koneksikepr01->id_pr_01_3 }}/{{ $object->koneksikepa02->id_pa_02_3 }}/{{ $object->koneksikepo03->id_po_03_3 }}/{{ $object->koneksikepay04->id_pay_04_3 }}/{{ $object->koneksikemn->id_mn_4 }}/{{ $object->koneksikein->id_in_5 }}/{{ $object->koneksikecl->id_cl_6 }}">
-                                                            <p
-                                                                class="mb-1 text-3xl font-semibold tracking-normal text-gray-900 capitalize  hover:underline">
-                                                                {{ $object->project_name }}
-                                                            </p>
-                                                        </a>
+                        <p class="text-center py-4 italic text-lg font-semibold">Data tidak ditemukan.</p>
+
+                @else
+                    {{-- Memanggil seluruh project --}}
+                    @foreach ($project as $object)
+                        @if ($object->archive_at == '')
+                            @if (
+                                $object->pic_1_me == Auth::user()->first_name ||
+                                    $object->pic_2_el == Auth::user()->first_name ||
+                                    $object->pic_3_mit == Auth::user()->first_name)
+                                {{-- kartu proyek --}}
+                                @php
+                                    $koneksifr = $object->koneksikefr;
+                                    $koneksiar = $object->koneksikear;
+                                    $koneksipr = $object->koneksikepr01;
+                                    $koneksipa = $object->koneksikepa02;
+                                    $koneksipo = $object->koneksikepo03;
+                                    $koneksipay = $object->koneksikepay04;
+                                    $koneksimn = $object->koneksikemn;
+                                    $koneksiin = $object->koneksikein;
+                                    $koneksicl = $object->koneksikecl;
+                                @endphp
+                                {{-- kartu proyek --}}
+
+                                <div class="shadow-md p-4 rounded-xl mb-3 border bg-white">
+                                    <div class=" flex overflow-x-auto">
+                                        <div class="w-full">
+                                            {{-- row judul proyek --}}
+                                            <div class="justify-between flex">
+                                                <div class="max-w-3xl">
+                                                    <div class="container">
+                                                        {{-- Mengenerate project yang dipilih berdasarkan id --}}
+
+                                                        @if (
+                                                            $object->id == $object->koneksikefr->id_fr_1 &&
+                                                                $object->id == $object->koneksikear->id_ar_2 &&
+                                                                $object->id == $object->koneksikepr01->id_pr_01_3 &&
+                                                                $object->id == $object->koneksikepa02->id_pa_02_3 &&
+                                                                $object->id == $object->koneksikepo03->id_po_03_3 &&
+                                                                $object->id == $object->koneksikepay04->id_pay_04_3 &&
+                                                                $object->id == $object->koneksikemn->id_mn_4 &&
+                                                                $object->id == $object->koneksikein->id_in_5 &&
+                                                                $object->id == $object->koneksikecl->id_cl_6)
+                                                            <a
+                                                                href="/staff-redirect-proyek/{{ $object->id }}/{{ $object->koneksikefr->id_fr_1 }}/{{ $object->koneksikear->id_ar_2 }}/{{ $object->koneksikepr01->id_pr_01_3 }}/{{ $object->koneksikepa02->id_pa_02_3 }}/{{ $object->koneksikepo03->id_po_03_3 }}/{{ $object->koneksikepay04->id_pay_04_3 }}/{{ $object->koneksikemn->id_mn_4 }}/{{ $object->koneksikein->id_in_5 }}/{{ $object->koneksikecl->id_cl_6 }}">
+                                                                <p
+                                                                    class="mb-1 text-3xl font-semibold tracking-normal text-gray-900 capitalize  hover:underline">
+                                                                    {{ $object->project_name }}
+                                                                </p>
+                                                            </a>
+                                                        @endif
+
+                                                    </div>
+                                                </div>
+
+                                                <div class="">
+                                                    {{-- IO number --}}
+                                                    <div class="container text-right">
+                                                        <div class=" text-gray-600 font-semibold text-lg">IO Number:
+                                                        </div>
+                                                        <p class="text-3xl font-bold text-gray-800 uppercase">
+                                                            {{ $object->io_number }}
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            {{-- akhir row judul --}}
+
+                                            {{-- row pic --}}
+                                            <div class="flex justify-between items-center">
+                                                <div class="flex mt-3.5 space-x-2">
+                                                    {{-- Menampilkan PIC project --}}
+                                                    @if ($object->pic_1_me != '')
+                                                        <div
+                                                            class="items-center py-1 px-2 text-sm font-medium text-center text-white bg-orange-500 rounded">
+                                                            {{ $object->pic_1_me }}
+                                                        </div>
                                                     @endif
-
+                                                    @if ($object->pic_2_el != '')
+                                                        <div
+                                                            class="items-center py-1 px-2 text-sm font-medium text-center text-white bg-orange-500 rounded">
+                                                            {{ $object->pic_2_el }}
+                                                        </div>
+                                                    @endif
+                                                    @if ($object->pic_3_mit != '')
+                                                        <div
+                                                            class="items-center py-1 px-2 text-sm font-medium text-center text-white bg-orange-500 rounded">
+                                                            {{ $object->pic_3_mit }}
+                                                        </div>
+                                                    @endif
                                                 </div>
                                             </div>
+                                            {{-- akhir row pic --}}
 
-                                            <div class="">
-                                                {{-- IO number --}}
-                                                <div class="container text-right">
-                                                    <div class=" text-gray-600 font-semibold text-lg">IO Number:
-                                                    </div>
-                                                    <p class="text-3xl font-bold text-gray-800 uppercase">
-                                                        {{ $object->io_number }}
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        {{-- akhir row judul --}}
+                                            {{-- div row status --}}
+                                            <div class="mt-3">
+                                                <hr class="mb-2 w-full">
+                                                @php
+                                                    $totalStages = 9;
+                                                    $completedStages = 0;
 
-                                        {{-- row pic --}}
-                                        <div class="flex justify-between items-center">
-                                            <div class="flex mt-3.5 space-x-2">
-                                                {{-- Menampilkan PIC project --}}
-                                                @if ($object->pic_1_me != '')
-                                                    <div
-                                                        class="items-center py-1 px-2 text-sm font-medium text-center text-white bg-orange-500 rounded">
-                                                        {{ $object->pic_1_me }}
-                                                    </div>
-                                                @endif
-                                                @if ($object->pic_2_el != '')
-                                                    <div
-                                                        class="items-center py-1 px-2 text-sm font-medium text-center text-white bg-orange-500 rounded">
-                                                        {{ $object->pic_2_el }}
-                                                    </div>
-                                                @endif
-                                                @if ($object->pic_3_mit != '')
-                                                    <div
-                                                        class="items-center py-1 px-2 text-sm font-medium text-center text-white bg-orange-500 rounded">
-                                                        {{ $object->pic_3_mit }}
-                                                    </div>
-                                                @endif
-                                            </div>
-                                        </div>
-                                        {{-- akhir row pic --}}
+                                                    $statuses = [$koneksifr->status_fr, $koneksiar->status_ar, $koneksipr->status_pr_01, $koneksipa->status_pa_02, $koneksipo->status_po_03, $koneksipay->status_pay_04, $koneksimn->status_mn, $koneksiin->status_in, $koneksicl->status_cl];
 
-                                        {{-- div row status --}}
-                                        <div class="mt-3">
-                                            <hr class="mb-2 w-full">
-                                            @php
-                                                $totalStages = 9;
-                                                $completedStages = 0;
-
-                                                $statuses = [$koneksifr->status_fr, $koneksiar->status_ar, $koneksipr->status_pr_01, $koneksipa->status_pa_02, $koneksipo->status_po_03, $koneksipay->status_pay_04, $koneksimn->status_mn, $koneksiin->status_in, $koneksicl->status_cl];
-
-                                                foreach ($statuses as $status) {
-                                                    if ($status == 'Complete') {
-                                                        $completedStages++;
+                                                    foreach ($statuses as $status) {
+                                                        if ($status == 'Complete') {
+                                                            $completedStages++;
+                                                        }
                                                     }
-                                                }
 
-                                                $purchasingPercentage = 70;
-                                                $otherStagesPercentage = 30;
+                                                    $purchasingPercentage = 70;
+                                                    $otherStagesPercentage = 30;
 
-                                                $overallProgress = ceil(($completedStages / $totalStages) * ($purchasingPercentage + $otherStagesPercentage));
+                                                    $overallProgress = ceil(($completedStages / $totalStages) * ($purchasingPercentage + $otherStagesPercentage));
 
-                                                // Menetapkan warna berdasarkan persentase
-                                                $barColor = 'bg-red-500';
+                                                    // Menetapkan warna berdasarkan persentase
+                                                    $barColor = 'bg-red-500';
 
-                                                if ($overallProgress > 15) {
-                                                    $barColor = 'bg-orange-500';
-                                                }
-                                                if ($overallProgress > 30) {
-                                                    $barColor = 'bg-yellow-500';
-                                                }
-                                                if ($overallProgress > 50) {
-                                                    $barColor = 'bg-blue-500';
-                                                }
-                                                if ($overallProgress > 70) {
-                                                    $barColor = 'bg-green-500';
-                                                }
-                                                if ($overallProgress > 85) {
-                                                    $barColor = 'bg-green-700';
-                                                }
-                                            @endphp
-                                            <div class="w-full bg-gray-200 rounded-full my-2">
-                                                <div class="text-sm font-medium text-white text-center leading-none rounded-lg hover:cursor-default relative transition-all duration-500
-                                            {{ $barColor }}"
-                                                    style="width: {{ $overallProgress }}%;">
-                                                    <p class="text-sm">{{ $overallProgress }}%</p>
-                                                </div>
-                                            </div>
-                                            {{-- akhir bar --}}
-
-                                            {{-- status --}}
-                                            <div class="flex justify-between">
-                                                <div class="flex">
-                                                    <div>
-                                                        <div
-                                                            class="items-center pt-1 pr-4 text-xs font-medium  text-gray-700">
-                                                            Keterangan:
-                                                        </div>
-                                                        {{-- Memamnggil Budget amount dari project --}}
-                                                        <div class="items-center pr-4 text-sm font-medium">
-                                                            {{ $object->status_project }}
-                                                        </div>
-                                                    </div>
-                                                    <div>
-                                                        <div
-                                                            class="items-center pt-1 pr-4 text-xs font-medium  text-gray-700">
-                                                            Keterangan:
-                                                        </div>
-                                                        {{-- Memamnggil Budget amount dari project --}}
-                                                        <div class="items-center pr-4 text-sm font-medium">
-                                                            {{ $object->progress }}
-                                                        </div>
-                                                    </div>
-                                                    <div>
-                                                        <div
-                                                            class="items-center pt-1 pr-4 text-xs font-medium  text-gray-700">
-                                                            Jumlah Budget:
-                                                        </div>
-                                                        {{-- Memamnggil Budget amount dari project --}}
-                                                        <div class="items-center pr-4 text-sm font-medium">
-                                                            Rp{{ number_format($object->budget_amount, 0, ',', '.') }}
-                                                        </div>
-                                                    </div>
-                                                    <div>
-                                                        <div
-                                                            class="items-center pt-1 pr-4 text-xs font-medium  text-gray-700">
-                                                            Terakhir diperbaharui:</div>
-                                                        {{-- Memanggil nama serta tanggal diupdate --}}
-                                                        <div class="items-center pr-4 text-sm font-medium">
-                                                            {{ $object->last_update_name }},
-                                                            {{ $object->last_update_date }}
-                                                        </div>
+                                                    if ($overallProgress > 15) {
+                                                        $barColor = 'bg-orange-500';
+                                                    }
+                                                    if ($overallProgress > 30) {
+                                                        $barColor = 'bg-yellow-500';
+                                                    }
+                                                    if ($overallProgress > 50) {
+                                                        $barColor = 'bg-blue-500';
+                                                    }
+                                                    if ($overallProgress > 70) {
+                                                        $barColor = 'bg-green-500';
+                                                    }
+                                                    if ($overallProgress > 85) {
+                                                        $barColor = 'bg-green-700';
+                                                    }
+                                                @endphp
+                                                <div class="w-full bg-gray-200 rounded-full my-2">
+                                                    <div class="text-sm font-medium text-white text-center leading-none rounded-lg hover:cursor-default relative transition-all duration-500
+                        {{ $barColor }}"
+                                                        style="width: {{ $overallProgress }}%;">
+                                                        <p class="text-sm">{{ $overallProgress }}%</p>
                                                     </div>
                                                 </div>
-                                                {{-- deadline tenggat waktu popover tooltip --}}
-                                                <div class="flex text-right">
-                                                    @php
-                                                        $deadline = hitungMundur($object->date_end);
-                                                    @endphp
-                                                    @if ($object->progress == 'Closed')
-                                                        <div
-                                                            class=" space-x-1 font-medium items-center py-1 px-3 text-center text-lg rounded-xl drop-shadow-md flex justify-center w-fit bg-green-700 text-white mt-1">
-                                                            <svg xmlns="http://www.w3.org/2000/svg" width="22"
-                                                                viewBox="0 0 24 24" fill="none">
-                                                                <g id="Interface / Check_All">
-                                                                    <path id="Vector"
-                                                                        d="M8 12.4854L12.2426 16.728L20.727 8.24268M3 12.4854L7.24264 16.728M15.7279 8.24268L12.5 11.5001"
-                                                                        stroke="#ffffff" stroke-width="2"
-                                                                        stroke-linecap="round"
-                                                                        stroke-linejoin="round" />
-                                                                </g>
-                                                            </svg>
-                                                            <p>
-                                                                Proyek telah SELESAI
-                                                            </p>
+                                                {{-- akhir bar --}}
+
+                                                {{-- status --}}
+                                                <div class="flex justify-between">
+                                                    <div class="flex">
+                                                        <div>
+                                                            <div
+                                                                class="items-center pt-1 pr-4 text-xs font-medium  text-gray-700">
+                                                                Keterangan:
+                                                            </div>
+                                                            {{-- Memamnggil Budget amount dari project --}}
+                                                            <div class="items-center pr-4 text-sm font-medium">
+                                                                {{ $object->status_project }}
+                                                            </div>
                                                         </div>
-                                                    @else
-                                                        @if ($deadline > 150)
+                                                        <div>
                                                             <div
-                                                                class="items-center py-1 px-2 text-center text-lg rounded drop-shadow-md flex justify-center w-fit bg-green-500 text-white mt-1">
-                                                                Deadline dalam {{ $deadline }} hari
+                                                                class="items-center pt-1 pr-4 text-xs font-medium  text-gray-700">
+                                                                Jumlah Budget:
                                                             </div>
-                                                        @elseif ($deadline > 100)
-                                                            <div
-                                                                class="items-center py-1 px-2 text-center text-lg rounded drop-shadow-md flex justify-center w-fit bg-blue-500 text-white mt-1">
-                                                                Deadline dalam {{ $deadline }} hari
+                                                            {{-- Memamnggil Budget amount dari project --}}
+                                                            <div class="items-center pr-4 text-sm font-medium">
+                                                                Rp{{ number_format($object->budget_amount, 0, ',', '.') }}
                                                             </div>
-                                                        @elseif ($deadline > 70)
+                                                        </div>
+                                                        <div>
                                                             <div
-                                                                class="items-center py-1 px-2 text-center text-lg rounded drop-shadow-md flex justify-center w-fit bg-yellow-400 text-white mt-1">
-                                                                Deadline dalam {{ $deadline }} hari
+                                                                class="items-center pt-1 pr-4 text-xs font-medium  text-gray-700">
+                                                                Terakhir diperbaharui:</div>
+                                                            {{-- Memanggil nama serta tanggal diupdate --}}
+                                                            <div class="items-center pr-4 text-sm font-medium">
+                                                                {{ $object->last_update_name }},
+                                                                {{ $object->last_update_date }}
                                                             </div>
-                                                        @elseif ($deadline > 30)
+                                                        </div>
+                                                    </div>
+                                                    {{-- deadline tenggat waktu popover tooltip --}}
+                                                    <div class="flex text-right">
+                                                        @php
+                                                            $deadline = hitungMundur($object->date_end);
+                                                        @endphp
+                                                        @if ($object->progress == 'Closed')
                                                             <div
-                                                                class="items-center py-1 px-2 text-center text-lg rounded drop-shadow-md flex justify-center w-fit bg-orange-400 text-white mt-1">
-                                                                Deadline dalam {{ $deadline }} hari
+                                                                class=" space-x-1 font-medium items-center py-1 px-3 text-center text-md rounded-xl drop-shadow-md flex justify-center w-fit bg-green-700 text-white mt-1">
+                                                                <svg xmlns="http://www.w3.org/2000/svg" width="22"
+                                                                    viewBox="0 0 24 24" fill="none">
+                                                                    <g id="Interface / Check_All">
+                                                                        <path id="Vector"
+                                                                            d="M8 12.4854L12.2426 16.728L20.727 8.24268M3 12.4854L7.24264 16.728M15.7279 8.24268L12.5 11.5001"
+                                                                            stroke="#ffffff" stroke-width="2"
+                                                                            stroke-linecap="round"
+                                                                            stroke-linejoin="round" />
+                                                                    </g>
+                                                                </svg>
+                                                                <p>
+                                                                    Proyek telah SELESAI
+                                                                </p>
                                                             </div>
                                                         @else
-                                                            <div
-                                                                class="items-center py-1 px-2 text-center text-lg rounded drop-shadow-md flex justify-center w-fit bg-red-600 text-white mt-1">
-                                                                Deadline dalam {{ $deadline }} hari
-                                                            </div>
-                                                        @endif
-                                                    @endif
-
-                                                    {{-- <div id="tooltip-bottom" role="tooltip"
-                                                        class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-600 rounded-lg shadow-sm opacity-0 tooltip">
-                                                        <div class="grid grid-cols-2 space-x-2">
-                                                            <div>
-                                                                <p class="text-left">Tanggal mulai:</p>
-                                                                <div class="text-left">
-                                                                    {{ $object->date_start }}
+                                                            @if ($deadline > 150)
+                                                                <div
+                                                                    class="items-center py-1 px-2 text-center text-md rounded drop-shadow-md flex justify-center w-fit bg-green-500 text-white mt-1">
+                                                                    Deadline dalam {{ $deadline }} hari
                                                                 </div>
-                                                            </div>
-                                                            <div>
-                                                                <p class="text-left">Tanggal selesai:</p>
-                                                                <p class="text-left">
-                                                                    {{ $object->date_end }}</p>
-                                                            </div>
-                                                        </div>
-                                                    </div> --}}
-                                                </div>
+                                                            @elseif ($deadline > 100)
+                                                                <div
+                                                                    class="items-center py-1 px-2 text-center text-md rounded drop-shadow-md flex justify-center w-fit bg-blue-500 text-white mt-1">
+                                                                    Deadline dalam {{ $deadline }} hari
+                                                                </div>
+                                                            @elseif ($deadline > 70)
+                                                                <div
+                                                                    class="items-center py-1 px-2 text-center text-md rounded drop-shadow-md flex justify-center w-fit bg-yellow-400 text-white mt-1">
+                                                                    Deadline dalam {{ $deadline }} hari
+                                                                </div>
+                                                            @elseif ($deadline > 30)
+                                                                <div
+                                                                    class="items-center py-1 px-2 text-center text-md rounded drop-shadow-md flex justify-center w-fit bg-orange-400 text-white mt-1">
+                                                                    Deadline dalam {{ $deadline }} hari
+                                                                </div>
+                                                            @else
+                                                                <div
+                                                                    class="items-center py-1 px-2 text-center text-md rounded drop-shadow-md flex justify-center w-fit bg-red-600 text-white mt-1">
+                                                                    Deadline dalam {{ $deadline }} hari
+                                                                </div>
+                                                            @endif
+                                                        @endif
+
+                                                        {{-- <div id="tooltip-bottom" role="tooltip"
+                                    class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-600 rounded-lg shadow-sm opacity-0 tooltip">
+                                    <div class="grid grid-cols-2 space-x-2">
+                                        <div>
+                                            <p class="text-left">Tanggal mulai:</p>
+                                            <div class="text-left">
+                                                {{ $object->date_start }}
                                             </div>
                                         </div>
-                                        {{-- akhir row --}}
+                                        <div>
+                                            <p class="text-left">Tanggal selesai:</p>
+                                            <p class="text-left">
+                                                {{ $object->date_end }}</p>
+                                        </div>
+                                    </div>
+                                </div> --}}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            {{-- akhir row --}}
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            {{-- akhir kartu proyek --}}
+                                {{-- akhir kartu proyek --}}
+                            @endif
                         @endif
-                    @endif
-                @endforeach
+                    @endforeach
+                @endif
                 {{ $project }}
             </div>
 

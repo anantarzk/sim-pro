@@ -66,7 +66,7 @@
                                     <div class="w-1/2 mt-8"><canvas id="obproject" class=""></canvas>
                                     </div>
                                     <div class="w-1/2 p-1 my-1">
-                                        <p class="font-bold text-xl text-center">Project Status</p>
+                                        <p class="font-bold text-xl text-center mb-1">Project Status</p>
                                         <hr>
                                         <p class="text-sm">Cancelled Projects:</p>
                                         <p class="font-semibold text-lg">{{ $cancel }} Projects</p>
@@ -93,7 +93,7 @@
                                 <div class="bg-white border shadow-md rounded flex">
                                     <div class="w-1/2 mt-8"><canvas id="FR" class="max-h-64"></canvas></div>
                                     <div class="w-1/2 p-1 my-1">
-                                        <p class="font-bold text-xl text-center">FR Status</p>
+                                        <p class="font-bold text-xl text-center mb-1">FR Status</p>
                                         <hr>
                                         <p class="text-sm">Approved FR:</p>
                                         <p class="font-semibold text-lg">{{ $approved_fr }} Projects</p>
@@ -146,7 +146,8 @@
                                                 </p>
                                                 <hr>
                                                 <div class="bg-gray-800 px-2">
-                                                    <p class="text-sm mt-2 text-white">Selisih <span class="text-xs">(Year Total
+                                                    <p class="text-sm mt-2 text-white">Selisih <span class="text-xs">(Year
+                                                            Total
                                                             Budget - Kumulatif Actual Payment)</span>:</p>
                                                     <p class="font-semibold text-lg text-white">
                                                         Rp{{ number_format($total_sisa_budget_ob, 0, ',', '.') }}</p>
@@ -159,45 +160,126 @@
                                     <div class="bg-white border shadow-md rounded px-2 py-1">
                                         <canvas id="finance" class="max-h-60"></canvas>
                                         <hr>
-                                        <p class="text-center font-bold text-lg">Target payment vs Kumulatif PR PA PO PAY</p>
+                                        <p class="text-center font-bold text-lg">Target payment vs Kumulatif PR PA PO PAY
+                                        </p>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
-                <div class="grid grid-cols-4 space-x-4 mt-3">
-                    <div class="bg-white border shadow-md mb-2 rounded text-center py-5 ">
-                        <p class="text-gray-800 text-lg">Kumulatif PR:</p>
-                        <p class="text-gray-800 text-2xl font-bold">Rp{{ number_format($mny_pr, 0, ',', '.') }}</p>
-                    </div>
-                    <div class="bg-white border shadow-md mb-2 rounded text-center py-5 ">
-                        <p class="text-gray-800 text-lg">Kumulatif PA:</p>
-                        <p class="text-gray-800 text-2xl font-bold">Rp{{ number_format($mny_pa, 0, ',', '.') }}</p>
-                    </div>
-                    <div class="bg-white border shadow-md mb-2 rounded text-center py-5 ">
-                        <p class="text-gray-800 text-lg">Kumulatif PO:</p>
-                        <p class="text-gray-800 text-2xl font-bold">Rp{{ number_format($mny_po, 0, ',', '.') }}</p>
-                    </div>
-                    <div class="bg-white border shadow-md mb-2 rounded text-center py-5 ">
-                        <p class="text-gray-800 text-lg">Kumulatif PAY:</p>
-                        <p class="text-gray-800 text-2xl font-bold">Rp{{ number_format($mny_pay, 0, ',', '.') }}</p>
-                    </div>
-                </div>
+                        <div class="grid grid-cols-4 space-x-4 mt-3">
+                            <div class="bg-white border shadow-md mb-2 rounded text-center py-5 ">
+                                <p class="text-gray-800 text-lg">Kumulatif PR:</p>
+                                <p class="text-gray-800 text-2xl font-bold">Rp{{ number_format($mny_pr, 0, ',', '.') }}
+                                </p>
+                            </div>
+                            <div class="bg-white border shadow-md mb-2 rounded text-center py-5 ">
+                                <p class="text-gray-800 text-lg">Kumulatif PA:</p>
+                                <p class="text-gray-800 text-2xl font-bold">Rp{{ number_format($mny_pa, 0, ',', '.') }}
+                                </p>
+                            </div>
+                            <div class="bg-white border shadow-md mb-2 rounded text-center py-5 ">
+                                <p class="text-gray-800 text-lg">Kumulatif PO:</p>
+                                <p class="text-gray-800 text-2xl font-bold">Rp{{ number_format($mny_po, 0, ',', '.') }}
+                                </p>
+                            </div>
+                            <div class="bg-white border shadow-md mb-2 rounded text-center py-5 ">
+                                <p class="text-gray-800 text-lg">Kumulatif PAY:</p>
+                                <p class="text-gray-800 text-2xl font-bold">Rp{{ number_format($mny_pay, 0, ',', '.') }}
+                                </p>
+                            </div>
+                        </div>
+
+                        <p class="text-2xl font-medium mb-1">Actual Payment:</p>
+                        <div class="grid grid-cols-6 space-x-2">
+                            <div class="bg-white border shadow-md mb-2 rounded text-center py-5 ">
+                                <p class="text-gray-800 text-lg">Januari</p>
+                                <p class="text-gray-800 text-xl font-bold">Rp{{ number_format($jan_mny_pay, 0, ',', '.') }}
+                                </p>
+                            </div>
+                            <div class="bg-white border shadow-md mb-2 rounded text-center py-5 ">
+                                <p class="text-gray-800 text-lg">Februari:</p>
+                                <p class="text-gray-800 text-xl font-bold">Rp{{ number_format($feb_mny_pay, 0, ',', '.') }}
+                                </p>
+                            </div>
+                            <div class="bg-white border shadow-md mb-2 rounded text-center py-5 ">
+                                <p class="text-gray-800 text-lg">Maret:</p>
+                                <p class="text-gray-800 text-xl font-bold">Rp{{ number_format($mar_mny_pay, 0, ',', '.') }}
+                                </p>
+                            </div>
+                            <div class="bg-white border shadow-md mb-2 rounded text-center py-5 ">
+                                <p class="text-gray-800 text-lg">April:</p>
+                                <p class="text-gray-800 text-xl font-bold">Rp{{ number_format($apr_mny_pay, 0, ',', '.') }}
+                                </p>
+                            </div>
+                            <div class="bg-white border shadow-md mb-2 rounded text-center py-5 ">
+                                <p class="text-gray-800 text-lg">Mei:</p>
+                                <p class="text-gray-800 text-xl font-bold">Rp{{ number_format($mei_mny_pay, 0, ',', '.') }}
+                                </p>
+                            </div>
+                            <div class="bg-white border shadow-md mb-2 rounded text-center py-5 ">
+                                <p class="text-gray-800 text-lg">Juni:</p>
+                                <p class="text-gray-800 text-xl font-bold">Rp{{ number_format($jun_mny_pay, 0, ',', '.') }}
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-6 space-x-2 mt-1">
+                            <div class="bg-white border shadow-md mb-2 rounded text-center py-5 ">
+                                <p class="text-gray-800 text-lg">Juli:</p>
+                                <p class="text-gray-800 text-xl font-bold">Rp{{ number_format($jul_mny_pay, 0, ',', '.') }}
+                                </p>
+                            </div>
+                            <div class="bg-white border shadow-md mb-2 rounded text-center py-5 ">
+                                <p class="text-gray-800 text-lg">Agustus:</p>
+                                <p class="text-gray-800 text-xl font-bold">Rp{{ number_format($agu_mny_pay, 0, ',', '.') }}
+                                </p>
+                            </div>
+                            <div class="bg-white border shadow-md mb-2 rounded text-center py-5 ">
+                                <p class="text-gray-800 text-lg">September:</p>
+                                <p class="text-gray-800 text-xl font-bold">Rp{{ number_format($sep_mny_pay, 0, ',', '.') }}
+                                </p>
+                            </div>
+                            <div class="bg-white border shadow-md mb-2 rounded text-center py-5 ">
+                                <p class="text-gray-800 text-lg">Oktober:</p>
+                                <p class="text-gray-800 text-xl font-bold">Rp{{ number_format($okt_mny_pay, 0, ',', '.') }}
+                                </p>
+                            </div>
+                            <div class="bg-white border shadow-md mb-2 rounded text-center py-5 ">
+                                <p class="text-gray-800 text-lg">November:</p>
+                                <p class="text-gray-800 text-xl font-bold">Rp{{ number_format($nov_mny_pay, 0, ',', '.') }}
+                                </p>
+                            </div>
+                            <div class="bg-white border shadow-md mb-2 rounded text-center py-5 ">
+                                <p class="text-gray-800 text-lg">Desember:</p>
+                                <p class="text-gray-800 text-xl font-bold">Rp{{ number_format($des_mny_pay, 0, ',', '.') }}
+                                </p>
+                            </div>
+                        </div>
                     </div>
                     {{-- dua --}}
                     <div id="second" class="hidden p-1">
                         <div class="mt-3">
                             <div class="mx-auto w-full">
                                 <div class="flex justify-between my-2">
-                                    <div
-                                        class="bg-red-600 px-4 py-2 w-fit rounded-md text-white flex items-center space-x-3">
-                                        <p class="text-4xl font-medium">
-                                            {{ $totalprojectapproval }}
-                                        </p>
-                                        <p class="font-normal text-lg">
-                                            Ajuan menunggu persetujuan
-                                        </p>
-                                    </div>
+                                    @if ($totalprojectapproval == 0)
+                                        <div
+                                            class="bg-green-600 px-4 py-2 w-fit rounded-md text-white flex items-center space-x-3">
+                                            <p class="font-normal text-lg">
+                                                Tidak ada ajuan
+                                            </p>
+                                        </div>
+                                    @else
+                                        <div
+                                            class="bg-red-600 px-4 py-2 w-fit rounded-md text-white flex items-center space-x-3">
+                                            <p class="text-4xl font-medium">
+                                                {{ $totalprojectapproval }}
+                                            </p>
+                                            <p class="font-normal text-lg">
+                                                Ajuan menunggu persetujuan
+                                            </p>
+                                        </div>
+                                    @endif
                                 </div>
                                 <div class="rounded-lg overflow-hidden bg-white">
                                     <table class="w-full">
@@ -209,47 +291,56 @@
                                             <th class="w-[15%]">Tanggal Ajuan</th>
                                         </thead>
                                         <tbody>
-                                            @foreach ($project as $object)
-                                                <tr
-                                                    class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border">
-                                                    {{-- Loop i++ --}}
-                                                    <td class="p-2 font-medium text-center text-nite whitespace-nowrap">
-                                                        {{ $loop->iteration }}
-                                                    </td>
-                                                    <td class="p-2 text-left">
-                                                        @if (
-                                                            $object->id == $object->koneksikefr->id_fr_1 &&
-                                                                $object->id == $object->koneksikear->id_ar_2 &&
-                                                                $object->id == $object->koneksikepr01->id_pr_01_3 &&
-                                                                $object->id == $object->koneksikepa02->id_pa_02_3 &&
-                                                                $object->id == $object->koneksikepo03->id_po_03_3 &&
-                                                                $object->id == $object->koneksikepay04->id_pay_04_3 &&
-                                                                $object->id == $object->koneksikemn->id_mn_4 &&
-                                                                $object->id == $object->koneksikein->id_in_5 &&
-                                                                $object->id == $object->koneksikecl->id_cl_6)
-                                                            <a
-                                                                href="/redirect-proyek/{{ $object->id }}/{{ $object->koneksikefr->id_fr_1 }}/{{ $object->koneksikear->id_ar_2 }}/{{ $object->koneksikepr01->id_pr_01_3 }}/{{ $object->koneksikepa02->id_pa_02_3 }}/{{ $object->koneksikepo03->id_po_03_3 }}/{{ $object->koneksikepay04->id_pay_04_3 }}/{{ $object->koneksikemn->id_mn_4 }}/{{ $object->koneksikein->id_in_5 }}/{{ $object->koneksikecl->id_cl_6 }}">
-                                                                <p
-                                                                    class="mb-1 text-base font-normal tracking-normal text-gray-900 hover:underline">
-                                                                    {{ $object->project_name }}
-                                                                </p>
-                                                            </a>
-                                                        @endif
-                                                    </td>
-                                                    <td class="p-2 text-center">
-                                                        {{ $object->progress }}
-                                                    </td>
-                                                    <td class="p-2">
-                                                        <div
-                                                            class="py-1 px-2 text-sm font-medium mx-auto text-white bg-orange-500 rounded w-fit">
-                                                            {{ $object->last_update_name }}
-                                                        </div>
-                                                    </td>
-                                                    <td class="p-2 text-center">
-                                                        {{ $object->last_update_date }}
-                                                    </td>
+                                            @if ($noResult == 1)
+                                                <tr>
+                                                    <td colspan="7"
+                                                        class="text-center bg-white py-4 italic text-lg font-semibold">
+                                                        Tidak ada ajuan.</td>
                                                 </tr>
-                                            @endforeach
+                                            @else
+                                                @foreach ($project as $object)
+                                                    <tr
+                                                        class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border">
+                                                        {{-- Loop i++ --}}
+                                                        <td
+                                                            class="p-2 font-medium text-center text-nite whitespace-nowrap">
+                                                            {{ $loop->iteration }}
+                                                        </td>
+                                                        <td class="p-2 text-left">
+                                                            @if (
+                                                                $object->id == $object->koneksikefr->id_fr_1 &&
+                                                                    $object->id == $object->koneksikear->id_ar_2 &&
+                                                                    $object->id == $object->koneksikepr01->id_pr_01_3 &&
+                                                                    $object->id == $object->koneksikepa02->id_pa_02_3 &&
+                                                                    $object->id == $object->koneksikepo03->id_po_03_3 &&
+                                                                    $object->id == $object->koneksikepay04->id_pay_04_3 &&
+                                                                    $object->id == $object->koneksikemn->id_mn_4 &&
+                                                                    $object->id == $object->koneksikein->id_in_5 &&
+                                                                    $object->id == $object->koneksikecl->id_cl_6)
+                                                                <a
+                                                                    href="/redirect-proyek/{{ $object->id }}/{{ $object->koneksikefr->id_fr_1 }}/{{ $object->koneksikear->id_ar_2 }}/{{ $object->koneksikepr01->id_pr_01_3 }}/{{ $object->koneksikepa02->id_pa_02_3 }}/{{ $object->koneksikepo03->id_po_03_3 }}/{{ $object->koneksikepay04->id_pay_04_3 }}/{{ $object->koneksikemn->id_mn_4 }}/{{ $object->koneksikein->id_in_5 }}/{{ $object->koneksikecl->id_cl_6 }}">
+                                                                    <p
+                                                                        class="mb-1 text-base font-normal tracking-normal text-gray-900 hover:underline">
+                                                                        {{ $object->project_name }}
+                                                                    </p>
+                                                                </a>
+                                                            @endif
+                                                        </td>
+                                                        <td class="p-2 text-center">
+                                                            {{ $object->progress }}
+                                                        </td>
+                                                        <td class="p-2">
+                                                            <div
+                                                                class="py-1 px-2 text-sm font-medium mx-auto text-white bg-orange-500 rounded w-fit">
+                                                                {{ $object->last_update_name }}
+                                                            </div>
+                                                        </td>
+                                                        <td class="p-2 text-center">
+                                                            {{ $object->last_update_date }}
+                                                        </td>
+                                                    </tr>
+                                                @endforeach
+                                            @endif
                                         </tbody>
                                     </table>
                                     {{ $project }}

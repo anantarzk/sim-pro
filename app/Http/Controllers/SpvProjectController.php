@@ -273,7 +273,6 @@ class SpvProjectController extends Controller
             ->count('id');
 
         /* kode cari search switch case*/
-
         $filterMessage = '';
         /* all PIC */
         if ($request->kondisi == 'cari' && isset($request->pic_1_me) && isset($request->pic_2_el) && isset($request->pic_3_mit)) {

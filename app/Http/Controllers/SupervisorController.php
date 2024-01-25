@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Forms;
 use App\Models\ARproject;
 use App\Models\CLproject;
 use App\Models\FRproject;
@@ -25,7 +24,7 @@ class SupervisorController extends Controller
     public function IndexSupervisor(Request $request)
     {
         DB::enableQueryLog();
-        $keyword = $request->keyword;
+        /* $keyword = $request->keyword; */
         // for dashboard
         $cancel = CONTROLPROJECT::select('id')
             ->whereNull('archive_at')
@@ -7232,7 +7231,7 @@ class SupervisorController extends Controller
             $planned->planned_12;
 
         // kondisi untuk mencari
-        if ($keyword != '') {
+       /*  if ($keyword != '') {
             $project = CONTROLPROJECT::with(
                 'koneksikefr',
                 'koneksikear',
@@ -7267,7 +7266,29 @@ class SupervisorController extends Controller
                 ->where('check', 'needcheck')
                 ->orderBy('updated_at', 'asc')
                 ->paginate(5);
-        }
+        } */
+
+        $project = CONTROLPROJECT::with(
+            'koneksikefr',
+            'koneksikear',
+            'koneksikepr01',
+            'koneksikepa02',
+            'koneksikepo03',
+            'koneksikepay04',
+            'koneksikemn',
+            'koneksikein',
+            'koneksikecl'
+        )
+            ->whereNull('archive_at')
+            ->where('check', 'needcheck')
+            ->orderBy('updated_at', 'asc')
+            ->paginate(5);
+
+        // Menggunakan total() untuk mendapatkan jumlah proyek
+        $totalResult = $project->total();
+
+        // Mengatur $noResult berdasarkan jumlah proyek
+        $noResult = ($totalResult == 0) ? 1 : 0;
 
         $koneksifr = FRproject::select('id_fr_1')->get();
         $koneksiar = ARproject::select('id_ar_2')->get();
@@ -7292,6 +7313,7 @@ class SupervisorController extends Controller
             'koneksicl' => $koneksicl,
             'totalproject' => $totalproject,
             'totalprojectapproval' => $totalprojectapproval,
+            'noResult' => $noResult,
             'cancel' => $cancel,
             'not_started' => $not_started,
             'finished' => $finished,
@@ -7318,81 +7340,6 @@ class SupervisorController extends Controller
             'sum_planned' => $sum_planned,
             'sum_ob' => $sum_ob,
             'total_sisa_budget_ob' => $total_sisa_budget_ob,
-        ]);
-    }
-
-    // =======================proyek==============
-    public function TambahProject()
-    {
-        return view('supervisor.project.tambah_project');
-    }
-    /* approval proyek kemajuan progress */
-    public function ApprovalProgress(Request $request)
-    {
-        $keyword = $request->keyword;
-        $totalprojectapproval = CONTROLPROJECT::select('id')
-            ->whereNull('archive_at')
-            ->where('check', 'needcheck')
-            ->count('id');
-        if ($keyword != '') {
-            $project = CONTROLPROJECT::with(
-                'koneksikefr',
-                'koneksikear',
-                'koneksikepr01',
-                'koneksikepa02',
-                'koneksikepo03',
-                'koneksikepay04',
-                'koneksikemn',
-                'koneksikein',
-                'koneksikecl'
-            )
-                ->whereNull('archive_at')
-                ->where('project_name', 'LIKE', '%' . $keyword . '%')
-                ->OrWhere('io_number', 'LIKE', '%' . $keyword . '%')
-                ->where('check', 'needcheck')
-                ->orderBy('updated_at', 'asc')
-                ->paginate(20);
-        } elseif ($keyword == '') {
-            $project = CONTROLPROJECT::with(
-                'koneksikefr',
-                'koneksikear',
-                'koneksikepr01',
-                'koneksikepa02',
-                'koneksikepo03',
-                'koneksikepay04',
-                'koneksikemn',
-                'koneksikein',
-                'koneksikecl'
-            )
-
-                ->whereNull('archive_at')
-                ->where('check', 'needcheck')
-                ->orderBy('updated_at', 'asc')
-                ->paginate(20);
-        }
-
-        $koneksifr = FRproject::select('id_fr_1')->get();
-        $koneksiar = ARproject::select('id_ar_2')->get();
-        $koneksipr = PRproject::select('id_pr_01_3')->get();
-        $koneksipa = PAproject::select('id_pa_02_3')->get();
-        $koneksipo = POproject::select('id_po_03_3')->get();
-        $koneksipay = PAYproject::select('id_pay_04_3')->get();
-        $koneksimn = MNproject::select('id_mn_4')->get();
-        $koneksiin = INproject::select('id_in_5')->get();
-        $koneksicl = CLproject::select('id_cl_6')->get();
-
-        return view('supervisor.progress-approve', [
-            'project' => $project,
-            'koneksifr' => $koneksifr,
-            'koneksiar' => $koneksiar,
-            'koneksipr' => $koneksipr,
-            'koneksipa' => $koneksipa,
-            'koneksipo' => $koneksipo,
-            'koneksipay' => $koneksipay,
-            'koneksimn' => $koneksimn,
-            'koneksiin' => $koneksiin,
-            'koneksicl' => $koneksicl,
-            'totalprojectapproval' => $totalprojectapproval,
         ]);
     }
 

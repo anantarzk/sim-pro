@@ -45,7 +45,7 @@
             {{-- Logo --}}
             <p class="text-7xl font-semibold tracking-tight">SIM Pro</p>
             <p class="text-sm text-center font-medium text-gray-900 uppercase mt-5">Engineering Design</p>
-            <p class="text-2xl text-center font-bold text-gray-900 font-mono">Project Monitoring
+            <p class="text-2xl text-center font-semibold text-gray-900">Project Monitoring
                 System
             </p>
         </div>

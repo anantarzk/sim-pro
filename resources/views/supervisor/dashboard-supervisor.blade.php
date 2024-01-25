@@ -1,6 +1,6 @@
 @extends('layouts.layout_supervisor')
 
-@section('title_page', 'Dashboard OB')
+@section('title_page', 'Dashboard Manajerial')
 
 @section('konten')
 
@@ -45,7 +45,7 @@
                 <ul id="tabs" class="flex bg-gray-100 text-center rounded-md">
                     <li class="w-full py-2 font-semibold text-gray-800 rounded-lg opacity-50 hover:bg-gray-200">
                         <a id="default-tab" href="#first" class="hover:text-gray-500">
-                            Dashboard OB - Supervisor
+                            Dashboard Manajerial
                         </a>
                     </li>
                     <li

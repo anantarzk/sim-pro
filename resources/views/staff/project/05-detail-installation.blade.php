@@ -2102,7 +2102,7 @@
         </div>
         {{-- Akhir progress file --}}
 
-        @if ($koneksiin->status_in == '-' || $koneksiin->status_in == 'Revisi Manufacturing')
+        @if ($koneksiin->status_in == '-' || $koneksiin->status_in == 'Revisi Installation')
             @if (
                 /* 1m */
                 $koneksiin->in_ipo_1 ||

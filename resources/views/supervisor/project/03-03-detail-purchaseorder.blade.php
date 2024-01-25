@@ -8834,7 +8834,7 @@
                                         fill="white" />
                                 </svg>
                                 <p class="text-white font-medium">
-                                    Approve Progress
+                                    Setujui Ajuan
                                 </p>
                             </div>
                         </button>
@@ -8867,7 +8867,7 @@
                                 fill="white" />
                         </svg>
                         <p class="text-white font-medium">
-                            Revisi Progress
+                            Revisi Ajuan
                         </p>
                     </div>
                 </button>

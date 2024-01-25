@@ -559,7 +559,7 @@
                             </p>
                         </div>
                     </div>
-                @elseif ($koneksicl->status_cl == 'Revisi Closed')
+                @elseif ($koneksicl->status_cl == 'Revisi Handover')
                     {{-- menunggu approval abu abu --}}
                     <div class="bg-yellow-300 flex py-1 px-2 items-center rounded border-red-500 border-4">
                         <div class="">
@@ -668,7 +668,7 @@
                                     </td>
                                     <td class="text-center">{{ $koneksicl->date_cl_i_periksa_m_1 }}</td>
                                     <td class="space-y-2 py-3 px-2">
-                                        @if (($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Closed') && $koneksicl->cl_i_periksa_m_1 == '')
+                                        @if (($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Handover') && $koneksicl->cl_i_periksa_m_1 == '')
                                             <div class="justify-center flex space-x-2">
                                                 <input type="file" name="as_cl_i_periksa_m_1"
                                                     id="fileInput_cl_i_periksa_m_1" style="display: none;">
@@ -678,7 +678,7 @@
                                                 </button>
                                             </div>
                                         @elseif (
-                                            ($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Closed') &&
+                                            ($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Handover') &&
                                                 $koneksicl->cl_i_periksa_m_1 != '' &&
                                                 $koneksicl->status_cl != 'Complete' &&
                                                 $koneksicl->status_cl != 'Waiting Approval')
@@ -734,7 +734,7 @@
                                     </td>
                                     <td class="text-center">{{ $koneksicl->date_cl_i_periksa_m_2 }}</td>
                                     <td class="space-y-2 py-3 px-2">
-                                        @if (($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Closed') && $koneksicl->cl_i_periksa_m_2 == '')
+                                        @if (($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Handover') && $koneksicl->cl_i_periksa_m_2 == '')
                                             <div class="justify-center flex space-x-2">
                                                 <input type="file" name="as_cl_i_periksa_m_2"
                                                     id="fileInput_cl_i_periksa_m_2" style="display: none;">
@@ -744,7 +744,7 @@
                                                 </button>
                                             </div>
                                         @elseif (
-                                            ($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Closed') &&
+                                            ($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Handover') &&
                                                 $koneksicl->cl_i_periksa_m_2 != '' &&
                                                 $koneksicl->status_cl != 'Complete' &&
                                                 $koneksicl->status_cl != 'Waiting Approval')
@@ -801,7 +801,7 @@
                                     </td>
                                     <td class="text-center">{{ $koneksicl->date_cl_i_periksa_m_3 }}</td>
                                     <td class="space-y-2 py-3 px-2">
-                                        @if (($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Closed') && $koneksicl->cl_i_periksa_m_3 == '')
+                                        @if (($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Handover') && $koneksicl->cl_i_periksa_m_3 == '')
                                             <div class="justify-center flex space-x-2">
                                                 <input type="file" name="as_cl_i_periksa_m_3"
                                                     id="fileInput_cl_i_periksa_m_3" style="display: none;">
@@ -811,7 +811,7 @@
                                                 </button>
                                             </div>
                                         @elseif (
-                                            ($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Closed') &&
+                                            ($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Handover') &&
                                                 $koneksicl->cl_i_periksa_m_3 != '' &&
                                                 $koneksicl->status_cl != 'Complete' &&
                                                 $koneksicl->status_cl != 'Waiting Approval')
@@ -914,7 +914,7 @@
                                     </td>
                                     <td class="text-center">{{ $koneksicl->date_cl_qas_1 }}</td>
                                     <td class="space-y-2 py-3 px-2">
-                                        @if (($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Closed') && $koneksicl->cl_qas_1 == '')
+                                        @if (($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Handover') && $koneksicl->cl_qas_1 == '')
                                             <div class="justify-center flex space-x-2">
                                                 <input type="file" name="as_cl_qas_1" id="fileInput_cl_qas_1"
                                                     style="display: none;">
@@ -924,7 +924,7 @@
                                                 </button>
                                             </div>
                                         @elseif (
-                                            ($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Closed') &&
+                                            ($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Handover') &&
                                                 $koneksicl->cl_qas_1 != '' &&
                                                 $koneksicl->status_cl != 'Complete' &&
                                                 $koneksicl->status_cl != 'Waiting Approval')
@@ -979,7 +979,7 @@
                                     </td>
                                     <td class="text-center">{{ $koneksicl->date_cl_qas_2 }}</td>
                                     <td class="space-y-2 py-3 px-2">
-                                        @if (($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Closed') && $koneksicl->cl_qas_2 == '')
+                                        @if (($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Handover') && $koneksicl->cl_qas_2 == '')
                                             <div class="justify-center flex space-x-2">
                                                 <input type="file" name="as_cl_qas_2" id="fileInput_cl_qas_2"
                                                     style="display: none;">
@@ -989,7 +989,7 @@
                                                 </button>
                                             </div>
                                         @elseif (
-                                            ($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Closed') &&
+                                            ($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Handover') &&
                                                 $koneksicl->cl_qas_2 != '' &&
                                                 $koneksicl->status_cl != 'Complete' &&
                                                 $koneksicl->status_cl != 'Waiting Approval')
@@ -1092,7 +1092,7 @@
                                     </td>
                                     <td class="text-center">{{ $koneksicl->date_cl_i_pakai_m_1 }}</td>
                                     <td class="space-y-2 py-3 px-2">
-                                        @if (($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Closed') && $koneksicl->cl_i_pakai_m_1 == '')
+                                        @if (($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Handover') && $koneksicl->cl_i_pakai_m_1 == '')
                                             <div class="justify-center flex space-x-2">
                                                 <input type="file" name="as_cl_i_pakai_m_1"
                                                     id="fileInput_cl_i_pakai_m_1" style="display: none;">
@@ -1102,7 +1102,7 @@
                                                 </button>
                                             </div>
                                         @elseif (
-                                            ($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Closed') &&
+                                            ($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Handover') &&
                                                 $koneksicl->cl_i_pakai_m_1 != '' &&
                                                 $koneksicl->status_cl != 'Complete' &&
                                                 $koneksicl->status_cl != 'Waiting Approval')
@@ -1157,7 +1157,7 @@
                                     </td>
                                     <td class="text-center">{{ $koneksicl->date_cl_i_pakai_m_2 }}</td>
                                     <td class="space-y-2 py-3 px-2">
-                                        @if (($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Closed') && $koneksicl->cl_i_pakai_m_2 == '')
+                                        @if (($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Handover') && $koneksicl->cl_i_pakai_m_2 == '')
                                             <div class="justify-center flex space-x-2">
                                                 <input type="file" name="as_cl_i_pakai_m_2"
                                                     id="fileInput_cl_i_pakai_m_2" style="display: none;">
@@ -1167,7 +1167,7 @@
                                                 </button>
                                             </div>
                                         @elseif (
-                                            ($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Closed') &&
+                                            ($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Handover') &&
                                                 $koneksicl->cl_i_pakai_m_2 != '' &&
                                                 $koneksicl->status_cl != 'Complete' &&
                                                 $koneksicl->status_cl != 'Waiting Approval')
@@ -1269,7 +1269,7 @@
                                     </td>
                                     <td class="text-center">{{ $koneksicl->date_cl_training_1 }}</td>
                                     <td class="space-y-2 py-3 px-2">
-                                        @if (($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Closed') && $koneksicl->cl_training_1 == '')
+                                        @if (($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Handover') && $koneksicl->cl_training_1 == '')
                                             <div class="justify-center flex space-x-2">
                                                 <input type="file" name="as_cl_training_1"
                                                     id="fileInput_cl_training_1" style="display: none;">
@@ -1279,7 +1279,7 @@
                                                 </button>
                                             </div>
                                         @elseif (
-                                            ($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Closed') &&
+                                            ($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Handover') &&
                                                 $koneksicl->cl_training_1 != '' &&
                                                 $koneksicl->status_cl != 'Complete' &&
                                                 $koneksicl->status_cl != 'Waiting Approval')
@@ -1332,7 +1332,7 @@
                                     </td>
                                     <td class="text-center">{{ $koneksicl->date_cl_training_2 }}</td>
                                     <td class="space-y-2 py-3 px-2">
-                                        @if (($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Closed') && $koneksicl->cl_training_2 == '')
+                                        @if (($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Handover') && $koneksicl->cl_training_2 == '')
                                             <div class="justify-center flex space-x-2">
                                                 <input type="file" name="as_cl_training_2"
                                                     id="fileInput_cl_training_2" style="display: none;">
@@ -1342,7 +1342,7 @@
                                                 </button>
                                             </div>
                                         @elseif (
-                                            ($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Closed') &&
+                                            ($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Handover') &&
                                                 $koneksicl->cl_training_2 != '' &&
                                                 $koneksicl->status_cl != 'Complete' &&
                                                 $koneksicl->status_cl != 'Waiting Approval')
@@ -1398,7 +1398,7 @@
                                     </td>
                                     <td class="text-center">{{ $koneksicl->date_cl_training_3 }}</td>
                                     <td class="space-y-2 py-3 px-2">
-                                        @if (($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Closed') && $koneksicl->cl_training_3 == '')
+                                        @if (($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Handover') && $koneksicl->cl_training_3 == '')
                                             <div class="justify-center flex space-x-2">
                                                 <input type="file" name="as_cl_training_3"
                                                     id="fileInput_cl_training_3" style="display: none;">
@@ -1408,7 +1408,7 @@
                                                 </button>
                                             </div>
                                         @elseif (
-                                            ($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Closed') &&
+                                            ($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Handover') &&
                                                 $koneksicl->cl_training_3 != '' &&
                                                 $koneksicl->status_cl != 'Complete' &&
                                                 $koneksicl->status_cl != 'Waiting Approval')
@@ -1463,7 +1463,7 @@
                                     </td>
                                     <td class="text-center">{{ $koneksicl->date_cl_training_4 }}</td>
                                     <td class="space-y-2 py-3 px-2">
-                                        @if (($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Closed') && $koneksicl->cl_training_4 == '')
+                                        @if (($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Handover') && $koneksicl->cl_training_4 == '')
                                             <div class="justify-center flex space-x-2">
                                                 <input type="file" name="as_cl_training_4"
                                                     id="fileInput_cl_training_4" style="display: none;">
@@ -1473,7 +1473,7 @@
                                                 </button>
                                             </div>
                                         @elseif (
-                                            ($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Closed') &&
+                                            ($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Handover') &&
                                                 $koneksicl->cl_training_4 != '' &&
                                                 $koneksicl->status_cl != 'Complete' &&
                                                 $koneksicl->status_cl != 'Waiting Approval')
@@ -1529,7 +1529,7 @@
                                     </td>
                                     <td class="text-center">{{ $koneksicl->date_cl_training_5 }}</td>
                                     <td class="space-y-2 py-3 px-2">
-                                        @if (($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Closed') && $koneksicl->cl_training_5 == '')
+                                        @if (($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Handover') && $koneksicl->cl_training_5 == '')
                                             <div class="justify-center flex space-x-2">
                                                 <input type="file" name="as_cl_training_5"
                                                     id="fileInput_cl_training_5" style="display: none;">
@@ -1539,7 +1539,7 @@
                                                 </button>
                                             </div>
                                         @elseif (
-                                            ($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Closed') &&
+                                            ($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Handover') &&
                                                 $koneksicl->cl_training_5 != '' &&
                                                 $koneksicl->status_cl != 'Complete' &&
                                                 $koneksicl->status_cl != 'Waiting Approval')
@@ -1641,7 +1641,7 @@
                                     </td>
                                     <td class="text-center">{{ $koneksicl->date_cl_l_trouble_1 }}</td>
                                     <td class="space-y-2 py-3 px-2">
-                                        @if (($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Closed') && $koneksicl->cl_l_trouble_1 == '')
+                                        @if (($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Handover') && $koneksicl->cl_l_trouble_1 == '')
                                             <div class="justify-center flex space-x-2">
                                                 <input type="file" name="as_cl_l_trouble_1"
                                                     id="fileInput_cl_l_trouble_1" style="display: none;">
@@ -1651,7 +1651,7 @@
                                                 </button>
                                             </div>
                                         @elseif (
-                                            ($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Closed') &&
+                                            ($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Handover') &&
                                                 $koneksicl->cl_l_trouble_1 != '' &&
                                                 $koneksicl->status_cl != 'Complete' &&
                                                 $koneksicl->status_cl != 'Waiting Approval')
@@ -1707,7 +1707,7 @@
                                     </td>
                                     <td class="text-center">{{ $koneksicl->date_cl_l_trouble_2 }}</td>
                                     <td class="space-y-2 py-3 px-2">
-                                        @if (($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Closed') && $koneksicl->cl_l_trouble_2 == '')
+                                        @if (($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Handover') && $koneksicl->cl_l_trouble_2 == '')
                                             <div class="justify-center flex space-x-2">
                                                 <input type="file" name="as_cl_l_trouble_2"
                                                     id="fileInput_cl_l_trouble_2" style="display: none;">
@@ -1717,7 +1717,7 @@
                                                 </button>
                                             </div>
                                         @elseif (
-                                            ($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Closed') &&
+                                            ($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Handover') &&
                                                 $koneksicl->cl_l_trouble_2 != '' &&
                                                 $koneksicl->status_cl != 'Complete' &&
                                                 $koneksicl->status_cl != 'Waiting Approval')
@@ -1820,7 +1820,7 @@
                                     </td>
                                     <td class="text-center">{{ $koneksicl->date_cl_camb_1 }}</td>
                                     <td class="space-y-2 py-3 px-2">
-                                        @if (($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Closed') && $koneksicl->cl_camb_1 == '')
+                                        @if (($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Handover') && $koneksicl->cl_camb_1 == '')
                                             <div class="justify-center flex space-x-2">
                                                 <input type="file" name="as_cl_camb_1" id="fileInput_cl_camb_1"
                                                     style="display: none;">
@@ -1830,7 +1830,7 @@
                                                 </button>
                                             </div>
                                         @elseif (
-                                            ($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Closed') &&
+                                            ($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Handover') &&
                                                 $koneksicl->cl_camb_1 != '' &&
                                                 $koneksicl->status_cl != 'Complete' &&
                                                 $koneksicl->status_cl != 'Waiting Approval')
@@ -1886,7 +1886,7 @@
                                     </td>
                                     <td class="text-center">{{ $koneksicl->date_cl_camb_2 }}</td>
                                     <td class="space-y-2 py-3 px-2">
-                                        @if (($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Closed') && $koneksicl->cl_camb_2 == '')
+                                        @if (($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Handover') && $koneksicl->cl_camb_2 == '')
                                             <div class="justify-center flex space-x-2">
                                                 <input type="file" name="as_cl_camb_2" id="fileInput_cl_camb_2"
                                                     style="display: none;">
@@ -1896,7 +1896,7 @@
                                                 </button>
                                             </div>
                                         @elseif (
-                                            ($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Closed') &&
+                                            ($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Handover') &&
                                                 $koneksicl->cl_camb_2 != '' &&
                                                 $koneksicl->status_cl != 'Complete' &&
                                                 $koneksicl->status_cl != 'Waiting Approval')
@@ -1998,7 +1998,7 @@
                                     <div id="submit-1"></div>
                                     <td class="text-center">{{ $koneksicl->date_cl_im_1 }}</td>
                                     <td class="space-y-2 py-3 px-2">
-                                        @if (($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Closed') && $koneksicl->cl_im_1 == '')
+                                        @if (($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Handover') && $koneksicl->cl_im_1 == '')
                                             <div class="justify-center flex space-x-2">
                                                 <input type="file" name="as_cl_im_1" id="fileInput_cl_im_1"
                                                     style="display: none;">
@@ -2008,7 +2008,7 @@
                                                 </button>
                                             </div>
                                         @elseif (
-                                            ($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Closed') &&
+                                            ($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Handover') &&
                                                 $koneksicl->cl_im_1 != '' &&
                                                 $koneksicl->status_cl != 'Complete' &&
                                                 $koneksicl->status_cl != 'Waiting Approval')
@@ -2064,7 +2064,7 @@
                                     </td>
                                     <td class="text-center">{{ $koneksicl->date_cl_im_2 }}</td>
                                     <td class="space-y-2 py-3 px-2">
-                                        @if (($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Closed') && $koneksicl->cl_im_2 == '')
+                                        @if (($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Handover') && $koneksicl->cl_im_2 == '')
                                             <div class="justify-center flex space-x-2">
                                                 <input type="file" name="as_cl_im_2" id="fileInput_cl_im_2"
                                                     style="display: none;">
@@ -2074,7 +2074,7 @@
                                                 </button>
                                             </div>
                                         @elseif (
-                                            ($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Closed') &&
+                                            ($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Handover') &&
                                                 $koneksicl->cl_im_2 != '' &&
                                                 $koneksicl->status_cl != 'Complete' &&
                                                 $koneksicl->status_cl != 'Waiting Approval')
@@ -2130,7 +2130,7 @@
                                     </td>
                                     <td class="text-center">{{ $koneksicl->date_cl_im_3 }}</td>
                                     <td class="space-y-2 py-3 px-2">
-                                        @if (($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Closed') && $koneksicl->cl_im_3 == '')
+                                        @if (($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Handover') && $koneksicl->cl_im_3 == '')
                                             <div class="justify-center flex space-x-2">
                                                 <input type="file" name="as_cl_im_3" id="fileInput_cl_im_3"
                                                     style="display: none;">
@@ -2140,7 +2140,7 @@
                                                 </button>
                                             </div>
                                         @elseif (
-                                            ($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Closed') &&
+                                            ($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Handover') &&
                                                 $koneksicl->cl_im_3 != '' &&
                                                 $koneksicl->status_cl != 'Complete' &&
                                                 $koneksicl->status_cl != 'Waiting Approval')
@@ -2195,7 +2195,7 @@
                                     </td>
                                     <td class="text-center">{{ $koneksicl->date_cl_im_4 }}</td>
                                     <td class="space-y-2 py-3 px-2">
-                                        @if (($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Closed') && $koneksicl->cl_im_4 == '')
+                                        @if (($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Handover') && $koneksicl->cl_im_4 == '')
                                             <div class="justify-center flex space-x-2">
                                                 <input type="file" name="as_cl_im_4" id="fileInput_cl_im_4"
                                                     style="display: none;">
@@ -2205,7 +2205,7 @@
                                                 </button>
                                             </div>
                                         @elseif (
-                                            ($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Closed') &&
+                                            ($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Handover') &&
                                                 $koneksicl->cl_im_4 != '' &&
                                                 $koneksicl->status_cl != 'Complete' &&
                                                 $koneksicl->status_cl != 'Waiting Approval')
@@ -2261,7 +2261,7 @@
                                     </td>
                                     <td class="text-center">{{ $koneksicl->date_cl_im_5 }}</td>
                                     <td class="space-y-2 py-3 px-2">
-                                        @if (($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Closed') && $koneksicl->cl_im_5 == '')
+                                        @if (($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Handover') && $koneksicl->cl_im_5 == '')
                                             <div class="justify-center flex space-x-2">
                                                 <input type="file" name="as_cl_im_5" id="fileInput_cl_im_5"
                                                     style="display: none;">
@@ -2271,7 +2271,7 @@
                                                 </button>
                                             </div>
                                         @elseif (
-                                            ($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Closed') &&
+                                            ($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Handover') &&
                                                 $koneksicl->cl_im_5 != '' &&
                                                 $koneksicl->status_cl != 'Complete' &&
                                                 $koneksicl->status_cl != 'Waiting Approval')
@@ -2374,7 +2374,7 @@
                                     <td class="text-center">{{ $koneksicl->date_cl_chor_1 }}</td>
 
                                     <td class="space-y-2 py-3 px-2">
-                                        @if (($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Closed') && $koneksicl->cl_chor_1 == '')
+                                        @if (($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Handover') && $koneksicl->cl_chor_1 == '')
                                             <div class="justify-center flex space-x-2">
                                                 <input type="file" name="as_cl_chor_1" id="fileInput_cl_chor_1"
                                                     style="display: none;">
@@ -2384,7 +2384,7 @@
                                                 </button>
                                             </div>
                                         @elseif (
-                                            ($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Closed') &&
+                                            ($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Handover') &&
                                                 $koneksicl->cl_chor_1 != '' &&
                                                 $koneksicl->status_cl != 'Complete' &&
                                                 $koneksicl->status_cl != 'Waiting Approval')
@@ -2440,7 +2440,7 @@
                                     </td>
                                     <td class="text-center">{{ $koneksicl->date_cl_chor_2 }}</td>
                                     <td class="space-y-2 py-3 px-2">
-                                        @if (($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Closed') && $koneksicl->cl_chor_2 == '')
+                                        @if (($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Handover') && $koneksicl->cl_chor_2 == '')
                                             <div class="justify-center flex space-x-2">
                                                 <input type="file" name="as_cl_chor_2" id="fileInput_cl_chor_2"
                                                     style="display: none;">
@@ -2450,7 +2450,7 @@
                                                 </button>
                                             </div>
                                         @elseif (
-                                            ($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Closed') &&
+                                            ($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Handover') &&
                                                 $koneksicl->cl_chor_2 != '' &&
                                                 $koneksicl->status_cl != 'Complete' &&
                                                 $koneksicl->status_cl != 'Waiting Approval')
@@ -3005,7 +3005,7 @@
             </form>
         </div>
         {{-- Akhir progress file --}}
-        @if ($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Closed')
+        @if ($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Handover')
             @if (
                 $koneksicl->cl_i_periksa_m_1 ||
                     $koneksicl->cl_i_periksa_m_2 ||

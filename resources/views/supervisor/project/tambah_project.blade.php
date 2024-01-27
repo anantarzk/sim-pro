@@ -1,5 +1,5 @@
 @extends('layouts.layout_supervisor')
-@section('title_page', 'Input Proyek')
+@section('title_page', 'Tambah Proyek')
 
 
 <div class="container my-20 mx-auto">
@@ -10,10 +10,19 @@
     </div>
     <div class="mx-6 px-8 pt-5 pb-3 bg-white shadow-md rounded">
 
-        <p class="font-bold text-gray-800 text-3xl mb-3">Tambah Proyek:</p>
+        <p class="font-semibold text-gray-800 text-3xl mb-3">Tambah Proyek:</p>
 
         {{-- Notifikasi --}}
-
+        @if ($errors->any())
+        <div
+            class="flex p-4 mb-4 text-sm text-red-700 bg-red-100 rounded-lg  alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li class="font-bold">{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
         {{-- Notifikasi sukses --}}
         {{-- Mengambil sesion status --}}
         @if (Session::has('status'))
@@ -58,7 +67,7 @@
                         placeholder=" " required />
                     <label for="floating_email"
                         class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-orange-500 peer-focus:dark:text-orange-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
-                        *Project Name
+                        Judul Proyek<span class="text-red-600">*</span>
                     </label>
                 </div>
                 <div class="relative z-0 mb-6 w-full group">
@@ -67,16 +76,16 @@
                         placeholder=" " required="">
                     <label for="floating_company"
                         class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-orange-500 peer-focus:dark:text-orange-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
-                        *IO Number
+                        IO Number (harus tepat 12 digit)<span class="text-red-600">*</span>
                     </label>
                 </div>
                 <div class="relative z-0 mb-6 w-full group">
-                    <input type="number" name="budget_amount" id="floating_company" {{-- oninput="formatAngka(this)" --}}
+                    <input type="text" name="budget_amount" id="floating_company" oninput="formatAngka(this)"
                         class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300  [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none  focus:outline-none focus:ring-0 focus:border-orange-500 peer"
                         placeholder=" ">
                     <label for="floating_company"
                         class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-orange-500 peer-focus:dark:text-orange-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
-                        *Budget (Rp)
+                        Budget (Rp)<span class="text-red-600">*</span>
                     </label>
                 </div>
             </div>
@@ -85,10 +94,10 @@
                 <div class="relative z-0 mb-6 w-full group">
                     <select id="underline_select" name="section" required
                         class="block py-2.5 px-0 w-full text-sm text-gray-500 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-gray-400 focus:outline-none focus:ring-0 focus:border-orange-500 peer">
-                        <option disabled selected="" value="">*Section</option>
+                        <option disabled selected="" value="">Section<span class="text-red-600">*</span></option>
                         <option value="Design">Design</option>
                         <option value="IE">IE</option>
-                        <option value="Eng">Maintenance</option>
+                        <option value="Maintenance">Maintenance</option>
                         <option value="PC">PC</option>
                         <option value="Production">Production</option>
                         <option value="SHE">SHE</option>
@@ -99,7 +108,7 @@
                 <div class="relative z-0 mb-6 w-full group">
                     <select id="underline_select" name="cost_dept" required
                         class="block py-2.5 px-0 w-full text-sm text-gray-500 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-gray-400 focus:outline-none focus:ring-0 focus:border-orange-500 peer">
-                        <option disabled selected="" value="">*Cost Dept</option>
+                        <option disabled selected="" value="">Cost Dept<span class="text-red-600">*</span></option>
                         <option value="P1.K">P1.K</option>
                         <option value="P2.K">P2.K</option>
                         <option value="P3.K">P3.K</option>
@@ -142,7 +151,7 @@
                 <div class="relative z-0 mb-6 w-full group">
                     <select id="underline_select" name="status_project" required
                         class="block py-2.5 px-0 w-full text-sm text-gray-500 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-gray-400 focus:outline-none focus:ring-0 focus:border-orange-500 peer">
-                        <option disabled selected="" value="">*Status Fund Request</option>
+                        <option disabled selected="" value="">Status Fund Request<span class="text-red-600">*</span></option>
                         <option value="Approval">Approval</option>
                         <option value="Cancel">Cancel</option>
                         <option value="On Progress">On Progress</option>
@@ -156,7 +165,7 @@
                 <div class="relative z-0 mb-6 w-full group">
                     <select id="underline_select" name="ob_year" required
                         class="block py-2.5 px-0 w-full text-sm text-gray-500 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-gray-400 focus:outline-none focus:ring-0 focus:border-orange-500 peer">
-                        <option disabled selected="" value="">*OB Year</option>
+                        <option disabled selected="" value="">OB Year<span class="text-red-600">*</span></option>
                         <option value="2023">2023</option>
                         <option value="2024">2024</option>
                         <option value="2025">2025</option>
@@ -171,28 +180,28 @@
                     </select>
                 </div>
                 <div class="relative z-0 mb-6 w-full group">
-                    <input type="date" name="date_start" id="floating_company"
+                    <input type="date" name="date_start" id="floating_company" required
                         class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-orange-500 focus:outline-none focus:ring-0 focus:border-orange-500 peer"
                         placeholder=" ">
                     <label for="floating_company"
-                        class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-orange-500 peer-focus:dark:text-orange-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
-                        Date Start
+                        class="peer-focus:font-medium absolute text-md text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-orange-500 peer-focus:dark:text-orange-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
+                        Tanggal mulai<span class="text-red-600">*</span>
                     </label>
                 </div>
                 <div class="relative z-0 mb-6 w-full group">
-                    <input type="date" name="date_end" id="floating_company"
+                    <input type="date" name="date_end" id="floating_company" required
                         class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-orange-500 focus:outline-none focus:ring-0 focus:border-orange-500 peer"
                         placeholder=" ">
                     <label for="floating_company"
-                        class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-orange-500 peer-focus:dark:text-orange-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
-                        Date End
+                        class="peer-focus:font-medium absolute text-md text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-orange-500 peer-focus:dark:text-orange-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
+                        Tanggal selesai<span class="text-red-600">*</span>
                     </label>
                 </div>
 
             </div>
 
             <p class="font-light text-gray-800 text-xl">
-                Penanggung jawab (PIC)
+                Penanggung jawab (PIC)<span class="text-red-600">*</span>
             </p>
             <div class="grid grid-cols-3 gap-6">
                 <div class="relative z-0 w-full group">
@@ -246,7 +255,7 @@
             <br>
 
             <button type="submit"
-                class="text-white bg-orange-500 hover:bg-orange-600 focus:ring-4 focus:outline-none focus:ring-orange-500 font-bold rounded text-xl w-full py-2 text-center">
+                class="text-white bg-orange-500 hover:bg-orange-600 focus:ring-4 focus:outline-none focus:ring-orange-500 font-bold rounded text-lg w-full py-2 text-center">
                 Tambah proyek
             </button>
         </form>
@@ -256,14 +265,14 @@
 
     <script>
      function formatAngka(input) {
-            // Menghilangkan karakter selain angka
-            let angka = input.value.replace(/[^\d]/g, '');
+        // Menghilangkan karakter selain angka
+        let angka = input.value.replace(/[^\d]/g, '');
 
-            // Menambahkan tanda titik setiap ribuan
-            angka = angka.replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+        // Menambahkan tanda titik setiap ribuan
+        angka = angka.replace(/\B(?=(\d{3})+(?!\d))/g, '.');
 
-            // Update nilai input
-            input.value = angka;
-        }
+        // Update nilai input
+        input.value = angka;
+    }
     </script>
 </div>

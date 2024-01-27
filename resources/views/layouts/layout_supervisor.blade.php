@@ -5,8 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>@yield('title_page') | Supervisor</title>
+    {{-- <meta http-equiv="refresh" content="5"> --}}
 
-
+    @yield('custom_head')
     <!-- Tailwind CSS -->
     @vite('resources/css/app.css')
 
@@ -33,16 +34,14 @@
         }
     </style>
 
-
 </head>
 
-<body class="{{-- bg-[url('image/BSIN-K.jpg')] bg-no-repeat bg-cover bg-center --}} bg-gray-200">
+<body class="bg-gray-200">
 
     {{-- Navbar --}}
     <div class="container mb-20">
 
-        <nav
-            class="bg-gray-600 px-2 sm:px-2 py-2.5 fixed w-full z-20 top-0 left-0 border-b-4 border-orange-500 ">
+        <nav class="bg-gray-600 px-2 sm:px-2 py-2.5 fixed w-full z-20 top-0 left-0 border-b-4 border-orange-500 ">
             <div class=" flex flex-wrap justify-between items-center mx-auto">
 
                 <div class="ml-6 flex text-center">
@@ -59,11 +58,11 @@
 
                     {{-- Logo  --}}
                     <span class="self-center whitespace-nowrap text-xl font-semibold">
-                       {{--  <img src="{{ asset('/image/logo/02-logo-white-bridgestone.svg') }}" class="w-1/4"
+                        {{--  <img src="{{ asset('/image/logo/02-logo-white-bridgestone.svg') }}" class="w-1/4"
                             alt="tidak ada gambar"> --}}
-                            <p class="text-white">
-                                SIM Pro
-                            </p>
+                        <p class="text-white">
+                            SIM Pro
+                        </p>
                     </span>
                     {{-- Akhir Logo --}}
                 </div>
@@ -114,7 +113,7 @@
                                                 value="{{ Auth::user()->first_name }} - Telah Logout">
                                             <input type="text" hidden name="waktu" value="{{ date('d-m-Y H:i') }}">
                                             <button type="submit"
-                                                class="flex w-full items-center py-2 px-4 text-sm text-gray-700 text-left hover:bg-orange-500 hover:text-white fill-gray-600 hover:fill-white hover:font-medium space-x-2">
+                                                class="flex w-full items-center py-2 px-4 text-sm text-gray-700 text-left hover:bg-red-600 hover:text-white fill-gray-600 hover:fill-white hover:font-medium space-x-2">
                                                 <svg width="14" height="14" viewBox="0 0 14 14" class=""
                                                     xmlns="http://www.w3.org/2000/svg">
                                                     <path
@@ -122,10 +121,8 @@
                                                     <path
                                                         d="M13.9148 6.55605L10.0269 2.66844C9.91856 2.55999 9.72678 2.56013 9.61847 2.66844L8.6961 3.59096C8.58331 3.70374 8.58331 3.88657 8.6961 3.99936L10.4522 5.75571H2.85011C2.69067 5.75571 2.56128 5.88511 2.56128 6.04454V7.47596C2.56128 7.63539 2.69067 7.76479 2.85011 7.76479H10.4526L8.69653 9.52114C8.58375 9.63393 8.58375 9.81676 8.69653 9.92954L9.6189 10.8522C9.67306 10.9064 9.74671 10.9368 9.8231 10.9368C9.89978 10.9368 9.97315 10.9064 10.0273 10.8522L13.9152 6.9646C13.9694 6.91044 13.9998 6.83679 13.9998 6.76039C13.9997 6.68357 13.9689 6.6102 13.9148 6.55605Z" />
                                                 </svg>
-                                                <p>Sign out</p>
+                                                <p>Log out</p>
                                             </button>
-                                            {{-- <a class="block py-2 px-4 text-xs text-gray-700 hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-600 dark:hover:text-white"
-                                                href="/logout">Sign out</a> --}}
                                         </form>
                                     </li>
                                 </ul>
@@ -203,7 +200,7 @@
                                 fill="white" />
                         </svg>
 
-                        <span class="ml-7  flex-1">Proyek</span>
+                        <span class="ml-7  flex-1">Modul Proyek</span>
                         <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 20 20"
                             xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd"
@@ -253,7 +250,7 @@
 
                 <li>
                     <a class="flex items-center rounded-lg py-2 pl-2 text-base font-semibold text-white hover:bg-orange-500 decoration-red-600"
-                        data-collapse-toggle="dropdown-2" type="button" aria-controls="dropdown-2" href="#">
+                    href="/tambah-standar-project">
                         <svg width="24" height="auto" viewBox="0 0 48 48" fill="white"
                             xmlns="http://www.w3.org/2000/svg">
                             <path
@@ -269,44 +266,8 @@
                             <path
                                 d="M46 35C46 41.0751 41.0751 46 35 46C28.9249 46 24 41.0751 24 35C24 28.9249 28.9249 24 35 24C41.0751 24 46 28.9249 46 35ZM36 28C36 27.4477 35.5523 27 35 27C34.4477 27 34 27.4477 34 28V34H28C27.4477 34 27 34.4477 27 35C27 35.5523 27.4477 36 28 36H34V42C34 42.5523 34.4477 43 35 43C35.5523 43 36 42.5523 36 42V36H42C42.5523 36 43 35.5523 43 35C43 34.4477 42.5523 34 42 34H36V28Z" />
                         </svg>
-                        <span class="ml-6 mr-9">Kelola Standar Formulir</span>
-                        <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 20 20"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd"
-                                d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                                clip-rule="evenodd"></path>
-                        </svg>
+                        <span class="ml-6">Kelola Formulir Kerja Standar</span>
                     </a>
-                    <div class="font-regular text-sm">
-                        <ul id="dropdown-2" class="hidden space-y-2 py-2 pl-14">
-                            {{-- tombol formulir umum --}}
-                           {{--  <li class="px-2 rounded-lg flex items-center  hover:bg-orange-500 decoration-red-600 ">
-                                <svg width="20" height="auto" viewBox="0 0 52 56" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="M18 54.5C18 55.3284 18.6716 56 19.5 56H32.5C33.3284 56 34 55.3284 34 54.5V1.5C34 0.671574 33.3284 0 32.5 0H19.5C18.6716 0 18 0.671573 18 1.5V54.5ZM20 5.5C20 4.67157 20.6716 4 21.5 4H30.5C31.3284 4 32 4.67157 32 5.5V24.5C32 25.3284 31.3284 26 30.5 26H21.5C20.6716 26 20 25.3284 20 24.5V5.5ZM26 39C29.309 39 32 41.691 32 45C32 48.309 29.309 51 26 51C22.691 51 20 48.309 20 45C20 41.691 22.691 39 26 39Z"
-                                        fill="white" />
-                                    <path
-                                        d="M37.5 0C36.6716 0 36 0.671573 36 1.5V54.5C36 55.3284 36.6716 56 37.5 56H50.5C51.3284 56 52 55.3284 52 54.5V1.5C52 0.671574 51.3284 0 50.5 0H37.5ZM44 51C40.691 51 38 48.309 38 45C38 41.691 40.691 39 44 39C47.309 39 50 41.691 50 45C50 48.309 47.309 51 44 51ZM50 24.5C50 25.3284 49.3284 26 48.5 26H39.5C38.6716 26 38 25.3284 38 24.5V5.5C38 4.67157 38.6716 4 39.5 4H48.5C49.3284 4 50 4.67157 50 5.5V24.5Z"
-                                        fill="white" />
-                                    <path
-                                        d="M0 54.5C0 55.3284 0.671573 56 1.5 56H14.5C15.3284 56 16 55.3284 16 54.5V1.5C16 0.671574 15.3284 0 14.5 0H1.5C0.671573 0 0 0.671573 0 1.5V54.5ZM2 5.5C2 4.67157 2.67157 4 3.5 4H12.5C13.3284 4 14 4.67157 14 5.5V24.5C14 25.3284 13.3284 26 12.5 26H3.5C2.67157 26 2 25.3284 2 24.5V5.5ZM8 39C11.309 39 14 41.691 14 45C14 48.309 11.309 51 8 51C4.691 51 2 48.309 2 45C2 41.691 4.691 39 8 39Z"
-                                        fill="white" />
-                                </svg>
-                                <a class="group flex w-full items-center  p-2 pl-4 text-white"
-                                    href="/supervisor-standar-form">Kelola Formulir Umum</a>
-                            </li> --}}
-                            <li class="px-2 flex items-center rounded-lg hover:bg-orange-500 decoration-red-600">
-                                <svg width="26" height="auto" viewBox="0 0 1024 1024"
-                                    xmlns="http://www.w3.org/2000/svg" class="icon" fill="white">
-                                    <path
-                                        d="M280 752h80c4.4 0 8-3.6 8-8V280c0-4.4-3.6-8-8-8h-80c-4.4 0-8 3.6-8 8v464c0 4.4 3.6 8 8 8zm192-280h80c4.4 0 8-3.6 8-8V280c0-4.4-3.6-8-8-8h-80c-4.4 0-8 3.6-8 8v184c0 4.4 3.6 8 8 8zm192 72h80c4.4 0 8-3.6 8-8V280c0-4.4-3.6-8-8-8h-80c-4.4 0-8 3.6-8 8v256c0 4.4 3.6 8 8 8zm216-432H144c-17.7 0-32 14.3-32 32v736c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V144c0-17.7-14.3-32-32-32zm-40 728H184V184h656v656z" />
-                                </svg>
-                                <a class="group flex w-full items-center  p-2 ml-1 text-white"
-                                    href="/tambah-standar-project">Kelola Formulir 7 Step Proyek</a>
-                            </li>
-                        </ul>
-                    </div>
                 </li>
                 {{-- Akhir Konten menu supervisor --}}
             </ul>
@@ -315,7 +276,7 @@
     {{-- Akhir Sidebar --}}
 
     @yield('konten')
-
+    <div class="flex mt-96"></div>
 
 
 

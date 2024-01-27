@@ -35,7 +35,7 @@
 
 </head>
 
-<body class="bg-[url('image/icon/administrator/BSIN-K.jpg')] bg-no-repeat bg-cover bg-center bg-gray-200">
+<body class="bg-gray-200">
 
     {{-- Navbar --}}
     <div class="container mb-20">
@@ -115,7 +115,7 @@
                                                 value="{{ Auth::user()->first_name }} - Telah Logout">
                                             <input type="text" hidden name="waktu" value="{{ date('d-m-Y H:i') }}">
                                             <button type="submit"
-                                                class="flex w-full items-center py-2 px-4 text-sm text-gray-700 text-left hover:bg-orange-500 hover:text-white fill-gray-600 hover:fill-white hover:font-medium space-x-2">
+                                                class="flex w-full items-center py-2 px-4 text-sm text-gray-700 text-left hover:bg-red-600 hover:text-white fill-gray-600 hover:fill-white hover:font-medium space-x-2">
                                                 <svg width="14" height="14" viewBox="0 0 14 14" class=""
                                                     xmlns="http://www.w3.org/2000/svg">
                                                     <path
@@ -123,7 +123,7 @@
                                                     <path
                                                         d="M13.9148 6.55605L10.0269 2.66844C9.91856 2.55999 9.72678 2.56013 9.61847 2.66844L8.6961 3.59096C8.58331 3.70374 8.58331 3.88657 8.6961 3.99936L10.4522 5.75571H2.85011C2.69067 5.75571 2.56128 5.88511 2.56128 6.04454V7.47596C2.56128 7.63539 2.69067 7.76479 2.85011 7.76479H10.4526L8.69653 9.52114C8.58375 9.63393 8.58375 9.81676 8.69653 9.92954L9.6189 10.8522C9.67306 10.9064 9.74671 10.9368 9.8231 10.9368C9.89978 10.9368 9.97315 10.9064 10.0273 10.8522L13.9152 6.9646C13.9694 6.91044 13.9998 6.83679 13.9998 6.76039C13.9997 6.68357 13.9689 6.6102 13.9148 6.55605Z" />
                                                 </svg>
-                                                <p>Logout</p>
+                                                <p>Log out</p>
                                             </button>
                                         </form>
                                     </li>
@@ -213,8 +213,6 @@
     {{-- Akhir Sidebar --}}
 
     @yield('konten')
-
-    {{-- Awal Footer --}}
     <div class="flex mt-96"></div>
 
 

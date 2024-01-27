@@ -15,20 +15,19 @@
                     <p class="text-2xl font-semibold font-mono tracking-tight text-black">
                         Registrasi akun website Engineering Design</p>
                     <p class="text-base font-normal text-gray-500">
-                        Registrasi sesuai data yang ada pada perusahaan.</p>
+                        Isian yang memiliki tanda (*) berarti wajib diisi.</p>
                     {{-- erorr notifikasi ketika inputan tidak sesuai --}}
                     <br>
                     @if ($errors->any())
                         <div
-                            class="flex p-4 mb-4 text-sm text-red-700 bg-red-100 rounded-lg dark:bg-red-200 dark:text-red-800 alert-danger">
+                            class="flex p-4 mb-4 text-sm text-red-700 bg-red-100 rounded-lg  alert-danger">
                             <ul>
                                 @foreach ($errors->all() as $error)
-                                    <li>{{ $error }}</li>
+                                    <li class="font-semibold">{{ $error }}</li>
                                 @endforeach
                             </ul>
                         </div>
                     @endif
-
                     {{-- notifikasi berhasil untuk form yang telah diinput --}}
                     @if (Session::has('status'))
                         <div class="flex p-4 mb-4 text-sm text-green-700 bg-green-100 rounded-lg dark:bg-green-200 dark:text-green-800"
@@ -54,7 +53,7 @@
                                     placeholder=" " required="">
                                 <label for="name"
                                     class="absolute top-3 -z-10 origin-[0] -translate-y-6 scale-75 transform text-sm text-gray-500 duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:left-0 peer-focus:-translate-y-6 peer-focus:scale-75 peer-focus:font-medium peer-focus:text-orange-500 dark:text-gray-400 peer-focus:dark:text-orange-400">
-                                    *Nama Lengkap</label>
+                                    Nama Lengkap*</label>
                             </div>
 
                             <div class="group relative z-0 mb-6 w-full">
@@ -63,25 +62,25 @@
                                     placeholder=" " required="">
                                 <label for="first_name"
                                     class="absolute top-3 -z-10 origin-[0] -translate-y-6 scale-75 transform text-sm text-gray-500 duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:left-0 peer-focus:-translate-y-6 peer-focus:scale-75 peer-focus:font-medium peer-focus:text-orange-500 dark:text-gray-400 peer-focus:dark:text-orange-400">
-                                    *Nama Panggilan</label>
+                                    Nama Panggilan*</label>
                             </div>
                         </div>
 
                         <div class="grid grid-cols-3 gap-4">
                             <div class="group relative z-0 mb-6 w-full">
-                                <input id="nik" type="number" name="nik"
+                                <input id="nik" type="number" name="nik" minlength="12" maxlength="12"
                                     class="peer block w-full appearance-none border-0 border-b-2 border-gray-300 bg-transparent py-2.5 px-0 text-sm text-gray-900 focus:border-orange-500 focus:outline-none focus:ring-0 dark:border-gray-600 dark:text-white dark:focus:border-orange-400"
                                     placeholder=" " required="">
                                 <label for="nik"
                                     class="absolute top-3 -z-10 origin-[0] -translate-y-6 scale-75 transform text-sm text-gray-500 duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:left-0 peer-focus:-translate-y-6 peer-focus:scale-75 peer-focus:font-medium peer-focus:text-orange-500 dark:text-gray-400 peer-focus:dark:text-orange-400">
-                                    *Nomor Induk Karyawan</label>
+                                    Nomor Induk Karyawan* (harus 6 digit)</label>
                             </div>
                             <div class="group relative z-0 mb-6 w-full">
 
                                 <select id="jabatan" name="jabatan"
                                     class="peer block w-full appearance-none border-0 border-b-2 border-gray-200 bg-transparent py-2.5 px-0 text-sm text-gray-500 focus:border-gray-200 focus:outline-none focus:ring-0 dark:border-gray-700 dark:text-gray-400"
                                     required>
-                                    <option disabled selected="" value="">*Jabatan/Posisi</option>
+                                    <option disabled selected="" value="">Jabatan/Posisi*</option>
                                     <option value="Manager Eng Design">  Manager Eng Design</option>
                                     <option value="Asst. Manager">Asst. Manager</option>
                                     <option value="" disabled class="text-xs">============</option>
@@ -109,7 +108,7 @@
                                     <option value="Manufacturing IT">Manufacturing IT</option>
                                 </select>
                                 <p id="helper-text-explanation" class="mt-0 text-xs text-gray-500 dark:text-gray-400">
-                                    Dapat dikosongkan
+                                    Dapat dikosongkan untuk Manager dan Asst. Manager
                                 </p>
                             </div>
                         </div>
@@ -121,14 +120,14 @@
                                     placeholder=" " required="">
                                 <label for="password"
                                     class="absolute top-3 -z-10 origin-[0] -translate-y-6 scale-75 transform text-sm text-gray-500 duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:left-0 peer-focus:-translate-y-6 peer-focus:scale-75 peer-focus:font-medium peer-focus:text-orange-500 dark:text-gray-400 peer-focus:dark:text-orange-400">
-                                    *Password</label>
+                                    Password*</label>
                             </div>
                             <div class="group relative z-0 mb-6 w-full">
 
                                 <select id="role_id" name="role_id"
                                     class="peer block w-full appearance-none border-0 border-b-2 border-gray-200 bg-transparent py-2.5 px-0 text-sm text-gray-500 focus:border-gray-200 focus:outline-none focus:ring-0 dark:border-gray-700 dark:text-gray-400"
                                     required>
-                                    <option disabled selected="" value="">*Hak Akses</option>
+                                    <option disabled selected="" value="">Hak Akses*</option>
                                     {{-- Menampilkan level user --}}
                                     @foreach ($roles as $lvl)
                                         @if ($lvl->id != 1)

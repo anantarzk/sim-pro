@@ -244,31 +244,6 @@ class PAproject extends Model
         'up_by_parts_pa_45',
         'date_pa_parts_45',
 
-        'pa_parts_46',
-        'mny_parts_pa_46',
-        'up_by_parts_pa_46',
-        'date_pa_parts_46',
-
-        'pa_parts_47',
-        'mny_parts_pa_47',
-        'up_by_parts_pa_47',
-        'date_pa_parts_47',
-
-        'pa_parts_48',
-        'mny_parts_pa_48',
-        'up_by_parts_pa_48',
-        'date_pa_parts_48',
-
-        'pa_parts_49',
-        'mny_parts_pa_49',
-        'up_by_parts_pa_49',
-        'date_pa_parts_49',
-
-        'pa_parts_50',
-        'mny_parts_pa_50',
-        'up_by_parts_pa_50',
-        'date_pa_parts_50',
-
         // jasa
         'pa_jasa_1',
         'up_by_jasa_pa_1',

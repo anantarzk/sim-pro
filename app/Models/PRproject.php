@@ -247,31 +247,6 @@ class PRproject extends Model
         'up_by_parts_pr_45',
         'date_pr_parts_45',
 
-        'pr_parts_46',
-        'mny_parts_pr_46',
-        'up_by_parts_pr_46',
-        'date_pr_parts_46',
-
-        'pr_parts_47',
-        'mny_parts_pr_47',
-        'up_by_parts_pr_47',
-        'date_pr_parts_47',
-
-        'pr_parts_48',
-        'mny_parts_pr_48',
-        'up_by_parts_pr_48',
-        'date_pr_parts_48',
-
-        'pr_parts_49',
-        'mny_parts_pr_49',
-        'up_by_parts_pr_49',
-        'date_pr_parts_49',
-
-        'pr_parts_50',
-        'mny_parts_pr_50',
-        'up_by_parts_pr_50',
-        'date_pr_parts_50',
-
         // jasa
         'pr_jasa_1',
         'up_by_jasa_pr_1',
@@ -475,7 +450,6 @@ class PRproject extends Model
         'date_pr_mnftr_10',
 
         // rfq
-
         'pr_rfq_1',
         'up_by_rfq_pr_1',
         'mny_rfq_pr_1',

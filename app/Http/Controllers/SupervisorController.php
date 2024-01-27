@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Forms;
 use App\Models\ARproject;
 use App\Models\CLproject;
 use App\Models\FRproject;
@@ -25,7 +24,7 @@ class SupervisorController extends Controller
     public function IndexSupervisor(Request $request)
     {
         DB::enableQueryLog();
-        $keyword = $request->keyword;
+        /* $keyword = $request->keyword; */
         // for dashboard
         $cancel = CONTROLPROJECT::select('id')
             ->whereNull('archive_at')
@@ -218,21 +217,22 @@ class SupervisorController extends Controller
         $mny_parts_pr_45 = PRproject::select('mny_parts_pr_45')
             ->whereNull('archive_at')
             ->sum('mny_parts_pr_45');
-        $mny_parts_pr_46 = PRproject::select('mny_parts_pr_46')
+        $mny_rfq_pr_1 = PRproject::select('mny_rfq_pr_1')
             ->whereNull('archive_at')
-            ->sum('mny_parts_pr_46');
-        $mny_parts_pr_47 = PRproject::select('mny_parts_pr_47')
+            ->sum('mny_rfq_pr_1');
+        $mny_rfq_pr_2 = PRproject::select('mny_rfq_pr_2')
             ->whereNull('archive_at')
-            ->sum('mny_parts_pr_47');
-        $mny_parts_pr_48 = PRproject::select('mny_parts_pr_48')
+            ->sum('mny_rfq_pr_2');
+        $mny_rfq_pr_3 = PRproject::select('mny_rfq_pr_3')
             ->whereNull('archive_at')
-            ->sum('mny_parts_pr_48');
-        $mny_parts_pr_49 = PRproject::select('mny_parts_pr_49')
+            ->sum('mny_rfq_pr_3');
+        $mny_rfq_pr_4 = PRproject::select('mny_rfq_pr_4')
             ->whereNull('archive_at')
-            ->sum('mny_parts_pr_49');
-        $mny_parts_pr_50 = PRproject::select('mny_parts_pr_50')
+            ->sum('mny_rfq_pr_4');
+        $mny_rfq_pr_5 = PRproject::select('mny_rfq_pr_5')
             ->whereNull('archive_at')
-            ->sum('mny_parts_pr_50');
+            ->sum('mny_rfq_pr_5');
+
         $mny_jasa_pr_1 = PRproject::select('mny_jasa_pr_1')
             ->whereNull('archive_at')
             ->sum('mny_jasa_pr_1');
@@ -490,21 +490,6 @@ class SupervisorController extends Controller
         $mny_parts_pa_45 = PAproject::select('mny_parts_pa_45')
             ->whereNull('archive_at')
             ->sum('mny_parts_pa_45');
-        $mny_parts_pa_46 = PAproject::select('mny_parts_pa_46')
-            ->whereNull('archive_at')
-            ->sum('mny_parts_pa_46');
-        $mny_parts_pa_47 = PAproject::select('mny_parts_pa_47')
-            ->whereNull('archive_at')
-            ->sum('mny_parts_pa_47');
-        $mny_parts_pa_48 = PAproject::select('mny_parts_pa_48')
-            ->whereNull('archive_at')
-            ->sum('mny_parts_pa_48');
-        $mny_parts_pa_49 = PAproject::select('mny_parts_pa_49')
-            ->whereNull('archive_at')
-            ->sum('mny_parts_pa_49');
-        $mny_parts_pa_50 = PAproject::select('mny_parts_pa_50')
-            ->whereNull('archive_at')
-            ->sum('mny_parts_pa_50');
         $mny_jasa_pa_1 = PAproject::select('mny_jasa_pa_1')
             ->whereNull('archive_at')
             ->sum('mny_jasa_pa_1');
@@ -777,21 +762,6 @@ class SupervisorController extends Controller
         $mny_parts_po_45 = POproject::select('mny_parts_po_45')
             ->whereNull('archive_at')
             ->sum('mny_parts_po_45');
-        $mny_parts_po_46 = POproject::select('mny_parts_po_46')
-            ->whereNull('archive_at')
-            ->sum('mny_parts_po_46');
-        $mny_parts_po_47 = POproject::select('mny_parts_po_47')
-            ->whereNull('archive_at')
-            ->sum('mny_parts_po_47');
-        $mny_parts_po_48 = POproject::select('mny_parts_po_48')
-            ->whereNull('archive_at')
-            ->sum('mny_parts_po_48');
-        $mny_parts_po_49 = POproject::select('mny_parts_po_49')
-            ->whereNull('archive_at')
-            ->sum('mny_parts_po_49');
-        $mny_parts_po_50 = POproject::select('mny_parts_po_50')
-            ->whereNull('archive_at')
-            ->sum('mny_parts_po_50');
         $mny_jasa_po_1 = POproject::select('mny_jasa_po_1')
             ->whereNull('archive_at')
             ->sum('mny_jasa_po_1');
@@ -1064,21 +1034,6 @@ class SupervisorController extends Controller
         $mny_parts_pay_45 = PAYproject::select('mny_parts_pay_45')
             ->whereNull('archive_at')
             ->sum('mny_parts_pay_45');
-        $mny_parts_pay_46 = PAYproject::select('mny_parts_pay_46')
-            ->whereNull('archive_at')
-            ->sum('mny_parts_pay_46');
-        $mny_parts_pay_47 = PAYproject::select('mny_parts_pay_47')
-            ->whereNull('archive_at')
-            ->sum('mny_parts_pay_47');
-        $mny_parts_pay_48 = PAYproject::select('mny_parts_pay_48')
-            ->whereNull('archive_at')
-            ->sum('mny_parts_pay_48');
-        $mny_parts_pay_49 = PAYproject::select('mny_parts_pay_49')
-            ->whereNull('archive_at')
-            ->sum('mny_parts_pay_49');
-        $mny_parts_pay_50 = PAYproject::select('mny_parts_pay_50')
-            ->whereNull('archive_at')
-            ->sum('mny_parts_pay_50');
         $mny_jasa_pay_1 = PAYproject::select('mny_jasa_pay_1')
             ->whereNull('archive_at')
             ->sum('mny_jasa_pay_1');
@@ -1262,11 +1217,6 @@ class SupervisorController extends Controller
             $mny_parts_pr_43 +
             $mny_parts_pr_44 +
             $mny_parts_pr_45 +
-            $mny_parts_pr_46 +
-            $mny_parts_pr_47 +
-            $mny_parts_pr_48 +
-            $mny_parts_pr_49 +
-            $mny_parts_pr_50 +
             $mny_jasa_pr_1 +
             $mny_jasa_pr_2 +
             $mny_jasa_pr_3 +
@@ -1306,7 +1256,12 @@ class SupervisorController extends Controller
             $mny_mnftr_pr_7 +
             $mny_mnftr_pr_8 +
             $mny_mnftr_pr_9 +
-            $mny_mnftr_pr_10;
+            $mny_mnftr_pr_10 +
+            $mny_rfq_pr_1 +
+            $mny_rfq_pr_2 +
+            $mny_rfq_pr_3 +
+            $mny_rfq_pr_4 +
+            $mny_rfq_pr_5;
 
         // PA
         $mny_pa =
@@ -1355,11 +1310,6 @@ class SupervisorController extends Controller
             $mny_parts_pa_43 +
             $mny_parts_pa_44 +
             $mny_parts_pa_45 +
-            $mny_parts_pa_46 +
-            $mny_parts_pa_47 +
-            $mny_parts_pa_48 +
-            $mny_parts_pa_49 +
-            $mny_parts_pa_50 +
             $mny_jasa_pa_1 +
             $mny_jasa_pa_2 +
             $mny_jasa_pa_3 +
@@ -1453,11 +1403,6 @@ class SupervisorController extends Controller
             $mny_parts_po_43 +
             $mny_parts_po_44 +
             $mny_parts_po_45 +
-            $mny_parts_po_46 +
-            $mny_parts_po_47 +
-            $mny_parts_po_48 +
-            $mny_parts_po_49 +
-            $mny_parts_po_50 +
             $mny_jasa_po_1 +
             $mny_jasa_po_2 +
             $mny_jasa_po_3 +
@@ -1552,11 +1497,6 @@ class SupervisorController extends Controller
             $mny_parts_pay_43 +
             $mny_parts_pay_44 +
             $mny_parts_pay_45 +
-            $mny_parts_pay_46 +
-            $mny_parts_pay_47 +
-            $mny_parts_pay_48 +
-            $mny_parts_pay_49 +
-            $mny_parts_pay_50 +
             $mny_jasa_pay_1 +
             $mny_jasa_pay_2 +
             $mny_jasa_pay_3 +
@@ -1789,26 +1729,6 @@ class SupervisorController extends Controller
             ->where('date_pay_parts_45', '>=', date('Y-01-01'))
             ->where('date_pay_parts_45', '<=', date('Y-01-31'))
             ->sum('mny_parts_pay_45');
-        $jan_mny_parts_pay_46 = PAYproject::whereNull('archive_at')
-            ->where('date_pay_parts_46', '>=', date('Y-01-01'))
-            ->where('date_pay_parts_46', '<=', date('Y-01-31'))
-            ->sum('mny_parts_pay_46');
-        $jan_mny_parts_pay_47 = PAYproject::whereNull('archive_at')
-            ->where('date_pay_parts_47', '>=', date('Y-01-01'))
-            ->where('date_pay_parts_47', '<=', date('Y-01-31'))
-            ->sum('mny_parts_pay_47');
-        $jan_mny_parts_pay_48 = PAYproject::whereNull('archive_at')
-            ->where('date_pay_parts_48', '>=', date('Y-01-01'))
-            ->where('date_pay_parts_48', '<=', date('Y-01-31'))
-            ->sum('mny_parts_pay_48');
-        $jan_mny_parts_pay_49 = PAYproject::whereNull('archive_at')
-            ->where('date_pay_parts_49', '>=', date('Y-01-01'))
-            ->where('date_pay_parts_49', '<=', date('Y-01-31'))
-            ->sum('mny_parts_pay_49');
-        $jan_mny_parts_pay_50 = PAYproject::whereNull('archive_at')
-            ->where('date_pay_parts_50', '>=', date('Y-01-01'))
-            ->where('date_pay_parts_50', '<=', date('Y-01-31'))
-            ->sum('mny_parts_pay_50');
 
         $jan_mny_jasa_pay_1 = PAYproject::whereNull('archive_at')
             ->where('date_pay_jasa_1', '>=', date('Y-01-01'))
@@ -2187,26 +2107,6 @@ class SupervisorController extends Controller
             ->where('date_pay_parts_45', '>=', date('Y-02-01'))
             ->where('date_pay_parts_45', '<=', date('Y-02-t'))
             ->sum('mny_parts_pay_45');
-        $feb_mny_parts_pay_46 = PAYproject::whereNull('archive_at')
-            ->where('date_pay_parts_46', '>=', date('Y-02-01'))
-            ->where('date_pay_parts_46', '<=', date('Y-02-t'))
-            ->sum('mny_parts_pay_46');
-        $feb_mny_parts_pay_47 = PAYproject::whereNull('archive_at')
-            ->where('date_pay_parts_47', '>=', date('Y-02-01'))
-            ->where('date_pay_parts_47', '<=', date('Y-02-t'))
-            ->sum('mny_parts_pay_47');
-        $feb_mny_parts_pay_48 = PAYproject::whereNull('archive_at')
-            ->where('date_pay_parts_48', '>=', date('Y-02-01'))
-            ->where('date_pay_parts_48', '<=', date('Y-02-t'))
-            ->sum('mny_parts_pay_48');
-        $feb_mny_parts_pay_49 = PAYproject::whereNull('archive_at')
-            ->where('date_pay_parts_49', '>=', date('Y-02-01'))
-            ->where('date_pay_parts_49', '<=', date('Y-02-t'))
-            ->sum('mny_parts_pay_49');
-        $feb_mny_parts_pay_50 = PAYproject::whereNull('archive_at')
-            ->where('date_pay_parts_50', '>=', date('Y-02-01'))
-            ->where('date_pay_parts_50', '<=', date('Y-02-t'))
-            ->sum('mny_parts_pay_50');
         $feb_mny_jasa_pay_1 = PAYproject::whereNull('archive_at')
             ->where('date_pay_jasa_1', '>=', date('Y-02-01'))
             ->where('date_pay_jasa_1', '<=', date('Y-02-t'))
@@ -2592,26 +2492,6 @@ class SupervisorController extends Controller
             ->where('date_pay_parts_45', '>=', date('Y-03-01'))
             ->where('date_pay_parts_45', '<=', date('Y-03-31'))
             ->sum('mny_parts_pay_45');
-        $mar_mny_parts_pay_46 = PAYproject::whereNull('archive_at')
-            ->where('date_pay_parts_46', '>=', date('Y-03-01'))
-            ->where('date_pay_parts_46', '<=', date('Y-03-31'))
-            ->sum('mny_parts_pay_46');
-        $mar_mny_parts_pay_47 = PAYproject::whereNull('archive_at')
-            ->where('date_pay_parts_47', '>=', date('Y-03-01'))
-            ->where('date_pay_parts_47', '<=', date('Y-03-31'))
-            ->sum('mny_parts_pay_47');
-        $mar_mny_parts_pay_48 = PAYproject::whereNull('archive_at')
-            ->where('date_pay_parts_48', '>=', date('Y-03-01'))
-            ->where('date_pay_parts_48', '<=', date('Y-03-31'))
-            ->sum('mny_parts_pay_48');
-        $mar_mny_parts_pay_49 = PAYproject::whereNull('archive_at')
-            ->where('date_pay_parts_49', '>=', date('Y-03-01'))
-            ->where('date_pay_parts_49', '<=', date('Y-03-31'))
-            ->sum('mny_parts_pay_49');
-        $mar_mny_parts_pay_50 = PAYproject::whereNull('archive_at')
-            ->where('date_pay_parts_50', '>=', date('Y-03-01'))
-            ->where('date_pay_parts_50', '<=', date('Y-03-31'))
-            ->sum('mny_parts_pay_50');
         $mar_mny_jasa_pay_1 = PAYproject::whereNull('archive_at')
             ->where('date_pay_jasa_1', '>=', date('Y-03-01'))
             ->where('date_pay_jasa_1', '<=', date('Y-03-31'))
@@ -2989,26 +2869,6 @@ class SupervisorController extends Controller
             ->where('date_pay_parts_45', '>=', date('Y-04-01'))
             ->where('date_pay_parts_45', '<=', date('Y-04-30'))
             ->sum('mny_parts_pay_45');
-        $apr_mny_parts_pay_46 = PAYproject::whereNull('archive_at')
-            ->where('date_pay_parts_46', '>=', date('Y-04-01'))
-            ->where('date_pay_parts_46', '<=', date('Y-04-30'))
-            ->sum('mny_parts_pay_46');
-        $apr_mny_parts_pay_47 = PAYproject::whereNull('archive_at')
-            ->where('date_pay_parts_47', '>=', date('Y-04-01'))
-            ->where('date_pay_parts_47', '<=', date('Y-04-30'))
-            ->sum('mny_parts_pay_47');
-        $apr_mny_parts_pay_48 = PAYproject::whereNull('archive_at')
-            ->where('date_pay_parts_48', '>=', date('Y-04-01'))
-            ->where('date_pay_parts_48', '<=', date('Y-04-30'))
-            ->sum('mny_parts_pay_48');
-        $apr_mny_parts_pay_49 = PAYproject::whereNull('archive_at')
-            ->where('date_pay_parts_49', '>=', date('Y-04-01'))
-            ->where('date_pay_parts_49', '<=', date('Y-04-30'))
-            ->sum('mny_parts_pay_49');
-        $apr_mny_parts_pay_50 = PAYproject::whereNull('archive_at')
-            ->where('date_pay_parts_50', '>=', date('Y-04-01'))
-            ->where('date_pay_parts_50', '<=', date('Y-04-30'))
-            ->sum('mny_parts_pay_50');
         $apr_mny_jasa_pay_1 = PAYproject::whereNull('archive_at')
             ->where('date_pay_jasa_1', '>=', date('Y-04-01'))
             ->where('date_pay_jasa_1', '<=', date('Y-04-30'))
@@ -3386,26 +3246,6 @@ class SupervisorController extends Controller
             ->where('date_pay_parts_45', '>=', date('Y-05-01'))
             ->where('date_pay_parts_45', '<=', date('Y-05-31'))
             ->sum('mny_parts_pay_45');
-        $mei_mny_parts_pay_46 = PAYproject::whereNull('archive_at')
-            ->where('date_pay_parts_46', '>=', date('Y-05-01'))
-            ->where('date_pay_parts_46', '<=', date('Y-05-31'))
-            ->sum('mny_parts_pay_46');
-        $mei_mny_parts_pay_47 = PAYproject::whereNull('archive_at')
-            ->where('date_pay_parts_47', '>=', date('Y-05-01'))
-            ->where('date_pay_parts_47', '<=', date('Y-05-31'))
-            ->sum('mny_parts_pay_47');
-        $mei_mny_parts_pay_48 = PAYproject::whereNull('archive_at')
-            ->where('date_pay_parts_48', '>=', date('Y-05-01'))
-            ->where('date_pay_parts_48', '<=', date('Y-05-31'))
-            ->sum('mny_parts_pay_48');
-        $mei_mny_parts_pay_49 = PAYproject::whereNull('archive_at')
-            ->where('date_pay_parts_49', '>=', date('Y-05-01'))
-            ->where('date_pay_parts_49', '<=', date('Y-05-31'))
-            ->sum('mny_parts_pay_49');
-        $mei_mny_parts_pay_50 = PAYproject::whereNull('archive_at')
-            ->where('date_pay_parts_50', '>=', date('Y-05-01'))
-            ->where('date_pay_parts_50', '<=', date('Y-05-31'))
-            ->sum('mny_parts_pay_50');
         $mei_mny_jasa_pay_1 = PAYproject::whereNull('archive_at')
             ->where('date_pay_jasa_1', '>=', date('Y-05-01'))
             ->where('date_pay_jasa_1', '<=', date('Y-05-31'))
@@ -3783,26 +3623,6 @@ class SupervisorController extends Controller
             ->where('date_pay_parts_45', '>=', date('Y-06-01'))
             ->where('date_pay_parts_45', '<=', date('Y-06-30'))
             ->sum('mny_parts_pay_45');
-        $jun_mny_parts_pay_46 = PAYproject::whereNull('archive_at')
-            ->where('date_pay_parts_46', '>=', date('Y-06-01'))
-            ->where('date_pay_parts_46', '<=', date('Y-06-30'))
-            ->sum('mny_parts_pay_46');
-        $jun_mny_parts_pay_47 = PAYproject::whereNull('archive_at')
-            ->where('date_pay_parts_47', '>=', date('Y-06-01'))
-            ->where('date_pay_parts_47', '<=', date('Y-06-30'))
-            ->sum('mny_parts_pay_47');
-        $jun_mny_parts_pay_48 = PAYproject::whereNull('archive_at')
-            ->where('date_pay_parts_48', '>=', date('Y-06-01'))
-            ->where('date_pay_parts_48', '<=', date('Y-06-30'))
-            ->sum('mny_parts_pay_48');
-        $jun_mny_parts_pay_49 = PAYproject::whereNull('archive_at')
-            ->where('date_pay_parts_49', '>=', date('Y-06-01'))
-            ->where('date_pay_parts_49', '<=', date('Y-06-30'))
-            ->sum('mny_parts_pay_49');
-        $jun_mny_parts_pay_50 = PAYproject::whereNull('archive_at')
-            ->where('date_pay_parts_50', '>=', date('Y-06-01'))
-            ->where('date_pay_parts_50', '<=', date('Y-06-30'))
-            ->sum('mny_parts_pay_50');
         $jun_mny_jasa_pay_1 = PAYproject::whereNull('archive_at')
             ->where('date_pay_jasa_1', '>=', date('Y-06-01'))
             ->where('date_pay_jasa_1', '<=', date('Y-06-30'))
@@ -4180,26 +4000,6 @@ class SupervisorController extends Controller
             ->where('date_pay_parts_45', '>=', date('Y-07-01'))
             ->where('date_pay_parts_45', '<=', date('Y-07-31'))
             ->sum('mny_parts_pay_45');
-        $jul_mny_parts_pay_46 = PAYproject::whereNull('archive_at')
-            ->where('date_pay_parts_46', '>=', date('Y-07-01'))
-            ->where('date_pay_parts_46', '<=', date('Y-07-31'))
-            ->sum('mny_parts_pay_46');
-        $jul_mny_parts_pay_47 = PAYproject::whereNull('archive_at')
-            ->where('date_pay_parts_47', '>=', date('Y-07-01'))
-            ->where('date_pay_parts_47', '<=', date('Y-07-31'))
-            ->sum('mny_parts_pay_47');
-        $jul_mny_parts_pay_48 = PAYproject::whereNull('archive_at')
-            ->where('date_pay_parts_48', '>=', date('Y-07-01'))
-            ->where('date_pay_parts_48', '<=', date('Y-07-31'))
-            ->sum('mny_parts_pay_48');
-        $jul_mny_parts_pay_49 = PAYproject::whereNull('archive_at')
-            ->where('date_pay_parts_49', '>=', date('Y-07-01'))
-            ->where('date_pay_parts_49', '<=', date('Y-07-31'))
-            ->sum('mny_parts_pay_49');
-        $jul_mny_parts_pay_50 = PAYproject::whereNull('archive_at')
-            ->where('date_pay_parts_50', '>=', date('Y-07-01'))
-            ->where('date_pay_parts_50', '<=', date('Y-07-31'))
-            ->sum('mny_parts_pay_50');
         $jul_mny_jasa_pay_1 = PAYproject::whereNull('archive_at')
             ->where('date_pay_jasa_1', '>=', date('Y-07-01'))
             ->where('date_pay_jasa_1', '<=', date('Y-07-31'))
@@ -4577,26 +4377,6 @@ class SupervisorController extends Controller
             ->where('date_pay_parts_45', '>=', date('Y-08-01'))
             ->where('date_pay_parts_45', '<=', date('Y-08-31'))
             ->sum('mny_parts_pay_45');
-        $agu_mny_parts_pay_46 = PAYproject::whereNull('archive_at')
-            ->where('date_pay_parts_46', '>=', date('Y-08-01'))
-            ->where('date_pay_parts_46', '<=', date('Y-08-31'))
-            ->sum('mny_parts_pay_46');
-        $agu_mny_parts_pay_47 = PAYproject::whereNull('archive_at')
-            ->where('date_pay_parts_47', '>=', date('Y-08-01'))
-            ->where('date_pay_parts_47', '<=', date('Y-08-31'))
-            ->sum('mny_parts_pay_47');
-        $agu_mny_parts_pay_48 = PAYproject::whereNull('archive_at')
-            ->where('date_pay_parts_48', '>=', date('Y-08-01'))
-            ->where('date_pay_parts_48', '<=', date('Y-08-31'))
-            ->sum('mny_parts_pay_48');
-        $agu_mny_parts_pay_49 = PAYproject::whereNull('archive_at')
-            ->where('date_pay_parts_49', '>=', date('Y-08-01'))
-            ->where('date_pay_parts_49', '<=', date('Y-08-31'))
-            ->sum('mny_parts_pay_49');
-        $agu_mny_parts_pay_50 = PAYproject::whereNull('archive_at')
-            ->where('date_pay_parts_50', '>=', date('Y-08-01'))
-            ->where('date_pay_parts_50', '<=', date('Y-08-31'))
-            ->sum('mny_parts_pay_50');
         $agu_mny_jasa_pay_1 = PAYproject::whereNull('archive_at')
             ->where('date_pay_jasa_1', '>=', date('Y-08-01'))
             ->where('date_pay_jasa_1', '<=', date('Y-08-31'))
@@ -4974,26 +4754,6 @@ class SupervisorController extends Controller
             ->where('date_pay_parts_45', '>=', date('Y-09-01'))
             ->where('date_pay_parts_45', '<=', date('Y-09-30'))
             ->sum('mny_parts_pay_45');
-        $sep_mny_parts_pay_46 = PAYproject::whereNull('archive_at')
-            ->where('date_pay_parts_46', '>=', date('Y-09-01'))
-            ->where('date_pay_parts_46', '<=', date('Y-09-30'))
-            ->sum('mny_parts_pay_46');
-        $sep_mny_parts_pay_47 = PAYproject::whereNull('archive_at')
-            ->where('date_pay_parts_47', '>=', date('Y-09-01'))
-            ->where('date_pay_parts_47', '<=', date('Y-09-30'))
-            ->sum('mny_parts_pay_47');
-        $sep_mny_parts_pay_48 = PAYproject::whereNull('archive_at')
-            ->where('date_pay_parts_48', '>=', date('Y-09-01'))
-            ->where('date_pay_parts_48', '<=', date('Y-09-30'))
-            ->sum('mny_parts_pay_48');
-        $sep_mny_parts_pay_49 = PAYproject::whereNull('archive_at')
-            ->where('date_pay_parts_49', '>=', date('Y-09-01'))
-            ->where('date_pay_parts_49', '<=', date('Y-09-30'))
-            ->sum('mny_parts_pay_49');
-        $sep_mny_parts_pay_50 = PAYproject::whereNull('archive_at')
-            ->where('date_pay_parts_50', '>=', date('Y-09-01'))
-            ->where('date_pay_parts_50', '<=', date('Y-09-30'))
-            ->sum('mny_parts_pay_50');
         $sep_mny_jasa_pay_1 = PAYproject::whereNull('archive_at')
             ->where('date_pay_jasa_1', '>=', date('Y-09-01'))
             ->where('date_pay_jasa_1', '<=', date('Y-09-30'))
@@ -5371,26 +5131,6 @@ class SupervisorController extends Controller
             ->where('date_pay_parts_45', '>=', date('Y-10-01'))
             ->where('date_pay_parts_45', '<=', date('Y-10-31'))
             ->sum('mny_parts_pay_45');
-        $okt_mny_parts_pay_46 = PAYproject::whereNull('archive_at')
-            ->where('date_pay_parts_46', '>=', date('Y-10-01'))
-            ->where('date_pay_parts_46', '<=', date('Y-10-31'))
-            ->sum('mny_parts_pay_46');
-        $okt_mny_parts_pay_47 = PAYproject::whereNull('archive_at')
-            ->where('date_pay_parts_47', '>=', date('Y-10-01'))
-            ->where('date_pay_parts_47', '<=', date('Y-10-31'))
-            ->sum('mny_parts_pay_47');
-        $okt_mny_parts_pay_48 = PAYproject::whereNull('archive_at')
-            ->where('date_pay_parts_48', '>=', date('Y-10-01'))
-            ->where('date_pay_parts_48', '<=', date('Y-10-31'))
-            ->sum('mny_parts_pay_48');
-        $okt_mny_parts_pay_49 = PAYproject::whereNull('archive_at')
-            ->where('date_pay_parts_49', '>=', date('Y-10-01'))
-            ->where('date_pay_parts_49', '<=', date('Y-10-31'))
-            ->sum('mny_parts_pay_49');
-        $okt_mny_parts_pay_50 = PAYproject::whereNull('archive_at')
-            ->where('date_pay_parts_50', '>=', date('Y-10-01'))
-            ->where('date_pay_parts_50', '<=', date('Y-10-31'))
-            ->sum('mny_parts_pay_50');
         $okt_mny_jasa_pay_1 = PAYproject::whereNull('archive_at')
             ->where('date_pay_jasa_1', '>=', date('Y-10-01'))
             ->where('date_pay_jasa_1', '<=', date('Y-10-31'))
@@ -5768,26 +5508,6 @@ class SupervisorController extends Controller
             ->where('date_pay_parts_45', '>=', date('Y-11-01'))
             ->where('date_pay_parts_45', '<=', date('Y-11-30'))
             ->sum('mny_parts_pay_45');
-        $nov_mny_parts_pay_46 = PAYproject::whereNull('archive_at')
-            ->where('date_pay_parts_46', '>=', date('Y-11-01'))
-            ->where('date_pay_parts_46', '<=', date('Y-11-30'))
-            ->sum('mny_parts_pay_46');
-        $nov_mny_parts_pay_47 = PAYproject::whereNull('archive_at')
-            ->where('date_pay_parts_47', '>=', date('Y-11-01'))
-            ->where('date_pay_parts_47', '<=', date('Y-11-30'))
-            ->sum('mny_parts_pay_47');
-        $nov_mny_parts_pay_48 = PAYproject::whereNull('archive_at')
-            ->where('date_pay_parts_48', '>=', date('Y-11-01'))
-            ->where('date_pay_parts_48', '<=', date('Y-11-30'))
-            ->sum('mny_parts_pay_48');
-        $nov_mny_parts_pay_49 = PAYproject::whereNull('archive_at')
-            ->where('date_pay_parts_49', '>=', date('Y-11-01'))
-            ->where('date_pay_parts_49', '<=', date('Y-11-30'))
-            ->sum('mny_parts_pay_49');
-        $nov_mny_parts_pay_50 = PAYproject::whereNull('archive_at')
-            ->where('date_pay_parts_50', '>=', date('Y-11-01'))
-            ->where('date_pay_parts_50', '<=', date('Y-11-30'))
-            ->sum('mny_parts_pay_50');
         $nov_mny_jasa_pay_1 = PAYproject::whereNull('archive_at')
             ->where('date_pay_jasa_1', '>=', date('Y-11-01'))
             ->where('date_pay_jasa_1', '<=', date('Y-11-30'))
@@ -6165,26 +5885,6 @@ class SupervisorController extends Controller
             ->where('date_pay_parts_45', '>=', date('Y-12-01'))
             ->where('date_pay_parts_45', '<=', date('Y-12-31'))
             ->sum('mny_parts_pay_45');
-        $des_mny_parts_pay_46 = PAYproject::whereNull('archive_at')
-            ->where('date_pay_parts_46', '>=', date('Y-12-01'))
-            ->where('date_pay_parts_46', '<=', date('Y-12-31'))
-            ->sum('mny_parts_pay_46');
-        $des_mny_parts_pay_47 = PAYproject::whereNull('archive_at')
-            ->where('date_pay_parts_47', '>=', date('Y-12-01'))
-            ->where('date_pay_parts_47', '<=', date('Y-12-31'))
-            ->sum('mny_parts_pay_47');
-        $des_mny_parts_pay_48 = PAYproject::whereNull('archive_at')
-            ->where('date_pay_parts_48', '>=', date('Y-12-01'))
-            ->where('date_pay_parts_48', '<=', date('Y-12-31'))
-            ->sum('mny_parts_pay_48');
-        $des_mny_parts_pay_49 = PAYproject::whereNull('archive_at')
-            ->where('date_pay_parts_49', '>=', date('Y-12-01'))
-            ->where('date_pay_parts_49', '<=', date('Y-12-31'))
-            ->sum('mny_parts_pay_49');
-        $des_mny_parts_pay_50 = PAYproject::whereNull('archive_at')
-            ->where('date_pay_parts_50', '>=', date('Y-12-01'))
-            ->where('date_pay_parts_50', '<=', date('Y-12-31'))
-            ->sum('mny_parts_pay_50');
         $des_mny_jasa_pay_1 = PAYproject::whereNull('archive_at')
             ->where('date_pay_jasa_1', '>=', date('Y-12-01'))
             ->where('date_pay_jasa_1', '<=', date('Y-12-31'))
@@ -6428,11 +6128,7 @@ class SupervisorController extends Controller
             $jan_mny_parts_pay_43 +
             $jan_mny_parts_pay_44 +
             $jan_mny_parts_pay_45 +
-            $jan_mny_parts_pay_46 +
-            $jan_mny_parts_pay_47 +
-            $jan_mny_parts_pay_48 +
-            $jan_mny_parts_pay_49 +
-            $jan_mny_parts_pay_50 +
+
             $jan_mny_jasa_pay_1 +
             $jan_mny_jasa_pay_2 +
             $jan_mny_jasa_pay_3 +
@@ -6463,16 +6159,7 @@ class SupervisorController extends Controller
             $jan_mny_jasa_pay_28 +
             $jan_mny_jasa_pay_29 +
             $jan_mny_jasa_pay_30 +
-            $jan_mny_jasa_pay_1 +
-            $jan_mny_jasa_pay_2 +
-            $jan_mny_jasa_pay_3 +
-            $jan_mny_jasa_pay_4 +
-            $jan_mny_jasa_pay_5 +
-            $jan_mny_jasa_pay_6 +
-            $jan_mny_jasa_pay_7 +
-            $jan_mny_jasa_pay_8 +
-            $jan_mny_jasa_pay_9 +
-            $jan_mny_jasa_pay_10 +
+
             $jan_mny_mnftr_pay_1 +
             $jan_mny_mnftr_pay_2 +
             $jan_mny_mnftr_pay_3 +
@@ -6483,6 +6170,7 @@ class SupervisorController extends Controller
             $jan_mny_mnftr_pay_8 +
             $jan_mny_mnftr_pay_9 +
             $jan_mny_mnftr_pay_10 +
+
             $jan_mny_da_pay_1 +
             $jan_mny_da_pay_2 +
             $jan_mny_da_pay_3 +
@@ -6535,11 +6223,7 @@ class SupervisorController extends Controller
             $feb_mny_parts_pay_43 +
             $feb_mny_parts_pay_44 +
             $feb_mny_parts_pay_45 +
-            $feb_mny_parts_pay_46 +
-            $feb_mny_parts_pay_47 +
-            $feb_mny_parts_pay_48 +
-            $feb_mny_parts_pay_49 +
-            $feb_mny_parts_pay_50 +
+
             $feb_mny_jasa_pay_1 +
             $feb_mny_jasa_pay_2 +
             $feb_mny_jasa_pay_3 +
@@ -6570,16 +6254,7 @@ class SupervisorController extends Controller
             $feb_mny_jasa_pay_28 +
             $feb_mny_jasa_pay_29 +
             $feb_mny_jasa_pay_30 +
-            $feb_mny_jasa_pay_1 +
-            $feb_mny_jasa_pay_2 +
-            $feb_mny_jasa_pay_3 +
-            $feb_mny_jasa_pay_4 +
-            $feb_mny_jasa_pay_5 +
-            $feb_mny_jasa_pay_6 +
-            $feb_mny_jasa_pay_7 +
-            $feb_mny_jasa_pay_8 +
-            $feb_mny_jasa_pay_9 +
-            $feb_mny_jasa_pay_10 +
+
             $feb_mny_mnftr_pay_1 +
             $feb_mny_mnftr_pay_2 +
             $feb_mny_mnftr_pay_3 +
@@ -6642,11 +6317,7 @@ class SupervisorController extends Controller
             $mar_mny_parts_pay_43 +
             $mar_mny_parts_pay_44 +
             $mar_mny_parts_pay_45 +
-            $mar_mny_parts_pay_46 +
-            $mar_mny_parts_pay_47 +
-            $mar_mny_parts_pay_48 +
-            $mar_mny_parts_pay_49 +
-            $mar_mny_parts_pay_50 +
+
             $mar_mny_jasa_pay_1 +
             $mar_mny_jasa_pay_2 +
             $mar_mny_jasa_pay_3 +
@@ -6677,16 +6348,7 @@ class SupervisorController extends Controller
             $mar_mny_jasa_pay_28 +
             $mar_mny_jasa_pay_29 +
             $mar_mny_jasa_pay_30 +
-            $mar_mny_jasa_pay_1 +
-            $mar_mny_jasa_pay_2 +
-            $mar_mny_jasa_pay_3 +
-            $mar_mny_jasa_pay_4 +
-            $mar_mny_jasa_pay_5 +
-            $mar_mny_jasa_pay_6 +
-            $mar_mny_jasa_pay_7 +
-            $mar_mny_jasa_pay_8 +
-            $mar_mny_jasa_pay_9 +
-            $mar_mny_jasa_pay_10 +
+
             $mar_mny_mnftr_pay_1 +
             $mar_mny_mnftr_pay_2 +
             $mar_mny_mnftr_pay_3 +
@@ -6749,11 +6411,7 @@ class SupervisorController extends Controller
             $apr_mny_parts_pay_43 +
             $apr_mny_parts_pay_44 +
             $apr_mny_parts_pay_45 +
-            $apr_mny_parts_pay_46 +
-            $apr_mny_parts_pay_47 +
-            $apr_mny_parts_pay_48 +
-            $apr_mny_parts_pay_49 +
-            $apr_mny_parts_pay_50 +
+
             $apr_mny_jasa_pay_1 +
             $apr_mny_jasa_pay_2 +
             $apr_mny_jasa_pay_3 +
@@ -6784,16 +6442,7 @@ class SupervisorController extends Controller
             $apr_mny_jasa_pay_28 +
             $apr_mny_jasa_pay_29 +
             $apr_mny_jasa_pay_30 +
-            $apr_mny_jasa_pay_1 +
-            $apr_mny_jasa_pay_2 +
-            $apr_mny_jasa_pay_3 +
-            $apr_mny_jasa_pay_4 +
-            $apr_mny_jasa_pay_5 +
-            $apr_mny_jasa_pay_6 +
-            $apr_mny_jasa_pay_7 +
-            $apr_mny_jasa_pay_8 +
-            $apr_mny_jasa_pay_9 +
-            $apr_mny_jasa_pay_10 +
+
             $apr_mny_mnftr_pay_1 +
             $apr_mny_mnftr_pay_2 +
             $apr_mny_mnftr_pay_3 +
@@ -6856,11 +6505,7 @@ class SupervisorController extends Controller
             $mei_mny_parts_pay_43 +
             $mei_mny_parts_pay_44 +
             $mei_mny_parts_pay_45 +
-            $mei_mny_parts_pay_46 +
-            $mei_mny_parts_pay_47 +
-            $mei_mny_parts_pay_48 +
-            $mei_mny_parts_pay_49 +
-            $mei_mny_parts_pay_50 +
+
             $mei_mny_jasa_pay_1 +
             $mei_mny_jasa_pay_2 +
             $mei_mny_jasa_pay_3 +
@@ -6891,16 +6536,7 @@ class SupervisorController extends Controller
             $mei_mny_jasa_pay_28 +
             $mei_mny_jasa_pay_29 +
             $mei_mny_jasa_pay_30 +
-            $mei_mny_jasa_pay_1 +
-            $mei_mny_jasa_pay_2 +
-            $mei_mny_jasa_pay_3 +
-            $mei_mny_jasa_pay_4 +
-            $mei_mny_jasa_pay_5 +
-            $mei_mny_jasa_pay_6 +
-            $mei_mny_jasa_pay_7 +
-            $mei_mny_jasa_pay_8 +
-            $mei_mny_jasa_pay_9 +
-            $mei_mny_jasa_pay_10 +
+
             $mei_mny_mnftr_pay_1 +
             $mei_mny_mnftr_pay_2 +
             $mei_mny_mnftr_pay_3 +
@@ -6963,11 +6599,7 @@ class SupervisorController extends Controller
             $jun_mny_parts_pay_43 +
             $jun_mny_parts_pay_44 +
             $jun_mny_parts_pay_45 +
-            $jun_mny_parts_pay_46 +
-            $jun_mny_parts_pay_47 +
-            $jun_mny_parts_pay_48 +
-            $jun_mny_parts_pay_49 +
-            $jun_mny_parts_pay_50 +
+
             $jun_mny_jasa_pay_1 +
             $jun_mny_jasa_pay_2 +
             $jun_mny_jasa_pay_3 +
@@ -6998,16 +6630,7 @@ class SupervisorController extends Controller
             $jun_mny_jasa_pay_28 +
             $jun_mny_jasa_pay_29 +
             $jun_mny_jasa_pay_30 +
-            $jun_mny_jasa_pay_1 +
-            $jun_mny_jasa_pay_2 +
-            $jun_mny_jasa_pay_3 +
-            $jun_mny_jasa_pay_4 +
-            $jun_mny_jasa_pay_5 +
-            $jun_mny_jasa_pay_6 +
-            $jun_mny_jasa_pay_7 +
-            $jun_mny_jasa_pay_8 +
-            $jun_mny_jasa_pay_9 +
-            $jun_mny_jasa_pay_10 +
+
             $jun_mny_mnftr_pay_1 +
             $jun_mny_mnftr_pay_2 +
             $jun_mny_mnftr_pay_3 +
@@ -7070,11 +6693,7 @@ class SupervisorController extends Controller
             $jul_mny_parts_pay_43 +
             $jul_mny_parts_pay_44 +
             $jul_mny_parts_pay_45 +
-            $jul_mny_parts_pay_46 +
-            $jul_mny_parts_pay_47 +
-            $jul_mny_parts_pay_48 +
-            $jul_mny_parts_pay_49 +
-            $jul_mny_parts_pay_50 +
+
             $jul_mny_jasa_pay_1 +
             $jul_mny_jasa_pay_2 +
             $jul_mny_jasa_pay_3 +
@@ -7105,16 +6724,7 @@ class SupervisorController extends Controller
             $jul_mny_jasa_pay_28 +
             $jul_mny_jasa_pay_29 +
             $jul_mny_jasa_pay_30 +
-            $jul_mny_jasa_pay_1 +
-            $jul_mny_jasa_pay_2 +
-            $jul_mny_jasa_pay_3 +
-            $jul_mny_jasa_pay_4 +
-            $jul_mny_jasa_pay_5 +
-            $jul_mny_jasa_pay_6 +
-            $jul_mny_jasa_pay_7 +
-            $jul_mny_jasa_pay_8 +
-            $jul_mny_jasa_pay_9 +
-            $jul_mny_jasa_pay_10 +
+
             $jul_mny_mnftr_pay_1 +
             $jul_mny_mnftr_pay_2 +
             $jul_mny_mnftr_pay_3 +
@@ -7177,11 +6787,7 @@ class SupervisorController extends Controller
             $agu_mny_parts_pay_43 +
             $agu_mny_parts_pay_44 +
             $agu_mny_parts_pay_45 +
-            $agu_mny_parts_pay_46 +
-            $agu_mny_parts_pay_47 +
-            $agu_mny_parts_pay_48 +
-            $agu_mny_parts_pay_49 +
-            $agu_mny_parts_pay_50 +
+
             $agu_mny_jasa_pay_1 +
             $agu_mny_jasa_pay_2 +
             $agu_mny_jasa_pay_3 +
@@ -7212,16 +6818,7 @@ class SupervisorController extends Controller
             $agu_mny_jasa_pay_28 +
             $agu_mny_jasa_pay_29 +
             $agu_mny_jasa_pay_30 +
-            $agu_mny_jasa_pay_1 +
-            $agu_mny_jasa_pay_2 +
-            $agu_mny_jasa_pay_3 +
-            $agu_mny_jasa_pay_4 +
-            $agu_mny_jasa_pay_5 +
-            $agu_mny_jasa_pay_6 +
-            $agu_mny_jasa_pay_7 +
-            $agu_mny_jasa_pay_8 +
-            $agu_mny_jasa_pay_9 +
-            $agu_mny_jasa_pay_10 +
+
             $agu_mny_mnftr_pay_1 +
             $agu_mny_mnftr_pay_2 +
             $agu_mny_mnftr_pay_3 +
@@ -7284,11 +6881,7 @@ class SupervisorController extends Controller
             $sep_mny_parts_pay_43 +
             $sep_mny_parts_pay_44 +
             $sep_mny_parts_pay_45 +
-            $sep_mny_parts_pay_46 +
-            $sep_mny_parts_pay_47 +
-            $sep_mny_parts_pay_48 +
-            $sep_mny_parts_pay_49 +
-            $sep_mny_parts_pay_50 +
+
             $sep_mny_jasa_pay_1 +
             $sep_mny_jasa_pay_2 +
             $sep_mny_jasa_pay_3 +
@@ -7319,16 +6912,7 @@ class SupervisorController extends Controller
             $sep_mny_jasa_pay_28 +
             $sep_mny_jasa_pay_29 +
             $sep_mny_jasa_pay_30 +
-            $sep_mny_jasa_pay_1 +
-            $sep_mny_jasa_pay_2 +
-            $sep_mny_jasa_pay_3 +
-            $sep_mny_jasa_pay_4 +
-            $sep_mny_jasa_pay_5 +
-            $sep_mny_jasa_pay_6 +
-            $sep_mny_jasa_pay_7 +
-            $sep_mny_jasa_pay_8 +
-            $sep_mny_jasa_pay_9 +
-            $sep_mny_jasa_pay_10 +
+
             $sep_mny_mnftr_pay_1 +
             $sep_mny_mnftr_pay_2 +
             $sep_mny_mnftr_pay_3 +
@@ -7391,11 +6975,7 @@ class SupervisorController extends Controller
             $okt_mny_parts_pay_43 +
             $okt_mny_parts_pay_44 +
             $okt_mny_parts_pay_45 +
-            $okt_mny_parts_pay_46 +
-            $okt_mny_parts_pay_47 +
-            $okt_mny_parts_pay_48 +
-            $okt_mny_parts_pay_49 +
-            $okt_mny_parts_pay_50 +
+
             $okt_mny_jasa_pay_1 +
             $okt_mny_jasa_pay_2 +
             $okt_mny_jasa_pay_3 +
@@ -7426,16 +7006,7 @@ class SupervisorController extends Controller
             $okt_mny_jasa_pay_28 +
             $okt_mny_jasa_pay_29 +
             $okt_mny_jasa_pay_30 +
-            $okt_mny_jasa_pay_1 +
-            $okt_mny_jasa_pay_2 +
-            $okt_mny_jasa_pay_3 +
-            $okt_mny_jasa_pay_4 +
-            $okt_mny_jasa_pay_5 +
-            $okt_mny_jasa_pay_6 +
-            $okt_mny_jasa_pay_7 +
-            $okt_mny_jasa_pay_8 +
-            $okt_mny_jasa_pay_9 +
-            $okt_mny_jasa_pay_10 +
+
             $okt_mny_mnftr_pay_1 +
             $okt_mny_mnftr_pay_2 +
             $okt_mny_mnftr_pay_3 +
@@ -7498,11 +7069,7 @@ class SupervisorController extends Controller
             $nov_mny_parts_pay_43 +
             $nov_mny_parts_pay_44 +
             $nov_mny_parts_pay_45 +
-            $nov_mny_parts_pay_46 +
-            $nov_mny_parts_pay_47 +
-            $nov_mny_parts_pay_48 +
-            $nov_mny_parts_pay_49 +
-            $nov_mny_parts_pay_50 +
+
             $nov_mny_jasa_pay_1 +
             $nov_mny_jasa_pay_2 +
             $nov_mny_jasa_pay_3 +
@@ -7533,16 +7100,7 @@ class SupervisorController extends Controller
             $nov_mny_jasa_pay_28 +
             $nov_mny_jasa_pay_29 +
             $nov_mny_jasa_pay_30 +
-            $nov_mny_jasa_pay_1 +
-            $nov_mny_jasa_pay_2 +
-            $nov_mny_jasa_pay_3 +
-            $nov_mny_jasa_pay_4 +
-            $nov_mny_jasa_pay_5 +
-            $nov_mny_jasa_pay_6 +
-            $nov_mny_jasa_pay_7 +
-            $nov_mny_jasa_pay_8 +
-            $nov_mny_jasa_pay_9 +
-            $nov_mny_jasa_pay_10 +
+
             $nov_mny_mnftr_pay_1 +
             $nov_mny_mnftr_pay_2 +
             $nov_mny_mnftr_pay_3 +
@@ -7605,11 +7163,7 @@ class SupervisorController extends Controller
             $des_mny_parts_pay_43 +
             $des_mny_parts_pay_44 +
             $des_mny_parts_pay_45 +
-            $des_mny_parts_pay_46 +
-            $des_mny_parts_pay_47 +
-            $des_mny_parts_pay_48 +
-            $des_mny_parts_pay_49 +
-            $des_mny_parts_pay_50 +
+
             $des_mny_jasa_pay_1 +
             $des_mny_jasa_pay_2 +
             $des_mny_jasa_pay_3 +
@@ -7640,16 +7194,7 @@ class SupervisorController extends Controller
             $des_mny_jasa_pay_28 +
             $des_mny_jasa_pay_29 +
             $des_mny_jasa_pay_30 +
-            $des_mny_jasa_pay_1 +
-            $des_mny_jasa_pay_2 +
-            $des_mny_jasa_pay_3 +
-            $des_mny_jasa_pay_4 +
-            $des_mny_jasa_pay_5 +
-            $des_mny_jasa_pay_6 +
-            $des_mny_jasa_pay_7 +
-            $des_mny_jasa_pay_8 +
-            $des_mny_jasa_pay_9 +
-            $des_mny_jasa_pay_10 +
+
             $des_mny_mnftr_pay_1 +
             $des_mny_mnftr_pay_2 +
             $des_mny_mnftr_pay_3 +
@@ -7666,7 +7211,10 @@ class SupervisorController extends Controller
             $des_mny_da_pay_4 +
             $des_mny_da_pay_5;
 
-        $sum_ob = CONTROLPROJECT::select('budget_amount')->sum('budget_amount');
+        $sum_ob = CONTROLPROJECT::whereNull('archive_at')->sum('budget_amount');
+
+
+
         $total_sisa_budget_ob = $sum_ob - $mny_pay;
         $sum_planned =
             $planned->planned_1 +
@@ -7683,8 +7231,7 @@ class SupervisorController extends Controller
             $planned->planned_12;
 
         // kondisi untuk mencari
-
-        if ($keyword != '') {
+       /*  if ($keyword != '') {
             $project = CONTROLPROJECT::with(
                 'koneksikefr',
                 'koneksikear',
@@ -7719,7 +7266,29 @@ class SupervisorController extends Controller
                 ->where('check', 'needcheck')
                 ->orderBy('updated_at', 'asc')
                 ->paginate(5);
-        }
+        } */
+
+        $project = CONTROLPROJECT::with(
+            'koneksikefr',
+            'koneksikear',
+            'koneksikepr01',
+            'koneksikepa02',
+            'koneksikepo03',
+            'koneksikepay04',
+            'koneksikemn',
+            'koneksikein',
+            'koneksikecl'
+        )
+            ->whereNull('archive_at')
+            ->where('check', 'needcheck')
+            ->orderBy('updated_at', 'asc')
+            ->paginate(5);
+
+        // Menggunakan total() untuk mendapatkan jumlah proyek
+        $totalResult = $project->total();
+
+        // Mengatur $noResult berdasarkan jumlah proyek
+        $noResult = ($totalResult == 0) ? 1 : 0;
 
         $koneksifr = FRproject::select('id_fr_1')->get();
         $koneksiar = ARproject::select('id_ar_2')->get();
@@ -7744,6 +7313,7 @@ class SupervisorController extends Controller
             'koneksicl' => $koneksicl,
             'totalproject' => $totalproject,
             'totalprojectapproval' => $totalprojectapproval,
+            'noResult' => $noResult,
             'cancel' => $cancel,
             'not_started' => $not_started,
             'finished' => $finished,
@@ -7770,81 +7340,6 @@ class SupervisorController extends Controller
             'sum_planned' => $sum_planned,
             'sum_ob' => $sum_ob,
             'total_sisa_budget_ob' => $total_sisa_budget_ob,
-        ]);
-    }
-
-    // =======================proyek==============
-    public function TambahProject()
-    {
-        return view('supervisor.project.tambah_project');
-    }
-    /* approval proyek kemajuan progress */
-    public function ApprovalProgress(Request $request)
-    {
-        $keyword = $request->keyword;
-        $totalprojectapproval = CONTROLPROJECT::select('id')
-            ->whereNull('archive_at')
-            ->where('check', 'needcheck')
-            ->count('id');
-        if ($keyword != '') {
-            $project = CONTROLPROJECT::with(
-                'koneksikefr',
-                'koneksikear',
-                'koneksikepr01',
-                'koneksikepa02',
-                'koneksikepo03',
-                'koneksikepay04',
-                'koneksikemn',
-                'koneksikein',
-                'koneksikecl'
-            )
-                ->whereNull('archive_at')
-                ->where('project_name', 'LIKE', '%' . $keyword . '%')
-                ->OrWhere('io_number', 'LIKE', '%' . $keyword . '%')
-                ->where('check', 'needcheck')
-                ->orderBy('updated_at', 'asc')
-                ->paginate(20);
-        } elseif ($keyword == '') {
-            $project = CONTROLPROJECT::with(
-                'koneksikefr',
-                'koneksikear',
-                'koneksikepr01',
-                'koneksikepa02',
-                'koneksikepo03',
-                'koneksikepay04',
-                'koneksikemn',
-                'koneksikein',
-                'koneksikecl'
-            )
-
-                ->whereNull('archive_at')
-                ->where('check', 'needcheck')
-                ->orderBy('updated_at', 'asc')
-                ->paginate(20);
-        }
-
-        $koneksifr = FRproject::select('id_fr_1')->get();
-        $koneksiar = ARproject::select('id_ar_2')->get();
-        $koneksipr = PRproject::select('id_pr_01_3')->get();
-        $koneksipa = PAproject::select('id_pa_02_3')->get();
-        $koneksipo = POproject::select('id_po_03_3')->get();
-        $koneksipay = PAYproject::select('id_pay_04_3')->get();
-        $koneksimn = MNproject::select('id_mn_4')->get();
-        $koneksiin = INproject::select('id_in_5')->get();
-        $koneksicl = CLproject::select('id_cl_6')->get();
-
-        return view('supervisor.progress-approve', [
-            'project' => $project,
-            'koneksifr' => $koneksifr,
-            'koneksiar' => $koneksiar,
-            'koneksipr' => $koneksipr,
-            'koneksipa' => $koneksipa,
-            'koneksipo' => $koneksipo,
-            'koneksipay' => $koneksipay,
-            'koneksimn' => $koneksimn,
-            'koneksiin' => $koneksiin,
-            'koneksicl' => $koneksicl,
-            'totalprojectapproval' => $totalprojectapproval,
         ]);
     }
 
@@ -7903,81 +7398,14 @@ class SupervisorController extends Controller
             ->where('marking', 'Planned-1')
             ->first();
 
-        if ($request['as_year'] != '') {
-            $request['year'] = $request['as_year'];
-        }
-        if ($request['as_planned_1'] != '') {
-            $request['planned_1'] = $request['as_planned_1'];
-        }
-        if ($request['as_planned_2'] != '') {
-            $request['planned_2'] = $request['as_planned_2'];
-        }
-        if ($request['as_planned_3'] != '') {
-            $request['planned_3'] = $request['as_planned_3'];
-        }
-        if ($request['as_planned_4'] != '') {
-            $request['planned_4'] = $request['as_planned_4'];
-        }
-        if ($request['as_planned_5'] != '') {
-            $request['planned_5'] = $request['as_planned_5'];
-        }
-        if ($request['as_planned_6'] != '') {
-            $request['planned_6'] = $request['as_planned_6'];
-        }
-        if ($request['as_planned_7'] != '') {
-            $request['planned_7'] = $request['as_planned_7'];
-        }
-        if ($request['as_planned_8'] != '') {
-            $request['planned_8'] = $request['as_planned_8'];
-        }
-        if ($request['as_planned_9'] != '') {
-            $request['planned_9'] = $request['as_planned_9'];
-        }
-        if ($request['as_planned_10'] != '') {
-            $request['planned_10'] = $request['as_planned_10'];
-        }
-        if ($request['as_planned_11'] != '') {
-            $request['planned_11'] = $request['as_planned_11'];
-        }
-        if ($request['as_planned_12'] != '') {
-            $request['planned_12'] = $request['as_planned_12'];
-        }
-        if ($request['as_date_planned_1'] != '') {
-            $request['date_planned_1'] = $request['as_date_planned_1'];
-        }
-        if ($request['as_date_planned_2'] != '') {
-            $request['date_planned_2'] = $request['as_date_planned_2'];
-        }
-        if ($request['as_date_planned_3'] != '') {
-            $request['date_planned_3'] = $request['as_date_planned_3'];
-        }
-        if ($request['as_date_planned_4'] != '') {
-            $request['date_planned_4'] = $request['as_date_planned_4'];
-        }
-        if ($request['as_date_planned_5'] != '') {
-            $request['date_planned_5'] = $request['as_date_planned_5'];
-        }
-        if ($request['as_date_planned_6'] != '') {
-            $request['date_planned_6'] = $request['as_date_planned_6'];
-        }
-        if ($request['as_date_planned_7'] != '') {
-            $request['date_planned_7'] = $request['as_date_planned_7'];
-        }
-        if ($request['as_date_planned_8'] != '') {
-            $request['date_planned_8'] = $request['as_date_planned_8'];
-        }
-        if ($request['as_date_planned_9'] != '') {
-            $request['date_planned_9'] = $request['as_date_planned_9'];
-        }
-        if ($request['as_date_planned_10'] != '') {
-            $request['date_planned_10'] = $request['as_date_planned_10'];
-        }
-        if ($request['as_date_planned_11'] != '') {
-            $request['date_planned_11'] = $request['as_date_planned_11'];
-        }
-        if ($request['as_date_planned_12'] != '') {
-            $request['date_planned_12'] = $request['as_date_planned_12'];
-        }
+            for ($i = 1; $i <= 12; $i++) {
+                $asPlannedKey = 'as_planned_' . $i;
+                $plannedKey = 'planned_' . $i;
+
+                if ($request->has($asPlannedKey) && $request[$asPlannedKey] !== '') {
+                    $request[$plannedKey] = intval(str_replace('.', '', $request[$asPlannedKey]));
+                }
+            }
 
         $planned->update($request->all());
 

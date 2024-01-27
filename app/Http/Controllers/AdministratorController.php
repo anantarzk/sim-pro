@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Contracts\Pagination\Paginator;
+use Illuminate\Support\Facades\Validator;
 
 class AdministratorController extends Controller
 {
@@ -60,7 +61,16 @@ class AdministratorController extends Controller
             'created_by' => 'required',
             'role_id' => 'required',
         ]);
-
+        $validator = Validator::make($request->all(), [
+            'nik' => 'required|numeric|digits:6',
+        ], [
+            'nik.digits' => 'Kolom Nomor Induk Karyawan harus memiliki panjang 6 karakter.',
+        ]);
+        if ($validator->fails()) {
+            return redirect()->back()
+                        ->withErrors($validator)
+                        ->withInput();
+        }
         // Hash Password
         $request['password'] = Hash::make($request->password);
         // simpan inputan
@@ -92,7 +102,16 @@ class AdministratorController extends Controller
     public function ProcessEditAkun(Request $request, $id)
     {
         $users = User::findOrfail($id);
-
+        $validator = Validator::make($request->all(), [
+            'nik' => 'required|numeric|digits:6',
+        ], [
+            'nik.digits' => 'Kolom Nomor Induk Karyawan harus memiliki panjang 6 karakter.',
+        ]);
+        if ($validator->fails()) {
+            return redirect()->back()
+                        ->withErrors($validator)
+                        ->withInput();
+        }
         // Hash Password
         $request['password'] = Hash::make($request->password);
         $users->update($request->all());

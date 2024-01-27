@@ -2,7 +2,7 @@
 @section('title_page', 'Handover - Project')
 
 
-<a href="#submit-1">
+{{-- <a href="#submit-1">
     <button class="fixed right-0 bottom-0 m-2 z-10 bg-orange-400 rounded-lg p-2 opacity-70 hover:opacity-90">
         <svg width="10" height="auto" viewBox="0 0 39 42" fill="none" xmlns="http://www.w3.org/2000/svg"
             class="fill-black">
@@ -22,7 +22,7 @@
                 stroke-width="2" />
         </svg>
     </button>
-</a>
+</a> --}}
 
 <div class="mx-10 my-20">
 
@@ -49,7 +49,7 @@
                     <div class="">
                         {{-- IO number --}}
                         <div class="container text-right">
-                            <div class=" text-red-500  font-semibold text-lg">IO Number:</div>
+                            <div class="font-semibold text-lg text-gray-600">IO Number:</div>
                             <p class="text-3xl font-bold text-gray-700">
                                 {{ $viewdataproject->io_number }}
                             </p>
@@ -86,27 +86,27 @@
                     <div>
                         <div class="flex justify-between max-w-xl text-right space-x-10 auto-cols-auto">
                             <div>
-                                <p class="text-md font-medium text-gray-500">Section:</p>
+                                <p class="text-md font-medium text-gray-600">Section:</p>
                                 <p class="text-lg font-semibold">
                                     {{ $viewdataproject->section }}
                                 </p>
                             </div>
                             <div>
-                                <p class="text-md font-medium text-gray-500">Cost Dept:</p>
+                                <p class="text-md font-medium text-gray-600">Cost Dept:</p>
                                 <p class="text-lg font-semibold">
                                     {{ $viewdataproject->cost_dept }}
                                 </p>
                             </div>
                             @if ($viewdataproject->remarks != '')
                                 <div>
-                                    <p class="text-md font-medium text-gray-500">Remarks:</p>
+                                    <p class="text-md font-medium text-gray-600">Remarks:</p>
                                     <p class="text-lg font-semibold">
                                         {{ $viewdataproject->remarks }}
                                     </p>
                                 </div>
                             @endif
                             <div>
-                                <p class="text-md font-medium text-gray-500">OB Year:</p>
+                                <p class="text-md font-medium text-gray-600">OB Year:</p>
                                 <p class="text-lg font-semibold">
                                     {{ $viewdataproject->ob_year }}
                                 </p>
@@ -122,195 +122,69 @@
                 <div class="mt-3">
                     <hr class="mb-2 w-full border">
                     {{-- progress bar --}}
-                    @if ($viewdataproject->progress == 'Not Started')
-                        <div class="w-full bg-gray-200 rounded-full my-2 text-xs font-medium text-black text-center"
-                            data-popover-target="popover-0" data-popover-placement="bottom">
-                            <p class="">0%</p>
-                            <div class="bg-orange-500  text-xs font-medium text-blue-100 text-center leading-none rounded-lg hover:cursor-default"
-                                style="width: 0%">
-                            </div>
-                        </div>
-                    @elseif ($viewdataproject->progress == 'Waiting Approval Fund Request')
-                        <div class="w-full bg-gray-200 rounded-full my-2 text-xs font-medium text-black text-center"
-                            data-popover-target="popover-0" data-popover-placement="bottom">
-                            <p class="">0%</p>
-                            <div class="bg-orange-500  text-xs font-medium text-blue-100 text-center leading-none rounded-lg hover:cursor-default"
-                                style="width: 0%">
-                            </div>
-                        </div>
-                    @elseif ($viewdataproject->progress == 'Fund Request')
-                        <div class="w-full bg-gray-200 rounded-full my-2">
-                            <div class="bg-orange-500  text-xs font-medium text-blue-100 text-center leading-none rounded-lg hover:cursor-default"
-                                data-popover-target="popover-2" data-popover-placement="bottom" style="width: 5%">
-                                <p>05%</p>
+                    @php
+                        $totalStages = 9;
+                        $completedStages = 0;
 
-                            </div>
-                        </div>
-                    @elseif ($viewdataproject->progress == 'Waiting Approval Arrangement')
-                        <div class="w-full bg-gray-200 rounded-full my-2">
-                            <div class="bg-orange-500  text-xs font-medium text-blue-100 text-center leading-none rounded-lg hover:cursor-default"
-                                data-popover-target="popover-3" data-popover-placement="bottom" style="width: 05%">
-                                <p>05%</p>
+                        $statuses = [$koneksifr->status_fr, $koneksiar->status_ar, $koneksipr->status_pr_01, $koneksipa->status_pa_02, $koneksipo->status_po_03, $koneksipay->status_pay_04, $koneksimn->status_mn, $koneksiin->status_in, $koneksicl->status_cl];
 
-                            </div>
-                        </div>
-                    @elseif ($viewdataproject->progress == 'Arrangement')
-                        <div class="w-full bg-gray-200 rounded-full my-2">
-                            <div class="bg-orange-500  text-xs font-medium text-blue-100 text-center leading-none rounded-lg hover:cursor-default"
-                                data-popover-target="popover-4" data-popover-placement="bottom" style="width: 10%">
-                                <p>10%</p>
+                        foreach ($statuses as $status) {
+                            if ($status == 'Complete') {
+                                $completedStages++;
+                            }
+                        }
 
-                            </div>
-                        </div>
-                    @elseif ($viewdataproject->progress == 'Waiting Approval Purchasing - PR')
-                        <div class="w-full bg-gray-200 rounded-full my-2">
-                            <div class="bg-orange-500  text-xs font-medium text-blue-100 text-center leading-none rounded-lg hover:cursor-default"
-                                data-popover-target="popover-5" data-popover-placement="bottom" style="width: 10%">
-                                <p>10%</p>
+                        $purchasingPercentage = 70;
+                        $otherStagesPercentage = 30;
 
-                            </div>
-                        </div>
-                    @elseif ($viewdataproject->progress == 'Purchasing - PR')
-                        <div class="w-full bg-gray-200 rounded-full my-2">
-                            <div class="bg-orange-500  text-xs font-medium text-blue-100 text-center leading-none rounded-lg hover:cursor-default"
-                                data-popover-target="popover-6" data-popover-placement="bottom" style="width: 15%">
-                                <p>15%</p>
+                        $overallProgress = ceil(($completedStages / $totalStages) * ($purchasingPercentage + $otherStagesPercentage));
 
-                            </div>
-                        </div>
-                    @elseif ($viewdataproject->progress == 'Waiting Approval Purchasing - PA')
-                        <div class="w-full bg-gray-200 rounded-full my-2">
-                            <div class="bg-orange-500  text-xs font-medium text-blue-100 text-center leading-none rounded-lg hover:cursor-default"
-                                data-popover-target="popover-7" data-popover-placement="bottom" style="width: 15%">
-                                <p>15%</p>
+                        // Menetapkan warna berdasarkan persentase
+                        $barColor = 'bg-red-500';
 
-                            </div>
-                        </div>
-                    @elseif ($viewdataproject->progress == 'Purchasing - PA')
-                        <div class="w-full bg-gray-200 rounded-full my-2">
-                            <div class="bg-orange-500  text-xs font-medium text-blue-100 text-center leading-none rounded-lg hover:cursor-default"
-                                data-popover-target="popover-8" data-popover-placement="bottom"
-                                style="width: 20%">
-                                <p>20%</p>
+                        if ($overallProgress > 15) {
+                            $barColor = 'bg-orange-500';
+                        }
 
-                            </div>
-                        </div>
-                    @elseif ($viewdataproject->progress == 'Waiting Approval Purchasing - PO')
-                        <div class="w-full bg-gray-200 rounded-full my-2">
-                            <div class="bg-orange-500  text-xs font-medium text-blue-100 text-center leading-none rounded-lg hover:cursor-default"
-                                data-popover-target="popover-9" data-popover-placement="bottom"
-                                style="width: 20%">
-                                <p>20%</p>
+                        if ($overallProgress > 30) {
+                            $barColor = 'bg-yellow-500';
+                        }
 
-                            </div>
-                        </div>
-                    @elseif ($viewdataproject->progress == 'Purchasing - PO')
-                        <div class="w-full bg-gray-200 rounded-full my-2">
-                            <div class="bg-orange-500  text-xs font-medium text-blue-100 text-center leading-none rounded-lg hover:cursor-default"
-                                data-popover-target="popover-10" data-popover-placement="bottom"
-                                style="width: 25%">
-                                <p>25%</p>
+                        if ($overallProgress > 50) {
+                            $barColor = 'bg-blue-500';
+                        }
 
-                            </div>
-                        </div>
-                    @elseif ($viewdataproject->progress == 'Waiting Approval Purchasing - PAY')
-                        <div class="w-full bg-gray-200 rounded-full my-2">
-                            <div class="bg-orange-500  text-xs font-medium text-blue-100 text-center leading-none rounded-lg hover:cursor-default"
-                                data-popover-target="popover-11" data-popover-placement="bottom"
-                                style="width: 25%">
-                                <p>25%</p>
+                        if ($overallProgress > 70) {
+                            $barColor = 'bg-green-500';
+                        }
 
-                            </div>
-                        </div>
-                    @elseif ($viewdataproject->progress == 'Purchasing - PAY')
-                        <div class="w-full bg-gray-200 rounded-full my-2">
-                            <div class="bg-orange-500  text-xs font-medium text-blue-100 text-center leading-none rounded-lg hover:cursor-default"
-                                data-popover-target="popover-12" data-popover-placement="bottom"
-                                style="width: 30%">
-                                <p>30%</p>
+                        if ($overallProgress > 85) {
+                            $barColor = 'bg-green-700';
+                        }
+                    @endphp
 
-                            </div>
+                    <div class="w-full bg-gray-200 rounded-full my-2">
+                        <div class="text-sm font-medium text-white text-center leading-none rounded-lg hover:cursor-default relative transition-all duration-500
+                            {{ $barColor }}"
+                            style="width: {{ $overallProgress }}%;">
+                            <p class="text-sm">{{ $overallProgress }}%</p>
                         </div>
-                    @elseif ($viewdataproject->progress == 'Purchasing')
-                        <div class="w-full bg-gray-200 rounded-full my-2">
-                            <div class="bg-orange-500  text-xs font-medium text-blue-100 text-center leading-none rounded-lg hover:cursor-default"
-                                data-popover-target="popover-13" data-popover-placement="bottom"
-                                style="width: 30%">
-                                <p>30%</p>
-
-                            </div>
-                        </div>
-                    @elseif ($viewdataproject->progress == 'Waiting Approval Manufacturing')
-                        <div class="w-full bg-gray-200 rounded-full my-2">
-                            <div class="bg-orange-500  text-xs font-medium text-blue-100 text-center leading-none rounded-lg hover:cursor-default"
-                                data-popover-target="popover-14" data-popover-placement="bottom"
-                                style="width: 30%">
-                                <p>30%</p>
-
-                            </div>
-                        </div>
-                    @elseif ($viewdataproject->progress == 'Manufacturing')
-                        <div class="w-full bg-gray-200 rounded-full my-2">
-                            <div class="bg-orange-500  text-xs font-medium text-blue-100 text-center leading-none rounded-lg hover:cursor-default"
-                                data-popover-target="popover-15" data-popover-placement="bottom"
-                                style="width: 60%">
-                                <p>60%</p>
-
-                            </div>
-                        </div>
-                    @elseif ($viewdataproject->progress == 'Waiting Approval Installation')
-                        <div class="w-full bg-gray-200 rounded-full my-2">
-                            <div class="bg-orange-500  text-xs font-medium text-blue-100 text-center leading-none rounded-lg hover:cursor-default"
-                                data-popover-target="popover-16" data-popover-placement="bottom"
-                                style="width: 60%">
-                                <p>60%</p>
-
-                            </div>
-                        </div>
-                    @elseif ($viewdataproject->progress == 'Installation')
-                        <div class="w-full bg-gray-200 rounded-full my-2">
-                            <div class="bg-orange-500  text-xs font-medium text-blue-100 text-center leading-none rounded-lg hover:cursor-default"
-                                data-popover-target="popover-17" data-popover-placement="bottom"
-                                style="width: 95%">
-                                <p>95%</p>
-
-                            </div>
-                        </div>
-                    @elseif ($viewdataproject->progress == 'Waiting Approval Closed')
-                        <div class="w-full bg-gray-200 rounded-full my-2">
-                            <div class="bg-orange-500  text-xs font-medium text-blue-100 text-center leading-none rounded-lg hover:cursor-default"
-                                data-popover-target="popover-18" data-popover-placement="bottom"
-                                style="width: 95%">
-                                <p>95%</p>
-
-                            </div>
-                        </div>
-                    @elseif ($viewdataproject->progress == 'Closed')
-                        <div class="w-full bg-gray-200 rounded-full my-2">
-                            <div class="bg-orange-500  text-xs font-medium text-blue-100 text-center leading-none rounded-lg hover:cursor-default"
-                                data-popover-target="popover-19" data-popover-placement="bottom"
-                                style="width: 100%">
-                                <p>100%</p>
-
-                            </div>
-                        </div>
-                    @endif
-
+                    </div>
                     {{-- akhir bar --}}
 
                     {{-- status --}}
                     <div class="flex justify-between">
                         <div class="flex">
                             <div>
-                                <div class="items-center pt-1 pr-4 text-xs font-medium  text-gray-500">Keterangan :
+                                <div class="items-center pt-1 pr-4 text-sm font-medium  text-gray-600">Keterangan
+                                    FR:
                                 </div>
                                 <div class="items-center pr-4 text-sm font-medium">
                                     {{ $viewdataproject->status_project }}
                                 </div>
                             </div>
                             <div>
-                                <div class="items-center pt-1 pr-4 text-xs font-medium  text-gray-500">Budget
-                                    Amount :
+                                <div class="items-center pt-1 pr-4 text-sm font-medium  text-gray-600">Jumlah Budget:
                                 </div>
                                 <div class="items-center pr-4 text-sm font-medium">
                                     Rp{{ number_format($viewdataproject->budget_amount, 0, ',', '.') }}
@@ -318,47 +192,51 @@
                             </div>
 
                             <div>
-                                <div class="items-center pt-1 pr-4 text-xs font-medium  text-gray-500">Last
-                                    updated:
+                                <div class="items-center pt-1 pr-4 text-sm font-medium  text-gray-600">Terakhir
+                                    diperbaharui:
                                 </div>
                                 <div class="items-center pr-4 text-sm font-medium">
                                     {{ $viewdataproject->last_update_name }},
                                     {{ $viewdataproject->last_update_date }}
-
                                 </div>
                             </div>
-                            <div>
-                                <div class="items-center pt-1 pr-4 text-xs font-medium  text-gray-500">Tahap
-                                    Project:
-                                </div>
-                                <div class="items-center pr-4 text-sm font-medium">
-                                    {{ $viewdataproject->progress }}
-
-                                </div>
-                            </div>
-
                         </div>
-                        {{-- button edit --}}
+                        {{-- deadline countdown --}}
                         <div class="flex text-right">
-
-
-                            <div class="flex items-center space-x-2">
-                                {{-- Menampilkan PIC project --}}
-                                <p class="font-semibold">Start :</p>
+                            @if ($viewdataproject->progress == 'Closed')
                                 <div
-                                    class="items-center py-1 px-2 text-sm font-medium text-center text-white bg-sky-400 rounded drop-shadow-md ">
-                                    {{ $viewdataproject->date_start }}
+                                    class=" space-x-1 font-medium items-center py-1 px-3 text-center text-lg rounded-xl drop-shadow-md flex justify-center w-fit bg-green-700 text-white mt-1" data-tooltip-target="tooltip-bottom" data-tooltip-placement="bottom">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="22" viewBox="0 0 24 24" fill="none">
+                                        <g id="Interface / Check_All">
+                                        <path id="Vector" d="M8 12.4854L12.2426 16.728L20.727 8.24268M3 12.4854L7.24264 16.728M15.7279 8.24268L12.5 11.5001" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        </g>
+                                    </svg>
+                                <p>
+                                    Proyek telah SELESAI
+                                </p>
                                 </div>
-
-                                <p class="font-semibold">End :</p>
-                                <div
-                                    class="items-center py-1 px-2 text-sm font-medium text-center text-white bg-red-600 rounded drop-shadow-md">
-                                    {{ $viewdataproject->date_end }}
+                            @else
+                                <div id="countdown-{{ $viewdataproject->id }}"
+                                    class="items-center py-1 px-2 font-medium text-center text-lg rounded drop-shadow-md flex justify-center mt-2"
+                                    data-tooltip-target="tooltip-bottom" data-tooltip-placement="bottom">
                                 </div>
-
+                            @endif
+                            <div id="tooltip-bottom" role="tooltip"
+                                class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-600 rounded-lg shadow-sm opacity-0 tooltip">
+                                <div class="grid grid-cols-2 space-x-2">
+                                    <div>
+                                        <p class="text-left">Tanggal mulai:</p>
+                                        <div class="text-left">
+                                            {{ $viewdataproject->date_start }}
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <p class="text-left">Tanggal selesai:</p>
+                                        <p class="text-left">
+                                            {{ $viewdataproject->date_end }}</p>
+                                    </div>
+                                </div>
                             </div>
-
-
                         </div>
                     </div>
                 </div>
@@ -366,8 +244,63 @@
             </div>
         </div>
 
-        {{-- awal stepper --}}
-        <div class="max-w-4xl mx-auto mt-8">
+        {{-- financial status --}}
+        <div class="mt-3 w-full ">
+            <hr class="w-full border">
+            <div class="overflow-x-auto rounded">
+                <div class="grid grid-cols-1 my-1">
+                    <div class="text-lg text-center font-medium tracking-wider">
+                        Status Finansial Proyek
+                    </div>
+                </div>
+                <div class="grid grid-cols-6 gap-1 bg-gray-500 text-gray-900 text-left">
+                    <div class="bg-gray-300 px-1 text-lg ">
+                        Total budget
+                    </div>
+                    <div class="bg-gray-300 px-1 ">
+                        PR
+                    </div>
+                    <div class="bg-gray-300 px-1 ">
+                        PA
+                    </div>
+                    <div class="bg-gray-300 px-1 ">
+                        PO
+                    </div>
+                    <div class="bg-gray-300 px-1 ">
+                        PAYMENT
+                    </div>
+                    <div class="bg-gray-800 text-gray-200 px-1 ">
+                        BALANCE
+                    </div>
+                </div>
+                <div class="grid grid-cols-6 gap-1 text-gray-900 text-left text-md bg-gray-500">
+                    <div class="bg-gray-300 px-1 font-bold">
+                        Rp{{ number_format($viewdataproject->budget_amount, 0, ',', '.') }}
+                    </div>
+                    <div class="bg-gray-300 px-1 font-bold">
+                        Rp{{ number_format($sum_pr, 0, ',', '.') }}
+                    </div>
+                    <div class="bg-gray-300 px-1 font-bold">
+                        Rp{{ number_format($sum_pa, 0, ',', '.') }}
+                    </div>
+                    <div class="bg-gray-300 px-1 font-bold">
+                        Rp{{ number_format($sum_po, 0, ',', '.') }}
+                    </div>
+                    <div class="bg-gray-300 px-1 font-bold">
+                        Rp{{ number_format($sum_pay, 0, ',', '.') }}
+                    </div>
+                    <div class="bg-gray-800 px-1 text-gray-200 font-bold">
+                        {{-- initial kondisi, balance = budget amount sebelum ada oprasi perhitungan --}}
+                        Rp{{ number_format($balance, 0, ',', '.') }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {{-- awal stepper --}}
+    <div class="bg-white mt-3 h-40 pt-3 rounded-lg shadow-md">
+        <div class="max-w-5xl mx-auto">
             <div class="flex items-center">
                 <div class="flex items-center relative">
                     @if ($koneksifr->status_fr == 'Complete')
@@ -384,14 +317,14 @@
                         </div>
                     @endif
 
-                    <div class="absolute top-0 -ml-10 text-center mt-14 w-36 text-xs font-medium">
+                    <div class="absolute top-0 -ml-10 text-center mt-14 w-36 text-sm font-medium">
                         <a
                             href="/staff-01-fundrequest-proyek/{{ $viewdataproject->id }}/{{ $koneksifr->id_fr_1 }}/{{ $koneksiar->id_ar_2 }}/{{ $koneksipr->id_pr_01_3 }}/{{ $koneksipa->id_pa_02_3 }}/{{ $koneksipo->id_po_03_3 }}/{{ $koneksipay->id_pay_04_3 }}/{{ $koneksimn->id_mn_4 }}/{{ $koneksiin->id_in_5 }}/{{ $koneksicl->id_cl_6 }}">
                             <p class="font-semibold text-lg text-gray-900 hover:underline">
-                                Fund Request
+                                Fund Request<span class="text-red-600">*</span>
                             </p>
                         </a>
-                        <p class="uppercase">{{ $koneksifr->status_fr }}</p>
+                        <p class="uppercase text-xs">{{ $koneksifr->status_fr }}</p>
                         <p>{{ $koneksifr->status_fr_date }}</p>
                     </div>
                 </div>
@@ -412,13 +345,13 @@
                             <p class="font-bold text-md text-white">AR</p>
                         </div>
                     @endif
-                    <div class="absolute top-0 -ml-10 text-center mt-14 w-32 text-xs font-medium">
+                    <div class="absolute top-0 -ml-10 text-center mt-14 w-32 text-sm font-medium">
                         <a
                             href="/staff-02-arrangement-proyek/{{ $viewdataproject->id }}/{{ $koneksifr->id_fr_1 }}/{{ $koneksiar->id_ar_2 }}/{{ $koneksipr->id_pr_01_3 }}/{{ $koneksipa->id_pa_02_3 }}/{{ $koneksipo->id_po_03_3 }}/{{ $koneksipay->id_pay_04_3 }}/{{ $koneksimn->id_mn_4 }}/{{ $koneksiin->id_in_5 }}/{{ $koneksicl->id_cl_6 }}">
                             <p class="font-semibold text-lg text-gray-900 hover:underline">Arrangement
                             </p>
                         </a>
-                        <p class="uppercase">{{ $koneksiar->status_ar }}</p>
+                        <p class="uppercase text-xs">{{ $koneksiar->status_ar }}</p>
                         <p>{{ $koneksiar->status_ar_date }}</p>
                     </div>
                 </div>
@@ -443,13 +376,14 @@
                             <p class="font-bold text-md text-white">PR</p>
                         </div>
                     @endif
-                    <div class="absolute top-0 -ml-10 text-center mt-14 w-32 text-xs font-medium">
+                    <div class="absolute top-0 -ml-10 text-center mt-14 w-32 text-sm font-medium">
                         <a
                             href="/staff-03-01-PR-purchasing-proyek/{{ $viewdataproject->id }}/{{ $koneksifr->id_fr_1 }}/{{ $koneksiar->id_ar_2 }}/{{ $koneksipr->id_pr_01_3 }}/{{ $koneksipa->id_pa_02_3 }}/{{ $koneksipo->id_po_03_3 }}/{{ $koneksipay->id_pay_04_3 }}/{{ $koneksimn->id_mn_4 }}/{{ $koneksiin->id_in_5 }}/{{ $koneksicl->id_cl_6 }}">
-                            <p class="font-semibold text-lg text-gray-900 hover:underline">Purchasing
+                            <p class="font-semibold text-lg text-gray-900 hover:underline">Purchasing<span
+                                    class="text-red-600">*</span>
                             </p>
                         </a>
-                        <p class="uppercase">{{ $koneksipr->status_purchasing }}</p>
+                        <p class="uppercase text-xs">{{ $koneksipr->status_purchasing }}</p>
                         <p>{{ $koneksipr->status_purchasing_date }}</p>
                     </div>
                 </div>
@@ -470,13 +404,13 @@
                             <p class="font-bold text-md text-white">MN</p>
                         </div>
                     @endif
-                    <div class="absolute top-0 -ml-10 text-center mt-14 w-32 text-xs font-medium">
+                    <div class="absolute top-0 -ml-10 text-center mt-14 w-32 text-sm font-medium">
                         <a
                             href="/staff-04-manufacturing-proyek/{{ $viewdataproject->id }}/{{ $koneksifr->id_fr_1 }}/{{ $koneksiar->id_ar_2 }}/{{ $koneksipr->id_pr_01_3 }}/{{ $koneksipa->id_pa_02_3 }}/{{ $koneksipo->id_po_03_3 }}/{{ $koneksipay->id_pay_04_3 }}/{{ $koneksimn->id_mn_4 }}/{{ $koneksiin->id_in_5 }}/{{ $koneksicl->id_cl_6 }}">
                             <p class="font-semibold text-lg text-gray-900 hover:underline">Manufacturing
                             </p>
                         </a>
-                        <p class="uppercase">{{ $koneksimn->status_mn }}</p>
+                        <p class="uppercase text-xs">{{ $koneksimn->status_mn }}</p>
                         <p>{{ $koneksimn->status_mn_date }}</p>
                     </div>
                 </div>
@@ -497,13 +431,14 @@
                             <p class="font-bold text-md text-white">IN</p>
                         </div>
                     @endif
-                    <div class="absolute top-0 -ml-10 text-center mt-14 w-32 text-xs font-medium">
+                    <div class="absolute top-0 -ml-10 text-center mt-14 w-32 text-sm font-medium">
                         <a
                             href="/staff-05-installation-proyek/{{ $viewdataproject->id }}/{{ $koneksifr->id_fr_1 }}/{{ $koneksiar->id_ar_2 }}/{{ $koneksipr->id_pr_01_3 }}/{{ $koneksipa->id_pa_02_3 }}/{{ $koneksipo->id_po_03_3 }}/{{ $koneksipay->id_pay_04_3 }}/{{ $koneksimn->id_mn_4 }}/{{ $koneksiin->id_in_5 }}/{{ $koneksicl->id_cl_6 }}">
-                            <p class="font-semibold text-lg text-gray-900 hover:underline">Installation
+                            <p class="font-semibold text-lg text-gray-900 hover:underline">Installation<span
+                                    class="text-red-600">*</span>
                             </p>
                         </a>
-                        <p class="uppercase">{{ $koneksiin->status_in }}</p>
+                        <p class="uppercase text-xs">{{ $koneksiin->status_in }}</p>
                         <p>{{ $koneksiin->status_in_date }}</p>
                     </div>
                 </div>
@@ -524,223 +459,177 @@
                             <p class="font-bold text-md text-white">HOV</p>
                         </div>
                     @endif
-                    <div class="absolute top-0 -ml-10 text-center mt-14 w-32 text-xs font-medium">
+                    <div class="absolute top-0 -ml-10 text-center mt-14 w-32 text-sm font-medium">
                         <a
                             href="/staff-06-closed-proyek/{{ $viewdataproject->id }}/{{ $koneksifr->id_fr_1 }}/{{ $koneksiar->id_ar_2 }}/{{ $koneksipr->id_pr_01_3 }}/{{ $koneksipa->id_pa_02_3 }}/{{ $koneksipo->id_po_03_3 }}/{{ $koneksipay->id_pay_04_3 }}/{{ $koneksimn->id_mn_4 }}/{{ $koneksiin->id_in_5 }}/{{ $koneksicl->id_cl_6 }}">
-                            <p class="font-semibold text-lg text-gray-900 hover:underline">Handover
+                            <p class="font-semibold text-lg text-gray-900 hover:underline">Handover<span
+                                    class="text-red-600">*</span>
                             </p>
                         </a>
-                        <p class="uppercase">{{ $koneksicl->status_cl }}</p>
+                        <p class="uppercase text-xs">{{ $koneksicl->status_cl }}</p>
                         <p>{{ $koneksicl->status_cl_date }}</p>
                     </div>
                 </div>
             </div>
         </div>
-        {{-- akhir stepper --}}
-
-        {{-- financial status --}}
-        <div class="mt-24 w-full ">
-            <hr class="mb-2 w-full border">
-            <div class=" bg-gray-300 overflow-x-auto rounded">
-                <div class="grid grid-cols-1 gap-1">
-                    <div
-                        class="bg-gray-300 p-1 text-lg text-center font-bold text-pink-600 tracking-wider font-mono">
-                        Status Finansial:
-                    </div>
-                </div>
-                <div class="grid grid-cols-6 gap-1 text-white text-left pt-1 text-base font-thin ">
-                    <div class="bg-pink-600 font-mono px-1 text-lg ">
-                        Total budget
-                    </div>
-                    <div class="bg-pink-600 font-mono px-1 text-lg">
-                        PR
-                    </div>
-                    <div class="bg-pink-600 font-mono px-1 text-lg">
-                        PA
-                    </div>
-                    <div class="bg-pink-600 font-mono px-1 text-lg">
-                        PO
-                    </div>
-                    <div class="bg-pink-600 font-mono px-1 text-lg">
-                        PAYMENT
-                    </div>
-                    <div class="bg-blue-800 font-mono px-1 text-lg">
-                        BALANCE
-                    </div>
-                </div>
-                <div class="grid grid-cols-6 gap-1 text-white text-left font-semibold text-base">
-                    <div class="bg-pink-600 px-1">
-                        Rp{{ number_format($viewdataproject->budget_amount, 0, ',', '.') }}
-                    </div>
-                    <div class="bg-pink-600 px-1">
-                        Rp{{ number_format($sum_pr, 0, ',', '.') }}
-                    </div>
-                    <div class="bg-pink-600 px-1">
-                        Rp{{ number_format($sum_pa, 0, ',', '.') }}
-                    </div>
-                    <div class="bg-pink-600 px-1">
-                        Rp{{ number_format($sum_po, 0, ',', '.') }}
-                    </div>
-                    <div class="bg-pink-600 px-1">
-                        Rp{{ number_format($sum_pay, 0, ',', '.') }}
-                    </div>
-                    <div class="bg-blue-800 px-1">
-                        {{-- initial kondisi, balance = budget amount sebelum ada oprasi perhitungan --}}
-                        Rp{{ number_format($balance, 0, ',', '.') }}
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        {{-- selesai financial status --}}
     </div>
+    {{-- akhir stepper --}}
 
 
+    @if (
+        $koneksifr->status_fr != 'Complete' ||
+            $koneksiar->status_ar != 'Complete' ||
+            $koneksipr->status_pr_01 != 'Complete' ||
+            $koneksipa->status_pa_02 != 'Complete' ||
+            $koneksipo->status_po_03 != 'Complete' ||
+            $koneksimn->status_mn != 'Complete' ||
+            $koneksimn->status_mn != 'Complete')
+        <p class="bg-gray-600 uppercase p-3 mt-2 text-center font-bold text-white ">Tahapan sebelumnya belum
+            disetujui</p>
+    @else
+        {{-- Awal progress file --}}
+        <div class="bg-white mt-3 w-full rounded-md shadow-md p-3">
+            <div class="flex justify-between items-center mb-3">
 
-    {{-- Awal progress file --}}
-
-    <div class="bg-white mt-3 w-full rounded-md shadow-md p-3">
-        <div class="flex justify-between items-center mb-3">
-
-            {{-- status approval row --}}
-            <div class="flex">
-                <p>Checked by: &nbsp;
-                <div class="items-center py-1 px-2 text-sm font-medium text-center text-white bg-red-700 mr-2 rounded">
-                    {{ $koneksicl->approval_by }}
+                {{-- status approval row --}}
+                <div class="flex">
+                    <p>Diperiksa oleh: &nbsp;
+                    <div
+                        class="items-center py-1 px-2 text-sm font-medium text-center text-white bg-orange-500 mr-2 rounded">
+                        {{ $koneksicl->approval_by }}
+                    </div>
+                    </p>
+                    &nbsp;&nbsp;
+                    <p>Pada: &nbsp;
+                    <p class="font-semibold">
+                        {{ $koneksicl->approval_date }}
+                    </p>
+                    </p>
                 </div>
-                </p>
-                &nbsp;&nbsp;
-                <p>On: &nbsp;
-                <p class="font-semibold">
-                    {{ $koneksicl->approval_date }}
-                </p>
-                </p>
+
+
+                @if ($koneksicl->status_cl == 'Complete')
+                    {{-- approval ijo --}}
+                    <div class="bg-green-600 flex  py-1 px-2   items-center rounded">
+                        <div class="">
+                            <svg width="18" height="auto" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M12 0C5.376 0 0 5.376 0 12C0 18.624 5.376 24 12 24C18.624 24 24 18.624 24 12C24 5.376 18.624 0 12 0ZM9.6 18L3.6 12L5.292 10.308L9.6 14.604L18.708 5.496L20.4 7.2L9.6 18Z"
+                                    fill="white" />
+                            </svg>
+                        </div>
+                        <div class="text-white font-medium ml-3">
+                            <p>
+                                {{ $koneksicl->status_cl }}
+                            </p>
+                        </div>
+                    </div>
+                @elseif ($koneksicl->status_cl == '-')
+                    {{-- approval abu2 --}}
+                    <div class="bg-gray-400 flex  py-1 px-2   items-center rounded">
+                        <div class="">
+                            <svg width="18" height="auto" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M10.6667 18.6667C10.6667 19.4 11.2667 20 12 20C12.7333 20 13.3333 19.4 13.3333 18.6667C13.3333 17.9333 12.7333 17.3333 12 17.3333C11.2667 17.3333 10.6667 17.9333 10.6667 18.6667ZM10.6667 0V5.33333H13.3333V2.77333C17.8533 3.42667 21.3333 7.29333 21.3333 12C21.3333 17.16 17.16 21.3333 12 21.3333C6.84 21.3333 2.66667 17.16 2.66667 12C2.66667 9.76 3.45333 7.70667 4.77333 6.10667L12 13.3333L13.88 11.4533L4.81333 2.38667V2.41333C1.89333 4.6 0 8.06667 0 12C0 18.6267 5.36 24 12 24C18.6267 24 24 18.6267 24 12C24 5.37333 18.6267 0 12 0H10.6667ZM20 12C20 11.2667 19.4 10.6667 18.6667 10.6667C17.9333 10.6667 17.3333 11.2667 17.3333 12C17.3333 12.7333 17.9333 13.3333 18.6667 13.3333C19.4 13.3333 20 12.7333 20 12ZM4 12C4 12.7333 4.6 13.3333 5.33333 13.3333C6.06667 13.3333 6.66667 12.7333 6.66667 12C6.66667 11.2667 6.06667 10.6667 5.33333 10.6667C4.6 10.6667 4 11.2667 4 12Z"
+                                    fill="white" />
+                            </svg>
+                        </div>
+                        <div class="text-white font-medium ml-3">
+                            <p>
+                                {{ $koneksicl->status_cl }}
+                            </p>
+                        </div>
+                    </div>
+                @elseif ($koneksicl->status_cl == 'Waiting Approval')
+                    {{-- approval abu2 --}}
+                    <div class="bg-gray-400 flex  py-1 px-2   items-center rounded">
+                        <div class="">
+                            <svg width="18" height="auto" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M10.6667 18.6667C10.6667 19.4 11.2667 20 12 20C12.7333 20 13.3333 19.4 13.3333 18.6667C13.3333 17.9333 12.7333 17.3333 12 17.3333C11.2667 17.3333 10.6667 17.9333 10.6667 18.6667ZM10.6667 0V5.33333H13.3333V2.77333C17.8533 3.42667 21.3333 7.29333 21.3333 12C21.3333 17.16 17.16 21.3333 12 21.3333C6.84 21.3333 2.66667 17.16 2.66667 12C2.66667 9.76 3.45333 7.70667 4.77333 6.10667L12 13.3333L13.88 11.4533L4.81333 2.38667V2.41333C1.89333 4.6 0 8.06667 0 12C0 18.6267 5.36 24 12 24C18.6267 24 24 18.6267 24 12C24 5.37333 18.6267 0 12 0H10.6667ZM20 12C20 11.2667 19.4 10.6667 18.6667 10.6667C17.9333 10.6667 17.3333 11.2667 17.3333 12C17.3333 12.7333 17.9333 13.3333 18.6667 13.3333C19.4 13.3333 20 12.7333 20 12ZM4 12C4 12.7333 4.6 13.3333 5.33333 13.3333C6.06667 13.3333 6.66667 12.7333 6.66667 12C6.66667 11.2667 6.06667 10.6667 5.33333 10.6667C4.6 10.6667 4 11.2667 4 12Z"
+                                    fill="white" />
+                            </svg>
+                        </div>
+                        <div class="text-white font-medium ml-3">
+                            <p>
+                                {{ $koneksicl->status_cl }}
+                            </p>
+                        </div>
+                    </div>
+                @elseif ($koneksicl->status_cl == 'Revisi Handover')
+                    {{-- menunggu approval abu abu --}}
+                    <div class="bg-yellow-300 flex py-1 px-2 items-center rounded border-red-500 border-4">
+                        <div class="">
+                            <svg width="20" height="auto" viewBox="0 0 80 80" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M40 0C17.92 0 0 17.92 0 40C0 62.08 17.92 80 40 80C62.08 80 80 62.08 80 40C80 17.92 62.08 0 40 0ZM44 60H36V52H44V60ZM44 44H36V20H44V44Z"
+                                    fill="black" />
+                            </svg>
+                        </div>
+                        <div class="text-black font-medium ml-3">
+                            <p>
+                                {{ $koneksicl->status_cl }}
+                            </p>
+                        </div>
+                    </div>
+                @endif
+
             </div>
+            <hr class="mb-2 mt-2 w-full border">
+            {{-- approval abu2 slesai --}}
+            {{-- selesai status approval row --}}
 
+            {{-- Yang diganti pertahapnya --}}
+            <form action="" method="post" enctype="multipart/form-data" id="uploadForm">
+                @csrf
+                @method('PUT')
+                {{-- atas form --}}
 
-            @if ($koneksicl->status_cl == 'Complete')
-                {{-- approval ijo --}}
-                <div class="bg-green-600 flex  py-1 px-2   items-center rounded">
-                    <div class="">
-                        <svg width="18" height="auto" viewBox="0 0 24 24" fill="none"
-                            xmlns="http://www.w3.org/2000/svg">
-
-                            <path
-                                d="M12 0C5.376 0 0 5.376 0 12C0 18.624 5.376 24 12 24C18.624 24 24 18.624 24 12C24 5.376 18.624 0 12 0ZM9.6 18L3.6 12L5.292 10.308L9.6 14.604L18.708 5.496L20.4 7.2L9.6 18Z"
-                                fill="white" />
-
-                        </svg>
-                    </div>
-                    <div class="text-white font-medium ml-3">
-                        <p>
-                            {{ $koneksicl->status_cl }}
-                        </p>
-                    </div>
-                </div>
-            @elseif ($koneksicl->status_cl == '-')
-                {{-- approval abu2 --}}
-                <div class="bg-gray-400 flex  py-1 px-2   items-center rounded">
-                    <div class="">
-                        <svg width="18" height="auto" viewBox="0 0 24 24" fill="none"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                d="M10.6667 18.6667C10.6667 19.4 11.2667 20 12 20C12.7333 20 13.3333 19.4 13.3333 18.6667C13.3333 17.9333 12.7333 17.3333 12 17.3333C11.2667 17.3333 10.6667 17.9333 10.6667 18.6667ZM10.6667 0V5.33333H13.3333V2.77333C17.8533 3.42667 21.3333 7.29333 21.3333 12C21.3333 17.16 17.16 21.3333 12 21.3333C6.84 21.3333 2.66667 17.16 2.66667 12C2.66667 9.76 3.45333 7.70667 4.77333 6.10667L12 13.3333L13.88 11.4533L4.81333 2.38667V2.41333C1.89333 4.6 0 8.06667 0 12C0 18.6267 5.36 24 12 24C18.6267 24 24 18.6267 24 12C24 5.37333 18.6267 0 12 0H10.6667ZM20 12C20 11.2667 19.4 10.6667 18.6667 10.6667C17.9333 10.6667 17.3333 11.2667 17.3333 12C17.3333 12.7333 17.9333 13.3333 18.6667 13.3333C19.4 13.3333 20 12.7333 20 12ZM4 12C4 12.7333 4.6 13.3333 5.33333 13.3333C6.06667 13.3333 6.66667 12.7333 6.66667 12C6.66667 11.2667 6.06667 10.6667 5.33333 10.6667C4.6 10.6667 4 11.2667 4 12Z"
-                                fill="white" />
-                        </svg>
-                    </div>
-                    <div class="text-white font-medium ml-3">
-                        <p>
-                            {{ $koneksicl->status_cl }}
-                        </p>
-                    </div>
-                </div>
-            @elseif ($koneksicl->status_cl == 'Waiting Approval')
-                {{-- approval abu2 --}}
-                <div class="bg-gray-400 flex  py-1 px-2   items-center rounded">
-                    <div class="">
-                        <svg width="18" height="auto" viewBox="0 0 24 24" fill="none"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                d="M10.6667 18.6667C10.6667 19.4 11.2667 20 12 20C12.7333 20 13.3333 19.4 13.3333 18.6667C13.3333 17.9333 12.7333 17.3333 12 17.3333C11.2667 17.3333 10.6667 17.9333 10.6667 18.6667ZM10.6667 0V5.33333H13.3333V2.77333C17.8533 3.42667 21.3333 7.29333 21.3333 12C21.3333 17.16 17.16 21.3333 12 21.3333C6.84 21.3333 2.66667 17.16 2.66667 12C2.66667 9.76 3.45333 7.70667 4.77333 6.10667L12 13.3333L13.88 11.4533L4.81333 2.38667V2.41333C1.89333 4.6 0 8.06667 0 12C0 18.6267 5.36 24 12 24C18.6267 24 24 18.6267 24 12C24 5.37333 18.6267 0 12 0H10.6667ZM20 12C20 11.2667 19.4 10.6667 18.6667 10.6667C17.9333 10.6667 17.3333 11.2667 17.3333 12C17.3333 12.7333 17.9333 13.3333 18.6667 13.3333C19.4 13.3333 20 12.7333 20 12ZM4 12C4 12.7333 4.6 13.3333 5.33333 13.3333C6.06667 13.3333 6.66667 12.7333 6.66667 12C6.66667 11.2667 6.06667 10.6667 5.33333 10.6667C4.6 10.6667 4 11.2667 4 12Z"
-                                fill="white" />
-                        </svg>
-                    </div>
-                    <div class="text-white font-medium ml-3">
-                        <p>
-                            {{ $koneksicl->status_cl }}
-                        </p>
-                    </div>
-                </div>
-            @elseif ($koneksicl->status_cl == 'Revisi Closed')
-                {{-- menunggu approval abu abu --}}
-                <div class="bg-yellow-300 flex py-1 px-2 items-center rounded border-red-500 border-4">
-                    <div class="">
-                        <svg width="20" height="auto" viewBox="0 0 80 80" fill="none"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                d="M40 0C17.92 0 0 17.92 0 40C0 62.08 17.92 80 40 80C62.08 80 80 62.08 80 40C80 17.92 62.08 0 40 0ZM44 60H36V52H44V60ZM44 44H36V20H44V44Z"
-                                fill="black" />
-                        </svg>
-                    </div>
-                    <div class="text-black font-medium ml-3">
-                        <p>
-                            {{ $koneksicl->status_cl }}
-                        </p>
-                    </div>
-                </div>
-            @endif
-
-        </div>
-        <hr class="mb-2 mt-2 w-full border">
-        {{-- approval abu2 slesai --}}
-        {{-- selesai status approval row --}}
-
-        {{-- Yang diganti pertahapnya --}}
-        <form action="" method="post" enctype="multipart/form-data">
-            @csrf
-            @method('PUT')
-            {{-- atas form --}}
-
-            <div class="w-full bg-white">
-
+                <div class="w-full bg-white">
                     {{-- Ijin Pemeriksaan Mesin --}}
                     {{-- awal standar formulir --}}
                     <div class="flex justify-between">
-                        <p class="font-normal text-lg bg-teal-600 px-4 py-1 w-fit text-white mb-2 rounded"> Izin Pemeriksaan Mesin
-                        @foreach ($standar_project as $spt)
-                            @if ($spt->file_iperiksam_form != '')
-                                <div class="flex justify-end mr-1 mt-4">
-                                    <a href="{{ asset('storage/supervisor/standarproject/' . $spt->file_iperiksam_form) }}"
-                                        download="">
-                                        <div class="w-fit items-center space-x-1 flex fill-blue-600 hover:fill-blue-800">
-                                            <svg width="15" height="" viewBox="0 0 52 52"
-                                                xmlns="http://www.w3.org/2000/svg">
-                                                <path
-                                                    d="m36.4 14.8h8.48a1.09 1.09 0 0 0 1.12-1.12 1 1 0 0 0 -.32-.8l-10.56-10.56a1 1 0 0 0 -.8-.32 1.09 1.09 0 0 0 -1.12 1.12v8.48a3.21 3.21 0 0 0 3.2 3.2z" />
+                        <p class="font-medium text-lg bg-gray-800 px-4 py-1 w-fit text-white mb-2 rounded"> Izin
+                            Pemeriksaan Mesin
+                            @foreach ($standar_project as $spt)
+                                @if ($spt->file_iperiksam_form != '')
+                                    <div class="flex justify-end mr-1 mt-4">
+                                        <a href="{{ asset('storage/supervisor/standarproject/' . $spt->file_iperiksam_form) }}"
+                                            download="">
+                                            <div
+                                                class="w-fit items-center space-x-1 flex fill-blue-600 hover:fill-blue-800">
+                                                <svg width="15" height="" viewBox="0 0 52 52"
+                                                    xmlns="http://www.w3.org/2000/svg">
+                                                    <path
+                                                        d="m36.4 14.8h8.48a1.09 1.09 0 0 0 1.12-1.12 1 1 0 0 0 -.32-.8l-10.56-10.56a1 1 0 0 0 -.8-.32 1.09 1.09 0 0 0 -1.12 1.12v8.48a3.21 3.21 0 0 0 3.2 3.2z" />
 
-                                                <path
-                                                    d="m44.4 19.6h-11.2a4.81 4.81 0 0 1 -4.8-4.8v-11.2a1.6 1.6 0 0 0 -1.6-1.6h-16a4.81 4.81 0 0 0 -4.8 4.8v38.4a4.81 4.81 0 0 0 4.8 4.8h30.4a4.81 4.81 0 0 0 4.8-4.8v-24a1.6 1.6 0 0 0 -1.6-1.6zm-32-1.6a1.62 1.62 0 0 1 1.6-1.55h6.55a1.56 1.56 0 0 1 1.57 1.55v1.59a1.63 1.63 0 0 1 -1.59 1.58h-6.53a1.55 1.55 0 0 1 -1.58-1.58zm24 20.77a1.6 1.6 0 0 1 -1.6 1.6h-20.8a1.6 1.6 0 0 1 -1.6-1.6v-1.57a1.6 1.6 0 0 1 1.6-1.6h20.8a1.6 1.6 0 0 1 1.6 1.6zm3.2-9.6a1.6 1.6 0 0 1 -1.6 1.63h-24a1.6 1.6 0 0 1 -1.6-1.6v-1.6a1.6 1.6 0 0 1 1.6-1.6h24a1.6 1.6 0 0 1 1.6 1.6z" />
-                                            </svg>
-                                            <p
-                                                class="text-right hover:underline font-semibold text-md text-blue-600 hover:text-blue-800 ">
-                                                Klik untuk mengunduh formulir kerja</p>
-                                        </div>
-                                    </a>
-                                </div>
-                            @endif
-                        @endforeach
-                        {{-- tombol form --}}
+                                                    <path
+                                                        d="m44.4 19.6h-11.2a4.81 4.81 0 0 1 -4.8-4.8v-11.2a1.6 1.6 0 0 0 -1.6-1.6h-16a4.81 4.81 0 0 0 -4.8 4.8v38.4a4.81 4.81 0 0 0 4.8 4.8h30.4a4.81 4.81 0 0 0 4.8-4.8v-24a1.6 1.6 0 0 0 -1.6-1.6zm-32-1.6a1.62 1.62 0 0 1 1.6-1.55h6.55a1.56 1.56 0 0 1 1.57 1.55v1.59a1.63 1.63 0 0 1 -1.59 1.58h-6.53a1.55 1.55 0 0 1 -1.58-1.58zm24 20.77a1.6 1.6 0 0 1 -1.6 1.6h-20.8a1.6 1.6 0 0 1 -1.6-1.6v-1.57a1.6 1.6 0 0 1 1.6-1.6h20.8a1.6 1.6 0 0 1 1.6 1.6zm3.2-9.6a1.6 1.6 0 0 1 -1.6 1.63h-24a1.6 1.6 0 0 1 -1.6-1.6v-1.6a1.6 1.6 0 0 1 1.6-1.6h24a1.6 1.6 0 0 1 1.6 1.6z" />
+                                                </svg>
+                                                <p
+                                                    class="text-right hover:underline font-semibold text-md text-blue-600 hover:text-blue-800 ">
+                                                    Klik untuk mengunduh formulir kerja</p>
+                                            </div>
+                                        </a>
+                                    </div>
+                                @endif
+                            @endforeach
+                            {{-- tombol form --}}
                     </div>
                     {{-- akhir standar formulir --}}
 
                     <div class="overflow-x-auto rounded-md mb-5 border">
                         <table class="w-full ">
-                            <thead class="bg-green-600 text-white sticky top-0">
-                                <th class="py-2 w-[5%]">No.</th>
-                                <th class="w-[57%]">Nama File</th>
-                                <th class="w-[10%]">Uploaded by</th>
-                                <th class="w-[13%]">Last Update</th>
-                                <th class="w-[15%]">Aksi</th>
+                            <thead class="bg-gray-300 text-gray-700 sticky top-0">
+                                <th class="py-2 w-[5%] font-medium">No.</th>
+                                <th class="w-[57%] font-medium">Nama File</th>
+                                <th class="w-[10%] font-medium">Uploaded by</th>
+                                <th class="w-[13%] font-medium">Last Update</th>
+                                <th class="w-[15%] font-medium">Aksi</th>
                             </thead>
                             <tbody class="text-left border">
                                 {{-- 1 --}}
@@ -779,15 +668,28 @@
                                     </td>
                                     <td class="text-center">{{ $koneksicl->date_cl_i_periksa_m_1 }}</td>
                                     <td class="space-y-2 py-3 px-2">
-                                        @if ($koneksicl->cl_i_periksa_m_1 != '')
+                                        @if (($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Handover') && $koneksicl->cl_i_periksa_m_1 == '')
+                                            <div class="justify-center flex space-x-2">
+                                                <input type="file" name="as_cl_i_periksa_m_1"
+                                                    id="fileInput_cl_i_periksa_m_1" style="display: none;">
+                                                <button type="button" onclick="openFileInput('cl_i_periksa_m_1')"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md">
+                                                    + Tambah dokumen
+                                                </button>
+                                            </div>
+                                        @elseif (
+                                            ($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Handover') &&
+                                                $koneksicl->cl_i_periksa_m_1 != '' &&
+                                                $koneksicl->status_cl != 'Complete' &&
+                                                $koneksicl->status_cl != 'Waiting Approval')
                                             <div class="justify-center flex space-x-2">
                                                 <button type="button"
-                                                    class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                    class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                     data-modal-target="modal11" data-modal-show="modal11"
-                                                    data-modal-toggle="modal11">Ubah</button>
+                                                    data-modal-toggle="modal11">
+                                                    Ubah
+                                                </button>
                                             </div>
-                                        @else
-                                            <input type="file" name="as_cl_i_periksa_m_1" id="">
                                         @endif
                                     </td>
                                     <input type="text" hidden name="as_up_by_i_periksa_m_cl_1"
@@ -832,17 +734,29 @@
                                     </td>
                                     <td class="text-center">{{ $koneksicl->date_cl_i_periksa_m_2 }}</td>
                                     <td class="space-y-2 py-3 px-2">
-                                        @if ($koneksicl->cl_i_periksa_m_2 != '')
+                                        @if (($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Handover') && $koneksicl->cl_i_periksa_m_2 == '')
+                                            <div class="justify-center flex space-x-2">
+                                                <input type="file" name="as_cl_i_periksa_m_2"
+                                                    id="fileInput_cl_i_periksa_m_2" style="display: none;">
+                                                <button type="button" onclick="openFileInput('cl_i_periksa_m_2')"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md">
+                                                    + Tambah dokumen
+                                                </button>
+                                            </div>
+                                        @elseif (
+                                            ($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Handover') &&
+                                                $koneksicl->cl_i_periksa_m_2 != '' &&
+                                                $koneksicl->status_cl != 'Complete' &&
+                                                $koneksicl->status_cl != 'Waiting Approval')
                                             <div class="justify-center flex space-x-2">
                                                 <button type="button"
-                                                    class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                    class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                     data-modal-target="modal12" data-modal-show="modal12"
-                                                    data-modal-toggle="modal12">Ubah</button>
+                                                    data-modal-toggle="modal12">
+                                                    Ubah
+                                                </button>
                                             </div>
-                                        @else
-                                            <input type="file" name="as_cl_i_periksa_m_2" id="">
                                         @endif
-
                                     </td>
                                     <input type="text" hidden name="as_up_by_i_periksa_m_cl_2"
                                         value="{{ Auth::user()->first_name }}">
@@ -887,17 +801,29 @@
                                     </td>
                                     <td class="text-center">{{ $koneksicl->date_cl_i_periksa_m_3 }}</td>
                                     <td class="space-y-2 py-3 px-2">
-                                        @if ($koneksicl->cl_i_periksa_m_3 != '')
+                                        @if (($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Handover') && $koneksicl->cl_i_periksa_m_3 == '')
+                                            <div class="justify-center flex space-x-2">
+                                                <input type="file" name="as_cl_i_periksa_m_3"
+                                                    id="fileInput_cl_i_periksa_m_3" style="display: none;">
+                                                <button type="button" onclick="openFileInput('cl_i_periksa_m_3')"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md">
+                                                    + Tambah dokumen
+                                                </button>
+                                            </div>
+                                        @elseif (
+                                            ($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Handover') &&
+                                                $koneksicl->cl_i_periksa_m_3 != '' &&
+                                                $koneksicl->status_cl != 'Complete' &&
+                                                $koneksicl->status_cl != 'Waiting Approval')
                                             <div class="justify-center flex space-x-2">
                                                 <button type="button"
-                                                    class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                    class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                     data-modal-target="modal13" data-modal-show="modal13"
-                                                    data-modal-toggle="modal13">Ubah</button>
+                                                    data-modal-toggle="modal13">
+                                                    Ubah
+                                                </button>
                                             </div>
-                                        @else
-                                            <input type="file" name="as_cl_i_periksa_m_3" id="">
                                         @endif
-
                                     </td>
                                     <input type="text" hidden name="as_up_by_i_periksa_m_cl_3"
                                         value="{{ Auth::user()->first_name }}">
@@ -913,41 +839,43 @@
                     {{-- System Quality Assurance --}}
                     {{-- awal standar formulir --}}
                     <div class="flex justify-between">
-                        <p class="font-normal text-lg bg-teal-600 px-4 py-1 w-fit text-white mb-2 rounded"> System Quality Assurance
-                        @foreach ($standar_project as $spt)
-                            @if ($spt->file_qas_form != '')
-                                <div class="flex justify-end mr-1 mt-4">
-                                    <a href="{{ asset('storage/supervisor/standarproject/' . $spt->file_qas_form) }}"
-                                        download="">
-                                        <div class="w-fit items-center space-x-1 flex fill-blue-600 hover:fill-blue-800">
-                                            <svg width="15" height="" viewBox="0 0 52 52"
-                                                xmlns="http://www.w3.org/2000/svg">
-                                                <path
-                                                    d="m36.4 14.8h8.48a1.09 1.09 0 0 0 1.12-1.12 1 1 0 0 0 -.32-.8l-10.56-10.56a1 1 0 0 0 -.8-.32 1.09 1.09 0 0 0 -1.12 1.12v8.48a3.21 3.21 0 0 0 3.2 3.2z" />
+                        <p class="font-medium text-lg bg-gray-800 px-4 py-1 w-fit text-white mb-2 rounded"> System
+                            Quality Assurance
+                            @foreach ($standar_project as $spt)
+                                @if ($spt->file_qas_form != '')
+                                    <div class="flex justify-end mr-1 mt-4">
+                                        <a href="{{ asset('storage/supervisor/standarproject/' . $spt->file_qas_form) }}"
+                                            download="">
+                                            <div
+                                                class="w-fit items-center space-x-1 flex fill-blue-600 hover:fill-blue-800">
+                                                <svg width="15" height="" viewBox="0 0 52 52"
+                                                    xmlns="http://www.w3.org/2000/svg">
+                                                    <path
+                                                        d="m36.4 14.8h8.48a1.09 1.09 0 0 0 1.12-1.12 1 1 0 0 0 -.32-.8l-10.56-10.56a1 1 0 0 0 -.8-.32 1.09 1.09 0 0 0 -1.12 1.12v8.48a3.21 3.21 0 0 0 3.2 3.2z" />
 
-                                                <path
-                                                    d="m44.4 19.6h-11.2a4.81 4.81 0 0 1 -4.8-4.8v-11.2a1.6 1.6 0 0 0 -1.6-1.6h-16a4.81 4.81 0 0 0 -4.8 4.8v38.4a4.81 4.81 0 0 0 4.8 4.8h30.4a4.81 4.81 0 0 0 4.8-4.8v-24a1.6 1.6 0 0 0 -1.6-1.6zm-32-1.6a1.62 1.62 0 0 1 1.6-1.55h6.55a1.56 1.56 0 0 1 1.57 1.55v1.59a1.63 1.63 0 0 1 -1.59 1.58h-6.53a1.55 1.55 0 0 1 -1.58-1.58zm24 20.77a1.6 1.6 0 0 1 -1.6 1.6h-20.8a1.6 1.6 0 0 1 -1.6-1.6v-1.57a1.6 1.6 0 0 1 1.6-1.6h20.8a1.6 1.6 0 0 1 1.6 1.6zm3.2-9.6a1.6 1.6 0 0 1 -1.6 1.63h-24a1.6 1.6 0 0 1 -1.6-1.6v-1.6a1.6 1.6 0 0 1 1.6-1.6h24a1.6 1.6 0 0 1 1.6 1.6z" />
-                                            </svg>
-                                            <p
-                                                class="text-right hover:underline font-semibold text-md text-blue-600 hover:text-blue-800 ">
-                                                Klik untuk mengunduh formulir kerja</p>
-                                        </div>
-                                    </a>
-                                </div>
-                            @endif
-                        @endforeach
-                        {{-- tombol form --}}
+                                                    <path
+                                                        d="m44.4 19.6h-11.2a4.81 4.81 0 0 1 -4.8-4.8v-11.2a1.6 1.6 0 0 0 -1.6-1.6h-16a4.81 4.81 0 0 0 -4.8 4.8v38.4a4.81 4.81 0 0 0 4.8 4.8h30.4a4.81 4.81 0 0 0 4.8-4.8v-24a1.6 1.6 0 0 0 -1.6-1.6zm-32-1.6a1.62 1.62 0 0 1 1.6-1.55h6.55a1.56 1.56 0 0 1 1.57 1.55v1.59a1.63 1.63 0 0 1 -1.59 1.58h-6.53a1.55 1.55 0 0 1 -1.58-1.58zm24 20.77a1.6 1.6 0 0 1 -1.6 1.6h-20.8a1.6 1.6 0 0 1 -1.6-1.6v-1.57a1.6 1.6 0 0 1 1.6-1.6h20.8a1.6 1.6 0 0 1 1.6 1.6zm3.2-9.6a1.6 1.6 0 0 1 -1.6 1.63h-24a1.6 1.6 0 0 1 -1.6-1.6v-1.6a1.6 1.6 0 0 1 1.6-1.6h24a1.6 1.6 0 0 1 1.6 1.6z" />
+                                                </svg>
+                                                <p
+                                                    class="text-right hover:underline font-semibold text-md text-blue-600 hover:text-blue-800 ">
+                                                    Klik untuk mengunduh formulir kerja</p>
+                                            </div>
+                                        </a>
+                                    </div>
+                                @endif
+                            @endforeach
+                            {{-- tombol form --}}
                     </div>
                     {{-- akhir standar formulir --}}
 
                     <div class="overflow-x-auto rounded-md mb-5 border">
                         <table class="w-full ">
-                            <thead class="bg-green-600 text-white sticky top-0">
-                                <th class="py-2 w-[5%]">No.</th>
-                                <th class="w-[57%]">Nama File</th>
-                                <th class="w-[10%]">Uploaded by</th>
-                                <th class="w-[13%]">Last Update</th>
-                                <th class="w-[15%]">Upload</th>
+                            <thead class="bg-gray-300 text-gray-700 sticky top-0">
+                                <th class="py-2 w-[5%] font-medium">No.</th>
+                                <th class="w-[57%] font-medium">Nama File</th>
+                                <th class="w-[10%] font-medium">Uploaded by</th>
+                                <th class="w-[13%] font-medium">Last Update</th>
+                                <th class="w-[15%] font-medium">Aksi</th>
                             </thead>
                             <tbody class="text-left border">
                                 {{-- 1 --}}
@@ -986,15 +914,28 @@
                                     </td>
                                     <td class="text-center">{{ $koneksicl->date_cl_qas_1 }}</td>
                                     <td class="space-y-2 py-3 px-2">
-                                        @if ($koneksicl->cl_qas_1 != '')
+                                        @if (($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Handover') && $koneksicl->cl_qas_1 == '')
+                                            <div class="justify-center flex space-x-2">
+                                                <input type="file" name="as_cl_qas_1" id="fileInput_cl_qas_1"
+                                                    style="display: none;">
+                                                <button type="button" onclick="openFileInput('cl_qas_1')"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md">
+                                                    + Tambah dokumen
+                                                </button>
+                                            </div>
+                                        @elseif (
+                                            ($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Handover') &&
+                                                $koneksicl->cl_qas_1 != '' &&
+                                                $koneksicl->status_cl != 'Complete' &&
+                                                $koneksicl->status_cl != 'Waiting Approval')
                                             <div class="justify-center flex space-x-2">
                                                 <button type="button"
-                                                    class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                    class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                     data-modal-target="modal21" data-modal-show="modal21"
-                                                    data-modal-toggle="modal21">Ubah</button>
+                                                    data-modal-toggle="modal21">
+                                                    Ubah
+                                                </button>
                                             </div>
-                                        @else
-                                            <input type="file" name="as_cl_qas_1" id="">
                                         @endif
                                     </td>
                                     <input type="text" hidden name="as_up_by_qas_cl_1"
@@ -1038,15 +979,28 @@
                                     </td>
                                     <td class="text-center">{{ $koneksicl->date_cl_qas_2 }}</td>
                                     <td class="space-y-2 py-3 px-2">
-                                        @if ($koneksicl->cl_qas_2 != '')
+                                        @if (($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Handover') && $koneksicl->cl_qas_2 == '')
+                                            <div class="justify-center flex space-x-2">
+                                                <input type="file" name="as_cl_qas_2" id="fileInput_cl_qas_2"
+                                                    style="display: none;">
+                                                <button type="button" onclick="openFileInput('cl_qas_2')"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md">
+                                                    + Tambah dokumen
+                                                </button>
+                                            </div>
+                                        @elseif (
+                                            ($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Handover') &&
+                                                $koneksicl->cl_qas_2 != '' &&
+                                                $koneksicl->status_cl != 'Complete' &&
+                                                $koneksicl->status_cl != 'Waiting Approval')
                                             <div class="justify-center flex space-x-2">
                                                 <button type="button"
-                                                    class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                    class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                     data-modal-target="modal22" data-modal-show="modal22"
-                                                    data-modal-toggle="modal22">Ubah</button>
+                                                    data-modal-toggle="modal22">
+                                                    Ubah
+                                                </button>
                                             </div>
-                                        @else
-                                            <input type="file" name="as_cl_qas_2" id="">
                                         @endif
                                     </td>
                                     <input type="text" hidden name="as_up_by_qas_cl_2"
@@ -1063,41 +1017,43 @@
                     {{-- Ijin Pakai Mesin --}}
                     {{-- awal standar formulir --}}
                     <div class="flex justify-between">
-                        <p class="font-normal text-lg bg-teal-600 px-4 py-1 w-fit text-white mb-2 rounded"> Izin Pakai Mesin
-                        @foreach ($standar_project as $spt)
-                            @if ($spt->file_ipakaim_form != '')
-                                <div class="flex justify-end mr-1 mt-4">
-                                    <a href="{{ asset('storage/supervisor/standarproject/' . $spt->file_ipakaim_form) }}"
-                                        download="">
-                                        <div class="w-fit items-center space-x-1 flex fill-blue-600 hover:fill-blue-800">
-                                            <svg width="15" height="" viewBox="0 0 52 52"
-                                                xmlns="http://www.w3.org/2000/svg">
-                                                <path
-                                                    d="m36.4 14.8h8.48a1.09 1.09 0 0 0 1.12-1.12 1 1 0 0 0 -.32-.8l-10.56-10.56a1 1 0 0 0 -.8-.32 1.09 1.09 0 0 0 -1.12 1.12v8.48a3.21 3.21 0 0 0 3.2 3.2z" />
+                        <p class="font-medium text-lg bg-gray-800 px-4 py-1 w-fit text-white mb-2 rounded"> Izin Pakai
+                            Mesin
+                            @foreach ($standar_project as $spt)
+                                @if ($spt->file_ipakaim_form != '')
+                                    <div class="flex justify-end mr-1 mt-4">
+                                        <a href="{{ asset('storage/supervisor/standarproject/' . $spt->file_ipakaim_form) }}"
+                                            download="">
+                                            <div
+                                                class="w-fit items-center space-x-1 flex fill-blue-600 hover:fill-blue-800">
+                                                <svg width="15" height="" viewBox="0 0 52 52"
+                                                    xmlns="http://www.w3.org/2000/svg">
+                                                    <path
+                                                        d="m36.4 14.8h8.48a1.09 1.09 0 0 0 1.12-1.12 1 1 0 0 0 -.32-.8l-10.56-10.56a1 1 0 0 0 -.8-.32 1.09 1.09 0 0 0 -1.12 1.12v8.48a3.21 3.21 0 0 0 3.2 3.2z" />
 
-                                                <path
-                                                    d="m44.4 19.6h-11.2a4.81 4.81 0 0 1 -4.8-4.8v-11.2a1.6 1.6 0 0 0 -1.6-1.6h-16a4.81 4.81 0 0 0 -4.8 4.8v38.4a4.81 4.81 0 0 0 4.8 4.8h30.4a4.81 4.81 0 0 0 4.8-4.8v-24a1.6 1.6 0 0 0 -1.6-1.6zm-32-1.6a1.62 1.62 0 0 1 1.6-1.55h6.55a1.56 1.56 0 0 1 1.57 1.55v1.59a1.63 1.63 0 0 1 -1.59 1.58h-6.53a1.55 1.55 0 0 1 -1.58-1.58zm24 20.77a1.6 1.6 0 0 1 -1.6 1.6h-20.8a1.6 1.6 0 0 1 -1.6-1.6v-1.57a1.6 1.6 0 0 1 1.6-1.6h20.8a1.6 1.6 0 0 1 1.6 1.6zm3.2-9.6a1.6 1.6 0 0 1 -1.6 1.63h-24a1.6 1.6 0 0 1 -1.6-1.6v-1.6a1.6 1.6 0 0 1 1.6-1.6h24a1.6 1.6 0 0 1 1.6 1.6z" />
-                                            </svg>
-                                            <p
-                                                class="text-right hover:underline font-semibold text-md text-blue-600 hover:text-blue-800 ">
-                                                Klik untuk mengunduh formulir kerja</p>
-                                        </div>
-                                    </a>
-                                </div>
-                            @endif
-                        @endforeach
-                        {{-- tombol form --}}
+                                                    <path
+                                                        d="m44.4 19.6h-11.2a4.81 4.81 0 0 1 -4.8-4.8v-11.2a1.6 1.6 0 0 0 -1.6-1.6h-16a4.81 4.81 0 0 0 -4.8 4.8v38.4a4.81 4.81 0 0 0 4.8 4.8h30.4a4.81 4.81 0 0 0 4.8-4.8v-24a1.6 1.6 0 0 0 -1.6-1.6zm-32-1.6a1.62 1.62 0 0 1 1.6-1.55h6.55a1.56 1.56 0 0 1 1.57 1.55v1.59a1.63 1.63 0 0 1 -1.59 1.58h-6.53a1.55 1.55 0 0 1 -1.58-1.58zm24 20.77a1.6 1.6 0 0 1 -1.6 1.6h-20.8a1.6 1.6 0 0 1 -1.6-1.6v-1.57a1.6 1.6 0 0 1 1.6-1.6h20.8a1.6 1.6 0 0 1 1.6 1.6zm3.2-9.6a1.6 1.6 0 0 1 -1.6 1.63h-24a1.6 1.6 0 0 1 -1.6-1.6v-1.6a1.6 1.6 0 0 1 1.6-1.6h24a1.6 1.6 0 0 1 1.6 1.6z" />
+                                                </svg>
+                                                <p
+                                                    class="text-right hover:underline font-semibold text-md text-blue-600 hover:text-blue-800 ">
+                                                    Klik untuk mengunduh formulir kerja</p>
+                                            </div>
+                                        </a>
+                                    </div>
+                                @endif
+                            @endforeach
+                            {{-- tombol form --}}
                     </div>
                     {{-- akhir standar formulir --}}
 
                     <div class="overflow-x-auto rounded-md mb-5 border">
                         <table class="w-full ">
-                            <thead class="bg-green-600 text-white sticky top-0">
-                                <th class="py-2 w-[5%]">No.</th>
-                                <th class="w-[57%]">Nama File</th>
-                                <th class="w-[10%]">Uploaded by</th>
-                                <th class="w-[13%]">Last Update</th>
-                                <th class="w-[15%]">Upload</th>
+                            <thead class="bg-gray-300 text-gray-700 sticky top-0">
+                                <th class="py-2 w-[5%] font-medium">No.</th>
+                                <th class="w-[57%] font-medium">Nama File</th>
+                                <th class="w-[10%] font-medium">Uploaded by</th>
+                                <th class="w-[13%] font-medium">Last Update</th>
+                                <th class="w-[15%] font-medium">Aksi</th>
                             </thead>
                             <tbody class="text-left border">
                                 {{-- 1 --}}
@@ -1136,15 +1092,28 @@
                                     </td>
                                     <td class="text-center">{{ $koneksicl->date_cl_i_pakai_m_1 }}</td>
                                     <td class="space-y-2 py-3 px-2">
-                                        @if ($koneksicl->cl_i_pakai_m_1 != '')
+                                        @if (($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Handover') && $koneksicl->cl_i_pakai_m_1 == '')
+                                            <div class="justify-center flex space-x-2">
+                                                <input type="file" name="as_cl_i_pakai_m_1"
+                                                    id="fileInput_cl_i_pakai_m_1" style="display: none;">
+                                                <button type="button" onclick="openFileInput('cl_i_pakai_m_1')"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md">
+                                                    + Tambah dokumen
+                                                </button>
+                                            </div>
+                                        @elseif (
+                                            ($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Handover') &&
+                                                $koneksicl->cl_i_pakai_m_1 != '' &&
+                                                $koneksicl->status_cl != 'Complete' &&
+                                                $koneksicl->status_cl != 'Waiting Approval')
                                             <div class="justify-center flex space-x-2">
                                                 <button type="button"
-                                                    class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                    class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                     data-modal-target="modal31" data-modal-show="modal31"
-                                                    data-modal-toggle="modal31">Ubah</button>
+                                                    data-modal-toggle="modal31">
+                                                    Ubah
+                                                </button>
                                             </div>
-                                        @else
-                                            <input type="file" name="as_cl_i_pakai_m_1" id="">
                                         @endif
                                     </td>
                                     <input type="text" hidden name="as_up_by_i_pakai_m_cl_1"
@@ -1188,15 +1157,28 @@
                                     </td>
                                     <td class="text-center">{{ $koneksicl->date_cl_i_pakai_m_2 }}</td>
                                     <td class="space-y-2 py-3 px-2">
-                                        @if ($koneksicl->cl_i_pakai_m_2 != '')
+                                        @if (($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Handover') && $koneksicl->cl_i_pakai_m_2 == '')
+                                            <div class="justify-center flex space-x-2">
+                                                <input type="file" name="as_cl_i_pakai_m_2"
+                                                    id="fileInput_cl_i_pakai_m_2" style="display: none;">
+                                                <button type="button" onclick="openFileInput('cl_i_pakai_m_2')"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md">
+                                                    + Tambah dokumen
+                                                </button>
+                                            </div>
+                                        @elseif (
+                                            ($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Handover') &&
+                                                $koneksicl->cl_i_pakai_m_2 != '' &&
+                                                $koneksicl->status_cl != 'Complete' &&
+                                                $koneksicl->status_cl != 'Waiting Approval')
                                             <div class="justify-center flex space-x-2">
                                                 <button type="button"
-                                                    class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                    class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                     data-modal-target="modal32" data-modal-show="modal32"
-                                                    data-modal-toggle="modal32">Ubah</button>
+                                                    data-modal-toggle="modal32">
+                                                    Ubah
+                                                </button>
                                             </div>
-                                        @else
-                                            <input type="file" name="as_cl_i_pakai_m_2" id="">
                                         @endif
                                     </td>
                                     <input type="text" hidden name="as_up_by_i_pakai_m_cl_2"
@@ -1212,41 +1194,43 @@
                     {{-- Training Document --}}
                     {{-- awal standar formulir --}}
                     <div class="flex justify-between">
-                        <p class="font-normal text-lg bg-teal-600 px-4 py-1 w-fit text-white mb-2 rounded"> Dokumen Training
-                        @foreach ($standar_project as $spt)
-                            @if ($spt->file_training_form != '')
-                                <div class="flex justify-end mr-1 mt-4">
-                                    <a href="{{ asset('storage/supervisor/standarproject/' . $spt->file_training_form) }}"
-                                        download="">
-                                        <div class="w-fit items-center space-x-1 flex fill-blue-600 hover:fill-blue-800">
-                                            <svg width="15" height="" viewBox="0 0 52 52"
-                                                xmlns="http://www.w3.org/2000/svg">
-                                                <path
-                                                    d="m36.4 14.8h8.48a1.09 1.09 0 0 0 1.12-1.12 1 1 0 0 0 -.32-.8l-10.56-10.56a1 1 0 0 0 -.8-.32 1.09 1.09 0 0 0 -1.12 1.12v8.48a3.21 3.21 0 0 0 3.2 3.2z" />
+                        <p class="font-medium text-lg bg-gray-800 px-4 py-1 w-fit text-white mb-2 rounded"> Dokumen
+                            Training
+                            @foreach ($standar_project as $spt)
+                                @if ($spt->file_training_form != '')
+                                    <div class="flex justify-end mr-1 mt-4">
+                                        <a href="{{ asset('storage/supervisor/standarproject/' . $spt->file_training_form) }}"
+                                            download="">
+                                            <div
+                                                class="w-fit items-center space-x-1 flex fill-blue-600 hover:fill-blue-800">
+                                                <svg width="15" height="" viewBox="0 0 52 52"
+                                                    xmlns="http://www.w3.org/2000/svg">
+                                                    <path
+                                                        d="m36.4 14.8h8.48a1.09 1.09 0 0 0 1.12-1.12 1 1 0 0 0 -.32-.8l-10.56-10.56a1 1 0 0 0 -.8-.32 1.09 1.09 0 0 0 -1.12 1.12v8.48a3.21 3.21 0 0 0 3.2 3.2z" />
 
-                                                <path
-                                                    d="m44.4 19.6h-11.2a4.81 4.81 0 0 1 -4.8-4.8v-11.2a1.6 1.6 0 0 0 -1.6-1.6h-16a4.81 4.81 0 0 0 -4.8 4.8v38.4a4.81 4.81 0 0 0 4.8 4.8h30.4a4.81 4.81 0 0 0 4.8-4.8v-24a1.6 1.6 0 0 0 -1.6-1.6zm-32-1.6a1.62 1.62 0 0 1 1.6-1.55h6.55a1.56 1.56 0 0 1 1.57 1.55v1.59a1.63 1.63 0 0 1 -1.59 1.58h-6.53a1.55 1.55 0 0 1 -1.58-1.58zm24 20.77a1.6 1.6 0 0 1 -1.6 1.6h-20.8a1.6 1.6 0 0 1 -1.6-1.6v-1.57a1.6 1.6 0 0 1 1.6-1.6h20.8a1.6 1.6 0 0 1 1.6 1.6zm3.2-9.6a1.6 1.6 0 0 1 -1.6 1.63h-24a1.6 1.6 0 0 1 -1.6-1.6v-1.6a1.6 1.6 0 0 1 1.6-1.6h24a1.6 1.6 0 0 1 1.6 1.6z" />
-                                            </svg>
-                                            <p
-                                                class="text-right hover:underline font-semibold text-md text-blue-600 hover:text-blue-800 ">
-                                                Klik untuk mengunduh formulir kerja</p>
-                                        </div>
-                                    </a>
-                                </div>
-                            @endif
-                        @endforeach
-                        {{-- tombol form --}}
+                                                    <path
+                                                        d="m44.4 19.6h-11.2a4.81 4.81 0 0 1 -4.8-4.8v-11.2a1.6 1.6 0 0 0 -1.6-1.6h-16a4.81 4.81 0 0 0 -4.8 4.8v38.4a4.81 4.81 0 0 0 4.8 4.8h30.4a4.81 4.81 0 0 0 4.8-4.8v-24a1.6 1.6 0 0 0 -1.6-1.6zm-32-1.6a1.62 1.62 0 0 1 1.6-1.55h6.55a1.56 1.56 0 0 1 1.57 1.55v1.59a1.63 1.63 0 0 1 -1.59 1.58h-6.53a1.55 1.55 0 0 1 -1.58-1.58zm24 20.77a1.6 1.6 0 0 1 -1.6 1.6h-20.8a1.6 1.6 0 0 1 -1.6-1.6v-1.57a1.6 1.6 0 0 1 1.6-1.6h20.8a1.6 1.6 0 0 1 1.6 1.6zm3.2-9.6a1.6 1.6 0 0 1 -1.6 1.63h-24a1.6 1.6 0 0 1 -1.6-1.6v-1.6a1.6 1.6 0 0 1 1.6-1.6h24a1.6 1.6 0 0 1 1.6 1.6z" />
+                                                </svg>
+                                                <p
+                                                    class="text-right hover:underline font-semibold text-md text-blue-600 hover:text-blue-800 ">
+                                                    Klik untuk mengunduh formulir kerja</p>
+                                            </div>
+                                        </a>
+                                    </div>
+                                @endif
+                            @endforeach
+                            {{-- tombol form --}}
                     </div>
                     {{-- akhir standar formulir --}}
 
                     <div class="overflow-x-auto rounded-md mb-5 border">
                         <table class="w-full ">
-                            <thead class="bg-green-600 text-white sticky top-0">
-                                <th class="py-2 w-[5%]">No.</th>
-                                <th class="w-[57%]">Nama File</th>
-                                <th class="w-[10%]">Uploaded by</th>
-                                <th class="w-[13%]">Last Update</th>
-                                <th class="w-[15%]">Upload</th>
+                            <thead class="bg-gray-300 text-gray-700 sticky top-0">
+                                <th class="py-2 w-[5%] font-medium">No.</th>
+                                <th class="w-[57%] font-medium">Nama File</th>
+                                <th class="w-[10%] font-medium">Uploaded by</th>
+                                <th class="w-[13%] font-medium">Last Update</th>
+                                <th class="w-[15%] font-medium">Aksi</th>
                             </thead>
                             <tbody class="text-left border">
                                 {{-- 1 --}}
@@ -1285,15 +1269,28 @@
                                     </td>
                                     <td class="text-center">{{ $koneksicl->date_cl_training_1 }}</td>
                                     <td class="space-y-2 py-3 px-2">
-                                        @if ($koneksicl->cl_training_1 != '')
+                                        @if (($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Handover') && $koneksicl->cl_training_1 == '')
+                                            <div class="justify-center flex space-x-2">
+                                                <input type="file" name="as_cl_training_1"
+                                                    id="fileInput_cl_training_1" style="display: none;">
+                                                <button type="button" onclick="openFileInput('cl_training_1')"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md">
+                                                    + Tambah dokumen
+                                                </button>
+                                            </div>
+                                        @elseif (
+                                            ($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Handover') &&
+                                                $koneksicl->cl_training_1 != '' &&
+                                                $koneksicl->status_cl != 'Complete' &&
+                                                $koneksicl->status_cl != 'Waiting Approval')
                                             <div class="justify-center flex space-x-2">
                                                 <button type="button"
-                                                    class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                    class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                     data-modal-target="modal41" data-modal-show="modal41"
-                                                    data-modal-toggle="modal41">Ubah</button>
+                                                    data-modal-toggle="modal41">
+                                                    Ubah
+                                                </button>
                                             </div>
-                                        @else
-                                            <input type="file" name="as_cl_training_1" id="">
                                         @endif
                                     </td>
                                     <input type="text" hidden name="as_up_by_training_cl_1"
@@ -1335,15 +1332,28 @@
                                     </td>
                                     <td class="text-center">{{ $koneksicl->date_cl_training_2 }}</td>
                                     <td class="space-y-2 py-3 px-2">
-                                        @if ($koneksicl->cl_training_2 != '')
+                                        @if (($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Handover') && $koneksicl->cl_training_2 == '')
+                                            <div class="justify-center flex space-x-2">
+                                                <input type="file" name="as_cl_training_2"
+                                                    id="fileInput_cl_training_2" style="display: none;">
+                                                <button type="button" onclick="openFileInput('cl_training_2')"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md">
+                                                    + Tambah dokumen
+                                                </button>
+                                            </div>
+                                        @elseif (
+                                            ($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Handover') &&
+                                                $koneksicl->cl_training_2 != '' &&
+                                                $koneksicl->status_cl != 'Complete' &&
+                                                $koneksicl->status_cl != 'Waiting Approval')
                                             <div class="justify-center flex space-x-2">
                                                 <button type="button"
-                                                    class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                    class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                     data-modal-target="modal42" data-modal-show="modal42"
-                                                    data-modal-toggle="modal42">Ubah</button>
+                                                    data-modal-toggle="modal42">
+                                                    Ubah
+                                                </button>
                                             </div>
-                                        @else
-                                            <input type="file" name="as_cl_training_2" id="">
                                         @endif
                                     </td>
                                     <input type="text" hidden name="as_up_by_training_cl_2"
@@ -1388,15 +1398,28 @@
                                     </td>
                                     <td class="text-center">{{ $koneksicl->date_cl_training_3 }}</td>
                                     <td class="space-y-2 py-3 px-2">
-                                        @if ($koneksicl->cl_training_3 != '')
+                                        @if (($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Handover') && $koneksicl->cl_training_3 == '')
+                                            <div class="justify-center flex space-x-2">
+                                                <input type="file" name="as_cl_training_3"
+                                                    id="fileInput_cl_training_3" style="display: none;">
+                                                <button type="button" onclick="openFileInput('cl_training_3')"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md">
+                                                    + Tambah dokumen
+                                                </button>
+                                            </div>
+                                        @elseif (
+                                            ($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Handover') &&
+                                                $koneksicl->cl_training_3 != '' &&
+                                                $koneksicl->status_cl != 'Complete' &&
+                                                $koneksicl->status_cl != 'Waiting Approval')
                                             <div class="justify-center flex space-x-2">
                                                 <button type="button"
-                                                    class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                    class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                     data-modal-target="modal43" data-modal-show="modal43"
-                                                    data-modal-toggle="modal43">Ubah</button>
+                                                    data-modal-toggle="modal43">
+                                                    Ubah
+                                                </button>
                                             </div>
-                                        @else
-                                            <input type="file" name="as_cl_training_3" id="">
                                         @endif
                                     </td>
                                     <input type="text" hidden name="as_up_by_training_cl_3"
@@ -1440,15 +1463,28 @@
                                     </td>
                                     <td class="text-center">{{ $koneksicl->date_cl_training_4 }}</td>
                                     <td class="space-y-2 py-3 px-2">
-                                        @if ($koneksicl->cl_training_4 != '')
+                                        @if (($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Handover') && $koneksicl->cl_training_4 == '')
+                                            <div class="justify-center flex space-x-2">
+                                                <input type="file" name="as_cl_training_4"
+                                                    id="fileInput_cl_training_4" style="display: none;">
+                                                <button type="button" onclick="openFileInput('cl_training_4')"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md">
+                                                    + Tambah dokumen
+                                                </button>
+                                            </div>
+                                        @elseif (
+                                            ($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Handover') &&
+                                                $koneksicl->cl_training_4 != '' &&
+                                                $koneksicl->status_cl != 'Complete' &&
+                                                $koneksicl->status_cl != 'Waiting Approval')
                                             <div class="justify-center flex space-x-2">
                                                 <button type="button"
-                                                    class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                    class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                     data-modal-target="modal44" data-modal-show="modal44"
-                                                    data-modal-toggle="modal44">Ubah</button>
+                                                    data-modal-toggle="modal44">
+                                                    Ubah
+                                                </button>
                                             </div>
-                                        @else
-                                            <input type="file" name="as_cl_training_4" id="">
                                         @endif
                                     </td>
                                     <input type="text" hidden name="as_up_by_training_cl_4"
@@ -1493,15 +1529,28 @@
                                     </td>
                                     <td class="text-center">{{ $koneksicl->date_cl_training_5 }}</td>
                                     <td class="space-y-2 py-3 px-2">
-                                        @if ($koneksicl->cl_training_5 != '')
+                                        @if (($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Handover') && $koneksicl->cl_training_5 == '')
+                                            <div class="justify-center flex space-x-2">
+                                                <input type="file" name="as_cl_training_5"
+                                                    id="fileInput_cl_training_5" style="display: none;">
+                                                <button type="button" onclick="openFileInput('cl_training_5')"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md">
+                                                    + Tambah dokumen
+                                                </button>
+                                            </div>
+                                        @elseif (
+                                            ($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Handover') &&
+                                                $koneksicl->cl_training_5 != '' &&
+                                                $koneksicl->status_cl != 'Complete' &&
+                                                $koneksicl->status_cl != 'Waiting Approval')
                                             <div class="justify-center flex space-x-2">
                                                 <button type="button"
-                                                    class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                    class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                     data-modal-target="modal45" data-modal-show="modal45"
-                                                    data-modal-toggle="modal45">Ubah</button>
+                                                    data-modal-toggle="modal45">
+                                                    Ubah
+                                                </button>
                                             </div>
-                                        @else
-                                            <input type="file" name="as_cl_training_5" id="">
                                         @endif
                                     </td>
                                     <input type="text" hidden name="as_up_by_training_cl_5"
@@ -1517,41 +1566,43 @@
                     {{-- Listup Trouble --}}
                     {{-- awal standar formulir --}}
                     <div class="flex justify-between">
-                        <p class="font-normal text-lg bg-teal-600 px-4 py-1 w-fit text-white mb-2 rounded"> Trouble Listup
-                        @foreach ($standar_project as $spt)
-                            @if ($spt->file_lup_form != '')
-                                <div class="flex justify-end mr-1 mt-4">
-                                    <a href="{{ asset('storage/supervisor/standarproject/' . $spt->file_lup_form) }}"
-                                        download="">
-                                        <div class="w-fit items-center space-x-1 flex fill-blue-600 hover:fill-blue-800">
-                                            <svg width="15" height="" viewBox="0 0 52 52"
-                                                xmlns="http://www.w3.org/2000/svg">
-                                                <path
-                                                    d="m36.4 14.8h8.48a1.09 1.09 0 0 0 1.12-1.12 1 1 0 0 0 -.32-.8l-10.56-10.56a1 1 0 0 0 -.8-.32 1.09 1.09 0 0 0 -1.12 1.12v8.48a3.21 3.21 0 0 0 3.2 3.2z" />
+                        <p class="font-medium text-lg bg-gray-800 px-4 py-1 w-fit text-white mb-2 rounded"> Trouble
+                            Listup
+                            @foreach ($standar_project as $spt)
+                                @if ($spt->file_lup_form != '')
+                                    <div class="flex justify-end mr-1 mt-4">
+                                        <a href="{{ asset('storage/supervisor/standarproject/' . $spt->file_lup_form) }}"
+                                            download="">
+                                            <div
+                                                class="w-fit items-center space-x-1 flex fill-blue-600 hover:fill-blue-800">
+                                                <svg width="15" height="" viewBox="0 0 52 52"
+                                                    xmlns="http://www.w3.org/2000/svg">
+                                                    <path
+                                                        d="m36.4 14.8h8.48a1.09 1.09 0 0 0 1.12-1.12 1 1 0 0 0 -.32-.8l-10.56-10.56a1 1 0 0 0 -.8-.32 1.09 1.09 0 0 0 -1.12 1.12v8.48a3.21 3.21 0 0 0 3.2 3.2z" />
 
-                                                <path
-                                                    d="m44.4 19.6h-11.2a4.81 4.81 0 0 1 -4.8-4.8v-11.2a1.6 1.6 0 0 0 -1.6-1.6h-16a4.81 4.81 0 0 0 -4.8 4.8v38.4a4.81 4.81 0 0 0 4.8 4.8h30.4a4.81 4.81 0 0 0 4.8-4.8v-24a1.6 1.6 0 0 0 -1.6-1.6zm-32-1.6a1.62 1.62 0 0 1 1.6-1.55h6.55a1.56 1.56 0 0 1 1.57 1.55v1.59a1.63 1.63 0 0 1 -1.59 1.58h-6.53a1.55 1.55 0 0 1 -1.58-1.58zm24 20.77a1.6 1.6 0 0 1 -1.6 1.6h-20.8a1.6 1.6 0 0 1 -1.6-1.6v-1.57a1.6 1.6 0 0 1 1.6-1.6h20.8a1.6 1.6 0 0 1 1.6 1.6zm3.2-9.6a1.6 1.6 0 0 1 -1.6 1.63h-24a1.6 1.6 0 0 1 -1.6-1.6v-1.6a1.6 1.6 0 0 1 1.6-1.6h24a1.6 1.6 0 0 1 1.6 1.6z" />
-                                            </svg>
-                                            <p
-                                                class="text-right hover:underline font-semibold text-md text-blue-600 hover:text-blue-800 ">
-                                                Klik untuk mengunduh formulir kerja</p>
-                                        </div>
-                                    </a>
-                                </div>
-                            @endif
-                        @endforeach
-                        {{-- tombol form --}}
+                                                    <path
+                                                        d="m44.4 19.6h-11.2a4.81 4.81 0 0 1 -4.8-4.8v-11.2a1.6 1.6 0 0 0 -1.6-1.6h-16a4.81 4.81 0 0 0 -4.8 4.8v38.4a4.81 4.81 0 0 0 4.8 4.8h30.4a4.81 4.81 0 0 0 4.8-4.8v-24a1.6 1.6 0 0 0 -1.6-1.6zm-32-1.6a1.62 1.62 0 0 1 1.6-1.55h6.55a1.56 1.56 0 0 1 1.57 1.55v1.59a1.63 1.63 0 0 1 -1.59 1.58h-6.53a1.55 1.55 0 0 1 -1.58-1.58zm24 20.77a1.6 1.6 0 0 1 -1.6 1.6h-20.8a1.6 1.6 0 0 1 -1.6-1.6v-1.57a1.6 1.6 0 0 1 1.6-1.6h20.8a1.6 1.6 0 0 1 1.6 1.6zm3.2-9.6a1.6 1.6 0 0 1 -1.6 1.63h-24a1.6 1.6 0 0 1 -1.6-1.6v-1.6a1.6 1.6 0 0 1 1.6-1.6h24a1.6 1.6 0 0 1 1.6 1.6z" />
+                                                </svg>
+                                                <p
+                                                    class="text-right hover:underline font-semibold text-md text-blue-600 hover:text-blue-800 ">
+                                                    Klik untuk mengunduh formulir kerja</p>
+                                            </div>
+                                        </a>
+                                    </div>
+                                @endif
+                            @endforeach
+                            {{-- tombol form --}}
                     </div>
                     {{-- akhir standar formulir --}}
 
                     <div class="overflow-x-auto rounded-md mb-5 border">
                         <table class="w-full ">
-                            <thead class="bg-green-600 text-white sticky top-0">
-                                <th class="py-2 w-[5%]">No.</th>
-                                <th class="w-[57%]">Nama File</th>
-                                <th class="w-[10%]">Uploaded by</th>
-                                <th class="w-[13%]">Last Update</th>
-                                <th class="w-[15%]">Upload</th>
+                            <thead class="bg-gray-300 text-gray-700 sticky top-0">
+                                <th class="py-2 w-[5%] font-medium">No.</th>
+                                <th class="w-[57%] font-medium">Nama File</th>
+                                <th class="w-[10%] font-medium">Uploaded by</th>
+                                <th class="w-[13%] font-medium">Last Update</th>
+                                <th class="w-[15%] font-medium">Aksi</th>
                             </thead>
                             <tbody class="text-left border">
                                 {{-- 1 --}}
@@ -1590,15 +1641,28 @@
                                     </td>
                                     <td class="text-center">{{ $koneksicl->date_cl_l_trouble_1 }}</td>
                                     <td class="space-y-2 py-3 px-2">
-                                        @if ($koneksicl->cl_l_trouble_1 != '')
+                                        @if (($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Handover') && $koneksicl->cl_l_trouble_1 == '')
+                                            <div class="justify-center flex space-x-2">
+                                                <input type="file" name="as_cl_l_trouble_1"
+                                                    id="fileInput_cl_l_trouble_1" style="display: none;">
+                                                <button type="button" onclick="openFileInput('cl_l_trouble_1')"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md">
+                                                    + Tambah dokumen
+                                                </button>
+                                            </div>
+                                        @elseif (
+                                            ($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Handover') &&
+                                                $koneksicl->cl_l_trouble_1 != '' &&
+                                                $koneksicl->status_cl != 'Complete' &&
+                                                $koneksicl->status_cl != 'Waiting Approval')
                                             <div class="justify-center flex space-x-2">
                                                 <button type="button"
-                                                    class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                    class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                     data-modal-target="modal51" data-modal-show="modal51"
-                                                    data-modal-toggle="modal51">Ubah</button>
+                                                    data-modal-toggle="modal51">
+                                                    Ubah
+                                                </button>
                                             </div>
-                                        @else
-                                            <input type="file" name="as_cl_l_trouble_1" id="">
                                         @endif
                                     </td>
                                     <input type="text" hidden name="as_up_by_l_trouble_cl_1"
@@ -1643,15 +1707,28 @@
                                     </td>
                                     <td class="text-center">{{ $koneksicl->date_cl_l_trouble_2 }}</td>
                                     <td class="space-y-2 py-3 px-2">
-                                        @if ($koneksicl->cl_l_trouble_2 != '')
+                                        @if (($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Handover') && $koneksicl->cl_l_trouble_2 == '')
+                                            <div class="justify-center flex space-x-2">
+                                                <input type="file" name="as_cl_l_trouble_2"
+                                                    id="fileInput_cl_l_trouble_2" style="display: none;">
+                                                <button type="button" onclick="openFileInput('cl_l_trouble_2')"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md">
+                                                    + Tambah dokumen
+                                                </button>
+                                            </div>
+                                        @elseif (
+                                            ($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Handover') &&
+                                                $koneksicl->cl_l_trouble_2 != '' &&
+                                                $koneksicl->status_cl != 'Complete' &&
+                                                $koneksicl->status_cl != 'Waiting Approval')
                                             <div class="justify-center flex space-x-2">
                                                 <button type="button"
-                                                    class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                    class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                     data-modal-target="modal52" data-modal-show="modal52"
-                                                    data-modal-toggle="modal52">Ubah</button>
+                                                    data-modal-toggle="modal52">
+                                                    Ubah
+                                                </button>
                                             </div>
-                                        @else
-                                            <input type="file" name="as_cl_l_trouble_2" id="">
                                         @endif
                                     </td>
                                     <input type="text" hidden name="as_up_by_l_trouble_cl_2"
@@ -1668,41 +1745,43 @@
                     {{-- Control Awal Mesin Baru --}}
                     {{-- awal standar formulir --}}
                     <div class="flex justify-between">
-                        <p class="font-normal text-lg bg-teal-600 px-4 py-1 w-fit text-white mb-2 rounded"> Kontrol Awal Mesin Baru
-                        @foreach ($standar_project as $spt)
-                            @if ($spt->file_camb_form != '')
-                                <div class="flex justify-end mr-1 mt-4">
-                                    <a href="{{ asset('storage/supervisor/standarproject/' . $spt->file_camb_form) }}"
-                                        download="">
-                                        <div class="w-fit items-center space-x-1 flex fill-blue-600 hover:fill-blue-800">
-                                            <svg width="15" height="" viewBox="0 0 52 52"
-                                                xmlns="http://www.w3.org/2000/svg">
-                                                <path
-                                                    d="m36.4 14.8h8.48a1.09 1.09 0 0 0 1.12-1.12 1 1 0 0 0 -.32-.8l-10.56-10.56a1 1 0 0 0 -.8-.32 1.09 1.09 0 0 0 -1.12 1.12v8.48a3.21 3.21 0 0 0 3.2 3.2z" />
+                        <p class="font-medium text-lg bg-gray-800 px-4 py-1 w-fit text-white mb-2 rounded"> Kontrol
+                            Awal Mesin Baru
+                            @foreach ($standar_project as $spt)
+                                @if ($spt->file_camb_form != '')
+                                    <div class="flex justify-end mr-1 mt-4">
+                                        <a href="{{ asset('storage/supervisor/standarproject/' . $spt->file_camb_form) }}"
+                                            download="">
+                                            <div
+                                                class="w-fit items-center space-x-1 flex fill-blue-600 hover:fill-blue-800">
+                                                <svg width="15" height="" viewBox="0 0 52 52"
+                                                    xmlns="http://www.w3.org/2000/svg">
+                                                    <path
+                                                        d="m36.4 14.8h8.48a1.09 1.09 0 0 0 1.12-1.12 1 1 0 0 0 -.32-.8l-10.56-10.56a1 1 0 0 0 -.8-.32 1.09 1.09 0 0 0 -1.12 1.12v8.48a3.21 3.21 0 0 0 3.2 3.2z" />
 
-                                                <path
-                                                    d="m44.4 19.6h-11.2a4.81 4.81 0 0 1 -4.8-4.8v-11.2a1.6 1.6 0 0 0 -1.6-1.6h-16a4.81 4.81 0 0 0 -4.8 4.8v38.4a4.81 4.81 0 0 0 4.8 4.8h30.4a4.81 4.81 0 0 0 4.8-4.8v-24a1.6 1.6 0 0 0 -1.6-1.6zm-32-1.6a1.62 1.62 0 0 1 1.6-1.55h6.55a1.56 1.56 0 0 1 1.57 1.55v1.59a1.63 1.63 0 0 1 -1.59 1.58h-6.53a1.55 1.55 0 0 1 -1.58-1.58zm24 20.77a1.6 1.6 0 0 1 -1.6 1.6h-20.8a1.6 1.6 0 0 1 -1.6-1.6v-1.57a1.6 1.6 0 0 1 1.6-1.6h20.8a1.6 1.6 0 0 1 1.6 1.6zm3.2-9.6a1.6 1.6 0 0 1 -1.6 1.63h-24a1.6 1.6 0 0 1 -1.6-1.6v-1.6a1.6 1.6 0 0 1 1.6-1.6h24a1.6 1.6 0 0 1 1.6 1.6z" />
-                                            </svg>
-                                            <p
-                                                class="text-right hover:underline font-semibold text-md text-blue-600 hover:text-blue-800 ">
-                                                Klik untuk mengunduh formulir kerja</p>
-                                        </div>
-                                    </a>
-                                </div>
-                            @endif
-                        @endforeach
-                        {{-- tombol form --}}
+                                                    <path
+                                                        d="m44.4 19.6h-11.2a4.81 4.81 0 0 1 -4.8-4.8v-11.2a1.6 1.6 0 0 0 -1.6-1.6h-16a4.81 4.81 0 0 0 -4.8 4.8v38.4a4.81 4.81 0 0 0 4.8 4.8h30.4a4.81 4.81 0 0 0 4.8-4.8v-24a1.6 1.6 0 0 0 -1.6-1.6zm-32-1.6a1.62 1.62 0 0 1 1.6-1.55h6.55a1.56 1.56 0 0 1 1.57 1.55v1.59a1.63 1.63 0 0 1 -1.59 1.58h-6.53a1.55 1.55 0 0 1 -1.58-1.58zm24 20.77a1.6 1.6 0 0 1 -1.6 1.6h-20.8a1.6 1.6 0 0 1 -1.6-1.6v-1.57a1.6 1.6 0 0 1 1.6-1.6h20.8a1.6 1.6 0 0 1 1.6 1.6zm3.2-9.6a1.6 1.6 0 0 1 -1.6 1.63h-24a1.6 1.6 0 0 1 -1.6-1.6v-1.6a1.6 1.6 0 0 1 1.6-1.6h24a1.6 1.6 0 0 1 1.6 1.6z" />
+                                                </svg>
+                                                <p
+                                                    class="text-right hover:underline font-semibold text-md text-blue-600 hover:text-blue-800 ">
+                                                    Klik untuk mengunduh formulir kerja</p>
+                                            </div>
+                                        </a>
+                                    </div>
+                                @endif
+                            @endforeach
+                            {{-- tombol form --}}
                     </div>
                     {{-- akhir standar formulir --}}
 
                     <div class="overflow-x-auto rounded-md mb-5">
                         <table class="w-full">
-                            <thead class="bg-green-600 text-white">
-                                <th class="py-2 w-[5%]">No.</th>
-                                <th class="w-[57%]">Nama File</th>
-                                <th class="w-[10%]">Uploaded by</th>
-                                <th class="w-[13%]">Last Update</th>
-                                <th class="w-[15%]">Upload</th>
+                            <thead class="bg-gray-300 text-gray-700">
+                                <th class="py-2 w-[5%] font-medium">No.</th>
+                                <th class="w-[57%] font-medium">Nama File</th>
+                                <th class="w-[10%] font-medium">Uploaded by</th>
+                                <th class="w-[13%] font-medium">Last Update</th>
+                                <th class="w-[15%] font-medium">Aksi</th>
                             </thead>
                             <tbody class="text-left border">
                                 {{-- 1 --}}
@@ -1741,15 +1820,28 @@
                                     </td>
                                     <td class="text-center">{{ $koneksicl->date_cl_camb_1 }}</td>
                                     <td class="space-y-2 py-3 px-2">
-                                        @if ($koneksicl->cl_camb_1 != '')
+                                        @if (($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Handover') && $koneksicl->cl_camb_1 == '')
+                                            <div class="justify-center flex space-x-2">
+                                                <input type="file" name="as_cl_camb_1" id="fileInput_cl_camb_1"
+                                                    style="display: none;">
+                                                <button type="button" onclick="openFileInput('cl_camb_1')"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md">
+                                                    + Tambah dokumen
+                                                </button>
+                                            </div>
+                                        @elseif (
+                                            ($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Handover') &&
+                                                $koneksicl->cl_camb_1 != '' &&
+                                                $koneksicl->status_cl != 'Complete' &&
+                                                $koneksicl->status_cl != 'Waiting Approval')
                                             <div class="justify-center flex space-x-2">
                                                 <button type="button"
-                                                    class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                    class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                     data-modal-target="modal61" data-modal-show="modal61"
-                                                    data-modal-toggle="modal61">Ubah</button>
+                                                    data-modal-toggle="modal61">
+                                                    Ubah
+                                                </button>
                                             </div>
-                                        @else
-                                            <input type="file" name="as_cl_camb_1" id="">
                                         @endif
                                     </td>
                                     <input type="text" hidden name="as_up_by_camb_cl_1"
@@ -1794,15 +1886,28 @@
                                     </td>
                                     <td class="text-center">{{ $koneksicl->date_cl_camb_2 }}</td>
                                     <td class="space-y-2 py-3 px-2">
-                                        @if ($koneksicl->cl_camb_2 != '')
+                                        @if (($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Handover') && $koneksicl->cl_camb_2 == '')
+                                            <div class="justify-center flex space-x-2">
+                                                <input type="file" name="as_cl_camb_2" id="fileInput_cl_camb_2"
+                                                    style="display: none;">
+                                                <button type="button" onclick="openFileInput('cl_camb_2')"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md">
+                                                    + Tambah dokumen
+                                                </button>
+                                            </div>
+                                        @elseif (
+                                            ($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Handover') &&
+                                                $koneksicl->cl_camb_2 != '' &&
+                                                $koneksicl->status_cl != 'Complete' &&
+                                                $koneksicl->status_cl != 'Waiting Approval')
                                             <div class="justify-center flex space-x-2">
                                                 <button type="button"
-                                                    class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                    class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                     data-modal-target="modal62" data-modal-show="modal62"
-                                                    data-modal-toggle="modal62">Ubah</button>
+                                                    data-modal-toggle="modal62">
+                                                    Ubah
+                                                </button>
                                             </div>
-                                        @else
-                                            <input type="file" name="as_cl_camb_2" id="">
                                         @endif
                                     </td>
                                     <input type="text" hidden name="as_up_by_camb_cl_2"
@@ -1817,41 +1922,43 @@
                     {{-- Instruction Manual --}}
                     {{-- awal standar formulir --}}
                     <div class="flex justify-between">
-                        <p class="font-normal text-lg bg-teal-600 px-4 py-1 w-fit text-white mb-2 rounded"> Instruction Manual
-                        @foreach ($standar_project as $spt)
-                            @if ($spt->file_cl_im_form != '')
-                                <div class="flex justify-end mr-1 mt-4">
-                                    <a href="{{ asset('storage/supervisor/standarproject/' . $spt->file_cl_im_form) }}"
-                                        download="">
-                                        <div class="w-fit items-center space-x-1 flex fill-blue-600 hover:fill-blue-800">
-                                            <svg width="15" height="" viewBox="0 0 52 52"
-                                                xmlns="http://www.w3.org/2000/svg">
-                                                <path
-                                                    d="m36.4 14.8h8.48a1.09 1.09 0 0 0 1.12-1.12 1 1 0 0 0 -.32-.8l-10.56-10.56a1 1 0 0 0 -.8-.32 1.09 1.09 0 0 0 -1.12 1.12v8.48a3.21 3.21 0 0 0 3.2 3.2z" />
+                        <p class="font-medium text-lg bg-gray-800 px-4 py-1 w-fit text-white mb-2 rounded"> Instruction
+                            Manual
+                            @foreach ($standar_project as $spt)
+                                @if ($spt->file_cl_im_form != '')
+                                    <div class="flex justify-end mr-1 mt-4">
+                                        <a href="{{ asset('storage/supervisor/standarproject/' . $spt->file_cl_im_form) }}"
+                                            download="">
+                                            <div
+                                                class="w-fit items-center space-x-1 flex fill-blue-600 hover:fill-blue-800">
+                                                <svg width="15" height="" viewBox="0 0 52 52"
+                                                    xmlns="http://www.w3.org/2000/svg">
+                                                    <path
+                                                        d="m36.4 14.8h8.48a1.09 1.09 0 0 0 1.12-1.12 1 1 0 0 0 -.32-.8l-10.56-10.56a1 1 0 0 0 -.8-.32 1.09 1.09 0 0 0 -1.12 1.12v8.48a3.21 3.21 0 0 0 3.2 3.2z" />
 
-                                                <path
-                                                    d="m44.4 19.6h-11.2a4.81 4.81 0 0 1 -4.8-4.8v-11.2a1.6 1.6 0 0 0 -1.6-1.6h-16a4.81 4.81 0 0 0 -4.8 4.8v38.4a4.81 4.81 0 0 0 4.8 4.8h30.4a4.81 4.81 0 0 0 4.8-4.8v-24a1.6 1.6 0 0 0 -1.6-1.6zm-32-1.6a1.62 1.62 0 0 1 1.6-1.55h6.55a1.56 1.56 0 0 1 1.57 1.55v1.59a1.63 1.63 0 0 1 -1.59 1.58h-6.53a1.55 1.55 0 0 1 -1.58-1.58zm24 20.77a1.6 1.6 0 0 1 -1.6 1.6h-20.8a1.6 1.6 0 0 1 -1.6-1.6v-1.57a1.6 1.6 0 0 1 1.6-1.6h20.8a1.6 1.6 0 0 1 1.6 1.6zm3.2-9.6a1.6 1.6 0 0 1 -1.6 1.63h-24a1.6 1.6 0 0 1 -1.6-1.6v-1.6a1.6 1.6 0 0 1 1.6-1.6h24a1.6 1.6 0 0 1 1.6 1.6z" />
-                                            </svg>
-                                            <p
-                                                class="text-right hover:underline font-semibold text-md text-blue-600 hover:text-blue-800 ">
-                                                Klik untuk mengunduh formulir kerja</p>
-                                        </div>
-                                    </a>
-                                </div>
-                            @endif
-                        @endforeach
-                        {{-- tombol form --}}
+                                                    <path
+                                                        d="m44.4 19.6h-11.2a4.81 4.81 0 0 1 -4.8-4.8v-11.2a1.6 1.6 0 0 0 -1.6-1.6h-16a4.81 4.81 0 0 0 -4.8 4.8v38.4a4.81 4.81 0 0 0 4.8 4.8h30.4a4.81 4.81 0 0 0 4.8-4.8v-24a1.6 1.6 0 0 0 -1.6-1.6zm-32-1.6a1.62 1.62 0 0 1 1.6-1.55h6.55a1.56 1.56 0 0 1 1.57 1.55v1.59a1.63 1.63 0 0 1 -1.59 1.58h-6.53a1.55 1.55 0 0 1 -1.58-1.58zm24 20.77a1.6 1.6 0 0 1 -1.6 1.6h-20.8a1.6 1.6 0 0 1 -1.6-1.6v-1.57a1.6 1.6 0 0 1 1.6-1.6h20.8a1.6 1.6 0 0 1 1.6 1.6zm3.2-9.6a1.6 1.6 0 0 1 -1.6 1.63h-24a1.6 1.6 0 0 1 -1.6-1.6v-1.6a1.6 1.6 0 0 1 1.6-1.6h24a1.6 1.6 0 0 1 1.6 1.6z" />
+                                                </svg>
+                                                <p
+                                                    class="text-right hover:underline font-semibold text-md text-blue-600 hover:text-blue-800 ">
+                                                    Klik untuk mengunduh formulir kerja</p>
+                                            </div>
+                                        </a>
+                                    </div>
+                                @endif
+                            @endforeach
+                            {{-- tombol form --}}
                     </div>
                     {{-- akhir standar formulir --}}
 
                     <div class="overflow-x-auto rounded-md mb-5 border">
                         <table class="w-full">
-                            <thead class="bg-green-600 text-white sticky top-0">
-                                <th class="py-2 w-[5%]">No.</th>
-                                <th class="w-[57%]">Nama File</th>
-                                <th class="w-[10%]">Uploaded by</th>
-                                <th class="w-[13%]">Last Update</th>
-                                <th class="w-[15%]">Upload</th>
+                            <thead class="bg-gray-300 text-gray-700 sticky top-0">
+                                <th class="py-2 w-[5%] font-medium">No.</th>
+                                <th class="w-[57%] font-medium">Nama File</th>
+                                <th class="w-[10%] font-medium">Uploaded by</th>
+                                <th class="w-[13%] font-medium">Last Update</th>
+                                <th class="w-[15%] font-medium">Aksi</th>
                             </thead>
                             <tbody class="text-left border">
                                 {{-- 1 --}}
@@ -1891,15 +1998,28 @@
                                     <div id="submit-1"></div>
                                     <td class="text-center">{{ $koneksicl->date_cl_im_1 }}</td>
                                     <td class="space-y-2 py-3 px-2">
-                                        @if ($koneksicl->cl_im_1 != '')
+                                        @if (($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Handover') && $koneksicl->cl_im_1 == '')
+                                            <div class="justify-center flex space-x-2">
+                                                <input type="file" name="as_cl_im_1" id="fileInput_cl_im_1"
+                                                    style="display: none;">
+                                                <button type="button" onclick="openFileInput('cl_im_1')"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md">
+                                                    + Tambah dokumen
+                                                </button>
+                                            </div>
+                                        @elseif (
+                                            ($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Handover') &&
+                                                $koneksicl->cl_im_1 != '' &&
+                                                $koneksicl->status_cl != 'Complete' &&
+                                                $koneksicl->status_cl != 'Waiting Approval')
                                             <div class="justify-center flex space-x-2">
                                                 <button type="button"
-                                                    class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                    class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                     data-modal-target="modal71" data-modal-show="modal71"
-                                                    data-modal-toggle="modal71">Ubah</button>
+                                                    data-modal-toggle="modal71">
+                                                    Ubah
+                                                </button>
                                             </div>
-                                        @else
-                                            <input type="file" name="as_cl_im_1" id="">
                                         @endif
                                     </td>
                                     <input type="text" hidden name="as_up_by_im_cl_1"
@@ -1944,15 +2064,28 @@
                                     </td>
                                     <td class="text-center">{{ $koneksicl->date_cl_im_2 }}</td>
                                     <td class="space-y-2 py-3 px-2">
-                                        @if ($koneksicl->cl_im_2 != '')
+                                        @if (($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Handover') && $koneksicl->cl_im_2 == '')
+                                            <div class="justify-center flex space-x-2">
+                                                <input type="file" name="as_cl_im_2" id="fileInput_cl_im_2"
+                                                    style="display: none;">
+                                                <button type="button" onclick="openFileInput('cl_im_2')"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md">
+                                                    + Tambah dokumen
+                                                </button>
+                                            </div>
+                                        @elseif (
+                                            ($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Handover') &&
+                                                $koneksicl->cl_im_2 != '' &&
+                                                $koneksicl->status_cl != 'Complete' &&
+                                                $koneksicl->status_cl != 'Waiting Approval')
                                             <div class="justify-center flex space-x-2">
                                                 <button type="button"
-                                                    class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                    class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                     data-modal-target="modal72" data-modal-show="modal72"
-                                                    data-modal-toggle="modal72">Ubah</button>
+                                                    data-modal-toggle="modal72">
+                                                    Ubah
+                                                </button>
                                             </div>
-                                        @else
-                                            <input type="file" name="as_cl_im_2" id="">
                                         @endif
                                     </td>
                                     <input type="text" hidden name="as_up_by_im_cl_2"
@@ -1997,15 +2130,28 @@
                                     </td>
                                     <td class="text-center">{{ $koneksicl->date_cl_im_3 }}</td>
                                     <td class="space-y-2 py-3 px-2">
-                                        @if ($koneksicl->cl_im_3 != '')
+                                        @if (($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Handover') && $koneksicl->cl_im_3 == '')
+                                            <div class="justify-center flex space-x-2">
+                                                <input type="file" name="as_cl_im_3" id="fileInput_cl_im_3"
+                                                    style="display: none;">
+                                                <button type="button" onclick="openFileInput('cl_im_3')"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md">
+                                                    + Tambah dokumen
+                                                </button>
+                                            </div>
+                                        @elseif (
+                                            ($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Handover') &&
+                                                $koneksicl->cl_im_3 != '' &&
+                                                $koneksicl->status_cl != 'Complete' &&
+                                                $koneksicl->status_cl != 'Waiting Approval')
                                             <div class="justify-center flex space-x-2">
                                                 <button type="button"
-                                                    class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                    class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                     data-modal-target="modal73" data-modal-show="modal73"
-                                                    data-modal-toggle="modal73">Ubah</button>
+                                                    data-modal-toggle="modal73">
+                                                    Ubah
+                                                </button>
                                             </div>
-                                        @else
-                                            <input type="file" name="as_cl_im_3" id="">
                                         @endif
                                     </td>
                                     <input type="text" hidden name="as_up_by_im_cl_3"
@@ -2049,15 +2195,28 @@
                                     </td>
                                     <td class="text-center">{{ $koneksicl->date_cl_im_4 }}</td>
                                     <td class="space-y-2 py-3 px-2">
-                                        @if ($koneksicl->cl_im_4 != '')
+                                        @if (($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Handover') && $koneksicl->cl_im_4 == '')
+                                            <div class="justify-center flex space-x-2">
+                                                <input type="file" name="as_cl_im_4" id="fileInput_cl_im_4"
+                                                    style="display: none;">
+                                                <button type="button" onclick="openFileInput('cl_im_4')"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md">
+                                                    + Tambah dokumen
+                                                </button>
+                                            </div>
+                                        @elseif (
+                                            ($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Handover') &&
+                                                $koneksicl->cl_im_4 != '' &&
+                                                $koneksicl->status_cl != 'Complete' &&
+                                                $koneksicl->status_cl != 'Waiting Approval')
                                             <div class="justify-center flex space-x-2">
                                                 <button type="button"
-                                                    class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                    class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                     data-modal-target="modal74" data-modal-show="modal74"
-                                                    data-modal-toggle="modal74">Ubah</button>
+                                                    data-modal-toggle="modal74">
+                                                    Ubah
+                                                </button>
                                             </div>
-                                        @else
-                                            <input type="file" name="as_cl_im_4" id="">
                                         @endif
                                     </td>
                                     <input type="text" hidden name="as_up_by_im_cl_4"
@@ -2102,15 +2261,28 @@
                                     </td>
                                     <td class="text-center">{{ $koneksicl->date_cl_im_5 }}</td>
                                     <td class="space-y-2 py-3 px-2">
-                                        @if ($koneksicl->cl_im_5 != '')
+                                        @if (($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Handover') && $koneksicl->cl_im_5 == '')
+                                            <div class="justify-center flex space-x-2">
+                                                <input type="file" name="as_cl_im_5" id="fileInput_cl_im_5"
+                                                    style="display: none;">
+                                                <button type="button" onclick="openFileInput('cl_im_5')"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md">
+                                                    + Tambah dokumen
+                                                </button>
+                                            </div>
+                                        @elseif (
+                                            ($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Handover') &&
+                                                $koneksicl->cl_im_5 != '' &&
+                                                $koneksicl->status_cl != 'Complete' &&
+                                                $koneksicl->status_cl != 'Waiting Approval')
                                             <div class="justify-center flex space-x-2">
                                                 <button type="button"
-                                                    class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                    class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                     data-modal-target="modal75" data-modal-show="modal75"
-                                                    data-modal-toggle="modal75">Ubah</button>
+                                                    data-modal-toggle="modal75">
+                                                    Ubah
+                                                </button>
                                             </div>
-                                        @else
-                                            <input type="file" name="as_cl_im_5" id="">
                                         @endif
                                     </td>
                                     <input type="text" hidden name="as_up_by_im_cl_5"
@@ -2127,40 +2299,42 @@
                     {{-- Completion and Handover Report --}}
                     {{-- awal standar formulir --}}
                     <div class="flex justify-between">
-                        <p class="font-normal text-lg bg-teal-600 px-4 py-1 w-fit text-white mb-2 rounded"> Completion and Handover Report
-                        @foreach ($standar_project as $spt)
-                            @if ($spt->file_chor_form != '')
-                                <div class="flex justify-end mr-1 mt-4">
-                                    <a href="{{ asset('storage/supervisor/standarproject/' . $spt->file_chor_form) }}"
-                                        download="">
-                                        <div class="w-fit items-center space-x-1 flex fill-blue-600 hover:fill-blue-800">
-                                            <svg width="15" height="" viewBox="0 0 52 52"
-                                                xmlns="http://www.w3.org/2000/svg">
-                                                <path
-                                                    d="m36.4 14.8h8.48a1.09 1.09 0 0 0 1.12-1.12 1 1 0 0 0 -.32-.8l-10.56-10.56a1 1 0 0 0 -.8-.32 1.09 1.09 0 0 0 -1.12 1.12v8.48a3.21 3.21 0 0 0 3.2 3.2z" />
-                                                <path
-                                                    d="m44.4 19.6h-11.2a4.81 4.81 0 0 1 -4.8-4.8v-11.2a1.6 1.6 0 0 0 -1.6-1.6h-16a4.81 4.81 0 0 0 -4.8 4.8v38.4a4.81 4.81 0 0 0 4.8 4.8h30.4a4.81 4.81 0 0 0 4.8-4.8v-24a1.6 1.6 0 0 0 -1.6-1.6zm-32-1.6a1.62 1.62 0 0 1 1.6-1.55h6.55a1.56 1.56 0 0 1 1.57 1.55v1.59a1.63 1.63 0 0 1 -1.59 1.58h-6.53a1.55 1.55 0 0 1 -1.58-1.58zm24 20.77a1.6 1.6 0 0 1 -1.6 1.6h-20.8a1.6 1.6 0 0 1 -1.6-1.6v-1.57a1.6 1.6 0 0 1 1.6-1.6h20.8a1.6 1.6 0 0 1 1.6 1.6zm3.2-9.6a1.6 1.6 0 0 1 -1.6 1.63h-24a1.6 1.6 0 0 1 -1.6-1.6v-1.6a1.6 1.6 0 0 1 1.6-1.6h24a1.6 1.6 0 0 1 1.6 1.6z" />
-                                            </svg>
-                                            <p
-                                                class="text-right hover:underline font-semibold text-md text-blue-600 hover:text-blue-800 ">
-                                                Klik untuk mengunduh formulir kerja</p>
-                                        </div>
-                                    </a>
-                                </div>
-                            @endif
-                        @endforeach
-                        {{-- tombol form --}}
+                        <p class="font-medium text-lg bg-gray-800 px-4 py-1 w-fit text-white mb-2 rounded"> Completion
+                            and Handover Report
+                            @foreach ($standar_project as $spt)
+                                @if ($spt->file_chor_form != '')
+                                    <div class="flex justify-end mr-1 mt-4">
+                                        <a href="{{ asset('storage/supervisor/standarproject/' . $spt->file_chor_form) }}"
+                                            download="">
+                                            <div
+                                                class="w-fit items-center space-x-1 flex fill-blue-600 hover:fill-blue-800">
+                                                <svg width="15" height="" viewBox="0 0 52 52"
+                                                    xmlns="http://www.w3.org/2000/svg">
+                                                    <path
+                                                        d="m36.4 14.8h8.48a1.09 1.09 0 0 0 1.12-1.12 1 1 0 0 0 -.32-.8l-10.56-10.56a1 1 0 0 0 -.8-.32 1.09 1.09 0 0 0 -1.12 1.12v8.48a3.21 3.21 0 0 0 3.2 3.2z" />
+                                                    <path
+                                                        d="m44.4 19.6h-11.2a4.81 4.81 0 0 1 -4.8-4.8v-11.2a1.6 1.6 0 0 0 -1.6-1.6h-16a4.81 4.81 0 0 0 -4.8 4.8v38.4a4.81 4.81 0 0 0 4.8 4.8h30.4a4.81 4.81 0 0 0 4.8-4.8v-24a1.6 1.6 0 0 0 -1.6-1.6zm-32-1.6a1.62 1.62 0 0 1 1.6-1.55h6.55a1.56 1.56 0 0 1 1.57 1.55v1.59a1.63 1.63 0 0 1 -1.59 1.58h-6.53a1.55 1.55 0 0 1 -1.58-1.58zm24 20.77a1.6 1.6 0 0 1 -1.6 1.6h-20.8a1.6 1.6 0 0 1 -1.6-1.6v-1.57a1.6 1.6 0 0 1 1.6-1.6h20.8a1.6 1.6 0 0 1 1.6 1.6zm3.2-9.6a1.6 1.6 0 0 1 -1.6 1.63h-24a1.6 1.6 0 0 1 -1.6-1.6v-1.6a1.6 1.6 0 0 1 1.6-1.6h24a1.6 1.6 0 0 1 1.6 1.6z" />
+                                                </svg>
+                                                <p
+                                                    class="text-right hover:underline font-semibold text-md text-blue-600 hover:text-blue-800 ">
+                                                    Klik untuk mengunduh formulir kerja</p>
+                                            </div>
+                                        </a>
+                                    </div>
+                                @endif
+                            @endforeach
+                            {{-- tombol form --}}
                     </div>
                     {{-- akhir standar formulir --}}
 
                     <div class="overflow-x-auto rounded-md mb-5">
                         <table class="w-full">
-                            <thead class="bg-green-600 text-white">
-                                <th class="py-2 w-[5%]">No.</th>
-                                <th class="w-[57%]">Nama File</th>
-                                <th class="w-[10%]">Uploaded by</th>
-                                <th class="w-[13%]">Last Update</th>
-                                <th class="w-[15%]">Upload</th>
+                            <thead class="bg-gray-300 text-gray-700">
+                                <th class="py-2 w-[5%] font-medium">No.</th>
+                                <th class="w-[57%] font-medium">Nama File</th>
+                                <th class="w-[10%] font-medium">Uploaded by</th>
+                                <th class="w-[13%] font-medium">Last Update</th>
+                                <th class="w-[15%] font-medium">Aksi</th>
                             </thead>
                             <tbody class="text-left border">
                                 {{-- 1 --}}
@@ -2200,15 +2374,28 @@
                                     <td class="text-center">{{ $koneksicl->date_cl_chor_1 }}</td>
 
                                     <td class="space-y-2 py-3 px-2">
-                                        @if ($koneksicl->cl_chor_1 != '')
+                                        @if (($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Handover') && $koneksicl->cl_chor_1 == '')
+                                            <div class="justify-center flex space-x-2">
+                                                <input type="file" name="as_cl_chor_1" id="fileInput_cl_chor_1"
+                                                    style="display: none;">
+                                                <button type="button" onclick="openFileInput('cl_chor_1')"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md">
+                                                    + Tambah dokumen
+                                                </button>
+                                            </div>
+                                        @elseif (
+                                            ($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Handover') &&
+                                                $koneksicl->cl_chor_1 != '' &&
+                                                $koneksicl->status_cl != 'Complete' &&
+                                                $koneksicl->status_cl != 'Waiting Approval')
                                             <div class="justify-center flex space-x-2">
                                                 <button type="button"
-                                                    class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                    class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                     data-modal-target="modal81" data-modal-show="modal81"
-                                                    data-modal-toggle="modal81">Ubah</button>
+                                                    data-modal-toggle="modal81">
+                                                    Ubah
+                                                </button>
                                             </div>
-                                        @else
-                                            <input type="file" name="as_cl_chor_1" id="">
                                         @endif
                                     </td>
                                     <input type="text" hidden name="as_up_by_chor_cl_1"
@@ -2253,15 +2440,28 @@
                                     </td>
                                     <td class="text-center">{{ $koneksicl->date_cl_chor_2 }}</td>
                                     <td class="space-y-2 py-3 px-2">
-                                        @if ($koneksicl->cl_chor_2 != '')
+                                        @if (($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Handover') && $koneksicl->cl_chor_2 == '')
+                                            <div class="justify-center flex space-x-2">
+                                                <input type="file" name="as_cl_chor_2" id="fileInput_cl_chor_2"
+                                                    style="display: none;">
+                                                <button type="button" onclick="openFileInput('cl_chor_2')"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md">
+                                                    + Tambah dokumen
+                                                </button>
+                                            </div>
+                                        @elseif (
+                                            ($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Handover') &&
+                                                $koneksicl->cl_chor_2 != '' &&
+                                                $koneksicl->status_cl != 'Complete' &&
+                                                $koneksicl->status_cl != 'Waiting Approval')
                                             <div class="justify-center flex space-x-2">
                                                 <button type="button"
-                                                    class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                    class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                     data-modal-target="modal82" data-modal-show="modal82"
-                                                    data-modal-toggle="modal82">Ubah</button>
+                                                    data-modal-toggle="modal82">
+                                                    Ubah
+                                                </button>
                                             </div>
-                                        @else
-                                            <input type="file" name="as_cl_chor_2" id="">
                                         @endif
                                     </td>
                                     <input type="text" hidden name="as_up_by_chor_cl_2"
@@ -2272,573 +2472,602 @@
                             </tbody>
                         </table>
                     </div>
-            </div>
-            {{-- bungkus --}}
-            <input type="text" name="status_cl" value="Waiting Approval" hidden>
-            <input type="date" hidden name="status_cl_date" value="{{ date('Y-m-d') }}">
+                </div>
+                {{-- bungkus --}}
 
-            {{-- table project --}}
-            <input type="text" name="check" value="needcheck" hidden>
-            <input type="text" name="progress" value="Waiting Approval Closed" hidden>
-            <input type="text" name="last_update_name" value="{{ Auth::user()->first_name }}" hidden>
-            <input type="text" name="last_update_date" value="{{ date('d-M-Y') }}" hidden>
+                {{-- modal ubah --}}
+                @php
+                    $m = range(1, 5);
+                @endphp
 
+                @foreach ($m as $index => $number)
+                    <div id="modal1{{ $number }}"
+                        class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 inset-0 justify-center items-center w-full max-h-full">
+                        <div class="relative p-4 w-full max-w-2xl max-h-full">
+                            <!-- Modal content -->
+                            <div class="relative bg-white rounded-lg shadow">
+                                <!-- Modal header -->
+                                <div class="flex items-center justify-between px-5 py-3 border-b rounded-t">
+                                    <p class="text-2xl font-semibold text-gray-900 font-mono">
+                                        Ubah dokumen unggahan
+                                    </p>
+                                    <button type="button"
+                                        class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center"
+                                        onclick="simulateEscape()">
+                                        <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                            fill="none" viewBox="0 0 14 14">
+                                            <path stroke="currentColor" stroke-linecap="round"
+                                                stroke-linejoin="round" stroke-width="2"
+                                                d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+                                        </svg>
+                                        <span class="sr-only">Close modal</span>
+                                    </button>
+                                </div>
+                                <!-- Modal body -->
+                                <div class="py-2 px-5">
+                                    <p class="font-light text-lg mb-2">Dokumen sebelumnya</p>
+                                    <div class="grid grid-cols-2 space-x-2">
+                                        <div>
+                                            <p class="text-base leading-relaxed text-gray-600">
+                                                Nama dokumen:
+                                            </p>
+                                            <p class="text-gray-900">
+                                                {{ $koneksicl->{'cl_i_periksa_m_' . $number} }}
+                                            </p>
+                                        </div>
+                                        <div>
+                                            <p class="text-base leading-relaxed text-gray-600">
+                                                Oleh:
+                                            </p>
+                                            <p class="text-gray-900">
+                                                {{ $koneksicl->{'up_by_i_periksa_m_cl_' . $number} }}
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Modal footer -->
+                                <div class="items-center px-5 py-2 border-t border-gray-200 rounded-b">
+                                    <p class="font-light text-lg">
+                                        Unggah dokumen baru
+                                    </p>
+                                    <div class="items-center justify-center w-full border my-4">
+                                        @if ($koneksicl->{'cl_i_periksa_m_' . $number} != '')
+                                            <input type="file"name="as_cl_i_periksa_m_{{ $number }}"
+                                                id="">
+                                        @else()
+                                        @endif
+                                    </div>
+                                </div>
+                                <button type="submit"
+                                    class="bg-orange-500 w-full hover:bg-orange-600 text-white font-bold py-2 rounded-b-lg shadow-md">Submit</button>
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
 
+                @foreach ($m as $index => $number)
+                    <div id="modal2{{ $number }}"
+                        class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 inset-0 justify-center items-center w-full max-h-full">
+                        <div class="relative p-4 w-full max-w-2xl max-h-full">
+                            <!-- Modal content -->
+                            <div class="relative bg-white rounded-lg shadow">
+                                <!-- Modal header -->
+                                <div class="flex items-center justify-between px-5 py-3 border-b rounded-t">
+                                    <p class="text-2xl font-semibold text-gray-900 font-mono">
+                                        Ubah dokumen unggahan
+                                    </p>
+                                    <button type="button"
+                                        class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center"
+                                        onclick="simulateEscape()">
+                                        <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                            fill="none" viewBox="0 0 14 14">
+                                            <path stroke="currentColor" stroke-linecap="round"
+                                                stroke-linejoin="round" stroke-width="2"
+                                                d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+                                        </svg>
+                                        <span class="sr-only">Close modal</span>
+                                    </button>
+                                </div>
+                                <!-- Modal body -->
+                                <div class="py-2 px-5">
+                                    <p class="font-light text-lg mb-2">Dokumen sebelumnya</p>
+                                    <div class="grid grid-cols-2 space-x-2">
+                                        <div>
+                                            <p class="text-base leading-relaxed text-gray-600">
+                                                Nama dokumen:
+                                            </p>
+                                            <p class="text-gray-900">
+                                                {{ $koneksicl->{'cl_qas_' . $number} }}
+                                            </p>
+                                        </div>
+                                        <div>
+                                            <p class="text-base leading-relaxed text-gray-600">
+                                                Oleh:
+                                            </p>
+                                            <p class="text-gray-900">
+                                                {{ $koneksicl->{'up_by_qas_cl_' . $number} }}
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Modal footer -->
+                                <div class="items-center px-5 py-2 border-t border-gray-200 rounded-b">
+                                    <p class="font-light text-lg">
+                                        Unggah dokumen baru
+                                    </p>
+                                    <div class="items-center justify-center w-full border my-4">
+                                        @if ($koneksicl->{'cl_qas_' . $number} != '')
+                                            <input type="file"name="as_cl_qas_{{ $number }}"
+                                                id="">
+                                        @else()
+                                        @endif
+                                    </div>
+                                </div>
+                                <button type="submit"
+                                    class="bg-orange-500 w-full hover:bg-orange-600 text-white font-bold py-2 rounded-b-lg shadow-md">Submit</button>
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
+
+                @foreach ($m as $index => $number)
+                    <div id="modal3{{ $number }}"
+                        class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 inset-0 justify-center items-center w-full max-h-full">
+                        <div class="relative p-4 w-full max-w-2xl max-h-full">
+                            <!-- Modal content -->
+                            <div class="relative bg-white rounded-lg shadow">
+                                <!-- Modal header -->
+                                <div class="flex items-center justify-between px-5 py-3 border-b rounded-t">
+                                    <p class="text-2xl font-semibold text-gray-900 font-mono">
+                                        Ubah dokumen unggahan
+                                    </p>
+                                    <button type="button"
+                                        class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center"
+                                        onclick="simulateEscape()">
+                                        <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                            fill="none" viewBox="0 0 14 14">
+                                            <path stroke="currentColor" stroke-linecap="round"
+                                                stroke-linejoin="round" stroke-width="2"
+                                                d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+                                        </svg>
+                                        <span class="sr-only">Close modal</span>
+                                    </button>
+                                </div>
+                                <!-- Modal body -->
+                                <div class="py-2 px-5">
+                                    <p class="font-light text-lg mb-2">Dokumen sebelumnya</p>
+                                    <div class="grid grid-cols-2 space-x-2">
+                                        <div>
+                                            <p class="text-base leading-relaxed text-gray-600">
+                                                Nama dokumen:
+                                            </p>
+                                            <p class="text-gray-900">
+                                                {{ $koneksicl->{'cl_i_pakai_m_' . $number} }}
+                                            </p>
+                                        </div>
+                                        <div>
+                                            <p class="text-base leading-relaxed text-gray-600">
+                                                Oleh:
+                                            </p>
+                                            <p class="text-gray-900">
+                                                {{ $koneksicl->{'up_by_i_pakai_m_cl_' . $number} }}
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Modal footer -->
+                                <div class="items-center px-5 py-2 border-t border-gray-200 rounded-b">
+                                    <p class="font-light text-lg">
+                                        Unggah dokumen baru
+                                    </p>
+                                    <div class="items-center justify-center w-full border my-4">
+                                        @if ($koneksicl->{'cl_i_pakai_m_' . $number} != '')
+                                            <input type="file"name="as_cl_i_pakai_m_{{ $number }}"
+                                                id="">
+                                        @else()
+                                        @endif
+                                    </div>
+                                </div>
+                                <button type="submit"
+                                    class="bg-orange-500 w-full hover:bg-orange-600 text-white font-bold py-2 rounded-b-lg shadow-md">Submit</button>
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
+
+                @foreach ($m as $index => $number)
+                    <div id="modal4{{ $number }}"
+                        class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 inset-0 justify-center items-center w-full max-h-full">
+                        <div class="relative p-4 w-full max-w-2xl max-h-full">
+                            <!-- Modal content -->
+                            <div class="relative bg-white rounded-lg shadow">
+                                <!-- Modal header -->
+                                <div class="flex items-center justify-between px-5 py-3 border-b rounded-t">
+                                    <p class="text-2xl font-semibold text-gray-900 font-mono">
+                                        Ubah dokumen unggahan
+                                    </p>
+                                    <button type="button"
+                                        class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center"
+                                        onclick="simulateEscape()">
+                                        <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                            fill="none" viewBox="0 0 14 14">
+                                            <path stroke="currentColor" stroke-linecap="round"
+                                                stroke-linejoin="round" stroke-width="2"
+                                                d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+                                        </svg>
+                                        <span class="sr-only">Close modal</span>
+                                    </button>
+                                </div>
+                                <!-- Modal body -->
+                                <div class="py-2 px-5">
+                                    <p class="font-light text-lg mb-2">Dokumen sebelumnya</p>
+                                    <div class="grid grid-cols-2 space-x-2">
+                                        <div>
+                                            <p class="text-base leading-relaxed text-gray-600">
+                                                Nama dokumen:
+                                            </p>
+                                            <p class="text-gray-900">
+                                                {{ $koneksicl->{'cl_training_' . $number} }}
+                                            </p>
+                                        </div>
+                                        <div>
+                                            <p class="text-base leading-relaxed text-gray-600">
+                                                Oleh:
+                                            </p>
+                                            <p class="text-gray-900">
+                                                {{ $koneksicl->{'up_by_training_cl_' . $number} }}
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Modal footer -->
+                                <div class="items-center px-5 py-2 border-t border-gray-200 rounded-b">
+                                    <p class="font-light text-lg">
+                                        Unggah dokumen baru
+                                    </p>
+                                    <div class="items-center justify-center w-full border my-4">
+                                        @if ($koneksicl->{'cl_training_' . $number} != '')
+                                            <input type="file"name="as_cl_training_{{ $number }}"
+                                                id="">
+                                        @else()
+                                        @endif
+                                    </div>
+                                </div>
+                                <button type="submit"
+                                    class="bg-orange-500 w-full hover:bg-orange-600 text-white font-bold py-2 rounded-b-lg shadow-md">Submit</button>
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
+
+                @foreach ($m as $index => $number)
+                    <div id="modal5{{ $number }}"
+                        class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 inset-0 justify-center items-center w-full max-h-full">
+                        <div class="relative p-4 w-full max-w-2xl max-h-full">
+                            <!-- Modal content -->
+                            <div class="relative bg-white rounded-lg shadow">
+                                <!-- Modal header -->
+                                <div class="flex items-center justify-between px-5 py-3 border-b rounded-t">
+                                    <p class="text-2xl font-semibold text-gray-900 font-mono">
+                                        Ubah dokumen unggahan
+                                    </p>
+                                    <button type="button"
+                                        class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center"
+                                        onclick="simulateEscape()">
+                                        <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                            fill="none" viewBox="0 0 14 14">
+                                            <path stroke="currentColor" stroke-linecap="round"
+                                                stroke-linejoin="round" stroke-width="2"
+                                                d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+                                        </svg>
+                                        <span class="sr-only">Close modal</span>
+                                    </button>
+                                </div>
+                                <!-- Modal body -->
+                                <div class="py-2 px-5">
+                                    <p class="font-light text-lg mb-2">Dokumen sebelumnya</p>
+                                    <div class="grid grid-cols-2 space-x-2">
+                                        <div>
+                                            <p class="text-base leading-relaxed text-gray-600">
+                                                Nama dokumen:
+                                            </p>
+                                            <p class="text-gray-900">
+                                                {{ $koneksicl->{'cl_l_trouble_' . $number} }}
+                                            </p>
+                                        </div>
+                                        <div>
+                                            <p class="text-base leading-relaxed text-gray-600">
+                                                Oleh:
+                                            </p>
+                                            <p class="text-gray-900">
+                                                {{ $koneksicl->{'up_by_l_trouble_cl_' . $number} }}
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Modal footer -->
+                                <div class="items-center px-5 py-2 border-t border-gray-200 rounded-b">
+                                    <p class="font-light text-lg">
+                                        Unggah dokumen baru
+                                    </p>
+                                    <div class="items-center justify-center w-full border my-4">
+                                        @if ($koneksicl->{'cl_l_trouble_' . $number} != '')
+                                            <input type="file"name="as_cl_l_trouble_{{ $number }}"
+                                                id="">
+                                        @else()
+                                        @endif
+                                    </div>
+                                </div>
+                                <button type="submit"
+                                    class="bg-orange-500 w-full hover:bg-orange-600 text-white font-bold py-2 rounded-b-lg shadow-md">Submit</button>
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
+
+                @foreach ($m as $index => $number)
+                    <div id="modal6{{ $number }}"
+                        class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 inset-0 justify-center items-center w-full max-h-full">
+                        <div class="relative p-4 w-full max-w-2xl max-h-full">
+                            <!-- Modal content -->
+                            <div class="relative bg-white rounded-lg shadow">
+                                <!-- Modal header -->
+                                <div class="flex items-center justify-between px-5 py-3 border-b rounded-t">
+                                    <p class="text-2xl font-semibold text-gray-900 font-mono">
+                                        Ubah dokumen unggahan
+                                    </p>
+                                    <button type="button"
+                                        class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center"
+                                        onclick="simulateEscape()">
+                                        <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                            fill="none" viewBox="0 0 14 14">
+                                            <path stroke="currentColor" stroke-linecap="round"
+                                                stroke-linejoin="round" stroke-width="2"
+                                                d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+                                        </svg>
+                                        <span class="sr-only">Close modal</span>
+                                    </button>
+                                </div>
+                                <!-- Modal body -->
+                                <div class="py-2 px-5">
+                                    <p class="font-light text-lg mb-2">Dokumen sebelumnya</p>
+                                    <div class="grid grid-cols-2 space-x-2">
+                                        <div>
+                                            <p class="text-base leading-relaxed text-gray-600">
+                                                Nama dokumen:
+                                            </p>
+                                            <p class="text-gray-900">
+                                                {{ $koneksicl->{'cl_camb_' . $number} }}
+                                            </p>
+                                        </div>
+                                        <div>
+                                            <p class="text-base leading-relaxed text-gray-600">
+                                                Oleh:
+                                            </p>
+                                            <p class="text-gray-900">
+                                                {{ $koneksicl->{'up_by_camb_cl_' . $number} }}
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Modal footer -->
+                                <div class="items-center px-5 py-2 border-t border-gray-200 rounded-b">
+                                    <p class="font-light text-lg">
+                                        Unggah dokumen baru
+                                    </p>
+                                    <div class="items-center justify-center w-full border my-4">
+                                        @if ($koneksicl->{'cl_camb_' . $number} != '')
+                                            <input type="file"name="as_cl_camb_{{ $number }}"
+                                                id="">
+                                        @else()
+                                        @endif
+                                    </div>
+                                </div>
+                                <button type="submit"
+                                    class="bg-orange-500 w-full hover:bg-orange-600 text-white font-bold py-2 rounded-b-lg shadow-md">Submit</button>
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
+
+                @foreach ($m as $index => $number)
+                    <div id="modal7{{ $number }}"
+                        class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 inset-0 justify-center items-center w-full max-h-full">
+                        <div class="relative p-4 w-full max-w-2xl max-h-full">
+                            <!-- Modal content -->
+                            <div class="relative bg-white rounded-lg shadow">
+                                <!-- Modal header -->
+                                <div class="flex items-center justify-between px-5 py-3 border-b rounded-t">
+                                    <p class="text-2xl font-semibold text-gray-900 font-mono">
+                                        Ubah dokumen unggahan
+                                    </p>
+                                    <button type="button"
+                                        class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center"
+                                        onclick="simulateEscape()">
+                                        <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                            fill="none" viewBox="0 0 14 14">
+                                            <path stroke="currentColor" stroke-linecap="round"
+                                                stroke-linejoin="round" stroke-width="2"
+                                                d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+                                        </svg>
+                                        <span class="sr-only">Close modal</span>
+                                    </button>
+                                </div>
+                                <!-- Modal body -->
+                                <div class="py-2 px-5">
+                                    <p class="font-light text-lg mb-2">Dokumen sebelumnya</p>
+                                    <div class="grid grid-cols-2 space-x-2">
+                                        <div>
+                                            <p class="text-base leading-relaxed text-gray-600">
+                                                Nama dokumen:
+                                            </p>
+                                            <p class="text-gray-900">
+                                                {{ $koneksicl->{'cl_im_' . $number} }}
+                                            </p>
+                                        </div>
+                                        <div>
+                                            <p class="text-base leading-relaxed text-gray-600">
+                                                Oleh:
+                                            </p>
+                                            <p class="text-gray-900">
+                                                {{ $koneksicl->{'up_by_im_cl_' . $number} }}
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Modal footer -->
+                                <div class="items-center px-5 py-2 border-t border-gray-200 rounded-b">
+                                    <p class="font-light text-lg">
+                                        Unggah dokumen baru
+                                    </p>
+                                    <div class="items-center justify-center w-full border my-4">
+                                        @if ($koneksicl->{'cl_im_' . $number} != '')
+                                            <input type="file"name="as_cl_im_{{ $number }}"
+                                                id="">
+                                        @else()
+                                        @endif
+                                    </div>
+                                </div>
+                                <button type="submit"
+                                    class="bg-orange-500 w-full hover:bg-orange-600 text-white font-bold py-2 rounded-b-lg shadow-md">Submit</button>
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
+
+                @foreach ($m as $index => $number)
+                    <div id="modal8{{ $number }}"
+                        class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 inset-0 justify-center items-center w-full max-h-full">
+                        <div class="relative p-4 w-full max-w-2xl max-h-full">
+                            <!-- Modal content -->
+                            <div class="relative bg-white rounded-lg shadow">
+                                <!-- Modal header -->
+                                <div class="flex items-center justify-between px-5 py-3 border-b rounded-t">
+                                    <p class="text-2xl font-semibold text-gray-900 font-mono">
+                                        Ubah dokumen unggahan
+                                    </p>
+                                    <button type="button"
+                                        class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center"
+                                        onclick="simulateEscape()">
+                                        <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                            fill="none" viewBox="0 0 14 14">
+                                            <path stroke="currentColor" stroke-linecap="round"
+                                                stroke-linejoin="round" stroke-width="2"
+                                                d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+                                        </svg>
+                                        <span class="sr-only">Close modal</span>
+                                    </button>
+                                </div>
+                                <!-- Modal body -->
+                                <div class="py-2 px-5">
+                                    <p class="font-light text-lg mb-2">Dokumen sebelumnya</p>
+                                    <div class="grid grid-cols-2 space-x-2">
+                                        <div>
+                                            <p class="text-base leading-relaxed text-gray-600">
+                                                Nama dokumen:
+                                            </p>
+                                            <p class="text-gray-900">
+                                                {{ $koneksicl->{'cl_chor_' . $number} }}
+                                            </p>
+                                        </div>
+                                        <div>
+                                            <p class="text-base leading-relaxed text-gray-600">
+                                                Oleh:
+                                            </p>
+                                            <p class="text-gray-900">
+                                                {{ $koneksicl->{'up_by_chor_cl_' . $number} }}
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Modal footer -->
+                                <div class="items-center px-5 py-2 border-t border-gray-200 rounded-b">
+                                    <p class="font-light text-lg">
+                                        Unggah dokumen baru
+                                    </p>
+                                    <div class="items-center justify-center w-full border my-4">
+                                        @if ($koneksicl->{'cl_chor_' . $number} != '')
+                                            <input type="file"name="as_cl_chor_{{ $number }}"
+                                                id="">
+                                        @else()
+                                        @endif
+                                    </div>
+                                </div>
+                                <button type="submit"
+                                    class="bg-orange-500 w-full hover:bg-orange-600 text-white font-bold py-2 rounded-b-lg shadow-md">Submit</button>
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
+                {{-- selesai modal ubah --}}
+                <input type="text" name="last_update_name" value="{{ Auth::user()->first_name }}" hidden>
+                <input type="text" name="last_update_date" value="{{ date('d-M-Y') }}" hidden>
+            </form>
+        </div>
+        {{-- Akhir progress file --}}
+        @if ($koneksicl->status_cl == '-' || $koneksicl->status_cl == 'Revisi Handover')
             @if (
-                /* 1 */
-                $koneksicl->cl_i_periksa_m_1 &&
-                    $koneksicl->cl_i_periksa_m_2 &&
-                    $koneksicl->cl_i_periksa_m_3 &&
+                $koneksicl->cl_i_periksa_m_1 ||
+                    $koneksicl->cl_i_periksa_m_2 ||
+                    $koneksicl->cl_i_periksa_m_3 ||
                     /* 2 */
-                    $koneksicl->cl_qas_1 &&
-                    $koneksicl->cl_qas_2 &&
+                    $koneksicl->cl_qas_1 ||
+                    $koneksicl->cl_qas_2 ||
                     /* 3 */
-                    $koneksicl->cl_i_pakai_m_1 &&
-                    $koneksicl->cl_i_pakai_m_2 &&
+                    $koneksicl->cl_i_pakai_m_1 ||
+                    $koneksicl->cl_i_pakai_m_2 ||
                     /* 4 */
-                    $koneksicl->cl_training_1 &&
-                    $koneksicl->cl_training_2 &&
-                    $koneksicl->cl_training_3 &&
-                    $koneksicl->cl_training_4 &&
-                    $koneksicl->cl_training_5 &&
+                    $koneksicl->cl_training_1 ||
+                    $koneksicl->cl_training_2 ||
+                    $koneksicl->cl_training_3 ||
+                    $koneksicl->cl_training_4 ||
+                    $koneksicl->cl_training_5 ||
                     /* 5 */
-                    $koneksicl->cl_l_trouble_1 &&
-                    $koneksicl->cl_l_trouble_2 &&
+                    $koneksicl->cl_l_trouble_1 ||
+                    $koneksicl->cl_l_trouble_2 ||
                     /* 6 */
-                    $koneksicl->cl_camb_1 &&
-                    $koneksicl->cl_camb_2 &&
+                    $koneksicl->cl_camb_1 ||
+                    $koneksicl->cl_camb_2 ||
                     /* 7 */
-                    $koneksicl->cl_imb_1 &&
-                    $koneksicl->cl_imb_2 &&
-                    $koneksicl->cl_imb_3 &&
-                    $koneksicl->cl_imb_4 &&
-                    $koneksicl->cl_imb_5 &&
+                    $koneksicl->cl_imb_1 ||
+                    $koneksicl->cl_imb_2 ||
+                    $koneksicl->cl_imb_3 ||
+                    $koneksicl->cl_imb_4 ||
+                    $koneksicl->cl_imb_5 ||
                     /* 8 */
-                    $koneksicl->cl_chor_1 &&
+                    $koneksicl->cl_chor_1 ||
                     $koneksicl->cl_chor_2 != '')
-            @else
-                <button type="submit"
-                    class="bg-orange-500 w-full hover:bg-orange-600 text-white font-bold py-2 rounded-lg mt-3 shadow-md">Klik
-                    untuk submit dokumen</button>
+                <p class="mb-1 mt-3">
+                    Pastikan unggahan dokumen sudah sesuai dengan proyek.
+                </p>
+                <form action="" method="post" enctype="multipart/form-data">
+                    @csrf
+                    @method('PUT')
+                    <input type="text" name="status_cl" value="Waiting Approval" hidden>
+                    <input type="date" hidden name="status_cl_date" value="{{ date('Y-m-d') }}">
+
+                    {{-- table project --}}
+                    <input type="text" name="check" value="needcheck" hidden>
+                    <input type="text" name="progress" value="Waiting Approval Closed" hidden>
+                    <input type="text" name="last_update_name" value="{{ Auth::user()->first_name }}" hidden>
+                    <input type="text" name="last_update_date" value="{{ date('d-M-Y') }}" hidden>
+                    <button type="submit"
+                        class="border-gray-500 border-2 w-full hover:bg-gray-600 text-gray-700 hover:text-white font-medium py-2 rounded-lg shadow-md mb-3 bg-white">
+                        Klik untuk ajukan tahapan
+                    </button>
+                </form>
             @endif
+        @elseif($koneksicl->status_cl == 'Waiting Approval')
+            <p class="bg-gray-600 mt-3 py-3 text-center text-lg text-white font-medium uppercase tracking-wide">
+                Tahapan sedang menunggu persetujuan
+            </p>
+        @else
+            <p class="bg-green-700 text-white mt-3 py-3 text-center text-lg font-medium uppercase tracking-wide">
+                Tahapan telah disetujui
+            </p>
+        @endif
 
-            {{-- modal ubah --}}
-            @php
-                $m = range(1, 5);
-            @endphp
-
-            @foreach ($m as $index => $number)
-                <div id="modal1{{ $number }}"
-                    class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 inset-0 justify-center items-center w-full max-h-full">
-                    <div class="relative p-4 w-full max-w-2xl max-h-full">
-                        <!-- Modal content -->
-                        <div class="relative bg-white rounded-lg shadow">
-                            <!-- Modal header -->
-                            <div class="flex items-center justify-between px-5 py-3 border-b rounded-t">
-                                <p class="text-2xl font-semibold text-gray-900 font-mono">
-                                    Ubah dokumen unggahan
-                                </p>
-                                <button type="button"
-                                    class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center"
-                                    onclick="simulateEscape()">
-                                    <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                                        fill="none" viewBox="0 0 14 14">
-                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                            stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
-                                    </svg>
-                                    <span class="sr-only">Close modal</span>
-                                </button>
-                            </div>
-                            <!-- Modal body -->
-                            <div class="py-2 px-5">
-                                <p class="font-light text-lg mb-2">Dokumen sebelumnya</p>
-                                <div class="grid grid-cols-2 space-x-2">
-                                    <div>
-                                        <p class="text-base leading-relaxed text-gray-600">
-                                            Nama dokumen:
-                                        </p>
-                                        <p class="text-gray-900">
-                                            {{ $koneksicl->{'cl_i_periksa_m_' . $number} }}
-                                        </p>
-                                    </div>
-                                    <div>
-                                        <p class="text-base leading-relaxed text-gray-600">
-                                            Oleh:
-                                        </p>
-                                        <p class="text-gray-900">
-                                            {{ $koneksicl->{'up_by_i_periksa_m_cl_' . $number} }}
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Modal footer -->
-                            <div class="items-center px-5 py-2 border-t border-gray-200 rounded-b">
-                                <p class="font-light text-lg">
-                                    Unggah dokumen baru
-                                </p>
-                                <div class="items-center justify-center w-full border my-4">
-                                    @if ($koneksicl->{'cl_i_periksa_m_' . $number} != '')
-                                        <input type="file"name="as_cl_i_periksa_m_{{ $number }}"
-                                            id="">
-                                    @else()
-                                    @endif
-                                </div>
-                            </div>
-                            <button type="submit"
-                                class="bg-orange-500 w-full hover:bg-orange-600 text-white font-bold py-2 rounded-b-lg shadow-md">Submit</button>
-                        </div>
-                    </div>
-                </div>
-            @endforeach
-
-            @foreach ($m as $index => $number)
-                <div id="modal2{{ $number }}"
-                    class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 inset-0 justify-center items-center w-full max-h-full">
-                    <div class="relative p-4 w-full max-w-2xl max-h-full">
-                        <!-- Modal content -->
-                        <div class="relative bg-white rounded-lg shadow">
-                            <!-- Modal header -->
-                            <div class="flex items-center justify-between px-5 py-3 border-b rounded-t">
-                                <p class="text-2xl font-semibold text-gray-900 font-mono">
-                                    Ubah dokumen unggahan
-                                </p>
-                                <button type="button"
-                                    class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center"
-                                    onclick="simulateEscape()">
-                                    <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                                        fill="none" viewBox="0 0 14 14">
-                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                            stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
-                                    </svg>
-                                    <span class="sr-only">Close modal</span>
-                                </button>
-                            </div>
-                            <!-- Modal body -->
-                            <div class="py-2 px-5">
-                                <p class="font-light text-lg mb-2">Dokumen sebelumnya</p>
-                                <div class="grid grid-cols-2 space-x-2">
-                                    <div>
-                                        <p class="text-base leading-relaxed text-gray-600">
-                                            Nama dokumen:
-                                        </p>
-                                        <p class="text-gray-900">
-                                            {{ $koneksicl->{'cl_qas_' . $number} }}
-                                        </p>
-                                    </div>
-                                    <div>
-                                        <p class="text-base leading-relaxed text-gray-600">
-                                            Oleh:
-                                        </p>
-                                        <p class="text-gray-900">
-                                            {{ $koneksicl->{'up_by_qas_cl_' . $number} }}
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Modal footer -->
-                            <div class="items-center px-5 py-2 border-t border-gray-200 rounded-b">
-                                <p class="font-light text-lg">
-                                    Unggah dokumen baru
-                                </p>
-                                <div class="items-center justify-center w-full border my-4">
-                                    @if ($koneksicl->{'cl_qas_' . $number} != '')
-                                        <input type="file"name="as_cl_qas_{{ $number }}" id="">
-                                    @else()
-                                    @endif
-                                </div>
-                            </div>
-                            <button type="submit"
-                                class="bg-orange-500 w-full hover:bg-orange-600 text-white font-bold py-2 rounded-b-lg shadow-md">Submit</button>
-                        </div>
-                    </div>
-                </div>
-            @endforeach
-
-            @foreach ($m as $index => $number)
-                <div id="modal3{{ $number }}"
-                    class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 inset-0 justify-center items-center w-full max-h-full">
-                    <div class="relative p-4 w-full max-w-2xl max-h-full">
-                        <!-- Modal content -->
-                        <div class="relative bg-white rounded-lg shadow">
-                            <!-- Modal header -->
-                            <div class="flex items-center justify-between px-5 py-3 border-b rounded-t">
-                                <p class="text-2xl font-semibold text-gray-900 font-mono">
-                                    Ubah dokumen unggahan
-                                </p>
-                                <button type="button"
-                                    class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center"
-                                    onclick="simulateEscape()">
-                                    <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                                        fill="none" viewBox="0 0 14 14">
-                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                            stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
-                                    </svg>
-                                    <span class="sr-only">Close modal</span>
-                                </button>
-                            </div>
-                            <!-- Modal body -->
-                            <div class="py-2 px-5">
-                                <p class="font-light text-lg mb-2">Dokumen sebelumnya</p>
-                                <div class="grid grid-cols-2 space-x-2">
-                                    <div>
-                                        <p class="text-base leading-relaxed text-gray-600">
-                                            Nama dokumen:
-                                        </p>
-                                        <p class="text-gray-900">
-                                            {{ $koneksicl->{'cl_i_pakai_m_' . $number} }}
-                                        </p>
-                                    </div>
-                                    <div>
-                                        <p class="text-base leading-relaxed text-gray-600">
-                                            Oleh:
-                                        </p>
-                                        <p class="text-gray-900">
-                                            {{ $koneksicl->{'up_by_i_pakai_m_cl_' . $number} }}
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Modal footer -->
-                            <div class="items-center px-5 py-2 border-t border-gray-200 rounded-b">
-                                <p class="font-light text-lg">
-                                    Unggah dokumen baru
-                                </p>
-                                <div class="items-center justify-center w-full border my-4">
-                                    @if ($koneksicl->{'cl_i_pakai_m_' . $number} != '')
-                                        <input type="file"name="as_cl_i_pakai_m_{{ $number }}"
-                                            id="">
-                                    @else()
-                                    @endif
-                                </div>
-                            </div>
-                            <button type="submit"
-                                class="bg-orange-500 w-full hover:bg-orange-600 text-white font-bold py-2 rounded-b-lg shadow-md">Submit</button>
-                        </div>
-                    </div>
-                </div>
-            @endforeach
-
-            @foreach ($m as $index => $number)
-                <div id="modal4{{ $number }}"
-                    class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 inset-0 justify-center items-center w-full max-h-full">
-                    <div class="relative p-4 w-full max-w-2xl max-h-full">
-                        <!-- Modal content -->
-                        <div class="relative bg-white rounded-lg shadow">
-                            <!-- Modal header -->
-                            <div class="flex items-center justify-between px-5 py-3 border-b rounded-t">
-                                <p class="text-2xl font-semibold text-gray-900 font-mono">
-                                    Ubah dokumen unggahan
-                                </p>
-                                <button type="button"
-                                    class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center"
-                                    onclick="simulateEscape()">
-                                    <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                                        fill="none" viewBox="0 0 14 14">
-                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                            stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
-                                    </svg>
-                                    <span class="sr-only">Close modal</span>
-                                </button>
-                            </div>
-                            <!-- Modal body -->
-                            <div class="py-2 px-5">
-                                <p class="font-light text-lg mb-2">Dokumen sebelumnya</p>
-                                <div class="grid grid-cols-2 space-x-2">
-                                    <div>
-                                        <p class="text-base leading-relaxed text-gray-600">
-                                            Nama dokumen:
-                                        </p>
-                                        <p class="text-gray-900">
-                                            {{ $koneksicl->{'cl_training_' . $number} }}
-                                        </p>
-                                    </div>
-                                    <div>
-                                        <p class="text-base leading-relaxed text-gray-600">
-                                            Oleh:
-                                        </p>
-                                        <p class="text-gray-900">
-                                            {{ $koneksicl->{'up_by_training_cl_' . $number} }}
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Modal footer -->
-                            <div class="items-center px-5 py-2 border-t border-gray-200 rounded-b">
-                                <p class="font-light text-lg">
-                                    Unggah dokumen baru
-                                </p>
-                                <div class="items-center justify-center w-full border my-4">
-                                    @if ($koneksicl->{'cl_training_' . $number} != '')
-                                        <input type="file"name="as_cl_training_{{ $number }}"
-                                            id="">
-                                    @else()
-                                    @endif
-                                </div>
-                            </div>
-                            <button type="submit"
-                                class="bg-orange-500 w-full hover:bg-orange-600 text-white font-bold py-2 rounded-b-lg shadow-md">Submit</button>
-                        </div>
-                    </div>
-                </div>
-            @endforeach
-
-            @foreach ($m as $index => $number)
-                <div id="modal5{{ $number }}"
-                    class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 inset-0 justify-center items-center w-full max-h-full">
-                    <div class="relative p-4 w-full max-w-2xl max-h-full">
-                        <!-- Modal content -->
-                        <div class="relative bg-white rounded-lg shadow">
-                            <!-- Modal header -->
-                            <div class="flex items-center justify-between px-5 py-3 border-b rounded-t">
-                                <p class="text-2xl font-semibold text-gray-900 font-mono">
-                                    Ubah dokumen unggahan
-                                </p>
-                                <button type="button"
-                                    class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center"
-                                    onclick="simulateEscape()">
-                                    <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                                        fill="none" viewBox="0 0 14 14">
-                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                            stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
-                                    </svg>
-                                    <span class="sr-only">Close modal</span>
-                                </button>
-                            </div>
-                            <!-- Modal body -->
-                            <div class="py-2 px-5">
-                                <p class="font-light text-lg mb-2">Dokumen sebelumnya</p>
-                                <div class="grid grid-cols-2 space-x-2">
-                                    <div>
-                                        <p class="text-base leading-relaxed text-gray-600">
-                                            Nama dokumen:
-                                        </p>
-                                        <p class="text-gray-900">
-                                            {{ $koneksicl->{'cl_l_trouble_' . $number} }}
-                                        </p>
-                                    </div>
-                                    <div>
-                                        <p class="text-base leading-relaxed text-gray-600">
-                                            Oleh:
-                                        </p>
-                                        <p class="text-gray-900">
-                                            {{ $koneksicl->{'up_by_l_trouble_cl_' . $number} }}
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Modal footer -->
-                            <div class="items-center px-5 py-2 border-t border-gray-200 rounded-b">
-                                <p class="font-light text-lg">
-                                    Unggah dokumen baru
-                                </p>
-                                <div class="items-center justify-center w-full border my-4">
-                                    @if ($koneksicl->{'cl_l_trouble_' . $number} != '')
-                                        <input type="file"name="as_cl_l_trouble_{{ $number }}"
-                                            id="">
-                                    @else()
-                                    @endif
-                                </div>
-                            </div>
-                            <button type="submit"
-                                class="bg-orange-500 w-full hover:bg-orange-600 text-white font-bold py-2 rounded-b-lg shadow-md">Submit</button>
-                        </div>
-                    </div>
-                </div>
-            @endforeach
-
-            @foreach ($m as $index => $number)
-                <div id="modal6{{ $number }}"
-                    class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 inset-0 justify-center items-center w-full max-h-full">
-                    <div class="relative p-4 w-full max-w-2xl max-h-full">
-                        <!-- Modal content -->
-                        <div class="relative bg-white rounded-lg shadow">
-                            <!-- Modal header -->
-                            <div class="flex items-center justify-between px-5 py-3 border-b rounded-t">
-                                <p class="text-2xl font-semibold text-gray-900 font-mono">
-                                    Ubah dokumen unggahan
-                                </p>
-                                <button type="button"
-                                    class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center"
-                                    onclick="simulateEscape()">
-                                    <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                                        fill="none" viewBox="0 0 14 14">
-                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                            stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
-                                    </svg>
-                                    <span class="sr-only">Close modal</span>
-                                </button>
-                            </div>
-                            <!-- Modal body -->
-                            <div class="py-2 px-5">
-                                <p class="font-light text-lg mb-2">Dokumen sebelumnya</p>
-                                <div class="grid grid-cols-2 space-x-2">
-                                    <div>
-                                        <p class="text-base leading-relaxed text-gray-600">
-                                            Nama dokumen:
-                                        </p>
-                                        <p class="text-gray-900">
-                                            {{ $koneksicl->{'cl_camb_' . $number} }}
-                                        </p>
-                                    </div>
-                                    <div>
-                                        <p class="text-base leading-relaxed text-gray-600">
-                                            Oleh:
-                                        </p>
-                                        <p class="text-gray-900">
-                                            {{ $koneksicl->{'up_by_camb_cl_' . $number} }}
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Modal footer -->
-                            <div class="items-center px-5 py-2 border-t border-gray-200 rounded-b">
-                                <p class="font-light text-lg">
-                                    Unggah dokumen baru
-                                </p>
-                                <div class="items-center justify-center w-full border my-4">
-                                    @if ($koneksicl->{'cl_camb_' . $number} != '')
-                                        <input type="file"name="as_cl_camb_{{ $number }}" id="">
-                                    @else()
-                                    @endif
-                                </div>
-                            </div>
-                            <button type="submit"
-                                class="bg-orange-500 w-full hover:bg-orange-600 text-white font-bold py-2 rounded-b-lg shadow-md">Submit</button>
-                        </div>
-                    </div>
-                </div>
-            @endforeach
-
-            @foreach ($m as $index => $number)
-                <div id="modal7{{ $number }}"
-                    class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 inset-0 justify-center items-center w-full max-h-full">
-                    <div class="relative p-4 w-full max-w-2xl max-h-full">
-                        <!-- Modal content -->
-                        <div class="relative bg-white rounded-lg shadow">
-                            <!-- Modal header -->
-                            <div class="flex items-center justify-between px-5 py-3 border-b rounded-t">
-                                <p class="text-2xl font-semibold text-gray-900 font-mono">
-                                    Ubah dokumen unggahan
-                                </p>
-                                <button type="button"
-                                    class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center"
-                                    onclick="simulateEscape()">
-                                    <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                                        fill="none" viewBox="0 0 14 14">
-                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                            stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
-                                    </svg>
-                                    <span class="sr-only">Close modal</span>
-                                </button>
-                            </div>
-                            <!-- Modal body -->
-                            <div class="py-2 px-5">
-                                <p class="font-light text-lg mb-2">Dokumen sebelumnya</p>
-                                <div class="grid grid-cols-2 space-x-2">
-                                    <div>
-                                        <p class="text-base leading-relaxed text-gray-600">
-                                            Nama dokumen:
-                                        </p>
-                                        <p class="text-gray-900">
-                                            {{ $koneksicl->{'cl_im_' . $number} }}
-                                        </p>
-                                    </div>
-                                    <div>
-                                        <p class="text-base leading-relaxed text-gray-600">
-                                            Oleh:
-                                        </p>
-                                        <p class="text-gray-900">
-                                            {{ $koneksicl->{'up_by_im_cl_' . $number} }}
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Modal footer -->
-                            <div class="items-center px-5 py-2 border-t border-gray-200 rounded-b">
-                                <p class="font-light text-lg">
-                                    Unggah dokumen baru
-                                </p>
-                                <div class="items-center justify-center w-full border my-4">
-                                    @if ($koneksicl->{'cl_im_' . $number} != '')
-                                        <input type="file"name="as_cl_im_{{ $number }}" id="">
-                                    @else()
-                                    @endif
-                                </div>
-                            </div>
-                            <button type="submit"
-                                class="bg-orange-500 w-full hover:bg-orange-600 text-white font-bold py-2 rounded-b-lg shadow-md">Submit</button>
-                        </div>
-                    </div>
-                </div>
-            @endforeach
-
-            @foreach ($m as $index => $number)
-                <div id="modal8{{ $number }}"
-                    class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 inset-0 justify-center items-center w-full max-h-full">
-                    <div class="relative p-4 w-full max-w-2xl max-h-full">
-                        <!-- Modal content -->
-                        <div class="relative bg-white rounded-lg shadow">
-                            <!-- Modal header -->
-                            <div class="flex items-center justify-between px-5 py-3 border-b rounded-t">
-                                <p class="text-2xl font-semibold text-gray-900 font-mono">
-                                    Ubah dokumen unggahan
-                                </p>
-                                <button type="button"
-                                    class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center"
-                                    onclick="simulateEscape()">
-                                    <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                                        fill="none" viewBox="0 0 14 14">
-                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                            stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
-                                    </svg>
-                                    <span class="sr-only">Close modal</span>
-                                </button>
-                            </div>
-                            <!-- Modal body -->
-                            <div class="py-2 px-5">
-                                <p class="font-light text-lg mb-2">Dokumen sebelumnya</p>
-                                <div class="grid grid-cols-2 space-x-2">
-                                    <div>
-                                        <p class="text-base leading-relaxed text-gray-600">
-                                            Nama dokumen:
-                                        </p>
-                                        <p class="text-gray-900">
-                                            {{ $koneksicl->{'cl_chor_' . $number} }}
-                                        </p>
-                                    </div>
-                                    <div>
-                                        <p class="text-base leading-relaxed text-gray-600">
-                                            Oleh:
-                                        </p>
-                                        <p class="text-gray-900">
-                                            {{ $koneksicl->{'up_by_chor_cl_' . $number} }}
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Modal footer -->
-                            <div class="items-center px-5 py-2 border-t border-gray-200 rounded-b">
-                                <p class="font-light text-lg">
-                                    Unggah dokumen baru
-                                </p>
-                                <div class="items-center justify-center w-full border my-4">
-                                    @if ($koneksicl->{'cl_chor_' . $number} != '')
-                                        <input type="file"name="as_cl_chor_{{ $number }}" id="">
-                                    @else()
-                                    @endif
-                                </div>
-                            </div>
-                            <button type="submit"
-                                class="bg-orange-500 w-full hover:bg-orange-600 text-white font-bold py-2 rounded-b-lg shadow-md">Submit</button>
-                        </div>
-                    </div>
-                </div>
-            @endforeach
-            {{-- selesai modal ubah --}}
-
-        </form>
-    </div>
-    {{-- Akhir progress file --}}
+    @endif
 
     <script>
         function simulateEscape() {
@@ -2851,6 +3080,67 @@
             });
             document.dispatchEvent(escapeEvent);
         }
+
+        function openFileInput(namaVariabel) {
+            // Temukan elemen file input berdasarkan nama variabel
+            const fileInput = document.getElementById('fileInput_' + namaVariabel);
+
+            // Klik pada elemen file input
+            fileInput.click();
+
+            // Tambahkan event listener untuk menangani perubahan file
+            fileInput.addEventListener('change', function(event) {
+                const selectedFile = event.target.files[0];
+                console.log('File yang dipilih untuk ' + namaVariabel + ':', selectedFile.name);
+
+                // Sekarang, kirim formulir
+                document.getElementById('uploadForm').submit();
+            });
+        }
+
+        function hitungMundur(deadline, elementId) {
+            const sekarang = new Date();
+            const selisihWaktu = deadline - sekarang;
+            const hari = Math.floor(selisihWaktu / (1000 * 60 * 60 * 24));
+
+            let warnaLatarBelakang = '';
+
+            if (selisihWaktu <= 0) {
+                document.getElementById(elementId).innerText = "Proyek sudah melewati deadline.";
+                warnaLatarBelakang = 'red';
+            } else {
+                const jam = Math.floor((selisihWaktu % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const menit = Math.floor((selisihWaktu % (1000 * 60 * 60)) / (1000 * 60));
+
+                document.getElementById(elementId).innerText = `Deadline dalam ${hari} hari`;
+                /* hari, ${jam} jam, dan ${menit} menit. */
+
+                // Atur warna latar belakang berdasarkan rentang hari
+                if (hari > 150) {
+                    warnaLatarBelakang = 'green';
+                } else if (hari > 100) {
+                    warnaLatarBelakang = 'blue';
+                } else if (hari > 70) {
+                    warnaLatarBelakang = 'yellow';
+                } else if (hari > 30) {
+                    warnaLatarBelakang = 'orange';
+                } else {
+                    warnaLatarBelakang = 'red';
+                }
+            }
+
+            // Atur latar belakang dan warna teks
+            document.getElementById(elementId).style.backgroundColor = warnaLatarBelakang;
+            document.getElementById(elementId).style.color = 'white';
+        }
+
+        // Gantilah dengan nilai date_end dari Laravel Blade template
+        const dateEndStr = "{{ $viewdataproject->date_end }}";
+        const dateEnd = new Date(dateEndStr);
+
+        // Gantilah dengan id unik kartu proyek
+        const kartuProyekId = "{{ $viewdataproject->id }}";
+        hitungMundur(dateEnd, `countdown-${kartuProyekId}`);
     </script>
 </div>
 {{-- tutup bungkus --}}

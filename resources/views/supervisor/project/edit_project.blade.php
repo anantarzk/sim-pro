@@ -58,7 +58,7 @@
                         <option selected value="{{ $project->section }}">{{ $project->section }}</option>
                         <option value="Design">Design</option>
                         <option value="IE">IE</option>
-                        <option value="Eng">Maintenance</option>
+                        <option value="Maintenance">Maintenance</option>
                         <option value="PC">PC</option>
                         <option value="Production">Production</option>
                         <option value="SHE">SHE</option>
@@ -220,7 +220,6 @@
                             @endif
                         @endforeach
                         <option value="">None</option>
-
                     </select>
                     <label for="floating_company"
                         class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-orange-500 peer-focus:dark:text-orange-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">

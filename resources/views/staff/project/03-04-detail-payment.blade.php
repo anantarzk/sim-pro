@@ -2,7 +2,7 @@
 @section('title_page', 'Purchasing - PAY - Project')
 
 
-<a href="#submit-1">
+{{-- <a href="#submit-1">
     <button class="fixed right-0 bottom-0 m-2 z-10 bg-orange-400 rounded-lg p-2 opacity-70 hover:opacity-90">
         <svg width="10" height="auto" viewBox="0 0 39 42" fill="none" xmlns="http://www.w3.org/2000/svg"
             class="fill-black">
@@ -22,7 +22,7 @@
                 stroke-width="2" />
         </svg>
     </button>
-</a>
+</a> --}}
 
 <div class="mx-10 my-20">
 
@@ -49,7 +49,7 @@
                     <div class="">
                         {{-- IO number --}}
                         <div class="container text-right">
-                            <div class=" text-red-500  font-semibold text-lg">IO Number:</div>
+                            <div class="font-semibold text-lg text-gray-600">IO Number:</div>
                             <p class="text-3xl font-bold text-gray-700">
                                 {{ $viewdataproject->io_number }}
                             </p>
@@ -86,27 +86,27 @@
                     <div>
                         <div class="flex justify-between max-w-xl text-right space-x-10 auto-cols-auto">
                             <div>
-                                <p class="text-md font-medium text-gray-500">Section:</p>
+                                <p class="text-md font-medium text-gray-600">Section:</p>
                                 <p class="text-lg font-semibold">
                                     {{ $viewdataproject->section }}
                                 </p>
                             </div>
                             <div>
-                                <p class="text-md font-medium text-gray-500">Cost Dept:</p>
+                                <p class="text-md font-medium text-gray-600">Cost Dept:</p>
                                 <p class="text-lg font-semibold">
                                     {{ $viewdataproject->cost_dept }}
                                 </p>
                             </div>
                             @if ($viewdataproject->remarks != '')
                                 <div>
-                                    <p class="text-md font-medium text-gray-500">Remarks:</p>
+                                    <p class="text-md font-medium text-gray-600">Remarks:</p>
                                     <p class="text-lg font-semibold">
                                         {{ $viewdataproject->remarks }}
                                     </p>
                                 </div>
                             @endif
                             <div>
-                                <p class="text-md font-medium text-gray-500">OB Year:</p>
+                                <p class="text-md font-medium text-gray-600">OB Year:</p>
                                 <p class="text-lg font-semibold">
                                     {{ $viewdataproject->ob_year }}
                                 </p>
@@ -122,183 +122,79 @@
                 <div class="mt-3">
                     <hr class="mb-2 w-full border">
                     {{-- progress bar --}}
-                    @if ($viewdataproject->progress == 'Not Started')
-                        <div class="w-full bg-gray-200 rounded-full my-2 text-xs font-medium text-black text-center"
-                            data-popover-target="popover-0" data-popover-placement="bottom">
-                            <p class="">0%</p>
-                            <div class="bg-orange-500  text-xs font-medium text-blue-100 text-center leading-none rounded-lg hover:cursor-default"
-                                style="width: 0%">
-                            </div>
-                        </div>
-                    @elseif ($viewdataproject->progress == 'Waiting Approval Fund Request')
-                        <div class="w-full bg-gray-200 rounded-full my-2 text-xs font-medium text-black text-center"
-                            data-popover-target="popover-0" data-popover-placement="bottom">
-                            <p class="">0%</p>
-                            <div class="bg-orange-500  text-xs font-medium text-blue-100 text-center leading-none rounded-lg hover:cursor-default"
-                                style="width: 0%">
-                            </div>
-                        </div>
-                    @elseif ($viewdataproject->progress == 'Fund Request')
-                        <div class="w-full bg-gray-200 rounded-full my-2">
-                            <div class="bg-orange-500  text-xs font-medium text-blue-100 text-center leading-none rounded-lg hover:cursor-default"
-                                data-popover-target="popover-2" data-popover-placement="bottom" style="width: 5%">
-                                <p>05%</p>
+                    @php
+                        $totalStages = 9;
+                        $completedStages = 0;
 
-                            </div>
-                        </div>
-                    @elseif ($viewdataproject->progress == 'Waiting Approval Arrangement')
-                        <div class="w-full bg-gray-200 rounded-full my-2">
-                            <div class="bg-orange-500  text-xs font-medium text-blue-100 text-center leading-none rounded-lg hover:cursor-default"
-                                data-popover-target="popover-3" data-popover-placement="bottom" style="width: 05%">
-                                <p>05%</p>
+                        $statuses = [
+                            $koneksifr->status_fr,
+                            $koneksiar->status_ar,
+                            $koneksipr->status_pr_01,
+                            $koneksipa->status_pa_02,
+                            $koneksipo->status_po_03,
+                            $koneksipay->status_pay_04,
+                            $koneksimn->status_mn,
+                            $koneksiin->status_in,
+                            $koneksicl->status_cl,
+                        ];
 
-                            </div>
-                        </div>
-                    @elseif ($viewdataproject->progress == 'Arrangement')
-                        <div class="w-full bg-gray-200 rounded-full my-2">
-                            <div class="bg-orange-500  text-xs font-medium text-blue-100 text-center leading-none rounded-lg hover:cursor-default"
-                                data-popover-target="popover-4" data-popover-placement="bottom" style="width: 10%">
-                                <p>10%</p>
+                        foreach ($statuses as $status) {
+                            if ($status == 'Complete') {
+                                $completedStages++;
+                            }
+                        }
 
-                            </div>
-                        </div>
-                    @elseif ($viewdataproject->progress == 'Waiting Approval Purchasing - PR')
-                        <div class="w-full bg-gray-200 rounded-full my-2">
-                            <div class="bg-orange-500  text-xs font-medium text-blue-100 text-center leading-none rounded-lg hover:cursor-default"
-                                data-popover-target="popover-5" data-popover-placement="bottom" style="width: 10%">
-                                <p>10%</p>
+                        $purchasingPercentage = 70;
+                        $otherStagesPercentage = 30;
 
-                            </div>
-                        </div>
-                    @elseif ($viewdataproject->progress == 'Purchasing - PR')
-                        <div class="w-full bg-gray-200 rounded-full my-2">
-                            <div class="bg-orange-500  text-xs font-medium text-blue-100 text-center leading-none rounded-lg hover:cursor-default"
-                                data-popover-target="popover-6" data-popover-placement="bottom" style="width: 15%">
-                                <p>15%</p>
+                        $overallProgress = ceil(($completedStages / $totalStages) * ($purchasingPercentage + $otherStagesPercentage));
 
-                            </div>
-                        </div>
-                    @elseif ($viewdataproject->progress == 'Waiting Approval Purchasing - PA')
-                        <div class="w-full bg-gray-200 rounded-full my-2">
-                            <div class="bg-orange-500  text-xs font-medium text-blue-100 text-center leading-none rounded-lg hover:cursor-default"
-                                data-popover-target="popover-7" data-popover-placement="bottom" style="width: 15%">
-                                <p>15%</p>
+                        // Menetapkan warna berdasarkan persentase
+                        $barColor = 'bg-red-500';
 
-                            </div>
-                        </div>
-                    @elseif ($viewdataproject->progress == 'Purchasing - PA')
-                        <div class="w-full bg-gray-200 rounded-full my-2">
-                            <div class="bg-orange-500  text-xs font-medium text-blue-100 text-center leading-none rounded-lg hover:cursor-default"
-                                data-popover-target="popover-8" data-popover-placement="bottom" style="width: 20%">
-                                <p>20%</p>
+                        if ($overallProgress > 15) {
+                            $barColor = 'bg-orange-500';
+                        }
 
-                            </div>
-                        </div>
-                    @elseif ($viewdataproject->progress == 'Waiting Approval Purchasing - PO')
-                        <div class="w-full bg-gray-200 rounded-full my-2">
-                            <div class="bg-orange-500  text-xs font-medium text-blue-100 text-center leading-none rounded-lg hover:cursor-default"
-                                data-popover-target="popover-9" data-popover-placement="bottom" style="width: 20%">
-                                <p>20%</p>
+                        if ($overallProgress > 30) {
+                            $barColor = 'bg-yellow-500';
+                        }
 
-                            </div>
-                        </div>
-                    @elseif ($viewdataproject->progress == 'Purchasing - PO')
-                        <div class="w-full bg-gray-200 rounded-full my-2">
-                            <div class="bg-orange-500  text-xs font-medium text-blue-100 text-center leading-none rounded-lg hover:cursor-default"
-                                data-popover-target="popover-10" data-popover-placement="bottom" style="width: 25%">
-                                <p>25%</p>
+                        if ($overallProgress > 50) {
+                            $barColor = 'bg-blue-500';
+                        }
 
-                            </div>
-                        </div>
-                    @elseif ($viewdataproject->progress == 'Waiting Approval Purchasing - PAY')
-                        <div class="w-full bg-gray-200 rounded-full my-2">
-                            <div class="bg-orange-500  text-xs font-medium text-blue-100 text-center leading-none rounded-lg hover:cursor-default"
-                                data-popover-target="popover-11" data-popover-placement="bottom" style="width: 25%">
-                                <p>25%</p>
+                        if ($overallProgress > 70) {
+                            $barColor = 'bg-green-500';
+                        }
 
-                            </div>
-                        </div>
-                    @elseif ($viewdataproject->progress == 'Purchasing - PAY')
-                        <div class="w-full bg-gray-200 rounded-full my-2">
-                            <div class="bg-orange-500  text-xs font-medium text-blue-100 text-center leading-none rounded-lg hover:cursor-default"
-                                data-popover-target="popover-12" data-popover-placement="bottom" style="width: 30%">
-                                <p>30%</p>
+                        if ($overallProgress > 85) {
+                            $barColor = 'bg-green-700';
+                        }
+                    @endphp
 
-                            </div>
+                    <div class="w-full bg-gray-200 rounded-full my-2">
+                        <div class="text-sm font-medium text-white text-center leading-none rounded-lg hover:cursor-default relative transition-all duration-500
+                            {{ $barColor }}"
+                            style="width: {{ $overallProgress }}%;">
+                            <p class="text-sm">{{ $overallProgress }}%</p>
                         </div>
-                    @elseif ($viewdataproject->progress == 'Purchasing')
-                        <div class="w-full bg-gray-200 rounded-full my-2">
-                            <div class="bg-orange-500  text-xs font-medium text-blue-100 text-center leading-none rounded-lg hover:cursor-default"
-                                data-popover-target="popover-13" data-popover-placement="bottom" style="width: 30%">
-                                <p>30%</p>
-
-                            </div>
-                        </div>
-                    @elseif ($viewdataproject->progress == 'Waiting Approval Manufacturing')
-                        <div class="w-full bg-gray-200 rounded-full my-2">
-                            <div class="bg-orange-500  text-xs font-medium text-blue-100 text-center leading-none rounded-lg hover:cursor-default"
-                                data-popover-target="popover-14" data-popover-placement="bottom" style="width: 30%">
-                                <p>30%</p>
-
-                            </div>
-                        </div>
-                    @elseif ($viewdataproject->progress == 'Manufacturing')
-                        <div class="w-full bg-gray-200 rounded-full my-2">
-                            <div class="bg-orange-500  text-xs font-medium text-blue-100 text-center leading-none rounded-lg hover:cursor-default"
-                                data-popover-target="popover-15" data-popover-placement="bottom" style="width: 60%">
-                                <p>60%</p>
-
-                            </div>
-                        </div>
-                    @elseif ($viewdataproject->progress == 'Waiting Approval Installation')
-                        <div class="w-full bg-gray-200 rounded-full my-2">
-                            <div class="bg-orange-500  text-xs font-medium text-blue-100 text-center leading-none rounded-lg hover:cursor-default"
-                                data-popover-target="popover-16" data-popover-placement="bottom" style="width: 60%">
-                                <p>60%</p>
-
-                            </div>
-                        </div>
-                    @elseif ($viewdataproject->progress == 'Installation')
-                        <div class="w-full bg-gray-200 rounded-full my-2">
-                            <div class="bg-orange-500  text-xs font-medium text-blue-100 text-center leading-none rounded-lg hover:cursor-default"
-                                data-popover-target="popover-17" data-popover-placement="bottom" style="width: 95%">
-                                <p>95%</p>
-
-                            </div>
-                        </div>
-                    @elseif ($viewdataproject->progress == 'Waiting Approval Closed')
-                        <div class="w-full bg-gray-200 rounded-full my-2">
-                            <div class="bg-orange-500  text-xs font-medium text-blue-100 text-center leading-none rounded-lg hover:cursor-default"
-                                data-popover-target="popover-18" data-popover-placement="bottom" style="width: 95%">
-                                <p>95%</p>
-
-                            </div>
-                        </div>
-                    @elseif ($viewdataproject->progress == 'Closed')
-                        <div class="w-full bg-gray-200 rounded-full my-2">
-                            <div class="bg-orange-500  text-xs font-medium text-blue-100 text-center leading-none rounded-lg hover:cursor-default"
-                                data-popover-target="popover-19" data-popover-placement="bottom" style="width: 100%">
-                                <p>100%</p>
-
-                            </div>
-                        </div>
-                    @endif
-
+                    </div>
                     {{-- akhir bar --}}
 
                     {{-- status --}}
                     <div class="flex justify-between">
                         <div class="flex">
                             <div>
-                                <div class="items-center pt-1 pr-4 text-xs font-medium  text-gray-500">Keterangan :
+                                <div class="items-center pt-1 pr-4 text-sm font-medium  text-gray-600">Keterangan
+                                    FR:
                                 </div>
                                 <div class="items-center pr-4 text-sm font-medium">
                                     {{ $viewdataproject->status_project }}
                                 </div>
                             </div>
                             <div>
-                                <div class="items-center pt-1 pr-4 text-xs font-medium  text-gray-500">Budget
-                                    Amount :
+                                <div class="items-center pt-1 pr-4 text-sm font-medium  text-gray-600">Jumlah Budget:
                                 </div>
                                 <div class="items-center pr-4 text-sm font-medium">
                                     Rp{{ number_format($viewdataproject->budget_amount, 0, ',', '.') }}
@@ -306,47 +202,50 @@
                             </div>
 
                             <div>
-                                <div class="items-center pt-1 pr-4 text-xs font-medium  text-gray-500">Last
-                                    updated:
+                                <div class="items-center pt-1 pr-4 text-sm font-medium  text-gray-600">Terakhir diperbaharui:
                                 </div>
                                 <div class="items-center pr-4 text-sm font-medium">
                                     {{ $viewdataproject->last_update_name }},
                                     {{ $viewdataproject->last_update_date }}
-
                                 </div>
                             </div>
-                            <div>
-                                <div class="items-center pt-1 pr-4 text-xs font-medium  text-gray-500">Tahap
-                                    Project:
-                                </div>
-                                <div class="items-center pr-4 text-sm font-medium">
-                                    {{ $viewdataproject->progress }}
-
-                                </div>
-                            </div>
-
                         </div>
-                        {{-- button edit --}}
+                        {{-- deadline countdown --}}
                         <div class="flex text-right">
-
-
-                            <div class="flex items-center space-x-2">
-                                {{-- Menampilkan PIC project --}}
-                                <p class="font-semibold">Start :</p>
+                            @if ($viewdataproject->progress == 'Closed')
                                 <div
-                                    class="items-center py-1 px-2 text-sm font-medium text-center text-white bg-sky-400 rounded drop-shadow-md ">
-                                    {{ $viewdataproject->date_start }}
+                                    class=" space-x-1 font-medium items-center py-1 px-3 text-center text-lg rounded-xl drop-shadow-md flex justify-center w-fit bg-green-700 text-white mt-1" data-tooltip-target="tooltip-bottom" data-tooltip-placement="bottom">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="22" viewBox="0 0 24 24" fill="none">
+                                        <g id="Interface / Check_All">
+                                        <path id="Vector" d="M8 12.4854L12.2426 16.728L20.727 8.24268M3 12.4854L7.24264 16.728M15.7279 8.24268L12.5 11.5001" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        </g>
+                                    </svg>
+                                <p>
+                                    Proyek telah SELESAI
+                                </p>
                                 </div>
-
-                                <p class="font-semibold">End :</p>
-                                <div
-                                    class="items-center py-1 px-2 text-sm font-medium text-center text-white bg-red-600 rounded drop-shadow-md">
-                                    {{ $viewdataproject->date_end }}
+                            @else
+                                <div id="countdown-{{ $viewdataproject->id }}"
+                                    class="items-center py-1 px-2 font-medium text-center text-lg rounded drop-shadow-md flex justify-center mt-2"
+                                    data-tooltip-target="tooltip-bottom" data-tooltip-placement="bottom">
                                 </div>
-
+                            @endif
+                            <div id="tooltip-bottom" role="tooltip"
+                                class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-600 rounded-lg shadow-sm opacity-0 tooltip">
+                                <div class="grid grid-cols-2 space-x-2">
+                                    <div>
+                                        <p class="text-left">Tanggal mulai:</p>
+                                        <div class="text-left">
+                                            {{ $viewdataproject->date_start }}
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <p class="text-left">Tanggal selesai:</p>
+                                        <p class="text-left">
+                                            {{ $viewdataproject->date_end }}</p>
+                                    </div>
+                                </div>
                             </div>
-
-
                         </div>
                     </div>
                 </div>
@@ -354,8 +253,63 @@
             </div>
         </div>
 
-        {{-- awal stepper --}}
-        <div class="max-w-4xl mx-auto mt-8">
+        {{-- financial status --}}
+        <div class="mt-3 w-full ">
+            <hr class="w-full border">
+            <div class="overflow-x-auto rounded">
+                <div class="grid grid-cols-1 my-1">
+                    <div class="text-lg text-center font-medium tracking-wider">
+                        Status Finansial Proyek
+                    </div>
+                </div>
+                <div class="grid grid-cols-6 gap-1 bg-gray-500 text-gray-900 text-left">
+                    <div class="bg-gray-300 px-1 text-lg ">
+                        Total budget
+                    </div>
+                    <div class="bg-gray-300 px-1 ">
+                        PR
+                    </div>
+                    <div class="bg-gray-300 px-1 ">
+                        PA
+                    </div>
+                    <div class="bg-gray-300 px-1 ">
+                        PO
+                    </div>
+                    <div class="bg-gray-300 px-1 ">
+                        PAYMENT
+                    </div>
+                    <div class="bg-gray-800 text-gray-200 px-1 ">
+                        BALANCE
+                    </div>
+                </div>
+                <div class="grid grid-cols-6 gap-1 text-gray-900 text-left text-md bg-gray-500">
+                    <div class="bg-gray-300 px-1 font-bold">
+                        Rp{{ number_format($viewdataproject->budget_amount, 0, ',', '.') }}
+                    </div>
+                    <div class="bg-gray-300 px-1 font-bold">
+                        Rp{{ number_format($sum_pr, 0, ',', '.') }}
+                    </div>
+                    <div class="bg-gray-300 px-1 font-bold">
+                        Rp{{ number_format($sum_pa, 0, ',', '.') }}
+                    </div>
+                    <div class="bg-gray-300 px-1 font-bold">
+                        Rp{{ number_format($sum_po, 0, ',', '.') }}
+                    </div>
+                    <div class="bg-gray-300 px-1 font-bold">
+                        Rp{{ number_format($sum_pay, 0, ',', '.') }}
+                    </div>
+                    <div class="bg-gray-800 px-1 text-gray-200 font-bold">
+                        {{-- initial kondisi, balance = budget amount sebelum ada oprasi perhitungan --}}
+                        Rp{{ number_format($balance, 0, ',', '.') }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {{-- awal stepper --}}
+    <div class="bg-white mt-3 h-40 pt-3 rounded-lg shadow-md">
+        <div class="max-w-5xl mx-auto">
             <div class="flex items-center">
                 <div class="flex items-center relative">
                     @if ($koneksifr->status_fr == 'Complete')
@@ -372,14 +326,14 @@
                         </div>
                     @endif
 
-                    <div class="absolute top-0 -ml-10 text-center mt-14 w-36 text-xs font-medium">
+                    <div class="absolute top-0 -ml-10 text-center mt-14 w-36 text-sm font-medium">
                         <a
                             href="/staff-01-fundrequest-proyek/{{ $viewdataproject->id }}/{{ $koneksifr->id_fr_1 }}/{{ $koneksiar->id_ar_2 }}/{{ $koneksipr->id_pr_01_3 }}/{{ $koneksipa->id_pa_02_3 }}/{{ $koneksipo->id_po_03_3 }}/{{ $koneksipay->id_pay_04_3 }}/{{ $koneksimn->id_mn_4 }}/{{ $koneksiin->id_in_5 }}/{{ $koneksicl->id_cl_6 }}">
                             <p class="font-semibold text-lg text-gray-900 hover:underline">
-                                Fund Request
+                                Fund Request<span class="text-red-600">*</span>
                             </p>
                         </a>
-                        <p class="uppercase">{{ $koneksifr->status_fr }}</p>
+                        <p class="uppercase text-xs">{{ $koneksifr->status_fr }}</p>
                         <p>{{ $koneksifr->status_fr_date }}</p>
                     </div>
                 </div>
@@ -400,13 +354,13 @@
                             <p class="font-bold text-md text-white">AR</p>
                         </div>
                     @endif
-                    <div class="absolute top-0 -ml-10 text-center mt-14 w-32 text-xs font-medium">
+                    <div class="absolute top-0 -ml-10 text-center mt-14 w-32 text-sm font-medium">
                         <a
                             href="/staff-02-arrangement-proyek/{{ $viewdataproject->id }}/{{ $koneksifr->id_fr_1 }}/{{ $koneksiar->id_ar_2 }}/{{ $koneksipr->id_pr_01_3 }}/{{ $koneksipa->id_pa_02_3 }}/{{ $koneksipo->id_po_03_3 }}/{{ $koneksipay->id_pay_04_3 }}/{{ $koneksimn->id_mn_4 }}/{{ $koneksiin->id_in_5 }}/{{ $koneksicl->id_cl_6 }}">
                             <p class="font-semibold text-lg text-gray-900 hover:underline">Arrangement
                             </p>
                         </a>
-                        <p class="uppercase">{{ $koneksiar->status_ar }}</p>
+                        <p class="uppercase text-xs">{{ $koneksiar->status_ar }}</p>
                         <p>{{ $koneksiar->status_ar_date }}</p>
                     </div>
                 </div>
@@ -431,13 +385,13 @@
                             <p class="font-bold text-md text-white">PR</p>
                         </div>
                     @endif
-                    <div class="absolute top-0 -ml-10 text-center mt-14 w-32 text-xs font-medium">
+                    <div class="absolute top-0 -ml-10 text-center mt-14 w-32 text-sm font-medium">
                         <a
                             href="/staff-03-01-PR-purchasing-proyek/{{ $viewdataproject->id }}/{{ $koneksifr->id_fr_1 }}/{{ $koneksiar->id_ar_2 }}/{{ $koneksipr->id_pr_01_3 }}/{{ $koneksipa->id_pa_02_3 }}/{{ $koneksipo->id_po_03_3 }}/{{ $koneksipay->id_pay_04_3 }}/{{ $koneksimn->id_mn_4 }}/{{ $koneksiin->id_in_5 }}/{{ $koneksicl->id_cl_6 }}">
-                            <p class="font-semibold text-lg text-gray-900 hover:underline">Purchasing
+                            <p class="font-semibold text-lg text-gray-900 hover:underline">Purchasing<span class="text-red-600">*</span>
                             </p>
                         </a>
-                        <p class="uppercase">{{ $koneksipr->status_purchasing }}</p>
+                        <p class="uppercase text-xs">{{ $koneksipr->status_purchasing }}</p>
                         <p>{{ $koneksipr->status_purchasing_date }}</p>
                     </div>
                 </div>
@@ -458,13 +412,13 @@
                             <p class="font-bold text-md text-white">MN</p>
                         </div>
                     @endif
-                    <div class="absolute top-0 -ml-10 text-center mt-14 w-32 text-xs font-medium">
+                    <div class="absolute top-0 -ml-10 text-center mt-14 w-32 text-sm font-medium">
                         <a
                             href="/staff-04-manufacturing-proyek/{{ $viewdataproject->id }}/{{ $koneksifr->id_fr_1 }}/{{ $koneksiar->id_ar_2 }}/{{ $koneksipr->id_pr_01_3 }}/{{ $koneksipa->id_pa_02_3 }}/{{ $koneksipo->id_po_03_3 }}/{{ $koneksipay->id_pay_04_3 }}/{{ $koneksimn->id_mn_4 }}/{{ $koneksiin->id_in_5 }}/{{ $koneksicl->id_cl_6 }}">
                             <p class="font-semibold text-lg text-gray-900 hover:underline">Manufacturing
                             </p>
                         </a>
-                        <p class="uppercase">{{ $koneksimn->status_mn }}</p>
+                        <p class="uppercase text-xs">{{ $koneksimn->status_mn }}</p>
                         <p>{{ $koneksimn->status_mn_date }}</p>
                     </div>
                 </div>
@@ -485,13 +439,13 @@
                             <p class="font-bold text-md text-white">IN</p>
                         </div>
                     @endif
-                    <div class="absolute top-0 -ml-10 text-center mt-14 w-32 text-xs font-medium">
+                    <div class="absolute top-0 -ml-10 text-center mt-14 w-32 text-sm font-medium">
                         <a
                             href="/staff-05-installation-proyek/{{ $viewdataproject->id }}/{{ $koneksifr->id_fr_1 }}/{{ $koneksiar->id_ar_2 }}/{{ $koneksipr->id_pr_01_3 }}/{{ $koneksipa->id_pa_02_3 }}/{{ $koneksipo->id_po_03_3 }}/{{ $koneksipay->id_pay_04_3 }}/{{ $koneksimn->id_mn_4 }}/{{ $koneksiin->id_in_5 }}/{{ $koneksicl->id_cl_6 }}">
-                            <p class="font-semibold text-lg text-gray-900 hover:underline">Installation
+                            <p class="font-semibold text-lg text-gray-900 hover:underline">Installation<span class="text-red-600">*</span>
                             </p>
                         </a>
-                        <p class="uppercase">{{ $koneksiin->status_in }}</p>
+                        <p class="uppercase text-xs">{{ $koneksiin->status_in }}</p>
                         <p>{{ $koneksiin->status_in_date }}</p>
                     </div>
                 </div>
@@ -512,83 +466,27 @@
                             <p class="font-bold text-md text-white">HOV</p>
                         </div>
                     @endif
-                    <div class="absolute top-0 -ml-10 text-center mt-14 w-32 text-xs font-medium">
+                    <div class="absolute top-0 -ml-10 text-center mt-14 w-32 text-sm font-medium">
                         <a
                             href="/staff-06-closed-proyek/{{ $viewdataproject->id }}/{{ $koneksifr->id_fr_1 }}/{{ $koneksiar->id_ar_2 }}/{{ $koneksipr->id_pr_01_3 }}/{{ $koneksipa->id_pa_02_3 }}/{{ $koneksipo->id_po_03_3 }}/{{ $koneksipay->id_pay_04_3 }}/{{ $koneksimn->id_mn_4 }}/{{ $koneksiin->id_in_5 }}/{{ $koneksicl->id_cl_6 }}">
-                            <p class="font-semibold text-lg text-gray-900 hover:underline">Handover
+                            <p class="font-semibold text-lg text-gray-900 hover:underline">Handover<span class="text-red-600">*</span>
                             </p>
                         </a>
-                        <p class="uppercase">{{ $koneksicl->status_cl }}</p>
+                        <p class="uppercase text-xs">{{ $koneksicl->status_cl }}</p>
                         <p>{{ $koneksicl->status_cl_date }}</p>
                     </div>
                 </div>
             </div>
         </div>
-        {{-- akhir stepper --}}
-
-        {{-- financial status --}}
-        <div class="mt-24 w-full ">
-            <hr class="mb-2 w-full border">
-            <div class=" bg-gray-300 overflow-x-auto rounded">
-                <div class="grid grid-cols-1 gap-1">
-                    <div class="bg-gray-300 p-1 text-lg text-center font-bold text-pink-600 tracking-wider font-mono">
-                        Status Finansial:
-                    </div>
-                </div>
-                <div class="grid grid-cols-6 gap-1 text-white text-left pt-1 text-base font-thin ">
-                    <div class="bg-pink-600 font-mono px-1 text-lg ">
-                        Total budget
-                    </div>
-                    <div class="bg-pink-600 font-mono px-1 text-lg">
-                        PR
-                    </div>
-                    <div class="bg-pink-600 font-mono px-1 text-lg">
-                        PA
-                    </div>
-                    <div class="bg-pink-600 font-mono px-1 text-lg">
-                        PO
-                    </div>
-                    <div class="bg-pink-600 font-mono px-1 text-lg">
-                        PAYMENT
-                    </div>
-                    <div class="bg-blue-800 font-mono px-1 text-lg">
-                        BALANCE
-                    </div>
-                </div>
-                <div class="grid grid-cols-6 gap-1 text-white text-left font-semibold text-base">
-                    <div class="bg-pink-600 px-1">
-                        Rp{{ number_format($viewdataproject->budget_amount, 0, ',', '.') }}
-                    </div>
-                    <div class="bg-pink-600 px-1">
-                        Rp{{ number_format($sum_pr, 0, ',', '.') }}
-                    </div>
-                    <div class="bg-pink-600 px-1">
-                        Rp{{ number_format($sum_pa, 0, ',', '.') }}
-                    </div>
-                    <div class="bg-pink-600 px-1">
-                        Rp{{ number_format($sum_po, 0, ',', '.') }}
-                    </div>
-                    <div class="bg-pink-600 px-1">
-                        Rp{{ number_format($sum_pay, 0, ',', '.') }}
-                    </div>
-                    <div class="bg-blue-800 px-1">
-                        {{-- initial kondisi, balance = budget amount sebelum ada oprasi perhitungan --}}
-                        Rp{{ number_format($balance, 0, ',', '.') }}
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        {{-- selesai financial status --}}
     </div>
+    {{-- akhir stepper --}}
 
 
-
+    @if ($koneksifr->status_fr != 'Complete' || $koneksiar->status_ar != 'Complete')
+    <p class="bg-gray-600 uppercase p-3 mt-2 text-center font-bold text-white">Tahapan sebelumnya belum disetujui</p>
+    @else
     {{-- Awal progress file --}}
     <div class="bg-white mt-3 w-full rounded-md shadow-md p-3">
-
-
-
         {{-- awal stepper khusus purchasing --}}
         <div class="max-w-2xl mx-auto mb-16 mt-2">
 
@@ -610,7 +508,7 @@
                     <div class="absolute top-0 -ml-10 text-center mt-14 w-32 text-xs font-medium">
                         <a
                             href="/staff-03-01-PR-purchasing-proyek/{{ $viewdataproject->id }}/{{ $koneksifr->id_fr_1 }}/{{ $koneksiar->id_ar_2 }}/{{ $koneksipr->id_pr_01_3 }}/{{ $koneksipa->id_pa_02_3 }}/{{ $koneksipo->id_po_03_3 }}/{{ $koneksipay->id_pay_04_3 }}/{{ $koneksimn->id_mn_4 }}/{{ $koneksiin->id_in_5 }}/{{ $koneksicl->id_cl_6 }}">
-                            <p class="font-semibold text-lg text-gray-900 hover:underline">Pur. Request
+                            <p class="font-semibold text-lg text-gray-900 hover:underline">Pur. Request<span class="text-red-600">*</span>
                             </p>
                         </a>
                         <p class="uppercase">{{ $koneksipr->status_pr_01 }}</p>
@@ -637,7 +535,7 @@
                     <div class="absolute top-0 -ml-10 text-center mt-14 w-32 text-xs font-medium">
                         <a
                             href="/staff-03-02-PA-purchase-approval-proyek/{{ $viewdataproject->id }}/{{ $koneksifr->id_fr_1 }}/{{ $koneksiar->id_ar_2 }}/{{ $koneksipr->id_pr_01_3 }}/{{ $koneksipa->id_pa_02_3 }}/{{ $koneksipo->id_po_03_3 }}/{{ $koneksipay->id_pay_04_3 }}/{{ $koneksimn->id_mn_4 }}/{{ $koneksiin->id_in_5 }}/{{ $koneksicl->id_cl_6 }}">
-                            <p class="font-semibold text-lg text-gray-900 hover:underline">Pur. Approval
+                            <p class="font-semibold text-lg text-gray-900 hover:underline">Pur. Approval<span class="text-red-600">*</span>
                             </p>
                         </a>
                         <p class="uppercase">{{ $koneksipa->status_pa_02 }}</p>
@@ -664,7 +562,7 @@
                     <div class="absolute top-0 -ml-10 text-center mt-14 w-32 text-xs font-medium">
                         <a
                             href="/staff-03-03-PO-purchase-order-proyek/{{ $viewdataproject->id }}/{{ $koneksifr->id_fr_1 }}/{{ $koneksiar->id_ar_2 }}/{{ $koneksipr->id_pr_01_3 }}/{{ $koneksipa->id_pa_02_3 }}/{{ $koneksipo->id_po_03_3 }}/{{ $koneksipay->id_pay_04_3 }}/{{ $koneksimn->id_mn_4 }}/{{ $koneksiin->id_in_5 }}/{{ $koneksicl->id_cl_6 }}">
-                            <p class="font-semibold text-lg text-gray-900 hover:underline">Pur. Order
+                            <p class="font-semibold text-lg text-gray-900 hover:underline">Pur. Order<span class="text-red-600">*</span>
                             </p>
                         </a>
                         <p class="uppercase">{{ $koneksipo->status_po_03 }}</p>
@@ -691,7 +589,7 @@
                     <div class="absolute top-0 -ml-10 text-center mt-14 w-32 text-xs font-medium">
                         <a
                             href="/staff-03-04-PAY-payment-purchasing-proyek/{{ $viewdataproject->id }}/{{ $koneksifr->id_fr_1 }}/{{ $koneksiar->id_ar_2 }}/{{ $koneksipr->id_pr_01_3 }}/{{ $koneksipa->id_pa_02_3 }}/{{ $koneksipo->id_po_03_3 }}/{{ $koneksipay->id_pay_04_3 }}/{{ $koneksimn->id_mn_4 }}/{{ $koneksiin->id_in_5 }}/{{ $koneksicl->id_cl_6 }}">
-                            <p class="font-semibold text-lg text-gray-900 hover:underline">Actual Payment
+                            <p class="font-semibold text-lg text-gray-900 hover:underline">Act. Payment<span class="text-red-600">*</span>
                             </p>
                         </a>
                         <p class="uppercase">{{ $koneksipay->status_pay_04 }}</p>
@@ -703,18 +601,20 @@
         {{-- akhir stepper --}}
 
         <br>
-        <br>
+        <hr class="mb-2 w-full border">
+
+
         <div class="flex justify-between items-center mb-3">
 
             {{-- status approval row --}}
             <div class="flex">
-                <p>Checked by: &nbsp;
-                <div class="items-center py-1 px-2 text-sm font-medium text-center text-white bg-red-700 mr-2 rounded">
+                <p>Diperiksa oleh: &nbsp;
+                <div class="items-center py-1 px-2 text-sm font-medium text-center text-white bg-orange-500 mr-2 rounded">
                     {{ $koneksipay->approval_by }}
                 </div>
                 </p>
                 &nbsp;&nbsp;
-                <p>On: &nbsp;
+                <p>Pada: &nbsp;
                 <p class="font-semibold">
                     {{ $koneksipay->approval_date }}
                 </p>
@@ -797,9 +697,9 @@
         </div>
         {{-- approval abu2 slesai --}}
         {{-- selesai status approval row --}}
-
+        <hr>
         {{-- Yang diganti pertahapnya --}}
-        <form action="" method="post" enctype="multipart/form-data">
+        <form action="" method="post" enctype="multipart/form-data" id="uploadForm">
             @csrf
             @method('PUT')
             {{-- atas form --}}
@@ -831,7 +731,7 @@
                         {{-- PR Parts & Material --}}
                         {{-- awal standar formulir --}}
                         <div class="flex justify-between">
-                            <p class="font-normal text-lg bg-teal-600 px-4 py-1 w-fit text-white mb-2 rounded"> PAY Parts & Material
+                            <p class="font-medium text-lg bg-gray-800 px-4 py-1 w-fit text-white mb-2 rounded"> PAY Parts & Material
                             @foreach ($standar_project as $spt)
                                 @if ($spt->file_pr_parts_material_form != '')
                                     <div class="flex justify-end mr-1 mt-4">
@@ -860,24 +760,20 @@
 
                         <div class="overflow-x-auto rounded-md mb-5 max-h-screen overflow-y-auto border">
                             <table class="w-full ">
-                                <thead class="bg-green-600 text-white sticky top-0">
-                                    <th class="py-2 w-[5%]">No.</th>
-                                    <th class="w-[45%]">Nama File</th>
-                                    <th class="w-[12%]">Uploaded by</th>
-                                    <th class="w-[12%]">Last Update</th>
-                                    <th class="w-[11%]">PAY Amount</th>
-                                    <th class="w-[15%]">Aksi</th>
+                                <thead class="bg-gray-300 text-gray-700 sticky top-0">
+                                    <th class="py-2 w-[5%] font-medium">No.</th>
+                                        <th class="w-[45%]  font-medium">Nama File</th>
+                                        <th class="w-[11%]  font-medium">Diunggah oleh</th>
+                                        <th class="w-[10%]  font-medium">Terakhir diubah</th>
+                                        <th class="w-[14%]  font-medium">Jumlah PAY</th>
+                                        <th class="w-[14%]  font-medium">Aksi</th>
                                 </thead>
                                 <tbody class="text-left border">
                                     {{-- 1 --}}
                                     <tr
                                         class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
                                         <td class="py-4 font-bold text-center">1.</td>
-                                        @if ($koneksipay->pay_parts_1 != '')
-                                            <td class="flex items-center my-4">
-                                            @else
-                                            <td class="flex items-center my-10">
-                                        @endif
+                                        <td class="flex items-center my-4">
                                         @if ($koneksipay->pay_parts_1 != '')
                                             <a href="{{ asset('storage/supervisor/project/03_04_PR/' . $koneksipay->pay_parts_1) }}"
                                                 target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
@@ -914,23 +810,29 @@
                                         </td>
 
                                         <td class="space-y-2 py-3 px-2">
-                                            @if ($koneksipay->pay_parts_1 != '')
-                                                <div class="justify-center flex space-x-2">
+                                            @if (
+                                                    ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                        $koneksipay->pay_parts_1 == '')
                                                     <button type="button"
-                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
-                                                        data-modal-target="modal11" data-modal-show="modal11"
-                                                        data-modal-toggle="modal11">Ubah</button>
-                                                </div>
-                                            @else
-                                                <input type="file" name="as_pay_parts_1" id="">
-                                                <div class="">
-                                                    <input type="number"
-                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PAY)" min="0"
-                                                        max="999999999999" oninput="validity.valid||(value='');"
-                                                        name="as_mny_parts_pay_1">
-                                                </div>
-                                            @endif
+                                                        class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
+                                                        data-modal-target="modala11" data-modal-show="modala11"
+                                                        data-modal-toggle="modala11">
+                                                        + Tambah dokumen
+                                                    </button>
+                                                @elseif (
+                                                    ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                        $koneksipay->pay_parts_1 != '' &&
+                                                        $koneksipay->status_pay_04 != 'Complete' &&
+                                                        $koneksipay->status_pay_04 != 'Waiting Approval')
+                                                    <div class="justify-center flex space-x-2">
+                                                        <button type="button"
+                                                            class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                            data-modal-target="modal11" data-modal-show="modal11"
+                                                            data-modal-toggle="modal11">
+                                                            Ubah
+                                                        </button>
+                                                    </div>
+                                                @endif
                                         </td>
                                         <input type="text" hidden name="as_up_by_parts_pay_1"
                                             value="{{ Auth::user()->first_name }}">
@@ -942,11 +844,7 @@
                                     <tr
                                         class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
                                         <td class="py-4 font-bold text-center">2.</td>
-                                        @if ($koneksipay->pay_parts_2 != '')
-                                            <td class="flex items-center my-4">
-                                            @else
-                                            <td class="flex items-center my-10">
-                                        @endif
+                                        <td class="flex items-center my-4">
                                         @if ($koneksipay->pay_parts_2 != '')
                                             <a href="{{ asset('storage/supervisor/project/03_04_PR/' . $koneksipay->pay_parts_2) }}"
                                                 target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
@@ -983,23 +881,29 @@
                                         </td>
 
                                         <td class="space-y-2 py-3 px-2">
-                                            @if ($koneksipay->pay_parts_2 != '')
-                                                <div class="justify-center flex space-x-2">
+                                            @if (
+                                                    ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                        $koneksipay->pay_parts_2 == '')
                                                     <button type="button"
-                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
-                                                        data-modal-target="modal12" data-modal-show="modal12"
-                                                        data-modal-toggle="modal12">Ubah</button>
-                                                </div>
-                                            @else
-                                                <input type="file" name="as_pay_parts_2" id="">
-                                                <div class="">
-                                                    <input type="number" id="base-input"
-                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PAY)" min="0"
-                                                        max="999999999999" oninput="validity.valid||(value='');"
-                                                        name="as_mny_parts_pay_2">
-                                                </div>
-                                            @endif
+                                                        class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
+                                                        data-modal-target="modala12" data-modal-show="modala12"
+                                                        data-modal-toggle="modala12">
+                                                        + Tambah dokumen
+                                                    </button>
+                                                @elseif (
+                                                    ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                        $koneksipay->pay_parts_2 != '' &&
+                                                        $koneksipay->status_pay_04 != 'Complete' &&
+                                                        $koneksipay->status_pay_04 != 'Waiting Approval')
+                                                    <div class="justify-center flex space-x-2">
+                                                        <button type="button"
+                                                            class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                            data-modal-target="modal12" data-modal-show="modal12"
+                                                            data-modal-toggle="modal12">
+                                                            Ubah
+                                                        </button>
+                                                    </div>
+                                                @endif
                                         </td>
                                         <input type="text" hidden name="as_up_by_parts_pay_2"
                                             value="{{ Auth::user()->first_name }}">
@@ -1012,7 +916,7 @@
                                     <tr
                                         class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
                                         <td class="py-4 font-bold text-center">3.</td>
-                                        <td class="flex items-center my-10">
+                                        <td class="flex items-center my-4">
 
                                             @if ($koneksipay->pay_parts_3 != '')
                                                 <a href="{{ asset('storage/supervisor/project/03_04_PR/' . $koneksipay->pay_parts_3) }}"
@@ -1050,23 +954,29 @@
                                         </td>
 
                                         <td class="space-y-2 py-3 px-2">
-                                            @if ($koneksipay->pay_parts_3 != '')
-                                                <div class="justify-center flex space-x-2">
+                                            @if (
+                                                    ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                        $koneksipay->pay_parts_3 == '')
                                                     <button type="button"
-                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
-                                                        data-modal-target="modal13" data-modal-show="modal13"
-                                                        data-modal-toggle="modal13">Ubah</button>
-                                                </div>
-                                            @else
-                                                <input type="file" name="as_pay_parts_3" id="">
-                                                <div class="">
-                                                    <input type="number" id="base-input"
-                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PAY)" min="0"
-                                                        max="999999999999" oninput="validity.valid||(value='');"
-                                                        name="as_mny_parts_pay_3">
-                                                </div>
-                                            @endif
+                                                        class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
+                                                        data-modal-target="modala13" data-modal-show="modala13"
+                                                        data-modal-toggle="modala13">
+                                                        + Tambah dokumen
+                                                    </button>
+                                                @elseif (
+                                                    ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                        $koneksipay->pay_parts_3 != '' &&
+                                                        $koneksipay->status_pay_04 != 'Complete' &&
+                                                        $koneksipay->status_pay_04 != 'Waiting Approval')
+                                                    <div class="justify-center flex space-x-2">
+                                                        <button type="button"
+                                                            class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                            data-modal-target="modal13" data-modal-show="modal13"
+                                                            data-modal-toggle="modal13">
+                                                            Ubah
+                                                        </button>
+                                                    </div>
+                                                @endif
                                         </td>
                                         <input type="text" hidden name="as_up_by_parts_pay_3"
                                             value="{{ Auth::user()->first_name }}">
@@ -1079,7 +989,7 @@
                                     <tr
                                         class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
                                         <td class="py-4 font-bold text-center">4.</td>
-                                        <td class="flex items-center my-10">
+                                        <td class="flex items-center my-4">
 
                                             @if ($koneksipay->pay_parts_4 != '')
                                                 <a href="{{ asset('storage/supervisor/project/03_04_PR/' . $koneksipay->pay_parts_4) }}"
@@ -1117,23 +1027,29 @@
                                         </td>
 
                                         <td class="space-y-2 py-3 px-2">
-                                            @if ($koneksipay->pay_parts_4 != '')
-                                                <div class="justify-center flex space-x-2">
+                                            @if (
+                                                    ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                        $koneksipay->pay_parts_4 == '')
                                                     <button type="button"
-                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
-                                                        data-modal-target="modal14" data-modal-show="modal14"
-                                                        data-modal-toggle="modal14">Ubah</button>
-                                                </div>
-                                            @else
-                                                <input type="file" name="as_pay_parts_4" id="">
-                                                <div class="">
-                                                    <input type="number" id="base-input"
-                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PAY)" min="0"
-                                                        max="999999999999" oninput="validity.valid||(value='');"
-                                                        name="as_mny_parts_pay_4">
-                                                </div>
-                                            @endif
+                                                        class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
+                                                        data-modal-target="modala14" data-modal-show="modala14"
+                                                        data-modal-toggle="modala14">
+                                                        + Tambah dokumen
+                                                    </button>
+                                                @elseif (
+                                                    ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                        $koneksipay->pay_parts_4 != '' &&
+                                                        $koneksipay->status_pay_04 != 'Complete' &&
+                                                        $koneksipay->status_pay_04 != 'Waiting Approval')
+                                                    <div class="justify-center flex space-x-2">
+                                                        <button type="button"
+                                                            class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                            data-modal-target="modal14" data-modal-show="modal14"
+                                                            data-modal-toggle="modal14">
+                                                            Ubah
+                                                        </button>
+                                                    </div>
+                                                @endif
                                         </td>
                                         <input type="text" hidden name="as_up_by_parts_pay_4"
                                             value="{{ Auth::user()->first_name }}">
@@ -1146,7 +1062,7 @@
                                     <tr
                                         class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
                                         <td class="py-4 font-bold text-center">5.</td>
-                                        <td class="flex items-center my-10">
+                                        <td class="flex items-center my-4">
 
                                             @if ($koneksipay->pay_parts_5 != '')
                                                 <a href="{{ asset('storage/supervisor/project/03_04_PR/' . $koneksipay->pay_parts_5) }}"
@@ -1184,23 +1100,29 @@
                                         </td>
 
                                         <td class="space-y-2 py-3 px-2">
-                                            @if ($koneksipay->pay_parts_5 != '')
-                                                <div class="justify-center flex space-x-2">
+                                            @if (
+                                                    ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                        $koneksipay->pay_parts_5 == '')
                                                     <button type="button"
-                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
-                                                        data-modal-target="modal15" data-modal-show="modal15"
-                                                        data-modal-toggle="modal15">Ubah</button>
-                                                </div>
-                                            @else
-                                                <input type="file" name="as_pay_parts_5" id="">
-                                                <div class="">
-                                                    <input type="number" id="base-input"
-                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PAY)" min="0"
-                                                        max="999999999999" oninput="validity.valid||(value='');"
-                                                        name="as_mny_parts_pay_5">
-                                                </div>
-                                            @endif
+                                                        class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
+                                                        data-modal-target="modala15" data-modal-show="modala15"
+                                                        data-modal-toggle="modala15">
+                                                        + Tambah dokumen
+                                                    </button>
+                                                @elseif (
+                                                    ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                        $koneksipay->pay_parts_5 != '' &&
+                                                        $koneksipay->status_pay_04 != 'Complete' &&
+                                                        $koneksipay->status_pay_04 != 'Waiting Approval')
+                                                    <div class="justify-center flex space-x-2">
+                                                        <button type="button"
+                                                            class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                            data-modal-target="modal15" data-modal-show="modal15"
+                                                            data-modal-toggle="modal15">
+                                                            Ubah
+                                                        </button>
+                                                    </div>
+                                                @endif
                                         </td>
                                         <input type="text" hidden name="as_up_by_parts_pay_5"
                                             value="{{ Auth::user()->first_name }}">
@@ -1214,7 +1136,7 @@
                                     <tr
                                         class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
                                         <td class="py-4 font-bold text-center">6.</td>
-                                        <td class="flex items-center my-10">
+                                        <td class="flex items-center my-4">
 
                                             @if ($koneksipay->pay_parts_6 != '')
                                                 <a href="{{ asset('storage/supervisor/project/03_04_PR/' . $koneksipay->pay_parts_6) }}"
@@ -1252,23 +1174,29 @@
                                         </td>
 
                                         <td class="space-y-2 py-3 px-2">
-                                            @if ($koneksipay->pay_parts_6 != '')
-                                                <div class="justify-center flex space-x-2">
+                                            @if (
+                                                    ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                        $koneksipay->pay_parts_6 == '')
                                                     <button type="button"
-                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
-                                                        data-modal-target="modal16" data-modal-show="modal16"
-                                                        data-modal-toggle="modal16">Ubah</button>
-                                                </div>
-                                            @else
-                                                <input type="file" name="as_pay_parts_6" id="">
-                                                <div class="">
-                                                    <input type="number" id="base-input"
-                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PAY)" min="0"
-                                                        max="999999999999" oninput="validity.valid||(value='');"
-                                                        name="as_mny_parts_pay_6">
-                                                </div>
-                                            @endif
+                                                        class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
+                                                        data-modal-target="modala16" data-modal-show="modala16"
+                                                        data-modal-toggle="modala16">
+                                                        + Tambah dokumen
+                                                    </button>
+                                                @elseif (
+                                                    ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                        $koneksipay->pay_parts_6 != '' &&
+                                                        $koneksipay->status_pay_04 != 'Complete' &&
+                                                        $koneksipay->status_pay_04 != 'Waiting Approval')
+                                                    <div class="justify-center flex space-x-2">
+                                                        <button type="button"
+                                                            class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                            data-modal-target="modal16" data-modal-show="modal16"
+                                                            data-modal-toggle="modal16">
+                                                            Ubah
+                                                        </button>
+                                                    </div>
+                                                @endif
                                         </td>
                                         <input type="text" hidden name="as_up_by_parts_pay_6"
                                             value="{{ Auth::user()->first_name }}">
@@ -1280,7 +1208,7 @@
                                     <tr
                                         class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
                                         <td class="py-4 font-bold text-center">7.</td>
-                                        <td class="flex items-center my-10">
+                                        <td class="flex items-center my-4">
 
                                             @if ($koneksipay->pay_parts_7 != '')
                                                 <a href="{{ asset('storage/supervisor/project/03_04_PR/' . $koneksipay->pay_parts_7) }}"
@@ -1318,23 +1246,29 @@
                                         </td>
 
                                         <td class="space-y-2 py-3 px-2">
-                                            @if ($koneksipay->pay_parts_7 != '')
-                                                <div class="justify-center flex space-x-2">
+                                            @if (
+                                                    ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                        $koneksipay->pay_parts_7 == '')
                                                     <button type="button"
-                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
-                                                        data-modal-target="modal17" data-modal-show="modal17"
-                                                        data-modal-toggle="modal17">Ubah</button>
-                                                </div>
-                                            @else
-                                                <input type="file" name="as_pay_parts_7" id="">
-                                                <div class="">
-                                                    <input type="number" id="base-input"
-                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PAY)" min="0"
-                                                        max="999999999999" oninput="validity.valid||(value='');"
-                                                        name="as_mny_parts_pay_7">
-                                                </div>
-                                            @endif
+                                                        class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
+                                                        data-modal-target="modala17" data-modal-show="modala17"
+                                                        data-modal-toggle="modala17">
+                                                        + Tambah dokumen
+                                                    </button>
+                                                @elseif (
+                                                    ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                        $koneksipay->pay_parts_7 != '' &&
+                                                        $koneksipay->status_pay_04 != 'Complete' &&
+                                                        $koneksipay->status_pay_04 != 'Waiting Approval')
+                                                    <div class="justify-center flex space-x-2">
+                                                        <button type="button"
+                                                            class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                            data-modal-target="modal17" data-modal-show="modal17"
+                                                            data-modal-toggle="modal17">
+                                                            Ubah
+                                                        </button>
+                                                    </div>
+                                                @endif
                                         </td>
                                         <input type="text" hidden name="as_up_by_parts_pay_7"
                                             value="{{ Auth::user()->first_name }}">
@@ -1347,7 +1281,7 @@
                                     <tr
                                         class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
                                         <td class="py-4 font-bold text-center">8.</td>
-                                        <td class="flex items-center my-10">
+                                        <td class="flex items-center my-4">
 
                                             @if ($koneksipay->pay_parts_8 != '')
                                                 <a href="{{ asset('storage/supervisor/project/03_04_PR/' . $koneksipay->pay_parts_8) }}"
@@ -1385,24 +1319,29 @@
                                         </td>
 
                                         <td class="space-y-2 py-3 px-2">
-                                            @if ($koneksipay->pay_parts_8 != '')
-                                                <div class="justify-center flex space-x-2">
+                                            @if (
+                                                    ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                        $koneksipay->pay_parts_8 == '')
                                                     <button type="button"
-                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
-                                                        data-modal-target="modal18" data-modal-show="modal18"
-                                                        data-modal-toggle="modal18">Ubah</button>
-                                                </div>
-                                            @else
-                                                <input type="file" name="as_pay_parts_8" id="">
-                                                <div class="">
-                                                    <input type="number" id="base-input"
-                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PAY)" min="0"
-                                                        max="999999999999" oninput="validity.valid||(value='');"
-                                                        name="as_mny_parts_pay_8">
-                                                </div>
-                                            @endif
-
+                                                        class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
+                                                        data-modal-target="modala18" data-modal-show="modala18"
+                                                        data-modal-toggle="modala18">
+                                                        + Tambah dokumen
+                                                    </button>
+                                                @elseif (
+                                                    ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                        $koneksipay->pay_parts_8 != '' &&
+                                                        $koneksipay->status_pay_04 != 'Complete' &&
+                                                        $koneksipay->status_pay_04 != 'Waiting Approval')
+                                                    <div class="justify-center flex space-x-2">
+                                                        <button type="button"
+                                                            class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                            data-modal-target="modal18" data-modal-show="modal18"
+                                                            data-modal-toggle="modal18">
+                                                            Ubah
+                                                        </button>
+                                                    </div>
+                                                @endif
                                         </td>
                                         <input type="text" hidden name="as_up_by_parts_pay_8"
                                             value="{{ Auth::user()->first_name }}">
@@ -1415,7 +1354,7 @@
                                     <tr
                                         class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
                                         <td class="py-4 font-bold text-center">9.</td>
-                                        <td class="flex items-center my-10">
+                                        <td class="flex items-center my-4">
 
                                             @if ($koneksipay->pay_parts_9 != '')
                                                 <a href="{{ asset('storage/supervisor/project/03_04_PR/' . $koneksipay->pay_parts_9) }}"
@@ -1453,23 +1392,29 @@
                                         </td>
 
                                         <td class="space-y-2 py-3 px-2">
-                                            @if ($koneksipay->pay_parts_9 != '')
-                                                <div class="justify-center flex space-x-2">
+                                            @if (
+                                                    ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                        $koneksipay->pay_parts_9 == '')
                                                     <button type="button"
-                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
-                                                        data-modal-target="modal19" data-modal-show="modal19"
-                                                        data-modal-toggle="modal19">Ubah</button>
-                                                </div>
-                                            @else
-                                                <input type="file" name="as_pay_parts_9" id="">
-                                                <div class="">
-                                                    <input type="number" id="base-input"
-                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PAY)" min="0"
-                                                        max="999999999999" oninput="validity.valid||(value='');"
-                                                        name="as_mny_parts_pay_9">
-                                                </div>
-                                            @endif
+                                                        class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
+                                                        data-modal-target="modala19" data-modal-show="modala19"
+                                                        data-modal-toggle="modala19">
+                                                        + Tambah dokumen
+                                                    </button>
+                                                @elseif (
+                                                    ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                        $koneksipay->pay_parts_9 != '' &&
+                                                        $koneksipay->status_pay_04 != 'Complete' &&
+                                                        $koneksipay->status_pay_04 != 'Waiting Approval')
+                                                    <div class="justify-center flex space-x-2">
+                                                        <button type="button"
+                                                            class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                            data-modal-target="modal19" data-modal-show="modal19"
+                                                            data-modal-toggle="modal19">
+                                                            Ubah
+                                                        </button>
+                                                    </div>
+                                                @endif
                                         </td>
                                         <input type="text" hidden name="as_up_by_parts_pay_9"
                                             value="{{ Auth::user()->first_name }}">
@@ -1482,7 +1427,7 @@
                                     <tr
                                         class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
                                         <td class="py-4 font-bold text-center">10.</td>
-                                        <td class="flex items-center my-10">
+                                        <td class="flex items-center my-4">
 
                                             @if ($koneksipay->pay_parts_10 != '')
                                                 <a href="{{ asset('storage/supervisor/project/03_04_PR/' . $koneksipay->pay_parts_10) }}"
@@ -1520,23 +1465,29 @@
                                         </td>
 
                                         <td class="space-y-2 py-3 px-2">
-                                            @if ($koneksipay->pay_parts_10 != '')
-                                                <div class="justify-center flex space-x-2">
+                                            @if (
+                                                    ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                        $koneksipay->pay_parts_10 == '')
                                                     <button type="button"
-                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
-                                                        data-modal-target="modal110" data-modal-show="modal110"
-                                                        data-modal-toggle="modal110">Ubah</button>
-                                                </div>
-                                            @else
-                                                <input type="file" name="as_pay_parts_10" id="">
-                                                <div class="">
-                                                    <input type="number" id="base-input"
-                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PAY)" min="0"
-                                                        max="999999999999" oninput="validity.valid||(value='');"
-                                                        name="as_mny_parts_pay_10">
-                                                </div>
-                                            @endif
+                                                        class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
+                                                        data-modal-target="modala110" data-modal-show="modala110"
+                                                        data-modal-toggle="modala110">
+                                                        + Tambah dokumen
+                                                    </button>
+                                                @elseif (
+                                                    ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                        $koneksipay->pay_parts_10 != '' &&
+                                                        $koneksipay->status_pay_04 != 'Complete' &&
+                                                        $koneksipay->status_pay_04 != 'Waiting Approval')
+                                                    <div class="justify-center flex space-x-2">
+                                                        <button type="button"
+                                                            class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                            data-modal-target="modal110" data-modal-show="modal110"
+                                                            data-modal-toggle="modal110">
+                                                            Ubah
+                                                        </button>
+                                                    </div>
+                                                @endif
                                         </td>
                                         <input type="text" hidden name="as_up_by_parts_pay_10"
                                             value="{{ Auth::user()->first_name }}">
@@ -1550,7 +1501,7 @@
                                     <tr
                                         class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
                                         <td class="py-4 font-bold text-center">11.</td>
-                                        <td class="flex items-center my-10">
+                                        <td class="flex items-center my-4">
 
                                             @if ($koneksipay->pay_parts_11 != '')
                                                 <a href="{{ asset('storage/supervisor/project/03_04_PR/' . $koneksipay->pay_parts_11) }}"
@@ -1588,23 +1539,29 @@
                                         </td>
 
                                         <td class="space-y-2 py-3 px-2">
-                                            @if ($koneksipay->pay_parts_11 != '')
-                                                <div class="justify-center flex space-x-2">
+                                            @if (
+                                                    ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                        $koneksipay->pay_parts_11 == '')
                                                     <button type="button"
-                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
-                                                        data-modal-target="modal111" data-modal-show="modal111"
-                                                        data-modal-toggle="modal111">Ubah</button>
-                                                </div>
-                                            @else
-                                                <input type="file" name="as_pay_parts_11" id="">
-                                                <div class="">
-                                                    <input type="number" id="base-input"
-                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PAY)" min="0"
-                                                        max="999999999999" oninput="validity.valid||(value='');"
-                                                        name="as_mny_parts_pay_11">
-                                                </div>
-                                            @endif
+                                                        class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
+                                                        data-modal-target="modala111" data-modal-show="modala111"
+                                                        data-modal-toggle="modala111">
+                                                        + Tambah dokumen
+                                                    </button>
+                                                @elseif (
+                                                    ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                        $koneksipay->pay_parts_11 != '' &&
+                                                        $koneksipay->status_pay_04 != 'Complete' &&
+                                                        $koneksipay->status_pay_04 != 'Waiting Approval')
+                                                    <div class="justify-center flex space-x-2">
+                                                        <button type="button"
+                                                            class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                            data-modal-target="modal111" data-modal-show="modal111"
+                                                            data-modal-toggle="modal111">
+                                                            Ubah
+                                                        </button>
+                                                    </div>
+                                                @endif
                                         </td>
                                         <input type="text" hidden name="as_up_by_parts_pay_11"
                                             value="{{ Auth::user()->first_name }}">
@@ -1616,7 +1573,7 @@
                                     <tr
                                         class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
                                         <td class="py-4 font-bold text-center">12.</td>
-                                        <td class="flex items-center my-10">
+                                        <td class="flex items-center my-4">
 
                                             @if ($koneksipay->pay_parts_12 != '')
                                                 <a href="{{ asset('storage/supervisor/project/03_04_PR/' . $koneksipay->pay_parts_12) }}"
@@ -1654,23 +1611,29 @@
                                         </td>
 
                                         <td class="space-y-2 py-3 px-2">
-                                            @if ($koneksipay->pay_parts_12 != '')
-                                                <div class="justify-center flex space-x-2">
+                                            @if (
+                                                    ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                        $koneksipay->pay_parts_12 == '')
                                                     <button type="button"
-                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
-                                                        data-modal-target="modal112" data-modal-show="modal112"
-                                                        data-modal-toggle="modal112">Ubah</button>
-                                                </div>
-                                            @else
-                                                <input type="file" name="as_pay_parts_12" id="">
-                                                <div class="">
-                                                    <input type="number" id="base-input"
-                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PAY)" min="0"
-                                                        max="999999999999" oninput="validity.valid||(value='');"
-                                                        name="as_mny_parts_pay_12">
-                                                </div>
-                                            @endif
+                                                        class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
+                                                        data-modal-target="modala112" data-modal-show="modala112"
+                                                        data-modal-toggle="modala112">
+                                                        + Tambah dokumen
+                                                    </button>
+                                                @elseif (
+                                                    ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                        $koneksipay->pay_parts_12 != '' &&
+                                                        $koneksipay->status_pay_04 != 'Complete' &&
+                                                        $koneksipay->status_pay_04 != 'Waiting Approval')
+                                                    <div class="justify-center flex space-x-2">
+                                                        <button type="button"
+                                                            class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                            data-modal-target="modal112" data-modal-show="modal112"
+                                                            data-modal-toggle="modal112">
+                                                            Ubah
+                                                        </button>
+                                                    </div>
+                                                @endif
                                         </td>
                                         <input type="text" hidden name="as_up_by_parts_pay_12"
                                             value="{{ Auth::user()->first_name }}">
@@ -1683,7 +1646,7 @@
                                     <tr
                                         class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
                                         <td class="py-4 font-bold text-center">13.</td>
-                                        <td class="flex items-center my-10">
+                                        <td class="flex items-center my-4">
 
                                             @if ($koneksipay->pay_parts_13 != '')
                                                 <a href="{{ asset('storage/supervisor/project/03_04_PR/' . $koneksipay->pay_parts_13) }}"
@@ -1721,23 +1684,29 @@
                                         </td>
 
                                         <td class="space-y-2 py-3 px-2">
-                                            @if ($koneksipay->pay_parts_13 != '')
-                                                <div class="justify-center flex space-x-2">
+                                            @if (
+                                                    ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                        $koneksipay->pay_parts_13 == '')
                                                     <button type="button"
-                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
-                                                        data-modal-target="modal113" data-modal-show="modal113"
-                                                        data-modal-toggle="modal113">Ubah</button>
-                                                </div>
-                                            @else
-                                                <input type="file" name="as_pay_parts_13" id="">
-                                                <div class="">
-                                                    <input type="number" id="base-input"
-                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PAY)" min="0"
-                                                        max="999999999999" oninput="validity.valid||(value='');"
-                                                        name="as_mny_parts_pay_13">
-                                                </div>
-                                            @endif
+                                                        class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
+                                                        data-modal-target="modala113" data-modal-show="modala113"
+                                                        data-modal-toggle="modala113">
+                                                        + Tambah dokumen
+                                                    </button>
+                                                @elseif (
+                                                    ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                        $koneksipay->pay_parts_13 != '' &&
+                                                        $koneksipay->status_pay_04 != 'Complete' &&
+                                                        $koneksipay->status_pay_04 != 'Waiting Approval')
+                                                    <div class="justify-center flex space-x-2">
+                                                        <button type="button"
+                                                            class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                            data-modal-target="modal113" data-modal-show="modal113"
+                                                            data-modal-toggle="modal113">
+                                                            Ubah
+                                                        </button>
+                                                    </div>
+                                                @endif
                                         </td>
                                         <input type="text" hidden name="as_up_by_parts_pay_13"
                                             value="{{ Auth::user()->first_name }}">
@@ -1750,7 +1719,7 @@
                                     <tr
                                         class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
                                         <td class="py-4 font-bold text-center">14.</td>
-                                        <td class="flex items-center my-10">
+                                        <td class="flex items-center my-4">
 
                                             @if ($koneksipay->pay_parts_14 != '')
                                                 <a href="{{ asset('storage/supervisor/project/03_04_PR/' . $koneksipay->pay_parts_14) }}"
@@ -1788,23 +1757,29 @@
                                         </td>
 
                                         <td class="space-y-2 py-3 px-2">
-                                            @if ($koneksipay->pay_parts_14 != '')
-                                                <div class="justify-center flex space-x-2">
+                                            @if (
+                                                    ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                        $koneksipay->pay_parts_14 == '')
                                                     <button type="button"
-                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
-                                                        data-modal-target="modal114" data-modal-show="modal114"
-                                                        data-modal-toggle="modal114">Ubah</button>
-                                                </div>
-                                            @else
-                                                <input type="file" name="as_pay_parts_14" id="">
-                                                <div class="">
-                                                    <input type="number" id="base-input"
-                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PAY)" min="0"
-                                                        max="999999999999" oninput="validity.valid||(value='');"
-                                                        name="as_mny_parts_pay_14">
-                                                </div>
-                                            @endif
+                                                        class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
+                                                        data-modal-target="modala114" data-modal-show="modala114"
+                                                        data-modal-toggle="modala114">
+                                                        + Tambah dokumen
+                                                    </button>
+                                                @elseif (
+                                                    ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                        $koneksipay->pay_parts_14 != '' &&
+                                                        $koneksipay->status_pay_04 != 'Complete' &&
+                                                        $koneksipay->status_pay_04 != 'Waiting Approval')
+                                                    <div class="justify-center flex space-x-2">
+                                                        <button type="button"
+                                                            class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                            data-modal-target="modal114" data-modal-show="modal114"
+                                                            data-modal-toggle="modal114">
+                                                            Ubah
+                                                        </button>
+                                                    </div>
+                                                @endif
                                         </td>
                                         <input type="text" hidden name="as_up_by_parts_pay_14"
                                             value="{{ Auth::user()->first_name }}">
@@ -1817,7 +1792,7 @@
                                     <tr
                                         class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
                                         <td class="py-4 font-bold text-center">15.</td>
-                                        <td class="flex items-center my-10">
+                                        <td class="flex items-center my-4">
 
                                             @if ($koneksipay->pay_parts_15 != '')
                                                 <a href="{{ asset('storage/supervisor/project/03_04_PR/' . $koneksipay->pay_parts_15) }}"
@@ -1855,24 +1830,29 @@
                                         </td>
 
                                         <td class="space-y-2 py-3 px-2">
-                                            @if ($koneksipay->pay_parts_15 != '')
-                                                <div class="justify-center flex space-x-2">
+                                            @if (
+                                                    ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                        $koneksipay->pay_parts_15 == '')
                                                     <button type="button"
-                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
-                                                        data-modal-target="modal115" data-modal-show="modal115"
-                                                        data-modal-toggle="modal115">Ubah</button>
-                                                </div>
-                                            @else
-                                                <input type="file" name="as_pay_parts_15" id="">
-                                                <div class="">
-                                                    <input type="number" id="base-input"
-                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PAY)"
-                                                        min="0" max="999999999999"
-                                                        oninput="validity.valid||(value='');"
-                                                        name="as_mny_parts_pay_15">
-                                                </div>
-                                            @endif
+                                                        class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
+                                                        data-modal-target="modala115" data-modal-show="modala115"
+                                                        data-modal-toggle="modala115">
+                                                        + Tambah dokumen
+                                                    </button>
+                                                @elseif (
+                                                    ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                        $koneksipay->pay_parts_15 != '' &&
+                                                        $koneksipay->status_pay_04 != 'Complete' &&
+                                                        $koneksipay->status_pay_04 != 'Waiting Approval')
+                                                    <div class="justify-center flex space-x-2">
+                                                        <button type="button"
+                                                            class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                            data-modal-target="modal115" data-modal-show="modal115"
+                                                            data-modal-toggle="modal115">
+                                                            Ubah
+                                                        </button>
+                                                    </div>
+                                                @endif
                                         </td>
                                         <input type="text" hidden name="as_up_by_parts_pay_15"
                                             value="{{ Auth::user()->first_name }}">
@@ -1886,7 +1866,7 @@
                                     <tr
                                         class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
                                         <td class="py-4 font-bold text-center">16.</td>
-                                        <td class="flex items-center my-10">
+                                        <td class="flex items-center my-4">
 
                                             @if ($koneksipay->pay_parts_16 != '')
                                                 <a href="{{ asset('storage/supervisor/project/03_04_PR/' . $koneksipay->pay_parts_16) }}"
@@ -1924,25 +1904,29 @@
                                         </td>
 
                                         <td class="space-y-2 py-3 px-2">
-                                            @if ($koneksipay->pay_parts_16 != '')
-                                                <div class="justify-center flex space-x-2">
+                                            @if (
+                                                    ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                        $koneksipay->pay_parts_16 == '')
                                                     <button type="button"
-                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
-                                                        data-modal-target="modal116" data-modal-show="modal116"
-                                                        data-modal-toggle="modal116">Ubah</button>
-                                                </div>
-                                            @else
-                                                <input type="file" name="as_pay_parts_16" id="">
-                                                <div class="">
-                                                    <input type="number" id="base-input"
-                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PAY)"
-                                                        min="0" max="999999999999"
-                                                        oninput="validity.valid||(value='');"
-                                                        name="as_mny_parts_pay_16">
-                                                </div>
-                                            @endif
-
+                                                        class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
+                                                        data-modal-target="modala116" data-modal-show="modala116"
+                                                        data-modal-toggle="modala116">
+                                                        + Tambah dokumen
+                                                    </button>
+                                                @elseif (
+                                                    ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                        $koneksipay->pay_parts_16 != '' &&
+                                                        $koneksipay->status_pay_04 != 'Complete' &&
+                                                        $koneksipay->status_pay_04 != 'Waiting Approval')
+                                                    <div class="justify-center flex space-x-2">
+                                                        <button type="button"
+                                                            class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                            data-modal-target="modal116" data-modal-show="modal116"
+                                                            data-modal-toggle="modal116">
+                                                            Ubah
+                                                        </button>
+                                                    </div>
+                                                @endif
                                         </td>
                                         <input type="text" hidden name="as_up_by_parts_pay_16"
                                             value="{{ Auth::user()->first_name }}">
@@ -1954,7 +1938,7 @@
                                     <tr
                                         class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
                                         <td class="py-4 font-bold text-center">17.</td>
-                                        <td class="flex items-center my-10">
+                                        <td class="flex items-center my-4">
 
                                             @if ($koneksipay->pay_parts_17 != '')
                                                 <a href="{{ asset('storage/supervisor/project/03_04_PR/' . $koneksipay->pay_parts_17) }}"
@@ -1992,25 +1976,29 @@
                                         </td>
 
                                         <td class="space-y-2 py-3 px-2">
-                                            @if ($koneksipay->pay_parts_17 != '')
-                                                <div class="justify-center flex space-x-2">
+                                            @if (
+                                                    ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                        $koneksipay->pay_parts_17 == '')
                                                     <button type="button"
-                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
-                                                        data-modal-target="modal117" data-modal-show="modal117"
-                                                        data-modal-toggle="modal117">Ubah</button>
-                                                </div>
-                                            @else
-                                                <input type="file" name="as_pay_parts_17" id="">
-                                                <div class="">
-                                                    <input type="number" id="base-input"
-                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PAY)"
-                                                        min="0" max="999999999999"
-                                                        oninput="validity.valid||(value='');"
-                                                        name="as_mny_parts_pay_17">
-                                                </div>
-                                            @endif
-
+                                                        class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
+                                                        data-modal-target="modala117" data-modal-show="modala117"
+                                                        data-modal-toggle="modala117">
+                                                        + Tambah dokumen
+                                                    </button>
+                                                @elseif (
+                                                    ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                        $koneksipay->pay_parts_17 != '' &&
+                                                        $koneksipay->status_pay_04 != 'Complete' &&
+                                                        $koneksipay->status_pay_04 != 'Waiting Approval')
+                                                    <div class="justify-center flex space-x-2">
+                                                        <button type="button"
+                                                            class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                            data-modal-target="modal117" data-modal-show="modal117"
+                                                            data-modal-toggle="modal117">
+                                                            Ubah
+                                                        </button>
+                                                    </div>
+                                                @endif
                                         </td>
                                         <input type="text" hidden name="as_up_by_parts_pay_17"
                                             value="{{ Auth::user()->first_name }}">
@@ -2023,7 +2011,7 @@
                                     <tr
                                         class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
                                         <td class="py-4 font-bold text-center">18.</td>
-                                        <td class="flex items-center my-10">
+                                        <td class="flex items-center my-4">
 
                                             @if ($koneksipay->pay_parts_18 != '')
                                                 <a href="{{ asset('storage/supervisor/project/03_04_PR/' . $koneksipay->pay_parts_18) }}"
@@ -2061,24 +2049,29 @@
                                         </td>
 
                                         <td class="space-y-2 py-3 px-2">
-                                            @if ($koneksipay->pay_parts_18 != '')
-                                                <div class="justify-center flex space-x-2">
+                                            @if (
+                                                    ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                        $koneksipay->pay_parts_18 == '')
                                                     <button type="button"
-                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
-                                                        data-modal-target="modal118" data-modal-show="modal118"
-                                                        data-modal-toggle="modal118">Ubah</button>
-                                                </div>
-                                            @else
-                                                <input type="file" name="as_pay_parts_18" id="">
-                                                <div class="">
-                                                    <input type="number" id="base-input"
-                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PAY)"
-                                                        min="0" max="999999999999"
-                                                        oninput="validity.valid||(value='');"
-                                                        name="as_mny_parts_pay_18">
-                                                </div>
-                                            @endif
+                                                        class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
+                                                        data-modal-target="modala118" data-modal-show="modala118"
+                                                        data-modal-toggle="modala118">
+                                                        + Tambah dokumen
+                                                    </button>
+                                                @elseif (
+                                                    ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                        $koneksipay->pay_parts_18 != '' &&
+                                                        $koneksipay->status_pay_04 != 'Complete' &&
+                                                        $koneksipay->status_pay_04 != 'Waiting Approval')
+                                                    <div class="justify-center flex space-x-2">
+                                                        <button type="button"
+                                                            class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                            data-modal-target="modal118" data-modal-show="modal118"
+                                                            data-modal-toggle="modal118">
+                                                            Ubah
+                                                        </button>
+                                                    </div>
+                                                @endif
                                         </td>
                                         <input type="text" hidden name="as_up_by_parts_pay_18"
                                             value="{{ Auth::user()->first_name }}">
@@ -2093,7 +2086,7 @@
                                     <tr
                                         class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
                                         <td class="py-4 font-bold text-center">19.</td>
-                                        <td class="flex items-center my-10">
+                                        <td class="flex items-center my-4">
 
                                             @if ($koneksipay->pay_parts_19 != '')
                                                 <a href="{{ asset('storage/supervisor/project/03_04_PR/' . $koneksipay->pay_parts_19) }}"
@@ -2131,25 +2124,29 @@
                                         </td>
 
                                         <td class="space-y-2 py-3 px-2">
-                                            @if ($koneksipay->pay_parts_19 != '')
-                                                <div class="justify-center flex space-x-2">
+                                            @if (
+                                                    ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                        $koneksipay->pay_parts_19 == '')
                                                     <button type="button"
-                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
-                                                        data-modal-target="modal119" data-modal-show="modal119"
-                                                        data-modal-toggle="modal119">Ubah</button>
-                                                </div>
-                                            @else
-                                                <input type="file" name="as_pay_parts_19" id="">
-                                                <div class="">
-                                                    <input type="number" id="base-input"
-                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PAY)"
-                                                        min="0" max="999999999999"
-                                                        oninput="validity.valid||(value='');"
-                                                        name="as_mny_parts_pay_19">
-                                                </div>
-                                            @endif
-
+                                                        class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
+                                                        data-modal-target="modala119" data-modal-show="modala119"
+                                                        data-modal-toggle="modala119">
+                                                        + Tambah dokumen
+                                                    </button>
+                                                @elseif (
+                                                    ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                        $koneksipay->pay_parts_19 != '' &&
+                                                        $koneksipay->status_pay_04 != 'Complete' &&
+                                                        $koneksipay->status_pay_04 != 'Waiting Approval')
+                                                    <div class="justify-center flex space-x-2">
+                                                        <button type="button"
+                                                            class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                            data-modal-target="modal119" data-modal-show="modal119"
+                                                            data-modal-toggle="modal119">
+                                                            Ubah
+                                                        </button>
+                                                    </div>
+                                                @endif
                                         </td>
                                         <input type="text" hidden name="as_up_by_parts_pay_19"
                                             value="{{ Auth::user()->first_name }}">
@@ -2161,7 +2158,7 @@
                                     <tr
                                         class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
                                         <td class="py-4 font-bold text-center">20.</td>
-                                        <td class="flex items-center my-10">
+                                        <td class="flex items-center my-4">
 
                                             @if ($koneksipay->pay_parts_20 != '')
                                                 <a href="{{ asset('storage/supervisor/project/03_04_PR/' . $koneksipay->pay_parts_20) }}"
@@ -2199,25 +2196,29 @@
                                         </td>
 
                                         <td class="space-y-2 py-3 px-2">
-                                            @if ($koneksipay->pay_parts_20 != '')
-                                                <div class="justify-center flex space-x-2">
+                                            @if (
+                                                    ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                        $koneksipay->pay_parts_20 == '')
                                                     <button type="button"
-                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
-                                                        data-modal-target="modal120" data-modal-show="modal120"
-                                                        data-modal-toggle="modal120">Ubah</button>
-                                                </div>
-                                            @else
-                                                <input type="file" name="as_pay_parts_20" id="">
-                                                <div class="">
-                                                    <input type="number" id="base-input"
-                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PAY)"
-                                                        min="0" max="999999999999"
-                                                        oninput="validity.valid||(value='');"
-                                                        name="as_mny_parts_pay_20">
-                                                </div>
-                                            @endif
-
+                                                        class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
+                                                        data-modal-target="modala120" data-modal-show="modala120"
+                                                        data-modal-toggle="modala120">
+                                                        + Tambah dokumen
+                                                    </button>
+                                                @elseif (
+                                                    ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                        $koneksipay->pay_parts_20 != '' &&
+                                                        $koneksipay->status_pay_04 != 'Complete' &&
+                                                        $koneksipay->status_pay_04 != 'Waiting Approval')
+                                                    <div class="justify-center flex space-x-2">
+                                                        <button type="button"
+                                                            class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                            data-modal-target="modal120" data-modal-show="modal120"
+                                                            data-modal-toggle="modal120">
+                                                            Ubah
+                                                        </button>
+                                                    </div>
+                                                @endif
                                         </td>
                                         <input type="text" hidden name="as_up_by_parts_pay_20"
                                             value="{{ Auth::user()->first_name }}">
@@ -2232,7 +2233,7 @@
                                     <tr
                                         class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
                                         <td class="py-4 font-bold text-center">21.</td>
-                                        <td class="flex items-center my-10">
+                                        <td class="flex items-center my-4">
 
                                             @if ($koneksipay->pay_parts_21 != '')
                                                 <a href="{{ asset('storage/supervisor/project/03_04_PR/' . $koneksipay->pay_parts_21) }}"
@@ -2270,25 +2271,29 @@
                                         </td>
 
                                         <td class="space-y-2 py-3 px-2">
-                                            @if ($koneksipay->pay_parts_21 != '')
+                                            @if (
+                                                ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                    $koneksipay->pay_parts_21 == '')
+                                                <button type="button"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
+                                                    data-modal-target="modala121" data-modal-show="modala121"
+                                                    data-modal-toggle="modala121">
+                                                    + Tambah dokumen
+                                                </button>
+                                            @elseif (
+                                                ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                    $koneksipay->pay_parts_21 != '' &&
+                                                    $koneksipay->status_pay_04 != 'Complete' &&
+                                                    $koneksipay->status_pay_04 != 'Waiting Approval')
                                                 <div class="justify-center flex space-x-2">
                                                     <button type="button"
-                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                         data-modal-target="modal121" data-modal-show="modal121"
-                                                        data-modal-toggle="modal121">Ubah</button>
-                                                </div>
-                                            @else
-                                                <input type="file" name="as_pay_parts_21" id="">
-                                                <div class="">
-                                                    <input type="number" id="base-input"
-                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PAY)"
-                                                        min="0" max="999999999999"
-                                                        oninput="validity.valid||(value='');"
-                                                        name="as_mny_parts_pay_21">
+                                                        data-modal-toggle="modal121">
+                                                        Ubah
+                                                    </button>
                                                 </div>
                                             @endif
-
                                         </td>
                                         <input type="text" hidden name="as_up_by_parts_pay_21"
                                             value="{{ Auth::user()->first_name }}">
@@ -2300,7 +2305,7 @@
                                     <tr
                                         class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
                                         <td class="py-4 font-bold text-center">22.</td>
-                                        <td class="flex items-center my-10">
+                                        <td class="flex items-center my-4">
 
                                             @if ($koneksipay->pay_parts_22 != '')
                                                 <a href="{{ asset('storage/supervisor/project/03_04_PR/' . $koneksipay->pay_parts_22) }}"
@@ -2338,25 +2343,29 @@
                                         </td>
 
                                         <td class="space-y-2 py-3 px-2">
-                                            @if ($koneksipay->pay_parts_22 != '')
+                                            @if (
+                                                ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                    $koneksipay->pay_parts_22 == '')
+                                                <button type="button"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
+                                                    data-modal-target="modala122" data-modal-show="modala122"
+                                                    data-modal-toggle="modala122">
+                                                    + Tambah dokumen
+                                                </button>
+                                            @elseif (
+                                                ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                    $koneksipay->pay_parts_22 != '' &&
+                                                    $koneksipay->status_pay_04 != 'Complete' &&
+                                                    $koneksipay->status_pay_04 != 'Waiting Approval')
                                                 <div class="justify-center flex space-x-2">
                                                     <button type="button"
-                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                         data-modal-target="modal122" data-modal-show="modal122"
-                                                        data-modal-toggle="modal122">Ubah</button>
-                                                </div>
-                                            @else
-                                                <input type="file" name="as_pay_parts_22" id="">
-                                                <div class="">
-                                                    <input type="number" id="base-input"
-                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PAY)"
-                                                        min="0" max="999999999999"
-                                                        oninput="validity.valid||(value='');"
-                                                        name="as_mny_parts_pay_22">
+                                                        data-modal-toggle="modal122">
+                                                        Ubah
+                                                    </button>
                                                 </div>
                                             @endif
-
                                         </td>
                                         <input type="text" hidden name="as_up_by_parts_pay_22"
                                             value="{{ Auth::user()->first_name }}">
@@ -2368,7 +2377,7 @@
                                     <tr
                                         class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
                                         <td class="py-4 font-bold text-center">23.</td>
-                                        <td class="flex items-center my-10">
+                                        <td class="flex items-center my-4">
 
                                             @if ($koneksipay->pay_parts_23 != '')
                                                 <a href="{{ asset('storage/supervisor/project/03_04_PR/' . $koneksipay->pay_parts_23) }}"
@@ -2406,25 +2415,29 @@
                                         </td>
 
                                         <td class="space-y-2 py-3 px-2">
-                                            @if ($koneksipay->pay_parts_23 != '')
+                                            @if (
+                                                ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                    $koneksipay->pay_parts_23 == '')
+                                                <button type="button"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
+                                                    data-modal-target="modala123" data-modal-show="modala123"
+                                                    data-modal-toggle="modala123">
+                                                    + Tambah dokumen
+                                                </button>
+                                            @elseif (
+                                                ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                    $koneksipay->pay_parts_23 != '' &&
+                                                    $koneksipay->status_pay_04 != 'Complete' &&
+                                                    $koneksipay->status_pay_04 != 'Waiting Approval')
                                                 <div class="justify-center flex space-x-2">
                                                     <button type="button"
-                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                         data-modal-target="modal123" data-modal-show="modal123"
-                                                        data-modal-toggle="modal123">Ubah</button>
-                                                </div>
-                                            @else
-                                                <input type="file" name="as_pay_parts_23" id="">
-                                                <div class="">
-                                                    <input type="number" id="base-input"
-                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PAY)"
-                                                        min="0" max="999999999999"
-                                                        oninput="validity.valid||(value='');"
-                                                        name="as_mny_parts_pay_23">
+                                                        data-modal-toggle="modal123">
+                                                        Ubah
+                                                    </button>
                                                 </div>
                                             @endif
-
                                         </td>
                                         <input type="text" hidden name="as_up_by_parts_pay_23"
                                             value="{{ Auth::user()->first_name }}">
@@ -2436,7 +2449,7 @@
                                     <tr
                                         class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
                                         <td class="py-4 font-bold text-center">24.</td>
-                                        <td class="flex items-center my-10">
+                                        <td class="flex items-center my-4">
 
                                             @if ($koneksipay->pay_parts_24 != '')
                                                 <a href="{{ asset('storage/supervisor/project/03_04_PR/' . $koneksipay->pay_parts_24) }}"
@@ -2474,25 +2487,29 @@
                                         </td>
 
                                         <td class="space-y-2 py-3 px-2">
-                                            @if ($koneksipay->pay_parts_24 != '')
+                                            @if (
+                                                ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                    $koneksipay->pay_parts_24 == '')
+                                                <button type="button"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
+                                                    data-modal-target="modala124" data-modal-show="modala124"
+                                                    data-modal-toggle="modala124">
+                                                    + Tambah dokumen
+                                                </button>
+                                            @elseif (
+                                                ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                    $koneksipay->pay_parts_24 != '' &&
+                                                    $koneksipay->status_pay_04 != 'Complete' &&
+                                                    $koneksipay->status_pay_04 != 'Waiting Approval')
                                                 <div class="justify-center flex space-x-2">
                                                     <button type="button"
-                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                         data-modal-target="modal124" data-modal-show="modal124"
-                                                        data-modal-toggle="modal124">Ubah</button>
-                                                </div>
-                                            @else
-                                                <input type="file" name="as_pay_parts_24" id="">
-                                                <div class="">
-                                                    <input type="number" id="base-input"
-                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PAY)"
-                                                        min="0" max="999999999999"
-                                                        oninput="validity.valid||(value='');"
-                                                        name="as_mny_parts_pay_24">
+                                                        data-modal-toggle="modal124">
+                                                        Ubah
+                                                    </button>
                                                 </div>
                                             @endif
-
                                         </td>
                                         <input type="text" hidden name="as_up_by_parts_pay_24"
                                             value="{{ Auth::user()->first_name }}">
@@ -2504,7 +2521,7 @@
                                     <tr
                                         class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
                                         <td class="py-4 font-bold text-center">25.</td>
-                                        <td class="flex items-center my-10">
+                                        <td class="flex items-center my-4">
 
                                             @if ($koneksipay->pay_parts_25 != '')
                                                 <a href="{{ asset('storage/supervisor/project/03_04_PR/' . $koneksipay->pay_parts_25) }}"
@@ -2542,22 +2559,27 @@
                                         </td>
 
                                         <td class="space-y-2 py-3 px-2">
-                                            @if ($koneksipay->pay_parts_25 != '')
+                                            @if (
+                                                ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                    $koneksipay->pay_parts_25 == '')
+                                                <button type="button"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
+                                                    data-modal-target="modala125" data-modal-show="modala125"
+                                                    data-modal-toggle="modala125">
+                                                    + Tambah dokumen
+                                                </button>
+                                            @elseif (
+                                                ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                    $koneksipay->pay_parts_25 != '' &&
+                                                    $koneksipay->status_pay_04 != 'Complete' &&
+                                                    $koneksipay->status_pay_04 != 'Waiting Approval')
                                                 <div class="justify-center flex space-x-2">
                                                     <button type="button"
-                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                         data-modal-target="modal125" data-modal-show="modal125"
-                                                        data-modal-toggle="modal125">Ubah</button>
-                                                </div>
-                                            @else
-                                                <input type="file" name="as_pay_parts_25" id="">
-                                                <div class="">
-                                                    <input type="number" id="base-input"
-                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PAY)"
-                                                        min="0" max="999999999999"
-                                                        oninput="validity.valid||(value='');"
-                                                        name="as_mny_parts_pay_25">
+                                                        data-modal-toggle="modal125">
+                                                        Ubah
+                                                    </button>
                                                 </div>
                                             @endif
                                         </td>
@@ -2571,7 +2593,7 @@
                                     <tr
                                         class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
                                         <td class="py-4 font-bold text-center">26.</td>
-                                        <td class="flex items-center my-10">
+                                        <td class="flex items-center my-4">
 
                                             @if ($koneksipay->pay_parts_26 != '')
                                                 <a href="{{ asset('storage/supervisor/project/03_04_PR/' . $koneksipay->pay_parts_26) }}"
@@ -2609,22 +2631,27 @@
                                         </td>
 
                                         <td class="space-y-2 py-3 px-2">
-                                            @if ($koneksipay->pay_parts_26 != '')
+                                            @if (
+                                                ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                    $koneksipay->pay_parts_26 == '')
+                                                <button type="button"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
+                                                    data-modal-target="modala126" data-modal-show="modala126"
+                                                    data-modal-toggle="modala126">
+                                                    + Tambah dokumen
+                                                </button>
+                                            @elseif (
+                                                ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                    $koneksipay->pay_parts_26 != '' &&
+                                                    $koneksipay->status_pay_04 != 'Complete' &&
+                                                    $koneksipay->status_pay_04 != 'Waiting Approval')
                                                 <div class="justify-center flex space-x-2">
                                                     <button type="button"
-                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                         data-modal-target="modal126" data-modal-show="modal126"
-                                                        data-modal-toggle="modal126">Ubah</button>
-                                                </div>
-                                            @else
-                                                <input type="file" name="as_pay_parts_26" id="">
-                                                <div class="">
-                                                    <input type="number" id="base-input"
-                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PAY)"
-                                                        min="0" max="999999999999"
-                                                        oninput="validity.valid||(value='');"
-                                                        name="as_mny_parts_pay_26">
+                                                        data-modal-toggle="modal126">
+                                                        Ubah
+                                                    </button>
                                                 </div>
                                             @endif
                                         </td>
@@ -2638,7 +2665,7 @@
                                     <tr
                                         class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
                                         <td class="py-4 font-bold text-center">27.</td>
-                                        <td class="flex items-center my-10">
+                                        <td class="flex items-center my-4">
 
                                             @if ($koneksipay->pay_parts_27 != '')
                                                 <a href="{{ asset('storage/supervisor/project/03_04_PR/' . $koneksipay->pay_parts_27) }}"
@@ -2676,25 +2703,29 @@
                                         </td>
 
                                         <td class="space-y-2 py-3 px-2">
-                                            @if ($koneksipay->pay_parts_27 != '')
+                                            @if (
+                                                ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                    $koneksipay->pay_parts_27 == '')
+                                                <button type="button"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
+                                                    data-modal-target="modala127" data-modal-show="modala127"
+                                                    data-modal-toggle="modala127">
+                                                    + Tambah dokumen
+                                                </button>
+                                            @elseif (
+                                                ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                    $koneksipay->pay_parts_27 != '' &&
+                                                    $koneksipay->status_pay_04 != 'Complete' &&
+                                                    $koneksipay->status_pay_04 != 'Waiting Approval')
                                                 <div class="justify-center flex space-x-2">
                                                     <button type="button"
-                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                         data-modal-target="modal127" data-modal-show="modal127"
-                                                        data-modal-toggle="modal127">Ubah</button>
-                                                </div>
-                                            @else
-                                                <input type="file" name="as_pay_parts_27" id="">
-                                                <div class="">
-                                                    <input type="number" id="base-input"
-                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PAY)"
-                                                        min="0" max="999999999999"
-                                                        oninput="validity.valid||(value='');"
-                                                        name="as_mny_parts_pay_27">
+                                                        data-modal-toggle="modal127">
+                                                        Ubah
+                                                    </button>
                                                 </div>
                                             @endif
-
                                         </td>
                                         <input type="text" hidden name="as_up_by_parts_pay_27"
                                             value="{{ Auth::user()->first_name }}">
@@ -2706,7 +2737,7 @@
                                     <tr
                                         class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
                                         <td class="py-4 font-bold text-center">28.</td>
-                                        <td class="flex items-center my-10">
+                                        <td class="flex items-center my-4">
 
                                             @if ($koneksipay->pay_parts_28 != '')
                                                 <a href="{{ asset('storage/supervisor/project/03_04_PR/' . $koneksipay->pay_parts_28) }}"
@@ -2744,25 +2775,29 @@
                                         </td>
 
                                         <td class="space-y-2 py-3 px-2">
-                                            @if ($koneksipay->pay_parts_28 != '')
+                                            @if (
+                                                ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                    $koneksipay->pay_parts_28 == '')
+                                                <button type="button"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
+                                                    data-modal-target="modala128" data-modal-show="modala128"
+                                                    data-modal-toggle="modala128">
+                                                    + Tambah dokumen
+                                                </button>
+                                            @elseif (
+                                                ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                    $koneksipay->pay_parts_28 != '' &&
+                                                    $koneksipay->status_pay_04 != 'Complete' &&
+                                                    $koneksipay->status_pay_04 != 'Waiting Approval')
                                                 <div class="justify-center flex space-x-2">
                                                     <button type="button"
-                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                         data-modal-target="modal128" data-modal-show="modal128"
-                                                        data-modal-toggle="modal128">Ubah</button>
-                                                </div>
-                                            @else
-                                                <input type="file" name="as_pay_parts_28" id="">
-                                                <div class="">
-                                                    <input type="number" id="base-input"
-                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PAY)"
-                                                        min="0" max="999999999999"
-                                                        oninput="validity.valid||(value='');"
-                                                        name="as_mny_parts_pay_28">
+                                                        data-modal-toggle="modal128">
+                                                        Ubah
+                                                    </button>
                                                 </div>
                                             @endif
-
                                         </td>
                                         <input type="text" hidden name="as_up_by_parts_pay_28"
                                             value="{{ Auth::user()->first_name }}">
@@ -2774,7 +2809,7 @@
                                     <tr
                                         class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
                                         <td class="py-4 font-bold text-center">29.</td>
-                                        <td class="flex items-center my-10">
+                                        <td class="flex items-center my-4">
 
                                             @if ($koneksipay->pay_parts_29 != '')
                                                 <a href="{{ asset('storage/supervisor/project/03_04_PR/' . $koneksipay->pay_parts_29) }}"
@@ -2812,25 +2847,29 @@
                                         </td>
 
                                         <td class="space-y-2 py-3 px-2">
-                                            @if ($koneksipay->pay_parts_29 != '')
+                                            @if (
+                                                ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                    $koneksipay->pay_parts_29 == '')
+                                                <button type="button"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
+                                                    data-modal-target="modala129" data-modal-show="modala129"
+                                                    data-modal-toggle="modala129">
+                                                    + Tambah dokumen
+                                                </button>
+                                            @elseif (
+                                                ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                    $koneksipay->pay_parts_29 != '' &&
+                                                    $koneksipay->status_pay_04 != 'Complete' &&
+                                                    $koneksipay->status_pay_04 != 'Waiting Approval')
                                                 <div class="justify-center flex space-x-2">
                                                     <button type="button"
-                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                         data-modal-target="modal129" data-modal-show="modal129"
-                                                        data-modal-toggle="modal129">Ubah</button>
-                                                </div>
-                                            @else
-                                                <input type="file" name="as_pay_parts_29" id="">
-                                                <div class="">
-                                                    <input type="number" id="base-input"
-                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PAY)"
-                                                        min="0" max="999999999999"
-                                                        oninput="validity.valid||(value='');"
-                                                        name="as_mny_parts_pay_29">
+                                                        data-modal-toggle="modal129">
+                                                        Ubah
+                                                    </button>
                                                 </div>
                                             @endif
-
                                         </td>
                                         <input type="text" hidden name="as_up_by_parts_pay_29"
                                             value="{{ Auth::user()->first_name }}">
@@ -2842,7 +2881,7 @@
                                     <tr
                                         class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
                                         <td class="py-4 font-bold text-center">30.</td>
-                                        <td class="flex items-center my-10">
+                                        <td class="flex items-center my-4">
 
                                             @if ($koneksipay->pay_parts_30 != '')
                                                 <a href="{{ asset('storage/supervisor/project/03_04_PR/' . $koneksipay->pay_parts_30) }}"
@@ -2880,25 +2919,29 @@
                                         </td>
 
                                         <td class="space-y-2 py-3 px-2">
-                                            @if ($koneksipay->pay_parts_30 != '')
+                                            @if (
+                                                ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                    $koneksipay->pay_parts_30 == '')
+                                                <button type="button"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
+                                                    data-modal-target="modala130" data-modal-show="modala130"
+                                                    data-modal-toggle="modala130">
+                                                    + Tambah dokumen
+                                                </button>
+                                            @elseif (
+                                                ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                    $koneksipay->pay_parts_30 != '' &&
+                                                    $koneksipay->status_pay_04 != 'Complete' &&
+                                                    $koneksipay->status_pay_04 != 'Waiting Approval')
                                                 <div class="justify-center flex space-x-2">
                                                     <button type="button"
-                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                         data-modal-target="modal130" data-modal-show="modal130"
-                                                        data-modal-toggle="modal130">Ubah</button>
-                                                </div>
-                                            @else
-                                                <input type="file" name="as_pay_parts_30" id="">
-                                                <div class="">
-                                                    <input type="number" id="base-input"
-                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PAY)"
-                                                        min="0" max="999999999999"
-                                                        oninput="validity.valid||(value='');"
-                                                        name="as_mny_parts_pay_30">
+                                                        data-modal-toggle="modal130">
+                                                        Ubah
+                                                    </button>
                                                 </div>
                                             @endif
-
                                         </td>
                                         <input type="text" hidden name="as_up_by_parts_pay_30"
                                             value="{{ Auth::user()->first_name }}">
@@ -2912,7 +2955,7 @@
                                     <tr
                                         class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
                                         <td class="py-4 font-bold text-center">31.</td>
-                                        <td class="flex items-center my-10">
+                                        <td class="flex items-center my-4">
 
                                             @if ($koneksipay->pay_parts_31 != '')
                                                 <a href="{{ asset('storage/supervisor/project/03_04_PR/' . $koneksipay->pay_parts_31) }}"
@@ -2950,25 +2993,29 @@
                                         </td>
 
                                         <td class="space-y-2 py-3 px-2">
-                                            @if ($koneksipay->pay_parts_31 != '')
+                                            @if (
+                                                ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                    $koneksipay->pay_parts_31 == '')
+                                                <button type="button"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
+                                                    data-modal-target="modala131" data-modal-show="modala131"
+                                                    data-modal-toggle="modala131">
+                                                    + Tambah dokumen
+                                                </button>
+                                            @elseif (
+                                                ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                    $koneksipay->pay_parts_31 != '' &&
+                                                    $koneksipay->status_pay_04 != 'Complete' &&
+                                                    $koneksipay->status_pay_04 != 'Waiting Approval')
                                                 <div class="justify-center flex space-x-2">
                                                     <button type="button"
-                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                         data-modal-target="modal131" data-modal-show="modal131"
-                                                        data-modal-toggle="modal131">Ubah</button>
-                                                </div>
-                                            @else
-                                                <input type="file" name="as_pay_parts_31" id="">
-                                                <div class="">
-                                                    <input type="number" id="base-input"
-                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PAY)"
-                                                        min="0" max="999999999999"
-                                                        oninput="validity.valid||(value='');"
-                                                        name="as_mny_parts_pay_31">
+                                                        data-modal-toggle="modal131">
+                                                        Ubah
+                                                    </button>
                                                 </div>
                                             @endif
-
                                         </td>
                                         <input type="text" hidden name="as_up_by_parts_pay_31"
                                             value="{{ Auth::user()->first_name }}">
@@ -2980,7 +3027,7 @@
                                     <tr
                                         class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
                                         <td class="py-4 font-bold text-center">32.</td>
-                                        <td class="flex items-center my-10">
+                                        <td class="flex items-center my-4">
 
                                             @if ($koneksipay->pay_parts_32 != '')
                                                 <a href="{{ asset('storage/supervisor/project/03_04_PR/' . $koneksipay->pay_parts_32) }}"
@@ -3018,25 +3065,29 @@
                                         </td>
 
                                         <td class="space-y-2 py-3 px-2">
-                                            @if ($koneksipay->pay_parts_32 != '')
+                                            @if (
+                                                ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                    $koneksipay->pay_parts_32 == '')
+                                                <button type="button"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
+                                                    data-modal-target="modala132" data-modal-show="modala132"
+                                                    data-modal-toggle="modala132">
+                                                    + Tambah dokumen
+                                                </button>
+                                            @elseif (
+                                                ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                    $koneksipay->pay_parts_32 != '' &&
+                                                    $koneksipay->status_pay_04 != 'Complete' &&
+                                                    $koneksipay->status_pay_04 != 'Waiting Approval')
                                                 <div class="justify-center flex space-x-2">
                                                     <button type="button"
-                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                         data-modal-target="modal132" data-modal-show="modal132"
-                                                        data-modal-toggle="modal132">Ubah</button>
-                                                </div>
-                                            @else
-                                                <input type="file" name="as_pay_parts_32" id="">
-                                                <div class="">
-                                                    <input type="number" id="base-input"
-                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PAY)"
-                                                        min="0" max="999999999999"
-                                                        oninput="validity.valid||(value='');"
-                                                        name="as_mny_parts_pay_32">
+                                                        data-modal-toggle="modal132">
+                                                        Ubah
+                                                    </button>
                                                 </div>
                                             @endif
-
                                         </td>
                                         <input type="text" hidden name="as_up_by_parts_pay_32"
                                             value="{{ Auth::user()->first_name }}">
@@ -3048,7 +3099,7 @@
                                     <tr
                                         class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
                                         <td class="py-4 font-bold text-center">33.</td>
-                                        <td class="flex items-center my-10">
+                                        <td class="flex items-center my-4">
 
                                             @if ($koneksipay->pay_parts_33 != '')
                                                 <a href="{{ asset('storage/supervisor/project/03_04_PR/' . $koneksipay->pay_parts_33) }}"
@@ -3086,25 +3137,29 @@
                                         </td>
 
                                         <td class="space-y-2 py-3 px-2">
-                                            @if ($koneksipay->pay_parts_33 != '')
+                                            @if (
+                                                ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                    $koneksipay->pay_parts_33 == '')
+                                                <button type="button"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
+                                                    data-modal-target="modala133" data-modal-show="modala133"
+                                                    data-modal-toggle="modala133">
+                                                    + Tambah dokumen
+                                                </button>
+                                            @elseif (
+                                                ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                    $koneksipay->pay_parts_33 != '' &&
+                                                    $koneksipay->status_pay_04 != 'Complete' &&
+                                                    $koneksipay->status_pay_04 != 'Waiting Approval')
                                                 <div class="justify-center flex space-x-2">
                                                     <button type="button"
-                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                         data-modal-target="modal133" data-modal-show="modal133"
-                                                        data-modal-toggle="modal133">Ubah</button>
-                                                </div>
-                                            @else
-                                                <input type="file" name="as_pay_parts_33" id="">
-                                                <div class="">
-                                                    <input type="number" id="base-input"
-                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PAY)"
-                                                        min="0" max="999999999999"
-                                                        oninput="validity.valid||(value='');"
-                                                        name="as_mny_parts_pay_33">
+                                                        data-modal-toggle="modal133">
+                                                        Ubah
+                                                    </button>
                                                 </div>
                                             @endif
-
                                         </td>
                                         <input type="text" hidden name="as_up_by_parts_pay_33"
                                             value="{{ Auth::user()->first_name }}">
@@ -3116,7 +3171,7 @@
                                     <tr
                                         class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
                                         <td class="py-4 font-bold text-center">34.</td>
-                                        <td class="flex items-center my-10">
+                                        <td class="flex items-center my-4">
 
                                             @if ($koneksipay->pay_parts_34 != '')
                                                 <a href="{{ asset('storage/supervisor/project/03_04_PR/' . $koneksipay->pay_parts_34) }}"
@@ -3154,25 +3209,29 @@
                                         </td>
 
                                         <td class="space-y-2 py-3 px-2">
-                                            @if ($koneksipay->pay_parts_34 != '')
+                                            @if (
+                                                ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                    $koneksipay->pay_parts_34 == '')
+                                                <button type="button"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
+                                                    data-modal-target="modala134" data-modal-show="modala134"
+                                                    data-modal-toggle="modala134">
+                                                    + Tambah dokumen
+                                                </button>
+                                            @elseif (
+                                                ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                    $koneksipay->pay_parts_34 != '' &&
+                                                    $koneksipay->status_pay_04 != 'Complete' &&
+                                                    $koneksipay->status_pay_04 != 'Waiting Approval')
                                                 <div class="justify-center flex space-x-2">
                                                     <button type="button"
-                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                         data-modal-target="modal134" data-modal-show="modal134"
-                                                        data-modal-toggle="modal134">Ubah</button>
-                                                </div>
-                                            @else
-                                                <input type="file" name="as_pay_parts_34" id="">
-                                                <div class="">
-                                                    <input type="number" id="base-input"
-                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PAY)"
-                                                        min="0" max="999999999999"
-                                                        oninput="validity.valid||(value='');"
-                                                        name="as_mny_parts_pay_34">
+                                                        data-modal-toggle="modal134">
+                                                        Ubah
+                                                    </button>
                                                 </div>
                                             @endif
-
                                         </td>
                                         <input type="text" hidden name="as_up_by_parts_pay_34"
                                             value="{{ Auth::user()->first_name }}">
@@ -3184,7 +3243,7 @@
                                     <tr
                                         class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
                                         <td class="py-4 font-bold text-center">35.</td>
-                                        <td class="flex items-center my-10">
+                                        <td class="flex items-center my-4">
 
                                             @if ($koneksipay->pay_parts_35 != '')
                                                 <a href="{{ asset('storage/supervisor/project/03_04_PR/' . $koneksipay->pay_parts_35) }}"
@@ -3222,25 +3281,29 @@
                                         </td>
 
                                         <td class="space-y-2 py-3 px-2">
-                                            @if ($koneksipay->pay_parts_35 != '')
+                                            @if (
+                                                ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                    $koneksipay->pay_parts_35 == '')
+                                                <button type="button"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
+                                                    data-modal-target="modala135" data-modal-show="modala135"
+                                                    data-modal-toggle="modala135">
+                                                    + Tambah dokumen
+                                                </button>
+                                            @elseif (
+                                                ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                    $koneksipay->pay_parts_35 != '' &&
+                                                    $koneksipay->status_pay_04 != 'Complete' &&
+                                                    $koneksipay->status_pay_04 != 'Waiting Approval')
                                                 <div class="justify-center flex space-x-2">
                                                     <button type="button"
-                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                         data-modal-target="modal135" data-modal-show="modal135"
-                                                        data-modal-toggle="modal135">Ubah</button>
-                                                </div>
-                                            @else
-                                                <input type="file" name="as_pay_parts_35" id="">
-                                                <div class="">
-                                                    <input type="number" id="base-input"
-                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PAY)"
-                                                        min="0" max="999999999999"
-                                                        oninput="validity.valid||(value='');"
-                                                        name="as_mny_parts_pay_35">
+                                                        data-modal-toggle="modal135">
+                                                        Ubah
+                                                    </button>
                                                 </div>
                                             @endif
-
                                         </td>
                                         <input type="text" hidden name="as_up_by_parts_pay_35"
                                             value="{{ Auth::user()->first_name }}">
@@ -3252,7 +3315,7 @@
                                     <tr
                                         class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
                                         <td class="py-4 font-bold text-center">36.</td>
-                                        <td class="flex items-center my-10">
+                                        <td class="flex items-center my-4">
 
                                             @if ($koneksipay->pay_parts_36 != '')
                                                 <a href="{{ asset('storage/supervisor/project/03_04_PR/' . $koneksipay->pay_parts_36) }}"
@@ -3290,25 +3353,29 @@
                                         </td>
 
                                         <td class="space-y-2 py-3 px-2">
-                                            @if ($koneksipay->pay_parts_36 != '')
+                                            @if (
+                                                ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                    $koneksipay->pay_parts_36 == '')
+                                                <button type="button"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
+                                                    data-modal-target="modala136" data-modal-show="modala136"
+                                                    data-modal-toggle="modala136">
+                                                    + Tambah dokumen
+                                                </button>
+                                            @elseif (
+                                                ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                    $koneksipay->pay_parts_36 != '' &&
+                                                    $koneksipay->status_pay_04 != 'Complete' &&
+                                                    $koneksipay->status_pay_04 != 'Waiting Approval')
                                                 <div class="justify-center flex space-x-2">
                                                     <button type="button"
-                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                         data-modal-target="modal136" data-modal-show="modal136"
-                                                        data-modal-toggle="modal136">Ubah</button>
-                                                </div>
-                                            @else
-                                                <input type="file" name="as_pay_parts_36" id="">
-                                                <div class="">
-                                                    <input type="number" id="base-input"
-                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PAY)"
-                                                        min="0" max="999999999999"
-                                                        oninput="validity.valid||(value='');"
-                                                        name="as_mny_parts_pay_36">
+                                                        data-modal-toggle="modal136">
+                                                        Ubah
+                                                    </button>
                                                 </div>
                                             @endif
-
                                         </td>
                                         <input type="text" hidden name="as_up_by_parts_pay_36"
                                             value="{{ Auth::user()->first_name }}">
@@ -3321,7 +3388,7 @@
                                     <tr
                                         class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
                                         <td class="py-4 font-bold text-center">37.</td>
-                                        <td class="flex items-center my-10">
+                                        <td class="flex items-center my-4">
 
                                             @if ($koneksipay->pay_parts_37 != '')
                                                 <a href="{{ asset('storage/supervisor/project/03_04_PR/' . $koneksipay->pay_parts_37) }}"
@@ -3359,25 +3426,29 @@
                                         </td>
 
                                         <td class="space-y-2 py-3 px-2">
-                                            @if ($koneksipay->pay_parts_37 != '')
+                                            @if (
+                                                ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                    $koneksipay->pay_parts_37 == '')
+                                                <button type="button"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
+                                                    data-modal-target="modala137" data-modal-show="modala137"
+                                                    data-modal-toggle="modala137">
+                                                    + Tambah dokumen
+                                                </button>
+                                            @elseif (
+                                                ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                    $koneksipay->pay_parts_37 != '' &&
+                                                    $koneksipay->status_pay_04 != 'Complete' &&
+                                                    $koneksipay->status_pay_04 != 'Waiting Approval')
                                                 <div class="justify-center flex space-x-2">
                                                     <button type="button"
-                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                         data-modal-target="modal137" data-modal-show="modal137"
-                                                        data-modal-toggle="modal137">Ubah</button>
-                                                </div>
-                                            @else
-                                                <input type="file" name="as_pay_parts_37" id="">
-                                                <div class="">
-                                                    <input type="number" id="base-input"
-                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PAY)"
-                                                        min="0" max="999999999999"
-                                                        oninput="validity.valid||(value='');"
-                                                        name="as_mny_parts_pay_37">
+                                                        data-modal-toggle="modal137">
+                                                        Ubah
+                                                    </button>
                                                 </div>
                                             @endif
-
                                         </td>
                                         <input type="text" hidden name="as_up_by_parts_pay_37"
                                             value="{{ Auth::user()->first_name }}">
@@ -3389,7 +3460,7 @@
                                     <tr
                                         class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
                                         <td class="py-4 font-bold text-center">38.</td>
-                                        <td class="flex items-center my-10">
+                                        <td class="flex items-center my-4">
 
                                             @if ($koneksipay->pay_parts_38 != '')
                                                 <a href="{{ asset('storage/supervisor/project/03_04_PR/' . $koneksipay->pay_parts_38) }}"
@@ -3427,25 +3498,29 @@
                                         </td>
 
                                         <td class="space-y-2 py-3 px-2">
-                                            @if ($koneksipay->pay_parts_38 != '')
+                                            @if (
+                                                ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                    $koneksipay->pay_parts_38 == '')
+                                                <button type="button"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
+                                                    data-modal-target="modala138" data-modal-show="modala138"
+                                                    data-modal-toggle="modala138">
+                                                    + Tambah dokumen
+                                                </button>
+                                            @elseif (
+                                                ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                    $koneksipay->pay_parts_38 != '' &&
+                                                    $koneksipay->status_pay_04 != 'Complete' &&
+                                                    $koneksipay->status_pay_04 != 'Waiting Approval')
                                                 <div class="justify-center flex space-x-2">
                                                     <button type="button"
-                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                         data-modal-target="modal138" data-modal-show="modal138"
-                                                        data-modal-toggle="modal138">Ubah</button>
-                                                </div>
-                                            @else
-                                                <input type="file" name="as_pay_parts_38" id="">
-                                                <div class="">
-                                                    <input type="number" id="base-input"
-                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PAY)"
-                                                        min="0" max="999999999999"
-                                                        oninput="validity.valid||(value='');"
-                                                        name="as_mny_parts_pay_38">
+                                                        data-modal-toggle="modal138">
+                                                        Ubah
+                                                    </button>
                                                 </div>
                                             @endif
-
                                         </td>
                                         <input type="text" hidden name="as_up_by_parts_pay_38"
                                             value="{{ Auth::user()->first_name }}">
@@ -3457,7 +3532,7 @@
                                     <tr
                                         class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
                                         <td class="py-4 font-bold text-center">39.</td>
-                                        <td class="flex items-center my-10">
+                                        <td class="flex items-center my-4">
 
                                             @if ($koneksipay->pay_parts_39 != '')
                                                 <a href="{{ asset('storage/supervisor/project/03_04_PR/' . $koneksipay->pay_parts_39) }}"
@@ -3495,25 +3570,29 @@
                                         </td>
 
                                         <td class="space-y-2 py-3 px-2">
-                                            @if ($koneksipay->pay_parts_39 != '')
+                                            @if (
+                                                ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                    $koneksipay->pay_parts_39 == '')
+                                                <button type="button"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
+                                                    data-modal-target="modala139" data-modal-show="modala139"
+                                                    data-modal-toggle="modala139">
+                                                    + Tambah dokumen
+                                                </button>
+                                            @elseif (
+                                                ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                    $koneksipay->pay_parts_39 != '' &&
+                                                    $koneksipay->status_pay_04 != 'Complete' &&
+                                                    $koneksipay->status_pay_04 != 'Waiting Approval')
                                                 <div class="justify-center flex space-x-2">
                                                     <button type="button"
-                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                         data-modal-target="modal139" data-modal-show="modal139"
-                                                        data-modal-toggle="modal139">Ubah</button>
-                                                </div>
-                                            @else
-                                                <input type="file" name="as_pay_parts_39" id="">
-                                                <div class="">
-                                                    <input type="number" id="base-input"
-                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PAY)"
-                                                        min="0" max="999999999999"
-                                                        oninput="validity.valid||(value='');"
-                                                        name="as_mny_parts_pay_39">
+                                                        data-modal-toggle="modal139">
+                                                        Ubah
+                                                    </button>
                                                 </div>
                                             @endif
-
                                         </td>
                                         <input type="text" hidden name="as_up_by_parts_pay_39"
                                             value="{{ Auth::user()->first_name }}">
@@ -3525,7 +3604,7 @@
                                     <tr
                                         class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
                                         <td class="py-4 font-bold text-center">40.</td>
-                                        <td class="flex items-center my-10">
+                                        <td class="flex items-center my-4">
 
                                             @if ($koneksipay->pay_parts_40 != '')
                                                 <a href="{{ asset('storage/supervisor/project/03_04_PR/' . $koneksipay->pay_parts_40) }}"
@@ -3563,25 +3642,29 @@
                                         </td>
 
                                         <td class="space-y-2 py-3 px-2">
-                                            @if ($koneksipay->pay_parts_40 != '')
+                                            @if (
+                                                ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                    $koneksipay->pay_parts_40 == '')
+                                                <button type="button"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
+                                                    data-modal-target="modala140" data-modal-show="modala140"
+                                                    data-modal-toggle="modala140">
+                                                    + Tambah dokumen
+                                                </button>
+                                            @elseif (
+                                                ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                    $koneksipay->pay_parts_40 != '' &&
+                                                    $koneksipay->status_pay_04 != 'Complete' &&
+                                                    $koneksipay->status_pay_04 != 'Waiting Approval')
                                                 <div class="justify-center flex space-x-2">
                                                     <button type="button"
-                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                         data-modal-target="modal140" data-modal-show="modal140"
-                                                        data-modal-toggle="modal140">Ubah</button>
-                                                </div>
-                                            @else
-                                                <input type="file" name="as_pay_parts_40" id="">
-                                                <div class="">
-                                                    <input type="number" id="base-input"
-                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PAY)"
-                                                        min="0" max="999999999999"
-                                                        oninput="validity.valid||(value='');"
-                                                        name="as_mny_parts_pay_40">
+                                                        data-modal-toggle="modal140">
+                                                        Ubah
+                                                    </button>
                                                 </div>
                                             @endif
-
                                         </td>
                                         <input type="text" hidden name="as_up_by_parts_pay_40"
                                             value="{{ Auth::user()->first_name }}">
@@ -3594,7 +3677,7 @@
                                     <tr
                                         class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
                                         <td class="py-4 font-bold text-center">41.</td>
-                                        <td class="flex items-center my-10">
+                                        <td class="flex items-center my-4">
 
                                             @if ($koneksipay->pay_parts_41 != '')
                                                 <a href="{{ asset('storage/supervisor/project/03_04_PR/' . $koneksipay->pay_parts_41) }}"
@@ -3632,25 +3715,29 @@
                                         </td>
 
                                         <td class="space-y-2 py-3 px-2">
-                                            @if ($koneksipay->pay_parts_41 != '')
+                                            @if (
+                                                ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                    $koneksipay->pay_parts_41 == '')
+                                                <button type="button"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
+                                                    data-modal-target="modala141" data-modal-show="modala141"
+                                                    data-modal-toggle="modala141">
+                                                    + Tambah dokumen
+                                                </button>
+                                            @elseif (
+                                                ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                    $koneksipay->pay_parts_41 != '' &&
+                                                    $koneksipay->status_pay_04 != 'Complete' &&
+                                                    $koneksipay->status_pay_04 != 'Waiting Approval')
                                                 <div class="justify-center flex space-x-2">
                                                     <button type="button"
-                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                         data-modal-target="modal141" data-modal-show="modal141"
-                                                        data-modal-toggle="modal141">Ubah</button>
-                                                </div>
-                                            @else
-                                                <input type="file" name="as_pay_parts_41" id="">
-                                                <div class="">
-                                                    <input type="number" id="base-input"
-                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PAY)"
-                                                        min="0" max="999999999999"
-                                                        oninput="validity.valid||(value='');"
-                                                        name="as_mny_parts_pay_41">
+                                                        data-modal-toggle="modal141">
+                                                        Ubah
+                                                    </button>
                                                 </div>
                                             @endif
-
                                         </td>
                                         <input type="text" hidden name="as_up_by_parts_pay_41"
                                             value="{{ Auth::user()->first_name }}">
@@ -3662,7 +3749,7 @@
                                     <tr
                                         class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
                                         <td class="py-4 font-bold text-center">42.</td>
-                                        <td class="flex items-center my-10">
+                                        <td class="flex items-center my-4">
 
                                             @if ($koneksipay->pay_parts_42 != '')
                                                 <a href="{{ asset('storage/supervisor/project/03_04_PR/' . $koneksipay->pay_parts_42) }}"
@@ -3700,25 +3787,29 @@
                                         </td>
 
                                         <td class="space-y-2 py-3 px-2">
-                                            @if ($koneksipay->pay_parts_42 != '')
+                                            @if (
+                                                ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                    $koneksipay->pay_parts_42 == '')
+                                                <button type="button"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
+                                                    data-modal-target="modala142" data-modal-show="modala142"
+                                                    data-modal-toggle="modala142">
+                                                    + Tambah dokumen
+                                                </button>
+                                            @elseif (
+                                                ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                    $koneksipay->pay_parts_42 != '' &&
+                                                    $koneksipay->status_pay_04 != 'Complete' &&
+                                                    $koneksipay->status_pay_04 != 'Waiting Approval')
                                                 <div class="justify-center flex space-x-2">
                                                     <button type="button"
-                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                         data-modal-target="modal142" data-modal-show="modal142"
-                                                        data-modal-toggle="modal142">Ubah</button>
-                                                </div>
-                                            @else
-                                                <input type="file" name="as_pay_parts_42" id="">
-                                                <div class="">
-                                                    <input type="number" id="base-input"
-                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PAY)"
-                                                        min="0" max="999999999999"
-                                                        oninput="validity.valid||(value='');"
-                                                        name="as_mny_parts_pay_42">
+                                                        data-modal-toggle="modal142">
+                                                        Ubah
+                                                    </button>
                                                 </div>
                                             @endif
-
                                         </td>
                                         <input type="text" hidden name="as_up_by_parts_pay_42"
                                             value="{{ Auth::user()->first_name }}">
@@ -3730,7 +3821,7 @@
                                     <tr
                                         class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
                                         <td class="py-4 font-bold text-center">43.</td>
-                                        <td class="flex items-center my-10">
+                                        <td class="flex items-center my-4">
 
                                             @if ($koneksipay->pay_parts_43 != '')
                                                 <a href="{{ asset('storage/supervisor/project/03_04_PR/' . $koneksipay->pay_parts_43) }}"
@@ -3768,25 +3859,29 @@
                                         </td>
 
                                         <td class="space-y-2 py-3 px-2">
-                                            @if ($koneksipay->pay_parts_43 != '')
+                                            @if (
+                                                ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                    $koneksipay->pay_parts_43 == '')
+                                                <button type="button"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
+                                                    data-modal-target="modala143" data-modal-show="modala143"
+                                                    data-modal-toggle="modala143">
+                                                    + Tambah dokumen
+                                                </button>
+                                            @elseif (
+                                                ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                    $koneksipay->pay_parts_43 != '' &&
+                                                    $koneksipay->status_pay_04 != 'Complete' &&
+                                                    $koneksipay->status_pay_04 != 'Waiting Approval')
                                                 <div class="justify-center flex space-x-2">
                                                     <button type="button"
-                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                         data-modal-target="modal143" data-modal-show="modal143"
-                                                        data-modal-toggle="modal143">Ubah</button>
-                                                </div>
-                                            @else
-                                                <input type="file" name="as_pay_parts_43" id="">
-                                                <div class="">
-                                                    <input type="number" id="base-input"
-                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PAY)"
-                                                        min="0" max="999999999999"
-                                                        oninput="validity.valid||(value='');"
-                                                        name="as_mny_parts_pay_43">
+                                                        data-modal-toggle="modal143">
+                                                        Ubah
+                                                    </button>
                                                 </div>
                                             @endif
-
                                         </td>
                                         <input type="text" hidden name="as_up_by_parts_pay_43"
                                             value="{{ Auth::user()->first_name }}">
@@ -3798,7 +3893,7 @@
                                     <tr
                                         class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
                                         <td class="py-4 font-bold text-center">44.</td>
-                                        <td class="flex items-center my-10">
+                                        <td class="flex items-center my-4">
 
                                             @if ($koneksipay->pay_parts_44 != '')
                                                 <a href="{{ asset('storage/supervisor/project/03_04_PR/' . $koneksipay->pay_parts_44) }}"
@@ -3836,25 +3931,29 @@
                                         </td>
 
                                         <td class="space-y-2 py-3 px-2">
-                                            @if ($koneksipay->pay_parts_44 != '')
+                                            @if (
+                                                ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                    $koneksipay->pay_parts_44 == '')
+                                                <button type="button"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
+                                                    data-modal-target="modala144" data-modal-show="modala144"
+                                                    data-modal-toggle="modala144">
+                                                    + Tambah dokumen
+                                                </button>
+                                            @elseif (
+                                                ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                    $koneksipay->pay_parts_44 != '' &&
+                                                    $koneksipay->status_pay_04 != 'Complete' &&
+                                                    $koneksipay->status_pay_04 != 'Waiting Approval')
                                                 <div class="justify-center flex space-x-2">
                                                     <button type="button"
-                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                         data-modal-target="modal144" data-modal-show="modal144"
-                                                        data-modal-toggle="modal144">Ubah</button>
-                                                </div>
-                                            @else
-                                                <input type="file" name="as_pay_parts_44" id="">
-                                                <div class="">
-                                                    <input type="number" id="base-input"
-                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PAY)"
-                                                        min="0" max="999999999999"
-                                                        oninput="validity.valid||(value='');"
-                                                        name="as_mny_parts_pay_44">
+                                                        data-modal-toggle="modal144">
+                                                        Ubah
+                                                    </button>
                                                 </div>
                                             @endif
-
                                         </td>
                                         <input type="text" hidden name="as_up_by_parts_pay_44"
                                             value="{{ Auth::user()->first_name }}">
@@ -3866,7 +3965,7 @@
                                     <tr
                                         class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
                                         <td class="py-4 font-bold text-center">45.</td>
-                                        <td class="flex items-center my-10">
+                                        <td class="flex items-center my-4">
 
                                             @if ($koneksipay->pay_parts_45 != '')
                                                 <a href="{{ asset('storage/supervisor/project/03_04_PR/' . $koneksipay->pay_parts_45) }}"
@@ -3904,22 +4003,27 @@
                                         </td>
 
                                         <td class="space-y-2 py-3 px-2">
-                                            @if ($koneksipay->pay_parts_45 != '')
+                                            @if (
+                                                ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                    $koneksipay->pay_parts_45 == '')
+                                                <button type="button"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
+                                                    data-modal-target="modala145" data-modal-show="modala145"
+                                                    data-modal-toggle="modala145">
+                                                    + Tambah dokumen
+                                                </button>
+                                            @elseif (
+                                                ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                    $koneksipay->pay_parts_45 != '' &&
+                                                    $koneksipay->status_pay_04 != 'Complete' &&
+                                                    $koneksipay->status_pay_04 != 'Waiting Approval')
                                                 <div class="justify-center flex space-x-2">
                                                     <button type="button"
-                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                         data-modal-target="modal145" data-modal-show="modal145"
-                                                        data-modal-toggle="modal145">Ubah</button>
-                                                </div>
-                                            @else
-                                                <input type="file" name="as_pay_parts_45" id="">
-                                                <div class="">
-                                                    <input type="number" id="base-input"
-                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PAY)"
-                                                        min="0" max="999999999999"
-                                                        oninput="validity.valid||(value='');"
-                                                        name="as_mny_parts_pay_45">
+                                                        data-modal-toggle="modal145">
+                                                        Ubah
+                                                    </button>
                                                 </div>
                                             @endif
                                         </td>
@@ -3927,359 +4031,16 @@
                                             value="{{ Auth::user()->first_name }}">
                                         <input type="date" hidden name="as_date_pay_parts_45"
                                             value="{{ date('Y-m-d') }}">
-
                                     </tr>
-                                    {{-- parts 46 --}}
-                                    <tr
-                                        class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
-                                        <td class="py-4 font-bold text-center">46.</td>
-                                        <td class="flex items-center my-10">
-
-                                            @if ($koneksipay->pay_parts_46 != '')
-                                                <a href="{{ asset('storage/supervisor/project/03_04_PR/' . $koneksipay->pay_parts_46) }}"
-                                                    target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
-                                                    <svg width="22" height="17" viewBox="0 0 22 17"
-                                                        fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                        <path
-                                                            d="M11 0C6 0 1.73 3.11 0 7.5C1.73 11.89 6 15 11 15C11.36 15 11.72 15 12.08 14.95C12.03 14.63 12 14.32 12 14C12 13.44 12.08 12.88 12.24 12.34C11.83 12.44 11.42 12.5 11 12.5C8.24 12.5 6 10.26 6 7.5C6 4.74 8.24 2.5 11 2.5C13.76 2.5 16 4.74 16 7.5C16 7.79 15.97 8.09 15.92 8.38C16.58 8.13 17.29 8 18 8C19.17 8 20.31 8.34 21.29 9C21.56 8.5 21.8 8 22 7.5C20.27 3.11 16 0 11 0ZM11 4.5C9.34 4.5 8 5.84 8 7.5C8 9.16 9.34 10.5 11 10.5C12.66 10.5 14 9.16 14 7.5C14 5.84 12.66 4.5 11 4.5ZM17 10.5V12.5H21V14.5H17V16.5L14 13.5L17 10.5Z"
-                                                            fill="black" />
-                                                    </svg>
-                                                </a>
-
-                                                &emsp;
-                                            @endif
-                                            {{--  --}}
-                                            <a href="{{ asset('storage/supervisor/project/03_04_PR/' . $koneksipay->pay_parts_46) }}"
-                                                target="blank" download="" class="hover:underline">
-                                                {{ $koneksipay->pay_parts_46 }}</a>
-                                            {{-- == --}}
-
-                                        </td>
-                                        <td>
-                                            @if ($koneksipay->up_by_parts_pay_46 != '')
-                                                <div
-                                                    class="items-center py-1 px-2 text-sm font-medium text-center text-white bg-orange-500 w-[100] mx-auto rounded">
-                                                    {{ $koneksipay->up_by_parts_pay_46 }}
-                                                </div>
-                                            @endif
-                                        </td>
-                                        <td class="text-center">{{ $koneksipay->date_pay_parts_46 }}</td>
-                                        <td>
-                                            @if ($koneksipay->mny_parts_pay_46 != '')
-                                                Rp{{ number_format($koneksipay->mny_parts_pay_46, 0, ',', '.') }}
-                                            @endif
-                                        </td>
-
-                                        <td class="space-y-2 py-3 px-2">
-                                            @if ($koneksipay->pay_parts_46 != '')
-                                                <div class="justify-center flex space-x-2">
-                                                    <button type="button"
-                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
-                                                        data-modal-target="modal146" data-modal-show="modal146"
-                                                        data-modal-toggle="modal146">Ubah</button>
-                                                </div>
-                                            @else
-                                                <input type="file" name="as_pay_parts_46" id="">
-                                                <div class="">
-                                                    <input type="number" id="base-input"
-                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PAY)"
-                                                        min="0" max="999999999999"
-                                                        oninput="validity.valid||(value='');"
-                                                        name="as_mny_parts_pay_46">
-                                                </div>
-                                            @endif
-
-                                        </td>
-                                        <input type="text" hidden name="as_up_by_parts_pay_46"
-                                            value="{{ Auth::user()->first_name }}">
-                                        <input type="date" hidden name="as_date_pay_parts_46"
-                                            value="{{ date('Y-m-d') }}">
-
-                                    </tr>
-                                    {{-- akhir batas 30-36 --}}
-                                    {{-- parts 47 parts --}}
-                                    <tr
-                                        class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
-                                        <td class="py-4 font-bold text-center">47.</td>
-                                        <td class="flex items-center my-10">
-
-                                            @if ($koneksipay->pay_parts_47 != '')
-                                                <a href="{{ asset('storage/supervisor/project/03_04_PR/' . $koneksipay->pay_parts_47) }}"
-                                                    target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
-                                                    <svg width="22" height="17" viewBox="0 0 22 17"
-                                                        fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                        <path
-                                                            d="M11 0C6 0 1.73 3.11 0 7.5C1.73 11.89 6 15 11 15C11.36 15 11.72 15 12.08 14.95C12.03 14.63 12 14.32 12 14C12 13.44 12.08 12.88 12.24 12.34C11.83 12.44 11.42 12.5 11 12.5C8.24 12.5 6 10.26 6 7.5C6 4.74 8.24 2.5 11 2.5C13.76 2.5 16 4.74 16 7.5C16 7.79 15.97 8.09 15.92 8.38C16.58 8.13 17.29 8 18 8C19.17 8 20.31 8.34 21.29 9C21.56 8.5 21.8 8 22 7.5C20.27 3.11 16 0 11 0ZM11 4.5C9.34 4.5 8 5.84 8 7.5C8 9.16 9.34 10.5 11 10.5C12.66 10.5 14 9.16 14 7.5C14 5.84 12.66 4.5 11 4.5ZM17 10.5V12.5H21V14.5H17V16.5L14 13.5L17 10.5Z"
-                                                            fill="black" />
-                                                    </svg>
-                                                </a>
-
-                                                &emsp;
-                                            @endif
-                                            {{--  --}}
-                                            <a href="{{ asset('storage/supervisor/project/03_04_PR/' . $koneksipay->pay_parts_47) }}"
-                                                target="blank" download="" class="hover:underline">
-                                                {{ $koneksipay->pay_parts_47 }}</a>
-                                            {{-- == --}}
-
-                                        </td>
-                                        <td>
-                                            @if ($koneksipay->up_by_parts_pay_47 != '')
-                                                <div
-                                                    class="items-center py-1 px-2 text-sm font-medium text-center text-white bg-orange-500 w-[100] mx-auto rounded">
-                                                    {{ $koneksipay->up_by_parts_pay_47 }}
-                                                </div>
-                                            @endif
-                                        </td>
-                                        <td class="text-center">{{ $koneksipay->date_pay_parts_47 }}</td>
-                                        <td>
-                                            @if ($koneksipay->mny_parts_pay_47 != '')
-                                                Rp{{ number_format($koneksipay->mny_parts_pay_47, 0, ',', '.') }}
-                                            @endif
-                                        </td>
-
-                                        <td class="space-y-2 py-3 px-2">
-                                            @if ($koneksipay->pay_parts_47 != '')
-                                                <div class="justify-center flex space-x-2">
-                                                    <button type="button"
-                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
-                                                        data-modal-target="modal147" data-modal-show="modal147"
-                                                        data-modal-toggle="modal147">Ubah</button>
-                                                </div>
-                                            @else
-                                                <input type="file" name="as_pay_parts_47" id="">
-                                                <div class="">
-                                                    <input type="number" id="base-input"
-                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PAY)"
-                                                        min="0" max="999999999999"
-                                                        oninput="validity.valid||(value='');"
-                                                        name="as_mny_parts_pay_47">
-                                                </div>
-                                            @endif
-                                        </td>
-                                        <input type="text" hidden name="as_up_by_parts_pay_47"
-                                            value="{{ Auth::user()->first_name }}">
-                                        <input type="date" hidden name="as_date_pay_parts_47"
-                                            value="{{ date('Y-m-d') }}">
-
-                                    </tr>
-                                    {{-- parts 48 parts --}}
-                                    <tr
-                                        class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
-                                        <td class="py-4 font-bold text-center">48.</td>
-                                        <td class="flex items-center my-10">
-
-                                            @if ($koneksipay->pay_parts_48 != '')
-                                                <a href="{{ asset('storage/supervisor/project/03_04_PR/' . $koneksipay->pay_parts_48) }}"
-                                                    target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
-                                                    <svg width="22" height="17" viewBox="0 0 22 17"
-                                                        fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                        <path
-                                                            d="M11 0C6 0 1.73 3.11 0 7.5C1.73 11.89 6 15 11 15C11.36 15 11.72 15 12.08 14.95C12.03 14.63 12 14.32 12 14C12 13.44 12.08 12.88 12.24 12.34C11.83 12.44 11.42 12.5 11 12.5C8.24 12.5 6 10.26 6 7.5C6 4.74 8.24 2.5 11 2.5C13.76 2.5 16 4.74 16 7.5C16 7.79 15.97 8.09 15.92 8.38C16.58 8.13 17.29 8 18 8C19.17 8 20.31 8.34 21.29 9C21.56 8.5 21.8 8 22 7.5C20.27 3.11 16 0 11 0ZM11 4.5C9.34 4.5 8 5.84 8 7.5C8 9.16 9.34 10.5 11 10.5C12.66 10.5 14 9.16 14 7.5C14 5.84 12.66 4.5 11 4.5ZM17 10.5V12.5H21V14.5H17V16.5L14 13.5L17 10.5Z"
-                                                            fill="black" />
-                                                    </svg>
-                                                </a>
-
-                                                &emsp;
-                                            @endif
-                                            {{--  --}}
-                                            <a href="{{ asset('storage/supervisor/project/03_04_PR/' . $koneksipay->pay_parts_48) }}"
-                                                target="blank" download="" class="hover:underline">
-                                                {{ $koneksipay->pay_parts_48 }}</a>
-                                            {{-- == --}}
-
-                                        </td>
-                                        <td>
-                                            @if ($koneksipay->up_by_parts_pay_48 != '')
-                                                <div
-                                                    class="items-center py-1 px-2 text-sm font-medium text-center text-white bg-orange-500 w-[100] mx-auto rounded">
-                                                    {{ $koneksipay->up_by_parts_pay_48 }}
-                                                </div>
-                                            @endif
-                                        </td>
-                                        <td class="text-center">{{ $koneksipay->date_pay_parts_48 }}</td>
-                                        <td>
-                                            @if ($koneksipay->mny_parts_pay_48 != '')
-                                                Rp{{ number_format($koneksipay->mny_parts_pay_48, 0, ',', '.') }}
-                                            @endif
-                                        </td>
-
-                                        <td class="space-y-2 py-3 px-2">
-                                            @if ($koneksipay->pay_parts_48 != '')
-                                                <div class="justify-center flex space-x-2">
-                                                    <button type="button"
-                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
-                                                        data-modal-target="modal148" data-modal-show="modal148"
-                                                        data-modal-toggle="modal148">Ubah</button>
-                                                </div>
-                                            @else
-                                                <input type="file" name="as_pay_parts_48" id="">
-                                                <div class="">
-                                                    <input type="number" id="base-input"
-                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PAY)"
-                                                        min="0" max="999999999999"
-                                                        oninput="validity.valid||(value='');"
-                                                        name="as_mny_parts_pay_48">
-                                                </div>
-                                            @endif
-
-                                        </td>
-                                        <input type="text" hidden name="as_up_by_parts_pay_48"
-                                            value="{{ Auth::user()->first_name }}">
-                                        <input type="date" hidden name="as_date_pay_parts_48"
-                                            value="{{ date('Y-m-d') }}">
-
-                                    </tr>
-                                    {{-- parts 49 parts --}}
-                                    <tr
-                                        class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
-                                        <td class="py-4 font-bold text-center">49.</td>
-                                        <td class="flex items-center my-10">
-
-                                            @if ($koneksipay->pay_parts_49 != '')
-                                                <a href="{{ asset('storage/supervisor/project/03_04_PR/' . $koneksipay->pay_parts_49) }}"
-                                                    target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
-                                                    <svg width="22" height="17" viewBox="0 0 22 17"
-                                                        fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                        <path
-                                                            d="M11 0C6 0 1.73 3.11 0 7.5C1.73 11.89 6 15 11 15C11.36 15 11.72 15 12.08 14.95C12.03 14.63 12 14.32 12 14C12 13.44 12.08 12.88 12.24 12.34C11.83 12.44 11.42 12.5 11 12.5C8.24 12.5 6 10.26 6 7.5C6 4.74 8.24 2.5 11 2.5C13.76 2.5 16 4.74 16 7.5C16 7.79 15.97 8.09 15.92 8.38C16.58 8.13 17.29 8 18 8C19.17 8 20.31 8.34 21.29 9C21.56 8.5 21.8 8 22 7.5C20.27 3.11 16 0 11 0ZM11 4.5C9.34 4.5 8 5.84 8 7.5C8 9.16 9.34 10.5 11 10.5C12.66 10.5 14 9.16 14 7.5C14 5.84 12.66 4.5 11 4.5ZM17 10.5V12.5H21V14.5H17V16.5L14 13.5L17 10.5Z"
-                                                            fill="black" />
-                                                    </svg>
-                                                </a>
-
-                                                &emsp;
-                                            @endif
-                                            {{--  --}}
-                                            <a href="{{ asset('storage/supervisor/project/03_04_PR/' . $koneksipay->pay_parts_49) }}"
-                                                target="blank" download="" class="hover:underline">
-                                                {{ $koneksipay->pay_parts_49 }}</a>
-                                            {{-- == --}}
-
-                                        </td>
-                                        <td>
-                                            @if ($koneksipay->up_by_parts_pay_49 != '')
-                                                <div
-                                                    class="items-center py-1 px-2 text-sm font-medium text-center text-white bg-orange-500 w-[100] mx-auto rounded">
-                                                    {{ $koneksipay->up_by_parts_pay_49 }}
-                                                </div>
-                                            @endif
-                                        </td>
-                                        <td class="text-center">{{ $koneksipay->date_pay_parts_49 }}</td>
-                                        <td>
-                                            @if ($koneksipay->mny_parts_pay_49 != '')
-                                                Rp{{ number_format($koneksipay->mny_parts_pay_49, 0, ',', '.') }}
-                                            @endif
-                                        </td>
-
-                                        <td class="space-y-2 py-3 px-2">
-                                            @if ($koneksipay->pay_parts_49 != '')
-                                                <div class="justify-center flex space-x-2">
-                                                    <button type="button"
-                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
-                                                        data-modal-target="modal149" data-modal-show="modal149"
-                                                        data-modal-toggle="modal149">Ubah</button>
-                                                </div>
-                                            @else
-                                                <input type="file" name="as_pay_parts_49" id="">
-                                                <div class="">
-                                                    <input type="number" id="base-input"
-                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PAY)"
-                                                        min="0" max="999999999999"
-                                                        oninput="validity.valid||(value='');"
-                                                        name="as_mny_parts_pay_49">
-                                                </div>
-                                            @endif
-
-                                        </td>
-                                        <input type="text" hidden name="as_up_by_parts_pay_49"
-                                            value="{{ Auth::user()->first_name }}">
-                                        <input type="date" hidden name="as_date_pay_parts_49"
-                                            value="{{ date('Y-m-d') }}">
-
-                                    </tr>
-                                    {{-- 50 parts --}}
-                                    <tr
-                                        class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
-                                        <td class="py-4 font-bold text-center">50.</td>
-                                        <td class="flex items-center my-10">
-
-                                            @if ($koneksipay->pay_parts_50 != '')
-                                                <a href="{{ asset('storage/supervisor/project/03_04_PR/' . $koneksipay->pay_parts_50) }}"
-                                                    target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
-                                                    <svg width="22" height="17" viewBox="0 0 22 17"
-                                                        fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                        <path
-                                                            d="M11 0C6 0 1.73 3.11 0 7.5C1.73 11.89 6 15 11 15C11.36 15 11.72 15 12.08 14.95C12.03 14.63 12 14.32 12 14C12 13.44 12.08 12.88 12.24 12.34C11.83 12.44 11.42 12.5 11 12.5C8.24 12.5 6 10.26 6 7.5C6 4.74 8.24 2.5 11 2.5C13.76 2.5 16 4.74 16 7.5C16 7.79 15.97 8.09 15.92 8.38C16.58 8.13 17.29 8 18 8C19.17 8 20.31 8.34 21.29 9C21.56 8.5 21.8 8 22 7.5C20.27 3.11 16 0 11 0ZM11 4.5C9.34 4.5 8 5.84 8 7.5C8 9.16 9.34 10.5 11 10.5C12.66 10.5 14 9.16 14 7.5C14 5.84 12.66 4.5 11 4.5ZM17 10.5V12.5H21V14.5H17V16.5L14 13.5L17 10.5Z"
-                                                            fill="black" />
-                                                    </svg>
-                                                </a>
-
-                                                &emsp;
-                                            @endif
-                                            {{--  --}}
-                                            <a href="{{ asset('storage/supervisor/project/03_04_PR/' . $koneksipay->pay_parts_50) }}"
-                                                target="blank" download="" class="hover:underline">
-                                                {{ $koneksipay->pay_parts_50 }}</a>
-                                            {{-- == --}}
-
-                                        </td>
-                                        <td>
-                                            @if ($koneksipay->up_by_parts_pay_50 != '')
-                                                <div
-                                                    class="items-center py-1 px-2 text-sm font-medium text-center text-white bg-orange-500 w-[100] mx-auto rounded">
-                                                    {{ $koneksipay->up_by_parts_pay_50 }}
-                                                </div>
-                                            @endif
-                                        </td>
-                                        <td class="text-center">{{ $koneksipay->date_pay_parts_50 }}</td>
-                                        <td>
-                                            @if ($koneksipay->mny_parts_pay_50 != '')
-                                                Rp{{ number_format($koneksipay->mny_parts_pay_50, 0, ',', '.') }}
-                                            @endif
-                                        </td>
-
-                                        <td class="space-y-2 py-3 px-2">
-                                            @if ($koneksipay->pay_parts_50 != '')
-                                                <div class="justify-center flex space-x-2">
-                                                    <button type="button"
-                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
-                                                        data-modal-target="modal150" data-modal-show="modal150"
-                                                        data-modal-toggle="modal150">Ubah</button>
-                                                </div>
-                                            @else
-                                                <input type="file" name="as_pay_parts_50" id="">
-                                                <div class="">
-                                                    <input type="number" id="base-input"
-                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PAY)"
-                                                        min="0" max="999999999999"
-                                                        oninput="validity.valid||(value='');"
-                                                        name="as_mny_parts_pay_50">
-                                                </div>
-                                            @endif
-
-                                        </td>
-                                        <input type="text" hidden name="as_up_by_parts_pay_50"
-                                            value="{{ Auth::user()->first_name }}">
-                                        <input type="date" hidden name="as_date_pay_parts_50"
-                                            value="{{ date('Y-m-d') }}">
-
-                                    </tr>
-
-
                                 </tbody>
                             </table>
                         </div>
-                        {{-- Akhir material --}}
+                        {{-- Akhir material parts --}}
 
                         {{-- PR Pekerjaan/Jasa --}}
                         {{-- awal standar formulir --}}
                         <div class="flex justify-between">
-                            <p class="font-normal text-lg bg-teal-600 px-4 py-1 w-fit text-white mb-2 rounded"> PAY Pekerjaan/Jasa
+                            <p class="font-medium text-lg bg-gray-800 px-4 py-1 w-fit text-white mb-2 rounded"> PAY Pekerjaan/Jasa
                             @foreach ($standar_project as $spt)
                                 @if ($spt->file_pr_pekerjaan_jasa_form != '')
                                     <div class="flex justify-end mr-1 mt-4">
@@ -4308,20 +4069,20 @@
 
                         <div class="overflow-x-auto rounded-md mb-5 max-h-screen overflow-y-auto border">
                             <table class="w-full">
-                                <thead class="bg-green-600 text-white">
-                                    <th class="py-2 w-[5%]">No.</th>
-                                    <th class="w-[45%]">Nama File</th>
-                                    <th class="w-[12%]">Uploaded by</th>
-                                    <th class="w-[12%]">Last Update</th>
-                                    <th class="w-[11%]">PAY Amount</th>
-                                    <th class="w-[15%]">Aksi</th>
+                                <thead class="bg-gray-300 text-gray-700">
+                                    <th class="py-2 w-[5%] font-medium">No.</th>
+                                    <th class="w-[45%]  font-medium">Nama File</th>
+                                    <th class="w-[11%]  font-medium">Diunggah oleh</th>
+                                    <th class="w-[10%]  font-medium">Terakhir diubah</th>
+                                    <th class="w-[14%]  font-medium">Jumlah PAY</th>
+                                    <th class="w-[14%]  font-medium">Aksi</th>
                                 </thead>
                                 <tbody class="text-left border">
                                     {{-- 1 --}}
                                     <tr
                                         class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
                                         <td class="py-4 font-bold text-center">1.</td>
-                                        <td class="flex items-center my-10">
+                                        <td class="flex items-center my-4">
 
                                             @if ($koneksipay->pay_jasa_1 != '')
                                                 <a href="{{ asset('storage/supervisor/project/03_04_PR/' . $koneksipay->pay_jasa_1) }}"
@@ -4358,25 +4119,29 @@
                                             @endif
                                         </td>
                                         <td class="space-y-2 py-3 px-2">
-                                            @if ($koneksipay->pay_jasa_1 != '')
+                                            @if (
+                                                ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                    $koneksipay->pay_jasa_1 == '')
+                                                <button type="button"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
+                                                    data-modal-target="modala21" data-modal-show="modala21"
+                                                    data-modal-toggle="modala21">
+                                                    + Tambah dokumen
+                                                </button>
+                                            @elseif (
+                                                ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                    $koneksipay->pay_jasa_1 != '' &&
+                                                    $koneksipay->status_pay_04 != 'Complete' &&
+                                                    $koneksipay->status_pay_04 != 'Waiting Approval')
                                                 <div class="justify-center flex space-x-2">
                                                     <button type="button"
-                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                         data-modal-target="modal21" data-modal-show="modal21"
-                                                        data-modal-toggle="modal21">Ubah</button>
-                                                </div>
-                                            @else
-                                                <input type="file" name="as_pay_jasa_1" id="">
-                                                <div class="">
-                                                    <input type="number" id="base-input"
-                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PAY)"
-                                                        min="0" max="999999999999"
-                                                        oninput="validity.valid||(value='');"
-                                                        name="as_mny_jasa_pay_1">
+                                                        data-modal-toggle="modal21">
+                                                        Ubah
+                                                    </button>
                                                 </div>
                                             @endif
-
                                         </td>
                                         <input type="text" hidden name="as_up_by_jasa_pay_1"
                                             value="{{ Auth::user()->first_name }}">
@@ -4388,7 +4153,7 @@
                                     <tr
                                         class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
                                         <td class="py-4 font-bold text-center">2.</td>
-                                        <td class="flex items-center my-10">
+                                        <td class="flex items-center my-4">
 
                                             @if ($koneksipay->pay_jasa_2 != '')
                                                 <a href="{{ asset('storage/supervisor/project/03_04_PR/' . $koneksipay->pay_jasa_2) }}"
@@ -4425,25 +4190,29 @@
                                             @endif
                                         </td>
                                         <td class="space-y-2 py-3 px-2">
-                                            @if ($koneksipay->pay_jasa_2 != '')
+                                            @if (
+                                                ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                    $koneksipay->pay_jasa_2 == '')
+                                                <button type="button"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
+                                                    data-modal-target="modala22" data-modal-show="modala22"
+                                                    data-modal-toggle="modala22">
+                                                    + Tambah dokumen
+                                                </button>
+                                            @elseif (
+                                                ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                    $koneksipay->pay_jasa_2 != '' &&
+                                                    $koneksipay->status_pay_04 != 'Complete' &&
+                                                    $koneksipay->status_pay_04 != 'Waiting Approval')
                                                 <div class="justify-center flex space-x-2">
                                                     <button type="button"
-                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                         data-modal-target="modal22" data-modal-show="modal22"
-                                                        data-modal-toggle="modal22">Ubah</button>
-                                                </div>
-                                            @else
-                                                <input type="file" name="as_pay_jasa_2" id="">
-                                                <div class="">
-                                                    <input type="number" id="base-input"
-                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PAY)"
-                                                        min="0" max="999999999999"
-                                                        oninput="validity.valid||(value='');"
-                                                        name="as_mny_jasa_pay_2">
+                                                        data-modal-toggle="modal22">
+                                                        Ubah
+                                                    </button>
                                                 </div>
                                             @endif
-
                                         </td>
                                         <input type="text" hidden name="as_up_by_jasa_pay_2"
                                             value="{{ Auth::user()->first_name }}">
@@ -4456,7 +4225,7 @@
                                     <tr
                                         class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
                                         <td class="py-4 font-bold text-center">3.</td>
-                                        <td class="flex items-center my-10">
+                                        <td class="flex items-center my-4">
 
                                             @if ($koneksipay->pay_jasa_3 != '')
                                                 <a href="{{ asset('storage/supervisor/project/03_04_PR/' . $koneksipay->pay_jasa_3) }}"
@@ -4493,25 +4262,29 @@
                                             @endif
                                         </td>
                                         <td class="space-y-2 py-3 px-2">
-                                            @if ($koneksipay->pay_jasa_3 != '')
+                                            @if (
+                                                ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                    $koneksipay->pay_jasa_3 == '')
+                                                <button type="button"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
+                                                    data-modal-target="modala23" data-modal-show="modala23"
+                                                    data-modal-toggle="modala23">
+                                                    + Tambah dokumen
+                                                </button>
+                                            @elseif (
+                                                ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                    $koneksipay->pay_jasa_3 != '' &&
+                                                    $koneksipay->status_pay_04 != 'Complete' &&
+                                                    $koneksipay->status_pay_04 != 'Waiting Approval')
                                                 <div class="justify-center flex space-x-2">
                                                     <button type="button"
-                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                         data-modal-target="modal23" data-modal-show="modal23"
-                                                        data-modal-toggle="modal23">Ubah</button>
-                                                </div>
-                                            @else
-                                                <input type="file" name="as_pay_jasa_3" id="">
-                                                <div class="">
-                                                    <input type="number" id="base-input"
-                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PAY)"
-                                                        min="0" max="999999999999"
-                                                        oninput="validity.valid||(value='');"
-                                                        name="as_mny_jasa_pay_3">
+                                                        data-modal-toggle="modal23">
+                                                        Ubah
+                                                    </button>
                                                 </div>
                                             @endif
-
                                         </td>
                                         <input type="text" hidden name="as_up_by_jasa_pay_3"
                                             value="{{ Auth::user()->first_name }}">
@@ -4524,7 +4297,7 @@
                                     <tr
                                         class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
                                         <td class="py-4 font-bold text-center">4.</td>
-                                        <td class="flex items-center my-10">
+                                        <td class="flex items-center my-4">
 
                                             @if ($koneksipay->pay_jasa_4 != '')
                                                 <a href="{{ asset('storage/supervisor/project/03_04_PR/' . $koneksipay->pay_jasa_4) }}"
@@ -4561,22 +4334,27 @@
                                             @endif
                                         </td>
                                         <td class="space-y-2 py-3 px-2">
-                                            @if ($koneksipay->pay_jasa_4 != '')
+                                            @if (
+                                                ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                    $koneksipay->pay_jasa_4 == '')
+                                                <button type="button"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
+                                                    data-modal-target="modala24" data-modal-show="modala24"
+                                                    data-modal-toggle="modala24">
+                                                    + Tambah dokumen
+                                                </button>
+                                            @elseif (
+                                                ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                    $koneksipay->pay_jasa_4 != '' &&
+                                                    $koneksipay->status_pay_04 != 'Complete' &&
+                                                    $koneksipay->status_pay_04 != 'Waiting Approval')
                                                 <div class="justify-center flex space-x-2">
                                                     <button type="button"
-                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                         data-modal-target="modal24" data-modal-show="modal24"
-                                                        data-modal-toggle="modal24">Ubah</button>
-                                                </div>
-                                            @else
-                                                <input type="file" name="as_pay_jasa_4" id="">
-                                                <div class="">
-                                                    <input type="number" id="base-input"
-                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PAY)"
-                                                        min="0" max="999999999999"
-                                                        oninput="validity.valid||(value='');"
-                                                        name="as_mny_jasa_pay_4">
+                                                        data-modal-toggle="modal24">
+                                                        Ubah
+                                                    </button>
                                                 </div>
                                             @endif
                                         </td>
@@ -4590,7 +4368,7 @@
                                     <tr
                                         class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
                                         <td class="py-4 font-bold text-center">5.</td>
-                                        <td class="flex items-center my-10">
+                                        <td class="flex items-center my-4">
 
                                             @if ($koneksipay->pay_jasa_5 != '')
                                                 <a href="{{ asset('storage/supervisor/project/03_04_PR/' . $koneksipay->pay_jasa_5) }}"
@@ -4627,22 +4405,27 @@
                                             @endif
                                         </td>
                                         <td class="space-y-2 py-3 px-2">
-                                            @if ($koneksipay->pay_jasa_5 != '')
+                                            @if (
+                                                ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                    $koneksipay->pay_jasa_5 == '')
+                                                <button type="button"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
+                                                    data-modal-target="modala25" data-modal-show="modala25"
+                                                    data-modal-toggle="modala25">
+                                                    + Tambah dokumen
+                                                </button>
+                                            @elseif (
+                                                ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                    $koneksipay->pay_jasa_5 != '' &&
+                                                    $koneksipay->status_pay_04 != 'Complete' &&
+                                                    $koneksipay->status_pay_04 != 'Waiting Approval')
                                                 <div class="justify-center flex space-x-2">
                                                     <button type="button"
-                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                         data-modal-target="modal25" data-modal-show="modal25"
-                                                        data-modal-toggle="modal25">Ubah</button>
-                                                </div>
-                                            @else
-                                                <input type="file" name="as_pay_jasa_5" id="">
-                                                <div class="">
-                                                    <input type="number" id="base-input"
-                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PAY)"
-                                                        min="0" max="999999999999"
-                                                        oninput="validity.valid||(value='');"
-                                                        name="as_mny_jasa_pay_5">
+                                                        data-modal-toggle="modal25">
+                                                        Ubah
+                                                    </button>
                                                 </div>
                                             @endif
                                         </td>
@@ -4655,7 +4438,7 @@
                                     <tr
                                         class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
                                         <td class="py-4 font-bold text-center">6.</td>
-                                        <td class="flex items-center my-10">
+                                        <td class="flex items-center my-4">
 
                                             @if ($koneksipay->pay_jasa_6 != '')
                                                 <a href="{{ asset('storage/supervisor/project/03_04_PR/' . $koneksipay->pay_jasa_6) }}"
@@ -4692,25 +4475,29 @@
                                             @endif
                                         </td>
                                         <td class="space-y-2 py-3 px-2">
-                                            @if ($koneksipay->pay_jasa_6 != '')
+                                            @if (
+                                                ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                    $koneksipay->pay_jasa_6 == '')
+                                                <button type="button"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
+                                                    data-modal-target="modala26" data-modal-show="modala26"
+                                                    data-modal-toggle="modala26">
+                                                    + Tambah dokumen
+                                                </button>
+                                            @elseif (
+                                                ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                    $koneksipay->pay_jasa_6 != '' &&
+                                                    $koneksipay->status_pay_04 != 'Complete' &&
+                                                    $koneksipay->status_pay_04 != 'Waiting Approval')
                                                 <div class="justify-center flex space-x-2">
                                                     <button type="button"
-                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                         data-modal-target="modal26" data-modal-show="modal26"
-                                                        data-modal-toggle="modal26">Ubah</button>
-                                                </div>
-                                            @else
-                                                <input type="file" name="as_pay_jasa_6" id="">
-                                                <div class="">
-                                                    <input type="number" id="base-input"
-                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PAY)"
-                                                        min="0" max="999999999999"
-                                                        oninput="validity.valid||(value='');"
-                                                        name="as_mny_jasa_pay_6">
+                                                        data-modal-toggle="modal26">
+                                                        Ubah
+                                                    </button>
                                                 </div>
                                             @endif
-
                                         </td>
                                         <input type="text" hidden name="as_up_by_jasa_pay_6"
                                             value="{{ Auth::user()->first_name }}">
@@ -4722,7 +4509,7 @@
                                     <tr
                                         class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
                                         <td class="py-4 font-bold text-center">7.</td>
-                                        <td class="flex items-center my-10">
+                                        <td class="flex items-center my-4">
 
                                             @if ($koneksipay->pay_jasa_7 != '')
                                                 <a href="{{ asset('storage/supervisor/project/03_04_PR/' . $koneksipay->pay_jasa_7) }}"
@@ -4759,22 +4546,27 @@
                                             @endif
                                         </td>
                                         <td class="space-y-2 py-3 px-2">
-                                            @if ($koneksipay->pay_jasa_7 != '')
+                                            @if (
+                                                ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                    $koneksipay->pay_jasa_7 == '')
+                                                <button type="button"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
+                                                    data-modal-target="modala27" data-modal-show="modala27"
+                                                    data-modal-toggle="modala27">
+                                                    + Tambah dokumen
+                                                </button>
+                                            @elseif (
+                                                ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                    $koneksipay->pay_jasa_7 != '' &&
+                                                    $koneksipay->status_pay_04 != 'Complete' &&
+                                                    $koneksipay->status_pay_04 != 'Waiting Approval')
                                                 <div class="justify-center flex space-x-2">
                                                     <button type="button"
-                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                         data-modal-target="modal27" data-modal-show="modal27"
-                                                        data-modal-toggle="modal27">Ubah</button>
-                                                </div>
-                                            @else
-                                                <input type="file" name="as_pay_jasa_7" id="">
-                                                <div class="">
-                                                    <input type="number" id="base-input"
-                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PAY)"
-                                                        min="0" max="999999999999"
-                                                        oninput="validity.valid||(value='');"
-                                                        name="as_mny_jasa_pay_7">
+                                                        data-modal-toggle="modal27">
+                                                        Ubah
+                                                    </button>
                                                 </div>
                                             @endif
                                         </td>
@@ -4788,7 +4580,7 @@
                                     <tr
                                         class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
                                         <td class="py-4 font-bold text-center">8.</td>
-                                        <td class="flex items-center my-10">
+                                        <td class="flex items-center my-4">
 
                                             @if ($koneksipay->pay_jasa_8 != '')
                                                 <a href="{{ asset('storage/supervisor/project/03_04_PR/' . $koneksipay->pay_jasa_8) }}"
@@ -4825,22 +4617,27 @@
                                             @endif
                                         </td>
                                         <td class="space-y-2 py-3 px-2">
-                                            @if ($koneksipay->pay_jasa_8 != '')
+                                            @if (
+                                                ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                    $koneksipay->pay_jasa_8 == '')
+                                                <button type="button"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
+                                                    data-modal-target="modala28" data-modal-show="modala28"
+                                                    data-modal-toggle="modala28">
+                                                    + Tambah dokumen
+                                                </button>
+                                            @elseif (
+                                                ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                    $koneksipay->pay_jasa_8 != '' &&
+                                                    $koneksipay->status_pay_04 != 'Complete' &&
+                                                    $koneksipay->status_pay_04 != 'Waiting Approval')
                                                 <div class="justify-center flex space-x-2">
                                                     <button type="button"
-                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                         data-modal-target="modal28" data-modal-show="modal28"
-                                                        data-modal-toggle="modal28">Ubah</button>
-                                                </div>
-                                            @else
-                                                <input type="file" name="as_pay_jasa_8" id="">
-                                                <div class="">
-                                                    <input type="number" id="base-input"
-                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PAY)"
-                                                        min="0" max="999999999999"
-                                                        oninput="validity.valid||(value='');"
-                                                        name="as_mny_jasa_pay_8">
+                                                        data-modal-toggle="modal28">
+                                                        Ubah
+                                                    </button>
                                                 </div>
                                             @endif
                                         </td>
@@ -4854,7 +4651,7 @@
                                     <tr
                                         class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
                                         <td class="py-4 font-bold text-center">9.</td>
-                                        <td class="flex items-center my-10">
+                                        <td class="flex items-center my-4">
 
                                             @if ($koneksipay->pay_jasa_9 != '')
                                                 <a href="{{ asset('storage/supervisor/project/03_04_PR/' . $koneksipay->pay_jasa_9) }}"
@@ -4891,25 +4688,29 @@
                                             @endif
                                         </td>
                                         <td class="space-y-2 py-3 px-2">
-                                            @if ($koneksipay->pay_jasa_9 != '')
+                                            @if (
+                                                ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                    $koneksipay->pay_jasa_9 == '')
+                                                <button type="button"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
+                                                    data-modal-target="modala29" data-modal-show="modala29"
+                                                    data-modal-toggle="modala29">
+                                                    + Tambah dokumen
+                                                </button>
+                                            @elseif (
+                                                ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                    $koneksipay->pay_jasa_9 != '' &&
+                                                    $koneksipay->status_pay_04 != 'Complete' &&
+                                                    $koneksipay->status_pay_04 != 'Waiting Approval')
                                                 <div class="justify-center flex space-x-2">
                                                     <button type="button"
-                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                         data-modal-target="modal29" data-modal-show="modal29"
-                                                        data-modal-toggle="modal29">Ubah</button>
-                                                </div>
-                                            @else
-                                                <input type="file" name="as_pay_jasa_9" id="">
-                                                <div class="">
-                                                    <input type="number" id="base-input"
-                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PAY)"
-                                                        min="0" max="999999999999"
-                                                        oninput="validity.valid||(value='');"
-                                                        name="as_mny_jasa_pay_9">
+                                                        data-modal-toggle="modal29">
+                                                        Ubah
+                                                    </button>
                                                 </div>
                                             @endif
-
                                         </td>
                                         <input type="text" hidden name="as_up_by_jasa_pay_9"
                                             value="{{ Auth::user()->first_name }}">
@@ -4921,7 +4722,7 @@
                                     <tr
                                         class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
                                         <td class="py-4 font-bold text-center">10.</td>
-                                        <td class="flex items-center my-10">
+                                        <td class="flex items-center my-4">
 
                                             @if ($koneksipay->pay_jasa_10 != '')
                                                 <a href="{{ asset('storage/supervisor/project/03_04_PR/' . $koneksipay->pay_jasa_10) }}"
@@ -4958,25 +4759,29 @@
                                             @endif
                                         </td>
                                         <td class="space-y-2 py-3 px-2">
-                                            @if ($koneksipay->pay_jasa_10 != '')
+                                            @if (
+                                                ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                    $koneksipay->pay_jasa_10 == '')
+                                                <button type="button"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
+                                                    data-modal-target="modala210" data-modal-show="modala210"
+                                                    data-modal-toggle="modala210">
+                                                    + Tambah dokumen
+                                                </button>
+                                            @elseif (
+                                                ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                    $koneksipay->pay_jasa_10 != '' &&
+                                                    $koneksipay->status_pay_04 != 'Complete' &&
+                                                    $koneksipay->status_pay_04 != 'Waiting Approval')
                                                 <div class="justify-center flex space-x-2">
                                                     <button type="button"
-                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                         data-modal-target="modal210" data-modal-show="modal210"
-                                                        data-modal-toggle="modal210">Ubah</button>
-                                                </div>
-                                            @else
-                                                <input type="file" name="as_pay_jasa_10" id="">
-                                                <div class="">
-                                                    <input type="number" id="base-input"
-                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PAY)"
-                                                        min="0" max="999999999999"
-                                                        oninput="validity.valid||(value='');"
-                                                        name="as_mny_jasa_pay_10">
+                                                        data-modal-toggle="modal210">
+                                                        Ubah
+                                                    </button>
                                                 </div>
                                             @endif
-
                                         </td>
                                         <input type="text" hidden name="as_up_by_jasa_pay_10"
                                             value="{{ Auth::user()->first_name }}">
@@ -4988,7 +4793,7 @@
                                     <tr
                                         class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
                                         <td class="py-4 font-bold text-center">11.</td>
-                                        <td class="flex items-center my-10">
+                                        <td class="flex items-center my-4">
 
                                             @if ($koneksipay->pay_jasa_11 != '')
                                                 <a href="{{ asset('storage/supervisor/project/03_04_PR/' . $koneksipay->pay_jasa_11) }}"
@@ -5025,25 +4830,29 @@
                                             @endif
                                         </td>
                                         <td class="space-y-2 py-3 px-2">
-                                            @if ($koneksipay->pay_jasa_11 != '')
+                                            @if (
+                                                ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                    $koneksipay->pay_jasa_11 == '')
+                                                <button type="button"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
+                                                    data-modal-target="modala211" data-modal-show="modala211"
+                                                    data-modal-toggle="modala211">
+                                                    + Tambah dokumen
+                                                </button>
+                                            @elseif (
+                                                ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                    $koneksipay->pay_jasa_11 != '' &&
+                                                    $koneksipay->status_pay_04 != 'Complete' &&
+                                                    $koneksipay->status_pay_04 != 'Waiting Approval')
                                                 <div class="justify-center flex space-x-2">
                                                     <button type="button"
-                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                         data-modal-target="modal211" data-modal-show="modal211"
-                                                        data-modal-toggle="modal211">Ubah</button>
-                                                </div>
-                                            @else
-                                                <input type="file" name="as_pay_jasa_11" id="">
-                                                <div class="">
-                                                    <input type="number" id="base-input"
-                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PAY)"
-                                                        min="0" max="999999999999"
-                                                        oninput="validity.valid||(value='');"
-                                                        name="as_mny_jasa_pay_11">
+                                                        data-modal-toggle="modal211">
+                                                        Ubah
+                                                    </button>
                                                 </div>
                                             @endif
-
                                         </td>
                                         <input type="text" hidden name="as_up_by_jasa_pay_11"
                                             value="{{ Auth::user()->first_name }}">
@@ -5055,7 +4864,7 @@
                                     <tr
                                         class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
                                         <td class="py-4 font-bold text-center">12.</td>
-                                        <td class="flex items-center my-10">
+                                        <td class="flex items-center my-4">
 
                                             @if ($koneksipay->pay_jasa_12 != '')
                                                 <a href="{{ asset('storage/supervisor/project/03_04_PR/' . $koneksipay->pay_jasa_12) }}"
@@ -5092,22 +4901,27 @@
                                             @endif
                                         </td>
                                         <td class="space-y-2 py-3 px-2">
-                                            @if ($koneksipay->pay_jasa_12 != '')
+                                            @if (
+                                                ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                    $koneksipay->pay_jasa_12 == '')
+                                                <button type="button"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
+                                                    data-modal-target="modala212" data-modal-show="modala212"
+                                                    data-modal-toggle="modala212">
+                                                    + Tambah dokumen
+                                                </button>
+                                            @elseif (
+                                                ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                    $koneksipay->pay_jasa_12 != '' &&
+                                                    $koneksipay->status_pay_04 != 'Complete' &&
+                                                    $koneksipay->status_pay_04 != 'Waiting Approval')
                                                 <div class="justify-center flex space-x-2">
                                                     <button type="button"
-                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                         data-modal-target="modal212" data-modal-show="modal212"
-                                                        data-modal-toggle="modal212">Ubah</button>
-                                                </div>
-                                            @else
-                                                <input type="file" name="as_pay_jasa_12" id="">
-                                                <div class="">
-                                                    <input type="number" id="base-input"
-                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PAY)"
-                                                        min="0" max="999999999999"
-                                                        oninput="validity.valid||(value='');"
-                                                        name="as_mny_jasa_pay_12">
+                                                        data-modal-toggle="modal212">
+                                                        Ubah
+                                                    </button>
                                                 </div>
                                             @endif
                                         </td>
@@ -5121,7 +4935,7 @@
                                     <tr
                                         class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
                                         <td class="py-4 font-bold text-center">13.</td>
-                                        <td class="flex items-center my-10">
+                                        <td class="flex items-center my-4">
 
                                             @if ($koneksipay->pay_jasa_13 != '')
                                                 <a href="{{ asset('storage/supervisor/project/03_04_PR/' . $koneksipay->pay_jasa_13) }}"
@@ -5158,22 +4972,27 @@
                                             @endif
                                         </td>
                                         <td class="space-y-2 py-3 px-2">
-                                            @if ($koneksipay->pay_jasa_13 != '')
+                                            @if (
+                                                ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                    $koneksipay->pay_jasa_13 == '')
+                                                <button type="button"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
+                                                    data-modal-target="modala213" data-modal-show="modala213"
+                                                    data-modal-toggle="modala213">
+                                                    + Tambah dokumen
+                                                </button>
+                                            @elseif (
+                                                ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                    $koneksipay->pay_jasa_13 != '' &&
+                                                    $koneksipay->status_pay_04 != 'Complete' &&
+                                                    $koneksipay->status_pay_04 != 'Waiting Approval')
                                                 <div class="justify-center flex space-x-2">
                                                     <button type="button"
-                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                         data-modal-target="modal213" data-modal-show="modal213"
-                                                        data-modal-toggle="modal213">Ubah</button>
-                                                </div>
-                                            @else
-                                                <input type="file" name="as_pay_jasa_13" id="">
-                                                <div class="">
-                                                    <input type="number" id="base-input"
-                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PAY)"
-                                                        min="0" max="999999999999"
-                                                        oninput="validity.valid||(value='');"
-                                                        name="as_mny_jasa_pay_13">
+                                                        data-modal-toggle="modal213">
+                                                        Ubah
+                                                    </button>
                                                 </div>
                                             @endif
                                         </td>
@@ -5187,7 +5006,7 @@
                                     <tr
                                         class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
                                         <td class="py-4 font-bold text-center">14.</td>
-                                        <td class="flex items-center my-10">
+                                        <td class="flex items-center my-4">
 
                                             @if ($koneksipay->pay_jasa_14 != '')
                                                 <a href="{{ asset('storage/supervisor/project/03_04_PR/' . $koneksipay->pay_jasa_14) }}"
@@ -5224,25 +5043,29 @@
                                             @endif
                                         </td>
                                         <td class="space-y-2 py-3 px-2">
-                                            @if ($koneksipay->pay_jasa_14 != '')
+                                            @if (
+                                                ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                    $koneksipay->pay_jasa_14 == '')
+                                                <button type="button"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
+                                                    data-modal-target="modala214" data-modal-show="modala214"
+                                                    data-modal-toggle="modala214">
+                                                    + Tambah dokumen
+                                                </button>
+                                            @elseif (
+                                                ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                    $koneksipay->pay_jasa_14 != '' &&
+                                                    $koneksipay->status_pay_04 != 'Complete' &&
+                                                    $koneksipay->status_pay_04 != 'Waiting Approval')
                                                 <div class="justify-center flex space-x-2">
                                                     <button type="button"
-                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                         data-modal-target="modal214" data-modal-show="modal214"
-                                                        data-modal-toggle="modal214">Ubah</button>
-                                                </div>
-                                            @else
-                                                <input type="file" name="as_pay_jasa_14" id="">
-                                                <div class="">
-                                                    <input type="number" id="base-input"
-                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PAY)"
-                                                        min="0" max="999999999999"
-                                                        oninput="validity.valid||(value='');"
-                                                        name="as_mny_jasa_pay_14">
+                                                        data-modal-toggle="modal214">
+                                                        Ubah
+                                                    </button>
                                                 </div>
                                             @endif
-
                                         </td>
                                         <input type="text" hidden name="as_up_by_jasa_pay_14"
                                             value="{{ Auth::user()->first_name }}">
@@ -5254,7 +5077,7 @@
                                     <tr
                                         class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
                                         <td class="py-4 font-bold text-center">15.</td>
-                                        <td class="flex items-center my-10">
+                                        <td class="flex items-center my-4">
 
                                             @if ($koneksipay->pay_jasa_15 != '')
                                                 <a href="{{ asset('storage/supervisor/project/03_04_PR/' . $koneksipay->pay_jasa_15) }}"
@@ -5291,25 +5114,29 @@
                                             @endif
                                         </td>
                                         <td class="space-y-2 py-3 px-2">
-                                            @if ($koneksipay->pay_jasa_15 != '')
+                                            @if (
+                                                ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                    $koneksipay->pay_jasa_15 == '')
+                                                <button type="button"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
+                                                    data-modal-target="modala215" data-modal-show="modala215"
+                                                    data-modal-toggle="modala215">
+                                                    + Tambah dokumen
+                                                </button>
+                                            @elseif (
+                                                ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                    $koneksipay->pay_jasa_15 != '' &&
+                                                    $koneksipay->status_pay_04 != 'Complete' &&
+                                                    $koneksipay->status_pay_04 != 'Waiting Approval')
                                                 <div class="justify-center flex space-x-2">
                                                     <button type="button"
-                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                         data-modal-target="modal215" data-modal-show="modal215"
-                                                        data-modal-toggle="modal215">Ubah</button>
-                                                </div>
-                                            @else
-                                                <input type="file" name="as_pay_jasa_15" id="">
-                                                <div class="">
-                                                    <input type="number" id="base-input"
-                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PAY)"
-                                                        min="0" max="999999999999"
-                                                        oninput="validity.valid||(value='');"
-                                                        name="as_mny_jasa_pay_15">
+                                                        data-modal-toggle="modal215">
+                                                        Ubah
+                                                    </button>
                                                 </div>
                                             @endif
-
                                         </td>
                                         <input type="text" hidden name="as_up_by_jasa_pay_15"
                                             value="{{ Auth::user()->first_name }}">
@@ -5321,7 +5148,7 @@
                                     <tr
                                         class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
                                         <td class="py-4 font-bold text-center">16.</td>
-                                        <td class="flex items-center my-10">
+                                        <td class="flex items-center my-4">
 
                                             @if ($koneksipay->pay_jasa_16 != '')
                                                 <a href="{{ asset('storage/supervisor/project/03_04_PR/' . $koneksipay->pay_jasa_16) }}"
@@ -5358,25 +5185,29 @@
                                             @endif
                                         </td>
                                         <td class="space-y-2 py-3 px-2">
-                                            @if ($koneksipay->pay_jasa_16 != '')
+                                            @if (
+                                                ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                    $koneksipay->pay_jasa_16 == '')
+                                                <button type="button"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
+                                                    data-modal-target="modala216" data-modal-show="modala216"
+                                                    data-modal-toggle="modala216">
+                                                    + Tambah dokumen
+                                                </button>
+                                            @elseif (
+                                                ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                    $koneksipay->pay_jasa_16 != '' &&
+                                                    $koneksipay->status_pay_04 != 'Complete' &&
+                                                    $koneksipay->status_pay_04 != 'Waiting Approval')
                                                 <div class="justify-center flex space-x-2">
                                                     <button type="button"
-                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                         data-modal-target="modal216" data-modal-show="modal216"
-                                                        data-modal-toggle="modal216">Ubah</button>
-                                                </div>
-                                            @else
-                                                <input type="file" name="as_pay_jasa_16" id="">
-                                                <div class="">
-                                                    <input type="number" id="base-input"
-                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PAY)"
-                                                        min="0" max="999999999999"
-                                                        oninput="validity.valid||(value='');"
-                                                        name="as_mny_jasa_pay_16">
+                                                        data-modal-toggle="modal216">
+                                                        Ubah
+                                                    </button>
                                                 </div>
                                             @endif
-
                                         </td>
                                         <input type="text" hidden name="as_up_by_jasa_pay_16"
                                             value="{{ Auth::user()->first_name }}">
@@ -5388,7 +5219,7 @@
                                     <tr
                                         class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
                                         <td class="py-4 font-bold text-center">17.</td>
-                                        <td class="flex items-center my-10">
+                                        <td class="flex items-center my-4">
 
                                             @if ($koneksipay->pay_jasa_17 != '')
                                                 <a href="{{ asset('storage/supervisor/project/03_04_PR/' . $koneksipay->pay_jasa_17) }}"
@@ -5425,25 +5256,29 @@
                                             @endif
                                         </td>
                                         <td class="space-y-2 py-3 px-2">
-                                            @if ($koneksipay->pay_jasa_17 != '')
+                                            @if (
+                                                ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                    $koneksipay->pay_jasa_17 == '')
+                                                <button type="button"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
+                                                    data-modal-target="modala217" data-modal-show="modala217"
+                                                    data-modal-toggle="modala217">
+                                                    + Tambah dokumen
+                                                </button>
+                                            @elseif (
+                                                ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                    $koneksipay->pay_jasa_17 != '' &&
+                                                    $koneksipay->status_pay_04 != 'Complete' &&
+                                                    $koneksipay->status_pay_04 != 'Waiting Approval')
                                                 <div class="justify-center flex space-x-2">
                                                     <button type="button"
-                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                         data-modal-target="modal217" data-modal-show="modal217"
-                                                        data-modal-toggle="modal217">Ubah</button>
-                                                </div>
-                                            @else
-                                                <input type="file" name="as_pay_jasa_17" id="">
-                                                <div class="">
-                                                    <input type="number" id="base-input"
-                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PAY)"
-                                                        min="0" max="999999999999"
-                                                        oninput="validity.valid||(value='');"
-                                                        name="as_mny_jasa_pay_17">
+                                                        data-modal-toggle="modal217">
+                                                        Ubah
+                                                    </button>
                                                 </div>
                                             @endif
-
                                         </td>
                                         <input type="text" hidden name="as_up_by_jasa_pay_17"
                                             value="{{ Auth::user()->first_name }}">
@@ -5455,7 +5290,7 @@
                                     <tr
                                         class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
                                         <td class="py-4 font-bold text-center">18.</td>
-                                        <td class="flex items-center my-10">
+                                        <td class="flex items-center my-4">
 
                                             @if ($koneksipay->pay_jasa_18 != '')
                                                 <a href="{{ asset('storage/supervisor/project/03_04_PR/' . $koneksipay->pay_jasa_18) }}"
@@ -5492,25 +5327,29 @@
                                             @endif
                                         </td>
                                         <td class="space-y-2 py-3 px-2">
-                                            @if ($koneksipay->pay_jasa_18 != '')
+                                            @if (
+                                                ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                    $koneksipay->pay_jasa_18 == '')
+                                                <button type="button"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
+                                                    data-modal-target="modala218" data-modal-show="modala218"
+                                                    data-modal-toggle="modala218">
+                                                    + Tambah dokumen
+                                                </button>
+                                            @elseif (
+                                                ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                    $koneksipay->pay_jasa_18 != '' &&
+                                                    $koneksipay->status_pay_04 != 'Complete' &&
+                                                    $koneksipay->status_pay_04 != 'Waiting Approval')
                                                 <div class="justify-center flex space-x-2">
                                                     <button type="button"
-                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                         data-modal-target="modal218" data-modal-show="modal218"
-                                                        data-modal-toggle="modal218">Ubah</button>
-                                                </div>
-                                            @else
-                                                <input type="file" name="as_pay_jasa_18" id="">
-                                                <div class="">
-                                                    <input type="number" id="base-input"
-                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PAY)"
-                                                        min="0" max="999999999999"
-                                                        oninput="validity.valid||(value='');"
-                                                        name="as_mny_jasa_pay_18">
+                                                        data-modal-toggle="modal218">
+                                                        Ubah
+                                                    </button>
                                                 </div>
                                             @endif
-
                                         </td>
                                         <input type="text" hidden name="as_up_by_jasa_pay_18"
                                             value="{{ Auth::user()->first_name }}">
@@ -5522,7 +5361,7 @@
                                     <tr
                                         class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
                                         <td class="py-4 font-bold text-center">19.</td>
-                                        <td class="flex items-center my-10">
+                                        <td class="flex items-center my-4">
 
                                             @if ($koneksipay->pay_jasa_19 != '')
                                                 <a href="{{ asset('storage/supervisor/project/03_04_PR/' . $koneksipay->pay_jasa_19) }}"
@@ -5559,25 +5398,29 @@
                                             @endif
                                         </td>
                                         <td class="space-y-2 py-3 px-2">
-                                            @if ($koneksipay->pay_jasa_19 != '')
+                                            @if (
+                                                ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                    $koneksipay->pay_jasa_19 == '')
+                                                <button type="button"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
+                                                    data-modal-target="modala219" data-modal-show="modala219"
+                                                    data-modal-toggle="modala219">
+                                                    + Tambah dokumen
+                                                </button>
+                                            @elseif (
+                                                ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                    $koneksipay->pay_jasa_19 != '' &&
+                                                    $koneksipay->status_pay_04 != 'Complete' &&
+                                                    $koneksipay->status_pay_04 != 'Waiting Approval')
                                                 <div class="justify-center flex space-x-2">
                                                     <button type="button"
-                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                         data-modal-target="modal219" data-modal-show="modal219"
-                                                        data-modal-toggle="modal219">Ubah</button>
-                                                </div>
-                                            @else
-                                                <input type="file" name="as_pay_jasa_19" id="">
-                                                <div class="">
-                                                    <input type="number" id="base-input"
-                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PAY)"
-                                                        min="0" max="999999999999"
-                                                        oninput="validity.valid||(value='');"
-                                                        name="as_mny_jasa_pay_19">
+                                                        data-modal-toggle="modal219">
+                                                        Ubah
+                                                    </button>
                                                 </div>
                                             @endif
-
                                         </td>
                                         <input type="text" hidden name="as_up_by_jasa_pay_19"
                                             value="{{ Auth::user()->first_name }}">
@@ -5589,7 +5432,7 @@
                                     <tr
                                         class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
                                         <td class="py-4 font-bold text-center">20.</td>
-                                        <td class="flex items-center my-10">
+                                        <td class="flex items-center my-4">
 
                                             @if ($koneksipay->pay_jasa_20 != '')
                                                 <a href="{{ asset('storage/supervisor/project/03_04_PR/' . $koneksipay->pay_jasa_20) }}"
@@ -5626,25 +5469,29 @@
                                             @endif
                                         </td>
                                         <td class="space-y-2 py-3 px-2">
-                                            @if ($koneksipay->pay_jasa_20 != '')
+                                            @if (
+                                                ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                    $koneksipay->pay_jasa_20 == '')
+                                                <button type="button"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
+                                                    data-modal-target="modala220" data-modal-show="modala220"
+                                                    data-modal-toggle="modala220">
+                                                    + Tambah dokumen
+                                                </button>
+                                            @elseif (
+                                                ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                    $koneksipay->pay_jasa_20 != '' &&
+                                                    $koneksipay->status_pay_04 != 'Complete' &&
+                                                    $koneksipay->status_pay_04 != 'Waiting Approval')
                                                 <div class="justify-center flex space-x-2">
                                                     <button type="button"
-                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                         data-modal-target="modal220" data-modal-show="modal220"
-                                                        data-modal-toggle="modal220">Ubah</button>
-                                                </div>
-                                            @else
-                                                <input type="file" name="as_pay_jasa_20" id="">
-                                                <div class="">
-                                                    <input type="number" id="base-input"
-                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PAY)"
-                                                        min="0" max="999999999999"
-                                                        oninput="validity.valid||(value='');"
-                                                        name="as_mny_jasa_pay_20">
+                                                        data-modal-toggle="modal220">
+                                                        Ubah
+                                                    </button>
                                                 </div>
                                             @endif
-
                                         </td>
                                         <input type="text" hidden name="as_up_by_jasa_pay_20"
                                             value="{{ Auth::user()->first_name }}">
@@ -5656,7 +5503,7 @@
                                     <tr
                                         class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
                                         <td class="py-4 font-bold text-center">21.</td>
-                                        <td class="flex items-center my-10">
+                                        <td class="flex items-center my-4">
 
                                             @if ($koneksipay->pay_jasa_21 != '')
                                                 <a href="{{ asset('storage/supervisor/project/03_04_PR/' . $koneksipay->pay_jasa_21) }}"
@@ -5693,25 +5540,29 @@
                                             @endif
                                         </td>
                                         <td class="space-y-2 py-3 px-2">
-                                            @if ($koneksipay->pay_jasa_21 != '')
+                                            @if (
+                                                ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                    $koneksipay->pay_jasa_21 == '')
+                                                <button type="button"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
+                                                    data-modal-target="modala221" data-modal-show="modala221"
+                                                    data-modal-toggle="modala221">
+                                                    + Tambah dokumen
+                                                </button>
+                                            @elseif (
+                                                ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                    $koneksipay->pay_jasa_21 != '' &&
+                                                    $koneksipay->status_pay_04 != 'Complete' &&
+                                                    $koneksipay->status_pay_04 != 'Waiting Approval')
                                                 <div class="justify-center flex space-x-2">
                                                     <button type="button"
-                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                         data-modal-target="modal221" data-modal-show="modal221"
-                                                        data-modal-toggle="modal221">Ubah</button>
-                                                </div>
-                                            @else
-                                                <input type="file" name="as_pay_jasa_21" id="">
-                                                <div class="">
-                                                    <input type="number" id="base-input"
-                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PAY)"
-                                                        min="0" max="999999999999"
-                                                        oninput="validity.valid||(value='');"
-                                                        name="as_mny_jasa_pay_21">
+                                                        data-modal-toggle="modal221">
+                                                        Ubah
+                                                    </button>
                                                 </div>
                                             @endif
-
                                         </td>
                                         <input type="text" hidden name="as_up_by_jasa_pay_21"
                                             value="{{ Auth::user()->first_name }}">
@@ -5723,7 +5574,7 @@
                                     <tr
                                         class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
                                         <td class="py-4 font-bold text-center">22.</td>
-                                        <td class="flex items-center my-10">
+                                        <td class="flex items-center my-4">
 
                                             @if ($koneksipay->pay_jasa_22 != '')
                                                 <a href="{{ asset('storage/supervisor/project/03_04_PR/' . $koneksipay->pay_jasa_22) }}"
@@ -5760,25 +5611,29 @@
                                             @endif
                                         </td>
                                         <td class="space-y-2 py-3 px-2">
-                                            @if ($koneksipay->pay_jasa_22 != '')
+                                            @if (
+                                                ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                    $koneksipay->pay_jasa_22 == '')
+                                                <button type="button"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
+                                                    data-modal-target="modala222" data-modal-show="modala222"
+                                                    data-modal-toggle="modala222">
+                                                    + Tambah dokumen
+                                                </button>
+                                            @elseif (
+                                                ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                    $koneksipay->pay_jasa_22 != '' &&
+                                                    $koneksipay->status_pay_04 != 'Complete' &&
+                                                    $koneksipay->status_pay_04 != 'Waiting Approval')
                                                 <div class="justify-center flex space-x-2">
                                                     <button type="button"
-                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                         data-modal-target="modal222" data-modal-show="modal222"
-                                                        data-modal-toggle="modal222">Ubah</button>
-                                                </div>
-                                            @else
-                                                <input type="file" name="as_pay_jasa_22" id="">
-                                                <div class="">
-                                                    <input type="number" id="base-input"
-                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PAY)"
-                                                        min="0" max="999999999999"
-                                                        oninput="validity.valid||(value='');"
-                                                        name="as_mny_jasa_pay_22">
+                                                        data-modal-toggle="modal222">
+                                                        Ubah
+                                                    </button>
                                                 </div>
                                             @endif
-
                                         </td>
                                         <input type="text" hidden name="as_up_by_jasa_pay_22"
                                             value="{{ Auth::user()->first_name }}">
@@ -5790,7 +5645,7 @@
                                     <tr
                                         class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
                                         <td class="py-4 font-bold text-center">23.</td>
-                                        <td class="flex items-center my-10">
+                                        <td class="flex items-center my-4">
 
                                             @if ($koneksipay->pay_jasa_23 != '')
                                                 <a href="{{ asset('storage/supervisor/project/03_04_PR/' . $koneksipay->pay_jasa_23) }}"
@@ -5827,25 +5682,29 @@
                                             @endif
                                         </td>
                                         <td class="space-y-2 py-3 px-2">
-                                            @if ($koneksipay->pay_jasa_23 != '')
+                                            @if (
+                                                ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                    $koneksipay->pay_jasa_23 == '')
+                                                <button type="button"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
+                                                    data-modal-target="modala223" data-modal-show="modala223"
+                                                    data-modal-toggle="modala223">
+                                                    + Tambah dokumen
+                                                </button>
+                                            @elseif (
+                                                ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                    $koneksipay->pay_jasa_23 != '' &&
+                                                    $koneksipay->status_pay_04 != 'Complete' &&
+                                                    $koneksipay->status_pay_04 != 'Waiting Approval')
                                                 <div class="justify-center flex space-x-2">
                                                     <button type="button"
-                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                         data-modal-target="modal223" data-modal-show="modal223"
-                                                        data-modal-toggle="modal223">Ubah</button>
-                                                </div>
-                                            @else
-                                                <input type="file" name="as_pay_jasa_23" id="">
-                                                <div class="">
-                                                    <input type="number" id="base-input"
-                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PAY)"
-                                                        min="0" max="999999999999"
-                                                        oninput="validity.valid||(value='');"
-                                                        name="as_mny_jasa_pay_23">
+                                                        data-modal-toggle="modal223">
+                                                        Ubah
+                                                    </button>
                                                 </div>
                                             @endif
-
                                         </td>
                                         <input type="text" hidden name="as_up_by_jasa_pay_23"
                                             value="{{ Auth::user()->first_name }}">
@@ -5857,7 +5716,7 @@
                                     <tr
                                         class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
                                         <td class="py-4 font-bold text-center">24.</td>
-                                        <td class="flex items-center my-10">
+                                        <td class="flex items-center my-4">
 
                                             @if ($koneksipay->pay_jasa_24 != '')
                                                 <a href="{{ asset('storage/supervisor/project/03_04_PR/' . $koneksipay->pay_jasa_24) }}"
@@ -5894,25 +5753,29 @@
                                             @endif
                                         </td>
                                         <td class="space-y-2 py-3 px-2">
-                                            @if ($koneksipay->pay_jasa_24 != '')
+                                            @if (
+                                                ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                    $koneksipay->pay_jasa_24 == '')
+                                                <button type="button"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
+                                                    data-modal-target="modala224" data-modal-show="modala224"
+                                                    data-modal-toggle="modala224">
+                                                    + Tambah dokumen
+                                                </button>
+                                            @elseif (
+                                                ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                    $koneksipay->pay_jasa_24 != '' &&
+                                                    $koneksipay->status_pay_04 != 'Complete' &&
+                                                    $koneksipay->status_pay_04 != 'Waiting Approval')
                                                 <div class="justify-center flex space-x-2">
                                                     <button type="button"
-                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                         data-modal-target="modal224" data-modal-show="modal224"
-                                                        data-modal-toggle="modal224">Ubah</button>
-                                                </div>
-                                            @else
-                                                <input type="file" name="as_pay_jasa_24" id="">
-                                                <div class="">
-                                                    <input type="number" id="base-input"
-                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PAY)"
-                                                        min="0" max="999999999999"
-                                                        oninput="validity.valid||(value='');"
-                                                        name="as_mny_jasa_pay_24">
+                                                        data-modal-toggle="modal224">
+                                                        Ubah
+                                                    </button>
                                                 </div>
                                             @endif
-
                                         </td>
                                         <input type="text" hidden name="as_up_by_jasa_pay_24"
                                             value="{{ Auth::user()->first_name }}">
@@ -5924,7 +5787,7 @@
                                     <tr
                                         class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
                                         <td class="py-4 font-bold text-center">25.</td>
-                                        <td class="flex items-center my-10">
+                                        <td class="flex items-center my-4">
 
                                             @if ($koneksipay->pay_jasa_25 != '')
                                                 <a href="{{ asset('storage/supervisor/project/03_04_PR/' . $koneksipay->pay_jasa_25) }}"
@@ -5961,25 +5824,29 @@
                                             @endif
                                         </td>
                                         <td class="space-y-2 py-3 px-2">
-                                            @if ($koneksipay->pay_jasa_25 != '')
+                                            @if (
+                                                ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                    $koneksipay->pay_jasa_25 == '')
+                                                <button type="button"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
+                                                    data-modal-target="modala225" data-modal-show="modala225"
+                                                    data-modal-toggle="modala225">
+                                                    + Tambah dokumen
+                                                </button>
+                                            @elseif (
+                                                ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                    $koneksipay->pay_jasa_25 != '' &&
+                                                    $koneksipay->status_pay_04 != 'Complete' &&
+                                                    $koneksipay->status_pay_04 != 'Waiting Approval')
                                                 <div class="justify-center flex space-x-2">
                                                     <button type="button"
-                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                         data-modal-target="modal225" data-modal-show="modal225"
-                                                        data-modal-toggle="modal225">Ubah</button>
-                                                </div>
-                                            @else
-                                                <input type="file" name="as_pay_jasa_25" id="">
-                                                <div class="">
-                                                    <input type="number" id="base-input"
-                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PAY)"
-                                                        min="0" max="999999999999"
-                                                        oninput="validity.valid||(value='');"
-                                                        name="as_mny_jasa_pay_25">
+                                                        data-modal-toggle="modal225">
+                                                        Ubah
+                                                    </button>
                                                 </div>
                                             @endif
-
                                         </td>
                                         <input type="text" hidden name="as_up_by_jasa_pay_25"
                                             value="{{ Auth::user()->first_name }}">
@@ -5991,7 +5858,7 @@
                                     <tr
                                         class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
                                         <td class="py-4 font-bold text-center">26.</td>
-                                        <td class="flex items-center my-10">
+                                        <td class="flex items-center my-4">
 
                                             @if ($koneksipay->pay_jasa_26 != '')
                                                 <a href="{{ asset('storage/supervisor/project/03_04_PR/' . $koneksipay->pay_jasa_26) }}"
@@ -6028,25 +5895,29 @@
                                             @endif
                                         </td>
                                         <td class="space-y-2 py-3 px-2">
-                                            @if ($koneksipay->pay_jasa_26 != '')
+                                            @if (
+                                                ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                    $koneksipay->pay_jasa_26 == '')
+                                                <button type="button"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
+                                                    data-modal-target="modala226" data-modal-show="modala226"
+                                                    data-modal-toggle="modala226">
+                                                    + Tambah dokumen
+                                                </button>
+                                            @elseif (
+                                                ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                    $koneksipay->pay_jasa_26 != '' &&
+                                                    $koneksipay->status_pay_04 != 'Complete' &&
+                                                    $koneksipay->status_pay_04 != 'Waiting Approval')
                                                 <div class="justify-center flex space-x-2">
                                                     <button type="button"
-                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                         data-modal-target="modal226" data-modal-show="modal226"
-                                                        data-modal-toggle="modal226">Ubah</button>
-                                                </div>
-                                            @else
-                                                <input type="file" name="as_pay_jasa_26" id="">
-                                                <div class="">
-                                                    <input type="number" id="base-input"
-                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PAY)"
-                                                        min="0" max="999999999999"
-                                                        oninput="validity.valid||(value='');"
-                                                        name="as_mny_jasa_pay_26">
+                                                        data-modal-toggle="modal226">
+                                                        Ubah
+                                                    </button>
                                                 </div>
                                             @endif
-
                                         </td>
                                         <input type="text" hidden name="as_up_by_jasa_pay_26"
                                             value="{{ Auth::user()->first_name }}">
@@ -6058,7 +5929,7 @@
                                     <tr
                                         class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
                                         <td class="py-4 font-bold text-center">27.</td>
-                                        <td class="flex items-center my-10">
+                                        <td class="flex items-center my-4">
 
                                             @if ($koneksipay->pay_jasa_27 != '')
                                                 <a href="{{ asset('storage/supervisor/project/03_04_PR/' . $koneksipay->pay_jasa_27) }}"
@@ -6095,25 +5966,29 @@
                                             @endif
                                         </td>
                                         <td class="space-y-2 py-3 px-2">
-                                            @if ($koneksipay->pay_jasa_27 != '')
+                                            @if (
+                                                ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                    $koneksipay->pay_jasa_27 == '')
+                                                <button type="button"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
+                                                    data-modal-target="modala227" data-modal-show="modala227"
+                                                    data-modal-toggle="modala227">
+                                                    + Tambah dokumen
+                                                </button>
+                                            @elseif (
+                                                ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                    $koneksipay->pay_jasa_27 != '' &&
+                                                    $koneksipay->status_pay_04 != 'Complete' &&
+                                                    $koneksipay->status_pay_04 != 'Waiting Approval')
                                                 <div class="justify-center flex space-x-2">
                                                     <button type="button"
-                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                         data-modal-target="modal227" data-modal-show="modal227"
-                                                        data-modal-toggle="modal227">Ubah</button>
-                                                </div>
-                                            @else
-                                                <input type="file" name="as_pay_jasa_27" id="">
-                                                <div class="">
-                                                    <input type="number" id="base-input"
-                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PAY)"
-                                                        min="0" max="999999999999"
-                                                        oninput="validity.valid||(value='');"
-                                                        name="as_mny_jasa_pay_27">
+                                                        data-modal-toggle="modal227">
+                                                        Ubah
+                                                    </button>
                                                 </div>
                                             @endif
-
                                         </td>
                                         <input type="text" hidden name="as_up_by_jasa_pay_27"
                                             value="{{ Auth::user()->first_name }}">
@@ -6125,7 +6000,7 @@
                                     <tr
                                         class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
                                         <td class="py-4 font-bold text-center">28.</td>
-                                        <td class="flex items-center my-10">
+                                        <td class="flex items-center my-4">
 
                                             @if ($koneksipay->pay_jasa_28 != '')
                                                 <a href="{{ asset('storage/supervisor/project/03_04_PR/' . $koneksipay->pay_jasa_28) }}"
@@ -6162,25 +6037,29 @@
                                             @endif
                                         </td>
                                         <td class="space-y-2 py-3 px-2">
-                                            @if ($koneksipay->pay_jasa_28 != '')
+                                            @if (
+                                                ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                    $koneksipay->pay_jasa_28 == '')
+                                                <button type="button"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
+                                                    data-modal-target="modala228" data-modal-show="modala228"
+                                                    data-modal-toggle="modala228">
+                                                    + Tambah dokumen
+                                                </button>
+                                            @elseif (
+                                                ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                    $koneksipay->pay_jasa_28 != '' &&
+                                                    $koneksipay->status_pay_04 != 'Complete' &&
+                                                    $koneksipay->status_pay_04 != 'Waiting Approval')
                                                 <div class="justify-center flex space-x-2">
                                                     <button type="button"
-                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                         data-modal-target="modal228" data-modal-show="modal228"
-                                                        data-modal-toggle="modal228">Ubah</button>
-                                                </div>
-                                            @else
-                                                <input type="file" name="as_pay_jasa_28" id="">
-                                                <div class="">
-                                                    <input type="number" id="base-input"
-                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PAY)"
-                                                        min="0" max="999999999999"
-                                                        oninput="validity.valid||(value='');"
-                                                        name="as_mny_jasa_pay_28">
+                                                        data-modal-toggle="modal228">
+                                                        Ubah
+                                                    </button>
                                                 </div>
                                             @endif
-
                                         </td>
                                         <input type="text" hidden name="as_up_by_jasa_pay_28"
                                             value="{{ Auth::user()->first_name }}">
@@ -6192,7 +6071,7 @@
                                     <tr
                                         class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
                                         <td class="py-4 font-bold text-center">29.</td>
-                                        <td class="flex items-center my-10">
+                                        <td class="flex items-center my-4">
 
                                             @if ($koneksipay->pay_jasa_29 != '')
                                                 <a href="{{ asset('storage/supervisor/project/03_04_PR/' . $koneksipay->pay_jasa_29) }}"
@@ -6229,25 +6108,29 @@
                                             @endif
                                         </td>
                                         <td class="space-y-2 py-3 px-2">
-                                            @if ($koneksipay->pay_jasa_29 != '')
+                                            @if (
+                                                ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                    $koneksipay->pay_jasa_29 == '')
+                                                <button type="button"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
+                                                    data-modal-target="modala229" data-modal-show="modala229"
+                                                    data-modal-toggle="modala229">
+                                                    + Tambah dokumen
+                                                </button>
+                                            @elseif (
+                                                ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                    $koneksipay->pay_jasa_29 != '' &&
+                                                    $koneksipay->status_pay_04 != 'Complete' &&
+                                                    $koneksipay->status_pay_04 != 'Waiting Approval')
                                                 <div class="justify-center flex space-x-2">
                                                     <button type="button"
-                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                         data-modal-target="modal229" data-modal-show="modal229"
-                                                        data-modal-toggle="modal229">Ubah</button>
-                                                </div>
-                                            @else
-                                                <input type="file" name="as_pay_jasa_29" id="">
-                                                <div class="">
-                                                    <input type="number" id="base-input"
-                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PAY)"
-                                                        min="0" max="999999999999"
-                                                        oninput="validity.valid||(value='');"
-                                                        name="as_mny_jasa_pay_29">
+                                                        data-modal-toggle="modal229">
+                                                        Ubah
+                                                    </button>
                                                 </div>
                                             @endif
-
                                         </td>
                                         <input type="text" hidden name="as_up_by_jasa_pay_29"
                                             value="{{ Auth::user()->first_name }}">
@@ -6259,7 +6142,7 @@
                                     <tr
                                         class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
                                         <td class="py-4 font-bold text-center">30.</td>
-                                        <td class="flex items-center my-10">
+                                        <td class="flex items-center my-4">
 
                                             @if ($koneksipay->pay_jasa_30 != '')
                                                 <a href="{{ asset('storage/supervisor/project/03_04_PR/' . $koneksipay->pay_jasa_30) }}"
@@ -6296,25 +6179,29 @@
                                             @endif
                                         </td>
                                         <td class="space-y-2 py-3 px-2">
-                                            @if ($koneksipay->pay_jasa_30 != '')
+                                            @if (
+                                                ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                    $koneksipay->pay_jasa_30 == '')
+                                                <button type="button"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
+                                                    data-modal-target="modala230" data-modal-show="modala230"
+                                                    data-modal-toggle="modala230">
+                                                    + Tambah dokumen
+                                                </button>
+                                            @elseif (
+                                                ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                    $koneksipay->pay_jasa_30 != '' &&
+                                                    $koneksipay->status_pay_04 != 'Complete' &&
+                                                    $koneksipay->status_pay_04 != 'Waiting Approval')
                                                 <div class="justify-center flex space-x-2">
                                                     <button type="button"
-                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                         data-modal-target="modal230" data-modal-show="modal230"
-                                                        data-modal-toggle="modal230">Ubah</button>
-                                                </div>
-                                            @else
-                                                <input type="file" name="as_pay_jasa_30" id="">
-                                                <div class="">
-                                                    <input type="number" id="base-input"
-                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PAY)"
-                                                        min="0" max="999999999999"
-                                                        oninput="validity.valid||(value='');"
-                                                        name="as_mny_jasa_pay_30">
+                                                        data-modal-toggle="modal230">
+                                                        Ubah
+                                                    </button>
                                                 </div>
                                             @endif
-
                                         </td>
                                         <input type="text" hidden name="as_up_by_jasa_pay_30"
                                             value="{{ Auth::user()->first_name }}">
@@ -6329,10 +6216,10 @@
                         </div>
                         {{-- Akhir pekerjaan --}}
 
-                        {{-- PR Manufaktur --}}
+                        {{-- PAY Manufaktur --}}
                         {{-- awal standar formulir --}}
                         <div class="flex justify-between">
-                            <p class="font-normal text-lg bg-teal-600 px-4 py-1 w-fit text-white mb-2 rounded"> PAY Manufaktur
+                            <p class="font-medium text-lg bg-gray-800 px-4 py-1 w-fit text-white mb-2 rounded"> PAY Manufaktur
                             @foreach ($standar_project as $spt)
                                 @if ($spt->file_pr_manufaktur_form != '')
                                     <div class="flex justify-end mr-1 mt-4">
@@ -6361,20 +6248,20 @@
 
                         <div class="overflow-x-auto rounded-t-md max-h-screen overflow-y-auto border">
                             <table class="w-full">
-                                <thead class="bg-green-600 text-white">
-                                    <th class="py-2 w-[5%]">No.</th>
-                                    <th class="w-[45%]">Nama File</th>
-                                    <th class="w-[12%]">Uploaded by</th>
-                                    <th class="w-[12%]">Last Update</th>
-                                    <th class="w-[11%]">PAY Amount</th>
-                                    <th class="w-[15%]">Aksi</th>
+                                <thead class="bg-gray-300 text-gray-700">
+                                    <th class="py-2 w-[5%] font-medium">No.</th>
+                                    <th class="w-[45%] font-medium">Nama File</th>
+                                    <th class="w-[11%] font-medium">Diunggah oleh</th>
+                                    <th class="w-[10%] font-medium">Terakhir diubah</th>
+                                    <th class="w-[14%] font-medium">Jumlah PAY</th>
+                                    <th class="w-[14%] font-medium">Aksi</th>
                                 </thead>
                                 <tbody class="text-left border">
                                     {{-- 1 --}}
                                     <tr
                                         class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
                                         <td class="py-4 font-bold text-center">1.</td>
-                                        <td class="flex items-center my-10">
+                                        <td class="flex items-center my-4">
 
                                             @if ($koneksipay->pay_mnftr_1 != '')
                                                 <a href="{{ asset('storage/supervisor/project/03_04_PR/' . $koneksipay->pay_mnftr_1) }}"
@@ -6411,25 +6298,29 @@
                                             @endif
                                         </td>
                                         <td class="space-y-2 py-3 px-2">
-                                            @if ($koneksipay->pay_mnftr_1 != '')
+                                            @if (
+                                                ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                    $koneksipay->pay_mnftr_1 == '')
+                                                <button type="button"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
+                                                    data-modal-target="modala31" data-modal-show="modala31"
+                                                    data-modal-toggle="modala31">
+                                                    + Tambah dokumen
+                                                </button>
+                                            @elseif (
+                                                ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                    $koneksipay->pay_mnftr_1 != '' &&
+                                                    $koneksipay->status_pay_04 != 'Complete' &&
+                                                    $koneksipay->status_pay_04 != 'Waiting Approval')
                                                 <div class="justify-center flex space-x-2">
                                                     <button type="button"
-                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                         data-modal-target="modal31" data-modal-show="modal31"
-                                                        data-modal-toggle="modal31">Ubah</button>
-                                                </div>
-                                            @else
-                                                <input type="file" name="as_pay_mnftr_1" id="">
-                                                <div class="">
-                                                    <input type="number" id="base-input"
-                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PAY)"
-                                                        min="0" max="999999999999"
-                                                        oninput="validity.valid||(value='');"
-                                                        name="as_mny_mnftr_pay_1">
+                                                        data-modal-toggle="modal31">
+                                                        Ubah
+                                                    </button>
                                                 </div>
                                             @endif
-
                                         </td>
                                         <input type="text" hidden name="as_up_by_mnftr_pay_1"
                                             value="{{ Auth::user()->first_name }}">
@@ -6441,7 +6332,7 @@
                                     <tr
                                         class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
                                         <td class="py-4 font-bold text-center">2.</td>
-                                        <td class="flex items-center my-10">
+                                        <td class="flex items-center my-4">
 
                                             @if ($koneksipay->pay_mnftr_2 != '')
                                                 <a href="{{ asset('storage/supervisor/project/03_04_PR/' . $koneksipay->pay_mnftr_2) }}"
@@ -6478,26 +6369,30 @@
                                             @endif
                                         </td>
                                         <td class="space-y-2 py-3 px-2">
-                                            @if ($koneksipay->pay_mnftr_2 != '')
+                                            @if (
+                                                ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                    $koneksipay->pay_mnftr_2 == '')
+                                                <button type="button"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
+                                                    data-modal-target="modala32" data-modal-show="modala32"
+                                                    data-modal-toggle="modala32">
+                                                    + Tambah dokumen
+                                                </button>
+                                            @elseif (
+                                                ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                    $koneksipay->pay_mnftr_2 != '' &&
+                                                    $koneksipay->status_pay_04 != 'Complete' &&
+                                                    $koneksipay->status_pay_04 != 'Waiting Approval')
                                                 <div class="justify-center flex space-x-2">
                                                     <button type="button"
-                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                         data-modal-target="modal32" data-modal-show="modal32"
-                                                        data-modal-toggle="modal32">Ubah</button>
+                                                        data-modal-toggle="modal32">
+                                                        Ubah
+                                                    </button>
                                                 </div>
-                                            @else
-                                                <input type="file" name="as_pay_mnftr_2" id="">
-                                                <div class="">
-                                                    <input type="number" id="base-input"
-                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PAY)"
-                                                        min="0" max="999999999999"
-                                                        oninput="validity.valid||(value='');"
-                                                        name="as_mny_mnftr_pay_2">
-                                                </div>
+                                            @endif
                                         </td>
-                                        @endif
-
                                         <input type="text" hidden name="as_up_by_mnftr_pay_2"
                                             value="{{ Auth::user()->first_name }}">
                                         <input type="date" hidden name="as_date_pay_mnftr_2"
@@ -6509,7 +6404,7 @@
                                     <tr
                                         class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
                                         <td class="py-4 font-bold text-center">3.</td>
-                                        <td class="flex items-center my-10">
+                                        <td class="flex items-center my-4">
 
                                             @if ($koneksipay->pay_mnftr_3 != '')
                                                 <a href="{{ asset('storage/supervisor/project/03_04_PR/' . $koneksipay->pay_mnftr_3) }}"
@@ -6546,26 +6441,29 @@
                                             @endif
                                         </td>
                                         <td class="space-y-2 py-3 px-2">
-                                            @if ($koneksipay->pay_mnftr_3 != '')
+                                            @if (
+                                                ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                    $koneksipay->pay_mnftr_3 == '')
+                                                <button type="button"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
+                                                    data-modal-target="modala33" data-modal-show="modala33"
+                                                    data-modal-toggle="modala33">
+                                                    + Tambah dokumen
+                                                </button>
+                                            @elseif (
+                                                ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                    $koneksipay->pay_mnftr_3 != '' &&
+                                                    $koneksipay->status_pay_04 != 'Complete' &&
+                                                    $koneksipay->status_pay_04 != 'Waiting Approval')
                                                 <div class="justify-center flex space-x-2">
                                                     <button type="button"
-                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                         data-modal-target="modal33" data-modal-show="modal33"
-                                                        data-modal-toggle="modal33">Ubah</button>
+                                                        data-modal-toggle="modal33">
+                                                        Ubah
+                                                    </button>
                                                 </div>
-                                            @else
-                                                <input type="file" name="as_pay_mnftr_3" id="">
-                                                <div class="">
-                                                    <input type="number" id="base-input"
-                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PAY)"
-                                                        min="0" max="999999999999"
-                                                        oninput="validity.valid||(value='');"
-                                                        name="as_mny_mnftr_pay_3">
-                                                </div>
-                                        </td>
-                                        @endif
-
+                                            @endif
                                         </td>
                                         <input type="text" hidden name="as_up_by_mnftr_pay_3"
                                             value="{{ Auth::user()->first_name }}">
@@ -6578,7 +6476,7 @@
                                     <tr
                                         class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
                                         <td class="py-4 font-bold text-center">4.</td>
-                                        <td class="flex items-center my-10">
+                                        <td class="flex items-center my-4">
 
                                             @if ($koneksipay->pay_mnftr_4 != '')
                                                 <a href="{{ asset('storage/supervisor/project/03_04_PR/' . $koneksipay->pay_mnftr_4) }}"
@@ -6615,25 +6513,29 @@
                                             @endif
                                         </td>
                                         <td class="space-y-2 py-3 px-2">
-                                            @if ($koneksipay->pay_mnftr_4 != '')
+                                            @if (
+                                                ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                    $koneksipay->pay_mnftr_4 == '')
+                                                <button type="button"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
+                                                    data-modal-target="modala34" data-modal-show="modala34"
+                                                    data-modal-toggle="modala34">
+                                                    + Tambah dokumen
+                                                </button>
+                                            @elseif (
+                                                ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                    $koneksipay->pay_mnftr_4 != '' &&
+                                                    $koneksipay->status_pay_04 != 'Complete' &&
+                                                    $koneksipay->status_pay_04 != 'Waiting Approval')
                                                 <div class="justify-center flex space-x-2">
                                                     <button type="button"
-                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                         data-modal-target="modal34" data-modal-show="modal34"
-                                                        data-modal-toggle="modal34">Ubah</button>
-                                                </div>
-                                            @else
-                                                <input type="file" name="as_pay_mnftr_4" id="">
-                                                <div class="">
-                                                    <input type="number" id="base-input"
-                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PAY)"
-                                                        min="0" max="999999999999"
-                                                        oninput="validity.valid||(value='');"
-                                                        name="as_mny_mnftr_pay_4">
+                                                        data-modal-toggle="modal34">
+                                                        Ubah
+                                                    </button>
                                                 </div>
                                             @endif
-
                                         </td>
                                         <input type="text" hidden name="as_up_by_mnftr_pay_4"
                                             value="{{ Auth::user()->first_name }}">
@@ -6645,7 +6547,7 @@
                                     <tr
                                         class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
                                         <td class="py-4 font-bold text-center">5.</td>
-                                        <td class="flex items-center my-10">
+                                        <td class="flex items-center my-4">
 
                                             @if ($koneksipay->pay_mnftr_5 != '')
                                                 <a href="{{ asset('storage/supervisor/project/03_04_PR/' . $koneksipay->pay_mnftr_5) }}"
@@ -6682,25 +6584,29 @@
                                             @endif
                                         </td>
                                         <td class="space-y-2 py-3 px-2">
-                                            @if ($koneksipay->pay_mnftr_5 != '')
+                                            @if (
+                                                ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                    $koneksipay->pay_mnftr_5 == '')
+                                                <button type="button"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
+                                                    data-modal-target="modala35" data-modal-show="modala35"
+                                                    data-modal-toggle="modala35">
+                                                    + Tambah dokumen
+                                                </button>
+                                            @elseif (
+                                                ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                    $koneksipay->pay_mnftr_5 != '' &&
+                                                    $koneksipay->status_pay_04 != 'Complete' &&
+                                                    $koneksipay->status_pay_04 != 'Waiting Approval')
                                                 <div class="justify-center flex space-x-2">
                                                     <button type="button"
-                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                         data-modal-target="modal35" data-modal-show="modal35"
-                                                        data-modal-toggle="modal35">Ubah</button>
-                                                </div>
-                                            @else
-                                                <input type="file" name="as_pay_mnftr_5" id="">
-                                                <div class="">
-                                                    <input type="number" id="base-input"
-                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PAY)"
-                                                        min="0" max="999999999999"
-                                                        oninput="validity.valid||(value='');"
-                                                        name="as_mny_mnftr_pay_5">
+                                                        data-modal-toggle="modal35">
+                                                        Ubah
+                                                    </button>
                                                 </div>
                                             @endif
-
                                         </td>
                                         <input type="text" hidden name="as_up_by_mnftr_pay_5"
                                             value="{{ Auth::user()->first_name }}">
@@ -6712,7 +6618,7 @@
                                     <tr
                                         class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
                                         <td class="py-4 font-bold text-center">6.</td>
-                                        <td class="flex items-center my-10">
+                                        <td class="flex items-center my-4">
 
                                             @if ($koneksipay->pay_mnftr_6 != '')
                                                 <a href="{{ asset('storage/supervisor/project/03_04_PR/' . $koneksipay->pay_mnftr_6) }}"
@@ -6749,25 +6655,29 @@
                                             @endif
                                         </td>
                                         <td class="space-y-2 py-3 px-2">
-                                            @if ($koneksipay->pay_mnftr_6 != '')
+                                            @if (
+                                                ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                    $koneksipay->pay_mnftr_6 == '')
+                                                <button type="button"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
+                                                    data-modal-target="modala36" data-modal-show="modala36"
+                                                    data-modal-toggle="modala36">
+                                                    + Tambah dokumen
+                                                </button>
+                                            @elseif (
+                                                ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                    $koneksipay->pay_mnftr_6 != '' &&
+                                                    $koneksipay->status_pay_04 != 'Complete' &&
+                                                    $koneksipay->status_pay_04 != 'Waiting Approval')
                                                 <div class="justify-center flex space-x-2">
                                                     <button type="button"
-                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                         data-modal-target="modal36" data-modal-show="modal36"
-                                                        data-modal-toggle="modal36">Ubah</button>
-                                                </div>
-                                            @else
-                                                <input type="file" name="as_pay_mnftr_6" id="">
-                                                <div class="" id="submit-1">
-                                                    <input type="number" id="base-input"
-                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PAY)"
-                                                        min="0" max="999999999999"
-                                                        oninput="validity.valid||(value='');"
-                                                        name="as_mny_mnftr_pay_6">
+                                                        data-modal-toggle="modal36">
+                                                        Ubah
+                                                    </button>
                                                 </div>
                                             @endif
-
                                         </td>
                                         <input type="text" hidden name="as_up_by_mnftr_pay_6"
                                             value="{{ Auth::user()->first_name }}">
@@ -6779,7 +6689,7 @@
                                     <tr
                                         class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
                                         <td class="py-4 font-bold text-center">7.</td>
-                                        <td class="flex items-center my-10">
+                                        <td class="flex items-center my-4">
 
                                             @if ($koneksipay->pay_mnftr_7 != '')
                                                 <a href="{{ asset('storage/supervisor/project/03_04_PR/' . $koneksipay->pay_mnftr_7) }}"
@@ -6816,25 +6726,29 @@
                                             @endif
                                         </td>
                                         <td class="space-y-2 py-3 px-2">
-                                            @if ($koneksipay->pay_mnftr_7 != '')
+                                            @if (
+                                                ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                    $koneksipay->pay_mnftr_7 == '')
+                                                <button type="button"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
+                                                    data-modal-target="modala37" data-modal-show="modala37"
+                                                    data-modal-toggle="modala37">
+                                                    + Tambah dokumen
+                                                </button>
+                                            @elseif (
+                                                ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                    $koneksipay->pay_mnftr_7 != '' &&
+                                                    $koneksipay->status_pay_04 != 'Complete' &&
+                                                    $koneksipay->status_pay_04 != 'Waiting Approval')
                                                 <div class="justify-center flex space-x-2">
                                                     <button type="button"
-                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                         data-modal-target="modal37" data-modal-show="modal37"
-                                                        data-modal-toggle="modal37">Ubah</button>
-                                                </div>
-                                            @else
-                                                <input type="file" name="as_pay_mnftr_7" id="">
-                                                <div class="">
-                                                    <input type="number" id="base-input"
-                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PAY)"
-                                                        min="0" max="999999999999"
-                                                        oninput="validity.valid||(value='');"
-                                                        name="as_mny_mnftr_pay_7">
+                                                        data-modal-toggle="modal37">
+                                                        Ubah
+                                                    </button>
                                                 </div>
                                             @endif
-
                                         </td>
                                         <input type="text" hidden name="as_up_by_mnftr_pay_7"
                                             value="{{ Auth::user()->first_name }}">
@@ -6846,7 +6760,7 @@
                                     <tr
                                         class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
                                         <td class="py-4 font-bold text-center">8.</td>
-                                        <td class="flex items-center my-10">
+                                        <td class="flex items-center my-4">
 
                                             @if ($koneksipay->pay_mnftr_8 != '')
                                                 <a href="{{ asset('storage/supervisor/project/03_04_PR/' . $koneksipay->pay_mnftr_8) }}"
@@ -6883,25 +6797,29 @@
                                             @endif
                                         </td>
                                         <td class="space-y-2 py-3 px-2">
-                                            @if ($koneksipay->pay_mnftr_8 != '')
+                                            @if (
+                                                ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                    $koneksipay->pay_mnftr_8 == '')
+                                                <button type="button"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
+                                                    data-modal-target="modala38" data-modal-show="modala38"
+                                                    data-modal-toggle="modala38">
+                                                    + Tambah dokumen
+                                                </button>
+                                            @elseif (
+                                                ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                    $koneksipay->pay_mnftr_8 != '' &&
+                                                    $koneksipay->status_pay_04 != 'Complete' &&
+                                                    $koneksipay->status_pay_04 != 'Waiting Approval')
                                                 <div class="justify-center flex space-x-2">
                                                     <button type="button"
-                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                         data-modal-target="modal38" data-modal-show="modal38"
-                                                        data-modal-toggle="modal38">Ubah</button>
-                                                </div>
-                                            @else
-                                                <input type="file" name="as_pay_mnftr_8" id="">
-                                                <div class="">
-                                                    <input type="number" id="base-input"
-                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PAY)"
-                                                        min="0" max="999999999999"
-                                                        oninput="validity.valid||(value='');"
-                                                        name="as_mny_mnftr_pay_8">
+                                                        data-modal-toggle="modal38">
+                                                        Ubah
+                                                    </button>
                                                 </div>
                                             @endif
-
                                         </td>
                                         <input type="text" hidden name="as_up_by_mnftr_pay_8"
                                             value="{{ Auth::user()->first_name }}">
@@ -6913,7 +6831,7 @@
                                     <tr
                                         class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
                                         <td class="py-4 font-bold text-center">9.</td>
-                                        <td class="flex items-center my-10">
+                                        <td class="flex items-center my-4">
 
                                             @if ($koneksipay->pay_mnftr_9 != '')
                                                 <a href="{{ asset('storage/supervisor/project/03_04_PR/' . $koneksipay->pay_mnftr_9) }}"
@@ -6950,25 +6868,29 @@
                                             @endif
                                         </td>
                                         <td class="space-y-2 py-3 px-2">
-                                            @if ($koneksipay->pay_mnftr_9 != '')
+                                            @if (
+                                                ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                    $koneksipay->pay_mnftr_9 == '')
+                                                <button type="button"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
+                                                    data-modal-target="modala39" data-modal-show="modala39"
+                                                    data-modal-toggle="modala39">
+                                                    + Tambah dokumen
+                                                </button>
+                                            @elseif (
+                                                ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                    $koneksipay->pay_mnftr_9 != '' &&
+                                                    $koneksipay->status_pay_04 != 'Complete' &&
+                                                    $koneksipay->status_pay_04 != 'Waiting Approval')
                                                 <div class="justify-center flex space-x-2">
                                                     <button type="button"
-                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                         data-modal-target="modal39" data-modal-show="modal39"
-                                                        data-modal-toggle="modal39">Ubah</button>
-                                                </div>
-                                            @else
-                                                <input type="file" name="as_pay_mnftr_9" id="">
-                                                <div class="">
-                                                    <input type="number" id="base-input"
-                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PAY)"
-                                                        min="0" max="999999999999"
-                                                        oninput="validity.valid||(value='');"
-                                                        name="as_mny_mnftr_pay_9">
+                                                        data-modal-toggle="modal39">
+                                                        Ubah
+                                                    </button>
                                                 </div>
                                             @endif
-
                                         </td>
                                         <input type="text" hidden name="as_up_by_mnftr_pay_9"
                                             value="{{ Auth::user()->first_name }}">
@@ -6980,7 +6902,7 @@
                                     <tr
                                         class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
                                         <td class="py-4 font-bold text-center">10.</td>
-                                        <td class="flex items-center my-10">
+                                        <td class="flex items-center my-4">
 
                                             @if ($koneksipay->pay_mnftr_10 != '')
                                                 <a href="{{ asset('storage/supervisor/project/03_04_PR/' . $koneksipay->pay_mnftr_10) }}"
@@ -7017,33 +6939,35 @@
                                             @endif
                                         </td>
                                         <td class="space-y-2 py-3 px-2">
-                                            @if ($koneksipay->pay_mnftr_10 != '')
+                                            @if (
+                                                ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                    $koneksipay->pay_mnftr_10 == '')
+                                                <button type="button"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
+                                                    data-modal-target="modala310" data-modal-show="modala310"
+                                                    data-modal-toggle="modala310">
+                                                    + Tambah dokumen
+                                                </button>
+                                            @elseif (
+                                                ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                    $koneksipay->pay_mnftr_10 != '' &&
+                                                    $koneksipay->status_pay_04 != 'Complete' &&
+                                                    $koneksipay->status_pay_04 != 'Waiting Approval')
                                                 <div class="justify-center flex space-x-2">
                                                     <button type="button"
-                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                         data-modal-target="modal310" data-modal-show="modal310"
-                                                        data-modal-toggle="modal310">Ubah</button>
-                                                </div>
-                                            @else
-                                                <input type="file" name="as_pay_mnftr_10" id="">
-                                                <div class="">
-                                                    <input type="number" id="base-input"
-                                                        class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                        placeholder="Rp (isi nilai sesuai dokumen PAY)"
-                                                        min="0" max="999999999999"
-                                                        oninput="validity.valid||(value='');"
-                                                        name="as_mny_mnftr_pay_10">
+                                                        data-modal-toggle="modal310">
+                                                        Ubah
+                                                    </button>
                                                 </div>
                                             @endif
-
                                         </td>
                                         <input type="text" hidden name="as_up_by_mnftr_pay_10"
                                             value="{{ Auth::user()->first_name }}">
                                         <input type="date" hidden name="as_date_pay_mnftr_10"
                                             value="{{ date('Y-m-d') }}">
-
                                     </tr>
-
                                 </tbody>
                             </table>
                         </div>
@@ -7056,10 +6980,10 @@
                     {{-- awal tab impor --}}
                     <div class="mt-3 bg-white rounded-lg" id="impor" role="tabpanel"
                         aria-labelledby="impor-tab">
-                        {{-- PA EPQ --}}
+                        {{-- PAY DA --}}
                         {{-- awal standar formulir --}}
                         <div class="flex space-x-2 items-center justify-between">
-                            <p class="font-normal text-lg bg-teal-600 px-4 py-1 w-fit text-white mb-2 rounded">
+                            <p class="font-medium text-lg bg-gray-800 px-4 py-1 w-fit text-white mb-2 rounded">
                                 DA (Delivery Advice)
                             </p>
                             {{-- tombol form --}}
@@ -7068,22 +6992,23 @@
 
                         <div class="overflow-x-auto rounded-md mb-5">
                             <table class="w-full">
-                                <thead class="bg-green-600 text-white">
-                                    <th class="py-2 w-[5%]">No.</th>
-                                    <th class="w-[50%]">Nama File</th>
-                                    <th class="w-[15%]">Uploaded by</th>
-                                    <th class="w-[15%]">Last Update</th>
-                                    <th class="w-[15%]">Aksi</th>
+                                <thead class="bg-gray-300 text-gray-700">
+                                    <th class="py-2 w-[5%] font-medium">No.</th>
+                                    <th class="w-[45%]  font-medium">Nama File</th>
+                                    <th class="w-[11%]  font-medium">Diunggah oleh</th>
+                                    <th class="w-[10%]  font-medium">Terakhir diubah</th>
+                                    <th class="w-[14%]  font-medium">Jumlah PAY</th>
+                                    <th class="w-[14%]  font-medium">Aksi</th>
                                 </thead>
                                 <tbody class="text-left border">
                                     {{-- 1 --}}
                                     <tr
                                         class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
                                         <td class="py-4 font-bold text-center">1.</td>
-                                        <td class="flex items-center my-10">
+                                        <td class="flex items-center my-4">
 
-                                            @if ($koneksipay->da_pay_1 != '')
-                                                <a href="{{ asset('storage/supervisor/project/03_04_PR/' . $koneksipay->da_pay_1) }}"
+                                            @if ($koneksipay->pay_da_1 != '')
+                                                <a href="{{ asset('storage/supervisor/project/03_04_PR/' . $koneksipay->pay_da_1) }}"
                                                     target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
                                                     <svg width="22" height="17" viewBox="0 0 22 17"
                                                         fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -7096,39 +7021,54 @@
                                                 &emsp;
                                             @endif
                                             {{--  --}}
-                                            <a href="{{ asset('storage/supervisor/project/03_04_PR/' . $koneksipay->da_pay_1) }}"
+                                            <a href="{{ asset('storage/supervisor/project/03_04_PR/' . $koneksipay->pay_da_1) }}"
                                                 target="blank" download="" class="hover:underline">
-                                                {{ $koneksipay->da_pay_1 }}</a>
+                                                {{ $koneksipay->pay_da_1 }}</a>
                                             {{-- == --}}
 
                                         </td>
                                         <td>
-                                            @if ($koneksipay->up_by_da_pay_1y != '')
+                                            @if ($koneksipay->up_by_da_pay_1 != '')
                                                 <div
                                                     class="items-center py-1 px-2 text-sm font-medium text-center text-white bg-orange-500 w-[100] mx-auto rounded">
-                                                    {{ $koneksipay->up_by_da_pay_1y }}
+                                                    {{ $koneksipay->up_by_da_pay_1 }}
                                                 </div>
                                             @endif
                                         </td>
-                                        <td class="text-center">{{ $koneksipay->date_da_pay_1 }}</td>
-
-                                        <td class="space-y-2 py-3 px-2">
-                                            @if ($koneksipay->da_pay_1 != '')
-                                                <div class="justify-center flex space-x-2">
-                                                    <button type="button"
-                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
-                                                        data-modal-target="modal41" data-modal-show="modal41"
-                                                        data-modal-toggle="modal41">Ubah</button>
-                                                </div>
-                                            @else
-                                                <input type="file" name="as_da_pay_1" id="">
+                                        <td class="text-center">{{ $koneksipay->date_pay_da_1 }}</td>
+                                        <td>
+                                            @if ($koneksipay->mny_da_pay_1 != '')
+                                                Rp{{ number_format($koneksipay->mny_da_pay_1, 0, ',', '.') }}
                                             @endif
-
-
+                                        </td>
+                                        <td class="space-y-2 py-3 px-2">
+                                            @if (
+                                                    ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                        $koneksipay->pay_da_1 == '')
+                                                    <button type="button"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
+                                                    data-modal-target="modala41" data-modal-show="modala41"
+                                                    data-modal-toggle="modala41">
+                                                    + Tambah dokumen
+                                                    </button>
+                                                @elseif (
+                                                    ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                        $koneksipay->pay_da_1 != '' &&
+                                                        $koneksipay->status_pay_04 != 'Complete' &&
+                                                        $koneksipay->status_pay_04 != 'Waiting Approval')
+                                                    <div class="justify-center flex space-x-2">
+                                                        <button type="button"
+                                                            class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                            data-modal-target="modal41" data-modal-show="modal41"
+                                                            data-modal-toggle="modal41">
+                                                            Ubah
+                                                        </button>
+                                                    </div>
+                                                @endif
                                         </td>
                                         <input type="text" hidden name="as_up_by_da_pay_1"
                                             value="{{ Auth::user()->first_name }}">
-                                        <input type="date" hidden name="as_date_da_pay_1"
+                                        <input type="date" hidden name="as_date_pay_da_1"
                                             value="{{ date('Y-m-d') }}">
 
                                     </tr>
@@ -7136,10 +7076,10 @@
                                     <tr
                                         class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
                                         <td class="py-4 font-bold text-center">2.</td>
-                                        <td class="flex items-center my-10">
+                                        <td class="flex items-center my-4">
 
-                                            @if ($koneksipay->da_pay_2 != '')
-                                                <a href="{{ asset('storage/supervisor/project/03_04_PR/' . $koneksipay->da_pay_2) }}"
+                                            @if ($koneksipay->pay_da_2 != '')
+                                                <a href="{{ asset('storage/supervisor/project/03_04_PR/' . $koneksipay->pay_da_2) }}"
                                                     target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
                                                     <svg width="22" height="17" viewBox="0 0 22 17"
                                                         fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -7152,49 +7092,65 @@
                                                 &emsp;
                                             @endif
                                             {{--  --}}
-                                            <a href="{{ asset('storage/supervisor/project/03_04_PR/' . $koneksipay->da_pay_2) }}"
+                                            <a href="{{ asset('storage/supervisor/project/03_04_PR/' . $koneksipay->pay_da_2) }}"
                                                 target="blank" download="" class="hover:underline">
-                                                {{ $koneksipay->da_pay_2 }}</a>
+                                                {{ $koneksipay->pay_da_2 }}</a>
                                             {{-- == --}}
 
                                         </td>
                                         <td>
-                                            @if ($koneksipay->up_by_da_pay_2y != '')
+                                            @if ($koneksipay->up_by_da_pay_2 != '')
                                                 <div
                                                     class="items-center py-1 px-2 text-sm font-medium text-center text-white bg-orange-500 w-[100] mx-auto rounded">
-                                                    {{ $koneksipay->up_by_da_pay_2y }}
+                                                    {{ $koneksipay->up_by_da_pay_2 }}
                                                 </div>
                                             @endif
                                         </td>
-                                        <td class="text-center">{{ $koneksipay->date_da_pay_2 }}</td>
-
-                                        <td class="space-y-2 py-3 px-2">
-                                            @if ($koneksipay->da_pay_2 != '')
-                                                <div class="justify-center flex space-x-2">
-                                                    <button type="button"
-                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
-                                                        data-modal-target="modal42" data-modal-show="modal42"
-                                                        data-modal-toggle="modal42">Ubah</button>
-                                                </div>
-                                            @else
-                                                <input type="file" name="as_da_pay_2" id="">
+                                        <td class="text-center">{{ $koneksipay->date_pay_da_2 }}</td>
+                                        <td>
+                                            @if ($koneksipay->mny_da_pay_2 != '')
+                                                Rp{{ number_format($koneksipay->mny_da_pay_2, 0, ',', '.') }}
                                             @endif
+                                        </td>
+                                        <td class="space-y-2 py-3 px-2">
+                                            @if (
+                                                    ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                        $koneksipay->pay_da_2 == '')
+                                                    <button type="button"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
+                                                    data-modal-target="modala42" data-modal-show="modala42"
+                                                    data-modal-toggle="modala42">
+                                                    + Tambah dokumen
+                                                </button>
+                                                @elseif (
+                                                    ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                        $koneksipay->pay_da_2 != '' &&
+                                                        $koneksipay->status_pay_04 != 'Complete' &&
+                                                        $koneksipay->status_pay_04 != 'Waiting Approval')
+                                                    <div class="justify-center flex space-x-2">
+                                                        <button type="button"
+                                                            class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                            data-modal-target="modal42" data-modal-show="modal42"
+                                                            data-modal-toggle="modal42">
+                                                            Ubah
+                                                        </button>
+                                                    </div>
+                                                @endif
                                         </td>
                                         <input type="text" hidden name="as_up_by_da_pay_2"
                                             value="{{ Auth::user()->first_name }}">
-                                        <input type="date" hidden name="as_date_da_pay_2"
+                                        <input type="date" hidden name="as_date_pay_da_2"
                                             value="{{ date('Y-m-d') }}">
-
                                     </tr>
 
                                     {{-- 3 --}}
                                     <tr
                                         class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
                                         <td class="py-4 font-bold text-center">3.</td>
-                                        <td class="flex items-center my-10">
+                                        <td class="flex items-center my-4">
 
-                                            @if ($koneksipay->da_pay_3 != '')
-                                                <a href="{{ asset('storage/supervisor/project/03_04_PR/' . $koneksipay->da_pay_3) }}"
+                                            @if ($koneksipay->pay_da_3 != '')
+                                                <a href="{{ asset('storage/supervisor/project/03_04_PR/' . $koneksipay->pay_da_3) }}"
                                                     target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
                                                     <svg width="22" height="17" viewBox="0 0 22 17"
                                                         fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -7207,37 +7163,54 @@
                                                 &emsp;
                                             @endif
                                             {{--  --}}
-                                            <a href="{{ asset('storage/supervisor/project/03_04_PR/' . $koneksipay->da_pay_3) }}"
+                                            <a href="{{ asset('storage/supervisor/project/03_04_PR/' . $koneksipay->pay_da_3) }}"
                                                 target="blank" download="" class="hover:underline">
-                                                {{ $koneksipay->da_pay_3 }}</a>
+                                                {{ $koneksipay->pay_da_3 }}</a>
                                             {{-- == --}}
 
                                         </td>
                                         <td>
-                                            @if ($koneksipay->up_by_da_pay_3y != '')
+                                            @if ($koneksipay->up_by_da_pay_3 != '')
                                                 <div
                                                     class="items-center py-1 px-2 text-sm font-medium text-center text-white bg-orange-500 w-[100] mx-auto rounded">
-                                                    {{ $koneksipay->up_by_da_pay_3y }}
+                                                    {{ $koneksipay->up_by_da_pay_3 }}
                                                 </div>
                                             @endif
                                         </td>
-                                        <td class="text-center">{{ $koneksipay->date_da_pay_3 }}</td>
-
-                                        <td class="space-y-2 py-3 px-2">
-                                            @if ($koneksipay->da_pay_3 != '')
-                                                <div class="justify-center flex space-x-2">
-                                                    <button type="button"
-                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
-                                                        data-modal-target="modal43" data-modal-show="modal43"
-                                                        data-modal-toggle="modal43">Ubah</button>
-                                                </div>
-                                            @else
-                                                <input type="file" name="as_da_pay_3" id="">
+                                        <td class="text-center">{{ $koneksipay->date_pay_da_3 }}</td>
+                                        <td>
+                                            @if ($koneksipay->mny_da_pay_3 != '')
+                                                Rp{{ number_format($koneksipay->mny_da_pay_3, 0, ',', '.') }}
                                             @endif
+                                        </td>
+                                        <td class="space-y-2 py-3 px-2">
+                                            @if (
+                                                    ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                        $koneksipay->pay_da_3 == '')
+                                                    <button type="button"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
+                                                    data-modal-target="modala43" data-modal-show="modala43"
+                                                    data-modal-toggle="modala43">
+                                                    + Tambah dokumen
+                                                </button>
+                                                @elseif (
+                                                    ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                        $koneksipay->pay_da_3 != '' &&
+                                                        $koneksipay->status_pay_04 != 'Complete' &&
+                                                        $koneksipay->status_pay_04 != 'Waiting Approval')
+                                                    <div class="justify-center flex space-x-2">
+                                                        <button type="button"
+                                                            class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                            data-modal-target="modal43" data-modal-show="modal43"
+                                                            data-modal-toggle="modal43">
+                                                            Ubah
+                                                        </button>
+                                                    </div>
+                                                @endif
                                         </td>
                                         <input type="text" hidden name="as_up_by_da_pay_3"
                                             value="{{ Auth::user()->first_name }}">
-                                        <input type="date" hidden name="as_date_da_pay_3"
+                                        <input type="date" hidden name="as_date_pay_da_3"
                                             value="{{ date('Y-m-d') }}">
                                     </tr>
 
@@ -7245,10 +7218,10 @@
                                     <tr
                                         class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
                                         <td class="py-4 font-bold text-center">4.</td>
-                                        <td class="flex items-center my-10">
+                                        <td class="flex items-center my-4">
 
-                                            @if ($koneksipay->da_pay_4 != '')
-                                                <a href="{{ asset('storage/supervisor/project/03_04_PR/' . $koneksipay->da_pay_4) }}"
+                                            @if ($koneksipay->pay_da_4 != '')
+                                                <a href="{{ asset('storage/supervisor/project/03_04_PR/' . $koneksipay->pay_da_4) }}"
                                                     target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
                                                     <svg width="22" height="17" viewBox="0 0 22 17"
                                                         fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -7261,37 +7234,54 @@
                                                 &emsp;
                                             @endif
                                             {{--  --}}
-                                            <a href="{{ asset('storage/supervisor/project/03_04_PR/' . $koneksipay->da_pay_4) }}"
+                                            <a href="{{ asset('storage/supervisor/project/03_04_PR/' . $koneksipay->pay_da_4) }}"
                                                 target="blank" download="" class="hover:underline">
-                                                {{ $koneksipay->da_pay_4 }}</a>
+                                                {{ $koneksipay->pay_da_4 }}</a>
                                             {{-- == --}}
 
                                         </td>
                                         <td>
-                                            @if ($koneksipay->up_by_da_pay_4y != '')
+                                            @if ($koneksipay->up_by_da_pay_4 != '')
                                                 <div
                                                     class="items-center py-1 px-2 text-sm font-medium text-center text-white bg-orange-500 w-[100] mx-auto rounded">
-                                                    {{ $koneksipay->up_by_da_pay_4y }}
+                                                    {{ $koneksipay->up_by_da_pay_4 }}
                                                 </div>
                                             @endif
                                         </td>
-                                        <td class="text-center">{{ $koneksipay->date_da_pay_4 }}</td>
-
-                                        <td class="space-y-2 py-3 px-2">
-                                            @if ($koneksipay->da_pay_4 != '')
-                                                <div class="justify-center flex space-x-2">
-                                                    <button type="button"
-                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
-                                                        data-modal-target="modal44" data-modal-show="modal44"
-                                                        data-modal-toggle="modal44">Ubah</button>
-                                                </div>
-                                            @else
-                                                <input type="file" name="as_da_pay_4" id="">
+                                        <td class="text-center">{{ $koneksipay->date_pay_da_4 }}</td>
+                                        <td>
+                                            @if ($koneksipay->mny_da_pay_4 != '')
+                                                Rp{{ number_format($koneksipay->mny_da_pay_4, 0, ',', '.') }}
                                             @endif
+                                        </td>
+                                        <td class="space-y-2 py-3 px-2">
+                                            @if (
+                                                    ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                        $koneksipay->pay_da_4 == '')
+                                                    <button type="button"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
+                                                    data-modal-target="modala44" data-modal-show="modala44"
+                                                    data-modal-toggle="modala44">
+                                                    + Tambah dokumen
+                                                    </button>
+                                                @elseif (
+                                                    ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                        $koneksipay->pay_da_4 != '' &&
+                                                        $koneksipay->status_pay_04 != 'Complete' &&
+                                                        $koneksipay->status_pay_04 != 'Waiting Approval')
+                                                    <div class="justify-center flex space-x-2">
+                                                        <button type="button"
+                                                            class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                            data-modal-target="modal44" data-modal-show="modal44"
+                                                            data-modal-toggle="modal44">
+                                                            Ubah
+                                                        </button>
+                                                    </div>
+                                                @endif
                                         </td>
                                         <input type="text" hidden name="as_up_by_da_pay_4"
                                             value="{{ Auth::user()->first_name }}">
-                                        <input type="date" hidden name="as_date_da_pay_4"
+                                        <input type="date" hidden name="as_date_pay_da_4"
                                             value="{{ date('Y-m-d') }}">
 
                                     </tr>
@@ -7299,10 +7289,10 @@
                                     <tr
                                         class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
                                         <td class="py-4 font-bold text-center">5.</td>
-                                        <td class="flex items-center my-10">
+                                        <td class="flex items-center my-4">
 
-                                            @if ($koneksipay->da_pay_5 != '')
-                                                <a href="{{ asset('storage/supervisor/project/03_04_PR/' . $koneksipay->da_pay_5) }}"
+                                            @if ($koneksipay->pay_da_5 != '')
+                                                <a href="{{ asset('storage/supervisor/project/03_04_PR/' . $koneksipay->pay_da_5) }}"
                                                     target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
                                                     <svg width="22" height="17" viewBox="0 0 22 17"
                                                         fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -7315,63 +7305,261 @@
                                                 &emsp;
                                             @endif
                                             {{--  --}}
-                                            <a href="{{ asset('storage/supervisor/project/03_04_PR/' . $koneksipay->da_pay_5) }}"
+                                            <a href="{{ asset('storage/supervisor/project/03_04_PR/' . $koneksipay->pay_da_5) }}"
                                                 target="blank" download="" class="hover:underline">
-                                                {{ $koneksipay->da_pay_5 }}</a>
+                                                {{ $koneksipay->pay_da_5 }}</a>
                                             {{-- == --}}
 
                                         </td>
                                         <td>
-                                            @if ($koneksipay->up_by_da_pay_5y != '')
+                                            @if ($koneksipay->up_by_da_pay_5 != '')
                                                 <div
                                                     class="items-center py-1 px-2 text-sm font-medium text-center text-white bg-orange-500 w-[100] mx-auto rounded">
-                                                    {{ $koneksipay->up_by_da_pay_5y }}
+                                                    {{ $koneksipay->up_by_da_pay_5 }}
                                                 </div>
                                             @endif
                                         </td>
-                                        <td class="text-center">{{ $koneksipay->date_da_pay_5 }}</td>
-
-                                        <td class="space-y-2 py-3 px-2">
-                                            @if ($koneksipay->da_pay_5 != '')
-                                                <div class="justify-center flex space-x-2">
-                                                    <button type="button"
-                                                        class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
-                                                        data-modal-target="modal45" data-modal-show="modal45"
-                                                        data-modal-toggle="modal45">Ubah</button>
-                                                </div>
-                                            @else
-                                                <input type="file" name="as_da_pay_5" id="">
+                                        <td class="text-center">{{ $koneksipay->date_pay_da_5 }}</td>
+                                        <td>
+                                            @if ($koneksipay->mny_da_pay_5 != '')
+                                                Rp{{ number_format($koneksipay->mny_da_pay_5, 0, ',', '.') }}
                                             @endif
+                                        </td>
+                                        <td class="space-y-2 py-3 px-2">
+                                            @if (
+                                                    ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                        $koneksipay->pay_da_5 == '')
+                                                    <button type="button"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
+                                                    data-modal-target="modala45" data-modal-show="modala45"
+                                                    data-modal-toggle="modala45">
+                                                    + Tambah dokumen
+                                                </button>
+                                                @elseif (
+                                                    ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY') &&
+                                                        $koneksipay->pay_da_5 != '' &&
+                                                        $koneksipay->status_pay_04 != 'Complete' &&
+                                                        $koneksipay->status_pay_04 != 'Waiting Approval')
+                                                    <div class="justify-center flex space-x-2">
+                                                        <button type="button"
+                                                            class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                            data-modal-target="modal45" data-modal-show="modal45"
+                                                            data-modal-toggle="modal45">
+                                                            Ubah
+                                                        </button>
+                                                    </div>
+                                                @endif
                                         </td>
                                         <input type="text" hidden name="as_up_by_da_pay_5"
                                             value="{{ Auth::user()->first_name }}">
-                                        <input type="date" hidden name="as_date_da_pay_5"
+                                        <input type="date" hidden name="as_date_pay_da_5"
                                             value="{{ date('Y-m-d') }}">
-
                                     </tr>
                                 </tbody>
                             </table>
                         </div>
-                        {{-- Akhir manufaktur --}}
+                        {{-- Akhir da --}}
                     </div>
                 </div>
                 {{-- tabcontent --}}
             </div>
             {{-- bungkus --}}
-            <input type="text" name="status_purchasing" value="Waiting Approval Purchasing - PAY" hidden>
-            <input type="date" hidden name="status_purchasing_date" value="{{ date('Y-m-d') }}">
 
-            <input type="text" name="status_pay_04" value="Waiting Approval" hidden>
-            <input type="date" hidden name="status_pay_04_date" value="{{ date('Y-m-d') }}">
-            {{-- table project --}}
-            <input type="text" name="check" value="needcheck" hidden>
-            <input type="text" name="progress" value="Waiting Approval Purchasing - PAY" hidden>
-            <input type="text" name="last_update_name" value="{{ Auth::user()->first_name }}" hidden>
-            <input type="text" name="last_update_date" value="{{ date('d-M-Y') }}" hidden>
+            {{-- modal tambah --}}
+            @php
+                $t = range(1, 50);
+            @endphp
+            {{-- tambah parts --}}
+            @foreach ($t as $index => $number)
+                <div id="modala1{{ $number }}"
+                    class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 inset-0 justify-center items-center w-full max-h-full">
+                    <div class="relative p-4 w-full max-w-2xl max-h-full">
+                        <!-- Modal content -->
+                        <div class="relative bg-white rounded-lg shadow">
+                            <!-- Modal header -->
+                            <div class="flex items-center justify-between px-5 py-3 border-b rounded-t">
+                                <p class="text-2xl font-semibold text-gray-900 font-mono">
+                                    Tambah dokumen dan nilai finansial - PAY Parts
+                                </p>
+                                <button type="button"
+                                    class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center"
+                                    onclick="simulateEscape()">
+                                    <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                        fill="none" viewBox="0 0 14 14">
+                                        <path stroke="currentColor" stroke-linecap="round"
+                                            stroke-linejoin="round" stroke-width="2"
+                                            d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+                                    </svg>
+                                    <span class="sr-only">Close modal</span>
+                                </button>
+                            </div>
+                            <!-- Modal footer -->
+                            <div class="items-center px-5 py-2 border-t border-gray-200 rounded-b">
+                                <p class="text-sm font-bold">*Pastikan isi kedua bidang isian (file & nilai
+                                    finansial)</p>
+                                <div class="items-center justify-center w-full border my-4">
+                                    <div class="grid grid-cols-2">
+                                        <input type="file"name="as_pay_parts_{{ $number }}"
+                                            id="">
+                                        <div class="">
+                                            <input type="text" id="base-input"
+                                                class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
+                                                placeholder="Sesuaikan nilai finansial dengan dokumen"
+                                                min="0" max="999999999999"
+                                                oninput="validity.valid||(value=''); formatAngka(this);"
+                                                name="as_mny_parts_pay_{{ $number }}">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <button type="submit"
+                                class="bg-orange-500 w-full hover:bg-orange-600 text-white font-bold py-2 rounded-b-lg shadow-md">Submit</button>
+                        </div>
+                    </div>
+                </div>
+            @endforeach
+            {{-- tambah pekerjaan jasa --}}
+            @foreach ($t as $index => $number)
+                <div id="modala2{{ $number }}"
+                    class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 inset-0 justify-center items-center w-full max-h-full">
+                    <div class="relative p-4 w-full max-w-2xl max-h-full">
+                        <!-- Modal content -->
+                        <div class="relative bg-white rounded-lg shadow">
+                            <!-- Modal header -->
+                            <div class="flex items-center justify-between px-5 py-3 border-b rounded-t">
+                                <p class="text-2xl font-semibold text-gray-900 font-mono">
+                                    Tambah dokumen dan nilai finansial - PAY Pekerjaan/jasa
+                                </p>
+                                <button type="button"
+                                    class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center"
+                                    onclick="simulateEscape()">
+                                    <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                        fill="none" viewBox="0 0 14 14">
+                                        <path stroke="currentColor" stroke-linecap="round"
+                                            stroke-linejoin="round" stroke-width="2"
+                                            d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+                                    </svg>
+                                    <span class="sr-only">Close modal</span>
+                                </button>
+                            </div>
+                            <div class="items-center px-5 py-2 border-t border-gray-200 rounded-b">
+                                <p class="text-sm font-bold">*Pastikan isi kedua bidang isian (file & nilai
+                                    finansial)
+                                    untuk dapat mengubah ajuan</p>
+                                <div class="items-center justify-center w-full border my-4">
+                                    <div class="grid grid-cols-2">
+                                        <input type="file"name="as_pay_jasa_{{ $number }}"
+                                            id="">
+                                        <div class="">
+                                            <input type="text" id="base-input"
+                                                class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
+                                                placeholder="Sesuaikan nilai finansial dengan dokumen"
+                                                min="0" max="999999999999"
+                                                oninput="validity.valid||(value=''); formatAngka(this);"
+                                                name="as_mny_jasa_pay_{{ $number }}">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <button type="submit"
+                                class="bg-orange-500 w-full hover:bg-orange-600 text-white font-bold py-2 rounded-b-lg shadow-md">Submit</button>
+                        </div>
+                    </div>
+                </div>
+            @endforeach
+            {{-- tambah manufaktur --}}
+            @foreach ($t as $index => $number)
+                <div id="modala3{{ $number }}"
+                    class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 inset-0 justify-center items-center w-full max-h-full">
+                    <div class="relative p-4 w-full max-w-2xl max-h-full">
+                        <!-- Modal content -->
+                        <div class="relative bg-white rounded-lg shadow">
+                            <!-- Modal header -->
+                            <div class="flex items-center justify-between px-5 py-3 border-b rounded-t">
+                                <p class="text-2xl font-semibold text-gray-900 font-mono">
+                                    Tambah dokumen dan nilai finansial - PAY Manufaktur
+                                </p>
+                                <button type="button"
+                                    class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center"
+                                    onclick="simulateEscape()">
+                                    <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                        fill="none" viewBox="0 0 14 14">
+                                        <path stroke="currentColor" stroke-linecap="round"
+                                            stroke-linejoin="round" stroke-width="2"
+                                            d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+                                    </svg>
+                                    <span class="sr-only">Close modal</span>
+                                </button>
+                            </div>
+                            <div class="items-center px-5 py-2 border-t border-gray-200 rounded-b">
+                                <div class="items-center justify-center w-full border my-4">
+                                    <div class="grid grid-cols-2">
+                                        <input type="file"name="as_pay_mnftr_{{ $number }}"
+                                            id="">
+                                        <div class="">
+                                            <input type="text" id="base-input"
+                                                class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
+                                                placeholder="Sesuaikan nilai finansial dengan dokumen"
+                                                min="0" max="999999999999"
+                                                oninput="validity.valid||(value=''); formatAngka(this);"
+                                                name="as_mny_mnftr_pay_{{ $number }}">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <button type="submit"
+                                class="bg-orange-500 w-full hover:bg-orange-600 text-white font-bold py-2 rounded-b-lg shadow-md">Submit</button>
+                        </div>
+                    </div>
+                </div>
+            @endforeach
 
-            <button type="submit"
-                class="bg-orange-500 w-full hover:bg-orange-600 text-white font-bold py-2 rounded-b-lg shadow-md">
-                Klik untuk submit dokumen</button>
+            {{-- tambah DA --}}
+            @foreach ($t as $index => $number)
+            <div id="modala4{{ $number }}"
+                class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 inset-0 justify-center items-center w-full max-h-full">
+                <div class="relative p-4 w-full max-w-2xl max-h-full">
+                    <!-- Modal content -->
+                    <div class="relative bg-white rounded-lg shadow">
+                        <!-- Modal header -->
+                        <div class="flex items-center justify-between px-5 py-3 border-b rounded-t">
+                            <p class="text-2xl font-semibold text-gray-900 font-mono">
+                                Tambah dokumen dan nilai finansial - DA
+                            </p>
+                            <button type="button"
+                                class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center"
+                                onclick="simulateEscape()">
+                                <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                    fill="none" viewBox="0 0 14 14">
+                                    <path stroke="currentColor" stroke-linecap="round"
+                                        stroke-linejoin="round" stroke-width="2"
+                                        d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+                                </svg>
+                                <span class="sr-only">Close modal</span>
+                            </button>
+                        </div>
+                        <div class="items-center px-5 py-2 border-t border-gray-200 rounded-b">
+                            <div class="items-center justify-center w-full border my-4">
+                                <div class="grid grid-cols-2">
+                                    <input type="file"name="as_pay_da_{{ $number }}"
+                                        id="">
+                                    <div class="">
+                                        <input type="text" id="base-input"
+                                            class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
+                                            placeholder="Sesuaikan nilai finansial dengan dokumen"
+                                            min="0" max="999999999999"
+                                            oninput="validity.valid||(value=''); formatAngka(this);"
+                                            name="as_mny_da_pay_{{ $number }}">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <button type="submit"
+                            class="bg-orange-500 w-full hover:bg-orange-600 text-white font-bold py-2 rounded-b-lg shadow-md">Submit</button>
+                    </div>
+                </div>
+            </div>
+        @endforeach
 
             {{-- modal ubah --}}
             @php
@@ -7444,11 +7632,11 @@
                                             <input type="file" name="as_pay_parts_{{ $number }}"
                                                 id="">
                                             <div class="">
-                                                <input type="number" id="base-input"
+                                                <input type="text" id="base-input"
                                                     class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                    placeholder="Rp{{ number_format($koneksipay->{'mny_parts_pay_' . $number}, 0, ',', '.') }}"
+                                                    value="{{ isset($koneksipay->{'mny_parts_pay_' . $number}) ? number_format($koneksipay->{'mny_parts_pay_' . $number}, 0, ',', '.') : '' }}"
                                                     min="0" max="999999999999"
-                                                    oninput="validity.valid||(value='');"
+                                                    oninput="validity.valid||(value=''); formatAngka(this);"
                                                     name="as_mny_parts_pay_{{ $number }}">
                                             </div>
                                         </div>
@@ -7529,11 +7717,11 @@
                                             <input type="file"name="as_pay_jasa_{{ $number }}"
                                                 id="">
                                             <div class="">
-                                                <input type="number" id="base-input"
+                                                <input type="text" id="base-input"
                                                     class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                    placeholder="Rp{{ number_format($koneksipay->{'mny_jasa_pay_' . $number}, 0, ',', '.') }}"
+                                                    value="{{ isset($koneksipay->{'mny_jasa_pay_' . $number}) ? number_format($koneksipay->{'mny_jasa_pay_' . $number}, 0, ',', '.') : '' }}"
                                                     min="0" max="999999999999"
-                                                    oninput="validity.valid||(value='');"
+                                                    oninput="validity.valid||(value=''); formatAngka(this);"
                                                     name="as_mny_jasa_pay_{{ $number }}">
                                             </div>
                                         </div>
@@ -7614,11 +7802,11 @@
                                             <input type="file"name="as_pay_mnftr_{{ $number }}"
                                                 id="">
                                             <div class="">
-                                                <input type="number" id="base-input"
+                                                <input type="text" id="base-input"
                                                     class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
-                                                    placeholder="Rp{{ number_format($koneksipay->{'mny_mnftr_pay_' . $number}, 0, ',', '.') }}"
+                                                    value="{{ isset($koneksipay->{'mny_mnftr_pay_' . $number}) ? number_format($koneksipay->{'mny_mnftr_pay_' . $number}, 0, ',', '.') : '' }}"
                                                     min="0" max="999999999999"
-                                                    oninput="validity.valid||(value='');"
+                                                    oninput="validity.valid||(value=''); formatAngka(this);"
                                                     name="as_mny_mnftr_pay_{{ $number }}">
                                             </div>
                                         </div>
@@ -7658,13 +7846,21 @@
                             <!-- Modal body -->
                             <div class="py-2 px-5">
                                 <p class="font-light text-lg mb-2">Dokumen sebelumnya</p>
-                                <div class="grid grid-cols-2 space-x-2">
+                                <div class="grid grid-cols-3 space-x-2">
                                     <div>
                                         <p class="text-base leading-relaxed text-gray-600">
                                             Nama dokumen:
                                         </p>
                                         <p class="text-gray-900">
                                             {{ $koneksipay->{'pay_da_' . $number} }}
+                                        </p>
+                                    </div>
+                                    <div>
+                                        <p class="text-base leading-relaxed text-gray-600">
+                                            Jumlah:
+                                        </p>
+                                        <p class="text-gray-900">
+                                            Rp{{ number_format($koneksipay->{'mny_da_pay_' . $number}, 0, ',', '.') }}
                                         </p>
                                     </div>
                                     <div>
@@ -7680,13 +7876,21 @@
                             <!-- Modal footer -->
                             <div class="items-center px-5 py-2 border-t border-gray-200 rounded-b">
                                 <p class="font-light text-lg">
-                                    Unggah dokumen baru
+                                    Unggah dokumen dan nilai finansial baru
                                 </p>
                                 <p class="text-sm font-bold">*Pastikan isi kedua bidang isian (file & nilai finansial)
                                     untuk dapat mengubah ajuan</p>
                                 <div class="items-center justify-center w-full border my-4">
                                     @if ($koneksipay->{'pay_da_' . $number} != '')
+                                    <div class="grid grid-cols-2">
                                         <input type="file"name="as_pay_da_{{ $number }}" id="">
+                                        <input type="text" id="base-input"
+                                            class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
+                                            value="{{ isset($koneksipay->{'mny_da_pay_' . $number}) ? number_format($koneksipay->{'mny_da_pay_' . $number}, 0, ',', '.') : '' }}"
+                                            min="0" max="999999999999"
+                                            oninput="validity.valid||(value=''); formatAngka(this);"
+                                            name="as_mny_da_pay_{{ $number }}">
+                                    </div>
                                     @else()
                                     @endif
                                 </div>
@@ -7697,11 +7901,145 @@
                     </div>
                 </div>
             @endforeach
-
         </form>
     </div>
-
     {{-- Akhir progress file --}}
+
+    @if ($koneksipay->status_pay_04 == '-' || $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY')
+        @if (
+            //parts
+            $koneksipay->pay_parts_1 ||
+                $koneksipay->pay_parts_2 ||
+                $koneksipay->pay_parts_3 ||
+                $koneksipay->pay_parts_4 ||
+                $koneksipay->pay_parts_5 ||
+                $koneksipay->pay_parts_6 ||
+                $koneksipay->pay_parts_7 ||
+                $koneksipay->pay_parts_8 ||
+                $koneksipay->pay_parts_9 ||
+                $koneksipay->pay_parts_10 ||
+                $koneksipay->pay_parts_11 ||
+                $koneksipay->pay_parts_12 ||
+                $koneksipay->pay_parts_13 ||
+                $koneksipay->pay_parts_14 ||
+                $koneksipay->pay_parts_15 ||
+                $koneksipay->pay_parts_16 ||
+                $koneksipay->pay_parts_17 ||
+                $koneksipay->pay_parts_18 ||
+                $koneksipay->pay_parts_19 ||
+                $koneksipay->pay_parts_20 ||
+                $koneksipay->pay_parts_21 ||
+                $koneksipay->pay_parts_22 ||
+                $koneksipay->pay_parts_23 ||
+                $koneksipay->pay_parts_24 ||
+                $koneksipay->pay_parts_25 ||
+                $koneksipay->pay_parts_26 ||
+                $koneksipay->pay_parts_27 ||
+                $koneksipay->pay_parts_28 ||
+                $koneksipay->pay_parts_29 ||
+                $koneksipay->pay_parts_30 ||
+                $koneksipay->pay_parts_31 ||
+                $koneksipay->pay_parts_32 ||
+                $koneksipay->pay_parts_33 ||
+                $koneksipay->pay_parts_34 ||
+                $koneksipay->pay_parts_35 ||
+                $koneksipay->pay_parts_36 ||
+                $koneksipay->pay_parts_37 ||
+                $koneksipay->pay_parts_38 ||
+                $koneksipay->pay_parts_39 ||
+                $koneksipay->pay_parts_40 ||
+                $koneksipay->pay_parts_41 ||
+                $koneksipay->pay_parts_42 ||
+                $koneksipay->pay_parts_43 ||
+                $koneksipay->pay_parts_44 ||
+                $koneksipay->pay_parts_45 ||
+                $koneksipay->pay_parts_46 ||
+                $koneksipay->pay_parts_47 ||
+                $koneksipay->pay_parts_48 ||
+                $koneksipay->pay_parts_49 ||
+                $koneksipay->pay_parts_50 ||
+                // pekerjaan jasa
+                $koneksipay->pay_jasa_1 ||
+                $koneksipay->pay_jasa_2 ||
+                $koneksipay->pay_jasa_3 ||
+                $koneksipay->pay_jasa_4 ||
+                $koneksipay->pay_jasa_5 ||
+                $koneksipay->pay_jasa_6 ||
+                $koneksipay->pay_jasa_7 ||
+                $koneksipay->pay_jasa_8 ||
+                $koneksipay->pay_jasa_9 ||
+                $koneksipay->pay_jasa_10 ||
+                $koneksipay->pay_jasa_11 ||
+                $koneksipay->pay_jasa_12 ||
+                $koneksipay->pay_jasa_13 ||
+                $koneksipay->pay_jasa_14 ||
+                $koneksipay->pay_jasa_15 ||
+                $koneksipay->pay_jasa_16 ||
+                $koneksipay->pay_jasa_17 ||
+                $koneksipay->pay_jasa_18 ||
+                $koneksipay->pay_jasa_19 ||
+                $koneksipay->pay_jasa_20 ||
+                $koneksipay->pay_jasa_21 ||
+                $koneksipay->pay_jasa_22 ||
+                $koneksipay->pay_jasa_23 ||
+                $koneksipay->pay_jasa_24 ||
+                $koneksipay->pay_jasa_25 ||
+                $koneksipay->pay_jasa_26 ||
+                $koneksipay->pay_jasa_27 ||
+                $koneksipay->pay_jasa_28 ||
+                $koneksipay->pay_jasa_29 ||
+                $koneksipay->pay_jasa_30 ||
+                //manufaktur
+                $koneksipay->pay_mnftr_1 ||
+                $koneksipay->pay_mnftr_2 ||
+                $koneksipay->pay_mnftr_3 ||
+                $koneksipay->pay_mnftr_4 ||
+                $koneksipay->pay_mnftr_5 ||
+                $koneksipay->pay_mnftr_6 ||
+                $koneksipay->pay_mnftr_7 ||
+                $koneksipay->pay_mnftr_8 ||
+                $koneksipay->pay_mnftr_9 ||
+                $koneksipay->pay_mnftr_10 ||
+                //rfq per
+                $koneksipay->pay_da_1 ||
+                $koneksipay->pay_da_2 ||
+                $koneksipay->pay_da_3 ||
+                $koneksipay->pay_da_4 ||
+                $koneksipay->pay_da_5 != '')
+            <p class="mb-1 mt-3">
+                Pastikan unggahan dokumen sudah sesuai dengan proyek.
+            </p>
+            <form action="" method="post" enctype="multipart/form-data">
+                @csrf
+                @method('PUT')
+                {{-- mbuh iki opo --}}
+                <input type="text" name="status_purchasing" value="Waiting Approval Purchasing - PAY" hidden>
+                <input type="date" hidden name="status_purchasing_date" value="{{ date('Y-m-d') }}">
+
+                <input type="text" name="status_pay_04" value="Waiting Approval" hidden>
+                <input type="date" hidden name="status_pay_04_date" value="{{ date('Y-m-d') }}">
+                {{-- table project --}}
+                <input type="text" name="check" value="needcheck" hidden>
+                <input type="text" name="progress" value="Waiting Approval Purchasing - PAY" hidden>
+                <input type="text" name="last_update_name" value="{{ Auth::user()->first_name }}" hidden>
+                <input type="text" name="last_update_date" value="{{ date('d-M-Y') }}" hidden>
+                <button type="submit"
+                    class="border-gray-500 border-2 w-full hover:bg-gray-600 text-gray-700 hover:text-white font-medium py-2 rounded-lg shadow-md mb-3 bg-white">
+                    Klik untuk ajukan tahapan
+                </button>
+            </form>
+        @endif
+    @elseif($koneksipay->status_pay_04 == 'Waiting Approval')
+        <p class="bg-gray-600 mt-3 py-3 text-center text-lg text-white font-medium uppercase tracking-wide">
+            Tahapan sedang menunggu persetujuan
+        </p>
+    @else
+        <p class="bg-green-700 text-white mt-3 py-3 text-center text-lg font-medium uppercase tracking-wide">
+            Tahapan telah disetujui
+        </p>
+    @endif
+    @endif
+
     <script>
         function simulateEscape() {
             // Create a new KeyboardEvent for the "Escape" key
@@ -7713,10 +8051,80 @@
             });
             document.dispatchEvent(escapeEvent);
         }
+
+        function openFileInput(namaVariabel) {
+            // Temukan elemen file input berdasarkan nama variabel
+            const fileInput = document.getElementById('fileInput_' + namaVariabel);
+
+            // Klik pada elemen file input
+            fileInput.click();
+
+            // Tambahkan event listener untuk menangani perubahan file
+            fileInput.addEventListener('change', function(event) {
+                const selectedFile = event.target.files[0];
+                console.log('File yang dipilih untuk ' + namaVariabel + ':', selectedFile.name);
+
+                // Sekarang, kirim formulir
+                document.getElementById('uploadForm').submit();
+            });
+        }
+
+        function formatAngka(input) {
+        // Menghilangkan karakter selain angka
+        let angka = input.value.replace(/[^\d]/g, '');
+
+        // Menambahkan tanda titik setiap ribuan
+        angka = angka.replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+
+        // Update nilai input
+        input.value = angka;
+    }
+
+    function hitungMundur(deadline, elementId) {
+        const sekarang = new Date();
+        const selisihWaktu = deadline - sekarang;
+        const hari = Math.floor(selisihWaktu / (1000 * 60 * 60 * 24));
+
+        let warnaLatarBelakang = '';
+
+        if (selisihWaktu <= 0) {
+            document.getElementById(elementId).innerText = "Proyek sudah melewati deadline.";
+            warnaLatarBelakang = 'red';
+        } else {
+            const jam = Math.floor((selisihWaktu % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const menit = Math.floor((selisihWaktu % (1000 * 60 * 60)) / (1000 * 60));
+
+            document.getElementById(elementId).innerText = `Deadline dalam ${hari} hari`;
+            /* hari, ${jam} jam, dan ${menit} menit. */
+
+            // Atur warna latar belakang berdasarkan rentang hari
+            if (hari > 150) {
+                warnaLatarBelakang = 'green';
+            } else if (hari > 100) {
+                warnaLatarBelakang = 'blue';
+            } else if (hari > 70) {
+                warnaLatarBelakang = 'yellow';
+            } else if (hari > 30) {
+                warnaLatarBelakang = 'orange';
+            } else {
+                warnaLatarBelakang = 'red';
+            }
+        }
+
+        // Atur latar belakang dan warna teks
+        document.getElementById(elementId).style.backgroundColor = warnaLatarBelakang;
+        document.getElementById(elementId).style.color = 'white';
+    }
+
+    // Gantilah dengan nilai date_end dari Laravel Blade template
+    const dateEndStr = "{{ $viewdataproject->date_end }}";
+    const dateEnd = new Date(dateEndStr);
+
+    // Gantilah dengan id unik kartu proyek
+    const kartuProyekId = "{{ $viewdataproject->id }}";
+    hitungMundur(dateEnd, `countdown-${kartuProyekId}`);
     </script>
 </div>
 {{-- tutup bungkus --}}
-
-
 <div id="submit-1" class="-mt-52"></div>
 </div>

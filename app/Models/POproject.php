@@ -245,31 +245,6 @@ class POproject extends Model
         'up_by_parts_po_45',
         'date_po_parts_45',
 
-        'po_parts_46',
-        'mny_parts_po_46',
-        'up_by_parts_po_46',
-        'date_po_parts_46',
-
-        'po_parts_47',
-        'mny_parts_po_47',
-        'up_by_parts_po_47',
-        'date_po_parts_47',
-
-        'po_parts_48',
-        'mny_parts_po_48',
-        'up_by_parts_po_48',
-        'date_po_parts_48',
-
-        'po_parts_49',
-        'mny_parts_po_49',
-        'up_by_parts_po_49',
-        'date_po_parts_49',
-
-        'po_parts_50',
-        'mny_parts_po_50',
-        'up_by_parts_po_50',
-        'date_po_parts_50',
-
         // jasa
         'po_jasa_1',
         'up_by_jasa_po_1',

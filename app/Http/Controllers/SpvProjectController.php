@@ -607,6 +607,7 @@ class SpvProjectController extends Controller
     public function ArsipLandingProjectSupervisor(Request $request)
     {
         /* $keyword = $request->keyword; */
+        $users = User::select('section', 'first_name')->get();
         $totalproject = CONTROLPROJECT::select('id')
             ->whereNotNull('archive_at')
             ->count('id');
@@ -621,42 +622,17 @@ class SpvProjectController extends Controller
             'koneksikein',
             'koneksikecl'
         )
+            ->whereNotNull('archive_at')
             ->latest('updated_at')
             ->paginate(20);
-        /* if ($keyword != '') {
-            $project = CONTROLPROJECT::with(
-                'koneksikefr',
-                'koneksikear',
-                'koneksikepr01',
-                'koneksikepa02',
-                'koneksikepo03',
-                'koneksikepay04',
-                'koneksikemn',
-                'koneksikein',
-                'koneksikecl'
-            )
-                ->whereNotNull('archive_at')
-                ->where('project_name', 'LIKE', '%' . $keyword . '%')
-                ->OrWhere('io_number', 'LIKE', '%' . $keyword . '%')
-                ->latest('updated_at')
-                ->paginate(20);
-        } elseif ($keyword == '') {
-            $project = CONTROLPROJECT::with(
-                'koneksikefr',
-                'koneksikear',
-                'koneksikepr01',
-                'koneksikepa02',
-                'koneksikepo03',
-                'koneksikepay04',
-                'koneksikemn',
-                'koneksikein',
-                'koneksikecl'
-            )
 
-                ->whereNotNull('archive_at')
-                ->latest('updated_at')
-                ->paginate(20);
-        } */
+
+        // Menggunakan total() untuk mendapatkan jumlah proyek
+        $totalProjects = $project->total();
+
+        // Mengatur $noResult berdasarkan jumlah proyek
+        $noResult = ($totalProjects == 0) ? 1 : 0;
+
         $koneksifr = FRproject::select('id_fr_1')->get();
         $koneksiar = ARproject::select('id_ar_2')->get();
         $koneksipr = PRproject::select('id_pr_01_3')->get();
@@ -677,7 +653,9 @@ class SpvProjectController extends Controller
             'koneksimn' => $koneksimn,
             'koneksiin' => $koneksiin,
             'koneksicl' => $koneksicl,
+            'users' => $users,
             'totalproject' => $totalproject,
+            'noResult' => $noResult,
         ]);
     }
 

@@ -88,8 +88,7 @@
             {{-- Tabel view all projects --}}
             <div class="rounded-lg overflow-auto">
                 <table class="w-full">
-                    <thead
-                        class="text-md text-gray-700 bg-gray-300 text-center table-fixed sticky top-0 ">
+                    <thead class="text-md text-gray-700 bg-gray-300 text-center table-fixed sticky top-0 ">
                         <th class="p-2 w-[5%] font-medium">No.</th>
                         <th class="w-[25%] font-medium">Nama Project</th>
                         <th class="w-[10%] font-medium">IO Number</th>
@@ -116,15 +115,16 @@
                                             <div class="container">
                                                 {{-- Mengenerate project yang dipilih berdasarkan id --}}
 
-                                                @if ($object->id == $object->koneksikefr->id_fr_1 &&
-                                                    $object->id == $object->koneksikear->id_ar_2 &&
-                                                    $object->id == $object->koneksikepr01->id_pr_01_3 &&
-                                                    $object->id == $object->koneksikepa02->id_pa_02_3 &&
-                                                    $object->id == $object->koneksikepo03->id_po_03_3 &&
-                                                    $object->id == $object->koneksikepay04->id_pay_04_3 &&
-                                                    $object->id == $object->koneksikemn->id_mn_4 &&
-                                                    $object->id == $object->koneksikein->id_in_5 &&
-                                                    $object->id == $object->koneksikecl->id_cl_6)
+                                                @if (
+                                                    $object->id == $object->koneksikefr->id_fr_1 &&
+                                                        $object->id == $object->koneksikear->id_ar_2 &&
+                                                        $object->id == $object->koneksikepr01->id_pr_01_3 &&
+                                                        $object->id == $object->koneksikepa02->id_pa_02_3 &&
+                                                        $object->id == $object->koneksikepo03->id_po_03_3 &&
+                                                        $object->id == $object->koneksikepay04->id_pay_04_3 &&
+                                                        $object->id == $object->koneksikemn->id_mn_4 &&
+                                                        $object->id == $object->koneksikein->id_in_5 &&
+                                                        $object->id == $object->koneksikecl->id_cl_6)
                                                     <a
                                                         href="/redirect-proyek/{{ $object->id }}/{{ $object->koneksikefr->id_fr_1 }}/{{ $object->koneksikear->id_ar_2 }}/{{ $object->koneksikepr01->id_pr_01_3 }}/{{ $object->koneksikepa02->id_pa_02_3 }}/{{ $object->koneksikepo03->id_po_03_3 }}/{{ $object->koneksikepay04->id_pay_04_3 }}/{{ $object->koneksikemn->id_mn_4 }}/{{ $object->koneksikein->id_in_5 }}/{{ $object->koneksikecl->id_cl_6 }}">
                                                         <p
@@ -168,452 +168,54 @@
                                     <td>
                                         {{-- awal bar --}}
                                         {{-- progress bar --}}
-                                        @if ($object->progress == 'Not Started')
-                                            {{-- popover tooltip --}}
-                                            <div data-popover id="popover-0" role="tooltip"
-                                                class="absolute z-10 invisible inline-block w-30 font-normal text-gray-500 transition-opacity duration-300 bg-white border border-gray-300 rounded-lg shadow-md opacity-0">
-                                                {{-- Menampilkan curent porggres --}}
-                                                <div class="px-3 py-1">
-                                                    <p class="text-md font-semibold">Curent Progress :</p>
-                                                    <p class="text-md ">
-                                                        {{ $object->progress }}
-                                                    </p>
-                                                </div>
-                                                <div data-popper-arrow></div>
-                                            </div>
-                                            {{-- popover tooltip --}}
-                                            <div class="w-full bg-gray-200 rounded-full my-2 text-xs font-medium text-black text-center"
-                                                data-popover-target="popover-0" data-popover-placement="bottom">
-                                                <p class="">0%</p>
-                                                <div class="bg-orange-500 hover:bg-orange-600 text-xs font-medium text-blue-100 text-center leading-none rounded-lg hover:cursor-default"
-                                                    style="width: 0%">
-                                                </div>
-                                            </div>
-                                        @elseif ($object->progress == 'Waiting Approval Fund Request')
-                                            {{-- popover tooltip --}}
-                                            <div data-popover id="popover-0" role="tooltip"
-                                                class="absolute z-10 invisible inline-block w-30 font-normal text-gray-500 transition-opacity duration-300 bg-white border border-gray-300 rounded-lg shadow-md opacity-0">
-                                                {{-- Menampilkan curent porggres --}}
-                                                <div class="px-3 py-1">
-                                                    <p class="text-md font-semibold">Curent Progress :</p>
-                                                    <p class="text-md ">
-                                                        {{ $object->progress }}
-                                                    </p>
-                                                </div>
-                                                <div data-popper-arrow></div>
-                                            </div>
-                                            {{-- popover tooltip --}}
-                                            <div class="w-full bg-gray-200 rounded-full my-2 text-xs font-medium text-black text-center"
-                                                data-popover-target="popover-0" data-popover-placement="bottom">
-                                                <p class="">0%</p>
-                                                <div class="bg-orange-500 hover:bg-orange-600 text-xs font-medium text-blue-100 text-center leading-none rounded-lg hover:cursor-default"
-                                                    style="width: 0%">
-                                                </div>
-                                            </div>
-                                        @elseif ($object->progress == 'Fund Request')
-                                            <div data-popover id="popover-2" role="tooltip"
-                                                class="absolute z-10 invisible inline-block w-30 font-normal text-gray-500 transition-opacity duration-300 bg-white border border-gray-300 rounded-lg shadow-md opacity-0">
-                                                {{-- Menampilkan curent porggres --}}
-                                                <div class="px-3 py-1">
-                                                    <p class="text-md font-semibold">Curent Progress :</p>
-                                                    <p class="text-md ">
-                                                        {{ $object->progress }}
-                                                    </p>
-                                                </div>
-                                                <div data-popper-arrow></div>
-                                            </div>
-                                            {{-- popover tooltip --}}
+                                        @php
+                                            $totalStages = 9;
+                                            $completedStages = 0;
 
-                                            <div class="w-full bg-gray-200 rounded-full my-2">
-                                                <div class="bg-orange-500 hover:bg-orange-600 text-xs font-medium text-blue-100 text-center leading-none rounded-lg hover:cursor-default"
-                                                    data-popover-target="popover-2" data-popover-placement="bottom"
-                                                    style="width: 15%">
-                                                    <p>05%</p>
+                                            $statuses = [$koneksifr->status_fr, $koneksiar->status_ar, $koneksipr->status_pr_01, $koneksipa->status_pa_02, $koneksipo->status_po_03, $koneksipay->status_pay_04, $koneksimn->status_mn, $koneksiin->status_in, $koneksicl->status_cl];
 
-                                                </div>
+                                            foreach ($statuses as $status) {
+                                                if ($status == 'Complete') {
+                                                    $completedStages++;
+                                                }
+                                            }
+
+                                            $purchasingPercentage = 70;
+                                            $otherStagesPercentage = 30;
+
+                                            $overallProgress = ceil(($completedStages / $totalStages) * ($purchasingPercentage + $otherStagesPercentage));
+
+                                            // Menetapkan warna berdasarkan persentase
+                                            $barColor = 'bg-red-500';
+
+                                            if ($overallProgress > 15) {
+                                                $barColor = 'bg-orange-500';
+                                            }
+                                            if ($overallProgress > 30) {
+                                                $barColor = 'bg-yellow-500';
+                                            }
+                                            if ($overallProgress > 50) {
+                                                $barColor = 'bg-blue-500';
+                                            }
+                                            if ($overallProgress > 70) {
+                                                $barColor = 'bg-green-500';
+                                            }
+                                            if ($overallProgress > 85) {
+                                                $barColor = 'bg-green-700';
+                                            }
+                                        @endphp
+                                        <div class="w-full bg-gray-200 rounded-full my-2">
+                                            <div class="text-sm font-medium text-white text-center leading-none rounded-lg hover:cursor-default relative transition-all duration-500
+                                        {{ $barColor }}"
+                                                style="width: {{ $overallProgress }}%;">
+                                                <p class="text-sm">{{ $overallProgress }}%</p>
                                             </div>
-                                        @elseif ($object->progress == 'Waiting Approval Arrangement')
-                                            <div data-popover id="popover-3" role="tooltip"
-                                                class="absolute z-10 invisible inline-block w-30 font-normal text-gray-500 transition-opacity duration-300 bg-white border border-gray-300 rounded-lg shadow-md opacity-0">
-                                                {{-- Menampilkan curent porggres --}}
-                                                <div class="px-3 py-1">
-                                                    <p class="text-md font-semibold">Curent Progress :</p>
-                                                    <p class="text-md ">
-                                                        {{ $object->progress }}
-                                                    </p>
-                                                </div>
-                                                <div data-popper-arrow></div>
-                                            </div>
-                                            {{-- popover tooltip --}}
-
-                                            <div class="w-full bg-gray-200 rounded-full my-2">
-                                                <div class="bg-orange-500 hover:bg-orange-600 text-xs font-medium text-blue-100 text-center leading-none rounded-lg hover:cursor-default"
-                                                    data-popover-target="popover-3" data-popover-placement="bottom"
-                                                    style="width: 15%">
-                                                    <p>05%</p>
-
-                                                </div>
-                                            </div>
-                                        @elseif ($object->progress == 'Arrangement')
-                                            <div data-popover id="popover-4" role="tooltip"
-                                                class="absolute z-10 invisible inline-block w-30 font-normal text-gray-500 transition-opacity duration-300 bg-white border border-gray-300 rounded-lg shadow-md opacity-0">
-                                                {{-- Menampilkan curent porggres --}}
-                                                <div class="px-3 py-1">
-                                                    <p class="text-md font-semibold">Curent Progress :</p>
-                                                    <p class="text-md ">
-                                                        {{ $object->progress }}
-                                                    </p>
-                                                </div>
-                                                <div data-popper-arrow></div>
-                                            </div>
-                                            {{-- popover tooltip --}}
-
-                                            <div class="w-full bg-gray-200 rounded-full my-2">
-                                                <div class="bg-orange-500 hover:bg-orange-600 text-xs font-medium text-blue-100 text-center leading-none rounded-lg hover:cursor-default"
-                                                    data-popover-target="popover-4" data-popover-placement="bottom"
-                                                    style="width: 18%">
-                                                    <p>10%</p>
-
-                                                </div>
-                                            </div>
-                                        @elseif ($object->progress == 'Waiting Approval Purchasing - PR')
-                                            <div data-popover id="popover-5" role="tooltip"
-                                                class="absolute z-10 invisible inline-block w-30 font-normal text-gray-500 transition-opacity duration-300 bg-white border border-gray-300 rounded-lg shadow-md opacity-0">
-                                                {{-- Menampilkan curent porggres --}}
-                                                <div class="px-3 py-1">
-                                                    <p class="text-md font-semibold">Curent Progress :</p>
-                                                    <p class="text-md ">
-                                                        {{ $object->progress }}
-                                                    </p>
-                                                </div>
-                                                <div data-popper-arrow></div>
-                                            </div>
-                                            {{-- popover tooltip --}}
-
-                                            <div class="w-full bg-gray-200 rounded-full my-2">
-                                                <div class="bg-orange-500 hover:bg-orange-600 text-xs font-medium text-blue-100 text-center leading-none rounded-lg hover:cursor-default"
-                                                    data-popover-target="popover-5" data-popover-placement="bottom"
-                                                    style="width: 18%">
-                                                    <p>10%</p>
-
-                                                </div>
-                                            </div>
-                                        @elseif ($object->progress == 'Purchasing - PR')
-                                            <div data-popover id="popover-6" role="tooltip"
-                                                class="absolute z-10 invisible inline-block w-30 font-normal text-gray-500 transition-opacity duration-300 bg-white border border-gray-300 rounded-lg shadow-md opacity-0">
-                                                {{-- Menampilkan curent porggres --}}
-                                                <div class="px-3 py-1">
-                                                    <p class="text-md font-semibold">Curent Progress :</p>
-                                                    <p class="text-md ">
-                                                        {{ $object->progress }}
-                                                    </p>
-                                                </div>
-                                                <div data-popper-arrow></div>
-                                            </div>
-                                            {{-- popover tooltip --}}
-
-                                            <div class="w-full bg-gray-200 rounded-full my-2">
-                                                <div class="bg-orange-500 hover:bg-orange-600 text-xs font-medium text-blue-100 text-center leading-none rounded-lg hover:cursor-default"
-                                                    data-popover-target="popover-6" data-popover-placement="bottom"
-                                                    style="width: 21%">
-                                                    <p>15%</p>
-
-                                                </div>
-                                            </div>
-                                        @elseif ($object->progress == 'Waiting Approval Purchasing - PA')
-                                            <div data-popover id="popover-7" role="tooltip"
-                                                class="absolute z-10 invisible inline-block w-30 font-normal text-gray-500 transition-opacity duration-300 bg-white border border-gray-300 rounded-lg shadow-md opacity-0">
-                                                {{-- Menampilkan curent porggres --}}
-                                                <div class="px-3 py-1">
-                                                    <p class="text-md font-semibold">Curent Progress :</p>
-                                                    <p class="text-md ">
-                                                        {{ $object->progress }}
-                                                    </p>
-                                                </div>
-                                                <div data-popper-arrow></div>
-                                            </div>
-                                            {{-- popover tooltip --}}
-
-                                            <div class="w-full bg-gray-200 rounded-full my-2">
-                                                <div class="bg-orange-500 hover:bg-orange-600 text-xs font-medium text-blue-100 text-center leading-none rounded-lg hover:cursor-default"
-                                                    data-popover-target="popover-7" data-popover-placement="bottom"
-                                                    style="width: 21%">
-                                                    <p>15%</p>
-
-                                                </div>
-                                            </div>
-                                        @elseif ($object->progress == 'Purchasing - PA')
-                                            <div data-popover id="popover-8" role="tooltip"
-                                                class="absolute z-10 invisible inline-block w-30 font-normal text-gray-500 transition-opacity duration-300 bg-white border border-gray-300 rounded-lg shadow-md opacity-0">
-                                                {{-- Menampilkan curent porggres --}}
-                                                <div class="px-3 py-1">
-                                                    <p class="text-md font-semibold">Curent Progress :</p>
-                                                    <p class="text-md ">
-                                                        {{ $object->progress }}
-                                                    </p>
-                                                </div>
-                                                <div data-popper-arrow></div>
-                                            </div>
-                                            {{-- popover tooltip --}}
-
-                                            <div class="w-full bg-gray-200 rounded-full my-2">
-                                                <div class="bg-orange-500 hover:bg-orange-600 text-xs font-medium text-blue-100 text-center leading-none rounded-lg hover:cursor-default"
-                                                    data-popover-target="popover-8" data-popover-placement="bottom"
-                                                    style="width: 23%">
-                                                    <p>20%</p>
-
-                                                </div>
-                                            </div>
-                                        @elseif ($object->progress == 'Waiting Approval Purchasing - PO')
-                                            <div data-popover id="popover-9" role="tooltip"
-                                                class="absolute z-10 invisible inline-block w-30 font-normal text-gray-500 transition-opacity duration-300 bg-white border border-gray-300 rounded-lg shadow-md opacity-0">
-                                                {{-- Menampilkan curent porggres --}}
-                                                <div class="px-3 py-1">
-                                                    <p class="text-md font-semibold">Curent Progress :</p>
-                                                    <p class="text-md ">
-                                                        {{ $object->progress }}
-                                                    </p>
-                                                </div>
-                                                <div data-popper-arrow></div>
-                                            </div>
-                                            {{-- popover tooltip --}}
-
-                                            <div class="w-full bg-gray-200 rounded-full my-2">
-                                                <div class="bg-orange-500 hover:bg-orange-600 text-xs font-medium text-blue-100 text-center leading-none rounded-lg hover:cursor-default"
-                                                    data-popover-target="popover-9" data-popover-placement="bottom"
-                                                    style="width: 23%">
-                                                    <p>20%</p>
-
-                                                </div>
-                                            </div>
-                                        @elseif ($object->progress == 'Purchasing - PO')
-                                            <div data-popover id="popover-10" role="tooltip"
-                                                class="absolute z-10 invisible inline-block w-30 font-normal text-gray-500 transition-opacity duration-300 bg-white border border-gray-300 rounded-lg shadow-md opacity-0">
-                                                {{-- Menampilkan curent porggres --}}
-                                                <div class="px-3 py-1">
-                                                    <p class="text-md font-semibold">Curent Progress :</p>
-                                                    <p class="text-md ">
-                                                        {{ $object->progress }}
-                                                    </p>
-                                                </div>
-                                                <div data-popper-arrow></div>
-                                            </div>
-                                            {{-- popover tooltip --}}
-
-                                            <div class="w-full bg-gray-200 rounded-full my-2">
-                                                <div class="bg-orange-500 hover:bg-orange-600 text-xs font-medium text-blue-100 text-center leading-none rounded-lg hover:cursor-default"
-                                                    data-popover-target="popover-10" data-popover-placement="bottom"
-                                                    style="width: 25%">
-                                                    <p>25%</p>
-
-                                                </div>
-                                            </div>
-                                        @elseif ($object->progress == 'Waiting Approval Purchasing - PAY')
-                                            <div data-popover id="popover-11" role="tooltip"
-                                                class="absolute z-10 invisible inline-block w-30 font-normal text-gray-500 transition-opacity duration-300 bg-white border border-gray-300 rounded-lg shadow-md opacity-0">
-                                                {{-- Menampilkan curent porggres --}}
-                                                <div class="px-3 py-1">
-                                                    <p class="text-md font-semibold">Curent Progress :</p>
-                                                    <p class="text-md ">
-                                                        {{ $object->progress }}
-                                                    </p>
-                                                </div>
-                                                <div data-popper-arrow></div>
-                                            </div>
-                                            {{-- popover tooltip --}}
-
-                                            <div class="w-full bg-gray-200 rounded-full my-2">
-                                                <div class="bg-orange-500 hover:bg-orange-600 text-xs font-medium text-blue-100 text-center leading-none rounded-lg hover:cursor-default"
-                                                    data-popover-target="popover-11" data-popover-placement="bottom"
-                                                    style="width: 25%">
-                                                    <p>25%</p>
-
-                                                </div>
-                                            </div>
-                                        @elseif ($object->progress == 'Purchasing - PAY')
-                                            <div data-popover id="popover-12" role="tooltip"
-                                                class="absolute z-10 invisible inline-block w-30 font-normal text-gray-500 transition-opacity duration-300 bg-white border border-gray-300 rounded-lg shadow-md opacity-0">
-                                                {{-- Menampilkan curent porggres --}}
-                                                <div class="px-3 py-1">
-                                                    <p class="text-md font-semibold">Curent Progress :</p>
-                                                    <p class="text-md ">
-                                                        {{ $object->progress }}
-                                                    </p>
-                                                </div>
-                                                <div data-popper-arrow></div>
-                                            </div>
-                                            {{-- popover tooltip --}}
-
-                                            <div class="w-full bg-gray-200 rounded-full my-2">
-                                                <div class="bg-orange-500 hover:bg-orange-600 text-xs font-medium text-blue-100 text-center leading-none rounded-lg hover:cursor-default"
-                                                    data-popover-target="popover-12" data-popover-placement="bottom"
-                                                    style="width: 30%">
-                                                    <p>30%</p>
-
-                                                </div>
-                                            </div>
-                                        @elseif ($object->progress == 'Purchasing')
-                                            <div data-popover id="popover-13" role="tooltip"
-                                                class="absolute z-10 invisible inline-block w-30 font-normal text-gray-500 transition-opacity duration-300 bg-white border border-gray-300 rounded-lg shadow-md opacity-0">
-                                                {{-- Menampilkan curent porggres --}}
-                                                <div class="px-3 py-1">
-                                                    <p class="text-md font-semibold">Curent Progress :</p>
-                                                    <p class="text-md ">
-                                                        {{ $object->progress }}
-                                                    </p>
-                                                </div>
-                                                <div data-popper-arrow></div>
-                                            </div>
-                                            {{-- popover tooltip --}}
-
-                                            <div class="w-full bg-gray-200 rounded-full my-2">
-                                                <div class="bg-orange-500 hover:bg-orange-600 text-xs font-medium text-blue-100 text-center leading-none rounded-lg hover:cursor-default"
-                                                    data-popover-target="popover-13" data-popover-placement="bottom"
-                                                    style="width: 30%">
-                                                    <p>30%</p>
-
-                                                </div>
-                                            </div>
-                                        @elseif ($object->progress == 'Waiting Approval Manufacturing')
-                                            <div data-popover id="popover-14" role="tooltip"
-                                                class="absolute z-10 invisible inline-block w-30 font-normal text-gray-500 transition-opacity duration-300 bg-white border border-gray-300 rounded-lg shadow-md opacity-0">
-                                                {{-- Menampilkan curent porggres --}}
-                                                <div class="px-3 py-1">
-                                                    <p class="text-md font-semibold">Curent Progress :</p>
-                                                    <p class="text-md ">
-                                                        {{ $object->progress }}
-                                                    </p>
-                                                </div>
-                                                <div data-popper-arrow></div>
-                                            </div>
-                                            {{-- popover tooltip --}}
-
-                                            <div class="w-full bg-gray-200 rounded-full my-2">
-                                                <div class="bg-orange-500 hover:bg-orange-600 text-xs font-medium text-blue-100 text-center leading-none rounded-lg hover:cursor-default"
-                                                    data-popover-target="popover-14" data-popover-placement="bottom"
-                                                    style="width: 30%">
-                                                    <p>30%</p>
-
-                                                </div>
-                                            </div>
-                                        @elseif ($object->progress == 'Manufacturing')
-                                            <div data-popover id="popover-15" role="tooltip"
-                                                class="absolute z-10 invisible inline-block w-30 font-normal text-gray-500 transition-opacity duration-300 bg-white border border-gray-300 rounded-lg shadow-md opacity-0">
-                                                {{-- Menampilkan curent porggres --}}
-                                                <div class="px-3 py-1">
-                                                    <p class="text-md font-semibold">Curent Progress :</p>
-                                                    <p class="text-md ">
-                                                        {{ $object->progress }}
-                                                    </p>
-                                                </div>
-                                                <div data-popper-arrow></div>
-                                            </div>
-                                            {{-- popover tooltip --}}
-
-                                            <div class="w-full bg-gray-200 rounded-full my-2">
-                                                <div class="bg-orange-500 hover:bg-orange-600 text-xs font-medium text-blue-100 text-center leading-none rounded-lg hover:cursor-default"
-                                                    data-popover-target="popover-15" data-popover-placement="bottom"
-                                                    style="width: 60%">
-                                                    <p>60%</p>
-
-                                                </div>
-                                            </div>
-                                        @elseif ($object->progress == 'Waiting Approval Installation')
-                                            <div data-popover id="popover-16" role="tooltip"
-                                                class="absolute z-10 invisible inline-block w-30 font-normal text-gray-500 transition-opacity duration-300 bg-white border border-gray-300 rounded-lg shadow-md opacity-0">
-                                                {{-- Menampilkan curent porggres --}}
-                                                <div class="px-3 py-1">
-                                                    <p class="text-md font-semibold">Curent Progress :</p>
-                                                    <p class="text-md ">
-                                                        {{ $object->progress }}
-                                                    </p>
-                                                </div>
-                                                <div data-popper-arrow></div>
-                                            </div>
-                                            {{-- popover tooltip --}}
-
-                                            <div class="w-full bg-gray-200 rounded-full my-2">
-                                                <div class="bg-orange-500 hover:bg-orange-600 text-xs font-medium text-blue-100 text-center leading-none rounded-lg hover:cursor-default"
-                                                    data-popover-target="popover-16" data-popover-placement="bottom"
-                                                    style="width: 60%">
-                                                    <p>60%</p>
-
-                                                </div>
-                                            </div>
-                                        @elseif ($object->progress == 'Installation')
-                                            <div data-popover id="popover-17" role="tooltip"
-                                                class="absolute z-10 invisible inline-block w-30 font-normal text-gray-500 transition-opacity duration-300 bg-white border border-gray-300 rounded-lg shadow-md opacity-0">
-                                                {{-- Menampilkan curent porggres --}}
-                                                <div class="px-3 py-1">
-                                                    <p class="text-md font-semibold">Curent Progress :</p>
-                                                    <p class="text-md ">
-                                                        {{ $object->progress }}
-                                                    </p>
-                                                </div>
-                                                <div data-popper-arrow></div>
-                                            </div>
-                                            {{-- popover tooltip --}}
-
-                                            <div class="w-full bg-gray-200 rounded-full my-2">
-                                                <div class="bg-orange-500 hover:bg-orange-600 text-xs font-medium text-blue-100 text-center leading-none rounded-lg hover:cursor-default"
-                                                    data-popover-target="popover-17" data-popover-placement="bottom"
-                                                    style="width: 95%">
-                                                    <p>95%</p>
-
-                                                </div>
-                                            </div>
-                                        @elseif ($object->progress == 'Waiting Approval Closed')
-                                            <div data-popover id="popover-18" role="tooltip"
-                                                class="absolute z-10 invisible inline-block w-30 font-normal text-gray-500 transition-opacity duration-300 bg-white border border-gray-300 rounded-lg shadow-md opacity-0">
-                                                {{-- Menampilkan curent porggres --}}
-                                                <div class="px-3 py-1">
-                                                    <p class="text-md font-semibold">Curent Progress :</p>
-                                                    <p class="text-md ">
-                                                        {{ $object->progress }}
-                                                    </p>
-                                                </div>
-                                                <div data-popper-arrow></div>
-                                            </div>
-                                            {{-- popover tooltip --}}
-
-                                            <div class="w-full bg-gray-200 rounded-full my-2">
-                                                <div class="bg-orange-500 hover:bg-orange-600 text-xs font-medium text-blue-100 text-center leading-none rounded-lg hover:cursor-default"
-                                                    data-popover-target="popover-18" data-popover-placement="bottom"
-                                                    style="width: 95%">
-                                                    <p>95%</p>
-
-                                                </div>
-                                            </div>
-                                        @elseif ($object->progress == 'Closed')
-                                            <div data-popover id="popover-19" role="tooltip"
-                                                class="absolute z-10 invisible inline-block w-30 font-normal text-gray-500 transition-opacity duration-300 bg-white border border-gray-300 rounded-lg shadow-md opacity-0">
-                                                {{-- Menampilkan curent porggres --}}
-                                                <div class="px-3 py-1">
-                                                    <p class="text-md font-semibold">Curent Progress :</p>
-                                                    <p class="text-md ">
-                                                        {{ $object->progress }}
-                                                    </p>
-                                                </div>
-                                                <div data-popper-arrow></div>
-                                            </div>
-                                            {{-- popover tooltip --}}
-
-                                            <div class="w-full bg-gray-200 rounded-full my-2">
-                                                <div class="bg-orange-500 hover:bg-orange-600 text-xs font-medium text-blue-100 text-center leading-none rounded-lg hover:cursor-default"
-                                                    data-popover-target="popover-19" data-popover-placement="bottom"
-                                                    style="width: 100%">
-                                                    <p>100%</p>
-
-                                                </div>
-                                            </div>
-                                        @endif
-
-                                        {{-- akhir bar --}}
+                                        </div>
                                         {{-- akhir bar --}}
                                     </td>
                                     {{-- aksi --}}
                                     <td class="flex justify-center items-center">
-                                                                                <a href="/hapus-project/{{ $object->id }}"
+                                        <a href="/hapus-project/{{ $object->id }}"
                                             class="inline-flex items-center"><button
                                                 class="hover:bg-red-600 text-red-600 font-semibold rounded-md hover:text-white w-full p-2 focus:bg-red-400 hover:fill-white fill-red-600">
                                                 <div class="flex justify-center items-center text-center space-x-1">

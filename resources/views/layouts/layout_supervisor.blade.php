@@ -184,7 +184,7 @@
                             <path d="M15.5 0L0 11.625V34.875H9.6875V21.3125H21.3125V34.875H31V11.625L15.5 0Z"
                                 fill="white" />
                         </svg>
-                        <span class="ml-6 flex-1">Dashboard OB</span>
+                        <span class="ml-6 flex-1">Dashboard Manajerial</span>
                     </a>
                 </li>
 

@@ -194,32 +194,38 @@
                         <div class="grid grid-cols-6 space-x-2">
                             <div class="bg-white border shadow-md mb-2 rounded text-center py-5 ">
                                 <p class="text-gray-800 text-lg">Januari</p>
-                                <p class="text-gray-800 text-xl font-bold">Rp{{ number_format($jan_mny_pay, 0, ',', '.') }}
+                                <p class="text-gray-800 text-xl font-bold">
+                                    Rp{{ number_format($jan_mny_pay, 0, ',', '.') }}
                                 </p>
                             </div>
                             <div class="bg-white border shadow-md mb-2 rounded text-center py-5 ">
                                 <p class="text-gray-800 text-lg">Februari:</p>
-                                <p class="text-gray-800 text-xl font-bold">Rp{{ number_format($feb_mny_pay, 0, ',', '.') }}
+                                <p class="text-gray-800 text-xl font-bold">
+                                    Rp{{ number_format($feb_mny_pay, 0, ',', '.') }}
                                 </p>
                             </div>
                             <div class="bg-white border shadow-md mb-2 rounded text-center py-5 ">
                                 <p class="text-gray-800 text-lg">Maret:</p>
-                                <p class="text-gray-800 text-xl font-bold">Rp{{ number_format($mar_mny_pay, 0, ',', '.') }}
+                                <p class="text-gray-800 text-xl font-bold">
+                                    Rp{{ number_format($mar_mny_pay, 0, ',', '.') }}
                                 </p>
                             </div>
                             <div class="bg-white border shadow-md mb-2 rounded text-center py-5 ">
                                 <p class="text-gray-800 text-lg">April:</p>
-                                <p class="text-gray-800 text-xl font-bold">Rp{{ number_format($apr_mny_pay, 0, ',', '.') }}
+                                <p class="text-gray-800 text-xl font-bold">
+                                    Rp{{ number_format($apr_mny_pay, 0, ',', '.') }}
                                 </p>
                             </div>
                             <div class="bg-white border shadow-md mb-2 rounded text-center py-5 ">
                                 <p class="text-gray-800 text-lg">Mei:</p>
-                                <p class="text-gray-800 text-xl font-bold">Rp{{ number_format($mei_mny_pay, 0, ',', '.') }}
+                                <p class="text-gray-800 text-xl font-bold">
+                                    Rp{{ number_format($mei_mny_pay, 0, ',', '.') }}
                                 </p>
                             </div>
                             <div class="bg-white border shadow-md mb-2 rounded text-center py-5 ">
                                 <p class="text-gray-800 text-lg">Juni:</p>
-                                <p class="text-gray-800 text-xl font-bold">Rp{{ number_format($jun_mny_pay, 0, ',', '.') }}
+                                <p class="text-gray-800 text-xl font-bold">
+                                    Rp{{ number_format($jun_mny_pay, 0, ',', '.') }}
                                 </p>
                             </div>
                         </div>
@@ -227,32 +233,38 @@
                         <div class="grid grid-cols-6 space-x-2 mt-1">
                             <div class="bg-white border shadow-md mb-2 rounded text-center py-5 ">
                                 <p class="text-gray-800 text-lg">Juli:</p>
-                                <p class="text-gray-800 text-xl font-bold">Rp{{ number_format($jul_mny_pay, 0, ',', '.') }}
+                                <p class="text-gray-800 text-xl font-bold">
+                                    Rp{{ number_format($jul_mny_pay, 0, ',', '.') }}
                                 </p>
                             </div>
                             <div class="bg-white border shadow-md mb-2 rounded text-center py-5 ">
                                 <p class="text-gray-800 text-lg">Agustus:</p>
-                                <p class="text-gray-800 text-xl font-bold">Rp{{ number_format($agu_mny_pay, 0, ',', '.') }}
+                                <p class="text-gray-800 text-xl font-bold">
+                                    Rp{{ number_format($agu_mny_pay, 0, ',', '.') }}
                                 </p>
                             </div>
                             <div class="bg-white border shadow-md mb-2 rounded text-center py-5 ">
                                 <p class="text-gray-800 text-lg">September:</p>
-                                <p class="text-gray-800 text-xl font-bold">Rp{{ number_format($sep_mny_pay, 0, ',', '.') }}
+                                <p class="text-gray-800 text-xl font-bold">
+                                    Rp{{ number_format($sep_mny_pay, 0, ',', '.') }}
                                 </p>
                             </div>
                             <div class="bg-white border shadow-md mb-2 rounded text-center py-5 ">
                                 <p class="text-gray-800 text-lg">Oktober:</p>
-                                <p class="text-gray-800 text-xl font-bold">Rp{{ number_format($okt_mny_pay, 0, ',', '.') }}
+                                <p class="text-gray-800 text-xl font-bold">
+                                    Rp{{ number_format($okt_mny_pay, 0, ',', '.') }}
                                 </p>
                             </div>
                             <div class="bg-white border shadow-md mb-2 rounded text-center py-5 ">
                                 <p class="text-gray-800 text-lg">November:</p>
-                                <p class="text-gray-800 text-xl font-bold">Rp{{ number_format($nov_mny_pay, 0, ',', '.') }}
+                                <p class="text-gray-800 text-xl font-bold">
+                                    Rp{{ number_format($nov_mny_pay, 0, ',', '.') }}
                                 </p>
                             </div>
                             <div class="bg-white border shadow-md mb-2 rounded text-center py-5 ">
                                 <p class="text-gray-800 text-lg">Desember:</p>
-                                <p class="text-gray-800 text-xl font-bold">Rp{{ number_format($des_mny_pay, 0, ',', '.') }}
+                                <p class="text-gray-800 text-xl font-bold">
+                                    Rp{{ number_format($des_mny_pay, 0, ',', '.') }}
                                 </p>
                             </div>
                         </div>
@@ -466,16 +478,28 @@
             // Budget control chart
             //  payment per month
             const dtbcontrol = {
-                datasets: [
-                    //     {
-                    //     label: "Accumulative Payment",
-                    //     type: "line",
-                    //     borderColor: "purple",
-                    //     borderWidth: "4",
-                    //     pointBorderColor: "orange",
-                    //     data: [133, 221, 783, 2478, 4590],
-                    //     fill: false
-                    // },
+                datasets: [/* {
+                        label: "Kumulatif Payment",
+                        type: "line",
+                        borderColor: "purple",
+                        borderWidth: "4",
+                        pointBorderColor: "orange",
+                        data: [
+                            {{ $jan_mny_pay }},
+                            {{ $jan_mny_pay + $feb_mny_pay }},
+                            {{ $jan_mny_pay + $feb_mny_pay + $mar_mny_pay }},
+                            {{ $jan_mny_pay + $feb_mny_pay + $mar_mny_pay + $apr_mny_pay }},
+                            {{ $jan_mny_pay + $feb_mny_pay + $mar_mny_pay + $apr_mny_pay + $mei_mny_pay }},
+                            {{ $jan_mny_pay + $feb_mny_pay + $mar_mny_pay + $apr_mny_pay + $mei_mny_pay + $jun_mny_pay }},
+                            {{ $jan_mny_pay + $feb_mny_pay + $mar_mny_pay + $apr_mny_pay + $mei_mny_pay + $jun_mny_pay + $jul_mny_pay }},
+                            {{ $jan_mny_pay + $feb_mny_pay + $mar_mny_pay + $apr_mny_pay + $mei_mny_pay + $jun_mny_pay + $jul_mny_pay + $agu_mny_pay }},
+                            {{ $jan_mny_pay + $feb_mny_pay + $mar_mny_pay + $apr_mny_pay + $mei_mny_pay + $jun_mny_pay + $jul_mny_pay + $agu_mny_pay + $sep_mny_pay }},
+                            {{ $jan_mny_pay + $feb_mny_pay + $mar_mny_pay + $apr_mny_pay + $mei_mny_pay + $jun_mny_pay + $jul_mny_pay + $agu_mny_pay + $sep_mny_pay + $okt_mny_pay }},
+                            {{ $jan_mny_pay + $feb_mny_pay + $mar_mny_pay + $apr_mny_pay + $mei_mny_pay + $jun_mny_pay + $jul_mny_pay + $agu_mny_pay + $sep_mny_pay + $okt_mny_pay + $nov_mny_pay }},
+                            {{ $jan_mny_pay + $feb_mny_pay + $mar_mny_pay + $apr_mny_pay + $mei_mny_pay + $jun_mny_pay + $jul_mny_pay + $agu_mny_pay + $sep_mny_pay + $okt_mny_pay + $nov_mny_pay + $des_mny_pay }}
+                        ],
+                        fill: false
+                    }, */
                     {
                         label: "Target Payment",
                         type: "bar",

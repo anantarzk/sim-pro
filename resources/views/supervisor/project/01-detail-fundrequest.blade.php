@@ -102,17 +102,7 @@
                         $totalStages = 9;
                         $completedStages = 0;
 
-                        $statuses = [
-                            $koneksifr->status_fr,
-                            $koneksiar->status_ar,
-                            $koneksipr->status_pr_01,
-                            $koneksipa->status_pa_02,
-                            $koneksipo->status_po_03,
-                            $koneksipay->status_pay_04,
-                            $koneksimn->status_mn,
-                            $koneksiin->status_in,
-                            $koneksicl->status_cl,
-                        ];
+                        $statuses = [$koneksifr->status_fr, $koneksiar->status_ar, $koneksipr->status_pr_01, $koneksipa->status_pa_02, $koneksipo->status_po_03, $koneksipay->status_pay_04, $koneksimn->status_mn, $koneksiin->status_in, $koneksicl->status_cl];
 
                         foreach ($statuses as $status) {
                             if ($status == 'Complete') {
@@ -178,7 +168,8 @@
                             </div>
 
                             <div>
-                                <div class="items-center pt-1 pr-4 text-sm font-medium  text-gray-600">Terakhir diperbaharui:
+                                <div class="items-center pt-1 pr-4 text-sm font-medium  text-gray-600">Terakhir
+                                    diperbaharui:
                                 </div>
                                 <div class="items-center pr-4 text-sm font-medium">
                                     {{ $viewdataproject->last_update_name }},
@@ -189,16 +180,20 @@
                         {{-- deadline countdown --}}
                         <div class="flex text-right">
                             @if ($viewdataproject->progress == 'Closed')
-                                <div
-                                    class=" space-x-1 font-medium items-center py-1 px-3 text-center text-lg rounded-xl drop-shadow-md flex justify-center w-fit bg-green-700 text-white mt-1" data-tooltip-target="tooltip-bottom" data-tooltip-placement="bottom">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="22" viewBox="0 0 24 24" fill="none">
+                                <div class=" space-x-1 font-medium items-center py-1 px-3 text-center text-lg rounded-xl drop-shadow-md flex justify-center w-fit bg-green-700 text-white mt-1"
+                                    data-tooltip-target="tooltip-bottom" data-tooltip-placement="bottom">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="22" viewBox="0 0 24 24"
+                                        fill="none">
                                         <g id="Interface / Check_All">
-                                        <path id="Vector" d="M8 12.4854L12.2426 16.728L20.727 8.24268M3 12.4854L7.24264 16.728M15.7279 8.24268L12.5 11.5001" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                            <path id="Vector"
+                                                d="M8 12.4854L12.2426 16.728L20.727 8.24268M3 12.4854L7.24264 16.728M15.7279 8.24268L12.5 11.5001"
+                                                stroke="#ffffff" stroke-width="2" stroke-linecap="round"
+                                                stroke-linejoin="round" />
                                         </g>
                                     </svg>
-                                <p>
-                                    Proyek telah SELESAI
-                                </p>
+                                    <p>
+                                        Proyek telah SELESAI
+                                    </p>
                                 </div>
                             @else
                                 <div id="countdown-{{ $viewdataproject->id }}"
@@ -282,6 +277,7 @@
             </div>
         </div>
     </div>
+
 
     {{-- awal stepper --}}
     <div class="bg-white mt-3 h-40 pt-3 rounded-lg shadow-md">
@@ -459,7 +455,6 @@
         </div>
     </div>
     {{-- akhir --}}
-
 
     {{-- Awal progress file --}}
     <div class="bg-white mt-3 w-full rounded-md shadow-md p-3">
@@ -1118,22 +1113,38 @@
             });
         }
 
-        function hitungMundur(deadline, elementId) {
-        const sekarang = new Date();
+        const kartuProyekId = @json($viewdataproject->id);
+        const elementId = "countdown-" + kartuProyekId;
+
+        const serverTimeStr = "{{ $serverTime }}"; // Menggunakan waktu server yang disertakan
+        const serverTime = new Date(serverTimeStr);
+
+        const deadlineStr = "{{ $viewdataproject->date_end }}";
+        const deadline = new Date(deadlineStr);
+
+        // Menggunakan waktu UTC untuk konsistensi
+        const sekarang = new Date(
+            serverTime.getUTCFullYear(),
+            serverTime.getUTCMonth(),
+            serverTime.getUTCDate(),
+            serverTime.getUTCHours(),
+            serverTime.getUTCMinutes(),
+            serverTime.getUTCSeconds()
+        );
+
         const selisihWaktu = deadline - sekarang;
         const hari = Math.floor(selisihWaktu / (1000 * 60 * 60 * 24));
 
         let warnaLatarBelakang = '';
 
         if (selisihWaktu <= 0) {
-            document.getElementById(elementId).innerText = "Proyek sudah melewati deadline.";
+            document.getElementById(elementId).innerText = "Proyek sudah melewati deadline";
             warnaLatarBelakang = 'red';
         } else {
             const jam = Math.floor((selisihWaktu % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
             const menit = Math.floor((selisihWaktu % (1000 * 60 * 60)) / (1000 * 60));
 
             document.getElementById(elementId).innerText = `Deadline dalam ${hari} hari`;
-            /* hari, ${jam} jam, dan ${menit} menit. */
 
             // Atur warna latar belakang berdasarkan rentang hari
             if (hari > 150) {
@@ -1152,15 +1163,11 @@
         // Atur latar belakang dan warna teks
         document.getElementById(elementId).style.backgroundColor = warnaLatarBelakang;
         document.getElementById(elementId).style.color = 'white';
-    }
 
-    // Gantilah dengan nilai date_end dari Laravel Blade template
-    const dateEndStr = "{{ $viewdataproject->date_end }}";
-    const dateEnd = new Date(dateEndStr);
 
-    // Gantilah dengan id unik kartu proyek
-    const kartuProyekId = "{{ $viewdataproject->id }}";
-    hitungMundur(dateEnd, `countdown-${kartuProyekId}`);
+        console.log('Server Time (ISO):', "{{ $serverTime }}");
+        console.log('Deadline (ISO):', "{{ $viewdataproject->date_end }}");
+        console.log('Time Difference:', {{ $timeDiff }});
     </script>
 
     {{-- Hapus FR --}}

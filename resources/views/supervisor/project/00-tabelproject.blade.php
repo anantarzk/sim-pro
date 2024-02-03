@@ -315,7 +315,8 @@
                 <tbody>
                     @if ($noResult == 1)
                         <tr>
-                            <td colspan="7" class="text-center bg-white py-4 italic text-lg font-semibold">Data tidak ditemukan.</td>
+                            <td colspan="7" class="text-center bg-white py-4 italic text-lg font-semibold">Data
+                                tidak ditemukan.</td>
                         </tr>
                     @else
                         {{-- Ambil data dari controler --}}
@@ -416,27 +417,32 @@
                                             @if ($deadline > 150)
                                                 <div
                                                     class="items-center py-1 px-2 text-center text-md rounded drop-shadow-md flex justify-center w-fit bg-green-500 text-white">
-                                                    {{ $deadline }} hari
+                                                    {{ $deadline }}
                                                 </div>
                                             @elseif ($deadline > 100)
                                                 <div
                                                     class="items-center py-1 px-2 text-center text-md rounded drop-shadow-md flex justify-center w-fit bg-blue-500 text-white">
-                                                    {{ $deadline }} hari
+                                                    {{ $deadline }}
                                                 </div>
                                             @elseif ($deadline > 70)
                                                 <div
                                                     class="items-center py-1 px-2 text-center text-md rounded drop-shadow-md flex justify-center w-fit bg-yellow-400 text-white">
-                                                    {{ $deadline }} hari
+                                                    {{ $deadline }}
                                                 </div>
                                             @elseif ($deadline > 30)
                                                 <div
                                                     class="items-center py-1 px-2 text-center text-md rounded drop-shadow-md flex justify-center w-fit bg-orange-400 text-white">
-                                                    {{ $deadline }} hari
+                                                    {{ $deadline }}
+                                                </div>
+                                            @elseif ($deadline == 'Lewat Deadline')
+                                                <div
+                                                    class="items-center py-1 px-2 text-center text-md rounded drop-shadow-md flex justify-center w-fit bg-red-600 text-white">
+                                                    {{ $deadline }}
                                                 </div>
                                             @else
                                                 <div
                                                     class="items-center py-1 px-2 text-center text-md rounded drop-shadow-md flex justify-center w-fit bg-red-600 text-white">
-                                                    {{ $deadline }} hari
+                                                    {{ $deadline }}
                                                 </div>
                                             @endif
                                         @endif
@@ -558,10 +564,10 @@
 
         if ($selisihWaktu <= 0) {
             // Project has passed the deadline
-            return 'Proyek sudah melewati deadline.';
+            return 'Lewat Deadline';
         } else {
             // Return the remaining days
-            return $hari;
+            return $hari . ' Hari';
         }
     }
 @endphp

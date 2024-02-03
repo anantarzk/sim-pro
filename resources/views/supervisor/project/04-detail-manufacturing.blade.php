@@ -1553,7 +1553,7 @@
     hitungMundur(dateEnd, `countdown-${kartuProyekId}`);
     </script>
 
-    {{-- fungsional hapus MN --}}
+    {{-- hapus MN --}}
     @php
         $num = range(1, 10);
     @endphp

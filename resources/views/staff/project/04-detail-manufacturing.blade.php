@@ -666,13 +666,21 @@
                                                 data-modal-toggle="modal1">
                                                 Ubah
                                             </button>
+                                            <button data-dropdown-toggle="dropdown1" type="button"
+                                                class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="22"
+                                                    fill="white" viewBox="0 0 48 48">
+                                                    <path
+                                                        d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                    </path>
+                                                </svg>
+                                            </button>
                                         </div>
                                     @endif
                                 </td>
                                 <input type="text" hidden name="as_up_by_atribut_mn_1"
                                     value="{{ Auth::user()->first_name }}">
-                                <input type="date" hidden name="as_date_mn_atribut_1"
-                                    value="{{ date('Y-m-d') }}">
+                                <input type="date" hidden name="as_date_mn_atribut_1" value="{{ date('Y-m-d') }}">
                             </tr>
 
                             {{-- 2 --}}
@@ -733,13 +741,21 @@
                                                 data-modal-toggle="modal2">
                                                 Ubah
                                             </button>
+                                            <button data-dropdown-toggle="dropdown2" type="button"
+                                                class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="22"
+                                                    fill="white" viewBox="0 0 48 48">
+                                                    <path
+                                                        d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                    </path>
+                                                </svg>
+                                            </button>
                                         </div>
                                     @endif
                                 </td>
                                 <input type="text" hidden name="as_up_by_atribut_mn_2"
                                     value="{{ Auth::user()->first_name }}">
-                                <input type="date" hidden name="as_date_mn_atribut_2"
-                                    value="{{ date('Y-m-d') }}">
+                                <input type="date" hidden name="as_date_mn_atribut_2" value="{{ date('Y-m-d') }}">
                             </tr>
 
                             {{-- 3 --}}
@@ -800,13 +816,21 @@
                                                 data-modal-toggle="modal3">
                                                 Ubah
                                             </button>
+                                            <button data-dropdown-toggle="dropdown3" type="button"
+                                                class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="22"
+                                                    fill="white" viewBox="0 0 48 48">
+                                                    <path
+                                                        d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                    </path>
+                                                </svg>
+                                            </button>
                                         </div>
                                     @endif
                                 </td>
                                 <input type="text" hidden name="as_up_by_atribut_mn_3"
                                     value="{{ Auth::user()->first_name }}">
-                                <input type="date" hidden name="as_date_mn_atribut_3"
-                                    value="{{ date('Y-m-d') }}">
+                                <input type="date" hidden name="as_date_mn_atribut_3" value="{{ date('Y-m-d') }}">
                             </tr>
 
                             {{-- 4 --}}
@@ -864,13 +888,21 @@
                                                 data-modal-toggle="modal4">
                                                 Ubah
                                             </button>
+                                            <button data-dropdown-toggle="dropdown4" type="button"
+                                                class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="22"
+                                                    fill="white" viewBox="0 0 48 48">
+                                                    <path
+                                                        d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                    </path>
+                                                </svg>
+                                            </button>
                                         </div>
                                     @endif
                                 </td>
                                 <input type="text" hidden name="as_up_by_atribut_mn_4"
                                     value="{{ Auth::user()->first_name }}">
-                                <input type="date" hidden name="as_date_mn_atribut_4"
-                                    value="{{ date('Y-m-d') }}">
+                                <input type="date" hidden name="as_date_mn_atribut_4" value="{{ date('Y-m-d') }}">
                             </tr>
 
                             {{-- 5 --}}
@@ -928,13 +960,21 @@
                                                 data-modal-toggle="modal5">
                                                 Ubah
                                             </button>
+                                            <button data-dropdown-toggle="dropdown5" type="button"
+                                                class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="22"
+                                                    fill="white" viewBox="0 0 48 48">
+                                                    <path
+                                                        d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                    </path>
+                                                </svg>
+                                            </button>
                                         </div>
                                     @endif
                                 </td>
                                 <input type="text" hidden name="as_up_by_atribut_mn_5"
                                     value="{{ Auth::user()->first_name }}">
-                                <input type="date" hidden name="as_date_mn_atribut_5"
-                                    value="{{ date('Y-m-d') }}">
+                                <input type="date" hidden name="as_date_mn_atribut_5" value="{{ date('Y-m-d') }}">
                             </tr>
                             {{-- batas 5 --}}
 
@@ -993,13 +1033,21 @@
                                                 data-modal-toggle="modal6">
                                                 Ubah
                                             </button>
+                                            <button data-dropdown-toggle="dropdown6" type="button"
+                                                class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="22"
+                                                    fill="white" viewBox="0 0 48 48">
+                                                    <path
+                                                        d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                    </path>
+                                                </svg>
+                                            </button>
                                         </div>
                                     @endif
                                 </td>
                                 <input type="text" hidden name="as_up_by_atribut_mn_6"
                                     value="{{ Auth::user()->first_name }}">
-                                <input type="date" hidden name="as_date_mn_atribut_6"
-                                    value="{{ date('Y-m-d') }}">
+                                <input type="date" hidden name="as_date_mn_atribut_6" value="{{ date('Y-m-d') }}">
                             </tr>
 
                             {{-- 2 --}}
@@ -1060,13 +1108,21 @@
                                                 data-modal-toggle="modal7">
                                                 Ubah
                                             </button>
+                                            <button data-dropdown-toggle="dropdown7" type="button"
+                                                class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="22"
+                                                    fill="white" viewBox="0 0 48 48">
+                                                    <path
+                                                        d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                    </path>
+                                                </svg>
+                                            </button>
                                         </div>
                                     @endif
                                 </td>
                                 <input type="text" hidden name="as_up_by_atribut_mn_7"
                                     value="{{ Auth::user()->first_name }}">
-                                <input type="date" hidden name="as_date_mn_atribut_7"
-                                    value="{{ date('Y-m-d') }}">
+                                <input type="date" hidden name="as_date_mn_atribut_7" value="{{ date('Y-m-d') }}">
                             </tr>
 
                             {{-- 3 --}}
@@ -1124,13 +1180,21 @@
                                                 data-modal-toggle="modal8">
                                                 Ubah
                                             </button>
+                                            <button data-dropdown-toggle="dropdown8" type="button"
+                                                class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="22"
+                                                    fill="white" viewBox="0 0 48 48">
+                                                    <path
+                                                        d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                    </path>
+                                                </svg>
+                                            </button>
                                         </div>
                                     @endif
                                 </td>
                                 <input type="text" hidden name="as_up_by_atribut_mn_8"
                                     value="{{ Auth::user()->first_name }}">
-                                <input type="date" hidden name="as_date_mn_atribut_8"
-                                    value="{{ date('Y-m-d') }}">
+                                <input type="date" hidden name="as_date_mn_atribut_8" value="{{ date('Y-m-d') }}">
                             </tr>
 
                             {{-- 9 --}}
@@ -1156,9 +1220,6 @@
                                         target="blank" download="" class="hover:underline">
                                         {{ $koneksimn->mn_atribut_9 }}</a>
                                     {{-- == --}}
-
-
-
                                 </td>
                                 <td>
                                     @if ($koneksimn->up_by_atribut_mn_9 != '')
@@ -1191,19 +1252,28 @@
                                                 data-modal-toggle="modal9">
                                                 Ubah
                                             </button>
+                                            <button data-dropdown-toggle="dropdown9" type="button"
+                                                class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="22"
+                                                    fill="white" viewBox="0 0 48 48">
+                                                    <path
+                                                        d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                    </path>
+                                                </svg>
+                                            </button>
                                         </div>
                                     @endif
                                 </td>
                                 <input type="text" hidden name="as_up_by_atribut_mn_9"
                                     value="{{ Auth::user()->first_name }}">
-                                <input type="date" hidden name="as_date_mn_atribut_9"
-                                    value="{{ date('Y-m-d') }}">
+                                <input type="date" hidden name="as_date_mn_atribut_9" value="{{ date('Y-m-d') }}">
                             </tr>
 
                             {{-- 10 --}}
                             <tr class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
                                 <td class="py-4 font-bold text-center">10.</td>
                                 <td class="flex justify-start py-4 items-center">
+
                                     @if ($koneksimn->mn_atribut_10 != '')
                                         <a href="{{ asset('storage/supervisor/project/04_MN/' . $koneksimn->mn_atribut_10) }}"
                                             target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
@@ -1214,6 +1284,7 @@
                                                     fill="black" />
                                             </svg>
                                         </a>
+
                                         &emsp;
                                     @endif
                                     {{--  --}}
@@ -1221,6 +1292,9 @@
                                         target="blank" download="" class="hover:underline">
                                         {{ $koneksimn->mn_atribut_10 }}</a>
                                     {{-- == --}}
+
+
+
                                 </td>
                                 <td>
                                     @if ($koneksimn->up_by_atribut_mn_10 != '')
@@ -1236,8 +1310,8 @@
                                         ($koneksimn->status_mn == '-' || $koneksimn->status_mn == 'Revisi Manufacturing') &&
                                             $koneksimn->mn_atribut_10 == '')
                                         <div class="justify-center flex space-x-2">
-                                            <input type="file" name="as_mn_atribut_10"
-                                                id="fileInput_mn_atribut_10" style="display: none;">
+                                            <input type="file" name="as_mn_atribut_10" id="fileInput_mn_atribut_10"
+                                                style="display: none;">
                                             <button type="button" onclick="openFileInput('mn_atribut_10')"
                                                 class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md">
                                                 + Tambah dokumen
@@ -1255,13 +1329,21 @@
                                                 data-modal-toggle="modal10">
                                                 Ubah
                                             </button>
+                                            <button data-dropdown-toggle="dropdown10" type="button"
+                                                class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="22"
+                                                    fill="white" viewBox="0 0 48 48">
+                                                    <path
+                                                        d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                    </path>
+                                                </svg>
+                                            </button>
                                         </div>
                                     @endif
                                 </td>
                                 <input type="text" hidden name="as_up_by_atribut_mn_10"
                                     value="{{ Auth::user()->first_name }}">
-                                <input type="date" hidden name="as_date_mn_atribut_10"
-                                    value="{{ date('Y-m-d') }}">
+                                <input type="date" hidden name="as_date_mn_atribut_10" value="{{ date('Y-m-d') }}">
                             </tr>
 
                         </tbody>
@@ -1448,5 +1530,31 @@
     const kartuProyekId = "{{ $viewdataproject->id }}";
     hitungMundur(dateEnd, `countdown-${kartuProyekId}`);
     </script>
+
+    {{-- hapus MN --}}
+    @php
+        $num = range(1, 10);
+    @endphp
+
+    @foreach ($num as $index => $number)
+        <form action="" method="post" enctype="multipart/form-data">
+            @csrf
+            @method('PUT')
+            <div id="dropdown{{ $number }}" class="z-10 hidden bg-gray-800 rounded-lg w-110% p-4 shadow-md">
+                @if ($number)
+                    <input type="text" hidden name="up_by_atribut_mn_{{ $number }}" value="">
+                    <input type="text" hidden name="date_mn_atribut_{{ $number }}" value="">
+                    <input type="text" hidden name="mn_atribut_{{ $number }}" value="">
+                @endif
+                <p class="text-white">Apakah anda yakin untuk menghapus dokumen ini?</p>
+                <div class="grid grid-cols-1 space-x-2 mt-2">
+                    <button type="submit"
+                        class="px-2 py-1 bg-red-500 hover:bg-red-600 text-white rounded-md font-bold">
+                        Ya, saya yakin
+                    </button>
+                </div>
+            </div>
+        </form>
+    @endforeach
 </div>
 {{-- tutup bungkus --}}

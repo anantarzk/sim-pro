@@ -700,7 +700,7 @@
         {{-- selesai status approval row --}}
 
         {{-- Yang diganti pertahapnya --}}
-        <form action="" method="post" enctype="multipart/form-data" id="uploadForm">
+        <form action="" method="post" enctype="multipart/form-data">
             @csrf
             @method('PUT')
             {{-- atas form --}}
@@ -729,33 +729,35 @@
                 </div>
                 <div id="defaultTabContent">
                     <div class="bg-white mt-3" id="lokal" role="tabpanel" aria-labelledby="lokal-tab">
-                        {{-- PO Parts & Material --}}
+                        {{-- PR Parts & Material --}}
                         {{-- awal standar formulir --}}
                         <div class="flex justify-between">
-                            <p class="font-medium text-lg bg-gray-800 px-4 py-1 w-fit text-white mb-2 rounded"> PO Parts & Material
-                            @foreach ($standar_project as $spt)
-                                @if ($spt->file_pr_parts_material_form != '')
-                                    <div class="flex justify-end mr-1 mt-4">
-                                        <a href="{{ asset('storage/supervisor/standarproject/' . $spt->file_pr_parts_material_form) }}"
-                                            download="">
-                                            <div class="w-fit items-center space-x-1 flex fill-blue-600 hover:fill-blue-800">
-                                                <svg width="15" height="" viewBox="0 0 52 52"
-                                                    xmlns="http://www.w3.org/2000/svg">
-                                                    <path
-                                                        d="m36.4 14.8h8.48a1.09 1.09 0 0 0 1.12-1.12 1 1 0 0 0 -.32-.8l-10.56-10.56a1 1 0 0 0 -.8-.32 1.09 1.09 0 0 0 -1.12 1.12v8.48a3.21 3.21 0 0 0 3.2 3.2z" />
+                            <p class="font-medium text-lg bg-gray-800 px-4 py-1 w-fit text-white mb-2 rounded"> PO
+                                Parts & Material
+                                @foreach ($standar_project as $spt)
+                                    @if ($spt->file_pr_parts_material_form != '')
+                                        <div class="flex justify-end mr-1 mt-4">
+                                            <a href="{{ asset('storage/supervisor/standarproject/' . $spt->file_pr_parts_material_form) }}"
+                                                download="">
+                                                <div
+                                                    class="w-fit items-center space-x-1 flex fill-blue-600 hover:fill-blue-800">
+                                                    <svg width="15" height="" viewBox="0 0 52 52"
+                                                        xmlns="http://www.w3.org/2000/svg">
+                                                        <path
+                                                            d="m36.4 14.8h8.48a1.09 1.09 0 0 0 1.12-1.12 1 1 0 0 0 -.32-.8l-10.56-10.56a1 1 0 0 0 -.8-.32 1.09 1.09 0 0 0 -1.12 1.12v8.48a3.21 3.21 0 0 0 3.2 3.2z" />
 
-                                                    <path
-                                                        d="m44.4 19.6h-11.2a4.81 4.81 0 0 1 -4.8-4.8v-11.2a1.6 1.6 0 0 0 -1.6-1.6h-16a4.81 4.81 0 0 0 -4.8 4.8v38.4a4.81 4.81 0 0 0 4.8 4.8h30.4a4.81 4.81 0 0 0 4.8-4.8v-24a1.6 1.6 0 0 0 -1.6-1.6zm-32-1.6a1.62 1.62 0 0 1 1.6-1.55h6.55a1.56 1.56 0 0 1 1.57 1.55v1.59a1.63 1.63 0 0 1 -1.59 1.58h-6.53a1.55 1.55 0 0 1 -1.58-1.58zm24 20.77a1.6 1.6 0 0 1 -1.6 1.6h-20.8a1.6 1.6 0 0 1 -1.6-1.6v-1.57a1.6 1.6 0 0 1 1.6-1.6h20.8a1.6 1.6 0 0 1 1.6 1.6zm3.2-9.6a1.6 1.6 0 0 1 -1.6 1.63h-24a1.6 1.6 0 0 1 -1.6-1.6v-1.6a1.6 1.6 0 0 1 1.6-1.6h24a1.6 1.6 0 0 1 1.6 1.6z" />
-                                                </svg>
-                                                <p
-                                                    class="text-right hover:underline font-semibold text-md text-blue-600 hover:text-blue-800 ">
-                                                    Klik untuk mengunduh formulir kerja</p>
-                                            </div>
-                                        </a>
-                                    </div>
-                                @endif
-                            @endforeach
-                            {{-- tombol form --}}
+                                                        <path
+                                                            d="m44.4 19.6h-11.2a4.81 4.81 0 0 1 -4.8-4.8v-11.2a1.6 1.6 0 0 0 -1.6-1.6h-16a4.81 4.81 0 0 0 -4.8 4.8v38.4a4.81 4.81 0 0 0 4.8 4.8h30.4a4.81 4.81 0 0 0 4.8-4.8v-24a1.6 1.6 0 0 0 -1.6-1.6zm-32-1.6a1.62 1.62 0 0 1 1.6-1.55h6.55a1.56 1.56 0 0 1 1.57 1.55v1.59a1.63 1.63 0 0 1 -1.59 1.58h-6.53a1.55 1.55 0 0 1 -1.58-1.58zm24 20.77a1.6 1.6 0 0 1 -1.6 1.6h-20.8a1.6 1.6 0 0 1 -1.6-1.6v-1.57a1.6 1.6 0 0 1 1.6-1.6h20.8a1.6 1.6 0 0 1 1.6 1.6zm3.2-9.6a1.6 1.6 0 0 1 -1.6 1.63h-24a1.6 1.6 0 0 1 -1.6-1.6v-1.6a1.6 1.6 0 0 1 1.6-1.6h24a1.6 1.6 0 0 1 1.6 1.6z" />
+                                                    </svg>
+                                                    <p
+                                                        class="text-right hover:underline font-semibold text-md text-blue-600 hover:text-blue-800 ">
+                                                        Klik untuk mengunduh formulir kerja</p>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    @endif
+                                @endforeach
+                                {{-- tombol form --}}
                         </div>
                         {{-- akhir standar formulir --}}
 
@@ -763,11 +765,11 @@
                             <table class="w-full ">
                                 <thead class="bg-gray-300 text-gray-700 sticky top-0">
                                     <th class="py-2 w-[5%] font-medium">No.</th>
-                                        <th class="w-[45%]  font-medium">Nama File</th>
-                                        <th class="w-[11%]  font-medium">Diunggah oleh</th>
-                                        <th class="w-[10%]  font-medium">Terakhir diubah</th>
-                                        <th class="w-[14%]  font-medium">Jumlah PO</th>
-                                        <th class="w-[14%]  font-medium">Aksi</th>
+                                    <th class="w-[45%]  font-medium">Nama File</th>
+                                    <th class="w-[11%]  font-medium">Diunggah oleh</th>
+                                    <th class="w-[10%]  font-medium">Terakhir diubah</th>
+                                    <th class="w-[14%]  font-medium">Jumlah PO</th>
+                                    <th class="w-[14%]  font-medium">Aksi</th>
                                 </thead>
                                 <tbody class="text-left border">
                                     {{-- 1 --}}
@@ -775,23 +777,23 @@
                                         class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
                                         <td class="py-4 font-bold text-center">1.</td>
                                         <td class="flex items-center my-4">
-                                        @if ($koneksipo->po_parts_1 != '')
+                                            @if ($koneksipo->po_parts_1 != '')
+                                                <a href="{{ asset('storage/supervisor/project/03_03_PR/' . $koneksipo->po_parts_1) }}"
+                                                    target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
+                                                    <svg width="22" height="17" viewBox="0 0 22 17"
+                                                        fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path
+                                                            d="M11 0C6 0 1.73 3.11 0 7.5C1.73 11.89 6 15 11 15C11.36 15 11.72 15 12.08 14.95C12.03 14.63 12 14.32 12 14C12 13.44 12.08 12.88 12.24 12.34C11.83 12.44 11.42 12.5 11 12.5C8.24 12.5 6 10.26 6 7.5C6 4.74 8.24 2.5 11 2.5C13.76 2.5 16 4.74 16 7.5C16 7.79 15.97 8.09 15.92 8.38C16.58 8.13 17.29 8 18 8C19.17 8 20.31 8.34 21.29 9C21.56 8.5 21.8 8 22 7.5C20.27 3.11 16 0 11 0ZM11 4.5C9.34 4.5 8 5.84 8 7.5C8 9.16 9.34 10.5 11 10.5C12.66 10.5 14 9.16 14 7.5C14 5.84 12.66 4.5 11 4.5ZM17 10.5V12.5H21V14.5H17V16.5L14 13.5L17 10.5Z"
+                                                            fill="black" />
+                                                    </svg>
+                                                </a>
+                                                &emsp;
+                                            @endif
+                                            {{--  --}}
                                             <a href="{{ asset('storage/supervisor/project/03_03_PR/' . $koneksipo->po_parts_1) }}"
-                                                target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
-                                                <svg width="22" height="17" viewBox="0 0 22 17"
-                                                    fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                    <path
-                                                        d="M11 0C6 0 1.73 3.11 0 7.5C1.73 11.89 6 15 11 15C11.36 15 11.72 15 12.08 14.95C12.03 14.63 12 14.32 12 14C12 13.44 12.08 12.88 12.24 12.34C11.83 12.44 11.42 12.5 11 12.5C8.24 12.5 6 10.26 6 7.5C6 4.74 8.24 2.5 11 2.5C13.76 2.5 16 4.74 16 7.5C16 7.79 15.97 8.09 15.92 8.38C16.58 8.13 17.29 8 18 8C19.17 8 20.31 8.34 21.29 9C21.56 8.5 21.8 8 22 7.5C20.27 3.11 16 0 11 0ZM11 4.5C9.34 4.5 8 5.84 8 7.5C8 9.16 9.34 10.5 11 10.5C12.66 10.5 14 9.16 14 7.5C14 5.84 12.66 4.5 11 4.5ZM17 10.5V12.5H21V14.5H17V16.5L14 13.5L17 10.5Z"
-                                                        fill="black" />
-                                                </svg>
-                                            </a>
-                                            &emsp;
-                                        @endif
-                                        {{--  --}}
-                                        <a href="{{ asset('storage/supervisor/project/03_03_PR/' . $koneksipo->po_parts_1) }}"
-                                            target="blank" download="" class="hover:underline">
-                                            {{ $koneksipo->po_parts_1 }}</a>
-                                        {{-- == --}}
+                                                target="blank" download="" class="hover:underline">
+                                                {{ $koneksipo->po_parts_1 }}</a>
+                                            {{-- == --}}
 
                                         </td>
                                         <td>
@@ -811,28 +813,37 @@
 
                                         <td class="space-y-2 py-3 px-2">
                                             @if (
-                                                    ($koneksipo->status_po_03 == '-' || $koneksipo->status_po_03 == 'Revisi Purchasing - PO') &&
-                                                        $koneksipo->po_parts_1 == '')
+                                                ($koneksipo->status_po_03 == '-' || $koneksipo->status_po_03 == 'Revisi Purchasing - PO') &&
+                                                    $koneksipo->po_parts_1 == '')
+                                                <button type="button"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
+                                                    data-modal-target="modala11" data-modal-show="modala11"
+                                                    data-modal-toggle="modala11">
+                                                    + Tambah dokumen
+                                                </button>
+                                            @elseif (
+                                                ($koneksipo->status_po_03 == '-' || $koneksipo->status_po_03 == 'Revisi Purchasing - PO') &&
+                                                    $koneksipo->po_parts_1 != '' &&
+                                                    $koneksipo->status_po_03 != 'Complete' &&
+                                                    $koneksipo->status_po_03 != 'Waiting Approval')
+                                                <div class="justify-center flex space-x-2">
                                                     <button type="button"
-                                                        class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
-                                                        data-modal-target="modala11" data-modal-show="modala11"
-                                                        data-modal-toggle="modala11">
-                                                        + Tambah dokumen
+                                                        class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        data-modal-target="modal11" data-modal-show="modal11"
+                                                        data-modal-toggle="modal11">
+                                                        Ubah
                                                     </button>
-                                                @elseif (
-                                                    ($koneksipo->status_po_03 == '-' || $koneksipo->status_po_03 == 'Revisi Purchasing - PO') &&
-                                                        $koneksipo->po_parts_1 != '' &&
-                                                        $koneksipo->status_po_03 != 'Complete' &&
-                                                        $koneksipo->status_po_03 != 'Waiting Approval')
-                                                    <div class="justify-center flex space-x-2">
-                                                        <button type="button"
-                                                            class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
-                                                            data-modal-target="modal11" data-modal-show="modal11"
-                                                            data-modal-toggle="modal11">
-                                                            Ubah
-                                                        </button>
-                                                    </div>
-                                                @endif
+                                                    <button data-dropdown-toggle="dropdown11" type="button"
+                                                        class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                            width="22" fill="white" viewBox="0 0 48 48">
+                                                            <path
+                                                                d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                            </path>
+                                                        </svg>
+                                                    </button>
+                                                </div>
+                                            @endif
                                         </td>
                                         <input type="text" hidden name="as_up_by_parts_po_1"
                                             value="{{ Auth::user()->first_name }}">
@@ -845,24 +856,24 @@
                                         class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
                                         <td class="py-4 font-bold text-center">2.</td>
                                         <td class="flex items-center my-4">
-                                        @if ($koneksipo->po_parts_2 != '')
-                                            <a href="{{ asset('storage/supervisor/project/03_03_PR/' . $koneksipo->po_parts_2) }}"
-                                                target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
-                                                <svg width="22" height="17" viewBox="0 0 22 17"
-                                                    fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                    <path
-                                                        d="M11 0C6 0 1.73 3.11 0 7.5C1.73 11.89 6 15 11 15C11.36 15 11.72 15 12.08 14.95C12.03 14.63 12 14.32 12 14C12 13.44 12.08 12.88 12.24 12.34C11.83 12.44 11.42 12.5 11 12.5C8.24 12.5 6 10.26 6 7.5C6 4.74 8.24 2.5 11 2.5C13.76 2.5 16 4.74 16 7.5C16 7.79 15.97 8.09 15.92 8.38C16.58 8.13 17.29 8 18 8C19.17 8 20.31 8.34 21.29 9C21.56 8.5 21.8 8 22 7.5C20.27 3.11 16 0 11 0ZM11 4.5C9.34 4.5 8 5.84 8 7.5C8 9.16 9.34 10.5 11 10.5C12.66 10.5 14 9.16 14 7.5C14 5.84 12.66 4.5 11 4.5ZM17 10.5V12.5H21V14.5H17V16.5L14 13.5L17 10.5Z"
-                                                        fill="black" />
-                                                </svg>
-                                            </a>
+                                            @if ($koneksipo->po_parts_2 != '')
+                                                <a href="{{ asset('storage/supervisor/project/03_03_PR/' . $koneksipo->po_parts_2) }}"
+                                                    target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
+                                                    <svg width="22" height="17" viewBox="0 0 22 17"
+                                                        fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path
+                                                            d="M11 0C6 0 1.73 3.11 0 7.5C1.73 11.89 6 15 11 15C11.36 15 11.72 15 12.08 14.95C12.03 14.63 12 14.32 12 14C12 13.44 12.08 12.88 12.24 12.34C11.83 12.44 11.42 12.5 11 12.5C8.24 12.5 6 10.26 6 7.5C6 4.74 8.24 2.5 11 2.5C13.76 2.5 16 4.74 16 7.5C16 7.79 15.97 8.09 15.92 8.38C16.58 8.13 17.29 8 18 8C19.17 8 20.31 8.34 21.29 9C21.56 8.5 21.8 8 22 7.5C20.27 3.11 16 0 11 0ZM11 4.5C9.34 4.5 8 5.84 8 7.5C8 9.16 9.34 10.5 11 10.5C12.66 10.5 14 9.16 14 7.5C14 5.84 12.66 4.5 11 4.5ZM17 10.5V12.5H21V14.5H17V16.5L14 13.5L17 10.5Z"
+                                                            fill="black" />
+                                                    </svg>
+                                                </a>
 
-                                            &emsp;
-                                        @endif
-                                        {{--  --}}
-                                        <a href="{{ asset('storage/supervisor/project/03_03_PR/' . $koneksipo->po_parts_2) }}"
-                                            target="blank" download="" class="hover:underline">
-                                            {{ $koneksipo->po_parts_2 }}</a>
-                                        {{-- == --}}
+                                                &emsp;
+                                            @endif
+                                            {{--  --}}
+                                            <a href="{{ asset('storage/supervisor/project/03_03_PR/' . $koneksipo->po_parts_2) }}"
+                                                target="blank" download="" class="hover:underline">
+                                                {{ $koneksipo->po_parts_2 }}</a>
+                                            {{-- == --}}
 
                                         </td>
                                         <td>
@@ -882,28 +893,37 @@
 
                                         <td class="space-y-2 py-3 px-2">
                                             @if (
-                                                    ($koneksipo->status_po_03 == '-' || $koneksipo->status_po_03 == 'Revisi Purchasing - PO') &&
-                                                        $koneksipo->po_parts_2 == '')
+                                                ($koneksipo->status_po_03 == '-' || $koneksipo->status_po_03 == 'Revisi Purchasing - PO') &&
+                                                    $koneksipo->po_parts_2 == '')
+                                                <button type="button"
+                                                    class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
+                                                    data-modal-target="modala12" data-modal-show="modala12"
+                                                    data-modal-toggle="modala12">
+                                                    + Tambah dokumen
+                                                </button>
+                                            @elseif (
+                                                ($koneksipo->status_po_03 == '-' || $koneksipo->status_po_03 == 'Revisi Purchasing - PO') &&
+                                                    $koneksipo->po_parts_2 != '' &&
+                                                    $koneksipo->status_po_03 != 'Complete' &&
+                                                    $koneksipo->status_po_03 != 'Waiting Approval')
+                                                <div class="justify-center flex space-x-2">
                                                     <button type="button"
-                                                        class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
-                                                        data-modal-target="modala12" data-modal-show="modala12"
-                                                        data-modal-toggle="modala12">
-                                                        + Tambah dokumen
+                                                        class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        data-modal-target="modal12" data-modal-show="modal12"
+                                                        data-modal-toggle="modal12">
+                                                        Ubah
                                                     </button>
-                                                @elseif (
-                                                    ($koneksipo->status_po_03 == '-' || $koneksipo->status_po_03 == 'Revisi Purchasing - PO') &&
-                                                        $koneksipo->po_parts_2 != '' &&
-                                                        $koneksipo->status_po_03 != 'Complete' &&
-                                                        $koneksipo->status_po_03 != 'Waiting Approval')
-                                                    <div class="justify-center flex space-x-2">
-                                                        <button type="button"
-                                                            class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
-                                                            data-modal-target="modal12" data-modal-show="modal12"
-                                                            data-modal-toggle="modal12">
-                                                            Ubah
-                                                        </button>
-                                                    </div>
-                                                @endif
+                                                    <button data-dropdown-toggle="dropdown12" type="button"
+                                                        class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                            width="22" fill="white" viewBox="0 0 48 48">
+                                                            <path
+                                                                d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                            </path>
+                                                        </svg>
+                                                    </button>
+                                                </div>
+                                            @endif
                                         </td>
                                         <input type="text" hidden name="as_up_by_parts_po_2"
                                             value="{{ Auth::user()->first_name }}">
@@ -974,6 +994,15 @@
                                                         data-modal-target="modal13" data-modal-show="modal13"
                                                         data-modal-toggle="modal13">
                                                         Ubah
+                                                    </button>
+                                                    <button data-dropdown-toggle="dropdown13" type="button"
+                                                        class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                            width="22" fill="white" viewBox="0 0 48 48">
+                                                            <path
+                                                                d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                            </path>
+                                                        </svg>
                                                     </button>
                                                 </div>
                                             @endif
@@ -1048,6 +1077,15 @@
                                                         data-modal-toggle="modal14">
                                                         Ubah
                                                     </button>
+                                                    <button data-dropdown-toggle="dropdown14" type="button"
+                                                        class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                            width="22" fill="white" viewBox="0 0 48 48">
+                                                            <path
+                                                                d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                            </path>
+                                                        </svg>
+                                                    </button>
                                                 </div>
                                             @endif
                                         </td>
@@ -1120,6 +1158,15 @@
                                                         data-modal-target="modal15" data-modal-show="modal15"
                                                         data-modal-toggle="modal15">
                                                         Ubah
+                                                    </button>
+                                                    <button data-dropdown-toggle="dropdown15" type="button"
+                                                        class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                            width="22" fill="white" viewBox="0 0 48 48">
+                                                            <path
+                                                                d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                            </path>
+                                                        </svg>
                                                     </button>
                                                 </div>
                                             @endif
@@ -1195,6 +1242,15 @@
                                                         data-modal-toggle="modal16">
                                                         Ubah
                                                     </button>
+                                                    <button data-dropdown-toggle="dropdown16" type="button"
+                                                        class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                            width="22" fill="white" viewBox="0 0 48 48">
+                                                            <path
+                                                                d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                            </path>
+                                                        </svg>
+                                                    </button>
                                                 </div>
                                             @endif
                                         </td>
@@ -1266,6 +1322,15 @@
                                                         data-modal-target="modal17" data-modal-show="modal17"
                                                         data-modal-toggle="modal17">
                                                         Ubah
+                                                    </button>
+                                                    <button data-dropdown-toggle="dropdown17" type="button"
+                                                        class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                            width="22" fill="white" viewBox="0 0 48 48">
+                                                            <path
+                                                                d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                            </path>
+                                                        </svg>
                                                     </button>
                                                 </div>
                                             @endif
@@ -1340,6 +1405,15 @@
                                                         data-modal-toggle="modal18">
                                                         Ubah
                                                     </button>
+                                                    <button data-dropdown-toggle="dropdown18" type="button"
+                                                        class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                            width="22" fill="white" viewBox="0 0 48 48">
+                                                            <path
+                                                                d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                            </path>
+                                                        </svg>
+                                                    </button>
                                                 </div>
                                             @endif
                                         </td>
@@ -1413,6 +1487,15 @@
                                                         data-modal-toggle="modal19">
                                                         Ubah
                                                     </button>
+                                                    <button data-dropdown-toggle="dropdown19" type="button"
+                                                        class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                            width="22" fill="white" viewBox="0 0 48 48">
+                                                            <path
+                                                                d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                            </path>
+                                                        </svg>
+                                                    </button>
                                                 </div>
                                             @endif
                                         </td>
@@ -1485,6 +1568,15 @@
                                                         data-modal-target="modal110" data-modal-show="modal110"
                                                         data-modal-toggle="modal110">
                                                         Ubah
+                                                    </button>
+                                                    <button data-dropdown-toggle="dropdown110" type="button"
+                                                        class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                            width="22" fill="white" viewBox="0 0 48 48">
+                                                            <path
+                                                                d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                            </path>
+                                                        </svg>
                                                     </button>
                                                 </div>
                                             @endif
@@ -1560,6 +1652,15 @@
                                                         data-modal-toggle="modal111">
                                                         Ubah
                                                     </button>
+                                                    <button data-dropdown-toggle="dropdown111" type="button"
+                                                        class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                            width="22" fill="white" viewBox="0 0 48 48">
+                                                            <path
+                                                                d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                            </path>
+                                                        </svg>
+                                                    </button>
                                                 </div>
                                             @endif
                                         </td>
@@ -1631,6 +1732,15 @@
                                                         data-modal-target="modal112" data-modal-show="modal112"
                                                         data-modal-toggle="modal112">
                                                         Ubah
+                                                    </button>
+                                                    <button data-dropdown-toggle="dropdown112" type="button"
+                                                        class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                            width="22" fill="white" viewBox="0 0 48 48">
+                                                            <path
+                                                                d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                            </path>
+                                                        </svg>
                                                     </button>
                                                 </div>
                                             @endif
@@ -1705,6 +1815,15 @@
                                                         data-modal-toggle="modal113">
                                                         Ubah
                                                     </button>
+                                                    <button data-dropdown-toggle="dropdown113" type="button"
+                                                        class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                            width="22" fill="white" viewBox="0 0 48 48">
+                                                            <path
+                                                                d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                            </path>
+                                                        </svg>
+                                                    </button>
                                                 </div>
                                             @endif
                                         </td>
@@ -1778,6 +1897,15 @@
                                                         data-modal-toggle="modal114">
                                                         Ubah
                                                     </button>
+                                                    <button data-dropdown-toggle="dropdown114" type="button"
+                                                        class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                            width="22" fill="white" viewBox="0 0 48 48">
+                                                            <path
+                                                                d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                            </path>
+                                                        </svg>
+                                                    </button>
                                                 </div>
                                             @endif
                                         </td>
@@ -1850,6 +1978,15 @@
                                                         data-modal-target="modal115" data-modal-show="modal115"
                                                         data-modal-toggle="modal115">
                                                         Ubah
+                                                    </button>
+                                                    <button data-dropdown-toggle="dropdown115" type="button"
+                                                        class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                            width="22" fill="white" viewBox="0 0 48 48">
+                                                            <path
+                                                                d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                            </path>
+                                                        </svg>
                                                     </button>
                                                 </div>
                                             @endif
@@ -1925,6 +2062,15 @@
                                                         data-modal-toggle="modal116">
                                                         Ubah
                                                     </button>
+                                                    <button data-dropdown-toggle="dropdown116" type="button"
+                                                        class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                            width="22" fill="white" viewBox="0 0 48 48">
+                                                            <path
+                                                                d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                            </path>
+                                                        </svg>
+                                                    </button>
                                                 </div>
                                             @endif
                                         </td>
@@ -1997,6 +2143,15 @@
                                                         data-modal-toggle="modal117">
                                                         Ubah
                                                     </button>
+                                                    <button data-dropdown-toggle="dropdown117" type="button"
+                                                        class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                            width="22" fill="white" viewBox="0 0 48 48">
+                                                            <path
+                                                                d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                            </path>
+                                                        </svg>
+                                                    </button>
                                                 </div>
                                             @endif
                                         </td>
@@ -2068,6 +2223,15 @@
                                                         data-modal-target="modal118" data-modal-show="modal118"
                                                         data-modal-toggle="modal118">
                                                         Ubah
+                                                    </button>
+                                                    <button data-dropdown-toggle="dropdown118" type="button"
+                                                        class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                            width="22" fill="white" viewBox="0 0 48 48">
+                                                            <path
+                                                                d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                            </path>
+                                                        </svg>
                                                     </button>
                                                 </div>
                                             @endif
@@ -2144,6 +2308,15 @@
                                                         data-modal-toggle="modal119">
                                                         Ubah
                                                     </button>
+                                                    <button data-dropdown-toggle="dropdown119" type="button"
+                                                        class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                            width="22" fill="white" viewBox="0 0 48 48">
+                                                            <path
+                                                                d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                            </path>
+                                                        </svg>
+                                                    </button>
                                                 </div>
                                             @endif
                                         </td>
@@ -2215,6 +2388,15 @@
                                                         data-modal-target="modal120" data-modal-show="modal120"
                                                         data-modal-toggle="modal120">
                                                         Ubah
+                                                    </button>
+                                                    <button data-dropdown-toggle="dropdown120" type="button"
+                                                        class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                            width="22" fill="white" viewBox="0 0 48 48">
+                                                            <path
+                                                                d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                            </path>
+                                                        </svg>
                                                     </button>
                                                 </div>
                                             @endif
@@ -2291,6 +2473,15 @@
                                                         data-modal-toggle="modal121">
                                                         Ubah
                                                     </button>
+                                                    <button data-dropdown-toggle="dropdown121" type="button"
+                                                        class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                            width="22" fill="white" viewBox="0 0 48 48">
+                                                            <path
+                                                                d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                            </path>
+                                                        </svg>
+                                                    </button>
                                                 </div>
                                             @endif
                                         </td>
@@ -2362,6 +2553,15 @@
                                                         data-modal-target="modal122" data-modal-show="modal122"
                                                         data-modal-toggle="modal122">
                                                         Ubah
+                                                    </button>
+                                                    <button data-dropdown-toggle="dropdown122" type="button"
+                                                        class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                            width="22" fill="white" viewBox="0 0 48 48">
+                                                            <path
+                                                                d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                            </path>
+                                                        </svg>
                                                     </button>
                                                 </div>
                                             @endif
@@ -2435,6 +2635,15 @@
                                                         data-modal-toggle="modal123">
                                                         Ubah
                                                     </button>
+                                                    <button data-dropdown-toggle="dropdown123" type="button"
+                                                        class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                            width="22" fill="white" viewBox="0 0 48 48">
+                                                            <path
+                                                                d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                            </path>
+                                                        </svg>
+                                                    </button>
                                                 </div>
                                             @endif
                                         </td>
@@ -2506,6 +2715,15 @@
                                                         data-modal-target="modal124" data-modal-show="modal124"
                                                         data-modal-toggle="modal124">
                                                         Ubah
+                                                    </button>
+                                                    <button data-dropdown-toggle="dropdown124" type="button"
+                                                        class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                            width="22" fill="white" viewBox="0 0 48 48">
+                                                            <path
+                                                                d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                            </path>
+                                                        </svg>
                                                     </button>
                                                 </div>
                                             @endif
@@ -2579,6 +2797,15 @@
                                                         data-modal-toggle="modal125">
                                                         Ubah
                                                     </button>
+                                                    <button data-dropdown-toggle="dropdown125" type="button"
+                                                        class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                            width="22" fill="white" viewBox="0 0 48 48">
+                                                            <path
+                                                                d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                            </path>
+                                                        </svg>
+                                                    </button>
                                                 </div>
                                             @endif
                                         </td>
@@ -2650,6 +2877,15 @@
                                                         data-modal-target="modal126" data-modal-show="modal126"
                                                         data-modal-toggle="modal126">
                                                         Ubah
+                                                    </button>
+                                                    <button data-dropdown-toggle="dropdown126" type="button"
+                                                        class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                            width="22" fill="white" viewBox="0 0 48 48">
+                                                            <path
+                                                                d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                            </path>
+                                                        </svg>
                                                     </button>
                                                 </div>
                                             @endif
@@ -2723,6 +2959,15 @@
                                                         data-modal-toggle="modal127">
                                                         Ubah
                                                     </button>
+                                                    <button data-dropdown-toggle="dropdown127" type="button"
+                                                        class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                            width="22" fill="white" viewBox="0 0 48 48">
+                                                            <path
+                                                                d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                            </path>
+                                                        </svg>
+                                                    </button>
                                                 </div>
                                             @endif
                                         </td>
@@ -2794,6 +3039,15 @@
                                                         data-modal-target="modal128" data-modal-show="modal128"
                                                         data-modal-toggle="modal128">
                                                         Ubah
+                                                    </button>
+                                                    <button data-dropdown-toggle="dropdown128" type="button"
+                                                        class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                            width="22" fill="white" viewBox="0 0 48 48">
+                                                            <path
+                                                                d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                            </path>
+                                                        </svg>
                                                     </button>
                                                 </div>
                                             @endif
@@ -2867,6 +3121,15 @@
                                                         data-modal-toggle="modal129">
                                                         Ubah
                                                     </button>
+                                                    <button data-dropdown-toggle="dropdown129" type="button"
+                                                        class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                            width="22" fill="white" viewBox="0 0 48 48">
+                                                            <path
+                                                                d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                            </path>
+                                                        </svg>
+                                                    </button>
                                                 </div>
                                             @endif
                                         </td>
@@ -2938,6 +3201,15 @@
                                                         data-modal-target="modal130" data-modal-show="modal130"
                                                         data-modal-toggle="modal130">
                                                         Ubah
+                                                    </button>
+                                                    <button data-dropdown-toggle="dropdown130" type="button"
+                                                        class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                            width="22" fill="white" viewBox="0 0 48 48">
+                                                            <path
+                                                                d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                            </path>
+                                                        </svg>
                                                     </button>
                                                 </div>
                                             @endif
@@ -3013,6 +3285,15 @@
                                                         data-modal-toggle="modal131">
                                                         Ubah
                                                     </button>
+                                                    <button data-dropdown-toggle="dropdown131" type="button"
+                                                        class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                            width="22" fill="white" viewBox="0 0 48 48">
+                                                            <path
+                                                                d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                            </path>
+                                                        </svg>
+                                                    </button>
                                                 </div>
                                             @endif
                                         </td>
@@ -3084,6 +3365,15 @@
                                                         data-modal-target="modal132" data-modal-show="modal132"
                                                         data-modal-toggle="modal132">
                                                         Ubah
+                                                    </button>
+                                                    <button data-dropdown-toggle="dropdown132" type="button"
+                                                        class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                            width="22" fill="white" viewBox="0 0 48 48">
+                                                            <path
+                                                                d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                            </path>
+                                                        </svg>
                                                     </button>
                                                 </div>
                                             @endif
@@ -3157,6 +3447,15 @@
                                                         data-modal-toggle="modal133">
                                                         Ubah
                                                     </button>
+                                                    <button data-dropdown-toggle="dropdown133" type="button"
+                                                        class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                            width="22" fill="white" viewBox="0 0 48 48">
+                                                            <path
+                                                                d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                            </path>
+                                                        </svg>
+                                                    </button>
                                                 </div>
                                             @endif
                                         </td>
@@ -3228,6 +3527,15 @@
                                                         data-modal-target="modal134" data-modal-show="modal134"
                                                         data-modal-toggle="modal134">
                                                         Ubah
+                                                    </button>
+                                                    <button data-dropdown-toggle="dropdown134" type="button"
+                                                        class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                            width="22" fill="white" viewBox="0 0 48 48">
+                                                            <path
+                                                                d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                            </path>
+                                                        </svg>
                                                     </button>
                                                 </div>
                                             @endif
@@ -3301,6 +3609,15 @@
                                                         data-modal-toggle="modal135">
                                                         Ubah
                                                     </button>
+                                                    <button data-dropdown-toggle="dropdown135" type="button"
+                                                        class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                            width="22" fill="white" viewBox="0 0 48 48">
+                                                            <path
+                                                                d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                            </path>
+                                                        </svg>
+                                                    </button>
                                                 </div>
                                             @endif
                                         </td>
@@ -3372,6 +3689,15 @@
                                                         data-modal-target="modal136" data-modal-show="modal136"
                                                         data-modal-toggle="modal136">
                                                         Ubah
+                                                    </button>
+                                                    <button data-dropdown-toggle="dropdown136" type="button"
+                                                        class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                            width="22" fill="white" viewBox="0 0 48 48">
+                                                            <path
+                                                                d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                            </path>
+                                                        </svg>
                                                     </button>
                                                 </div>
                                             @endif
@@ -3446,6 +3772,15 @@
                                                         data-modal-toggle="modal137">
                                                         Ubah
                                                     </button>
+                                                    <button data-dropdown-toggle="dropdown137" type="button"
+                                                        class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                            width="22" fill="white" viewBox="0 0 48 48">
+                                                            <path
+                                                                d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                            </path>
+                                                        </svg>
+                                                    </button>
                                                 </div>
                                             @endif
                                         </td>
@@ -3517,6 +3852,15 @@
                                                         data-modal-target="modal138" data-modal-show="modal138"
                                                         data-modal-toggle="modal138">
                                                         Ubah
+                                                    </button>
+                                                    <button data-dropdown-toggle="dropdown138" type="button"
+                                                        class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                            width="22" fill="white" viewBox="0 0 48 48">
+                                                            <path
+                                                                d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                            </path>
+                                                        </svg>
                                                     </button>
                                                 </div>
                                             @endif
@@ -3590,6 +3934,15 @@
                                                         data-modal-toggle="modal139">
                                                         Ubah
                                                     </button>
+                                                    <button data-dropdown-toggle="dropdown139" type="button"
+                                                        class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                            width="22" fill="white" viewBox="0 0 48 48">
+                                                            <path
+                                                                d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                            </path>
+                                                        </svg>
+                                                    </button>
                                                 </div>
                                             @endif
                                         </td>
@@ -3661,6 +4014,15 @@
                                                         data-modal-target="modal140" data-modal-show="modal140"
                                                         data-modal-toggle="modal140">
                                                         Ubah
+                                                    </button>
+                                                    <button data-dropdown-toggle="dropdown140" type="button"
+                                                        class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                            width="22" fill="white" viewBox="0 0 48 48">
+                                                            <path
+                                                                d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                            </path>
+                                                        </svg>
                                                     </button>
                                                 </div>
                                             @endif
@@ -3735,6 +4097,15 @@
                                                         data-modal-toggle="modal141">
                                                         Ubah
                                                     </button>
+                                                    <button data-dropdown-toggle="dropdown141" type="button"
+                                                        class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                            width="22" fill="white" viewBox="0 0 48 48">
+                                                            <path
+                                                                d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                            </path>
+                                                        </svg>
+                                                    </button>
                                                 </div>
                                             @endif
                                         </td>
@@ -3806,6 +4177,15 @@
                                                         data-modal-target="modal142" data-modal-show="modal142"
                                                         data-modal-toggle="modal142">
                                                         Ubah
+                                                    </button>
+                                                    <button data-dropdown-toggle="dropdown142" type="button"
+                                                        class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                            width="22" fill="white" viewBox="0 0 48 48">
+                                                            <path
+                                                                d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                            </path>
+                                                        </svg>
                                                     </button>
                                                 </div>
                                             @endif
@@ -3879,6 +4259,15 @@
                                                         data-modal-toggle="modal143">
                                                         Ubah
                                                     </button>
+                                                    <button data-dropdown-toggle="dropdown143" type="button"
+                                                        class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                            width="22" fill="white" viewBox="0 0 48 48">
+                                                            <path
+                                                                d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                            </path>
+                                                        </svg>
+                                                    </button>
                                                 </div>
                                             @endif
                                         </td>
@@ -3950,6 +4339,15 @@
                                                         data-modal-target="modal144" data-modal-show="modal144"
                                                         data-modal-toggle="modal144">
                                                         Ubah
+                                                    </button>
+                                                    <button data-dropdown-toggle="dropdown144" type="button"
+                                                        class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                            width="22" fill="white" viewBox="0 0 48 48">
+                                                            <path
+                                                                d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                            </path>
+                                                        </svg>
                                                     </button>
                                                 </div>
                                             @endif
@@ -4023,6 +4421,15 @@
                                                         data-modal-toggle="modal145">
                                                         Ubah
                                                     </button>
+                                                    <button data-dropdown-toggle="dropdown145" type="button"
+                                                        class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                            width="22" fill="white" viewBox="0 0 48 48">
+                                                            <path
+                                                                d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                            </path>
+                                                        </svg>
+                                                    </button>
                                                 </div>
                                             @endif
                                         </td>
@@ -4039,30 +4446,32 @@
                         {{-- PO Pekerjaan/Jasa --}}
                         {{-- awal standar formulir --}}
                         <div class="flex justify-between">
-                            <p class="font-medium text-lg bg-gray-800 px-4 py-1 w-fit text-white mb-2 rounded"> PO Pekerjaan/Jasa
-                            @foreach ($standar_project as $spt)
-                                @if ($spt->file_pr_pekerjaan_jasa_form != '')
-                                    <div class="flex justify-end mr-1 mt-4">
-                                        <a href="{{ asset('storage/supervisor/standarproject/' . $spt->file_pr_pekerjaan_jasa_form) }}"
-                                            download="">
-                                            <div class="w-fit items-center space-x-1 flex fill-blue-600 hover:fill-blue-800">
-                                                <svg width="15" height="" viewBox="0 0 52 52"
-                                                    xmlns="http://www.w3.org/2000/svg">
-                                                    <path
-                                                        d="m36.4 14.8h8.48a1.09 1.09 0 0 0 1.12-1.12 1 1 0 0 0 -.32-.8l-10.56-10.56a1 1 0 0 0 -.8-.32 1.09 1.09 0 0 0 -1.12 1.12v8.48a3.21 3.21 0 0 0 3.2 3.2z" />
+                            <p class="font-medium text-lg bg-gray-800 px-4 py-1 w-fit text-white mb-2 rounded"> PO
+                                Pekerjaan/Jasa
+                                @foreach ($standar_project as $spt)
+                                    @if ($spt->file_pr_pekerjaan_jasa_form != '')
+                                        <div class="flex justify-end mr-1 mt-4">
+                                            <a href="{{ asset('storage/supervisor/standarproject/' . $spt->file_pr_pekerjaan_jasa_form) }}"
+                                                download="">
+                                                <div
+                                                    class="w-fit items-center space-x-1 flex fill-blue-600 hover:fill-blue-800">
+                                                    <svg width="15" height="" viewBox="0 0 52 52"
+                                                        xmlns="http://www.w3.org/2000/svg">
+                                                        <path
+                                                            d="m36.4 14.8h8.48a1.09 1.09 0 0 0 1.12-1.12 1 1 0 0 0 -.32-.8l-10.56-10.56a1 1 0 0 0 -.8-.32 1.09 1.09 0 0 0 -1.12 1.12v8.48a3.21 3.21 0 0 0 3.2 3.2z" />
 
-                                                    <path
-                                                        d="m44.4 19.6h-11.2a4.81 4.81 0 0 1 -4.8-4.8v-11.2a1.6 1.6 0 0 0 -1.6-1.6h-16a4.81 4.81 0 0 0 -4.8 4.8v38.4a4.81 4.81 0 0 0 4.8 4.8h30.4a4.81 4.81 0 0 0 4.8-4.8v-24a1.6 1.6 0 0 0 -1.6-1.6zm-32-1.6a1.62 1.62 0 0 1 1.6-1.55h6.55a1.56 1.56 0 0 1 1.57 1.55v1.59a1.63 1.63 0 0 1 -1.59 1.58h-6.53a1.55 1.55 0 0 1 -1.58-1.58zm24 20.77a1.6 1.6 0 0 1 -1.6 1.6h-20.8a1.6 1.6 0 0 1 -1.6-1.6v-1.57a1.6 1.6 0 0 1 1.6-1.6h20.8a1.6 1.6 0 0 1 1.6 1.6zm3.2-9.6a1.6 1.6 0 0 1 -1.6 1.63h-24a1.6 1.6 0 0 1 -1.6-1.6v-1.6a1.6 1.6 0 0 1 1.6-1.6h24a1.6 1.6 0 0 1 1.6 1.6z" />
-                                                </svg>
-                                                <p
-                                                    class="text-right hover:underline font-semibold text-md text-blue-600 hover:text-blue-800 ">
-                                                    Klik untuk mengunduh formulir kerja</p>
-                                            </div>
-                                        </a>
-                                    </div>
-                                @endif
-                            @endforeach
-                            {{-- tombol form --}}
+                                                        <path
+                                                            d="m44.4 19.6h-11.2a4.81 4.81 0 0 1 -4.8-4.8v-11.2a1.6 1.6 0 0 0 -1.6-1.6h-16a4.81 4.81 0 0 0 -4.8 4.8v38.4a4.81 4.81 0 0 0 4.8 4.8h30.4a4.81 4.81 0 0 0 4.8-4.8v-24a1.6 1.6 0 0 0 -1.6-1.6zm-32-1.6a1.62 1.62 0 0 1 1.6-1.55h6.55a1.56 1.56 0 0 1 1.57 1.55v1.59a1.63 1.63 0 0 1 -1.59 1.58h-6.53a1.55 1.55 0 0 1 -1.58-1.58zm24 20.77a1.6 1.6 0 0 1 -1.6 1.6h-20.8a1.6 1.6 0 0 1 -1.6-1.6v-1.57a1.6 1.6 0 0 1 1.6-1.6h20.8a1.6 1.6 0 0 1 1.6 1.6zm3.2-9.6a1.6 1.6 0 0 1 -1.6 1.63h-24a1.6 1.6 0 0 1 -1.6-1.6v-1.6a1.6 1.6 0 0 1 1.6-1.6h24a1.6 1.6 0 0 1 1.6 1.6z" />
+                                                    </svg>
+                                                    <p
+                                                        class="text-right hover:underline font-semibold text-md text-blue-600 hover:text-blue-800 ">
+                                                        Klik untuk mengunduh formulir kerja</p>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    @endif
+                                @endforeach
+                                {{-- tombol form --}}
                         </div>
                         {{-- akhir standar formulir --}}
 
@@ -4070,11 +4479,11 @@
                             <table class="w-full">
                                 <thead class="bg-gray-300 text-gray-700">
                                     <th class="py-2 w-[5%] font-medium">No.</th>
-                                        <th class="w-[45%]  font-medium">Nama File</th>
-                                        <th class="w-[11%]  font-medium">Diunggah oleh</th>
-                                        <th class="w-[10%]  font-medium">Terakhir diubah</th>
-                                        <th class="w-[14%]  font-medium">Jumlah PO</th>
-                                        <th class="w-[14%]  font-medium">Aksi</th>
+                                    <th class="w-[45%]  font-medium">Nama File</th>
+                                    <th class="w-[11%]  font-medium">Diunggah oleh</th>
+                                    <th class="w-[10%]  font-medium">Terakhir diubah</th>
+                                    <th class="w-[14%]  font-medium">Jumlah PO</th>
+                                    <th class="w-[14%]  font-medium">Aksi</th>
                                 </thead>
                                 <tbody class="text-left border">
                                     {{-- 1 --}}
@@ -4138,6 +4547,15 @@
                                                         data-modal-target="modal21" data-modal-show="modal21"
                                                         data-modal-toggle="modal21">
                                                         Ubah
+                                                    </button>
+                                                    <button data-dropdown-toggle="dropdown21" type="button"
+                                                        class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                            width="22" fill="white" viewBox="0 0 48 48">
+                                                            <path
+                                                                d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                            </path>
+                                                        </svg>
                                                     </button>
                                                 </div>
                                             @endif
@@ -4209,6 +4627,15 @@
                                                         data-modal-target="modal22" data-modal-show="modal22"
                                                         data-modal-toggle="modal22">
                                                         Ubah
+                                                    </button>
+                                                    <button data-dropdown-toggle="dropdown22" type="button"
+                                                        class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                            width="22" fill="white" viewBox="0 0 48 48">
+                                                            <path
+                                                                d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                            </path>
+                                                        </svg>
                                                     </button>
                                                 </div>
                                             @endif
@@ -4282,6 +4709,15 @@
                                                         data-modal-toggle="modal23">
                                                         Ubah
                                                     </button>
+                                                    <button data-dropdown-toggle="dropdown23" type="button"
+                                                        class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                            width="22" fill="white" viewBox="0 0 48 48">
+                                                            <path
+                                                                d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                            </path>
+                                                        </svg>
+                                                    </button>
                                                 </div>
                                             @endif
                                         </td>
@@ -4354,6 +4790,15 @@
                                                         data-modal-toggle="modal24">
                                                         Ubah
                                                     </button>
+                                                    <button data-dropdown-toggle="dropdown24" type="button"
+                                                        class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                            width="22" fill="white" viewBox="0 0 48 48">
+                                                            <path
+                                                                d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                            </path>
+                                                        </svg>
+                                                    </button>
                                                 </div>
                                             @endif
                                         </td>
@@ -4425,6 +4870,15 @@
                                                         data-modal-toggle="modal25">
                                                         Ubah
                                                     </button>
+                                                    <button data-dropdown-toggle="dropdown25" type="button"
+                                                        class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                            width="22" fill="white" viewBox="0 0 48 48">
+                                                            <path
+                                                                d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                            </path>
+                                                        </svg>
+                                                    </button>
                                                 </div>
                                             @endif
                                         </td>
@@ -4494,6 +4948,15 @@
                                                         data-modal-target="modal26" data-modal-show="modal26"
                                                         data-modal-toggle="modal26">
                                                         Ubah
+                                                    </button>
+                                                    <button data-dropdown-toggle="dropdown26" type="button"
+                                                        class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                            width="22" fill="white" viewBox="0 0 48 48">
+                                                            <path
+                                                                d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                            </path>
+                                                        </svg>
                                                     </button>
                                                 </div>
                                             @endif
@@ -4566,6 +5029,15 @@
                                                         data-modal-toggle="modal27">
                                                         Ubah
                                                     </button>
+                                                    <button data-dropdown-toggle="dropdown27" type="button"
+                                                        class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                            width="22" fill="white" viewBox="0 0 48 48">
+                                                            <path
+                                                                d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                            </path>
+                                                        </svg>
+                                                    </button>
                                                 </div>
                                             @endif
                                         </td>
@@ -4636,6 +5108,15 @@
                                                         data-modal-target="modal28" data-modal-show="modal28"
                                                         data-modal-toggle="modal28">
                                                         Ubah
+                                                    </button>
+                                                    <button data-dropdown-toggle="dropdown28" type="button"
+                                                        class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                            width="22" fill="white" viewBox="0 0 48 48">
+                                                            <path
+                                                                d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                            </path>
+                                                        </svg>
                                                     </button>
                                                 </div>
                                             @endif
@@ -4708,6 +5189,15 @@
                                                         data-modal-toggle="modal29">
                                                         Ubah
                                                     </button>
+                                                    <button data-dropdown-toggle="dropdown29" type="button"
+                                                        class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                            width="22" fill="white" viewBox="0 0 48 48">
+                                                            <path
+                                                                d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                            </path>
+                                                        </svg>
+                                                    </button>
                                                 </div>
                                             @endif
                                         </td>
@@ -4778,6 +5268,15 @@
                                                         data-modal-target="modal210" data-modal-show="modal210"
                                                         data-modal-toggle="modal210">
                                                         Ubah
+                                                    </button>
+                                                    <button data-dropdown-toggle="dropdown210" type="button"
+                                                        class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                            width="22" fill="white" viewBox="0 0 48 48">
+                                                            <path
+                                                                d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                            </path>
+                                                        </svg>
                                                     </button>
                                                 </div>
                                             @endif
@@ -4850,6 +5349,15 @@
                                                         data-modal-toggle="modal211">
                                                         Ubah
                                                     </button>
+                                                    <button data-dropdown-toggle="dropdown211" type="button"
+                                                        class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                            width="22" fill="white" viewBox="0 0 48 48">
+                                                            <path
+                                                                d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                            </path>
+                                                        </svg>
+                                                    </button>
                                                 </div>
                                             @endif
                                         </td>
@@ -4920,6 +5428,15 @@
                                                         data-modal-target="modal212" data-modal-show="modal212"
                                                         data-modal-toggle="modal212">
                                                         Ubah
+                                                    </button>
+                                                    <button data-dropdown-toggle="dropdown212" type="button"
+                                                        class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                            width="22" fill="white" viewBox="0 0 48 48">
+                                                            <path
+                                                                d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                            </path>
+                                                        </svg>
                                                     </button>
                                                 </div>
                                             @endif
@@ -4992,6 +5509,15 @@
                                                         data-modal-toggle="modal213">
                                                         Ubah
                                                     </button>
+                                                    <button data-dropdown-toggle="dropdown213" type="button"
+                                                        class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                            width="22" fill="white" viewBox="0 0 48 48">
+                                                            <path
+                                                                d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                            </path>
+                                                        </svg>
+                                                    </button>
                                                 </div>
                                             @endif
                                         </td>
@@ -5062,6 +5588,15 @@
                                                         data-modal-target="modal214" data-modal-show="modal214"
                                                         data-modal-toggle="modal214">
                                                         Ubah
+                                                    </button>
+                                                    <button data-dropdown-toggle="dropdown214" type="button"
+                                                        class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                            width="22" fill="white" viewBox="0 0 48 48">
+                                                            <path
+                                                                d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                            </path>
+                                                        </svg>
                                                     </button>
                                                 </div>
                                             @endif
@@ -5134,6 +5669,15 @@
                                                         data-modal-toggle="modal215">
                                                         Ubah
                                                     </button>
+                                                    <button data-dropdown-toggle="dropdown215" type="button"
+                                                        class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                            width="22" fill="white" viewBox="0 0 48 48">
+                                                            <path
+                                                                d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                            </path>
+                                                        </svg>
+                                                    </button>
                                                 </div>
                                             @endif
                                         </td>
@@ -5204,6 +5748,15 @@
                                                         data-modal-target="modal216" data-modal-show="modal216"
                                                         data-modal-toggle="modal216">
                                                         Ubah
+                                                    </button>
+                                                    <button data-dropdown-toggle="dropdown216" type="button"
+                                                        class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                            width="22" fill="white" viewBox="0 0 48 48">
+                                                            <path
+                                                                d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                            </path>
+                                                        </svg>
                                                     </button>
                                                 </div>
                                             @endif
@@ -5276,6 +5829,15 @@
                                                         data-modal-toggle="modal217">
                                                         Ubah
                                                     </button>
+                                                    <button data-dropdown-toggle="dropdown217" type="button"
+                                                        class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                            width="22" fill="white" viewBox="0 0 48 48">
+                                                            <path
+                                                                d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                            </path>
+                                                        </svg>
+                                                    </button>
                                                 </div>
                                             @endif
                                         </td>
@@ -5346,6 +5908,15 @@
                                                         data-modal-target="modal218" data-modal-show="modal218"
                                                         data-modal-toggle="modal218">
                                                         Ubah
+                                                    </button>
+                                                    <button data-dropdown-toggle="dropdown218" type="button"
+                                                        class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                            width="22" fill="white" viewBox="0 0 48 48">
+                                                            <path
+                                                                d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                            </path>
+                                                        </svg>
                                                     </button>
                                                 </div>
                                             @endif
@@ -5418,6 +5989,15 @@
                                                         data-modal-toggle="modal219">
                                                         Ubah
                                                     </button>
+                                                    <button data-dropdown-toggle="dropdown219" type="button"
+                                                        class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                            width="22" fill="white" viewBox="0 0 48 48">
+                                                            <path
+                                                                d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                            </path>
+                                                        </svg>
+                                                    </button>
                                                 </div>
                                             @endif
                                         </td>
@@ -5488,6 +6068,15 @@
                                                         data-modal-target="modal220" data-modal-show="modal220"
                                                         data-modal-toggle="modal220">
                                                         Ubah
+                                                    </button>
+                                                    <button data-dropdown-toggle="dropdown220" type="button"
+                                                        class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                            width="22" fill="white" viewBox="0 0 48 48">
+                                                            <path
+                                                                d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                            </path>
+                                                        </svg>
                                                     </button>
                                                 </div>
                                             @endif
@@ -5560,6 +6149,15 @@
                                                         data-modal-toggle="modal221">
                                                         Ubah
                                                     </button>
+                                                    <button data-dropdown-toggle="dropdown221" type="button"
+                                                        class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                            width="22" fill="white" viewBox="0 0 48 48">
+                                                            <path
+                                                                d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                            </path>
+                                                        </svg>
+                                                    </button>
                                                 </div>
                                             @endif
                                         </td>
@@ -5630,6 +6228,15 @@
                                                         data-modal-target="modal222" data-modal-show="modal222"
                                                         data-modal-toggle="modal222">
                                                         Ubah
+                                                    </button>
+                                                    <button data-dropdown-toggle="dropdown222" type="button"
+                                                        class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                            width="22" fill="white" viewBox="0 0 48 48">
+                                                            <path
+                                                                d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                            </path>
+                                                        </svg>
                                                     </button>
                                                 </div>
                                             @endif
@@ -5702,6 +6309,15 @@
                                                         data-modal-toggle="modal223">
                                                         Ubah
                                                     </button>
+                                                    <button data-dropdown-toggle="dropdown223" type="button"
+                                                        class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                            width="22" fill="white" viewBox="0 0 48 48">
+                                                            <path
+                                                                d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                            </path>
+                                                        </svg>
+                                                    </button>
                                                 </div>
                                             @endif
                                         </td>
@@ -5772,6 +6388,15 @@
                                                         data-modal-target="modal224" data-modal-show="modal224"
                                                         data-modal-toggle="modal224">
                                                         Ubah
+                                                    </button>
+                                                    <button data-dropdown-toggle="dropdown224" type="button"
+                                                        class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                            width="22" fill="white" viewBox="0 0 48 48">
+                                                            <path
+                                                                d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                            </path>
+                                                        </svg>
                                                     </button>
                                                 </div>
                                             @endif
@@ -5844,6 +6469,15 @@
                                                         data-modal-toggle="modal225">
                                                         Ubah
                                                     </button>
+                                                    <button data-dropdown-toggle="dropdown225" type="button"
+                                                        class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                            width="22" fill="white" viewBox="0 0 48 48">
+                                                            <path
+                                                                d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                            </path>
+                                                        </svg>
+                                                    </button>
                                                 </div>
                                             @endif
                                         </td>
@@ -5914,6 +6548,15 @@
                                                         data-modal-target="modal226" data-modal-show="modal226"
                                                         data-modal-toggle="modal226">
                                                         Ubah
+                                                    </button>
+                                                    <button data-dropdown-toggle="dropdown226" type="button"
+                                                        class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                            width="22" fill="white" viewBox="0 0 48 48">
+                                                            <path
+                                                                d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                            </path>
+                                                        </svg>
                                                     </button>
                                                 </div>
                                             @endif
@@ -5986,6 +6629,15 @@
                                                         data-modal-toggle="modal227">
                                                         Ubah
                                                     </button>
+                                                    <button data-dropdown-toggle="dropdown227" type="button"
+                                                        class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                            width="22" fill="white" viewBox="0 0 48 48">
+                                                            <path
+                                                                d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                            </path>
+                                                        </svg>
+                                                    </button>
                                                 </div>
                                             @endif
                                         </td>
@@ -6056,6 +6708,15 @@
                                                         data-modal-target="modal228" data-modal-show="modal228"
                                                         data-modal-toggle="modal228">
                                                         Ubah
+                                                    </button>
+                                                    <button data-dropdown-toggle="dropdown228" type="button"
+                                                        class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                            width="22" fill="white" viewBox="0 0 48 48">
+                                                            <path
+                                                                d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                            </path>
+                                                        </svg>
                                                     </button>
                                                 </div>
                                             @endif
@@ -6128,6 +6789,15 @@
                                                         data-modal-toggle="modal229">
                                                         Ubah
                                                     </button>
+                                                    <button data-dropdown-toggle="dropdown229" type="button"
+                                                        class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                            width="22" fill="white" viewBox="0 0 48 48">
+                                                            <path
+                                                                d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                            </path>
+                                                        </svg>
+                                                    </button>
                                                 </div>
                                             @endif
                                         </td>
@@ -6199,6 +6869,15 @@
                                                         data-modal-toggle="modal230">
                                                         Ubah
                                                     </button>
+                                                    <button data-dropdown-toggle="dropdown230" type="button"
+                                                        class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                            width="22" fill="white" viewBox="0 0 48 48">
+                                                            <path
+                                                                d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                            </path>
+                                                        </svg>
+                                                    </button>
                                                 </div>
                                             @endif
                                         </td>
@@ -6215,30 +6894,32 @@
                         {{-- PO Manufaktur --}}
                         {{-- awal standar formulir --}}
                         <div class="flex justify-between">
-                            <p class="font-medium text-lg bg-gray-800 px-4 py-1 w-fit text-white mb-2 rounded"> PO Manufaktur
-                            @foreach ($standar_project as $spt)
-                                @if ($spt->file_pr_manufaktur_form != '')
-                                    <div class="flex justify-end mr-1 mt-4">
-                                        <a href="{{ asset('storage/supervisor/standarproject/' . $spt->file_pr_manufaktur_form) }}"
-                                            download="">
-                                            <div class="w-fit items-center space-x-1 flex fill-blue-600 hover:fill-blue-800">
-                                                <svg width="15" height="" viewBox="0 0 52 52"
-                                                    xmlns="http://www.w3.org/2000/svg">
-                                                    <path
-                                                        d="m36.4 14.8h8.48a1.09 1.09 0 0 0 1.12-1.12 1 1 0 0 0 -.32-.8l-10.56-10.56a1 1 0 0 0 -.8-.32 1.09 1.09 0 0 0 -1.12 1.12v8.48a3.21 3.21 0 0 0 3.2 3.2z" />
+                            <p class="font-medium text-lg bg-gray-800 px-4 py-1 w-fit text-white mb-2 rounded"> PO
+                                Manufaktur
+                                @foreach ($standar_project as $spt)
+                                    @if ($spt->file_pr_manufaktur_form != '')
+                                        <div class="flex justify-end mr-1 mt-4">
+                                            <a href="{{ asset('storage/supervisor/standarproject/' . $spt->file_pr_manufaktur_form) }}"
+                                                download="">
+                                                <div
+                                                    class="w-fit items-center space-x-1 flex fill-blue-600 hover:fill-blue-800">
+                                                    <svg width="15" height="" viewBox="0 0 52 52"
+                                                        xmlns="http://www.w3.org/2000/svg">
+                                                        <path
+                                                            d="m36.4 14.8h8.48a1.09 1.09 0 0 0 1.12-1.12 1 1 0 0 0 -.32-.8l-10.56-10.56a1 1 0 0 0 -.8-.32 1.09 1.09 0 0 0 -1.12 1.12v8.48a3.21 3.21 0 0 0 3.2 3.2z" />
 
-                                                    <path
-                                                        d="m44.4 19.6h-11.2a4.81 4.81 0 0 1 -4.8-4.8v-11.2a1.6 1.6 0 0 0 -1.6-1.6h-16a4.81 4.81 0 0 0 -4.8 4.8v38.4a4.81 4.81 0 0 0 4.8 4.8h30.4a4.81 4.81 0 0 0 4.8-4.8v-24a1.6 1.6 0 0 0 -1.6-1.6zm-32-1.6a1.62 1.62 0 0 1 1.6-1.55h6.55a1.56 1.56 0 0 1 1.57 1.55v1.59a1.63 1.63 0 0 1 -1.59 1.58h-6.53a1.55 1.55 0 0 1 -1.58-1.58zm24 20.77a1.6 1.6 0 0 1 -1.6 1.6h-20.8a1.6 1.6 0 0 1 -1.6-1.6v-1.57a1.6 1.6 0 0 1 1.6-1.6h20.8a1.6 1.6 0 0 1 1.6 1.6zm3.2-9.6a1.6 1.6 0 0 1 -1.6 1.63h-24a1.6 1.6 0 0 1 -1.6-1.6v-1.6a1.6 1.6 0 0 1 1.6-1.6h24a1.6 1.6 0 0 1 1.6 1.6z" />
-                                                </svg>
-                                                <p
-                                                    class="text-right hover:underline font-semibold text-md text-blue-600 hover:text-blue-800 ">
-                                                    Klik untuk mengunduh formulir kerja</p>
-                                            </div>
-                                        </a>
-                                    </div>
-                                @endif
-                            @endforeach
-                            {{-- tombol form --}}
+                                                        <path
+                                                            d="m44.4 19.6h-11.2a4.81 4.81 0 0 1 -4.8-4.8v-11.2a1.6 1.6 0 0 0 -1.6-1.6h-16a4.81 4.81 0 0 0 -4.8 4.8v38.4a4.81 4.81 0 0 0 4.8 4.8h30.4a4.81 4.81 0 0 0 4.8-4.8v-24a1.6 1.6 0 0 0 -1.6-1.6zm-32-1.6a1.62 1.62 0 0 1 1.6-1.55h6.55a1.56 1.56 0 0 1 1.57 1.55v1.59a1.63 1.63 0 0 1 -1.59 1.58h-6.53a1.55 1.55 0 0 1 -1.58-1.58zm24 20.77a1.6 1.6 0 0 1 -1.6 1.6h-20.8a1.6 1.6 0 0 1 -1.6-1.6v-1.57a1.6 1.6 0 0 1 1.6-1.6h20.8a1.6 1.6 0 0 1 1.6 1.6zm3.2-9.6a1.6 1.6 0 0 1 -1.6 1.63h-24a1.6 1.6 0 0 1 -1.6-1.6v-1.6a1.6 1.6 0 0 1 1.6-1.6h24a1.6 1.6 0 0 1 1.6 1.6z" />
+                                                    </svg>
+                                                    <p
+                                                        class="text-right hover:underline font-semibold text-md text-blue-600 hover:text-blue-800 ">
+                                                        Klik untuk mengunduh formulir kerja</p>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    @endif
+                                @endforeach
+                                {{-- tombol form --}}
                         </div>
                         {{-- akhir standar formulir --}}
 
@@ -6246,11 +6927,11 @@
                             <table class="w-full">
                                 <thead class="bg-gray-300 text-gray-700">
                                     <th class="py-2 w-[5%] font-medium">No.</th>
-                                        <th class="w-[45%]  font-medium">Nama File</th>
-                                        <th class="w-[11%]  font-medium">Diunggah oleh</th>
-                                        <th class="w-[10%]  font-medium">Terakhir diubah</th>
-                                        <th class="w-[14%]  font-medium">Jumlah PO</th>
-                                        <th class="w-[14%]  font-medium">Aksi</th>
+                                    <th class="w-[45%]  font-medium">Nama File</th>
+                                    <th class="w-[11%]  font-medium">Diunggah oleh</th>
+                                    <th class="w-[10%]  font-medium">Terakhir diubah</th>
+                                    <th class="w-[14%]  font-medium">Jumlah PO</th>
+                                    <th class="w-[14%]  font-medium">Aksi</th>
                                 </thead>
                                 <tbody class="text-left border">
                                     {{-- 1 --}}
@@ -6314,6 +6995,15 @@
                                                         data-modal-target="modal31" data-modal-show="modal31"
                                                         data-modal-toggle="modal31">
                                                         Ubah
+                                                    </button>
+                                                    <button data-dropdown-toggle="dropdown31" type="button"
+                                                        class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                            width="22" fill="white" viewBox="0 0 48 48">
+                                                            <path
+                                                                d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                            </path>
+                                                        </svg>
                                                     </button>
                                                 </div>
                                             @endif
@@ -6386,12 +7076,21 @@
                                                         data-modal-toggle="modal32">
                                                         Ubah
                                                     </button>
+                                                    <button data-dropdown-toggle="dropdown32" type="button"
+                                                        class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                            width="22" fill="white" viewBox="0 0 48 48">
+                                                            <path
+                                                                d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                            </path>
+                                                        </svg>
+                                                    </button>
                                                 </div>
                                             @endif
-                                        <input type="text" hidden name="as_up_by_mnftr_po_2"
-                                            value="{{ Auth::user()->first_name }}">
-                                        <input type="date" hidden name="as_date_po_mnftr_2"
-                                            value="{{ date('Y-m-d') }}">
+                                            <input type="text" hidden name="as_up_by_mnftr_po_2"
+                                                value="{{ Auth::user()->first_name }}">
+                                            <input type="date" hidden name="as_date_po_mnftr_2"
+                                                value="{{ date('Y-m-d') }}">
 
                                     </tr>
 
@@ -6456,6 +7155,15 @@
                                                         data-modal-target="modal33" data-modal-show="modal33"
                                                         data-modal-toggle="modal33">
                                                         Ubah
+                                                    </button>
+                                                    <button data-dropdown-toggle="dropdown33" type="button"
+                                                        class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                            width="22" fill="white" viewBox="0 0 48 48">
+                                                            <path
+                                                                d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                            </path>
+                                                        </svg>
                                                     </button>
                                                 </div>
                                             @endif
@@ -6529,6 +7237,15 @@
                                                         data-modal-toggle="modal34">
                                                         Ubah
                                                     </button>
+                                                    <button data-dropdown-toggle="dropdown34" type="button"
+                                                        class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                            width="22" fill="white" viewBox="0 0 48 48">
+                                                            <path
+                                                                d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                            </path>
+                                                        </svg>
+                                                    </button>
                                                 </div>
                                             @endif
                                         </td>
@@ -6599,6 +7316,15 @@
                                                         data-modal-target="modal35" data-modal-show="modal35"
                                                         data-modal-toggle="modal35">
                                                         Ubah
+                                                    </button>
+                                                    <button data-dropdown-toggle="dropdown35" type="button"
+                                                        class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                            width="22" fill="white" viewBox="0 0 48 48">
+                                                            <path
+                                                                d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                            </path>
+                                                        </svg>
                                                     </button>
                                                 </div>
                                             @endif
@@ -6671,6 +7397,15 @@
                                                         data-modal-toggle="modal36">
                                                         Ubah
                                                     </button>
+                                                    <button data-dropdown-toggle="dropdown36" type="button"
+                                                        class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                            width="22" fill="white" viewBox="0 0 48 48">
+                                                            <path
+                                                                d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                            </path>
+                                                        </svg>
+                                                    </button>
                                                 </div>
                                             @endif
                                         </td>
@@ -6741,6 +7476,15 @@
                                                         data-modal-target="modal37" data-modal-show="modal37"
                                                         data-modal-toggle="modal37">
                                                         Ubah
+                                                    </button>
+                                                    <button data-dropdown-toggle="dropdown37" type="button"
+                                                        class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                            width="22" fill="white" viewBox="0 0 48 48">
+                                                            <path
+                                                                d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                            </path>
+                                                        </svg>
                                                     </button>
                                                 </div>
                                             @endif
@@ -6813,6 +7557,15 @@
                                                         data-modal-toggle="modal38">
                                                         Ubah
                                                     </button>
+                                                    <button data-dropdown-toggle="dropdown38" type="button"
+                                                        class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                            width="22" fill="white" viewBox="0 0 48 48">
+                                                            <path
+                                                                d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                            </path>
+                                                        </svg>
+                                                    </button>
                                                 </div>
                                             @endif
                                         </td>
@@ -6883,6 +7636,15 @@
                                                         data-modal-target="modal39" data-modal-show="modal39"
                                                         data-modal-toggle="modal39">
                                                         Ubah
+                                                    </button>
+                                                    <button data-dropdown-toggle="dropdown39" type="button"
+                                                        class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                            width="22" fill="white" viewBox="0 0 48 48">
+                                                            <path
+                                                                d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                            </path>
+                                                        </svg>
                                                     </button>
                                                 </div>
                                             @endif
@@ -6955,6 +7717,15 @@
                                                         data-modal-toggle="modal310">
                                                         Ubah
                                                     </button>
+                                                    <button data-dropdown-toggle="dropdown310" type="button"
+                                                        class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                            width="22" fill="white" viewBox="0 0 48 48">
+                                                            <path
+                                                                d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                            </path>
+                                                        </svg>
+                                                    </button>
                                                 </div>
                                             @endif
                                         </td>
@@ -6975,7 +7746,7 @@
                     {{-- awal tab impor --}}
                     <div class="mt-3 bg-white rounded-lg" id="impor" role="tabpanel"
                         aria-labelledby="impor-tab">
-                        {{-- PO CAPO --}}
+                        {{-- PR PER --}}
                         {{-- awal standar formulir --}}
                         <div class="flex space-x-2 items-center justify-between">
                             <p class="font-medium text-lg bg-gray-800 px-4 py-1 w-fit text-white mb-2 rounded">
@@ -7038,28 +7809,37 @@
                                         </td>
                                         <td class="space-y-2 py-3 px-2">
                                             @if (
-                                                    ($koneksipo->status_po_03 == '-' || $koneksipo->status_po_03 == 'Revisi Purchasing - PO') &&
-                                                        $koneksipo->po_capo_1 == '')
-                                                    <button type="button"
+                                                ($koneksipo->status_po_03 == '-' || $koneksipo->status_po_03 == 'Revisi Purchasing - PO') &&
+                                                    $koneksipo->po_capo_1 == '')
+                                                <button type="button"
                                                     class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
                                                     data-modal-target="modala41" data-modal-show="modala41"
                                                     data-modal-toggle="modala41">
                                                     + Tambah dokumen
                                                 </button>
-                                                @elseif (
-                                                    ($koneksipo->status_po_03 == '-' || $koneksipo->status_po_03 == 'Revisi Purchasing - PO') &&
-                                                        $koneksipo->po_capo_1 != '' &&
-                                                        $koneksipo->status_po_03 != 'Complete' &&
-                                                        $koneksipo->status_po_03 != 'Waiting Approval')
-                                                    <div class="justify-center flex space-x-2">
-                                                        <button type="button"
-                                                            class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
-                                                            data-modal-target="modal41" data-modal-show="modal41"
-                                                            data-modal-toggle="modal41">
-                                                            Ubah
-                                                        </button>
-                                                    </div>
-                                                @endif
+                                            @elseif (
+                                                ($koneksipo->status_po_03 == '-' || $koneksipo->status_po_03 == 'Revisi Purchasing - PO') &&
+                                                    $koneksipo->po_capo_1 != '' &&
+                                                    $koneksipo->status_po_03 != 'Complete' &&
+                                                    $koneksipo->status_po_03 != 'Waiting Approval')
+                                                <div class="justify-center flex space-x-2">
+                                                    <button type="button"
+                                                        class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        data-modal-target="modal41" data-modal-show="modal41"
+                                                        data-modal-toggle="modal41">
+                                                        Ubah
+                                                    </button>
+                                                    <button data-dropdown-toggle="dropdown41" type="button"
+                                                        class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                            width="22" fill="white" viewBox="0 0 48 48">
+                                                            <path
+                                                                d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                            </path>
+                                                        </svg>
+                                                    </button>
+                                                </div>
+                                            @endif
                                         </td>
                                         <input type="text" hidden name="as_up_by_capo_po_1"
                                             value="{{ Auth::user()->first_name }}">
@@ -7109,28 +7889,37 @@
                                         </td>
                                         <td class="space-y-2 py-3 px-2">
                                             @if (
-                                                    ($koneksipo->status_po_03 == '-' || $koneksipo->status_po_03 == 'Revisi Purchasing - PO') &&
-                                                        $koneksipo->po_capo_2 == '')
-                                                    <button type="button"
+                                                ($koneksipo->status_po_03 == '-' || $koneksipo->status_po_03 == 'Revisi Purchasing - PO') &&
+                                                    $koneksipo->po_capo_2 == '')
+                                                <button type="button"
                                                     class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
                                                     data-modal-target="modala42" data-modal-show="modala42"
                                                     data-modal-toggle="modala42">
                                                     + Tambah dokumen
                                                 </button>
-                                                @elseif (
-                                                    ($koneksipo->status_po_03 == '-' || $koneksipo->status_po_03 == 'Revisi Purchasing - PO') &&
-                                                        $koneksipo->po_capo_2 != '' &&
-                                                        $koneksipo->status_po_03 != 'Complete' &&
-                                                        $koneksipo->status_po_03 != 'Waiting Approval')
-                                                    <div class="justify-center flex space-x-2">
-                                                        <button type="button"
-                                                            class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
-                                                            data-modal-target="modal42" data-modal-show="modal42"
-                                                            data-modal-toggle="modal42">
-                                                            Ubah
-                                                        </button>
-                                                    </div>
-                                                @endif
+                                            @elseif (
+                                                ($koneksipo->status_po_03 == '-' || $koneksipo->status_po_03 == 'Revisi Purchasing - PO') &&
+                                                    $koneksipo->po_capo_2 != '' &&
+                                                    $koneksipo->status_po_03 != 'Complete' &&
+                                                    $koneksipo->status_po_03 != 'Waiting Approval')
+                                                <div class="justify-center flex space-x-2">
+                                                    <button type="button"
+                                                        class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        data-modal-target="modal42" data-modal-show="modal42"
+                                                        data-modal-toggle="modal42">
+                                                        Ubah
+                                                    </button>
+                                                    <button data-dropdown-toggle="dropdown42" type="button"
+                                                        class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                            width="22" fill="white" viewBox="0 0 48 48">
+                                                            <path
+                                                                d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                            </path>
+                                                        </svg>
+                                                    </button>
+                                                </div>
+                                            @endif
                                         </td>
                                         <input type="text" hidden name="as_up_by_capo_po_2"
                                             value="{{ Auth::user()->first_name }}">
@@ -7181,28 +7970,37 @@
                                         </td>
                                         <td class="space-y-2 py-3 px-2">
                                             @if (
-                                                    ($koneksipo->status_po_03 == '-' || $koneksipo->status_po_03 == 'Revisi Purchasing - PO') &&
-                                                        $koneksipo->po_capo_3 == '')
-                                                    <button type="button"
+                                                ($koneksipo->status_po_03 == '-' || $koneksipo->status_po_03 == 'Revisi Purchasing - PO') &&
+                                                    $koneksipo->po_capo_3 == '')
+                                                <button type="button"
                                                     class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
                                                     data-modal-target="modala43" data-modal-show="modala43"
                                                     data-modal-toggle="modala43">
                                                     + Tambah dokumen
                                                 </button>
-                                                @elseif (
-                                                    ($koneksipo->status_po_03 == '-' || $koneksipo->status_po_03 == 'Revisi Purchasing - PO') &&
-                                                        $koneksipo->po_capo_3 != '' &&
-                                                        $koneksipo->status_po_03 != 'Complete' &&
-                                                        $koneksipo->status_po_03 != 'Waiting Approval')
-                                                    <div class="justify-center flex space-x-2">
-                                                        <button type="button"
-                                                            class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
-                                                            data-modal-target="modal43" data-modal-show="modal43"
-                                                            data-modal-toggle="modal43">
-                                                            Ubah
-                                                        </button>
-                                                    </div>
-                                                @endif
+                                            @elseif (
+                                                ($koneksipo->status_po_03 == '-' || $koneksipo->status_po_03 == 'Revisi Purchasing - PO') &&
+                                                    $koneksipo->po_capo_3 != '' &&
+                                                    $koneksipo->status_po_03 != 'Complete' &&
+                                                    $koneksipo->status_po_03 != 'Waiting Approval')
+                                                <div class="justify-center flex space-x-2">
+                                                    <button type="button"
+                                                        class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        data-modal-target="modal43" data-modal-show="modal43"
+                                                        data-modal-toggle="modal43">
+                                                        Ubah
+                                                    </button>
+                                                    <button data-dropdown-toggle="dropdown43" type="button"
+                                                        class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                            width="22" fill="white" viewBox="0 0 48 48">
+                                                            <path
+                                                                d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                            </path>
+                                                        </svg>
+                                                    </button>
+                                                </div>
+                                            @endif
                                         </td>
                                         <input type="text" hidden name="as_up_by_capo_po_3"
                                             value="{{ Auth::user()->first_name }}">
@@ -7252,28 +8050,37 @@
                                         </td>
                                         <td class="space-y-2 py-3 px-2">
                                             @if (
-                                                    ($koneksipo->status_po_03 == '-' || $koneksipo->status_po_03 == 'Revisi Purchasing - PO') &&
-                                                        $koneksipo->po_capo_4 == '')
-                                                    <button type="button"
+                                                ($koneksipo->status_po_03 == '-' || $koneksipo->status_po_03 == 'Revisi Purchasing - PO') &&
+                                                    $koneksipo->po_capo_4 == '')
+                                                <button type="button"
                                                     class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
                                                     data-modal-target="modala44" data-modal-show="modala44"
                                                     data-modal-toggle="modala44">
                                                     + Tambah dokumen
+                                                </button>
+                                            @elseif (
+                                                ($koneksipo->status_po_03 == '-' || $koneksipo->status_po_03 == 'Revisi Purchasing - PO') &&
+                                                    $koneksipo->po_capo_4 != '' &&
+                                                    $koneksipo->status_po_03 != 'Complete' &&
+                                                    $koneksipo->status_po_03 != 'Waiting Approval')
+                                                <div class="justify-center flex space-x-2">
+                                                    <button type="button"
+                                                        class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        data-modal-target="modal44" data-modal-show="modal44"
+                                                        data-modal-toggle="modal44">
+                                                        Ubah
                                                     </button>
-                                                @elseif (
-                                                    ($koneksipo->status_po_03 == '-' || $koneksipo->status_po_03 == 'Revisi Purchasing - PO') &&
-                                                        $koneksipo->po_capo_4 != '' &&
-                                                        $koneksipo->status_po_03 != 'Complete' &&
-                                                        $koneksipo->status_po_03 != 'Waiting Approval')
-                                                    <div class="justify-center flex space-x-2">
-                                                        <button type="button"
-                                                            class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
-                                                            data-modal-target="modal44" data-modal-show="modal44"
-                                                            data-modal-toggle="modal44">
-                                                            Ubah
-                                                        </button>
-                                                    </div>
-                                                @endif
+                                                    <button data-dropdown-toggle="dropdown44" type="button"
+                                                        class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                            width="22" fill="white" viewBox="0 0 48 48">
+                                                            <path
+                                                                d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                            </path>
+                                                        </svg>
+                                                    </button>
+                                                </div>
+                                            @endif
                                         </td>
                                         <input type="text" hidden name="as_up_by_capo_po_4"
                                             value="{{ Auth::user()->first_name }}">
@@ -7323,28 +8130,37 @@
                                         </td>
                                         <td class="space-y-2 py-3 px-2">
                                             @if (
-                                                    ($koneksipo->status_po_03 == '-' || $koneksipo->status_po_03 == 'Revisi Purchasing - PO') &&
-                                                        $koneksipo->po_capo_5 == '')
-                                                    <button type="button"
+                                                ($koneksipo->status_po_03 == '-' || $koneksipo->status_po_03 == 'Revisi Purchasing - PO') &&
+                                                    $koneksipo->po_capo_5 == '')
+                                                <button type="button"
                                                     class="px-3 py-1 border-gray-600 border-2 rounded-lg text-white bg-gray-600 hover:bg-white hover:text-gray-600 font-medium text-md"
                                                     data-modal-target="modala45" data-modal-show="modala45"
                                                     data-modal-toggle="modala45">
                                                     + Tambah dokumen
                                                 </button>
-                                                @elseif (
-                                                    ($koneksipo->status_po_03 == '-' || $koneksipo->status_po_03 == 'Revisi Purchasing - PO') &&
-                                                        $koneksipo->po_capo_5 != '' &&
-                                                        $koneksipo->status_po_03 != 'Complete' &&
-                                                        $koneksipo->status_po_03 != 'Waiting Approval')
-                                                    <div class="justify-center flex space-x-2">
-                                                        <button type="button"
-                                                            class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
-                                                            data-modal-target="modal45" data-modal-show="modal45"
-                                                            data-modal-toggle="modal45">
-                                                            Ubah
-                                                        </button>
-                                                    </div>
-                                                @endif
+                                            @elseif (
+                                                ($koneksipo->status_po_03 == '-' || $koneksipo->status_po_03 == 'Revisi Purchasing - PO') &&
+                                                    $koneksipo->po_capo_5 != '' &&
+                                                    $koneksipo->status_po_03 != 'Complete' &&
+                                                    $koneksipo->status_po_03 != 'Waiting Approval')
+                                                <div class="justify-center flex space-x-2">
+                                                    <button type="button"
+                                                        class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
+                                                        data-modal-target="modal45" data-modal-show="modal45"
+                                                        data-modal-toggle="modal45">
+                                                        Ubah
+                                                    </button>
+                                                    <button data-dropdown-toggle="dropdown45" type="button"
+                                                        class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                            width="22" fill="white" viewBox="0 0 48 48">
+                                                            <path
+                                                                d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                            </path>
+                                                        </svg>
+                                                    </button>
+                                                </div>
+                                            @endif
                                         </td>
                                         <input type="text" hidden name="as_up_by_capo_po_5"
                                             value="{{ Auth::user()->first_name }}">
@@ -7355,7 +8171,7 @@
                                 </tbody>
                             </table>
                         </div>
-                        {{-- Akhir manufaktur --}}
+                        {{-- Akhir capo --}}
                     </div>
                 </div>
                 {{-- tabcontent --}}
@@ -8035,6 +8851,105 @@
         </p>
     @endif
     @endif
+
+    {{-- hapus PO --}}
+    @php
+        $num = range(1, 50);
+    @endphp
+    {{-- 1 --}}
+    @foreach ($num as $index => $number)
+        <form action="" method="post" enctype="multipart/form-data">
+            @csrf
+            @method('PUT')
+            <div id="dropdown1{{ $number }}"
+                class="z-10 hidden bg-gray-800 rounded-lg w-110% p-4 shadow-md">
+                @if ($number)
+                    <input type="text" hidden name="up_by_parts_po_{{ $number }}" value="">
+                    <input type="text" hidden name="date_po_parts_{{ $number }}" value="">
+                    <input type="text" hidden name="mny_parts_po_{{ $number }}" value="">
+                    <input type="text" hidden name="po_parts_{{ $number }}" value="">
+                @endif
+                <p class="text-white">Apakah anda yakin untuk menghapus dokumen ini?</p>
+                <div class="grid grid-cols-1 space-x-2 mt-2">
+                    <button type="submit"
+                        class="px-2 py-1 bg-red-500 hover:bg-red-600 text-white rounded-md font-bold">
+                        Ya, saya yakin
+                    </button>
+                </div>
+            </div>
+        </form>
+    @endforeach
+
+    {{-- 2 --}}
+    @foreach ($num as $index => $number)
+        <form action="" method="post" enctype="multipart/form-data">
+            @csrf
+            @method('PUT')
+            <div id="dropdown2{{ $number }}"
+                class="z-10 hidden bg-gray-800 rounded-lg w-110% p-4 shadow-md">
+                @if ($number)
+                    <input type="text" hidden name="up_by_jasa_po_{{ $number }}" value="">
+                    <input type="text" hidden name="date_po_jasa_{{ $number }}" value="">
+                    <input type="text" hidden name="mny_jasa_po_{{ $number }}" value="">
+                    <input type="text" hidden name="po_jasa_{{ $number }}" value="">
+                @endif
+                <p class="text-white">Apakah anda yakin untuk menghapus dokumen ini?</p>
+                <div class="grid grid-cols-1 space-x-2 mt-2">
+                    <button type="submit"
+                        class="px-2 py-1 bg-red-500 hover:bg-red-600 text-white rounded-md font-bold">
+                        Ya, saya yakin
+                    </button>
+                </div>
+            </div>
+        </form>
+    @endforeach
+
+    {{-- 3 --}}
+    @foreach ($num as $index => $number)
+        <form action="" method="post" enctype="multipart/form-data">
+            @csrf
+            @method('PUT')
+            <div id="dropdown3{{ $number }}"
+                class="z-10 hidden bg-gray-800 rounded-lg w-110% p-4 shadow-md">
+                @if ($number)
+                    <input type="text" hidden name="up_by_mnftr_po_{{ $number }}" value="">
+                    <input type="text" hidden name="date_po_mnftr_{{ $number }}" value="">
+                    <input type="text" hidden name="mny_mnftr_po_{{ $number }}" value="">
+                    <input type="text" hidden name="po_mnftr_{{ $number }}" value="">
+                @endif
+                <p class="text-white">Apakah anda yakin untuk menghapus dokumen ini?</p>
+                <div class="grid grid-cols-1 space-x-2 mt-2">
+                    <button type="submit"
+                        class="px-2 py-1 bg-red-500 hover:bg-red-600 text-white rounded-md font-bold">
+                        Ya, saya yakin
+                    </button>
+                </div>
+            </div>
+        </form>
+    @endforeach
+
+    {{--  4 --}}
+    @foreach ($num as $index => $number)
+        <form action="" method="post" enctype="multipart/form-data">
+            @csrf
+            @method('PUT')
+            <div id="dropdown4{{ $number }}"
+                class="z-10 hidden bg-gray-800 rounded-lg w-110% p-4 shadow-md">
+                @if ($number)
+                    <input type="text" hidden name="up_by_capo_po_{{ $number }}" value="">
+                    <input type="text" hidden name="date_po_capo_{{ $number }}" value="">
+                    <input type="text" hidden name="po_capo_{{ $number }}" value="">
+                @endif
+                <p class="text-white">Apakah anda yakin untuk menghapus dokumen ini?</p>
+                <div class="grid grid-cols-1 space-x-2 mt-2">
+                    <button type="submit"
+                        class="px-2 py-1 bg-red-500 hover:bg-red-600 text-white rounded-md font-bold">
+                        Ya, saya yakin
+                    </button>
+                </div>
+            </div>
+        </form>
+    @endforeach
 
     <script>
         function simulateEscape() {

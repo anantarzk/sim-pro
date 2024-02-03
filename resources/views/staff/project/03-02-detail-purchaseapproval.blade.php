@@ -706,7 +706,7 @@
             {{-- selesai status approval row --}}
 
             {{-- Yang diganti pertahapnya --}}
-            <form action="" method="post" enctype="multipart/form-data" id="uploadForm">
+            <form action="" method="post" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
                 {{-- atas form --}}
@@ -734,7 +734,7 @@
                     </div>
                     <div id="defaultTabContent">
                         <div class="bg-white mt-3" id="lokal" role="tabpanel" aria-labelledby="lokal-tab">
-                            {{-- PA Parts & Material --}}
+                            {{-- PR Parts & Material --}}
                             {{-- awal standar formulir --}}
                             <div class="flex justify-between">
                                 <p class="font-medium text-lg bg-gray-800 px-4 py-1 w-fit text-white mb-2 rounded"> PA
@@ -784,8 +784,7 @@
                                             <td class="flex items-center my-4">
                                                 @if ($koneksipa->pa_parts_1 != '')
                                                     <a href="{{ asset('storage/supervisor/project/03_02_PR/' . $koneksipa->pa_parts_1) }}"
-                                                        target="blank"
-                                                        class=" py-2 px-1 rounded  hover:bg-gray-200   ">
+                                                        target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
                                                         <svg width="22" height="17" viewBox="0 0 22 17"
                                                             fill="none" xmlns="http://www.w3.org/2000/svg">
                                                             <path
@@ -838,6 +837,15 @@
                                                             data-modal-toggle="modal11">
                                                             Ubah
                                                         </button>
+                                                        <button data-dropdown-toggle="dropdown11" type="button"
+                                                            class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                                width="22" fill="white" viewBox="0 0 48 48">
+                                                                <path
+                                                                    d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                                </path>
+                                                            </svg>
+                                                        </button>
                                                     </div>
                                                 @endif
                                             </td>
@@ -854,8 +862,7 @@
                                             <td class="flex items-center my-4">
                                                 @if ($koneksipa->pa_parts_2 != '')
                                                     <a href="{{ asset('storage/supervisor/project/03_02_PR/' . $koneksipa->pa_parts_2) }}"
-                                                        target="blank"
-                                                        class=" py-2 px-1 rounded  hover:bg-gray-200   ">
+                                                        target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
                                                         <svg width="22" height="17" viewBox="0 0 22 17"
                                                             fill="none" xmlns="http://www.w3.org/2000/svg">
                                                             <path
@@ -908,6 +915,15 @@
                                                             class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                             data-modal-target="modal12" data-modal-show="modal12"
                                                             data-modal-toggle="modal12">Ubah</button>
+                                                        <button data-dropdown-toggle="dropdown12" type="button"
+                                                            class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                                width="22" fill="white" viewBox="0 0 48 48">
+                                                                <path
+                                                                    d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                                </path>
+                                                            </svg>
+                                                        </button>
                                                     </div>
                                                 @endif
                                             </td>
@@ -926,8 +942,7 @@
 
                                                 @if ($koneksipa->pa_parts_3 != '')
                                                     <a href="{{ asset('storage/supervisor/project/03_02_PR/' . $koneksipa->pa_parts_3) }}"
-                                                        target="blank"
-                                                        class=" py-2 px-1 rounded  hover:bg-gray-200   ">
+                                                        target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
                                                         <svg width="22" height="17" viewBox="0 0 22 17"
                                                             fill="none" xmlns="http://www.w3.org/2000/svg">
                                                             <path
@@ -980,6 +995,15 @@
                                                             class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                             data-modal-target="modal13" data-modal-show="modal13"
                                                             data-modal-toggle="modal13">Ubah</button>
+                                                        <button data-dropdown-toggle="dropdown13" type="button"
+                                                            class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                                width="22" fill="white" viewBox="0 0 48 48">
+                                                                <path
+                                                                    d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                                </path>
+                                                            </svg>
+                                                        </button>
                                                     </div>
                                                 @endif
                                             </td>
@@ -998,8 +1022,7 @@
 
                                                 @if ($koneksipa->pa_parts_4 != '')
                                                     <a href="{{ asset('storage/supervisor/project/03_02_PR/' . $koneksipa->pa_parts_4) }}"
-                                                        target="blank"
-                                                        class=" py-2 px-1 rounded  hover:bg-gray-200   ">
+                                                        target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
                                                         <svg width="22" height="17" viewBox="0 0 22 17"
                                                             fill="none" xmlns="http://www.w3.org/2000/svg">
                                                             <path
@@ -1052,6 +1075,15 @@
                                                             class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                             data-modal-target="modal14" data-modal-show="modal14"
                                                             data-modal-toggle="modal14">Ubah</button>
+                                                        <button data-dropdown-toggle="dropdown14" type="button"
+                                                            class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                                width="22" fill="white" viewBox="0 0 48 48">
+                                                                <path
+                                                                    d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                                </path>
+                                                            </svg>
+                                                        </button>
                                                     </div>
                                                 @endif
                                             </td>
@@ -1070,8 +1102,7 @@
 
                                                 @if ($koneksipa->pa_parts_5 != '')
                                                     <a href="{{ asset('storage/supervisor/project/03_02_PR/' . $koneksipa->pa_parts_5) }}"
-                                                        target="blank"
-                                                        class=" py-2 px-1 rounded  hover:bg-gray-200   ">
+                                                        target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
                                                         <svg width="22" height="17" viewBox="0 0 22 17"
                                                             fill="none" xmlns="http://www.w3.org/2000/svg">
                                                             <path
@@ -1124,6 +1155,15 @@
                                                             class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                             data-modal-target="modal15" data-modal-show="modal15"
                                                             data-modal-toggle="modal15">Ubah</button>
+                                                        <button data-dropdown-toggle="dropdown15" type="button"
+                                                            class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                                width="22" fill="white" viewBox="0 0 48 48">
+                                                                <path
+                                                                    d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                                </path>
+                                                            </svg>
+                                                        </button>
                                                     </div>
                                                 @endif
                                             </td>
@@ -1143,8 +1183,7 @@
 
                                                 @if ($koneksipa->pa_parts_6 != '')
                                                     <a href="{{ asset('storage/supervisor/project/03_02_PR/' . $koneksipa->pa_parts_6) }}"
-                                                        target="blank"
-                                                        class=" py-2 px-1 rounded  hover:bg-gray-200   ">
+                                                        target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
                                                         <svg width="22" height="17" viewBox="0 0 22 17"
                                                             fill="none" xmlns="http://www.w3.org/2000/svg">
                                                             <path
@@ -1197,6 +1236,15 @@
                                                             class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                             data-modal-target="modal16" data-modal-show="modal16"
                                                             data-modal-toggle="modal16">Ubah</button>
+                                                        <button data-dropdown-toggle="dropdown16" type="button"
+                                                            class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                                width="22" fill="white" viewBox="0 0 48 48">
+                                                                <path
+                                                                    d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                                </path>
+                                                            </svg>
+                                                        </button>
                                                     </div>
                                                 @endif
                                             </td>
@@ -1214,8 +1262,7 @@
 
                                                 @if ($koneksipa->pa_parts_7 != '')
                                                     <a href="{{ asset('storage/supervisor/project/03_02_PR/' . $koneksipa->pa_parts_7) }}"
-                                                        target="blank"
-                                                        class=" py-2 px-1 rounded  hover:bg-gray-200   ">
+                                                        target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
                                                         <svg width="22" height="17" viewBox="0 0 22 17"
                                                             fill="none" xmlns="http://www.w3.org/2000/svg">
                                                             <path
@@ -1268,6 +1315,15 @@
                                                             class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                             data-modal-target="modal17" data-modal-show="modal17"
                                                             data-modal-toggle="modal17">Ubah</button>
+                                                        <button data-dropdown-toggle="dropdown17" type="button"
+                                                            class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                                width="22" fill="white" viewBox="0 0 48 48">
+                                                                <path
+                                                                    d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                                </path>
+                                                            </svg>
+                                                        </button>
                                                     </div>
                                                 @endif
                                             </td>
@@ -1286,8 +1342,7 @@
 
                                                 @if ($koneksipa->pa_parts_8 != '')
                                                     <a href="{{ asset('storage/supervisor/project/03_02_PR/' . $koneksipa->pa_parts_8) }}"
-                                                        target="blank"
-                                                        class=" py-2 px-1 rounded  hover:bg-gray-200   ">
+                                                        target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
                                                         <svg width="22" height="17" viewBox="0 0 22 17"
                                                             fill="none" xmlns="http://www.w3.org/2000/svg">
                                                             <path
@@ -1340,6 +1395,15 @@
                                                             class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                             data-modal-target="modal18" data-modal-show="modal18"
                                                             data-modal-toggle="modal18">Ubah</button>
+                                                        <button data-dropdown-toggle="dropdown18" type="button"
+                                                            class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                                width="22" fill="white" viewBox="0 0 48 48">
+                                                                <path
+                                                                    d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                                </path>
+                                                            </svg>
+                                                        </button>
                                                     </div>
                                                 @endif
                                             </td>
@@ -1358,8 +1422,7 @@
 
                                                 @if ($koneksipa->pa_parts_9 != '')
                                                     <a href="{{ asset('storage/supervisor/project/03_02_PR/' . $koneksipa->pa_parts_9) }}"
-                                                        target="blank"
-                                                        class=" py-2 px-1 rounded  hover:bg-gray-200   ">
+                                                        target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
                                                         <svg width="22" height="17" viewBox="0 0 22 17"
                                                             fill="none" xmlns="http://www.w3.org/2000/svg">
                                                             <path
@@ -1412,6 +1475,15 @@
                                                             class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                             data-modal-target="modal19" data-modal-show="modal19"
                                                             data-modal-toggle="modal19">Ubah</button>
+                                                        <button data-dropdown-toggle="dropdown19" type="button"
+                                                            class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                                width="22" fill="white" viewBox="0 0 48 48">
+                                                                <path
+                                                                    d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                                </path>
+                                                            </svg>
+                                                        </button>
                                                     </div>
                                                 @endif
                                             </td>
@@ -1430,8 +1502,7 @@
 
                                                 @if ($koneksipa->pa_parts_10 != '')
                                                     <a href="{{ asset('storage/supervisor/project/03_02_PR/' . $koneksipa->pa_parts_10) }}"
-                                                        target="blank"
-                                                        class=" py-2 px-1 rounded  hover:bg-gray-200   ">
+                                                        target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
                                                         <svg width="22" height="17" viewBox="0 0 22 17"
                                                             fill="none" xmlns="http://www.w3.org/2000/svg">
                                                             <path
@@ -1484,6 +1555,15 @@
                                                             class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                             data-modal-target="modal110" data-modal-show="modal110"
                                                             data-modal-toggle="modal110">Ubah</button>
+                                                        <button data-dropdown-toggle="dropdown110" type="button"
+                                                            class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                                width="22" fill="white" viewBox="0 0 48 48">
+                                                                <path
+                                                                    d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                                </path>
+                                                            </svg>
+                                                        </button>
                                                     </div>
                                                 @endif
                                             </td>
@@ -1503,8 +1583,7 @@
 
                                                 @if ($koneksipa->pa_parts_11 != '')
                                                     <a href="{{ asset('storage/supervisor/project/03_02_PR/' . $koneksipa->pa_parts_11) }}"
-                                                        target="blank"
-                                                        class=" py-2 px-1 rounded  hover:bg-gray-200   ">
+                                                        target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
                                                         <svg width="22" height="17" viewBox="0 0 22 17"
                                                             fill="none" xmlns="http://www.w3.org/2000/svg">
                                                             <path
@@ -1557,6 +1636,15 @@
                                                             class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                             data-modal-target="modal111" data-modal-show="modal111"
                                                             data-modal-toggle="modal111">Ubah</button>
+                                                        <button data-dropdown-toggle="dropdown111" type="button"
+                                                            class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                                width="22" fill="white" viewBox="0 0 48 48">
+                                                                <path
+                                                                    d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                                </path>
+                                                            </svg>
+                                                        </button>
                                                     </div>
                                                 @endif
                                             </td>
@@ -1574,8 +1662,7 @@
 
                                                 @if ($koneksipa->pa_parts_12 != '')
                                                     <a href="{{ asset('storage/supervisor/project/03_02_PR/' . $koneksipa->pa_parts_12) }}"
-                                                        target="blank"
-                                                        class=" py-2 px-1 rounded  hover:bg-gray-200   ">
+                                                        target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
                                                         <svg width="22" height="17" viewBox="0 0 22 17"
                                                             fill="none" xmlns="http://www.w3.org/2000/svg">
                                                             <path
@@ -1628,6 +1715,15 @@
                                                             class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                             data-modal-target="modal112" data-modal-show="modal112"
                                                             data-modal-toggle="modal112">Ubah</button>
+                                                        <button data-dropdown-toggle="dropdown112" type="button"
+                                                            class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                                width="22" fill="white" viewBox="0 0 48 48">
+                                                                <path
+                                                                    d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                                </path>
+                                                            </svg>
+                                                        </button>
                                                     </div>
                                                 @endif
                                             </td>
@@ -1646,8 +1742,7 @@
 
                                                 @if ($koneksipa->pa_parts_13 != '')
                                                     <a href="{{ asset('storage/supervisor/project/03_02_PR/' . $koneksipa->pa_parts_13) }}"
-                                                        target="blank"
-                                                        class=" py-2 px-1 rounded  hover:bg-gray-200   ">
+                                                        target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
                                                         <svg width="22" height="17" viewBox="0 0 22 17"
                                                             fill="none" xmlns="http://www.w3.org/2000/svg">
                                                             <path
@@ -1700,6 +1795,15 @@
                                                             class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                             data-modal-target="modal113" data-modal-show="modal113"
                                                             data-modal-toggle="modal113">Ubah</button>
+                                                        <button data-dropdown-toggle="dropdown113" type="button"
+                                                            class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                                width="22" fill="white" viewBox="0 0 48 48">
+                                                                <path
+                                                                    d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                                </path>
+                                                            </svg>
+                                                        </button>
                                                     </div>
                                                 @endif
                                             </td>
@@ -1718,8 +1822,7 @@
 
                                                 @if ($koneksipa->pa_parts_14 != '')
                                                     <a href="{{ asset('storage/supervisor/project/03_02_PR/' . $koneksipa->pa_parts_14) }}"
-                                                        target="blank"
-                                                        class=" py-2 px-1 rounded  hover:bg-gray-200   ">
+                                                        target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
                                                         <svg width="22" height="17" viewBox="0 0 22 17"
                                                             fill="none" xmlns="http://www.w3.org/2000/svg">
                                                             <path
@@ -1772,6 +1875,15 @@
                                                             class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                             data-modal-target="modal114" data-modal-show="modal114"
                                                             data-modal-toggle="modal114">Ubah</button>
+                                                        <button data-dropdown-toggle="dropdown114" type="button"
+                                                            class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                                width="22" fill="white" viewBox="0 0 48 48">
+                                                                <path
+                                                                    d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                                </path>
+                                                            </svg>
+                                                        </button>
                                                     </div>
                                                 @endif
                                             </td>
@@ -1790,8 +1902,7 @@
 
                                                 @if ($koneksipa->pa_parts_15 != '')
                                                     <a href="{{ asset('storage/supervisor/project/03_02_PR/' . $koneksipa->pa_parts_15) }}"
-                                                        target="blank"
-                                                        class=" py-2 px-1 rounded  hover:bg-gray-200   ">
+                                                        target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
                                                         <svg width="22" height="17" viewBox="0 0 22 17"
                                                             fill="none" xmlns="http://www.w3.org/2000/svg">
                                                             <path
@@ -1844,6 +1955,15 @@
                                                             class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                             data-modal-target="modal115" data-modal-show="modal115"
                                                             data-modal-toggle="modal115">Ubah</button>
+                                                        <button data-dropdown-toggle="dropdown115" type="button"
+                                                            class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                                width="22" fill="white" viewBox="0 0 48 48">
+                                                                <path
+                                                                    d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                                </path>
+                                                            </svg>
+                                                        </button>
                                                     </div>
                                                 @endif
                                             </td>
@@ -1863,8 +1983,7 @@
 
                                                 @if ($koneksipa->pa_parts_16 != '')
                                                     <a href="{{ asset('storage/supervisor/project/03_02_PR/' . $koneksipa->pa_parts_16) }}"
-                                                        target="blank"
-                                                        class=" py-2 px-1 rounded  hover:bg-gray-200   ">
+                                                        target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
                                                         <svg width="22" height="17" viewBox="0 0 22 17"
                                                             fill="none" xmlns="http://www.w3.org/2000/svg">
                                                             <path
@@ -1917,6 +2036,15 @@
                                                             class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                             data-modal-target="modal116" data-modal-show="modal116"
                                                             data-modal-toggle="modal116">Ubah</button>
+                                                        <button data-dropdown-toggle="dropdown116" type="button"
+                                                            class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                                width="22" fill="white" viewBox="0 0 48 48">
+                                                                <path
+                                                                    d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                                </path>
+                                                            </svg>
+                                                        </button>
                                                     </div>
                                                 @endif
                                             </td>
@@ -1934,8 +2062,7 @@
 
                                                 @if ($koneksipa->pa_parts_17 != '')
                                                     <a href="{{ asset('storage/supervisor/project/03_02_PR/' . $koneksipa->pa_parts_17) }}"
-                                                        target="blank"
-                                                        class=" py-2 px-1 rounded  hover:bg-gray-200   ">
+                                                        target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
                                                         <svg width="22" height="17" viewBox="0 0 22 17"
                                                             fill="none" xmlns="http://www.w3.org/2000/svg">
                                                             <path
@@ -1988,6 +2115,15 @@
                                                             class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                             data-modal-target="modal117" data-modal-show="modal117"
                                                             data-modal-toggle="modal117">Ubah</button>
+                                                        <button data-dropdown-toggle="dropdown117" type="button"
+                                                            class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                                width="22" fill="white" viewBox="0 0 48 48">
+                                                                <path
+                                                                    d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                                </path>
+                                                            </svg>
+                                                        </button>
                                                     </div>
                                                 @endif
                                             </td>
@@ -2006,8 +2142,7 @@
 
                                                 @if ($koneksipa->pa_parts_18 != '')
                                                     <a href="{{ asset('storage/supervisor/project/03_02_PR/' . $koneksipa->pa_parts_18) }}"
-                                                        target="blank"
-                                                        class=" py-2 px-1 rounded  hover:bg-gray-200   ">
+                                                        target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
                                                         <svg width="22" height="17" viewBox="0 0 22 17"
                                                             fill="none" xmlns="http://www.w3.org/2000/svg">
                                                             <path
@@ -2060,6 +2195,15 @@
                                                             class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                             data-modal-target="modal118" data-modal-show="modal118"
                                                             data-modal-toggle="modal118">Ubah</button>
+                                                        <button data-dropdown-toggle="dropdown118" type="button"
+                                                            class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                                width="22" fill="white" viewBox="0 0 48 48">
+                                                                <path
+                                                                    d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                                </path>
+                                                            </svg>
+                                                        </button>
                                                     </div>
                                                 @endif
                                             </td>
@@ -2080,8 +2224,7 @@
 
                                                 @if ($koneksipa->pa_parts_19 != '')
                                                     <a href="{{ asset('storage/supervisor/project/03_02_PR/' . $koneksipa->pa_parts_19) }}"
-                                                        target="blank"
-                                                        class=" py-2 px-1 rounded  hover:bg-gray-200   ">
+                                                        target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
                                                         <svg width="22" height="17" viewBox="0 0 22 17"
                                                             fill="none" xmlns="http://www.w3.org/2000/svg">
                                                             <path
@@ -2134,6 +2277,15 @@
                                                             class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                             data-modal-target="modal119" data-modal-show="modal119"
                                                             data-modal-toggle="modal119">Ubah</button>
+                                                        <button data-dropdown-toggle="dropdown119" type="button"
+                                                            class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                                width="22" fill="white" viewBox="0 0 48 48">
+                                                                <path
+                                                                    d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                                </path>
+                                                            </svg>
+                                                        </button>
                                                     </div>
                                                 @endif
                                             </td>
@@ -2151,8 +2303,7 @@
 
                                                 @if ($koneksipa->pa_parts_20 != '')
                                                     <a href="{{ asset('storage/supervisor/project/03_02_PR/' . $koneksipa->pa_parts_20) }}"
-                                                        target="blank"
-                                                        class=" py-2 px-1 rounded  hover:bg-gray-200   ">
+                                                        target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
                                                         <svg width="22" height="17" viewBox="0 0 22 17"
                                                             fill="none" xmlns="http://www.w3.org/2000/svg">
                                                             <path
@@ -2205,6 +2356,15 @@
                                                             class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                             data-modal-target="modal120" data-modal-show="modal120"
                                                             data-modal-toggle="modal120">Ubah</button>
+                                                        <button data-dropdown-toggle="dropdown120" type="button"
+                                                            class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                                width="22" fill="white" viewBox="0 0 48 48">
+                                                                <path
+                                                                    d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                                </path>
+                                                            </svg>
+                                                        </button>
                                                     </div>
                                                 @endif
                                             </td>
@@ -2225,8 +2385,7 @@
 
                                                 @if ($koneksipa->pa_parts_21 != '')
                                                     <a href="{{ asset('storage/supervisor/project/03_02_PR/' . $koneksipa->pa_parts_21) }}"
-                                                        target="blank"
-                                                        class=" py-2 px-1 rounded  hover:bg-gray-200   ">
+                                                        target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
                                                         <svg width="22" height="17" viewBox="0 0 22 17"
                                                             fill="none" xmlns="http://www.w3.org/2000/svg">
                                                             <path
@@ -2279,6 +2438,15 @@
                                                             class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                             data-modal-target="modal121" data-modal-show="modal121"
                                                             data-modal-toggle="modal121">Ubah</button>
+                                                        <button data-dropdown-toggle="dropdown121" type="button"
+                                                            class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                                width="22" fill="white" viewBox="0 0 48 48">
+                                                                <path
+                                                                    d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                                </path>
+                                                            </svg>
+                                                        </button>
                                                     </div>
                                                 @endif
                                             </td>
@@ -2296,8 +2464,7 @@
 
                                                 @if ($koneksipa->pa_parts_22 != '')
                                                     <a href="{{ asset('storage/supervisor/project/03_02_PR/' . $koneksipa->pa_parts_22) }}"
-                                                        target="blank"
-                                                        class=" py-2 px-1 rounded  hover:bg-gray-200   ">
+                                                        target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
                                                         <svg width="22" height="17" viewBox="0 0 22 17"
                                                             fill="none" xmlns="http://www.w3.org/2000/svg">
                                                             <path
@@ -2350,6 +2517,15 @@
                                                             class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                             data-modal-target="modal122" data-modal-show="modal122"
                                                             data-modal-toggle="modal122">Ubah</button>
+                                                        <button data-dropdown-toggle="dropdown122" type="button"
+                                                            class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                                width="22" fill="white" viewBox="0 0 48 48">
+                                                                <path
+                                                                    d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                                </path>
+                                                            </svg>
+                                                        </button>
                                                     </div>
                                                 @endif
                                             </td>
@@ -2367,8 +2543,7 @@
 
                                                 @if ($koneksipa->pa_parts_23 != '')
                                                     <a href="{{ asset('storage/supervisor/project/03_02_PR/' . $koneksipa->pa_parts_23) }}"
-                                                        target="blank"
-                                                        class=" py-2 px-1 rounded  hover:bg-gray-200   ">
+                                                        target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
                                                         <svg width="22" height="17" viewBox="0 0 22 17"
                                                             fill="none" xmlns="http://www.w3.org/2000/svg">
                                                             <path
@@ -2421,6 +2596,15 @@
                                                             class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                             data-modal-target="modal123" data-modal-show="modal123"
                                                             data-modal-toggle="modal123">Ubah</button>
+                                                        <button data-dropdown-toggle="dropdown123" type="button"
+                                                            class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                                width="22" fill="white" viewBox="0 0 48 48">
+                                                                <path
+                                                                    d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                                </path>
+                                                            </svg>
+                                                        </button>
                                                     </div>
                                                 @endif
                                             </td>
@@ -2438,8 +2622,7 @@
 
                                                 @if ($koneksipa->pa_parts_24 != '')
                                                     <a href="{{ asset('storage/supervisor/project/03_02_PR/' . $koneksipa->pa_parts_24) }}"
-                                                        target="blank"
-                                                        class=" py-2 px-1 rounded  hover:bg-gray-200   ">
+                                                        target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
                                                         <svg width="22" height="17" viewBox="0 0 22 17"
                                                             fill="none" xmlns="http://www.w3.org/2000/svg">
                                                             <path
@@ -2492,6 +2675,15 @@
                                                             class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                             data-modal-target="modal124" data-modal-show="modal124"
                                                             data-modal-toggle="modal124">Ubah</button>
+                                                        <button data-dropdown-toggle="dropdown124" type="button"
+                                                            class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                                width="22" fill="white" viewBox="0 0 48 48">
+                                                                <path
+                                                                    d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                                </path>
+                                                            </svg>
+                                                        </button>
                                                     </div>
                                                 @endif
 
@@ -2510,8 +2702,7 @@
 
                                                 @if ($koneksipa->pa_parts_25 != '')
                                                     <a href="{{ asset('storage/supervisor/project/03_02_PR/' . $koneksipa->pa_parts_25) }}"
-                                                        target="blank"
-                                                        class=" py-2 px-1 rounded  hover:bg-gray-200   ">
+                                                        target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
                                                         <svg width="22" height="17" viewBox="0 0 22 17"
                                                             fill="none" xmlns="http://www.w3.org/2000/svg">
                                                             <path
@@ -2564,6 +2755,15 @@
                                                             class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                             data-modal-target="modal125" data-modal-show="modal125"
                                                             data-modal-toggle="modal125">Ubah</button>
+                                                        <button data-dropdown-toggle="dropdown125" type="button"
+                                                            class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                                width="22" fill="white" viewBox="0 0 48 48">
+                                                                <path
+                                                                    d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                                </path>
+                                                            </svg>
+                                                        </button>
                                                     </div>
                                                 @endif
                                             </td>
@@ -2581,8 +2781,7 @@
 
                                                 @if ($koneksipa->pa_parts_26 != '')
                                                     <a href="{{ asset('storage/supervisor/project/03_02_PR/' . $koneksipa->pa_parts_26) }}"
-                                                        target="blank"
-                                                        class=" py-2 px-1 rounded  hover:bg-gray-200   ">
+                                                        target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
                                                         <svg width="22" height="17" viewBox="0 0 22 17"
                                                             fill="none" xmlns="http://www.w3.org/2000/svg">
                                                             <path
@@ -2635,6 +2834,15 @@
                                                             class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                             data-modal-target="modal126" data-modal-show="modal126"
                                                             data-modal-toggle="modal126">Ubah</button>
+                                                        <button data-dropdown-toggle="dropdown126" type="button"
+                                                            class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                                width="22" fill="white" viewBox="0 0 48 48">
+                                                                <path
+                                                                    d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                                </path>
+                                                            </svg>
+                                                        </button>
                                                     </div>
                                                 @endif
                                             </td>
@@ -2652,8 +2860,7 @@
 
                                                 @if ($koneksipa->pa_parts_27 != '')
                                                     <a href="{{ asset('storage/supervisor/project/03_02_PR/' . $koneksipa->pa_parts_27) }}"
-                                                        target="blank"
-                                                        class=" py-2 px-1 rounded  hover:bg-gray-200   ">
+                                                        target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
                                                         <svg width="22" height="17" viewBox="0 0 22 17"
                                                             fill="none" xmlns="http://www.w3.org/2000/svg">
                                                             <path
@@ -2706,6 +2913,15 @@
                                                             class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                             data-modal-target="modal127" data-modal-show="modal127"
                                                             data-modal-toggle="modal127">Ubah</button>
+                                                        <button data-dropdown-toggle="dropdown127" type="button"
+                                                            class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                                width="22" fill="white" viewBox="0 0 48 48">
+                                                                <path
+                                                                    d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                                </path>
+                                                            </svg>
+                                                        </button>
                                                     </div>
                                                 @endif
                                             </td>
@@ -2723,8 +2939,7 @@
 
                                                 @if ($koneksipa->pa_parts_28 != '')
                                                     <a href="{{ asset('storage/supervisor/project/03_02_PR/' . $koneksipa->pa_parts_28) }}"
-                                                        target="blank"
-                                                        class=" py-2 px-1 rounded  hover:bg-gray-200   ">
+                                                        target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
                                                         <svg width="22" height="17" viewBox="0 0 22 17"
                                                             fill="none" xmlns="http://www.w3.org/2000/svg">
                                                             <path
@@ -2777,6 +2992,15 @@
                                                             class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                             data-modal-target="modal128" data-modal-show="modal128"
                                                             data-modal-toggle="modal128">Ubah</button>
+                                                        <button data-dropdown-toggle="dropdown128" type="button"
+                                                            class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                                width="22" fill="white" viewBox="0 0 48 48">
+                                                                <path
+                                                                    d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                                </path>
+                                                            </svg>
+                                                        </button>
                                                     </div>
                                                 @endif
                                             </td>
@@ -2794,8 +3018,7 @@
 
                                                 @if ($koneksipa->pa_parts_29 != '')
                                                     <a href="{{ asset('storage/supervisor/project/03_02_PR/' . $koneksipa->pa_parts_29) }}"
-                                                        target="blank"
-                                                        class=" py-2 px-1 rounded  hover:bg-gray-200   ">
+                                                        target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
                                                         <svg width="22" height="17" viewBox="0 0 22 17"
                                                             fill="none" xmlns="http://www.w3.org/2000/svg">
                                                             <path
@@ -2848,6 +3071,15 @@
                                                             class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                             data-modal-target="modal129" data-modal-show="modal129"
                                                             data-modal-toggle="modal129">Ubah</button>
+                                                        <button data-dropdown-toggle="dropdown129" type="button"
+                                                            class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                                width="22" fill="white" viewBox="0 0 48 48">
+                                                                <path
+                                                                    d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                                </path>
+                                                            </svg>
+                                                        </button>
                                                     </div>
                                                 @endif
                                             </td>
@@ -2865,8 +3097,7 @@
 
                                                 @if ($koneksipa->pa_parts_30 != '')
                                                     <a href="{{ asset('storage/supervisor/project/03_02_PR/' . $koneksipa->pa_parts_30) }}"
-                                                        target="blank"
-                                                        class=" py-2 px-1 rounded  hover:bg-gray-200   ">
+                                                        target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
                                                         <svg width="22" height="17" viewBox="0 0 22 17"
                                                             fill="none" xmlns="http://www.w3.org/2000/svg">
                                                             <path
@@ -2919,6 +3150,15 @@
                                                             class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                             data-modal-target="modal130" data-modal-show="modal130"
                                                             data-modal-toggle="modal130">Ubah</button>
+                                                        <button data-dropdown-toggle="dropdown130" type="button"
+                                                            class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                                width="22" fill="white" viewBox="0 0 48 48">
+                                                                <path
+                                                                    d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                                </path>
+                                                            </svg>
+                                                        </button>
                                                     </div>
                                                 @endif
                                             </td>
@@ -2938,8 +3178,7 @@
 
                                                 @if ($koneksipa->pa_parts_31 != '')
                                                     <a href="{{ asset('storage/supervisor/project/03_02_PR/' . $koneksipa->pa_parts_31) }}"
-                                                        target="blank"
-                                                        class=" py-2 px-1 rounded  hover:bg-gray-200   ">
+                                                        target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
                                                         <svg width="22" height="17" viewBox="0 0 22 17"
                                                             fill="none" xmlns="http://www.w3.org/2000/svg">
                                                             <path
@@ -2992,6 +3231,15 @@
                                                             class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                             data-modal-target="modal131" data-modal-show="modal131"
                                                             data-modal-toggle="modal131">Ubah</button>
+                                                        <button data-dropdown-toggle="dropdown131" type="button"
+                                                            class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                                width="22" fill="white" viewBox="0 0 48 48">
+                                                                <path
+                                                                    d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                                </path>
+                                                            </svg>
+                                                        </button>
                                                     </div>
                                                 @endif
                                             </td>
@@ -3009,8 +3257,7 @@
 
                                                 @if ($koneksipa->pa_parts_32 != '')
                                                     <a href="{{ asset('storage/supervisor/project/03_02_PR/' . $koneksipa->pa_parts_32) }}"
-                                                        target="blank"
-                                                        class=" py-2 px-1 rounded  hover:bg-gray-200   ">
+                                                        target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
                                                         <svg width="22" height="17" viewBox="0 0 22 17"
                                                             fill="none" xmlns="http://www.w3.org/2000/svg">
                                                             <path
@@ -3063,6 +3310,15 @@
                                                             class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                             data-modal-target="modal132" data-modal-show="modal132"
                                                             data-modal-toggle="modal132">Ubah</button>
+                                                        <button data-dropdown-toggle="dropdown132" type="button"
+                                                            class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                                width="22" fill="white" viewBox="0 0 48 48">
+                                                                <path
+                                                                    d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                                </path>
+                                                            </svg>
+                                                        </button>
                                                     </div>
                                                 @endif
                                             </td>
@@ -3080,8 +3336,7 @@
 
                                                 @if ($koneksipa->pa_parts_33 != '')
                                                     <a href="{{ asset('storage/supervisor/project/03_02_PR/' . $koneksipa->pa_parts_33) }}"
-                                                        target="blank"
-                                                        class=" py-2 px-1 rounded  hover:bg-gray-200   ">
+                                                        target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
                                                         <svg width="22" height="17" viewBox="0 0 22 17"
                                                             fill="none" xmlns="http://www.w3.org/2000/svg">
                                                             <path
@@ -3134,6 +3389,15 @@
                                                             class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                             data-modal-target="modal133" data-modal-show="modal133"
                                                             data-modal-toggle="modal133">Ubah</button>
+                                                        <button data-dropdown-toggle="dropdown133" type="button"
+                                                            class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                                width="22" fill="white" viewBox="0 0 48 48">
+                                                                <path
+                                                                    d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                                </path>
+                                                            </svg>
+                                                        </button>
                                                     </div>
                                                 @endif
 
@@ -3152,8 +3416,7 @@
 
                                                 @if ($koneksipa->pa_parts_34 != '')
                                                     <a href="{{ asset('storage/supervisor/project/03_02_PR/' . $koneksipa->pa_parts_34) }}"
-                                                        target="blank"
-                                                        class=" py-2 px-1 rounded  hover:bg-gray-200   ">
+                                                        target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
                                                         <svg width="22" height="17" viewBox="0 0 22 17"
                                                             fill="none" xmlns="http://www.w3.org/2000/svg">
                                                             <path
@@ -3206,6 +3469,15 @@
                                                             class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                             data-modal-target="modal134" data-modal-show="modal134"
                                                             data-modal-toggle="modal134">Ubah</button>
+                                                        <button data-dropdown-toggle="dropdown134" type="button"
+                                                            class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                                width="22" fill="white" viewBox="0 0 48 48">
+                                                                <path
+                                                                    d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                                </path>
+                                                            </svg>
+                                                        </button>
                                                     </div>
                                                 @endif
                                             </td>
@@ -3223,8 +3495,7 @@
 
                                                 @if ($koneksipa->pa_parts_35 != '')
                                                     <a href="{{ asset('storage/supervisor/project/03_02_PR/' . $koneksipa->pa_parts_35) }}"
-                                                        target="blank"
-                                                        class=" py-2 px-1 rounded  hover:bg-gray-200   ">
+                                                        target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
                                                         <svg width="22" height="17" viewBox="0 0 22 17"
                                                             fill="none" xmlns="http://www.w3.org/2000/svg">
                                                             <path
@@ -3277,6 +3548,15 @@
                                                             class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                             data-modal-target="modal135" data-modal-show="modal135"
                                                             data-modal-toggle="modal135">Ubah</button>
+                                                        <button data-dropdown-toggle="dropdown135" type="button"
+                                                            class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                                width="22" fill="white" viewBox="0 0 48 48">
+                                                                <path
+                                                                    d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                                </path>
+                                                            </svg>
+                                                        </button>
                                                     </div>
                                                 @endif
                                             </td>
@@ -3294,8 +3574,7 @@
 
                                                 @if ($koneksipa->pa_parts_36 != '')
                                                     <a href="{{ asset('storage/supervisor/project/03_02_PR/' . $koneksipa->pa_parts_36) }}"
-                                                        target="blank"
-                                                        class=" py-2 px-1 rounded  hover:bg-gray-200   ">
+                                                        target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
                                                         <svg width="22" height="17" viewBox="0 0 22 17"
                                                             fill="none" xmlns="http://www.w3.org/2000/svg">
                                                             <path
@@ -3348,6 +3627,15 @@
                                                             class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                             data-modal-target="modal136" data-modal-show="modal136"
                                                             data-modal-toggle="modal136">Ubah</button>
+                                                        <button data-dropdown-toggle="dropdown136" type="button"
+                                                            class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                                width="22" fill="white" viewBox="0 0 48 48">
+                                                                <path
+                                                                    d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                                </path>
+                                                            </svg>
+                                                        </button>
                                                     </div>
                                                 @endif
                                             </td>
@@ -3366,8 +3654,7 @@
 
                                                 @if ($koneksipa->pa_parts_37 != '')
                                                     <a href="{{ asset('storage/supervisor/project/03_02_PR/' . $koneksipa->pa_parts_37) }}"
-                                                        target="blank"
-                                                        class=" py-2 px-1 rounded  hover:bg-gray-200   ">
+                                                        target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
                                                         <svg width="22" height="17" viewBox="0 0 22 17"
                                                             fill="none" xmlns="http://www.w3.org/2000/svg">
                                                             <path
@@ -3420,6 +3707,15 @@
                                                             class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                             data-modal-target="modal137" data-modal-show="modal137"
                                                             data-modal-toggle="modal137">Ubah</button>
+                                                        <button data-dropdown-toggle="dropdown137" type="button"
+                                                            class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                                width="22" fill="white" viewBox="0 0 48 48">
+                                                                <path
+                                                                    d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                                </path>
+                                                            </svg>
+                                                        </button>
                                                     </div>
                                                 @endif
                                             </td>
@@ -3437,8 +3733,7 @@
 
                                                 @if ($koneksipa->pa_parts_38 != '')
                                                     <a href="{{ asset('storage/supervisor/project/03_02_PR/' . $koneksipa->pa_parts_38) }}"
-                                                        target="blank"
-                                                        class=" py-2 px-1 rounded  hover:bg-gray-200   ">
+                                                        target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
                                                         <svg width="22" height="17" viewBox="0 0 22 17"
                                                             fill="none" xmlns="http://www.w3.org/2000/svg">
                                                             <path
@@ -3491,6 +3786,15 @@
                                                             class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                             data-modal-target="modal138" data-modal-show="modal138"
                                                             data-modal-toggle="modal138">Ubah</button>
+                                                        <button data-dropdown-toggle="dropdown138" type="button"
+                                                            class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                                width="22" fill="white" viewBox="0 0 48 48">
+                                                                <path
+                                                                    d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                                </path>
+                                                            </svg>
+                                                        </button>
                                                     </div>
                                                 @endif
                                             </td>
@@ -3508,8 +3812,7 @@
 
                                                 @if ($koneksipa->pa_parts_39 != '')
                                                     <a href="{{ asset('storage/supervisor/project/03_02_PR/' . $koneksipa->pa_parts_39) }}"
-                                                        target="blank"
-                                                        class=" py-2 px-1 rounded  hover:bg-gray-200   ">
+                                                        target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
                                                         <svg width="22" height="17" viewBox="0 0 22 17"
                                                             fill="none" xmlns="http://www.w3.org/2000/svg">
                                                             <path
@@ -3562,6 +3865,15 @@
                                                             class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                             data-modal-target="modal139" data-modal-show="modal139"
                                                             data-modal-toggle="modal139">Ubah</button>
+                                                        <button data-dropdown-toggle="dropdown139" type="button"
+                                                            class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                                width="22" fill="white" viewBox="0 0 48 48">
+                                                                <path
+                                                                    d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                                </path>
+                                                            </svg>
+                                                        </button>
                                                     </div>
                                                 @endif
                                             </td>
@@ -3579,8 +3891,7 @@
 
                                                 @if ($koneksipa->pa_parts_40 != '')
                                                     <a href="{{ asset('storage/supervisor/project/03_02_PR/' . $koneksipa->pa_parts_40) }}"
-                                                        target="blank"
-                                                        class=" py-2 px-1 rounded  hover:bg-gray-200   ">
+                                                        target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
                                                         <svg width="22" height="17" viewBox="0 0 22 17"
                                                             fill="none" xmlns="http://www.w3.org/2000/svg">
                                                             <path
@@ -3633,6 +3944,15 @@
                                                             class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                             data-modal-target="modal140" data-modal-show="modal140"
                                                             data-modal-toggle="modal140">Ubah</button>
+                                                        <button data-dropdown-toggle="dropdown140" type="button"
+                                                            class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                                width="22" fill="white" viewBox="0 0 48 48">
+                                                                <path
+                                                                    d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                                </path>
+                                                            </svg>
+                                                        </button>
                                                     </div>
                                                 @endif
                                             </td>
@@ -3651,8 +3971,7 @@
 
                                                 @if ($koneksipa->pa_parts_41 != '')
                                                     <a href="{{ asset('storage/supervisor/project/03_02_PR/' . $koneksipa->pa_parts_41) }}"
-                                                        target="blank"
-                                                        class=" py-2 px-1 rounded  hover:bg-gray-200   ">
+                                                        target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
                                                         <svg width="22" height="17" viewBox="0 0 22 17"
                                                             fill="none" xmlns="http://www.w3.org/2000/svg">
                                                             <path
@@ -3705,6 +4024,15 @@
                                                             class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                             data-modal-target="modal141" data-modal-show="modal141"
                                                             data-modal-toggle="modal141">Ubah</button>
+                                                        <button data-dropdown-toggle="dropdown141" type="button"
+                                                            class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                                width="22" fill="white" viewBox="0 0 48 48">
+                                                                <path
+                                                                    d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                                </path>
+                                                            </svg>
+                                                        </button>
                                                     </div>
                                                 @endif
                                             </td>
@@ -3722,8 +4050,7 @@
 
                                                 @if ($koneksipa->pa_parts_42 != '')
                                                     <a href="{{ asset('storage/supervisor/project/03_02_PR/' . $koneksipa->pa_parts_42) }}"
-                                                        target="blank"
-                                                        class=" py-2 px-1 rounded  hover:bg-gray-200   ">
+                                                        target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
                                                         <svg width="22" height="17" viewBox="0 0 22 17"
                                                             fill="none" xmlns="http://www.w3.org/2000/svg">
                                                             <path
@@ -3776,6 +4103,15 @@
                                                             class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                             data-modal-target="modal142" data-modal-show="modal142"
                                                             data-modal-toggle="modal142">Ubah</button>
+                                                        <button data-dropdown-toggle="dropdown142" type="button"
+                                                            class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                                width="22" fill="white" viewBox="0 0 48 48">
+                                                                <path
+                                                                    d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                                </path>
+                                                            </svg>
+                                                        </button>
                                                     </div>
                                                 @endif
                                             </td>
@@ -3793,8 +4129,7 @@
 
                                                 @if ($koneksipa->pa_parts_43 != '')
                                                     <a href="{{ asset('storage/supervisor/project/03_02_PR/' . $koneksipa->pa_parts_43) }}"
-                                                        target="blank"
-                                                        class=" py-2 px-1 rounded  hover:bg-gray-200   ">
+                                                        target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
                                                         <svg width="22" height="17" viewBox="0 0 22 17"
                                                             fill="none" xmlns="http://www.w3.org/2000/svg">
                                                             <path
@@ -3847,6 +4182,15 @@
                                                             class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                             data-modal-target="modal143" data-modal-show="modal143"
                                                             data-modal-toggle="modal143">Ubah</button>
+                                                        <button data-dropdown-toggle="dropdown143" type="button"
+                                                            class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                                width="22" fill="white" viewBox="0 0 48 48">
+                                                                <path
+                                                                    d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                                </path>
+                                                            </svg>
+                                                        </button>
                                                     </div>
                                                 @endif
                                             </td>
@@ -3864,8 +4208,7 @@
 
                                                 @if ($koneksipa->pa_parts_44 != '')
                                                     <a href="{{ asset('storage/supervisor/project/03_02_PR/' . $koneksipa->pa_parts_44) }}"
-                                                        target="blank"
-                                                        class=" py-2 px-1 rounded  hover:bg-gray-200   ">
+                                                        target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
                                                         <svg width="22" height="17" viewBox="0 0 22 17"
                                                             fill="none" xmlns="http://www.w3.org/2000/svg">
                                                             <path
@@ -3918,6 +4261,15 @@
                                                             class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                             data-modal-target="modal144" data-modal-show="modal144"
                                                             data-modal-toggle="modal144">Ubah</button>
+                                                        <button data-dropdown-toggle="dropdown144" type="button"
+                                                            class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                                width="22" fill="white" viewBox="0 0 48 48">
+                                                                <path
+                                                                    d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                                </path>
+                                                            </svg>
+                                                        </button>
                                                     </div>
                                                 @endif
                                             </td>
@@ -3935,8 +4287,7 @@
 
                                                 @if ($koneksipa->pa_parts_45 != '')
                                                     <a href="{{ asset('storage/supervisor/project/03_02_PR/' . $koneksipa->pa_parts_45) }}"
-                                                        target="blank"
-                                                        class=" py-2 px-1 rounded  hover:bg-gray-200   ">
+                                                        target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
                                                         <svg width="22" height="17" viewBox="0 0 22 17"
                                                             fill="none" xmlns="http://www.w3.org/2000/svg">
                                                             <path
@@ -3989,6 +4340,15 @@
                                                             class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                             data-modal-target="modal145" data-modal-show="modal145"
                                                             data-modal-toggle="modal145">Ubah</button>
+                                                        <button data-dropdown-toggle="dropdown145" type="button"
+                                                            class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                                width="22" fill="white" viewBox="0 0 48 48">
+                                                                <path
+                                                                    d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                                </path>
+                                                            </svg>
+                                                        </button>
                                                     </div>
                                                 @endif
                                             </td>
@@ -4053,8 +4413,7 @@
 
                                                 @if ($koneksipa->pa_jasa_1 != '')
                                                     <a href="{{ asset('storage/supervisor/project/03_02_PR/' . $koneksipa->pa_jasa_1) }}"
-                                                        target="blank"
-                                                        class=" py-2 px-1 rounded  hover:bg-gray-200   ">
+                                                        target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
                                                         <svg width="22" height="17" viewBox="0 0 22 17"
                                                             fill="none" xmlns="http://www.w3.org/2000/svg">
                                                             <path
@@ -4106,6 +4465,15 @@
                                                             class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                             data-modal-target="modal21" data-modal-show="modal21"
                                                             data-modal-toggle="modal21">Ubah</button>
+                                                        <button data-dropdown-toggle="dropdown21" type="button"
+                                                            class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                                width="22" fill="white" viewBox="0 0 48 48">
+                                                                <path
+                                                                    d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                                </path>
+                                                            </svg>
+                                                        </button>
                                                     </div>
                                                 @endif
                                             </td>
@@ -4123,8 +4491,7 @@
 
                                                 @if ($koneksipa->pa_jasa_2 != '')
                                                     <a href="{{ asset('storage/supervisor/project/03_02_PR/' . $koneksipa->pa_jasa_2) }}"
-                                                        target="blank"
-                                                        class=" py-2 px-1 rounded  hover:bg-gray-200   ">
+                                                        target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
                                                         <svg width="22" height="17" viewBox="0 0 22 17"
                                                             fill="none" xmlns="http://www.w3.org/2000/svg">
                                                             <path
@@ -4176,6 +4543,15 @@
                                                             class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                             data-modal-target="modal22" data-modal-show="modal22"
                                                             data-modal-toggle="modal22">Ubah</button>
+                                                        <button data-dropdown-toggle="dropdown22" type="button"
+                                                            class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                                width="22" fill="white" viewBox="0 0 48 48">
+                                                                <path
+                                                                    d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                                </path>
+                                                            </svg>
+                                                        </button>
                                                     </div>
                                                 @endif
                                             </td>
@@ -4194,8 +4570,7 @@
 
                                                 @if ($koneksipa->pa_jasa_3 != '')
                                                     <a href="{{ asset('storage/supervisor/project/03_02_PR/' . $koneksipa->pa_jasa_3) }}"
-                                                        target="blank"
-                                                        class=" py-2 px-1 rounded  hover:bg-gray-200   ">
+                                                        target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
                                                         <svg width="22" height="17" viewBox="0 0 22 17"
                                                             fill="none" xmlns="http://www.w3.org/2000/svg">
                                                             <path
@@ -4247,6 +4622,15 @@
                                                             class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                             data-modal-target="modal23" data-modal-show="modal23"
                                                             data-modal-toggle="modal23">Ubah</button>
+                                                        <button data-dropdown-toggle="dropdown23" type="button"
+                                                            class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                                width="22" fill="white" viewBox="0 0 48 48">
+                                                                <path
+                                                                    d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                                </path>
+                                                            </svg>
+                                                        </button>
                                                     </div>
                                                 @endif
                                             </td>
@@ -4265,8 +4649,7 @@
 
                                                 @if ($koneksipa->pa_jasa_4 != '')
                                                     <a href="{{ asset('storage/supervisor/project/03_02_PR/' . $koneksipa->pa_jasa_4) }}"
-                                                        target="blank"
-                                                        class=" py-2 px-1 rounded  hover:bg-gray-200   ">
+                                                        target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
                                                         <svg width="22" height="17" viewBox="0 0 22 17"
                                                             fill="none" xmlns="http://www.w3.org/2000/svg">
                                                             <path
@@ -4318,6 +4701,15 @@
                                                             class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                             data-modal-target="modal24" data-modal-show="modal24"
                                                             data-modal-toggle="modal24">Ubah</button>
+                                                        <button data-dropdown-toggle="dropdown24" type="button"
+                                                            class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                                width="22" fill="white" viewBox="0 0 48 48">
+                                                                <path
+                                                                    d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                                </path>
+                                                            </svg>
+                                                        </button>
                                                     </div>
                                                 @endif
                                             </td>
@@ -4335,8 +4727,7 @@
 
                                                 @if ($koneksipa->pa_jasa_5 != '')
                                                     <a href="{{ asset('storage/supervisor/project/03_02_PR/' . $koneksipa->pa_jasa_5) }}"
-                                                        target="blank"
-                                                        class=" py-2 px-1 rounded  hover:bg-gray-200   ">
+                                                        target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
                                                         <svg width="22" height="17" viewBox="0 0 22 17"
                                                             fill="none" xmlns="http://www.w3.org/2000/svg">
                                                             <path
@@ -4388,6 +4779,15 @@
                                                             class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                             data-modal-target="modal25" data-modal-show="modal25"
                                                             data-modal-toggle="modal25">Ubah</button>
+                                                        <button data-dropdown-toggle="dropdown25" type="button"
+                                                            class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                                width="22" fill="white" viewBox="0 0 48 48">
+                                                                <path
+                                                                    d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                                </path>
+                                                            </svg>
+                                                        </button>
                                                     </div>
                                                 @endif
                                             </td>
@@ -4404,8 +4804,7 @@
 
                                                 @if ($koneksipa->pa_jasa_6 != '')
                                                     <a href="{{ asset('storage/supervisor/project/03_02_PR/' . $koneksipa->pa_jasa_6) }}"
-                                                        target="blank"
-                                                        class=" py-2 px-1 rounded  hover:bg-gray-200   ">
+                                                        target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
                                                         <svg width="22" height="17" viewBox="0 0 22 17"
                                                             fill="none" xmlns="http://www.w3.org/2000/svg">
                                                             <path
@@ -4457,6 +4856,15 @@
                                                             class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                             data-modal-target="modal26" data-modal-show="modal26"
                                                             data-modal-toggle="modal26">Ubah</button>
+                                                        <button data-dropdown-toggle="dropdown26" type="button"
+                                                            class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                                width="22" fill="white" viewBox="0 0 48 48">
+                                                                <path
+                                                                    d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                                </path>
+                                                            </svg>
+                                                        </button>
                                                     </div>
                                                 @endif
                                             </td>
@@ -4474,8 +4882,7 @@
 
                                                 @if ($koneksipa->pa_jasa_7 != '')
                                                     <a href="{{ asset('storage/supervisor/project/03_02_PR/' . $koneksipa->pa_jasa_7) }}"
-                                                        target="blank"
-                                                        class=" py-2 px-1 rounded  hover:bg-gray-200   ">
+                                                        target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
                                                         <svg width="22" height="17" viewBox="0 0 22 17"
                                                             fill="none" xmlns="http://www.w3.org/2000/svg">
                                                             <path
@@ -4527,6 +4934,15 @@
                                                             class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                             data-modal-target="modal27" data-modal-show="modal27"
                                                             data-modal-toggle="modal27">Ubah</button>
+                                                        <button data-dropdown-toggle="dropdown27" type="button"
+                                                            class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                                width="22" fill="white" viewBox="0 0 48 48">
+                                                                <path
+                                                                    d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                                </path>
+                                                            </svg>
+                                                        </button>
                                                     </div>
                                                 @endif
                                             </td>
@@ -4544,8 +4960,7 @@
 
                                                 @if ($koneksipa->pa_jasa_8 != '')
                                                     <a href="{{ asset('storage/supervisor/project/03_02_PR/' . $koneksipa->pa_jasa_8) }}"
-                                                        target="blank"
-                                                        class=" py-2 px-1 rounded  hover:bg-gray-200   ">
+                                                        target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
                                                         <svg width="22" height="17" viewBox="0 0 22 17"
                                                             fill="none" xmlns="http://www.w3.org/2000/svg">
                                                             <path
@@ -4597,6 +5012,15 @@
                                                             class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                             data-modal-target="modal28" data-modal-show="modal28"
                                                             data-modal-toggle="modal28">Ubah</button>
+                                                        <button data-dropdown-toggle="dropdown28" type="button"
+                                                            class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                                width="22" fill="white" viewBox="0 0 48 48">
+                                                                <path
+                                                                    d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                                </path>
+                                                            </svg>
+                                                        </button>
                                                     </div>
                                                 @endif
                                             </td>
@@ -4614,8 +5038,7 @@
 
                                                 @if ($koneksipa->pa_jasa_9 != '')
                                                     <a href="{{ asset('storage/supervisor/project/03_02_PR/' . $koneksipa->pa_jasa_9) }}"
-                                                        target="blank"
-                                                        class=" py-2 px-1 rounded  hover:bg-gray-200   ">
+                                                        target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
                                                         <svg width="22" height="17" viewBox="0 0 22 17"
                                                             fill="none" xmlns="http://www.w3.org/2000/svg">
                                                             <path
@@ -4667,6 +5090,15 @@
                                                             class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                             data-modal-target="modal29" data-modal-show="modal29"
                                                             data-modal-toggle="modal29">Ubah</button>
+                                                        <button data-dropdown-toggle="dropdown29" type="button"
+                                                            class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                                width="22" fill="white" viewBox="0 0 48 48">
+                                                                <path
+                                                                    d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                                </path>
+                                                            </svg>
+                                                        </button>
                                                     </div>
                                                 @endif
                                             </td>
@@ -4684,8 +5116,7 @@
 
                                                 @if ($koneksipa->pa_jasa_10 != '')
                                                     <a href="{{ asset('storage/supervisor/project/03_02_PR/' . $koneksipa->pa_jasa_10) }}"
-                                                        target="blank"
-                                                        class=" py-2 px-1 rounded  hover:bg-gray-200   ">
+                                                        target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
                                                         <svg width="22" height="17" viewBox="0 0 22 17"
                                                             fill="none" xmlns="http://www.w3.org/2000/svg">
                                                             <path
@@ -4737,6 +5168,15 @@
                                                             class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                             data-modal-target="modal210" data-modal-show="modal210"
                                                             data-modal-toggle="modal210">Ubah</button>
+                                                        <button data-dropdown-toggle="dropdown210" type="button"
+                                                            class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                                width="22" fill="white" viewBox="0 0 48 48">
+                                                                <path
+                                                                    d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                                </path>
+                                                            </svg>
+                                                        </button>
                                                     </div>
                                                 @endif
                                             </td>
@@ -4754,8 +5194,7 @@
 
                                                 @if ($koneksipa->pa_jasa_11 != '')
                                                     <a href="{{ asset('storage/supervisor/project/03_02_PR/' . $koneksipa->pa_jasa_11) }}"
-                                                        target="blank"
-                                                        class=" py-2 px-1 rounded  hover:bg-gray-200   ">
+                                                        target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
                                                         <svg width="22" height="17" viewBox="0 0 22 17"
                                                             fill="none" xmlns="http://www.w3.org/2000/svg">
                                                             <path
@@ -4807,6 +5246,15 @@
                                                             class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                             data-modal-target="modal211" data-modal-show="modal211"
                                                             data-modal-toggle="modal211">Ubah</button>
+                                                        <button data-dropdown-toggle="dropdown211" type="button"
+                                                            class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                                width="22" fill="white" viewBox="0 0 48 48">
+                                                                <path
+                                                                    d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                                </path>
+                                                            </svg>
+                                                        </button>
                                                     </div>
                                                 @endif
                                             </td>
@@ -4824,8 +5272,7 @@
 
                                                 @if ($koneksipa->pa_jasa_12 != '')
                                                     <a href="{{ asset('storage/supervisor/project/03_02_PR/' . $koneksipa->pa_jasa_12) }}"
-                                                        target="blank"
-                                                        class=" py-2 px-1 rounded  hover:bg-gray-200   ">
+                                                        target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
                                                         <svg width="22" height="17" viewBox="0 0 22 17"
                                                             fill="none" xmlns="http://www.w3.org/2000/svg">
                                                             <path
@@ -4877,6 +5324,15 @@
                                                             class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                             data-modal-target="modal212" data-modal-show="modal212"
                                                             data-modal-toggle="modal212">Ubah</button>
+                                                        <button data-dropdown-toggle="dropdown212" type="button"
+                                                            class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                                width="22" fill="white" viewBox="0 0 48 48">
+                                                                <path
+                                                                    d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                                </path>
+                                                            </svg>
+                                                        </button>
                                                     </div>
                                                 @endif
                                             </td>
@@ -4894,8 +5350,7 @@
 
                                                 @if ($koneksipa->pa_jasa_13 != '')
                                                     <a href="{{ asset('storage/supervisor/project/03_02_PR/' . $koneksipa->pa_jasa_13) }}"
-                                                        target="blank"
-                                                        class=" py-2 px-1 rounded  hover:bg-gray-200   ">
+                                                        target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
                                                         <svg width="22" height="17" viewBox="0 0 22 17"
                                                             fill="none" xmlns="http://www.w3.org/2000/svg">
                                                             <path
@@ -4947,6 +5402,15 @@
                                                             class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                             data-modal-target="modal213" data-modal-show="modal213"
                                                             data-modal-toggle="modal213">Ubah</button>
+                                                        <button data-dropdown-toggle="dropdown213" type="button"
+                                                            class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                                width="22" fill="white" viewBox="0 0 48 48">
+                                                                <path
+                                                                    d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                                </path>
+                                                            </svg>
+                                                        </button>
                                                     </div>
                                                 @endif
                                             </td>
@@ -4964,8 +5428,7 @@
 
                                                 @if ($koneksipa->pa_jasa_14 != '')
                                                     <a href="{{ asset('storage/supervisor/project/03_02_PR/' . $koneksipa->pa_jasa_14) }}"
-                                                        target="blank"
-                                                        class=" py-2 px-1 rounded  hover:bg-gray-200   ">
+                                                        target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
                                                         <svg width="22" height="17" viewBox="0 0 22 17"
                                                             fill="none" xmlns="http://www.w3.org/2000/svg">
                                                             <path
@@ -5017,6 +5480,15 @@
                                                             class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                             data-modal-target="modal214" data-modal-show="modal214"
                                                             data-modal-toggle="modal214">Ubah</button>
+                                                        <button data-dropdown-toggle="dropdown214" type="button"
+                                                            class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                                width="22" fill="white" viewBox="0 0 48 48">
+                                                                <path
+                                                                    d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                                </path>
+                                                            </svg>
+                                                        </button>
                                                     </div>
                                                 @endif
                                             </td>
@@ -5034,8 +5506,7 @@
 
                                                 @if ($koneksipa->pa_jasa_15 != '')
                                                     <a href="{{ asset('storage/supervisor/project/03_02_PR/' . $koneksipa->pa_jasa_15) }}"
-                                                        target="blank"
-                                                        class=" py-2 px-1 rounded  hover:bg-gray-200   ">
+                                                        target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
                                                         <svg width="22" height="17" viewBox="0 0 22 17"
                                                             fill="none" xmlns="http://www.w3.org/2000/svg">
                                                             <path
@@ -5087,6 +5558,15 @@
                                                             class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                             data-modal-target="modal215" data-modal-show="modal215"
                                                             data-modal-toggle="modal215">Ubah</button>
+                                                        <button data-dropdown-toggle="dropdown215" type="button"
+                                                            class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                                width="22" fill="white" viewBox="0 0 48 48">
+                                                                <path
+                                                                    d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                                </path>
+                                                            </svg>
+                                                        </button>
                                                     </div>
                                                 @endif
                                             </td>
@@ -5104,8 +5584,7 @@
 
                                                 @if ($koneksipa->pa_jasa_16 != '')
                                                     <a href="{{ asset('storage/supervisor/project/03_02_PR/' . $koneksipa->pa_jasa_16) }}"
-                                                        target="blank"
-                                                        class=" py-2 px-1 rounded  hover:bg-gray-200   ">
+                                                        target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
                                                         <svg width="22" height="17" viewBox="0 0 22 17"
                                                             fill="none" xmlns="http://www.w3.org/2000/svg">
                                                             <path
@@ -5157,6 +5636,15 @@
                                                             class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                             data-modal-target="modal216" data-modal-show="modal216"
                                                             data-modal-toggle="modal216">Ubah</button>
+                                                        <button data-dropdown-toggle="dropdown216" type="button"
+                                                            class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                                width="22" fill="white" viewBox="0 0 48 48">
+                                                                <path
+                                                                    d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                                </path>
+                                                            </svg>
+                                                        </button>
                                                     </div>
                                                 @endif
                                             </td>
@@ -5174,8 +5662,7 @@
 
                                                 @if ($koneksipa->pa_jasa_17 != '')
                                                     <a href="{{ asset('storage/supervisor/project/03_02_PR/' . $koneksipa->pa_jasa_17) }}"
-                                                        target="blank"
-                                                        class=" py-2 px-1 rounded  hover:bg-gray-200   ">
+                                                        target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
                                                         <svg width="22" height="17" viewBox="0 0 22 17"
                                                             fill="none" xmlns="http://www.w3.org/2000/svg">
                                                             <path
@@ -5227,6 +5714,15 @@
                                                             class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                             data-modal-target="modal217" data-modal-show="modal217"
                                                             data-modal-toggle="modal217">Ubah</button>
+                                                        <button data-dropdown-toggle="dropdown217" type="button"
+                                                            class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                                width="22" fill="white" viewBox="0 0 48 48">
+                                                                <path
+                                                                    d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                                </path>
+                                                            </svg>
+                                                        </button>
                                                     </div>
                                                 @endif
                                             </td>
@@ -5244,8 +5740,7 @@
 
                                                 @if ($koneksipa->pa_jasa_18 != '')
                                                     <a href="{{ asset('storage/supervisor/project/03_02_PR/' . $koneksipa->pa_jasa_18) }}"
-                                                        target="blank"
-                                                        class=" py-2 px-1 rounded  hover:bg-gray-200   ">
+                                                        target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
                                                         <svg width="22" height="17" viewBox="0 0 22 17"
                                                             fill="none" xmlns="http://www.w3.org/2000/svg">
                                                             <path
@@ -5297,6 +5792,15 @@
                                                             class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                             data-modal-target="modal218" data-modal-show="modal218"
                                                             data-modal-toggle="modal218">Ubah</button>
+                                                        <button data-dropdown-toggle="dropdown218" type="button"
+                                                            class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                                width="22" fill="white" viewBox="0 0 48 48">
+                                                                <path
+                                                                    d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                                </path>
+                                                            </svg>
+                                                        </button>
                                                     </div>
                                                 @endif
                                             </td>
@@ -5314,8 +5818,7 @@
 
                                                 @if ($koneksipa->pa_jasa_19 != '')
                                                     <a href="{{ asset('storage/supervisor/project/03_02_PR/' . $koneksipa->pa_jasa_19) }}"
-                                                        target="blank"
-                                                        class=" py-2 px-1 rounded  hover:bg-gray-200   ">
+                                                        target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
                                                         <svg width="22" height="17" viewBox="0 0 22 17"
                                                             fill="none" xmlns="http://www.w3.org/2000/svg">
                                                             <path
@@ -5367,6 +5870,15 @@
                                                             class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                             data-modal-target="modal219" data-modal-show="modal219"
                                                             data-modal-toggle="modal219">Ubah</button>
+                                                        <button data-dropdown-toggle="dropdown219" type="button"
+                                                            class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                                width="22" fill="white" viewBox="0 0 48 48">
+                                                                <path
+                                                                    d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                                </path>
+                                                            </svg>
+                                                        </button>
                                                     </div>
                                                 @endif
                                             </td>
@@ -5384,8 +5896,7 @@
 
                                                 @if ($koneksipa->pa_jasa_20 != '')
                                                     <a href="{{ asset('storage/supervisor/project/03_02_PR/' . $koneksipa->pa_jasa_20) }}"
-                                                        target="blank"
-                                                        class=" py-2 px-1 rounded  hover:bg-gray-200   ">
+                                                        target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
                                                         <svg width="22" height="17" viewBox="0 0 22 17"
                                                             fill="none" xmlns="http://www.w3.org/2000/svg">
                                                             <path
@@ -5437,6 +5948,15 @@
                                                             class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                             data-modal-target="modal220" data-modal-show="modal220"
                                                             data-modal-toggle="modal220">Ubah</button>
+                                                        <button data-dropdown-toggle="dropdown220" type="button"
+                                                            class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                                width="22" fill="white" viewBox="0 0 48 48">
+                                                                <path
+                                                                    d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                                </path>
+                                                            </svg>
+                                                        </button>
                                                     </div>
                                                 @endif
                                             </td>
@@ -5454,8 +5974,7 @@
 
                                                 @if ($koneksipa->pa_jasa_21 != '')
                                                     <a href="{{ asset('storage/supervisor/project/03_02_PR/' . $koneksipa->pa_jasa_21) }}"
-                                                        target="blank"
-                                                        class=" py-2 px-1 rounded  hover:bg-gray-200   ">
+                                                        target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
                                                         <svg width="22" height="17" viewBox="0 0 22 17"
                                                             fill="none" xmlns="http://www.w3.org/2000/svg">
                                                             <path
@@ -5507,6 +6026,15 @@
                                                             class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                             data-modal-target="modal221" data-modal-show="modal221"
                                                             data-modal-toggle="modal221">Ubah</button>
+                                                        <button data-dropdown-toggle="dropdown221" type="button"
+                                                            class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                                width="22" fill="white" viewBox="0 0 48 48">
+                                                                <path
+                                                                    d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                                </path>
+                                                            </svg>
+                                                        </button>
                                                     </div>
                                                 @endif
                                             </td>
@@ -5524,8 +6052,7 @@
 
                                                 @if ($koneksipa->pa_jasa_22 != '')
                                                     <a href="{{ asset('storage/supervisor/project/03_02_PR/' . $koneksipa->pa_jasa_22) }}"
-                                                        target="blank"
-                                                        class=" py-2 px-1 rounded  hover:bg-gray-200   ">
+                                                        target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
                                                         <svg width="22" height="17" viewBox="0 0 22 17"
                                                             fill="none" xmlns="http://www.w3.org/2000/svg">
                                                             <path
@@ -5577,6 +6104,15 @@
                                                             class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                             data-modal-target="modal222" data-modal-show="modal222"
                                                             data-modal-toggle="modal222">Ubah</button>
+                                                        <button data-dropdown-toggle="dropdown222" type="button"
+                                                            class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                                width="22" fill="white" viewBox="0 0 48 48">
+                                                                <path
+                                                                    d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                                </path>
+                                                            </svg>
+                                                        </button>
                                                     </div>
                                                 @endif
                                             </td>
@@ -5594,8 +6130,7 @@
 
                                                 @if ($koneksipa->pa_jasa_23 != '')
                                                     <a href="{{ asset('storage/supervisor/project/03_02_PR/' . $koneksipa->pa_jasa_23) }}"
-                                                        target="blank"
-                                                        class=" py-2 px-1 rounded  hover:bg-gray-200   ">
+                                                        target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
                                                         <svg width="22" height="17" viewBox="0 0 22 17"
                                                             fill="none" xmlns="http://www.w3.org/2000/svg">
                                                             <path
@@ -5647,6 +6182,15 @@
                                                             class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                             data-modal-target="modal223" data-modal-show="modal223"
                                                             data-modal-toggle="modal223">Ubah</button>
+                                                        <button data-dropdown-toggle="dropdown223" type="button"
+                                                            class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                                width="22" fill="white" viewBox="0 0 48 48">
+                                                                <path
+                                                                    d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                                </path>
+                                                            </svg>
+                                                        </button>
                                                     </div>
                                                 @endif
                                             </td>
@@ -5664,8 +6208,7 @@
 
                                                 @if ($koneksipa->pa_jasa_24 != '')
                                                     <a href="{{ asset('storage/supervisor/project/03_02_PR/' . $koneksipa->pa_jasa_24) }}"
-                                                        target="blank"
-                                                        class=" py-2 px-1 rounded  hover:bg-gray-200   ">
+                                                        target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
                                                         <svg width="22" height="17" viewBox="0 0 22 17"
                                                             fill="none" xmlns="http://www.w3.org/2000/svg">
                                                             <path
@@ -5717,6 +6260,15 @@
                                                             class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                             data-modal-target="modal224" data-modal-show="modal224"
                                                             data-modal-toggle="modal224">Ubah</button>
+                                                        <button data-dropdown-toggle="dropdown224" type="button"
+                                                            class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                                width="22" fill="white" viewBox="0 0 48 48">
+                                                                <path
+                                                                    d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                                </path>
+                                                            </svg>
+                                                        </button>
                                                     </div>
                                                 @endif
                                             </td>
@@ -5734,8 +6286,7 @@
 
                                                 @if ($koneksipa->pa_jasa_25 != '')
                                                     <a href="{{ asset('storage/supervisor/project/03_02_PR/' . $koneksipa->pa_jasa_25) }}"
-                                                        target="blank"
-                                                        class=" py-2 px-1 rounded  hover:bg-gray-200   ">
+                                                        target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
                                                         <svg width="22" height="17" viewBox="0 0 22 17"
                                                             fill="none" xmlns="http://www.w3.org/2000/svg">
                                                             <path
@@ -5787,6 +6338,15 @@
                                                             class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                             data-modal-target="modal225" data-modal-show="modal225"
                                                             data-modal-toggle="modal225">Ubah</button>
+                                                        <button data-dropdown-toggle="dropdown225" type="button"
+                                                            class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                                width="22" fill="white" viewBox="0 0 48 48">
+                                                                <path
+                                                                    d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                                </path>
+                                                            </svg>
+                                                        </button>
                                                     </div>
                                                 @endif
                                             </td>
@@ -5804,8 +6364,7 @@
 
                                                 @if ($koneksipa->pa_jasa_26 != '')
                                                     <a href="{{ asset('storage/supervisor/project/03_02_PR/' . $koneksipa->pa_jasa_26) }}"
-                                                        target="blank"
-                                                        class=" py-2 px-1 rounded  hover:bg-gray-200   ">
+                                                        target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
                                                         <svg width="22" height="17" viewBox="0 0 22 17"
                                                             fill="none" xmlns="http://www.w3.org/2000/svg">
                                                             <path
@@ -5857,6 +6416,15 @@
                                                             class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                             data-modal-target="modal226" data-modal-show="modal226"
                                                             data-modal-toggle="modal226">Ubah</button>
+                                                        <button data-dropdown-toggle="dropdown226" type="button"
+                                                            class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                                width="22" fill="white" viewBox="0 0 48 48">
+                                                                <path
+                                                                    d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                                </path>
+                                                            </svg>
+                                                        </button>
                                                     </div>
                                                 @endif
                                             </td>
@@ -5874,8 +6442,7 @@
 
                                                 @if ($koneksipa->pa_jasa_27 != '')
                                                     <a href="{{ asset('storage/supervisor/project/03_02_PR/' . $koneksipa->pa_jasa_27) }}"
-                                                        target="blank"
-                                                        class=" py-2 px-1 rounded  hover:bg-gray-200   ">
+                                                        target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
                                                         <svg width="22" height="17" viewBox="0 0 22 17"
                                                             fill="none" xmlns="http://www.w3.org/2000/svg">
                                                             <path
@@ -5927,6 +6494,15 @@
                                                             class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                             data-modal-target="modal227" data-modal-show="modal227"
                                                             data-modal-toggle="modal227">Ubah</button>
+                                                        <button data-dropdown-toggle="dropdown227" type="button"
+                                                            class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                                width="22" fill="white" viewBox="0 0 48 48">
+                                                                <path
+                                                                    d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                                </path>
+                                                            </svg>
+                                                        </button>
                                                     </div>
                                                 @endif
                                             </td>
@@ -5944,8 +6520,7 @@
 
                                                 @if ($koneksipa->pa_jasa_28 != '')
                                                     <a href="{{ asset('storage/supervisor/project/03_02_PR/' . $koneksipa->pa_jasa_28) }}"
-                                                        target="blank"
-                                                        class=" py-2 px-1 rounded  hover:bg-gray-200   ">
+                                                        target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
                                                         <svg width="22" height="17" viewBox="0 0 22 17"
                                                             fill="none" xmlns="http://www.w3.org/2000/svg">
                                                             <path
@@ -5997,6 +6572,15 @@
                                                             class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                             data-modal-target="modal228" data-modal-show="modal228"
                                                             data-modal-toggle="modal228">Ubah</button>
+                                                        <button data-dropdown-toggle="dropdown228" type="button"
+                                                            class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                                width="22" fill="white" viewBox="0 0 48 48">
+                                                                <path
+                                                                    d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                                </path>
+                                                            </svg>
+                                                        </button>
                                                     </div>
                                                 @endif
                                             </td>
@@ -6014,8 +6598,7 @@
 
                                                 @if ($koneksipa->pa_jasa_29 != '')
                                                     <a href="{{ asset('storage/supervisor/project/03_02_PR/' . $koneksipa->pa_jasa_29) }}"
-                                                        target="blank"
-                                                        class=" py-2 px-1 rounded  hover:bg-gray-200   ">
+                                                        target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
                                                         <svg width="22" height="17" viewBox="0 0 22 17"
                                                             fill="none" xmlns="http://www.w3.org/2000/svg">
                                                             <path
@@ -6067,6 +6650,15 @@
                                                             class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                             data-modal-target="modal229" data-modal-show="modal229"
                                                             data-modal-toggle="modal229">Ubah</button>
+                                                        <button data-dropdown-toggle="dropdown229" type="button"
+                                                            class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                                width="22" fill="white" viewBox="0 0 48 48">
+                                                                <path
+                                                                    d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                                </path>
+                                                            </svg>
+                                                        </button>
                                                     </div>
                                                 @endif
                                             </td>
@@ -6084,8 +6676,7 @@
 
                                                 @if ($koneksipa->pa_jasa_30 != '')
                                                     <a href="{{ asset('storage/supervisor/project/03_02_PR/' . $koneksipa->pa_jasa_30) }}"
-                                                        target="blank"
-                                                        class=" py-2 px-1 rounded  hover:bg-gray-200   ">
+                                                        target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
                                                         <svg width="22" height="17" viewBox="0 0 22 17"
                                                             fill="none" xmlns="http://www.w3.org/2000/svg">
                                                             <path
@@ -6137,6 +6728,15 @@
                                                             class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                             data-modal-target="modal230" data-modal-show="modal230"
                                                             data-modal-toggle="modal230">Ubah</button>
+                                                        <button data-dropdown-toggle="dropdown230" type="button"
+                                                            class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                                width="22" fill="white" viewBox="0 0 48 48">
+                                                                <path
+                                                                    d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                                </path>
+                                                            </svg>
+                                                        </button>
                                                     </div>
                                                 @endif
                                             </td>
@@ -6144,10 +6744,7 @@
                                                 value="{{ Auth::user()->first_name }}">
                                             <input type="date" hidden name="as_date_pa_jasa_30"
                                                 value="{{ date('Y-m-d') }}">
-
                                         </tr>
-
-
                                     </tbody>
                                 </table>
                             </div>
@@ -6204,8 +6801,7 @@
 
                                                 @if ($koneksipa->pa_mnftr_1 != '')
                                                     <a href="{{ asset('storage/supervisor/project/03_02_PR/' . $koneksipa->pa_mnftr_1) }}"
-                                                        target="blank"
-                                                        class=" py-2 px-1 rounded  hover:bg-gray-200   ">
+                                                        target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
                                                         <svg width="22" height="17" viewBox="0 0 22 17"
                                                             fill="none" xmlns="http://www.w3.org/2000/svg">
                                                             <path
@@ -6257,6 +6853,15 @@
                                                             class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                             data-modal-target="modal31" data-modal-show="modal31"
                                                             data-modal-toggle="modal31">Ubah</button>
+                                                        <button data-dropdown-toggle="dropdown31" type="button"
+                                                            class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                                width="22" fill="white" viewBox="0 0 48 48">
+                                                                <path
+                                                                    d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                                </path>
+                                                            </svg>
+                                                        </button>
                                                     </div>
                                                 @endif
                                             </td>
@@ -6274,8 +6879,7 @@
 
                                                 @if ($koneksipa->pa_mnftr_2 != '')
                                                     <a href="{{ asset('storage/supervisor/project/03_02_PR/' . $koneksipa->pa_mnftr_2) }}"
-                                                        target="blank"
-                                                        class=" py-2 px-1 rounded  hover:bg-gray-200   ">
+                                                        target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
                                                         <svg width="22" height="17" viewBox="0 0 22 17"
                                                             fill="none" xmlns="http://www.w3.org/2000/svg">
                                                             <path
@@ -6327,6 +6931,15 @@
                                                             class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                             data-modal-target="modal32" data-modal-show="modal32"
                                                             data-modal-toggle="modal32">Ubah</button>
+                                                        <button data-dropdown-toggle="dropdown32" type="button"
+                                                            class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                                width="22" fill="white" viewBox="0 0 48 48">
+                                                                <path
+                                                                    d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                                </path>
+                                                            </svg>
+                                                        </button>
                                                     </div>
                                                 @endif
                                             </td>
@@ -6345,8 +6958,7 @@
 
                                                 @if ($koneksipa->pa_mnftr_3 != '')
                                                     <a href="{{ asset('storage/supervisor/project/03_02_PR/' . $koneksipa->pa_mnftr_3) }}"
-                                                        target="blank"
-                                                        class=" py-2 px-1 rounded  hover:bg-gray-200   ">
+                                                        target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
                                                         <svg width="22" height="17" viewBox="0 0 22 17"
                                                             fill="none" xmlns="http://www.w3.org/2000/svg">
                                                             <path
@@ -6398,6 +7010,15 @@
                                                             class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                             data-modal-target="modal33" data-modal-show="modal33"
                                                             data-modal-toggle="modal33">Ubah</button>
+                                                        <button data-dropdown-toggle="dropdown33" type="button"
+                                                            class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                                width="22" fill="white" viewBox="0 0 48 48">
+                                                                <path
+                                                                    d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                                </path>
+                                                            </svg>
+                                                        </button>
                                                     </div>
                                                 @endif
                                             </td>
@@ -6416,8 +7037,7 @@
 
                                                 @if ($koneksipa->pa_mnftr_4 != '')
                                                     <a href="{{ asset('storage/supervisor/project/03_02_PR/' . $koneksipa->pa_mnftr_4) }}"
-                                                        target="blank"
-                                                        class=" py-2 px-1 rounded  hover:bg-gray-200   ">
+                                                        target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
                                                         <svg width="22" height="17" viewBox="0 0 22 17"
                                                             fill="none" xmlns="http://www.w3.org/2000/svg">
                                                             <path
@@ -6469,6 +7089,15 @@
                                                             class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                             data-modal-target="modal34" data-modal-show="modal34"
                                                             data-modal-toggle="modal34">Ubah</button>
+                                                        <button data-dropdown-toggle="dropdown34" type="button"
+                                                            class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                                width="22" fill="white" viewBox="0 0 48 48">
+                                                                <path
+                                                                    d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                                </path>
+                                                            </svg>
+                                                        </button>
                                                     </div>
                                                 @endif
                                             </td>
@@ -6486,8 +7115,7 @@
 
                                                 @if ($koneksipa->pa_mnftr_5 != '')
                                                     <a href="{{ asset('storage/supervisor/project/03_02_PR/' . $koneksipa->pa_mnftr_5) }}"
-                                                        target="blank"
-                                                        class=" py-2 px-1 rounded  hover:bg-gray-200   ">
+                                                        target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
                                                         <svg width="22" height="17" viewBox="0 0 22 17"
                                                             fill="none" xmlns="http://www.w3.org/2000/svg">
                                                             <path
@@ -6539,6 +7167,15 @@
                                                             class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                             data-modal-target="modal35" data-modal-show="modal35"
                                                             data-modal-toggle="modal35">Ubah</button>
+                                                        <button data-dropdown-toggle="dropdown35" type="button"
+                                                            class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                                width="22" fill="white" viewBox="0 0 48 48">
+                                                                <path
+                                                                    d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                                </path>
+                                                            </svg>
+                                                        </button>
                                                     </div>
                                                 @endif
                                             </td>
@@ -6556,8 +7193,7 @@
 
                                                 @if ($koneksipa->pa_mnftr_6 != '')
                                                     <a href="{{ asset('storage/supervisor/project/03_02_PR/' . $koneksipa->pa_mnftr_6) }}"
-                                                        target="blank"
-                                                        class=" py-2 px-1 rounded  hover:bg-gray-200   ">
+                                                        target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
                                                         <svg width="22" height="17" viewBox="0 0 22 17"
                                                             fill="none" xmlns="http://www.w3.org/2000/svg">
                                                             <path
@@ -6609,6 +7245,15 @@
                                                             class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                             data-modal-target="modal36" data-modal-show="modal36"
                                                             data-modal-toggle="modal36">Ubah</button>
+                                                        <button data-dropdown-toggle="dropdown36" type="button"
+                                                            class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                                width="22" fill="white" viewBox="0 0 48 48">
+                                                                <path
+                                                                    d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                                </path>
+                                                            </svg>
+                                                        </button>
                                                     </div>
                                                 @endif
                                             </td>
@@ -6626,8 +7271,7 @@
 
                                                 @if ($koneksipa->pa_mnftr_7 != '')
                                                     <a href="{{ asset('storage/supervisor/project/03_02_PR/' . $koneksipa->pa_mnftr_7) }}"
-                                                        target="blank"
-                                                        class=" py-2 px-1 rounded  hover:bg-gray-200   ">
+                                                        target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
                                                         <svg width="22" height="17" viewBox="0 0 22 17"
                                                             fill="none" xmlns="http://www.w3.org/2000/svg">
                                                             <path
@@ -6679,6 +7323,15 @@
                                                             class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                             data-modal-target="modal37" data-modal-show="modal37"
                                                             data-modal-toggle="modal37">Ubah</button>
+                                                        <button data-dropdown-toggle="dropdown37" type="button"
+                                                            class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                                width="22" fill="white" viewBox="0 0 48 48">
+                                                                <path
+                                                                    d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                                </path>
+                                                            </svg>
+                                                        </button>
                                                     </div>
                                                 @endif
                                             </td>
@@ -6696,8 +7349,7 @@
 
                                                 @if ($koneksipa->pa_mnftr_8 != '')
                                                     <a href="{{ asset('storage/supervisor/project/03_02_PR/' . $koneksipa->pa_mnftr_8) }}"
-                                                        target="blank"
-                                                        class=" py-2 px-1 rounded  hover:bg-gray-200   ">
+                                                        target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
                                                         <svg width="22" height="17" viewBox="0 0 22 17"
                                                             fill="none" xmlns="http://www.w3.org/2000/svg">
                                                             <path
@@ -6749,6 +7401,15 @@
                                                             class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                             data-modal-target="modal38" data-modal-show="modal38"
                                                             data-modal-toggle="modal38">Ubah</button>
+                                                        <button data-dropdown-toggle="dropdown38" type="button"
+                                                            class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                                width="22" fill="white" viewBox="0 0 48 48">
+                                                                <path
+                                                                    d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                                </path>
+                                                            </svg>
+                                                        </button>
                                                     </div>
                                                 @endif
                                             </td>
@@ -6766,8 +7427,7 @@
 
                                                 @if ($koneksipa->pa_mnftr_9 != '')
                                                     <a href="{{ asset('storage/supervisor/project/03_02_PR/' . $koneksipa->pa_mnftr_9) }}"
-                                                        target="blank"
-                                                        class=" py-2 px-1 rounded  hover:bg-gray-200   ">
+                                                        target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
                                                         <svg width="22" height="17" viewBox="0 0 22 17"
                                                             fill="none" xmlns="http://www.w3.org/2000/svg">
                                                             <path
@@ -6819,6 +7479,15 @@
                                                             class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                             data-modal-target="modal39" data-modal-show="modal39"
                                                             data-modal-toggle="modal39">Ubah</button>
+                                                        <button data-dropdown-toggle="dropdown39" type="button"
+                                                            class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                                width="22" fill="white" viewBox="0 0 48 48">
+                                                                <path
+                                                                    d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                                </path>
+                                                            </svg>
+                                                        </button>
                                                     </div>
                                                 @endif
                                             </td>
@@ -6836,8 +7505,7 @@
 
                                                 @if ($koneksipa->pa_mnftr_10 != '')
                                                     <a href="{{ asset('storage/supervisor/project/03_02_PR/' . $koneksipa->pa_mnftr_10) }}"
-                                                        target="blank"
-                                                        class=" py-2 px-1 rounded  hover:bg-gray-200   ">
+                                                        target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
                                                         <svg width="22" height="17" viewBox="0 0 22 17"
                                                             fill="none" xmlns="http://www.w3.org/2000/svg">
                                                             <path
@@ -6889,6 +7557,15 @@
                                                             class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                             data-modal-target="modal310" data-modal-show="modal310"
                                                             data-modal-toggle="modal310">Ubah</button>
+                                                        <button data-dropdown-toggle="dropdown310" type="button"
+                                                            class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                                width="22" fill="white" viewBox="0 0 48 48">
+                                                                <path
+                                                                    d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                                </path>
+                                                            </svg>
+                                                        </button>
                                                     </div>
                                                 @endif
                                             </td>
@@ -6896,15 +7573,13 @@
                                                 value="{{ Auth::user()->first_name }}">
                                             <input type="date" hidden name="as_date_pa_mnftr_10"
                                                 value="{{ date('Y-m-d') }}">
-
                                         </tr>
-
                                     </tbody>
                                 </table>
                             </div>
                             {{-- Akhir manufaktur --}}
 
-                            {{-- akhir tabel PA dari awal --}}
+                            {{-- akhir tabel PR dari awal --}}
                         </div>
                         {{-- akhir tab lokal --}}
 
@@ -6940,8 +7615,7 @@
 
                                                 @if ($koneksipa->pa_epq_1 != '')
                                                     <a href="{{ asset('storage/supervisor/project/03_02_PR/' . $koneksipa->pa_epq_1) }}"
-                                                        target="blank"
-                                                        class=" py-2 px-1 rounded  hover:bg-gray-200   ">
+                                                        target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
                                                         <svg width="22" height="17" viewBox="0 0 22 17"
                                                             fill="none" xmlns="http://www.w3.org/2000/svg">
                                                             <path
@@ -6993,6 +7667,15 @@
                                                             class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                             data-modal-target="modal41" data-modal-show="modal41"
                                                             data-modal-toggle="modal41">Ubah</button>
+                                                        <button data-dropdown-toggle="dropdown41" type="button"
+                                                            class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                                width="22" fill="white" viewBox="0 0 48 48">
+                                                                <path
+                                                                    d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                                </path>
+                                                            </svg>
+                                                        </button>
                                                     </div>
                                                 @endif
                                             </td>
@@ -7010,8 +7693,7 @@
 
                                                 @if ($koneksipa->pa_epq_2 != '')
                                                     <a href="{{ asset('storage/supervisor/project/03_02_PR/' . $koneksipa->pa_epq_2) }}"
-                                                        target="blank"
-                                                        class=" py-2 px-1 rounded  hover:bg-gray-200   ">
+                                                        target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
                                                         <svg width="22" height="17" viewBox="0 0 22 17"
                                                             fill="none" xmlns="http://www.w3.org/2000/svg">
                                                             <path
@@ -7063,6 +7745,15 @@
                                                             class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                             data-modal-target="modal42" data-modal-show="modal42"
                                                             data-modal-toggle="modal42">Ubah</button>
+                                                        <button data-dropdown-toggle="dropdown42" type="button"
+                                                            class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                                width="22" fill="white" viewBox="0 0 48 48">
+                                                                <path
+                                                                    d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                                </path>
+                                                            </svg>
+                                                        </button>
                                                     </div>
                                                 @endif
                                             </td>
@@ -7081,8 +7772,7 @@
 
                                                 @if ($koneksipa->pa_epq_3 != '')
                                                     <a href="{{ asset('storage/supervisor/project/03_02_PR/' . $koneksipa->pa_epq_3) }}"
-                                                        target="blank"
-                                                        class=" py-2 px-1 rounded  hover:bg-gray-200   ">
+                                                        target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
                                                         <svg width="22" height="17" viewBox="0 0 22 17"
                                                             fill="none" xmlns="http://www.w3.org/2000/svg">
                                                             <path
@@ -7134,6 +7824,15 @@
                                                             class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                             data-modal-target="modal43" data-modal-show="modal43"
                                                             data-modal-toggle="modal43">Ubah</button>
+                                                        <button data-dropdown-toggle="dropdown43" type="button"
+                                                            class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                                width="22" fill="white" viewBox="0 0 48 48">
+                                                                <path
+                                                                    d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                                </path>
+                                                            </svg>
+                                                        </button>
                                                     </div>
                                                 @endif
                                             </td>
@@ -7151,8 +7850,7 @@
 
                                                 @if ($koneksipa->pa_epq_4 != '')
                                                     <a href="{{ asset('storage/supervisor/project/03_02_PR/' . $koneksipa->pa_epq_4) }}"
-                                                        target="blank"
-                                                        class=" py-2 px-1 rounded  hover:bg-gray-200   ">
+                                                        target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
                                                         <svg width="22" height="17" viewBox="0 0 22 17"
                                                             fill="none" xmlns="http://www.w3.org/2000/svg">
                                                             <path
@@ -7204,6 +7902,15 @@
                                                             class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                             data-modal-target="modal44" data-modal-show="modal44"
                                                             data-modal-toggle="modal44">Ubah</button>
+                                                        <button data-dropdown-toggle="dropdown44" type="button"
+                                                            class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                                width="22" fill="white" viewBox="0 0 48 48">
+                                                                <path
+                                                                    d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                                </path>
+                                                            </svg>
+                                                        </button>
                                                     </div>
                                                 @endif
                                             </td>
@@ -7221,8 +7928,7 @@
 
                                                 @if ($koneksipa->pa_epq_5 != '')
                                                     <a href="{{ asset('storage/supervisor/project/03_02_PR/' . $koneksipa->pa_epq_5) }}"
-                                                        target="blank"
-                                                        class=" py-2 px-1 rounded  hover:bg-gray-200   ">
+                                                        target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
                                                         <svg width="22" height="17" viewBox="0 0 22 17"
                                                             fill="none" xmlns="http://www.w3.org/2000/svg">
                                                             <path
@@ -7274,6 +7980,15 @@
                                                             class=" text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
                                                             data-modal-target="modal45" data-modal-show="modal45"
                                                             data-modal-toggle="modal45">Ubah</button>
+                                                        <button data-dropdown-toggle="dropdown45" type="button"
+                                                            class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                                width="22" fill="white" viewBox="0 0 48 48">
+                                                                <path
+                                                                    d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                                                                </path>
+                                                            </svg>
+                                                        </button>
                                                     </div>
                                                 @endif
                                             </td>
@@ -7990,6 +8705,105 @@
         @endif
     @endif
 
+    {{-- hapus PA --}}
+    @php
+        $num = range(1, 50);
+    @endphp
+    {{-- 1 --}}
+    @foreach ($num as $index => $number)
+        <form action="" method="post" enctype="multipart/form-data">
+            @csrf
+            @method('PUT')
+            <div id="dropdown1{{ $number }}"
+                class="z-10 hidden bg-gray-800 rounded-lg w-110% p-4 shadow-md">
+                @if ($number)
+                    <input type="text" hidden name="up_by_parts_pa_{{ $number }}" value="">
+                    <input type="text" hidden name="date_pa_parts_{{ $number }}" value="">
+                    <input type="text" hidden name="mny_parts_pa_{{ $number }}" value="">
+                    <input type="text" hidden name="pa_parts_{{ $number }}" value="">
+                @endif
+                <p class="text-white">Apakah anda yakin untuk menghapus dokumen ini?</p>
+                <div class="grid grid-cols-1 space-x-2 mt-2">
+                    <button type="submit"
+                        class="px-2 py-1 bg-red-500 hover:bg-red-600 text-white rounded-md font-bold">
+                        Ya, saya yakin
+                    </button>
+                </div>
+            </div>
+        </form>
+    @endforeach
+
+    {{-- 2 --}}
+    @foreach ($num as $index => $number)
+        <form action="" method="post" enctype="multipart/form-data">
+            @csrf
+            @method('PUT')
+            <div id="dropdown2{{ $number }}"
+                class="z-10 hidden bg-gray-800 rounded-lg w-110% p-4 shadow-md">
+                @if ($number)
+                    <input type="text" hidden name="up_by_jasa_pa_{{ $number }}" value="">
+                    <input type="text" hidden name="date_pa_jasa_{{ $number }}" value="">
+                    <input type="text" hidden name="mny_jasa_pa_{{ $number }}" value="">
+                    <input type="text" hidden name="pa_jasa_{{ $number }}" value="">
+                @endif
+                <p class="text-white">Apakah anda yakin untuk menghapus dokumen ini?</p>
+                <div class="grid grid-cols-1 space-x-2 mt-2">
+                    <button type="submit"
+                        class="px-2 py-1 bg-red-500 hover:bg-red-600 text-white rounded-md font-bold">
+                        Ya, saya yakin
+                    </button>
+                </div>
+            </div>
+        </form>
+    @endforeach
+
+    {{-- 3 --}}
+    @foreach ($num as $index => $number)
+        <form action="" method="post" enctype="multipart/form-data">
+            @csrf
+            @method('PUT')
+            <div id="dropdown3{{ $number }}"
+                class="z-10 hidden bg-gray-800 rounded-lg w-110% p-4 shadow-md">
+                @if ($number)
+                    <input type="text" hidden name="up_by_mnftr_pa_{{ $number }}" value="">
+                    <input type="text" hidden name="date_pa_mnftr_{{ $number }}" value="">
+                    <input type="text" hidden name="mny_mnftr_pa_{{ $number }}" value="">
+                    <input type="text" hidden name="pa_mnftr_{{ $number }}" value="">
+                @endif
+                <p class="text-white">Apakah anda yakin untuk menghapus dokumen ini?</p>
+                <div class="grid grid-cols-1 space-x-2 mt-2">
+                    <button type="submit"
+                        class="px-2 py-1 bg-red-500 hover:bg-red-600 text-white rounded-md font-bold">
+                        Ya, saya yakin
+                    </button>
+                </div>
+            </div>
+        </form>
+    @endforeach
+
+    {{--  4 --}}
+    @foreach ($num as $index => $number)
+        <form action="" method="post" enctype="multipart/form-data">
+            @csrf
+            @method('PUT')
+            <div id="dropdown4{{ $number }}"
+                class="z-10 hidden bg-gray-800 rounded-lg w-110% p-4 shadow-md">
+                @if ($number)
+                    <input type="text" hidden name="up_by_epq_pa_{{ $number }}" value="">
+                    <input type="text" hidden name="date_pa_epq_{{ $number }}" value="">
+                    <input type="text" hidden name="pa_epq_{{ $number }}" value="">
+                @endif
+                <p class="text-white">Apakah anda yakin untuk menghapus dokumen ini?</p>
+                <div class="grid grid-cols-1 space-x-2 mt-2">
+                    <button type="submit"
+                        class="px-2 py-1 bg-red-500 hover:bg-red-600 text-white rounded-md font-bold">
+                        Ya, saya yakin
+                    </button>
+                </div>
+            </div>
+        </form>
+    @endforeach
+    {{-- tutup bungkus --}}
 
 
     <script>

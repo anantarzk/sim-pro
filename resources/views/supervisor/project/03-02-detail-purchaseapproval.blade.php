@@ -511,10 +511,11 @@
                     <div class="absolute top-0 -ml-10 text-center mt-14 w-32 text-xs font-medium">
                         <a
                             href="/03-01-PR-purchasing-proyek/{{ $viewdataproject->id }}/{{ $koneksifr->id_fr_1 }}/{{ $koneksiar->id_ar_2 }}/{{ $koneksipr->id_pr_01_3 }}/{{ $koneksipa->id_pa_02_3 }}/{{ $koneksipo->id_po_03_3 }}/{{ $koneksipay->id_pay_04_3 }}/{{ $koneksimn->id_mn_4 }}/{{ $koneksiin->id_in_5 }}/{{ $koneksicl->id_cl_6 }}">
-                            <p class="font-semibold text-lg text-gray-900 hover:underline">Pur. Request
+                            <p class="font-semibold text-lg text-gray-900 hover:underline">Pur. Request<span
+                                    class="text-red-600">*</span>
                             </p>
                         </a>
-                        <p>{{ $koneksipr->status_pr_01 }}</p>
+                        <p class="uppercase">{{ $koneksipr->status_pr_01 }}</p>
                         <p>{{ $koneksipr->status_pr_01_date }}</p>
                     </div>
                 </div>
@@ -538,10 +539,11 @@
                     <div class="absolute top-0 -ml-10 text-center mt-14 w-32 text-xs font-medium">
                         <a
                             href="/03-02-PA-purchase-approval-proyek/{{ $viewdataproject->id }}/{{ $koneksifr->id_fr_1 }}/{{ $koneksiar->id_ar_2 }}/{{ $koneksipr->id_pr_01_3 }}/{{ $koneksipa->id_pa_02_3 }}/{{ $koneksipo->id_po_03_3 }}/{{ $koneksipay->id_pay_04_3 }}/{{ $koneksimn->id_mn_4 }}/{{ $koneksiin->id_in_5 }}/{{ $koneksicl->id_cl_6 }}">
-                            <p class="font-semibold text-lg text-gray-900 hover:underline">Pur. Approval
+                            <p class="font-semibold text-lg text-gray-900 hover:underline">Pur. Approval<span
+                                    class="text-red-600">*</span>
                             </p>
                         </a>
-                        <p>{{ $koneksipa->status_pa_02 }}</p>
+                        <p class="uppercase">{{ $koneksipa->status_pa_02 }}</p>
                         <p>{{ $koneksipa->status_pa_02_date }}</p>
                     </div>
                 </div>
@@ -565,10 +567,11 @@
                     <div class="absolute top-0 -ml-10 text-center mt-14 w-32 text-xs font-medium">
                         <a
                             href="/03-03-PO-purchase-order-proyek/{{ $viewdataproject->id }}/{{ $koneksifr->id_fr_1 }}/{{ $koneksiar->id_ar_2 }}/{{ $koneksipr->id_pr_01_3 }}/{{ $koneksipa->id_pa_02_3 }}/{{ $koneksipo->id_po_03_3 }}/{{ $koneksipay->id_pay_04_3 }}/{{ $koneksimn->id_mn_4 }}/{{ $koneksiin->id_in_5 }}/{{ $koneksicl->id_cl_6 }}">
-                            <p class="font-semibold text-lg text-gray-900 hover:underline">Pur. Order
+                            <p class="font-semibold text-lg text-gray-900 hover:underline">Pur. Order<span
+                                    class="text-red-600">*</span>
                             </p>
                         </a>
-                        <p>{{ $koneksipo->status_po_03 }}</p>
+                        <p class="uppercase">{{ $koneksipo->status_po_03 }}</p>
                         <p>{{ $koneksipo->status_po_03_date }}</p>
                     </div>
                 </div>
@@ -592,10 +595,11 @@
                     <div class="absolute top-0 -ml-10 text-center mt-14 w-32 text-xs font-medium">
                         <a
                             href="/03-04-PAY-payment-purchasing-proyek/{{ $viewdataproject->id }}/{{ $koneksifr->id_fr_1 }}/{{ $koneksiar->id_ar_2 }}/{{ $koneksipr->id_pr_01_3 }}/{{ $koneksipa->id_pa_02_3 }}/{{ $koneksipo->id_po_03_3 }}/{{ $koneksipay->id_pay_04_3 }}/{{ $koneksimn->id_mn_4 }}/{{ $koneksiin->id_in_5 }}/{{ $koneksicl->id_cl_6 }}">
-                            <p class="font-semibold text-lg text-gray-900 hover:underline">Actual Payment
+                            <p class="font-semibold text-lg text-gray-900 hover:underline">Act. Payment<span
+                                    class="text-red-600">*</span>
                             </p>
                         </a>
-                        <p>{{ $koneksipay->status_pay_04 }}</p>
+                        <p class="uppercase">{{ $koneksipay->status_pay_04 }}</p>
                         <p>{{ $koneksipay->status_pay_04_date }}</p>
                     </div>
                 </div>

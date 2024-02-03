@@ -434,15 +434,10 @@
                                                     class="items-center py-1 px-2 text-center text-md rounded drop-shadow-md flex justify-center w-fit bg-orange-400 text-white">
                                                     {{ $deadline }}
                                                 </div>
-                                            @elseif ($deadline == 'Lewat Deadline')
+                                            @elseif ($deadline < 0)
                                                 <div
                                                     class="items-center py-1 px-2 text-center text-md rounded drop-shadow-md flex justify-center w-fit bg-red-600 text-white">
-                                                    {{ $deadline }}
-                                                </div>
-                                            @else
-                                                <div
-                                                    class="items-center py-1 px-2 text-center text-md rounded drop-shadow-md flex justify-center w-fit bg-red-600 text-white">
-                                                    {{ $deadline }}
+                                                    Lewat Deadline
                                                 </div>
                                             @endif
                                         @endif
@@ -560,11 +555,9 @@
 
         $hari = floor($selisihWaktu / (60 * 60 * 24));
 
-        $warnaLatarBelakang = '';
-
-        if ($selisihWaktu <= 0) {
+        if ($selisihWaktu < 0) {
             // Project has passed the deadline
-            return 'Lewat Deadline';
+            return $hari;
         } else {
             // Return the remaining days
             return $hari . ' Hari';

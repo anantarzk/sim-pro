@@ -119,66 +119,56 @@
 
                 {{-- div row status --}}
                 <div class="mt-3">
-                {{-- progress bar --}}
-                @php
-                    $totalStages = 9;
-                    $completedStages = 0;
+                    {{-- progress bar --}}
+                    @php
+                        $totalStages = 9;
+                        $completedStages = 0;
 
-                    $statuses = [
-                        $koneksifr->status_fr,
-                        $koneksiar->status_ar,
-                        $koneksipr->status_pr_01,
-                        $koneksipa->status_pa_02,
-                        $koneksipo->status_po_03,
-                        $koneksipay->status_pay_04,
-                        $koneksimn->status_mn,
-                        $koneksiin->status_in,
-                        $koneksicl->status_cl,
-                    ];
+                        $statuses = [$koneksifr->status_fr, $koneksiar->status_ar, $koneksipr->status_pr_01, $koneksipa->status_pa_02, $koneksipo->status_po_03, $koneksipay->status_pay_04, $koneksimn->status_mn, $koneksiin->status_in, $koneksicl->status_cl];
 
-                    foreach ($statuses as $status) {
-                        if ($status == 'Complete') {
-                            $completedStages++;
+                        foreach ($statuses as $status) {
+                            if ($status == 'Complete') {
+                                $completedStages++;
+                            }
                         }
-                    }
 
-                    $purchasingPercentage = 70;
-                    $otherStagesPercentage = 30;
+                        $purchasingPercentage = 70;
+                        $otherStagesPercentage = 30;
 
-                    $overallProgress = ceil(($completedStages / $totalStages) * ($purchasingPercentage + $otherStagesPercentage));
+                        $overallProgress = ceil(($completedStages / $totalStages) * ($purchasingPercentage + $otherStagesPercentage));
 
-                    // Menetapkan warna berdasarkan persentase
-                    $barColor = 'bg-red-500';
+                        // Menetapkan warna berdasarkan persentase
+                        $barColor = 'bg-red-500';
 
-                    if ($overallProgress > 15) {
-                        $barColor = 'bg-orange-500';
-                    }
+                        if ($overallProgress > 15) {
+                            $barColor = 'bg-orange-500';
+                        }
 
-                    if ($overallProgress > 30) {
-                        $barColor = 'bg-yellow-500';
-                    }
+                        if ($overallProgress > 30) {
+                            $barColor = 'bg-yellow-500';
+                        }
 
-                    if ($overallProgress > 50) {
-                        $barColor = 'bg-blue-500';
-                    }
+                        if ($overallProgress > 50) {
+                            $barColor = 'bg-blue-500';
+                        }
 
-                    if ($overallProgress > 70) {
-                        $barColor = 'bg-green-500';
-                    }
+                        if ($overallProgress > 70) {
+                            $barColor = 'bg-green-500';
+                        }
 
-                    if ($overallProgress > 85) {
-                        $barColor = 'bg-green-700';
-                    }
-                @endphp
+                        if ($overallProgress > 85) {
+                            $barColor = 'bg-green-700';
+                        }
+                    @endphp
 
-                <div class="w-full bg-gray-200 rounded-full my-2">
-                    <div class="text-sm font-medium text-white text-center leading-none rounded-lg hover:cursor-default relative transition-all duration-500
+                    <div class="w-full bg-gray-200 rounded-full my-2">
+                        <div class="text-sm font-medium text-white text-center leading-none rounded-lg hover:cursor-default relative transition-all duration-500
                         {{ $barColor }}"
-                        style="width: {{ $overallProgress }}%;">
-                        <p class="text-sm">{{ $overallProgress }}%</p>
+                            style="width: {{ $overallProgress }}%;">
+                            <p class="text-sm">{{ $overallProgress }}%</p>
+                        </div>
                     </div>
-                </div>
-                {{-- akhir bar --}}
+                    {{-- akhir bar --}}
 
                     {{-- status --}}
                     <div class="flex justify-between">
@@ -200,7 +190,8 @@
                             </div>
 
                             <div>
-                                <div class="items-center pt-1 pr-4 text-sm font-medium  text-gray-600">Terakhir diperbaharui:
+                                <div class="items-center pt-1 pr-4 text-sm font-medium  text-gray-600">Terakhir
+                                    diperbaharui:
                                 </div>
                                 <div class="items-center pr-4 text-sm font-medium">
                                     {{ $viewdataproject->last_update_name }},
@@ -211,16 +202,20 @@
                         {{-- deadline countdown --}}
                         <div class="flex text-right">
                             @if ($viewdataproject->progress == 'Closed')
-                                <div
-                                    class=" space-x-1 font-medium items-center py-1 px-3 text-center text-lg rounded-xl drop-shadow-md flex justify-center w-fit bg-green-700 text-white mt-1" data-tooltip-target="tooltip-bottom" data-tooltip-placement="bottom">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="22" viewBox="0 0 24 24" fill="none">
+                                <div class=" space-x-1 font-medium items-center py-1 px-3 text-center text-lg rounded-xl drop-shadow-md flex justify-center w-fit bg-green-700 text-white mt-1"
+                                    data-tooltip-target="tooltip-bottom" data-tooltip-placement="bottom">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="22" viewBox="0 0 24 24"
+                                        fill="none">
                                         <g id="Interface / Check_All">
-                                        <path id="Vector" d="M8 12.4854L12.2426 16.728L20.727 8.24268M3 12.4854L7.24264 16.728M15.7279 8.24268L12.5 11.5001" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                            <path id="Vector"
+                                                d="M8 12.4854L12.2426 16.728L20.727 8.24268M3 12.4854L7.24264 16.728M15.7279 8.24268L12.5 11.5001"
+                                                stroke="#ffffff" stroke-width="2" stroke-linecap="round"
+                                                stroke-linejoin="round" />
                                         </g>
                                     </svg>
-                                <p>
-                                    Proyek telah SELESAI
-                                </p>
+                                    <p>
+                                        Proyek telah SELESAI
+                                    </p>
                                 </div>
                             @else
                                 <div id="countdown-{{ $viewdataproject->id }}"
@@ -1757,8 +1752,8 @@
                                             </button>
                                             <button data-dropdown-toggle="dropdown51" type="button"
                                                 class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
-                                                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
-                                                    width="22" fill="white" viewBox="0 0 48 48">
+                                                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="22"
+                                                    fill="white" viewBox="0 0 48 48">
                                                     <path
                                                         d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
                                                     </path>
@@ -1781,8 +1776,8 @@
                                     @if ($koneksicl->cl_l_trouble_2 != '')
                                         <a href="{{ asset('storage/supervisor/project/06_CL/' . $koneksicl->cl_l_trouble_2) }}"
                                             target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
-                                            <svg width="22" height="17" viewBox="0 0 22 17"
-                                                fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <svg width="22" height="17" viewBox="0 0 22 17" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
                                                 <path
                                                     d="M11 0C6 0 1.73 3.11 0 7.5C1.73 11.89 6 15 11 15C11.36 15 11.72 15 12.08 14.95C12.03 14.63 12 14.32 12 14C12 13.44 12.08 12.88 12.24 12.34C11.83 12.44 11.42 12.5 11 12.5C8.24 12.5 6 10.26 6 7.5C6 4.74 8.24 2.5 11 2.5C13.76 2.5 16 4.74 16 7.5C16 7.79 15.97 8.09 15.92 8.38C16.58 8.13 17.29 8 18 8C19.17 8 20.31 8.34 21.29 9C21.56 8.5 21.8 8 22 7.5C20.27 3.11 16 0 11 0ZM11 4.5C9.34 4.5 8 5.84 8 7.5C8 9.16 9.34 10.5 11 10.5C12.66 10.5 14 9.16 14 7.5C14 5.84 12.66 4.5 11 4.5ZM17 10.5V12.5H21V14.5H17V16.5L14 13.5L17 10.5Z"
                                                     fill="black" />
@@ -1831,8 +1826,8 @@
                                             </button>
                                             <button data-dropdown-toggle="dropdown52" type="button"
                                                 class=" text-white bg-red-500 hover:bg-red-600 p-3 rounded-md">
-                                                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
-                                                    width="22" fill="white" viewBox="0 0 48 48">
+                                                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="22"
+                                                    fill="white" viewBox="0 0 48 48">
                                                     <path
                                                         d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
                                                     </path>
@@ -1902,8 +1897,8 @@
                                     @if ($koneksicl->cl_camb_1 != '')
                                         <a href="{{ asset('storage/supervisor/project/06_CL/' . $koneksicl->cl_camb_1) }}"
                                             target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
-                                            <svg width="22" height="17" viewBox="0 0 22 17"
-                                                fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <svg width="22" height="17" viewBox="0 0 22 17" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
                                                 <path
                                                     d="M11 0C6 0 1.73 3.11 0 7.5C1.73 11.89 6 15 11 15C11.36 15 11.72 15 12.08 14.95C12.03 14.63 12 14.32 12 14C12 13.44 12.08 12.88 12.24 12.34C11.83 12.44 11.42 12.5 11 12.5C8.24 12.5 6 10.26 6 7.5C6 4.74 8.24 2.5 11 2.5C13.76 2.5 16 4.74 16 7.5C16 7.79 15.97 8.09 15.92 8.38C16.58 8.13 17.29 8 18 8C19.17 8 20.31 8.34 21.29 9C21.56 8.5 21.8 8 22 7.5C20.27 3.11 16 0 11 0ZM11 4.5C9.34 4.5 8 5.84 8 7.5C8 9.16 9.34 10.5 11 10.5C12.66 10.5 14 9.16 14 7.5C14 5.84 12.66 4.5 11 4.5ZM17 10.5V12.5H21V14.5H17V16.5L14 13.5L17 10.5Z"
                                                     fill="black" />
@@ -3502,48 +3497,60 @@
         });
     }
 
-    function hitungMundur(deadline, elementId) {
-        const sekarang = new Date();
-        const selisihWaktu = deadline - sekarang;
-        const hari = Math.floor(selisihWaktu / (1000 * 60 * 60 * 24));
+    const kartuProyekId = @json($viewdataproject->id);
+    const elementId = "countdown-" + kartuProyekId;
 
-        let warnaLatarBelakang = '';
+    const serverTimeStr = "{{ $serverTime }}"; // Menggunakan waktu server yang disertakan
+    const serverTime = new Date(serverTimeStr);
 
-        if (selisihWaktu <= 0) {
-            document.getElementById(elementId).innerText = "Proyek sudah melewati deadline.";
-            warnaLatarBelakang = 'red';
+    const deadlineStr = "{{ $viewdataproject->date_end }}";
+    const deadline = new Date(deadlineStr);
+
+    // Menggunakan waktu UTC untuk konsistensi
+    const sekarang = new Date(
+        serverTime.getUTCFullYear(),
+        serverTime.getUTCMonth(),
+        serverTime.getUTCDate(),
+        serverTime.getUTCHours(),
+        serverTime.getUTCMinutes(),
+        serverTime.getUTCSeconds()
+    );
+
+    const selisihWaktu = deadline - sekarang;
+    const hari = Math.floor(selisihWaktu / (1000 * 60 * 60 * 24));
+
+    let warnaLatarBelakang = '';
+
+    if (selisihWaktu <= 0) {
+        document.getElementById(elementId).innerText = "Proyek telah melewati deadline";
+        warnaLatarBelakang = 'red';
+    } else {
+        const jam = Math.floor((selisihWaktu % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const menit = Math.floor((selisihWaktu % (1000 * 60 * 60)) / (1000 * 60));
+
+        document.getElementById(elementId).innerText = `Deadline dalam ${hari} hari`;
+
+        // Atur warna latar belakang berdasarkan rentang hari
+        if (hari > 150) {
+            warnaLatarBelakang = 'green';
+        } else if (hari > 100) {
+            warnaLatarBelakang = 'CornflowerBlue';
+        } else if (hari > 70) {
+            warnaLatarBelakang = 'GoldenRod';
+        } else if (hari > 30) {
+            warnaLatarBelakang = 'DarkOrange';
         } else {
-            const jam = Math.floor((selisihWaktu % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const menit = Math.floor((selisihWaktu % (1000 * 60 * 60)) / (1000 * 60));
-
-            document.getElementById(elementId).innerText = `Deadline dalam ${hari} hari`;
-            /* hari, ${jam} jam, dan ${menit} menit. */
-
-            // Atur warna latar belakang berdasarkan rentang hari
-            if (hari > 150) {
-                warnaLatarBelakang = 'green';
-            } else if (hari > 100) {
-                warnaLatarBelakang = 'blue';
-            } else if (hari > 70) {
-                warnaLatarBelakang = 'yellow';
-            } else if (hari > 30) {
-                warnaLatarBelakang = 'orange';
-            } else {
-                warnaLatarBelakang = 'red';
-            }
+            warnaLatarBelakang = 'red';
         }
-
-        // Atur latar belakang dan warna teks
-        document.getElementById(elementId).style.backgroundColor = warnaLatarBelakang;
-        document.getElementById(elementId).style.color = 'white';
     }
 
-    // Gantilah dengan nilai date_end dari Laravel Blade template
-    const dateEndStr = "{{ $viewdataproject->date_end }}";
-    const dateEnd = new Date(dateEndStr);
+    // Atur latar belakang dan warna teks
+    document.getElementById(elementId).style.backgroundColor = warnaLatarBelakang;
+    document.getElementById(elementId).style.color = 'white';
 
-    // Gantilah dengan id unik kartu proyek
-    const kartuProyekId = "{{ $viewdataproject->id }}";
-    hitungMundur(dateEnd, `countdown-${kartuProyekId}`);
+    console.log('Server Time (ISO):', "{{ $serverTime }}");
+    console.log('Deadline (ISO):', "{{ $viewdataproject->date_end }}");
+    console.log('Time Difference:', {{ $timeDiff }});
+    console.log('data yang dipass:', hari)
 </script>
 </div>

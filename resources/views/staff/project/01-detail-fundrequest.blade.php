@@ -1072,49 +1072,61 @@
             });
         }
 
-        function hitungMundur(deadline, elementId) {
-        const sekarang = new Date();
-        const selisihWaktu = deadline - sekarang;
-        const hari = Math.floor(selisihWaktu / (1000 * 60 * 60 * 24));
+        const kartuProyekId = @json($viewdataproject->id);
+    const elementId = "countdown-" + kartuProyekId;
 
-        let warnaLatarBelakang = '';
+    const serverTimeStr = "{{ $serverTime }}"; // Menggunakan waktu server yang disertakan
+    const serverTime = new Date(serverTimeStr);
 
-        if (selisihWaktu <= 0) {
-            document.getElementById(elementId).innerText = "Proyek sudah melewati deadline.";
-            warnaLatarBelakang = 'red';
+    const deadlineStr = "{{ $viewdataproject->date_end }}";
+    const deadline = new Date(deadlineStr);
+
+    // Menggunakan waktu UTC untuk konsistensi
+    const sekarang = new Date(
+        serverTime.getUTCFullYear(),
+        serverTime.getUTCMonth(),
+        serverTime.getUTCDate(),
+        serverTime.getUTCHours(),
+        serverTime.getUTCMinutes(),
+        serverTime.getUTCSeconds()
+    );
+
+    const selisihWaktu = deadline - sekarang;
+    const hari = Math.floor(selisihWaktu / (1000 * 60 * 60 * 24));
+
+    let warnaLatarBelakang = '';
+
+    if (selisihWaktu <= 0) {
+        document.getElementById(elementId).innerText = "Proyek telah melewati deadline";
+        warnaLatarBelakang = 'red';
+    } else {
+        const jam = Math.floor((selisihWaktu % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const menit = Math.floor((selisihWaktu % (1000 * 60 * 60)) / (1000 * 60));
+
+        document.getElementById(elementId).innerText = `Deadline dalam ${hari} hari`;
+
+        // Atur warna latar belakang berdasarkan rentang hari
+        if (hari > 150) {
+            warnaLatarBelakang = 'green';
+        } else if (hari > 100) {
+            warnaLatarBelakang = 'CornflowerBlue';
+        } else if (hari > 70) {
+            warnaLatarBelakang = 'GoldenRod';
+        } else if (hari > 30) {
+            warnaLatarBelakang = 'DarkOrange';
         } else {
-            const jam = Math.floor((selisihWaktu % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const menit = Math.floor((selisihWaktu % (1000 * 60 * 60)) / (1000 * 60));
-
-            document.getElementById(elementId).innerText = `Deadline dalam ${hari} hari`;
-            /* hari, ${jam} jam, dan ${menit} menit. */
-
-            // Atur warna latar belakang berdasarkan rentang hari
-            if (hari > 150) {
-                warnaLatarBelakang = 'green';
-            } else if (hari > 100) {
-                warnaLatarBelakang = 'CornflowerBlue';
-            } else if (hari > 70) {
-                warnaLatarBelakang = 'GoldenRod';
-            } else if (hari > 30) {
-                warnaLatarBelakang = 'DarkOrange';
-            } else {
-                warnaLatarBelakang = 'red';
-            }
+            warnaLatarBelakang = 'red';
         }
-
-        // Atur latar belakang dan warna teks
-        document.getElementById(elementId).style.backgroundColor = warnaLatarBelakang;
-        document.getElementById(elementId).style.color = 'white';
     }
 
-    // Gantilah dengan nilai date_end dari Laravel Blade template
-    const dateEndStr = "{{ $viewdataproject->date_end }}";
-    const dateEnd = new Date(dateEndStr);
+    // Atur latar belakang dan warna teks
+    document.getElementById(elementId).style.backgroundColor = warnaLatarBelakang;
+    document.getElementById(elementId).style.color = 'white';
 
-    // Gantilah dengan id unik kartu proyek
-    const kartuProyekId = "{{ $viewdataproject->id }}";
-    hitungMundur(dateEnd, `countdown-${kartuProyekId}`);
+    console.log('Server Time (ISO):', "{{ $serverTime }}");
+    console.log('Deadline (ISO):', "{{ $viewdataproject->date_end }}");
+    console.log('Time Difference:', {{ $timeDiff }});
+    console.log('data yang dipass:', hari)
     </script>
 
     {{-- Hapus FR --}}

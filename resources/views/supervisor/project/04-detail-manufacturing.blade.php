@@ -104,17 +104,7 @@
                         $totalStages = 9;
                         $completedStages = 0;
 
-                        $statuses = [
-                            $koneksifr->status_fr,
-                            $koneksiar->status_ar,
-                            $koneksipr->status_pr_01,
-                            $koneksipa->status_pa_02,
-                            $koneksipo->status_po_03,
-                            $koneksipay->status_pay_04,
-                            $koneksimn->status_mn,
-                            $koneksiin->status_in,
-                            $koneksicl->status_cl,
-                        ];
+                        $statuses = [$koneksifr->status_fr, $koneksiar->status_ar, $koneksipr->status_pr_01, $koneksipa->status_pa_02, $koneksipo->status_po_03, $koneksipay->status_pay_04, $koneksimn->status_mn, $koneksiin->status_in, $koneksicl->status_cl];
 
                         foreach ($statuses as $status) {
                             if ($status == 'Complete') {
@@ -180,7 +170,8 @@
                             </div>
 
                             <div>
-                                <div class="items-center pt-1 pr-4 text-sm font-medium  text-gray-600">Terakhir diperbaharui:
+                                <div class="items-center pt-1 pr-4 text-sm font-medium  text-gray-600">Terakhir
+                                    diperbaharui:
                                 </div>
                                 <div class="items-center pr-4 text-sm font-medium">
                                     {{ $viewdataproject->last_update_name }},
@@ -191,16 +182,20 @@
                         {{-- deadline countdown --}}
                         <div class="flex text-right">
                             @if ($viewdataproject->progress == 'Closed')
-                                <div
-                                    class=" space-x-1 font-medium items-center py-1 px-3 text-center text-lg rounded-xl drop-shadow-md flex justify-center w-fit bg-green-700 text-white mt-1" data-tooltip-target="tooltip-bottom" data-tooltip-placement="bottom">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="22" viewBox="0 0 24 24" fill="none">
+                                <div class=" space-x-1 font-medium items-center py-1 px-3 text-center text-lg rounded-xl drop-shadow-md flex justify-center w-fit bg-green-700 text-white mt-1"
+                                    data-tooltip-target="tooltip-bottom" data-tooltip-placement="bottom">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="22" viewBox="0 0 24 24"
+                                        fill="none">
                                         <g id="Interface / Check_All">
-                                        <path id="Vector" d="M8 12.4854L12.2426 16.728L20.727 8.24268M3 12.4854L7.24264 16.728M15.7279 8.24268L12.5 11.5001" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                            <path id="Vector"
+                                                d="M8 12.4854L12.2426 16.728L20.727 8.24268M3 12.4854L7.24264 16.728M15.7279 8.24268L12.5 11.5001"
+                                                stroke="#ffffff" stroke-width="2" stroke-linecap="round"
+                                                stroke-linejoin="round" />
                                         </g>
                                     </svg>
-                                <p>
-                                    Proyek telah SELESAI
-                                </p>
+                                    <p>
+                                        Proyek telah SELESAI
+                                    </p>
                                 </div>
                             @else
                                 <div id="countdown-{{ $viewdataproject->id }}"
@@ -1414,68 +1409,68 @@
     </div>
     {{-- Akhir progress file --}}
     @if ($koneksimn->status_mn != '-')
-    {{-- Tombol Approve --}}
-    <div class="grid grid-cols-2 gap-2 mt-4">
-        @if($koneksimn->status_mn != 'Complete')
-        <form action="" method="post" enctype="multipart/form-data">
-            @csrf
-            @method('PUT')
-            <input type="text" name="check" value="donecheck" hidden>
-            <input type="text" name="progress" value="Manufacturing" hidden>
-            <input type="text" name="status_mn" value="Complete" hidden>
-            <input type="date" hidden name="status_mn_date" value="{{ date('Y-m-d') }}">
-            <input type="text" name="approval_by" value="{{ Auth::user()->first_name }}" hidden>
-            <input type="text" name="approval_date" value="{{ date('Y-m-d') }}" hidden>
+        {{-- Tombol Approve --}}
+        <div class="grid grid-cols-2 gap-2 mt-4">
+            @if ($koneksimn->status_mn != 'Complete')
+                <form action="" method="post" enctype="multipart/form-data">
+                    @csrf
+                    @method('PUT')
+                    <input type="text" name="check" value="donecheck" hidden>
+                    <input type="text" name="progress" value="Manufacturing" hidden>
+                    <input type="text" name="status_mn" value="Complete" hidden>
+                    <input type="date" hidden name="status_mn_date" value="{{ date('Y-m-d') }}">
+                    <input type="text" name="approval_by" value="{{ Auth::user()->first_name }}" hidden>
+                    <input type="text" name="approval_date" value="{{ date('Y-m-d') }}" hidden>
 
-            <input type="text" hidden name="waktu" value="{{ date('d-m-Y H:i') }}">
-            <div class="flex space-x-1 w-full">
-                <button type="submit"
-                    class="rounded-lg items-center p-3 my-1 w-full hover:bg-green-800 bg-green-600 flex">
-                    <div class="flex mx-auto space-x-2 items-center">
-                        <svg width="20" height="auto" viewBox="0 0 80 80" fill="none"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                d="M36 57.6L17.2 38.8L22.8 33.2L36 46.4L69.6 12.8C62 5.2 51.6 0 40 0C18 0 0 18 0 40C0 62 18 80 40 80C62 80 80 62 80 40C80 32.4 78 25.6 74.4 19.6L36 57.6Z"
-                                fill="white" />
-                        </svg>
-                        <p class="text-white font-medium">
-                            Setujui Ajuan
-                        </p>
+                    <input type="text" hidden name="waktu" value="{{ date('d-m-Y H:i') }}">
+                    <div class="flex space-x-1 w-full">
+                        <button type="submit"
+                            class="rounded-lg items-center p-3 my-1 w-full hover:bg-green-800 bg-green-600 flex">
+                            <div class="flex mx-auto space-x-2 items-center">
+                                <svg width="20" height="auto" viewBox="0 0 80 80" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M36 57.6L17.2 38.8L22.8 33.2L36 46.4L69.6 12.8C62 5.2 51.6 0 40 0C18 0 0 18 0 40C0 62 18 80 40 80C62 80 80 62 80 40C80 32.4 78 25.6 74.4 19.6L36 57.6Z"
+                                        fill="white" />
+                                </svg>
+                                <p class="text-white font-medium">
+                                    Setujui Ajuan
+                                </p>
+                            </div>
+                        </button>
                     </div>
-                </button>
-            </div>
-        </form>
-        @endif
-        @if ($koneksimn->status_mn != 'Revisi Manufacturing' && $koneksicl->status_cl != 'Complete')
-        <form action="" method="post" enctype="multipart/form-data">
-            @csrf
-            @method('PUT')
-            <input type="text" name="check" value="donecheck" hidden>
-            <input type="text" name="progress" value="Waiting Approval Manufacturing" hidden>
-            <input type="text" name="status_mn" value="Revisi Manufacturing" hidden>
-            <input type="date" hidden name="status_mn_date" value="{{ date('Y-m-d') }}">
-            <input type="text" name="approval_by" value="{{ Auth::user()->first_name }}" hidden>
-            <input type="text" name="approval_date" value="{{ date('Y-m-d') }}" hidden>
+                </form>
+            @endif
+            @if ($koneksimn->status_mn != 'Revisi Manufacturing' && $koneksicl->status_cl != 'Complete')
+                <form action="" method="post" enctype="multipart/form-data">
+                    @csrf
+                    @method('PUT')
+                    <input type="text" name="check" value="donecheck" hidden>
+                    <input type="text" name="progress" value="Waiting Approval Manufacturing" hidden>
+                    <input type="text" name="status_mn" value="Revisi Manufacturing" hidden>
+                    <input type="date" hidden name="status_mn_date" value="{{ date('Y-m-d') }}">
+                    <input type="text" name="approval_by" value="{{ Auth::user()->first_name }}" hidden>
+                    <input type="text" name="approval_date" value="{{ date('Y-m-d') }}" hidden>
 
-            <input type="text" hidden name="waktu" value="{{ date('d-m-Y H:i') }}">
+                    <input type="text" hidden name="waktu" value="{{ date('d-m-Y H:i') }}">
 
-            <button type="submit"
-                class="rounded-lg items-center text-white p-3 my-1 w-full hover:bg-yellow-600 bg-yellow-400 flex space-x-2">
-                <div class="flex mx-auto space-x-2 items-center">
-                    <svg width="20" height="auto" viewBox="0 0 80 80" fill="none"
-                        xmlns="http://www.w3.org/2000/svg">
-                        <path
-                            d="M40 0C17.92 0 0 17.92 0 40C0 62.08 17.92 80 40 80C62.08 80 80 62.08 80 40C80 17.92 62.08 0 40 0ZM44 60H36V52H44V60ZM44 44H36V20H44V44Z"
-                            fill="white" />
-                    </svg>
-                    <p class="text-white font-medium">
-                        Revisi Ajuan
-                    </p>
-                </div>
-            </button>
-        </form>
-        @endif
-    </div>
+                    <button type="submit"
+                        class="rounded-lg items-center text-white p-3 my-1 w-full hover:bg-yellow-600 bg-yellow-400 flex space-x-2">
+                        <div class="flex mx-auto space-x-2 items-center">
+                            <svg width="20" height="auto" viewBox="0 0 80 80" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M40 0C17.92 0 0 17.92 0 40C0 62.08 17.92 80 40 80C62.08 80 80 62.08 80 40C80 17.92 62.08 0 40 0ZM44 60H36V52H44V60ZM44 44H36V20H44V44Z"
+                                    fill="white" />
+                            </svg>
+                            <p class="text-white font-medium">
+                                Revisi Ajuan
+                            </p>
+                        </div>
+                    </button>
+                </form>
+            @endif
+        </div>
     @endif
     {{-- Akhir Tombol Approve --}}
 
@@ -1508,32 +1503,48 @@
             });
         }
 
-        function hitungMundur(deadline, elementId) {
-        const sekarang = new Date();
+        const kartuProyekId = @json($viewdataproject->id);
+        const elementId = "countdown-" + kartuProyekId;
+
+        const serverTimeStr = "{{ $serverTime }}"; // Menggunakan waktu server yang disertakan
+        const serverTime = new Date(serverTimeStr);
+
+        const deadlineStr = "{{ $viewdataproject->date_end }}";
+        const deadline = new Date(deadlineStr);
+
+        // Menggunakan waktu UTC untuk konsistensi
+        const sekarang = new Date(
+            serverTime.getUTCFullYear(),
+            serverTime.getUTCMonth(),
+            serverTime.getUTCDate(),
+            serverTime.getUTCHours(),
+            serverTime.getUTCMinutes(),
+            serverTime.getUTCSeconds()
+        );
+
         const selisihWaktu = deadline - sekarang;
         const hari = Math.floor(selisihWaktu / (1000 * 60 * 60 * 24));
 
         let warnaLatarBelakang = '';
 
         if (selisihWaktu <= 0) {
-            document.getElementById(elementId).innerText = "Proyek sudah melewati deadline.";
+            document.getElementById(elementId).innerText = "Proyek telah melewati deadline";
             warnaLatarBelakang = 'red';
         } else {
             const jam = Math.floor((selisihWaktu % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
             const menit = Math.floor((selisihWaktu % (1000 * 60 * 60)) / (1000 * 60));
 
             document.getElementById(elementId).innerText = `Deadline dalam ${hari} hari`;
-            /* hari, ${jam} jam, dan ${menit} menit. */
 
             // Atur warna latar belakang berdasarkan rentang hari
             if (hari > 150) {
                 warnaLatarBelakang = 'green';
             } else if (hari > 100) {
-                warnaLatarBelakang = 'blue';
+                warnaLatarBelakang = 'CornflowerBlue';
             } else if (hari > 70) {
-                warnaLatarBelakang = 'yellow';
+                warnaLatarBelakang = 'GoldenRod';
             } else if (hari > 30) {
-                warnaLatarBelakang = 'orange';
+                warnaLatarBelakang = 'DarkOrange';
             } else {
                 warnaLatarBelakang = 'red';
             }
@@ -1542,15 +1553,11 @@
         // Atur latar belakang dan warna teks
         document.getElementById(elementId).style.backgroundColor = warnaLatarBelakang;
         document.getElementById(elementId).style.color = 'white';
-    }
 
-    // Gantilah dengan nilai date_end dari Laravel Blade template
-    const dateEndStr = "{{ $viewdataproject->date_end }}";
-    const dateEnd = new Date(dateEndStr);
-
-    // Gantilah dengan id unik kartu proyek
-    const kartuProyekId = "{{ $viewdataproject->id }}";
-    hitungMundur(dateEnd, `countdown-${kartuProyekId}`);
+        console.log('Server Time (ISO):', "{{ $serverTime }}");
+        console.log('Deadline (ISO):', "{{ $viewdataproject->date_end }}");
+        console.log('Time Difference:', {{ $timeDiff }});
+        console.log('data yang dipass:', hari)
     </script>
 
     {{-- hapus MN --}}

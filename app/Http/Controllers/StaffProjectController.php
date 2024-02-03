@@ -21,6 +21,7 @@ use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Carbon;
 
 class StaffProjectController extends Controller
 {
@@ -1434,6 +1435,11 @@ class StaffProjectController extends Controller
             $koneksipay->mny_da_pay_5;
 
         $balance = $viewdataproject->budget_amount - $sum_pay;
+        $serverTime = now(); // Mengambil waktu saat ini di sisi server
+
+        // Hitung selisih waktu dan tambahkan ke data yang dikirim ke view
+        $deadline = Carbon::parse($viewdataproject->date_end);
+        $timeDiff = $deadline->diffInMilliseconds($serverTime);
 
         // Melanjutkan ke view
         return view('staff.project.01-detail-fundrequest', [
@@ -1453,6 +1459,8 @@ class StaffProjectController extends Controller
             'sum_pay' => $sum_pay,
             'balance' => $balance,
             'standar_project' => $standar_project,
+            'serverTime' => $serverTime->toIso8601String(),
+            'timeDiff' => $timeDiff,
         ]);
     }
 
@@ -2586,7 +2594,11 @@ class StaffProjectController extends Controller
             $koneksipay->mny_da_pay_5;
 
         $balance = $viewdataproject->budget_amount - $sum_pay;
+        $serverTime = now(); // Mengambil waktu saat ini di sisi server
 
+        // Hitung selisih waktu dan tambahkan ke data yang dikirim ke view
+        $deadline = Carbon::parse($viewdataproject->date_end);
+        $timeDiff = $deadline->diffInMilliseconds($serverTime);
         // Melanjutkan ke view
         return view('staff.project.02-detail-arrangement', [
             'viewdataproject' => $viewdataproject,
@@ -2605,6 +2617,8 @@ class StaffProjectController extends Controller
             'sum_pay' => $sum_pay,
             'balance' => $balance,
             'standar_project' => $standar_project,
+            'serverTime' => $serverTime->toIso8601String(),
+            'timeDiff' => $timeDiff,
         ]);
     }
 
@@ -4246,6 +4260,11 @@ class StaffProjectController extends Controller
             $koneksipay->mny_da_pay_5;
 
         $balance = $viewdataproject->budget_amount - $sum_pay;
+        $serverTime = now(); // Mengambil waktu saat ini di sisi server
+
+        // Hitung selisih waktu dan tambahkan ke data yang dikirim ke view
+        $deadline = Carbon::parse($viewdataproject->date_end);
+        $timeDiff = $deadline->diffInMilliseconds($serverTime);
 
         // Melanjutkan ke view
         return view('staff.project.03-01-detail-purchasing', [
@@ -4265,6 +4284,8 @@ class StaffProjectController extends Controller
             'sum_pay' => $sum_pay,
             'balance' => $balance,
             'standar_project' => $standar_project,
+            'serverTime' => $serverTime->toIso8601String(),
+            'timeDiff' => $timeDiff,
         ]);
     }
 
@@ -8768,6 +8789,11 @@ class StaffProjectController extends Controller
             $koneksipay->mny_da_pay_5;
 
         $balance = $viewdataproject->budget_amount - $sum_pay;
+        $serverTime = now(); // Mengambil waktu saat ini di sisi server
+
+        // Hitung selisih waktu dan tambahkan ke data yang dikirim ke view
+        $deadline = Carbon::parse($viewdataproject->date_end);
+        $timeDiff = $deadline->diffInMilliseconds($serverTime);
 
         // Melanjutkan ke view
         return view('staff.project.03-02-detail-purchaseapproval', [
@@ -8787,6 +8813,8 @@ class StaffProjectController extends Controller
             'sum_pay' => $sum_pay,
             'balance' => $balance,
             'standar_project' => $standar_project,
+            'serverTime' => $serverTime->toIso8601String(),
+            'timeDiff' => $timeDiff,
         ]);
     }
     public function ProcessTigaTitikDuaFormProgress(
@@ -13451,6 +13479,11 @@ class StaffProjectController extends Controller
             $koneksipay->mny_da_pay_5;
 
         $balance = $viewdataproject->budget_amount - $sum_pay;
+        $serverTime = now(); // Mengambil waktu saat ini di sisi server
+
+        // Hitung selisih waktu dan tambahkan ke data yang dikirim ke view
+        $deadline = Carbon::parse($viewdataproject->date_end);
+        $timeDiff = $deadline->diffInMilliseconds($serverTime);
 
         // Melanjutkan ke view
         return view('staff.project.03-03-detail-purchaseorder', [
@@ -13470,6 +13503,8 @@ class StaffProjectController extends Controller
             'sum_pay' => $sum_pay,
             'balance' => $balance,
             'standar_project' => $standar_project,
+            'serverTime' => $serverTime->toIso8601String(),
+            'timeDiff' => $timeDiff,
         ]);
     }
     public function ProcessTigaTitikTigaFormProgress(
@@ -18132,6 +18167,11 @@ class StaffProjectController extends Controller
             $koneksipay->mny_da_pay_5;
 
         $balance = $viewdataproject->budget_amount - $sum_pay;
+        $serverTime = now(); // Mengambil waktu saat ini di sisi server
+
+        // Hitung selisih waktu dan tambahkan ke data yang dikirim ke view
+        $deadline = Carbon::parse($viewdataproject->date_end);
+        $timeDiff = $deadline->diffInMilliseconds($serverTime);
 
         // Melanjutkan ke view
         return view('staff.project.03-04-detail-payment', [
@@ -18151,6 +18191,8 @@ class StaffProjectController extends Controller
             'sum_pay' => $sum_pay,
             'balance' => $balance,
             'standar_project' => $standar_project,
+            'serverTime' => $serverTime->toIso8601String(),
+            'timeDiff' => $timeDiff,
         ]);
     }
     public function ProcessTigaTitikEmpatFormProgress(
@@ -22922,6 +22964,11 @@ class StaffProjectController extends Controller
             $koneksipay->mny_da_pay_5;
 
         $balance = $viewdataproject->budget_amount - $sum_pay;
+        $serverTime = now(); // Mengambil waktu saat ini di sisi server
+
+        // Hitung selisih waktu dan tambahkan ke data yang dikirim ke view
+        $deadline = Carbon::parse($viewdataproject->date_end);
+        $timeDiff = $deadline->diffInMilliseconds($serverTime);
 
         // Melanjutkan ke view
         return view('staff.project.04-detail-manufacturing', [
@@ -22941,6 +22988,8 @@ class StaffProjectController extends Controller
             'sum_pay' => $sum_pay,
             'balance' => $balance,
             'standar_project' => $standar_project,
+            'serverTime' => $serverTime->toIso8601String(),
+            'timeDiff' => $timeDiff,
         ]);
     }
 
@@ -24312,6 +24361,11 @@ class StaffProjectController extends Controller
             $koneksipay->mny_da_pay_5;
 
         $balance = $viewdataproject->budget_amount - $sum_pay;
+        $serverTime = now(); // Mengambil waktu saat ini di sisi server
+
+        // Hitung selisih waktu dan tambahkan ke data yang dikirim ke view
+        $deadline = Carbon::parse($viewdataproject->date_end);
+        $timeDiff = $deadline->diffInMilliseconds($serverTime);
 
         // Melanjutkan ke view
         return view('staff.project.05-detail-installation', [
@@ -24331,6 +24385,8 @@ class StaffProjectController extends Controller
             'sum_pay' => $sum_pay,
             'balance' => $balance,
             'standar_project' => $standar_project,
+            'serverTime' => $serverTime->toIso8601String(),
+            'timeDiff' => $timeDiff,
         ]);
     }
     public function ProcessLimaFormProgress(
@@ -25885,6 +25941,11 @@ class StaffProjectController extends Controller
             $koneksipay->mny_da_pay_5;
 
         $balance = $viewdataproject->budget_amount - $sum_pay;
+        $serverTime = now(); // Mengambil waktu saat ini di sisi server
+
+        // Hitung selisih waktu dan tambahkan ke data yang dikirim ke view
+        $deadline = Carbon::parse($viewdataproject->date_end);
+        $timeDiff = $deadline->diffInMilliseconds($serverTime);
 
         // Melanjutkan ke view
         return view('staff.project.06-detail-closed', [
@@ -25904,6 +25965,8 @@ class StaffProjectController extends Controller
             'sum_pay' => $sum_pay,
             'balance' => $balance,
             'standar_project' => $standar_project,
+            'serverTime' => $serverTime->toIso8601String(),
+            'timeDiff' => $timeDiff,
         ]);
     }
     public function ProcessEnamFormProgress(

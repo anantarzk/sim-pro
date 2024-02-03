@@ -2861,6 +2861,11 @@ class SpvProjectController extends Controller
             $koneksipay->mny_da_pay_5;
 
         $balance = $viewdataproject->budget_amount - $sum_pay;
+        $serverTime = now(); // Mengambil waktu saat ini di sisi server
+
+        // Hitung selisih waktu dan tambahkan ke data yang dikirim ke view
+        $deadline = Carbon::parse($viewdataproject->date_end);
+        $timeDiff = $deadline->diffInMilliseconds($serverTime);
 
         // Melanjutkan ke view
         return view('supervisor.project.02-detail-arrangement', [
@@ -2880,6 +2885,8 @@ class SpvProjectController extends Controller
             'sum_pay' => $sum_pay,
             'balance' => $balance,
             'standar_project' => $standar_project,
+            'serverTime' => $serverTime->toIso8601String(),
+            'timeDiff' => $timeDiff,
         ]);
     }
 
@@ -4519,6 +4526,11 @@ class SpvProjectController extends Controller
             $koneksipay->mny_da_pay_5;
 
         $balance = $viewdataproject->budget_amount - $sum_pay;
+        $serverTime = now(); // Mengambil waktu saat ini di sisi server
+
+        // Hitung selisih waktu dan tambahkan ke data yang dikirim ke view
+        $deadline = Carbon::parse($viewdataproject->date_end);
+        $timeDiff = $deadline->diffInMilliseconds($serverTime);
 
         // Melanjutkan ke view
         return view('supervisor.project.03-01-detail-purchasing', [
@@ -4538,6 +4550,8 @@ class SpvProjectController extends Controller
             'sum_pay' => $sum_pay,
             'balance' => $balance,
             'standar_project' => $standar_project,
+            'serverTime' => $serverTime->toIso8601String(),
+            'timeDiff' => $timeDiff,
         ]);
     }
 
@@ -9038,6 +9052,11 @@ class SpvProjectController extends Controller
             $koneksipay->mny_da_pay_5;
 
         $balance = $viewdataproject->budget_amount - $sum_pay;
+        $serverTime = now(); // Mengambil waktu saat ini di sisi server
+
+        // Hitung selisih waktu dan tambahkan ke data yang dikirim ke view
+        $deadline = Carbon::parse($viewdataproject->date_end);
+        $timeDiff = $deadline->diffInMilliseconds($serverTime);
 
         // Melanjutkan ke view
         return view('supervisor.project.03-02-detail-purchaseapproval', [
@@ -9057,6 +9076,8 @@ class SpvProjectController extends Controller
             'sum_pay' => $sum_pay,
             'balance' => $balance,
             'standar_project' => $standar_project,
+            'serverTime' => $serverTime->toIso8601String(),
+            'timeDiff' => $timeDiff,
         ]);
     }
     public function ProcessTigaTitikDuaFormProgress(
@@ -13717,6 +13738,11 @@ class SpvProjectController extends Controller
             $koneksipay->mny_da_pay_5;
 
         $balance = $viewdataproject->budget_amount - $sum_pay;
+        $serverTime = now(); // Mengambil waktu saat ini di sisi server
+
+        // Hitung selisih waktu dan tambahkan ke data yang dikirim ke view
+        $deadline = Carbon::parse($viewdataproject->date_end);
+        $timeDiff = $deadline->diffInMilliseconds($serverTime);
 
         // Melanjutkan ke view
         return view('supervisor.project.03-03-detail-purchaseorder', [
@@ -13736,6 +13762,8 @@ class SpvProjectController extends Controller
             'sum_pay' => $sum_pay,
             'balance' => $balance,
             'standar_project' => $standar_project,
+            'serverTime' => $serverTime->toIso8601String(),
+            'timeDiff' => $timeDiff,
         ]);
     }
     public function ProcessTigaTitikTigaFormProgress(
@@ -18397,6 +18425,11 @@ class SpvProjectController extends Controller
             $koneksipay->mny_da_pay_5;
 
         $balance = $viewdataproject->budget_amount - $sum_pay;
+        $serverTime = now(); // Mengambil waktu saat ini di sisi server
+
+        // Hitung selisih waktu dan tambahkan ke data yang dikirim ke view
+        $deadline = Carbon::parse($viewdataproject->date_end);
+        $timeDiff = $deadline->diffInMilliseconds($serverTime);
 
         // Melanjutkan ke view
         return view('supervisor.project.03-04-detail-payment', [
@@ -18416,6 +18449,8 @@ class SpvProjectController extends Controller
             'sum_pay' => $sum_pay,
             'balance' => $balance,
             'standar_project' => $standar_project,
+            'serverTime' => $serverTime->toIso8601String(),
+            'timeDiff' => $timeDiff,
         ]);
     }
     public function ProcessTigaTitikEmpatFormProgress(
@@ -23185,6 +23220,11 @@ class SpvProjectController extends Controller
             $koneksipay->mny_da_pay_5;
 
         $balance = $viewdataproject->budget_amount - $sum_pay;
+        $serverTime = now(); // Mengambil waktu saat ini di sisi server
+
+        // Hitung selisih waktu dan tambahkan ke data yang dikirim ke view
+        $deadline = Carbon::parse($viewdataproject->date_end);
+        $timeDiff = $deadline->diffInMilliseconds($serverTime);
 
         // Melanjutkan ke view
         return view('supervisor.project.04-detail-manufacturing', [
@@ -23204,6 +23244,8 @@ class SpvProjectController extends Controller
             'sum_pay' => $sum_pay,
             'balance' => $balance,
             'standar_project' => $standar_project,
+            'serverTime' => $serverTime->toIso8601String(),
+            'timeDiff' => $timeDiff,
         ]);
     }
 
@@ -24570,6 +24612,11 @@ class SpvProjectController extends Controller
             $koneksipay->mny_da_pay_5;
 
         $balance = $viewdataproject->budget_amount - $sum_pay;
+        $serverTime = now(); // Mengambil waktu saat ini di sisi server
+
+        // Hitung selisih waktu dan tambahkan ke data yang dikirim ke view
+        $deadline = Carbon::parse($viewdataproject->date_end);
+        $timeDiff = $deadline->diffInMilliseconds($serverTime);
 
         // Melanjutkan ke view
         return view('supervisor.project.05-detail-installation', [
@@ -24589,6 +24636,8 @@ class SpvProjectController extends Controller
             'sum_pay' => $sum_pay,
             'balance' => $balance,
             'standar_project' => $standar_project,
+            'serverTime' => $serverTime->toIso8601String(),
+            'timeDiff' => $timeDiff,
         ]);
     }
 
@@ -26141,6 +26190,11 @@ class SpvProjectController extends Controller
             $koneksipay->mny_da_pay_5;
 
         $balance = $viewdataproject->budget_amount - $sum_pay;
+        $serverTime = now(); // Mengambil waktu saat ini di sisi server
+
+        // Hitung selisih waktu dan tambahkan ke data yang dikirim ke view
+        $deadline = Carbon::parse($viewdataproject->date_end);
+        $timeDiff = $deadline->diffInMilliseconds($serverTime);
 
         // Melanjutkan ke view
         return view('supervisor.project.06-detail-closed', [
@@ -26160,6 +26214,8 @@ class SpvProjectController extends Controller
             'sum_pay' => $sum_pay,
             'balance' => $balance,
             'standar_project' => $standar_project,
+            'serverTime' => $serverTime->toIso8601String(),
+            'timeDiff' => $timeDiff,
         ]);
     }
     public function ProcessEnamFormProgress(

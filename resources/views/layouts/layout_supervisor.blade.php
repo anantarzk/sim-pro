@@ -33,7 +33,6 @@
             background: #aeadad;
         }
     </style>
-
 </head>
 
 <body class="bg-gray-200">

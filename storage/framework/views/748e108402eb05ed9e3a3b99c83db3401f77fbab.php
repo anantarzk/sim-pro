@@ -1,101 +1,109 @@
-@extends('layouts.layout_supervisor')
-@section('title_page', 'Installation - Project')
+<?php $__env->startSection('title_page', 'Installation - Project'); ?>
 
 <div class="mx-10 my-20">
-    {{-- header --}}
+    
     <div class="tracking-wide mb-2">
         <p class=" font-mono font-bold text-3xl mb-3">Detail proyek - IN:</p>
     </div>
-    {{-- akhir header --}}
-    {{-- mulai card --}}
+    
+    
     <div class="bg-white p-4 rounded-md shadow-md">
         <div class=" flex overflow-x-auto">
             <div class="w-full">
-                {{-- row judul proyek --}}
+                
                 <div class="justify-between flex">
                     <div class="max-w-3xl">
                         <div class="container">
                             <p class="mb-1 text-3xl font-semibold tracking-normal text-gray-900 capitalize">
-                                {{ $viewdataproject->project_name }}
+                                <?php echo e($viewdataproject->project_name); ?>
+
                         </div>
                     </div>
                     <div class="">
-                        {{-- IO number --}}
+                        
                         <div class="container text-right">
                             <div class="font-semibold text-lg text-gray-600">IO Number:</div>
                             <p class="text-3xl font-bold text-gray-700">
-                                {{ $viewdataproject->io_number }}
+                                <?php echo e($viewdataproject->io_number); ?>
+
                             </p>
                         </div>
                     </div>
                 </div>
-                {{-- akhir row judul --}}
+                
 
-                {{-- row pic --}}
+                
                 <div class="flex justify-between items-center">
                     <div class="flex mt-3.5 space-x-2">
-                        {{-- Cek PIC --}}
-                        @if ($viewdataproject->pic_1_me != '')
+                        
+                        <?php if($viewdataproject->pic_1_me != ''): ?>
                             <div
                                 class="items-center py-1 px-2 text-sm font-medium text-center text-white bg-orange-500 rounded">
-                                {{ $viewdataproject->pic_1_me }}
-                            </div>
-                        @endif
-                        @if ($viewdataproject->pic_2_el != '')
-                            <div
-                                class="items-center py-1 px-2 text-sm font-medium text-center text-white bg-orange-500 rounded">
-                                {{ $viewdataproject->pic_2_el }}
-                            </div>
-                        @endif
-                        @if ($viewdataproject->pic_3_mit != '')
-                            <div
-                                class="items-center py-1 px-2 text-sm font-medium text-center text-white bg-orange-500 rounded">
-                                {{ $viewdataproject->pic_3_mit }}
-                            </div>
-                        @endif
+                                <?php echo e($viewdataproject->pic_1_me); ?>
 
-                        {{-- Akhir cek PIC --}}
+                            </div>
+                        <?php endif; ?>
+                        <?php if($viewdataproject->pic_2_el != ''): ?>
+                            <div
+                                class="items-center py-1 px-2 text-sm font-medium text-center text-white bg-orange-500 rounded">
+                                <?php echo e($viewdataproject->pic_2_el); ?>
+
+                            </div>
+                        <?php endif; ?>
+                        <?php if($viewdataproject->pic_3_mit != ''): ?>
+                            <div
+                                class="items-center py-1 px-2 text-sm font-medium text-center text-white bg-orange-500 rounded">
+                                <?php echo e($viewdataproject->pic_3_mit); ?>
+
+                            </div>
+                        <?php endif; ?>
+
+                        
                     </div>
                     <div>
                         <div class="flex justify-between max-w-xl text-right space-x-10 auto-cols-auto">
                             <div>
                                 <p class="text-md font-medium text-gray-600">Section:</p>
                                 <p class="text-lg font-semibold">
-                                    {{ $viewdataproject->section }}
+                                    <?php echo e($viewdataproject->section); ?>
+
                                 </p>
                             </div>
                             <div>
                                 <p class="text-md font-medium text-gray-600">Cost Dept:</p>
                                 <p class="text-lg font-semibold">
-                                    {{ $viewdataproject->cost_dept }}
+                                    <?php echo e($viewdataproject->cost_dept); ?>
+
                                 </p>
                             </div>
-                            @if ($viewdataproject->remarks != '')
+                            <?php if($viewdataproject->remarks != ''): ?>
                                 <div>
                                     <p class="text-md font-medium text-gray-600">Remarks:</p>
                                     <p class="text-lg font-semibold">
-                                        {{ $viewdataproject->remarks }}
+                                        <?php echo e($viewdataproject->remarks); ?>
+
                                     </p>
                                 </div>
-                            @endif
+                            <?php endif; ?>
                             <div>
                                 <p class="text-md font-medium text-gray-600">OB Year:</p>
                                 <p class="text-lg font-semibold">
-                                    {{ $viewdataproject->ob_year }}
+                                    <?php echo e($viewdataproject->ob_year); ?>
+
                                 </p>
                             </div>
                         </div>
                     </div>
                 </div>
-                {{-- akhir row pic --}}
+                
 
 
 
-                {{-- div row status --}}
+                
                 <div class="mt-3">
                     <hr class="mb-2 w-full border">
-                    {{-- progress bar --}}
-                    @php
+                    
+                    <?php
                         $totalStages = 9;
                         $completedStages = 0;
 
@@ -134,18 +142,18 @@
                         if ($overallProgress > 85) {
                             $barColor = 'bg-green-700';
                         }
-                    @endphp
+                    ?>
 
                     <div class="w-full bg-gray-200 rounded-full my-2">
                         <div class="text-sm font-medium text-white text-center leading-none rounded-lg hover:cursor-default relative transition-all duration-500
-                            {{ $barColor }}"
-                            style="width: {{ $overallProgress }}%;">
-                            <p class="text-sm">{{ $overallProgress }}%</p>
+                            <?php echo e($barColor); ?>"
+                            style="width: <?php echo e($overallProgress); ?>%;">
+                            <p class="text-sm"><?php echo e($overallProgress); ?>%</p>
                         </div>
                     </div>
-                    {{-- akhir bar --}}
+                    
 
-                    {{-- status --}}
+                    
                     <div class="flex justify-between">
                         <div class="flex">
                             <div>
@@ -153,14 +161,16 @@
                                     FR:
                                 </div>
                                 <div class="items-center pr-4 text-sm font-medium">
-                                    {{ $viewdataproject->status_project }}
+                                    <?php echo e($viewdataproject->status_project); ?>
+
                                 </div>
                             </div>
                             <div>
                                 <div class="items-center pt-1 pr-4 text-sm font-medium  text-gray-600">Jumlah Budget:
                                 </div>
                                 <div class="items-center pr-4 text-sm font-medium">
-                                    Rp{{ number_format($viewdataproject->budget_amount, 0, ',', '.') }}
+                                    Rp<?php echo e(number_format($viewdataproject->budget_amount, 0, ',', '.')); ?>
+
                                 </div>
                             </div>
 
@@ -169,14 +179,15 @@
                                     diperbaharui:
                                 </div>
                                 <div class="items-center pr-4 text-sm font-medium">
-                                    {{ $viewdataproject->last_update_name }},
-                                    {{ $viewdataproject->last_update_date }}
+                                    <?php echo e($viewdataproject->last_update_name); ?>,
+                                    <?php echo e($viewdataproject->last_update_date); ?>
+
                                 </div>
                             </div>
                         </div>
-                        {{-- deadline countdown --}}
+                        
                         <div class="flex text-right">
-                            @if ($viewdataproject->progress == 'Closed')
+                            <?php if($viewdataproject->progress == 'Closed'): ?>
                                 <div class=" space-x-1 font-medium items-center py-1 px-3 text-center text-lg rounded-xl drop-shadow-md flex justify-center w-fit bg-green-700 text-white mt-1"
                                     data-tooltip-target="tooltip-bottom" data-tooltip-placement="bottom">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="22" viewBox="0 0 24 24"
@@ -192,36 +203,37 @@
                                         Proyek telah SELESAI
                                     </p>
                                 </div>
-                            @else
-                                <div id="countdown-{{ $viewdataproject->id }}"
+                            <?php else: ?>
+                                <div id="countdown-<?php echo e($viewdataproject->id); ?>"
                                     class="items-center py-1 px-2 font-medium text-center text-lg rounded drop-shadow-md flex justify-center mt-2"
                                     data-tooltip-target="tooltip-bottom" data-tooltip-placement="bottom">
                                 </div>
-                            @endif
+                            <?php endif; ?>
                             <div id="tooltip-bottom" role="tooltip"
                                 class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-600 rounded-lg shadow-sm opacity-0 tooltip">
                                 <div class="grid grid-cols-2 space-x-2">
                                     <div>
                                         <p class="text-left">Tanggal mulai:</p>
                                         <div class="text-left">
-                                            {{ $viewdataproject->date_start }}
+                                            <?php echo e($viewdataproject->date_start); ?>
+
                                         </div>
                                     </div>
                                     <div>
                                         <p class="text-left">Tanggal selesai:</p>
                                         <p class="text-left">
-                                            {{ $viewdataproject->date_end }}</p>
+                                            <?php echo e($viewdataproject->date_end); ?></p>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                {{-- akhir row --}}
+                
             </div>
         </div>
 
-        {{-- financial status --}}
+        
         <div class="mt-3 w-full ">
             <hr class="w-full border">
             <div class="overflow-x-auto rounded">
@@ -252,231 +264,239 @@
                 </div>
                 <div class="grid grid-cols-6 gap-1 text-gray-900 text-left text-md bg-gray-500">
                     <div class="bg-gray-300 px-1 font-bold">
-                        Rp{{ number_format($viewdataproject->budget_amount, 0, ',', '.') }}
+                        Rp<?php echo e(number_format($viewdataproject->budget_amount, 0, ',', '.')); ?>
+
                     </div>
                     <div class="bg-gray-300 px-1 font-bold">
-                        Rp{{ number_format($sum_pr, 0, ',', '.') }}
+                        Rp<?php echo e(number_format($sum_pr, 0, ',', '.')); ?>
+
                     </div>
                     <div class="bg-gray-300 px-1 font-bold">
-                        Rp{{ number_format($sum_pa, 0, ',', '.') }}
+                        Rp<?php echo e(number_format($sum_pa, 0, ',', '.')); ?>
+
                     </div>
                     <div class="bg-gray-300 px-1 font-bold">
-                        Rp{{ number_format($sum_po, 0, ',', '.') }}
+                        Rp<?php echo e(number_format($sum_po, 0, ',', '.')); ?>
+
                     </div>
                     <div class="bg-gray-300 px-1 font-bold">
-                        Rp{{ number_format($sum_pay, 0, ',', '.') }}
+                        Rp<?php echo e(number_format($sum_pay, 0, ',', '.')); ?>
+
                     </div>
                     <div class="bg-gray-800 px-1 text-gray-200 font-bold">
-                        {{-- initial kondisi, balance = budget amount sebelum ada oprasi perhitungan --}}
-                        Rp{{ number_format($balance, 0, ',', '.') }}
+                        
+                        Rp<?php echo e(number_format($balance, 0, ',', '.')); ?>
+
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    {{-- awal stepper --}}
+    
     <div class="bg-white mt-3 h-40 pt-3 rounded-lg shadow-md">
         <div class="max-w-5xl mx-auto">
             <div class="flex items-center">
                 <div class="flex items-center relative">
-                    @if ($koneksifr->status_fr == 'Complete')
+                    <?php if($koneksifr->status_fr == 'Complete'): ?>
                         <div class="rounded-full h-12 w-12 py-2 px-2.5 bg-green-600 border-white border-4">
                             <p class="font-bold text-md text-white">FR</p>
                         </div>
-                    @elseif($koneksifr->status_fr == 'Revisi Fund Request')
+                    <?php elseif($koneksifr->status_fr == 'Revisi Fund Request'): ?>
                         <div class="rounded-full h-12 w-12 py-2 px-2 bg-yellow-300 border-white border-4">
                             <p class="font-bold text-md text-black">FR</p>
                         </div>
-                    @else
+                    <?php else: ?>
                         <div class="rounded-full h-12 w-12 py-2 px-2.5 bg-gray-400 border-white border-4">
                             <p class="font-bold text-md text-white">FR</p>
                         </div>
-                    @endif
+                    <?php endif; ?>
 
                     <div class="absolute top-0 -ml-10 text-center mt-14 w-36 text-sm font-medium">
                         <a
-                            href="/01-fundrequest-proyek/{{ $viewdataproject->id }}/{{ $koneksifr->id_fr_1 }}/{{ $koneksiar->id_ar_2 }}/{{ $koneksipr->id_pr_01_3 }}/{{ $koneksipa->id_pa_02_3 }}/{{ $koneksipo->id_po_03_3 }}/{{ $koneksipay->id_pay_04_3 }}/{{ $koneksimn->id_mn_4 }}/{{ $koneksiin->id_in_5 }}/{{ $koneksicl->id_cl_6 }}">
+                            href="/01-fundrequest-proyek/<?php echo e($viewdataproject->id); ?>/<?php echo e($koneksifr->id_fr_1); ?>/<?php echo e($koneksiar->id_ar_2); ?>/<?php echo e($koneksipr->id_pr_01_3); ?>/<?php echo e($koneksipa->id_pa_02_3); ?>/<?php echo e($koneksipo->id_po_03_3); ?>/<?php echo e($koneksipay->id_pay_04_3); ?>/<?php echo e($koneksimn->id_mn_4); ?>/<?php echo e($koneksiin->id_in_5); ?>/<?php echo e($koneksicl->id_cl_6); ?>">
                             <p class="font-semibold text-lg text-gray-900 hover:underline">
                                 Fund Request<span class="text-red-600">*</span>
                             </p>
                         </a>
-                        <p class="uppercase text-xs">{{ $koneksifr->status_fr }}</p>
-                        <p>{{ $koneksifr->status_fr_date }}</p>
+                        <p class="uppercase text-xs"><?php echo e($koneksifr->status_fr); ?></p>
+                        <p><?php echo e($koneksifr->status_fr_date); ?></p>
                     </div>
                 </div>
 
                 <div class="flex-auto border-t-2 border-gray-300"></div>
 
                 <div class="flex items-center relative">
-                    @if ($koneksiar->status_ar == 'Complete')
+                    <?php if($koneksiar->status_ar == 'Complete'): ?>
                         <div class="rounded-full h-12 w-12 py-2 px-2 bg-green-600 border-white border-4">
                             <p class="font-bold text-md text-white">AR</p>
                         </div>
-                    @elseif($koneksiar->status_ar == 'Revisi Arrangement')
+                    <?php elseif($koneksiar->status_ar == 'Revisi Arrangement'): ?>
                         <div class="rounded-full h-12 w-12 py-2 px-2 bg-yellow-300 border-white border-4">
                             <p class="font-bold text-md text-black">AR</p>
                         </div>
-                    @else
+                    <?php else: ?>
                         <div class="rounded-full h-12 w-12 py-2 px-2 bg-gray-400 border-white border-4">
                             <p class="font-bold text-md text-white">AR</p>
                         </div>
-                    @endif
+                    <?php endif; ?>
                     <div class="absolute top-0 -ml-10 text-center mt-14 w-32 text-sm font-medium">
                         <a
-                            href="/02-arrangement-proyek/{{ $viewdataproject->id }}/{{ $koneksifr->id_fr_1 }}/{{ $koneksiar->id_ar_2 }}/{{ $koneksipr->id_pr_01_3 }}/{{ $koneksipa->id_pa_02_3 }}/{{ $koneksipo->id_po_03_3 }}/{{ $koneksipay->id_pay_04_3 }}/{{ $koneksimn->id_mn_4 }}/{{ $koneksiin->id_in_5 }}/{{ $koneksicl->id_cl_6 }}">
+                            href="/02-arrangement-proyek/<?php echo e($viewdataproject->id); ?>/<?php echo e($koneksifr->id_fr_1); ?>/<?php echo e($koneksiar->id_ar_2); ?>/<?php echo e($koneksipr->id_pr_01_3); ?>/<?php echo e($koneksipa->id_pa_02_3); ?>/<?php echo e($koneksipo->id_po_03_3); ?>/<?php echo e($koneksipay->id_pay_04_3); ?>/<?php echo e($koneksimn->id_mn_4); ?>/<?php echo e($koneksiin->id_in_5); ?>/<?php echo e($koneksicl->id_cl_6); ?>">
                             <p class="font-semibold text-lg text-gray-900 hover:underline">Arrangement
                             </p>
                         </a>
-                        <p class="uppercase text-xs">{{ $koneksiar->status_ar }}</p>
-                        <p>{{ $koneksiar->status_ar_date }}</p>
+                        <p class="uppercase text-xs"><?php echo e($koneksiar->status_ar); ?></p>
+                        <p><?php echo e($koneksiar->status_ar_date); ?></p>
                     </div>
                 </div>
 
                 <div class="flex-auto border-t-2 border-gray-300"></div>
 
                 <div class="flex items-center relative">
-                    @if ($koneksipr->status_purchasing == 'Complete')
+                    <?php if($koneksipr->status_purchasing == 'Complete'): ?>
                         <div class="rounded-full h-12 w-12 py-2 px-2.5 bg-green-600 border-white border-4">
                             <p class="font-bold text-md text-white">PR</p>
                         </div>
-                    @elseif(
+                    <?php elseif(
                         $koneksipr->status_pr_01 == 'Revisi Purchasing - PR' ||
                             $koneksipa->status_pa_02 == 'Revisi Purchasing - PA' ||
                             $koneksipo->status_po_03 == 'Revisi Purchasing - PO' ||
-                            $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY')
+                            $koneksipay->status_pay_04 == 'Revisi Purchasing - PAY'): ?>
                         <div class="rounded-full h-12 w-12 py-2 px-2 bg-yellow-300 border-white border-4">
                             <p class="font-bold text-md text-black">PR</p>
                         </div>
-                    @else
+                    <?php else: ?>
                         <div class="rounded-full h-12 w-12 py-2 px-2.5 bg-gray-400 border-white border-4">
                             <p class="font-bold text-md text-white">PR</p>
                         </div>
-                    @endif
+                    <?php endif; ?>
                     <div class="absolute top-0 -ml-10 text-center mt-14 w-32 text-sm font-medium">
                         <a
-                            href="/03-01-PR-purchasing-proyek/{{ $viewdataproject->id }}/{{ $koneksifr->id_fr_1 }}/{{ $koneksiar->id_ar_2 }}/{{ $koneksipr->id_pr_01_3 }}/{{ $koneksipa->id_pa_02_3 }}/{{ $koneksipo->id_po_03_3 }}/{{ $koneksipay->id_pay_04_3 }}/{{ $koneksimn->id_mn_4 }}/{{ $koneksiin->id_in_5 }}/{{ $koneksicl->id_cl_6 }}">
+                            href="/03-01-PR-purchasing-proyek/<?php echo e($viewdataproject->id); ?>/<?php echo e($koneksifr->id_fr_1); ?>/<?php echo e($koneksiar->id_ar_2); ?>/<?php echo e($koneksipr->id_pr_01_3); ?>/<?php echo e($koneksipa->id_pa_02_3); ?>/<?php echo e($koneksipo->id_po_03_3); ?>/<?php echo e($koneksipay->id_pay_04_3); ?>/<?php echo e($koneksimn->id_mn_4); ?>/<?php echo e($koneksiin->id_in_5); ?>/<?php echo e($koneksicl->id_cl_6); ?>">
                             <p class="font-semibold text-lg text-gray-900 hover:underline">Purchasing<span
                                     class="text-red-600">*</span>
                             </p>
                         </a>
-                        <p class="uppercase text-xs">{{ $koneksipr->status_purchasing }}</p>
-                        <p>{{ $koneksipr->status_purchasing_date }}</p>
+                        <p class="uppercase text-xs"><?php echo e($koneksipr->status_purchasing); ?></p>
+                        <p><?php echo e($koneksipr->status_purchasing_date); ?></p>
                     </div>
                 </div>
 
                 <div class="flex-auto border-t-2 border-gray-300"></div>
 
                 <div class="flex items-center relative">
-                    @if ($koneksimn->status_mn == 'Complete')
+                    <?php if($koneksimn->status_mn == 'Complete'): ?>
                         <div class="rounded-full h-12 w-12 py-2 px-1.5 bg-green-600 border-white border-4">
                             <p class="font-bold text-md text-white">MN</p>
                         </div>
-                    @elseif($koneksimn->status_mn == 'Revisi Manufacturing')
+                    <?php elseif($koneksimn->status_mn == 'Revisi Manufacturing'): ?>
                         <div class="rounded-full h-12 w-12 py-2 px-1.5 bg-yellow-300 border-white border-4">
                             <p class="font-bold text-md text-black">MN</p>
                         </div>
-                    @else
+                    <?php else: ?>
                         <div class="rounded-full h-12 w-12 py-2 px-1.5 bg-gray-400 border-white border-4">
                             <p class="font-bold text-md text-white">MN</p>
                         </div>
-                    @endif
+                    <?php endif; ?>
                     <div class="absolute top-0 -ml-10 text-center mt-14 w-32 text-sm font-medium">
                         <a
-                            href="/04-manufacturing-proyek/{{ $viewdataproject->id }}/{{ $koneksifr->id_fr_1 }}/{{ $koneksiar->id_ar_2 }}/{{ $koneksipr->id_pr_01_3 }}/{{ $koneksipa->id_pa_02_3 }}/{{ $koneksipo->id_po_03_3 }}/{{ $koneksipay->id_pay_04_3 }}/{{ $koneksimn->id_mn_4 }}/{{ $koneksiin->id_in_5 }}/{{ $koneksicl->id_cl_6 }}">
+                            href="/04-manufacturing-proyek/<?php echo e($viewdataproject->id); ?>/<?php echo e($koneksifr->id_fr_1); ?>/<?php echo e($koneksiar->id_ar_2); ?>/<?php echo e($koneksipr->id_pr_01_3); ?>/<?php echo e($koneksipa->id_pa_02_3); ?>/<?php echo e($koneksipo->id_po_03_3); ?>/<?php echo e($koneksipay->id_pay_04_3); ?>/<?php echo e($koneksimn->id_mn_4); ?>/<?php echo e($koneksiin->id_in_5); ?>/<?php echo e($koneksicl->id_cl_6); ?>">
                             <p class="font-semibold text-lg text-gray-900 hover:underline">Manufacturing
                             </p>
                         </a>
-                        <p class="uppercase text-xs">{{ $koneksimn->status_mn }}</p>
-                        <p>{{ $koneksimn->status_mn_date }}</p>
+                        <p class="uppercase text-xs"><?php echo e($koneksimn->status_mn); ?></p>
+                        <p><?php echo e($koneksimn->status_mn_date); ?></p>
                     </div>
                 </div>
 
                 <div class="flex-auto border-t-2 border-gray-300"></div>
 
                 <div class="flex items-center relative">
-                    @if ($koneksiin->status_in == 'Complete')
+                    <?php if($koneksiin->status_in == 'Complete'): ?>
                         <div class="rounded-full h-12 w-12 py-2 px-2.5 bg-green-600 border-orange-500 border-4">
                             <p class="font-bold text-md text-white">IN</p>
                         </div>
-                    @elseif($koneksiin->status_in == 'Revisi Installation')
+                    <?php elseif($koneksiin->status_in == 'Revisi Installation'): ?>
                         <div class="rounded-full h-12 w-12 py-2 px-2.5 bg-yellow-300 border-orange-500 border-4">
                             <p class="font-bold text-md text-black">IN</p>
                         </div>
-                    @else
+                    <?php else: ?>
                         <div class="rounded-full h-12 w-12 py-2 px-2.5 bg-gray-400 border-orange-500 border-4">
                             <p class="font-bold text-md text-white">IN</p>
                         </div>
-                    @endif
+                    <?php endif; ?>
                     <div class="absolute top-0 -ml-10 text-center mt-14 w-32 text-sm font-medium">
                         <a
-                            href="/05-installation-proyek/{{ $viewdataproject->id }}/{{ $koneksifr->id_fr_1 }}/{{ $koneksiar->id_ar_2 }}/{{ $koneksipr->id_pr_01_3 }}/{{ $koneksipa->id_pa_02_3 }}/{{ $koneksipo->id_po_03_3 }}/{{ $koneksipay->id_pay_04_3 }}/{{ $koneksimn->id_mn_4 }}/{{ $koneksiin->id_in_5 }}/{{ $koneksicl->id_cl_6 }}">
+                            href="/05-installation-proyek/<?php echo e($viewdataproject->id); ?>/<?php echo e($koneksifr->id_fr_1); ?>/<?php echo e($koneksiar->id_ar_2); ?>/<?php echo e($koneksipr->id_pr_01_3); ?>/<?php echo e($koneksipa->id_pa_02_3); ?>/<?php echo e($koneksipo->id_po_03_3); ?>/<?php echo e($koneksipay->id_pay_04_3); ?>/<?php echo e($koneksimn->id_mn_4); ?>/<?php echo e($koneksiin->id_in_5); ?>/<?php echo e($koneksicl->id_cl_6); ?>">
                             <p class="font-semibold text-lg text-gray-900 hover:underline">Installation<span
                                     class="text-red-600">*</span>
                             </p>
                         </a>
-                        <p class="uppercase text-xs">{{ $koneksiin->status_in }}</p>
-                        <p>{{ $koneksiin->status_in_date }}</p>
+                        <p class="uppercase text-xs"><?php echo e($koneksiin->status_in); ?></p>
+                        <p><?php echo e($koneksiin->status_in_date); ?></p>
                     </div>
                 </div>
 
                 <div class="flex-auto border-t-2 border-gray-300"></div>
 
                 <div class="flex items-center relative">
-                    @if ($koneksicl->status_cl == 'Complete')
+                    <?php if($koneksicl->status_cl == 'Complete'): ?>
                         <div class="rounded-full h-12 w-12 py-2 pl-0.5 bg-green-600 border-white border-4">
                             <p class="font-bold text-md text-white">HOV</p>
                         </div>
-                    @elseif($koneksicl->status_cl == 'Revisi Handover')
+                    <?php elseif($koneksicl->status_cl == 'Revisi Handover'): ?>
                         <div class="rounded-full h-12 w-12 py-2 px-0.5 bg-yellow-300 border-white border-4">
                             <p class="font-bold text-md text-black">HOV</p>
                         </div>
-                    @else
+                    <?php else: ?>
                         <div class="rounded-full h-12 w-12 py-2 pl-0.5 bg-gray-400 border-white border-4">
                             <p class="font-bold text-md text-white">HOV</p>
                         </div>
-                    @endif
+                    <?php endif; ?>
                     <div class="absolute top-0 -ml-10 text-center mt-14 w-32 text-sm font-medium">
                         <a
-                            href="/06-closed-proyek/{{ $viewdataproject->id }}/{{ $koneksifr->id_fr_1 }}/{{ $koneksiar->id_ar_2 }}/{{ $koneksipr->id_pr_01_3 }}/{{ $koneksipa->id_pa_02_3 }}/{{ $koneksipo->id_po_03_3 }}/{{ $koneksipay->id_pay_04_3 }}/{{ $koneksimn->id_mn_4 }}/{{ $koneksiin->id_in_5 }}/{{ $koneksicl->id_cl_6 }}">
+                            href="/06-closed-proyek/<?php echo e($viewdataproject->id); ?>/<?php echo e($koneksifr->id_fr_1); ?>/<?php echo e($koneksiar->id_ar_2); ?>/<?php echo e($koneksipr->id_pr_01_3); ?>/<?php echo e($koneksipa->id_pa_02_3); ?>/<?php echo e($koneksipo->id_po_03_3); ?>/<?php echo e($koneksipay->id_pay_04_3); ?>/<?php echo e($koneksimn->id_mn_4); ?>/<?php echo e($koneksiin->id_in_5); ?>/<?php echo e($koneksicl->id_cl_6); ?>">
                             <p class="font-semibold text-lg text-gray-900 hover:underline">Handover<span
                                     class="text-red-600">*</span>
                             </p>
                         </a>
-                        <p class="uppercase text-xs">{{ $koneksicl->status_cl }}</p>
-                        <p>{{ $koneksicl->status_cl_date }}</p>
+                        <p class="uppercase text-xs"><?php echo e($koneksicl->status_cl); ?></p>
+                        <p><?php echo e($koneksicl->status_cl_date); ?></p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    {{-- akhir stepper --}}
+    
 
 
     <div id="DeadlineCheck">
-        {{-- Awal progress file --}}
+        
     <div class="bg-white mt-3 w-full rounded-md shadow-md p-3">
         <div class="flex justify-between items-center mb-3">
 
-            {{-- status approval row --}}
+            
             <div class="flex">
                 <p>Diperiksa oleh: &nbsp;
                 <div
                     class="items-center py-1 px-2 text-sm font-medium text-center text-white bg-orange-500 mr-2 rounded">
-                    {{ $koneksiin->approval_by }}
+                    <?php echo e($koneksiin->approval_by); ?>
+
                 </div>
                 </p>
                 &nbsp;&nbsp;
                 <p>Pada: &nbsp;
                 <p class="font-semibold">
-                    {{ $koneksiin->approval_date }}
+                    <?php echo e($koneksiin->approval_date); ?>
+
                 </p>
                 </p>
             </div>
 
 
-            @if ($koneksiin->status_in == 'Complete')
-                {{-- approval ijo --}}
+            <?php if($koneksiin->status_in == 'Complete'): ?>
+                
                 <div class="bg-green-600 flex  py-1 px-2   items-center rounded">
                     <div class="">
                         <svg width="18" height="auto" viewBox="0 0 24 24" fill="none"
@@ -490,12 +510,13 @@
                     </div>
                     <div class="text-white font-medium ml-3">
                         <p>
-                            {{ $koneksiin->status_in }}
+                            <?php echo e($koneksiin->status_in); ?>
+
                         </p>
                     </div>
                 </div>
-            @elseif ($koneksiin->status_in == '-')
-                {{-- approval abu2 --}}
+            <?php elseif($koneksiin->status_in == '-'): ?>
+                
                 <div class="bg-gray-400 flex  py-1 px-2   items-center rounded">
                     <div class="">
                         <svg width="18" height="auto" viewBox="0 0 24 24" fill="none"
@@ -507,12 +528,13 @@
                     </div>
                     <div class="text-white font-medium ml-3">
                         <p>
-                            {{ $koneksiin->status_in }}
+                            <?php echo e($koneksiin->status_in); ?>
+
                         </p>
                     </div>
                 </div>
-            @elseif ($koneksiin->status_in == 'Waiting Approval')
-                {{-- approval abu2 --}}
+            <?php elseif($koneksiin->status_in == 'Waiting Approval'): ?>
+                
                 <div class="bg-gray-400 flex  py-1 px-2   items-center rounded">
                     <div class="">
                         <svg width="18" height="auto" viewBox="0 0 24 24" fill="none"
@@ -524,12 +546,13 @@
                     </div>
                     <div class="text-white font-medium ml-3">
                         <p>
-                            {{ $koneksiin->status_in }}
+                            <?php echo e($koneksiin->status_in); ?>
+
                         </p>
                     </div>
                 </div>
-            @elseif ($koneksiin->status_in == 'Revisi Installation')
-                {{-- menunggu approval abu abu --}}
+            <?php elseif($koneksiin->status_in == 'Revisi Installation'): ?>
+                
                 <div class="bg-yellow-300 flex py-1 px-2 items-center rounded border-red-500 border-4">
                     <div class="">
                         <svg width="20" height="auto" viewBox="0 0 80 80" fill="none"
@@ -541,32 +564,33 @@
                     </div>
                     <div class="text-black font-medium ml-3">
                         <p>
-                            {{ $koneksiin->status_in }}
+                            <?php echo e($koneksiin->status_in); ?>
+
                         </p>
                     </div>
                 </div>
-            @endif
+            <?php endif; ?>
 
         </div>
-        {{-- approval abu2 slesai --}}
+        
         <hr class="mb-2 mt-2 w-full border">
-        {{-- selesai status approval row --}}
+        
 
-        {{-- Yang diganti pertahapnya --}}
+        
         <form action="" method="post" enctype="multipart/form-data" id="uploadForm">
-            @csrf
-            @method('PUT')
-            {{-- atas form --}}
+            <?php echo csrf_field(); ?>
+            <?php echo method_field('PUT'); ?>
+            
             <div class="w-full bg-white rounded-t-lg  mt-3">
-                {{-- Izin Power On --}}
-                {{-- awal standar formulir --}}
+                
+                
                 <div class="flex justify-between">
                     <p class="font-medium text-lg bg-gray-800 px-4 py-1 w-fit text-white mb-2 rounded"> Izin power
                         on
-                        @foreach ($standar_project as $spt)
-                            @if ($spt->file_ipo_form != '')
+                        <?php $__currentLoopData = $standar_project; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $spt): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                            <?php if($spt->file_ipo_form != ''): ?>
                                 <div class="flex justify-end mr-1 mt-4">
-                                    <a href="{{ asset('storage/supervisor/standarproject/' . $spt->file_ipo_form) }}"
+                                    <a href="<?php echo e(asset('storage/supervisor/standarproject/' . $spt->file_ipo_form)); ?>"
                                         download="">
                                         <div
                                             class="w-fit items-center space-x-1 flex fill-blue-600 hover:fill-blue-800">
@@ -584,11 +608,11 @@
                                         </div>
                                     </a>
                                 </div>
-                            @endif
-                        @endforeach
-                        {{-- tombol form --}}
+                            <?php endif; ?>
+                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                        
                 </div>
-                {{-- akhir standar formulir --}}
+                
 
                 <div class="overflow-x-auto rounded-md mb-5 border">
                     <table class="w-full ">
@@ -600,13 +624,13 @@
                             <th class="w-[15%] font-medium">Aksi</th>
                         </thead>
                         <tbody class="text-left border">
-                            {{-- 1 --}}
+                            
                             <tr class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
                                 <td class="py-4 font-bold text-center">1.</td>
                                 <td class="flex justify-start py-4 items-center">
 
-                                    @if ($koneksiin->in_ipo_1 != '')
-                                        <a href="{{ asset('storage/supervisor/project/05_IN/' . $koneksiin->in_ipo_1) }}"
+                                    <?php if($koneksiin->in_ipo_1 != ''): ?>
+                                        <a href="<?php echo e(asset('storage/supervisor/project/05_IN/' . $koneksiin->in_ipo_1)); ?>"
                                             target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
                                             <svg width="22" height="17" viewBox="0 0 22 17" fill="none"
                                                 xmlns="http://www.w3.org/2000/svg">
@@ -617,25 +641,26 @@
                                         </a>
 
                                         &emsp;
-                                    @endif
-                                    {{--  --}}
-                                    <a href="{{ asset('storage/supervisor/project/05_IN/' . $koneksiin->in_ipo_1) }}"
+                                    <?php endif; ?>
+                                    
+                                    <a href="<?php echo e(asset('storage/supervisor/project/05_IN/' . $koneksiin->in_ipo_1)); ?>"
                                         target="blank" download="" class="hover:underline">
-                                        {{ $koneksiin->in_ipo_1 }}</a>
-                                    {{-- == --}}
+                                        <?php echo e($koneksiin->in_ipo_1); ?></a>
+                                    
 
                                 </td>
                                 <td>
-                                    @if ($koneksiin->up_by_ipo_in_1 != '')
+                                    <?php if($koneksiin->up_by_ipo_in_1 != ''): ?>
                                         <div
                                             class="items-center py-1 px-2 text-sm font-medium text-center text-white bg-orange-500 w-[100] mx-auto rounded">
-                                            {{ $koneksiin->up_by_ipo_in_1 }}
+                                            <?php echo e($koneksiin->up_by_ipo_in_1); ?>
+
                                         </div>
-                                    @endif
+                                    <?php endif; ?>
                                 </td>
-                                <td class="text-center">{{ $koneksiin->date_in_ipo_1 }}</td>
+                                <td class="text-center"><?php echo e($koneksiin->date_in_ipo_1); ?></td>
                                 <td class="space-y-2 py-3 px-2">
-                                    @if (($koneksiin->status_in == '-' || $koneksiin->status_in == 'Revisi Installation') && $koneksiin->in_ipo_1 == '')
+                                    <?php if(($koneksiin->status_in == '-' || $koneksiin->status_in == 'Revisi Installation') && $koneksiin->in_ipo_1 == ''): ?>
                                         <div class="justify-center flex space-x-2">
                                             <input type="file" name="as_in_ipo_1" id="fileInput_in_ipo_1"
                                                 style="display: none;">
@@ -644,11 +669,11 @@
                                                 + Tambah dokumen
                                             </button>
                                         </div>
-                                    @elseif (
+                                    <?php elseif(
                                         ($koneksiin->status_in == '-' || $koneksiin->status_in == 'Revisi Installation') &&
                                             $koneksiin->in_ipo_1 != '' &&
                                             $koneksiin->status_in != 'Complete' &&
-                                            $koneksiin->status_in != 'Waiting Approval')
+                                            $koneksiin->status_in != 'Waiting Approval'): ?>
                                         <div class="justify-center flex space-x-2">
                                             <button type="button"
                                                 class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
@@ -666,20 +691,20 @@
                                                 </svg>
                                             </button>
                                         </div>
-                                    @endif
+                                    <?php endif; ?>
                                 </td>
                                 <input type="text" hidden name="as_up_by_ipo_in_1"
-                                    value="{{ Auth::user()->first_name }}">
-                                <input type="date" hidden name="as_date_in_ipo_1" value="{{ date('Y-m-d') }}">
+                                    value="<?php echo e(Auth::user()->first_name); ?>">
+                                <input type="date" hidden name="as_date_in_ipo_1" value="<?php echo e(date('Y-m-d')); ?>">
 
                             </tr>
-                            {{-- 2 --}}
+                            
                             <tr class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
                                 <td class="py-4 font-bold text-center">2.</td>
                                 <td class="flex justify-start py-4 items-center">
 
-                                    @if ($koneksiin->in_ipo_2 != '')
-                                        <a href="{{ asset('storage/supervisor/project/05_IN/' . $koneksiin->in_ipo_2) }}"
+                                    <?php if($koneksiin->in_ipo_2 != ''): ?>
+                                        <a href="<?php echo e(asset('storage/supervisor/project/05_IN/' . $koneksiin->in_ipo_2)); ?>"
                                             target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
                                             <svg width="22" height="17" viewBox="0 0 22 17" fill="none"
                                                 xmlns="http://www.w3.org/2000/svg">
@@ -690,25 +715,26 @@
                                         </a>
 
                                         &emsp;
-                                    @endif
-                                    {{--  --}}
-                                    <a href="{{ asset('storage/supervisor/project/05_IN/' . $koneksiin->in_ipo_2) }}"
+                                    <?php endif; ?>
+                                    
+                                    <a href="<?php echo e(asset('storage/supervisor/project/05_IN/' . $koneksiin->in_ipo_2)); ?>"
                                         target="blank" download="" class="hover:underline">
-                                        {{ $koneksiin->in_ipo_2 }}</a>
-                                    {{-- == --}}
+                                        <?php echo e($koneksiin->in_ipo_2); ?></a>
+                                    
 
                                 </td>
                                 <td>
-                                    @if ($koneksiin->up_by_ipo_in_2 != '')
+                                    <?php if($koneksiin->up_by_ipo_in_2 != ''): ?>
                                         <div
                                             class="items-center py-1 px-2 text-sm font-medium text-center text-white bg-orange-500 w-[100] mx-auto rounded">
-                                            {{ $koneksiin->up_by_ipo_in_2 }}
+                                            <?php echo e($koneksiin->up_by_ipo_in_2); ?>
+
                                         </div>
-                                    @endif
+                                    <?php endif; ?>
                                 </td>
-                                <td class="text-center">{{ $koneksiin->date_in_ipo_2 }}</td>
+                                <td class="text-center"><?php echo e($koneksiin->date_in_ipo_2); ?></td>
                                 <td class="space-y-2 py-3 px-2">
-                                    @if (($koneksiin->status_in == '-' || $koneksiin->status_in == 'Revisi Installation') && $koneksiin->in_ipo_2 == '')
+                                    <?php if(($koneksiin->status_in == '-' || $koneksiin->status_in == 'Revisi Installation') && $koneksiin->in_ipo_2 == ''): ?>
                                         <div class="justify-center flex space-x-2">
                                             <input type="file" name="as_in_ipo_2" id="fileInput_in_ipo_2"
                                                 style="display: none;">
@@ -717,11 +743,11 @@
                                                 + Tambah dokumen
                                             </button>
                                         </div>
-                                    @elseif (
+                                    <?php elseif(
                                         ($koneksiin->status_in == '-' || $koneksiin->status_in == 'Revisi Installation') &&
                                             $koneksiin->in_ipo_2 != '' &&
                                             $koneksiin->status_in != 'Complete' &&
-                                            $koneksiin->status_in != 'Waiting Approval')
+                                            $koneksiin->status_in != 'Waiting Approval'): ?>
                                         <div class="justify-center flex space-x-2">
                                             <button type="button"
                                                 class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
@@ -739,19 +765,19 @@
                                                 </svg>
                                             </button>
                                         </div>
-                                    @endif
+                                    <?php endif; ?>
                                 </td>
                                 <input type="text" hidden name="as_up_by_ipo_in_2"
-                                    value="{{ Auth::user()->first_name }}">
-                                <input type="date" hidden name="as_date_in_ipo_2" value="{{ date('Y-m-d') }}">
+                                    value="<?php echo e(Auth::user()->first_name); ?>">
+                                <input type="date" hidden name="as_date_in_ipo_2" value="<?php echo e(date('Y-m-d')); ?>">
                             </tr>
 
-                            {{-- 3 --}}
+                            
                             <tr class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
                                 <td class="py-4 font-bold text-center">3.</td>
                                 <td class="flex justify-start py-4 items-center">
-                                    @if ($koneksiin->in_ipo_3 != '')
-                                        <a href="{{ asset('storage/supervisor/project/05_IN/' . $koneksiin->in_ipo_3) }}"
+                                    <?php if($koneksiin->in_ipo_3 != ''): ?>
+                                        <a href="<?php echo e(asset('storage/supervisor/project/05_IN/' . $koneksiin->in_ipo_3)); ?>"
                                             target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
                                             <svg width="22" height="17" viewBox="0 0 22 17" fill="none"
                                                 xmlns="http://www.w3.org/2000/svg">
@@ -762,25 +788,26 @@
                                         </a>
 
                                         &emsp;
-                                    @endif
-                                    {{--  --}}
-                                    <a href="{{ asset('storage/supervisor/project/05_IN/' . $koneksiin->in_ipo_3) }}"
+                                    <?php endif; ?>
+                                    
+                                    <a href="<?php echo e(asset('storage/supervisor/project/05_IN/' . $koneksiin->in_ipo_3)); ?>"
                                         target="blank" download="" class="hover:underline">
-                                        {{ $koneksiin->in_ipo_3 }}</a>
-                                    {{-- == --}}
+                                        <?php echo e($koneksiin->in_ipo_3); ?></a>
+                                    
 
                                 </td>
                                 <td>
-                                    @if ($koneksiin->up_by_ipo_in_3 != '')
+                                    <?php if($koneksiin->up_by_ipo_in_3 != ''): ?>
                                         <div
                                             class="items-center py-1 px-2 text-sm font-medium text-center text-white bg-orange-500 w-[100] mx-auto rounded">
-                                            {{ $koneksiin->up_by_ipo_in_3 }}
+                                            <?php echo e($koneksiin->up_by_ipo_in_3); ?>
+
                                         </div>
-                                    @endif
+                                    <?php endif; ?>
                                 </td>
-                                <td class="text-center">{{ $koneksiin->date_in_ipo_3 }}</td>
+                                <td class="text-center"><?php echo e($koneksiin->date_in_ipo_3); ?></td>
                                 <td class="space-y-2 py-3 px-2">
-                                    @if (($koneksiin->status_in == '-' || $koneksiin->status_in == 'Revisi Installation') && $koneksiin->in_ipo_3 == '')
+                                    <?php if(($koneksiin->status_in == '-' || $koneksiin->status_in == 'Revisi Installation') && $koneksiin->in_ipo_3 == ''): ?>
                                         <div class="justify-center flex space-x-2">
                                             <input type="file" name="as_in_ipo_3" id="fileInput_in_ipo_3"
                                                 style="display: none;">
@@ -789,11 +816,11 @@
                                                 + Tambah dokumen
                                             </button>
                                         </div>
-                                    @elseif (
+                                    <?php elseif(
                                         ($koneksiin->status_in == '-' || $koneksiin->status_in == 'Revisi Installation') &&
                                             $koneksiin->in_ipo_3 != '' &&
                                             $koneksiin->status_in != 'Complete' &&
-                                            $koneksiin->status_in != 'Waiting Approval')
+                                            $koneksiin->status_in != 'Waiting Approval'): ?>
                                         <div class="justify-center flex space-x-2">
                                             <button type="button"
                                                 class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
@@ -811,27 +838,27 @@
                                                 </svg>
                                             </button>
                                         </div>
-                                    @endif
+                                    <?php endif; ?>
                                 </td>
                                 <input type="text" hidden name="as_up_by_ipo_in_3"
-                                    value="{{ Auth::user()->first_name }}">
-                                <input type="date" hidden name="as_date_in_ipo_3" value="{{ date('Y-m-d') }}">
+                                    value="<?php echo e(Auth::user()->first_name); ?>">
+                                <input type="date" hidden name="as_date_in_ipo_3" value="<?php echo e(date('Y-m-d')); ?>">
 
                             </tr>
                         </tbody>
                     </table>
                 </div>
-                {{-- Akhir --}}
+                
 
-                {{-- Equipment Check Report --}}
-                {{-- awal standar formulir --}}
+                
+                
                 <div class="flex justify-between">
                     <p class="font-medium text-lg bg-gray-800 px-4 py-1 w-fit text-white mb-2 rounded"> Equipment
                         Check Report - Mechanical & Electrical
-                        @foreach ($standar_project as $spt)
-                            @if ($spt->file_ecr_form != '')
+                        <?php $__currentLoopData = $standar_project; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $spt): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                            <?php if($spt->file_ecr_form != ''): ?>
                                 <div class="flex justify-end mr-1 mt-4">
-                                    <a href="{{ asset('storage/supervisor/standarproject/' . $spt->file_ecr_form) }}"
+                                    <a href="<?php echo e(asset('storage/supervisor/standarproject/' . $spt->file_ecr_form)); ?>"
                                         download="">
                                         <div
                                             class="w-fit items-center space-x-1 flex fill-blue-600 hover:fill-blue-800">
@@ -849,11 +876,11 @@
                                         </div>
                                     </a>
                                 </div>
-                            @endif
-                        @endforeach
-                        {{-- tombol form --}}
+                            <?php endif; ?>
+                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                        
                 </div>
-                {{-- akhir standar formulir --}}
+                
 
                 <div class="overflow-x-auto rounded-md mb-5 border">
                     <table class="w-full ">
@@ -865,13 +892,13 @@
                             <th class="w-[15%] font-medium">Upload</th>
                         </thead>
                         <tbody class="text-left border">
-                            {{-- 1 --}}
+                            
                             <tr class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
                                 <td class="py-4 font-bold text-center">1.</td>
                                 <td class="flex justify-start py-4 items-center">
 
-                                    @if ($koneksiin->in_ecr_1 != '')
-                                        <a href="{{ asset('storage/supervisor/project/05_IN/' . $koneksiin->in_ecr_1) }}"
+                                    <?php if($koneksiin->in_ecr_1 != ''): ?>
+                                        <a href="<?php echo e(asset('storage/supervisor/project/05_IN/' . $koneksiin->in_ecr_1)); ?>"
                                             target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
                                             <svg width="22" height="17" viewBox="0 0 22 17" fill="none"
                                                 xmlns="http://www.w3.org/2000/svg">
@@ -882,25 +909,26 @@
                                         </a>
 
                                         &emsp;
-                                    @endif
-                                    {{--  --}}
-                                    <a href="{{ asset('storage/supervisor/project/05_IN/' . $koneksiin->in_ecr_1) }}"
+                                    <?php endif; ?>
+                                    
+                                    <a href="<?php echo e(asset('storage/supervisor/project/05_IN/' . $koneksiin->in_ecr_1)); ?>"
                                         target="blank" download="" class="hover:underline">
-                                        {{ $koneksiin->in_ecr_1 }}</a>
-                                    {{-- == --}}
+                                        <?php echo e($koneksiin->in_ecr_1); ?></a>
+                                    
 
                                 </td>
                                 <td>
-                                    @if ($koneksiin->up_by_ecr_in_1 != '')
+                                    <?php if($koneksiin->up_by_ecr_in_1 != ''): ?>
                                         <div
                                             class="items-center py-1 px-2 text-sm font-medium text-center text-white bg-orange-500 w-[100] mx-auto rounded">
-                                            {{ $koneksiin->up_by_ecr_in_1 }}
+                                            <?php echo e($koneksiin->up_by_ecr_in_1); ?>
+
                                         </div>
-                                    @endif
+                                    <?php endif; ?>
                                 </td>
-                                <td class="text-center">{{ $koneksiin->date_in_ecr_1 }}</td>
+                                <td class="text-center"><?php echo e($koneksiin->date_in_ecr_1); ?></td>
                                 <td class="space-y-2 py-3 px-2">
-                                    @if (($koneksiin->status_in == '-' || $koneksiin->status_in == 'Revisi Installation') && $koneksiin->in_ecr_1 == '')
+                                    <?php if(($koneksiin->status_in == '-' || $koneksiin->status_in == 'Revisi Installation') && $koneksiin->in_ecr_1 == ''): ?>
                                         <div class="justify-center flex space-x-2">
                                             <input type="file" name="as_in_ecr_1" id="fileInput_in_ecr_1"
                                                 style="display: none;">
@@ -909,11 +937,11 @@
                                                 + Tambah dokumen
                                             </button>
                                         </div>
-                                    @elseif (
+                                    <?php elseif(
                                         ($koneksiin->status_in == '-' || $koneksiin->status_in == 'Revisi Installation') &&
                                             $koneksiin->in_ecr_1 != '' &&
                                             $koneksiin->status_in != 'Complete' &&
-                                            $koneksiin->status_in != 'Waiting Approval')
+                                            $koneksiin->status_in != 'Waiting Approval'): ?>
                                         <div class="justify-center flex space-x-2">
                                             <button type="button"
                                                 class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
@@ -931,20 +959,20 @@
                                                 </svg>
                                             </button>
                                         </div>
-                                    @endif
+                                    <?php endif; ?>
                                 </td>
                                 <input type="text" hidden name="as_up_by_ecr_in_1"
-                                    value="{{ Auth::user()->first_name }}">
-                                <input type="date" hidden name="as_date_in_ecr_1" value="{{ date('Y-m-d') }}">
+                                    value="<?php echo e(Auth::user()->first_name); ?>">
+                                <input type="date" hidden name="as_date_in_ecr_1" value="<?php echo e(date('Y-m-d')); ?>">
 
                             </tr>
-                            {{-- 2 --}}
+                            
                             <tr class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
                                 <td class="py-4 font-bold text-center">2.</td>
                                 <td class="flex justify-start py-4 items-center">
 
-                                    @if ($koneksiin->in_ecr_2 != '')
-                                        <a href="{{ asset('storage/supervisor/project/05_IN/' . $koneksiin->in_ecr_2) }}"
+                                    <?php if($koneksiin->in_ecr_2 != ''): ?>
+                                        <a href="<?php echo e(asset('storage/supervisor/project/05_IN/' . $koneksiin->in_ecr_2)); ?>"
                                             target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
                                             <svg width="22" height="17" viewBox="0 0 22 17" fill="none"
                                                 xmlns="http://www.w3.org/2000/svg">
@@ -955,25 +983,26 @@
                                         </a>
 
                                         &emsp;
-                                    @endif
-                                    {{--  --}}
-                                    <a href="{{ asset('storage/supervisor/project/05_IN/' . $koneksiin->in_ecr_2) }}"
+                                    <?php endif; ?>
+                                    
+                                    <a href="<?php echo e(asset('storage/supervisor/project/05_IN/' . $koneksiin->in_ecr_2)); ?>"
                                         target="blank" download="" class="hover:underline">
-                                        {{ $koneksiin->in_ecr_2 }}</a>
-                                    {{-- == --}}
+                                        <?php echo e($koneksiin->in_ecr_2); ?></a>
+                                    
 
                                 </td>
                                 <td>
-                                    @if ($koneksiin->up_by_ecr_in_2 != '')
+                                    <?php if($koneksiin->up_by_ecr_in_2 != ''): ?>
                                         <div
                                             class="items-center py-1 px-2 text-sm font-medium text-center text-white bg-orange-500 w-[100] mx-auto rounded">
-                                            {{ $koneksiin->up_by_ecr_in_2 }}
+                                            <?php echo e($koneksiin->up_by_ecr_in_2); ?>
+
                                         </div>
-                                    @endif
+                                    <?php endif; ?>
                                 </td>
-                                <td class="text-center">{{ $koneksiin->date_in_ecr_2 }}</td>
+                                <td class="text-center"><?php echo e($koneksiin->date_in_ecr_2); ?></td>
                                 <td class="space-y-2 py-3 px-2">
-                                    @if (($koneksiin->status_in == '-' || $koneksiin->status_in == 'Revisi Installation') && $koneksiin->in_ecr_2 == '')
+                                    <?php if(($koneksiin->status_in == '-' || $koneksiin->status_in == 'Revisi Installation') && $koneksiin->in_ecr_2 == ''): ?>
                                         <div class="justify-center flex space-x-2">
                                             <input type="file" name="as_in_ecr_2" id="fileInput_in_ecr_2"
                                                 style="display: none;">
@@ -982,11 +1011,11 @@
                                                 + Tambah dokumen
                                             </button>
                                         </div>
-                                    @elseif (
+                                    <?php elseif(
                                         ($koneksiin->status_in == '-' || $koneksiin->status_in == 'Revisi Installation') &&
                                             $koneksiin->in_ecr_2 != '' &&
                                             $koneksiin->status_in != 'Complete' &&
-                                            $koneksiin->status_in != 'Waiting Approval')
+                                            $koneksiin->status_in != 'Waiting Approval'): ?>
                                         <div class="justify-center flex space-x-2">
                                             <button type="button"
                                                 class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
@@ -1004,20 +1033,20 @@
                                                 </svg>
                                             </button>
                                         </div>
-                                    @endif
+                                    <?php endif; ?>
                                 </td>
                                 <input type="text" hidden name="as_up_by_ecr_in_2"
-                                    value="{{ Auth::user()->first_name }}">
-                                <input type="date" hidden name="as_date_in_ecr_2" value="{{ date('Y-m-d') }}">
+                                    value="<?php echo e(Auth::user()->first_name); ?>">
+                                <input type="date" hidden name="as_date_in_ecr_2" value="<?php echo e(date('Y-m-d')); ?>">
 
                             </tr>
-                            {{-- 3 --}}
+                            
                             <tr class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
                                 <td class="py-4 font-bold text-center">3.</td>
                                 <td class="flex justify-start py-4 items-center">
 
-                                    @if ($koneksiin->in_ecr_3 != '')
-                                        <a href="{{ asset('storage/supervisor/project/05_IN/' . $koneksiin->in_ecr_3) }}"
+                                    <?php if($koneksiin->in_ecr_3 != ''): ?>
+                                        <a href="<?php echo e(asset('storage/supervisor/project/05_IN/' . $koneksiin->in_ecr_3)); ?>"
                                             target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
                                             <svg width="22" height="17" viewBox="0 0 22 17" fill="none"
                                                 xmlns="http://www.w3.org/2000/svg">
@@ -1028,25 +1057,26 @@
                                         </a>
 
                                         &emsp;
-                                    @endif
-                                    {{--  --}}
-                                    <a href="{{ asset('storage/supervisor/project/05_IN/' . $koneksiin->in_ecr_3) }}"
+                                    <?php endif; ?>
+                                    
+                                    <a href="<?php echo e(asset('storage/supervisor/project/05_IN/' . $koneksiin->in_ecr_3)); ?>"
                                         target="blank" download="" class="hover:underline">
-                                        {{ $koneksiin->in_ecr_3 }}</a>
-                                    {{-- == --}}
+                                        <?php echo e($koneksiin->in_ecr_3); ?></a>
+                                    
 
                                 </td>
                                 <td>
-                                    @if ($koneksiin->up_by_ecr_in_3 != '')
+                                    <?php if($koneksiin->up_by_ecr_in_3 != ''): ?>
                                         <div
                                             class="items-center py-1 px-2 text-sm font-medium text-center text-white bg-orange-500 w-[100] mx-auto rounded">
-                                            {{ $koneksiin->up_by_ecr_in_3 }}
+                                            <?php echo e($koneksiin->up_by_ecr_in_3); ?>
+
                                         </div>
-                                    @endif
+                                    <?php endif; ?>
                                 </td>
-                                <td class="text-center">{{ $koneksiin->date_in_ecr_3 }}</td>
+                                <td class="text-center"><?php echo e($koneksiin->date_in_ecr_3); ?></td>
                                 <td class="space-y-2 py-3 px-2">
-                                    @if (($koneksiin->status_in == '-' || $koneksiin->status_in == 'Revisi Installation') && $koneksiin->in_ecr_3 == '')
+                                    <?php if(($koneksiin->status_in == '-' || $koneksiin->status_in == 'Revisi Installation') && $koneksiin->in_ecr_3 == ''): ?>
                                         <div class="justify-center flex space-x-2">
                                             <input type="file" name="as_in_ecr_3" id="fileInput_in_ecr_3"
                                                 style="display: none;">
@@ -1055,11 +1085,11 @@
                                                 + Tambah dokumen
                                             </button>
                                         </div>
-                                    @elseif (
+                                    <?php elseif(
                                         ($koneksiin->status_in == '-' || $koneksiin->status_in == 'Revisi Installation') &&
                                             $koneksiin->in_ecr_3 != '' &&
                                             $koneksiin->status_in != 'Complete' &&
-                                            $koneksiin->status_in != 'Waiting Approval')
+                                            $koneksiin->status_in != 'Waiting Approval'): ?>
                                         <div class="justify-center flex space-x-2">
                                             <button type="button"
                                                 class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
@@ -1077,20 +1107,20 @@
                                                 </svg>
                                             </button>
                                         </div>
-                                    @endif
+                                    <?php endif; ?>
                                 </td>
                                 <input type="text" hidden name="as_up_by_ecr_in_3"
-                                    value="{{ Auth::user()->first_name }}">
-                                <input type="date" hidden name="as_date_in_ecr_3" value="{{ date('Y-m-d') }}">
+                                    value="<?php echo e(Auth::user()->first_name); ?>">
+                                <input type="date" hidden name="as_date_in_ecr_3" value="<?php echo e(date('Y-m-d')); ?>">
 
                             </tr>
-                            {{-- 4 --}}
+                            
                             <tr class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
                                 <td class="py-4 font-bold text-center">4.</td>
                                 <td class="flex justify-start py-4 items-center">
 
-                                    @if ($koneksiin->in_ecr_4 != '')
-                                        <a href="{{ asset('storage/supervisor/project/05_IN/' . $koneksiin->in_ecr_4) }}"
+                                    <?php if($koneksiin->in_ecr_4 != ''): ?>
+                                        <a href="<?php echo e(asset('storage/supervisor/project/05_IN/' . $koneksiin->in_ecr_4)); ?>"
                                             target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
                                             <svg width="22" height="17" viewBox="0 0 22 17" fill="none"
                                                 xmlns="http://www.w3.org/2000/svg">
@@ -1101,25 +1131,26 @@
                                         </a>
 
                                         &emsp;
-                                    @endif
-                                    {{--  --}}
-                                    <a href="{{ asset('storage/supervisor/project/05_IN/' . $koneksiin->in_ecr_4) }}"
+                                    <?php endif; ?>
+                                    
+                                    <a href="<?php echo e(asset('storage/supervisor/project/05_IN/' . $koneksiin->in_ecr_4)); ?>"
                                         target="blank" download="" class="hover:underline">
-                                        {{ $koneksiin->in_ecr_4 }}</a>
-                                    {{-- == --}}
+                                        <?php echo e($koneksiin->in_ecr_4); ?></a>
+                                    
 
                                 </td>
                                 <td>
-                                    @if ($koneksiin->up_by_ecr_in_4 != '')
+                                    <?php if($koneksiin->up_by_ecr_in_4 != ''): ?>
                                         <div
                                             class="items-center py-1 px-2 text-sm font-medium text-center text-white bg-orange-500 w-[100] mx-auto rounded">
-                                            {{ $koneksiin->up_by_ecr_in_4 }}
+                                            <?php echo e($koneksiin->up_by_ecr_in_4); ?>
+
                                         </div>
-                                    @endif
+                                    <?php endif; ?>
                                 </td>
-                                <td class="text-center">{{ $koneksiin->date_in_ecr_4 }}</td>
+                                <td class="text-center"><?php echo e($koneksiin->date_in_ecr_4); ?></td>
                                 <td class="space-y-2 py-3 px-2">
-                                    @if (($koneksiin->status_in == '-' || $koneksiin->status_in == 'Revisi Installation') && $koneksiin->in_ecr_4 == '')
+                                    <?php if(($koneksiin->status_in == '-' || $koneksiin->status_in == 'Revisi Installation') && $koneksiin->in_ecr_4 == ''): ?>
                                         <div class="justify-center flex space-x-2">
                                             <input type="file" name="as_in_ecr_4" id="fileInput_in_ecr_4"
                                                 style="display: none;">
@@ -1128,11 +1159,11 @@
                                                 + Tambah dokumen
                                             </button>
                                         </div>
-                                    @elseif (
+                                    <?php elseif(
                                         ($koneksiin->status_in == '-' || $koneksiin->status_in == 'Revisi Installation') &&
                                             $koneksiin->in_ecr_4 != '' &&
                                             $koneksiin->status_in != 'Complete' &&
-                                            $koneksiin->status_in != 'Waiting Approval')
+                                            $koneksiin->status_in != 'Waiting Approval'): ?>
                                         <div class="justify-center flex space-x-2">
                                             <button type="button"
                                                 class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
@@ -1150,26 +1181,26 @@
                                                 </svg>
                                             </button>
                                         </div>
-                                    @endif
+                                    <?php endif; ?>
                                 </td>
                                 <input type="text" hidden name="as_up_by_ecr_in_4"
-                                    value="{{ Auth::user()->first_name }}">
-                                <input type="date" hidden name="as_date_in_ecr_4" value="{{ date('Y-m-d') }}">
+                                    value="<?php echo e(Auth::user()->first_name); ?>">
+                                <input type="date" hidden name="as_date_in_ecr_4" value="<?php echo e(date('Y-m-d')); ?>">
                             </tr>
                         </tbody>
                     </table>
                 </div>
-                {{-- Akhir --}}
+                
 
-                {{-- Safety Check --}}
-                {{-- awal standar formulir --}}
+                
+                
                 <div class="flex justify-between">
                     <p class="font-medium text-lg bg-gray-800 px-4 py-1 w-fit text-white mb-2 rounded"> Safety
                         Check
-                        @foreach ($standar_project as $spt)
-                            @if ($spt->file_sc_form != '')
+                        <?php $__currentLoopData = $standar_project; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $spt): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                            <?php if($spt->file_sc_form != ''): ?>
                                 <div class="flex justify-end mr-1 mt-4">
-                                    <a href="{{ asset('storage/supervisor/standarproject/' . $spt->file_sc_form) }}"
+                                    <a href="<?php echo e(asset('storage/supervisor/standarproject/' . $spt->file_sc_form)); ?>"
                                         download="">
                                         <div
                                             class="w-fit items-center space-x-1 flex fill-blue-600 hover:fill-blue-800">
@@ -1187,11 +1218,11 @@
                                         </div>
                                     </a>
                                 </div>
-                            @endif
-                        @endforeach
-                        {{-- tombol form --}}
+                            <?php endif; ?>
+                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                        
                 </div>
-                {{-- akhir standar formulir --}}
+                
 
                 <div class="overflow-x-auto rounded-md mb-5 border">
                     <table class="w-full ">
@@ -1203,13 +1234,13 @@
                             <th class="w-[15%] font-medium">Upload</th>
                         </thead>
                         <tbody class="text-left border">
-                            {{-- 1 --}}
+                            
                             <tr class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
                                 <td class="py-4 font-bold text-center">1.</td>
                                 <td class="flex justify-start py-4 items-center">
 
-                                    @if ($koneksiin->in_sc_1 != '')
-                                        <a href="{{ asset('storage/supervisor/project/05_IN/' . $koneksiin->in_sc_1) }}"
+                                    <?php if($koneksiin->in_sc_1 != ''): ?>
+                                        <a href="<?php echo e(asset('storage/supervisor/project/05_IN/' . $koneksiin->in_sc_1)); ?>"
                                             target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
                                             <svg width="22" height="17" viewBox="0 0 22 17" fill="none"
                                                 xmlns="http://www.w3.org/2000/svg">
@@ -1220,25 +1251,26 @@
                                         </a>
 
                                         &emsp;
-                                    @endif
-                                    {{--  --}}
-                                    <a href="{{ asset('storage/supervisor/project/05_IN/' . $koneksiin->in_sc_1) }}"
+                                    <?php endif; ?>
+                                    
+                                    <a href="<?php echo e(asset('storage/supervisor/project/05_IN/' . $koneksiin->in_sc_1)); ?>"
                                         target="blank" download="" class="hover:underline">
-                                        {{ $koneksiin->in_sc_1 }}</a>
-                                    {{-- == --}}
+                                        <?php echo e($koneksiin->in_sc_1); ?></a>
+                                    
 
                                 </td>
                                 <td>
-                                    @if ($koneksiin->up_by_sc_in_1 != '')
+                                    <?php if($koneksiin->up_by_sc_in_1 != ''): ?>
                                         <div
                                             class="items-center py-1 px-2 text-sm font-medium text-center text-white bg-orange-500 w-[100] mx-auto rounded">
-                                            {{ $koneksiin->up_by_sc_in_1 }}
+                                            <?php echo e($koneksiin->up_by_sc_in_1); ?>
+
                                         </div>
-                                    @endif
+                                    <?php endif; ?>
                                 </td>
-                                <td class="text-center">{{ $koneksiin->date_in_sc_1 }}</td>
+                                <td class="text-center"><?php echo e($koneksiin->date_in_sc_1); ?></td>
                                 <td class="space-y-2 py-3 px-2">
-                                    @if (($koneksiin->status_in == '-' || $koneksiin->status_in == 'Revisi Installation') && $koneksiin->in_sc_1 == '')
+                                    <?php if(($koneksiin->status_in == '-' || $koneksiin->status_in == 'Revisi Installation') && $koneksiin->in_sc_1 == ''): ?>
                                         <div class="justify-center flex space-x-2">
                                             <input type="file" name="as_in_sc_1" id="fileInput_in_sc_1"
                                                 style="display: none;">
@@ -1247,11 +1279,11 @@
                                                 + Tambah dokumen
                                             </button>
                                         </div>
-                                    @elseif (
+                                    <?php elseif(
                                         ($koneksiin->status_in == '-' || $koneksiin->status_in == 'Revisi Installation') &&
                                             $koneksiin->in_sc_1 != '' &&
                                             $koneksiin->status_in != 'Complete' &&
-                                            $koneksiin->status_in != 'Waiting Approval')
+                                            $koneksiin->status_in != 'Waiting Approval'): ?>
                                         <div class="justify-center flex space-x-2">
                                             <button type="button"
                                                 class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
@@ -1269,19 +1301,19 @@
                                                 </svg>
                                             </button>
                                         </div>
-                                    @endif
+                                    <?php endif; ?>
                                 </td>
                                 <input type="text" hidden name="as_up_by_sc_in_1"
-                                    value="{{ Auth::user()->first_name }}">
-                                <input type="date" hidden name="as_date_in_sc_1" value="{{ date('Y-m-d') }}">
+                                    value="<?php echo e(Auth::user()->first_name); ?>">
+                                <input type="date" hidden name="as_date_in_sc_1" value="<?php echo e(date('Y-m-d')); ?>">
 
                             </tr>
-                            {{-- 2 --}}
+                            
                             <tr class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
                                 <td class="py-4 font-bold text-center">2.</td>
                                 <td class="flex justify-start py-4 items-center">
-                                    @if ($koneksiin->in_sc_2 != '')
-                                        <a href="{{ asset('storage/supervisor/project/05_IN/' . $koneksiin->in_sc_2) }}"
+                                    <?php if($koneksiin->in_sc_2 != ''): ?>
+                                        <a href="<?php echo e(asset('storage/supervisor/project/05_IN/' . $koneksiin->in_sc_2)); ?>"
                                             target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
                                             <svg width="22" height="17" viewBox="0 0 22 17" fill="none"
                                                 xmlns="http://www.w3.org/2000/svg">
@@ -1292,25 +1324,26 @@
                                         </a>
 
                                         &emsp;
-                                    @endif
-                                    {{--  --}}
-                                    <a href="{{ asset('storage/supervisor/project/05_IN/' . $koneksiin->in_sc_2) }}"
+                                    <?php endif; ?>
+                                    
+                                    <a href="<?php echo e(asset('storage/supervisor/project/05_IN/' . $koneksiin->in_sc_2)); ?>"
                                         target="blank" download="" class="hover:underline">
-                                        {{ $koneksiin->in_sc_2 }}</a>
-                                    {{-- == --}}
+                                        <?php echo e($koneksiin->in_sc_2); ?></a>
+                                    
 
                                 </td>
                                 <td>
-                                    @if ($koneksiin->up_by_sc_in_2 != '')
+                                    <?php if($koneksiin->up_by_sc_in_2 != ''): ?>
                                         <div
                                             class="items-center py-1 px-2 text-sm font-medium text-center text-white bg-orange-500 w-[100] mx-auto rounded">
-                                            {{ $koneksiin->up_by_sc_in_2 }}
+                                            <?php echo e($koneksiin->up_by_sc_in_2); ?>
+
                                         </div>
-                                    @endif
+                                    <?php endif; ?>
                                 </td>
-                                <td class="text-center">{{ $koneksiin->date_in_sc_2 }}</td>
+                                <td class="text-center"><?php echo e($koneksiin->date_in_sc_2); ?></td>
                                 <td class="space-y-2 py-3 px-2">
-                                    @if (($koneksiin->status_in == '-' || $koneksiin->status_in == 'Revisi Installation') && $koneksiin->in_sc_2 == '')
+                                    <?php if(($koneksiin->status_in == '-' || $koneksiin->status_in == 'Revisi Installation') && $koneksiin->in_sc_2 == ''): ?>
                                         <div class="justify-center flex space-x-2">
                                             <input type="file" name="as_in_sc_2" id="fileInput_in_sc_2"
                                                 style="display: none;">
@@ -1319,11 +1352,11 @@
                                                 + Tambah dokumen
                                             </button>
                                         </div>
-                                    @elseif (
+                                    <?php elseif(
                                         ($koneksiin->status_in == '-' || $koneksiin->status_in == 'Revisi Installation') &&
                                             $koneksiin->in_sc_2 != '' &&
                                             $koneksiin->status_in != 'Complete' &&
-                                            $koneksiin->status_in != 'Waiting Approval')
+                                            $koneksiin->status_in != 'Waiting Approval'): ?>
                                         <div class="justify-center flex space-x-2">
                                             <button type="button"
                                                 class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
@@ -1341,28 +1374,28 @@
                                                 </svg>
                                             </button>
                                         </div>
-                                    @endif
+                                    <?php endif; ?>
                                 </td>
                                 <input type="text" hidden name="as_up_by_sc_in_2"
-                                    value="{{ Auth::user()->first_name }}">
-                                <input type="date" hidden name="as_date_in_sc_2" value="{{ date('Y-m-d') }}">
+                                    value="<?php echo e(Auth::user()->first_name); ?>">
+                                <input type="date" hidden name="as_date_in_sc_2" value="<?php echo e(date('Y-m-d')); ?>">
                             </tr>
                         </tbody>
                     </table>
                 </div>
-                {{-- Akhir --}}
+                
 
 
 
-                {{-- Safety Completeness Check --}}
-                {{-- awal standar formulir --}}
+                
+                
                 <div class="flex justify-between">
                     <p class="font-medium text-lg bg-gray-800 px-4 py-1 w-fit text-white mb-2 rounded"> Safety
                         Completeness Check
-                        @foreach ($standar_project as $spt)
-                            @if ($spt->file_sccs_form != '')
+                        <?php $__currentLoopData = $standar_project; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $spt): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                            <?php if($spt->file_sccs_form != ''): ?>
                                 <div class="flex justify-end mr-1 mt-4">
-                                    <a href="{{ asset('storage/supervisor/standarproject/' . $spt->file_sccs_form) }}"
+                                    <a href="<?php echo e(asset('storage/supervisor/standarproject/' . $spt->file_sccs_form)); ?>"
                                         download="">
                                         <div
                                             class="w-fit items-center space-x-1 flex fill-blue-600 hover:fill-blue-800">
@@ -1380,11 +1413,11 @@
                                         </div>
                                     </a>
                                 </div>
-                            @endif
-                        @endforeach
-                        {{-- tombol form --}}
+                            <?php endif; ?>
+                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                        
                 </div>
-                {{-- akhir standar formulir --}}
+                
 
                 <div class="overflow-x-auto rounded-md mb-5 border">
                     <table class="w-full ">
@@ -1396,13 +1429,13 @@
                             <th class="w-[15%] font-medium">Upload</th>
                         </thead>
                         <tbody class="text-left border">
-                            {{-- 1 --}}
+                            
                             <tr class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
                                 <td class="py-4 font-bold text-center">1.</td>
                                 <td class="flex justify-start py-4 items-center">
 
-                                    @if ($koneksiin->in_sccs_1 != '')
-                                        <a href="{{ asset('storage/supervisor/project/05_IN/' . $koneksiin->in_sccs_1) }}"
+                                    <?php if($koneksiin->in_sccs_1 != ''): ?>
+                                        <a href="<?php echo e(asset('storage/supervisor/project/05_IN/' . $koneksiin->in_sccs_1)); ?>"
                                             target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
                                             <svg width="22" height="17" viewBox="0 0 22 17" fill="none"
                                                 xmlns="http://www.w3.org/2000/svg">
@@ -1413,25 +1446,26 @@
                                         </a>
 
                                         &emsp;
-                                    @endif
-                                    {{--  --}}
-                                    <a href="{{ asset('storage/supervisor/project/05_IN/' . $koneksiin->in_sccs_1) }}"
+                                    <?php endif; ?>
+                                    
+                                    <a href="<?php echo e(asset('storage/supervisor/project/05_IN/' . $koneksiin->in_sccs_1)); ?>"
                                         target="blank" download="" class="hover:underline">
-                                        {{ $koneksiin->in_sccs_1 }}</a>
-                                    {{-- == --}}
+                                        <?php echo e($koneksiin->in_sccs_1); ?></a>
+                                    
 
                                 </td>
                                 <td>
-                                    @if ($koneksiin->up_by_sccs_in_1 != '')
+                                    <?php if($koneksiin->up_by_sccs_in_1 != ''): ?>
                                         <div
                                             class="items-center py-1 px-2 text-sm font-medium text-center text-white bg-orange-500 w-[100] mx-auto rounded">
-                                            {{ $koneksiin->up_by_sccs_in_1 }}
+                                            <?php echo e($koneksiin->up_by_sccs_in_1); ?>
+
                                         </div>
-                                    @endif
+                                    <?php endif; ?>
                                 </td>
-                                <td class="text-center">{{ $koneksiin->date_in_sccs_1 }}</td>
+                                <td class="text-center"><?php echo e($koneksiin->date_in_sccs_1); ?></td>
                                 <td class="space-y-2 py-3 px-2">
-                                    @if (($koneksiin->status_in == '-' || $koneksiin->status_in == 'Revisi Installation') && $koneksiin->in_sccs_1 == '')
+                                    <?php if(($koneksiin->status_in == '-' || $koneksiin->status_in == 'Revisi Installation') && $koneksiin->in_sccs_1 == ''): ?>
                                         <div class="justify-center flex space-x-2">
                                             <input type="file" name="as_in_sccs_1" id="fileInput_in_sccs_1"
                                                 style="display: none;">
@@ -1440,11 +1474,11 @@
                                                 + Tambah dokumen
                                             </button>
                                         </div>
-                                    @elseif (
+                                    <?php elseif(
                                         ($koneksiin->status_in == '-' || $koneksiin->status_in == 'Revisi Installation') &&
                                             $koneksiin->in_sccs_1 != '' &&
                                             $koneksiin->status_in != 'Complete' &&
-                                            $koneksiin->status_in != 'Waiting Approval')
+                                            $koneksiin->status_in != 'Waiting Approval'): ?>
                                         <div class="justify-center flex space-x-2">
                                             <button type="button"
                                                 class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
@@ -1462,20 +1496,20 @@
                                                 </svg>
                                             </button>
                                         </div>
-                                    @endif
+                                    <?php endif; ?>
                                 </td>
                                 <input type="text" hidden name="as_up_by_sccs_in_1"
-                                    value="{{ Auth::user()->first_name }}">
-                                <input type="date" hidden name="as_date_in_sccs_1" value="{{ date('Y-m-d') }}">
+                                    value="<?php echo e(Auth::user()->first_name); ?>">
+                                <input type="date" hidden name="as_date_in_sccs_1" value="<?php echo e(date('Y-m-d')); ?>">
 
                             </tr>
-                            {{-- 2 --}}
+                            
                             <tr class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
                                 <td class="py-4 font-bold text-center">2.</td>
                                 <td class="flex justify-start py-4 items-center">
 
-                                    @if ($koneksiin->in_sccs_2 != '')
-                                        <a href="{{ asset('storage/supervisor/project/05_IN/' . $koneksiin->in_sccs_2) }}"
+                                    <?php if($koneksiin->in_sccs_2 != ''): ?>
+                                        <a href="<?php echo e(asset('storage/supervisor/project/05_IN/' . $koneksiin->in_sccs_2)); ?>"
                                             target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
                                             <svg width="22" height="17" viewBox="0 0 22 17" fill="none"
                                                 xmlns="http://www.w3.org/2000/svg">
@@ -1486,25 +1520,26 @@
                                         </a>
 
                                         &emsp;
-                                    @endif
-                                    {{--  --}}
-                                    <a href="{{ asset('storage/supervisor/project/05_IN/' . $koneksiin->in_sccs_2) }}"
+                                    <?php endif; ?>
+                                    
+                                    <a href="<?php echo e(asset('storage/supervisor/project/05_IN/' . $koneksiin->in_sccs_2)); ?>"
                                         target="blank" download="" class="hover:underline">
-                                        {{ $koneksiin->in_sccs_2 }}</a>
-                                    {{-- == --}}
+                                        <?php echo e($koneksiin->in_sccs_2); ?></a>
+                                    
 
                                 </td>
                                 <td>
-                                    @if ($koneksiin->up_by_sccs_in_2 != '')
+                                    <?php if($koneksiin->up_by_sccs_in_2 != ''): ?>
                                         <div
                                             class="items-center py-1 px-2 text-sm font-medium text-center text-white bg-orange-500 w-[100] mx-auto rounded">
-                                            {{ $koneksiin->up_by_sccs_in_2 }}
+                                            <?php echo e($koneksiin->up_by_sccs_in_2); ?>
+
                                         </div>
-                                    @endif
+                                    <?php endif; ?>
                                 </td>
-                                <td class="text-center">{{ $koneksiin->date_in_sccs_2 }}</td>
+                                <td class="text-center"><?php echo e($koneksiin->date_in_sccs_2); ?></td>
                                 <td class="space-y-2 py-3 px-2">
-                                    @if (($koneksiin->status_in == '-' || $koneksiin->status_in == 'Revisi Installation') && $koneksiin->in_sccs_2 == '')
+                                    <?php if(($koneksiin->status_in == '-' || $koneksiin->status_in == 'Revisi Installation') && $koneksiin->in_sccs_2 == ''): ?>
                                         <div class="justify-center flex space-x-2">
                                             <input type="file" name="as_in_sccs_2" id="fileInput_in_sccs_2"
                                                 style="display: none;">
@@ -1513,11 +1548,11 @@
                                                 + Tambah dokumen
                                             </button>
                                         </div>
-                                    @elseif (
+                                    <?php elseif(
                                         ($koneksiin->status_in == '-' || $koneksiin->status_in == 'Revisi Installation') &&
                                             $koneksiin->in_sccs_2 != '' &&
                                             $koneksiin->status_in != 'Complete' &&
-                                            $koneksiin->status_in != 'Waiting Approval')
+                                            $koneksiin->status_in != 'Waiting Approval'): ?>
                                         <div class="justify-center flex space-x-2">
                                             <button type="button"
                                                 class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
@@ -1535,20 +1570,20 @@
                                                 </svg>
                                             </button>
                                         </div>
-                                    @endif
+                                    <?php endif; ?>
                                 </td>
                                 <input type="text" hidden name="as_up_by_sccs_in_2"
-                                    value="{{ Auth::user()->first_name }}">
-                                <input type="date" hidden name="as_date_in_sccs_2" value="{{ date('Y-m-d') }}">
+                                    value="<?php echo e(Auth::user()->first_name); ?>">
+                                <input type="date" hidden name="as_date_in_sccs_2" value="<?php echo e(date('Y-m-d')); ?>">
 
                             </tr>
-                            {{-- 3 --}}
+                            
                             <tr class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
                                 <td class="py-4 font-bold text-center">3.</td>
                                 <td class="flex justify-start py-4 items-center">
 
-                                    @if ($koneksiin->in_sccs_3 != '')
-                                        <a href="{{ asset('storage/supervisor/project/05_IN/' . $koneksiin->in_sccs_3) }}"
+                                    <?php if($koneksiin->in_sccs_3 != ''): ?>
+                                        <a href="<?php echo e(asset('storage/supervisor/project/05_IN/' . $koneksiin->in_sccs_3)); ?>"
                                             target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
                                             <svg width="22" height="17" viewBox="0 0 22 17" fill="none"
                                                 xmlns="http://www.w3.org/2000/svg">
@@ -1559,25 +1594,26 @@
                                         </a>
 
                                         &emsp;
-                                    @endif
-                                    {{--  --}}
-                                    <a href="{{ asset('storage/supervisor/project/05_IN/' . $koneksiin->in_sccs_3) }}"
+                                    <?php endif; ?>
+                                    
+                                    <a href="<?php echo e(asset('storage/supervisor/project/05_IN/' . $koneksiin->in_sccs_3)); ?>"
                                         target="blank" download="" class="hover:underline">
-                                        {{ $koneksiin->in_sccs_3 }}</a>
-                                    {{-- == --}}
+                                        <?php echo e($koneksiin->in_sccs_3); ?></a>
+                                    
 
                                 </td>
                                 <td>
-                                    @if ($koneksiin->up_by_sccs_in_3 != '')
+                                    <?php if($koneksiin->up_by_sccs_in_3 != ''): ?>
                                         <div
                                             class="items-center py-1 px-2 text-sm font-medium text-center text-white bg-orange-500 w-[100] mx-auto rounded">
-                                            {{ $koneksiin->up_by_sccs_in_3 }}
+                                            <?php echo e($koneksiin->up_by_sccs_in_3); ?>
+
                                         </div>
-                                    @endif
+                                    <?php endif; ?>
                                 </td>
-                                <td class="text-center">{{ $koneksiin->date_in_sccs_3 }}</td>
+                                <td class="text-center"><?php echo e($koneksiin->date_in_sccs_3); ?></td>
                                 <td class="space-y-2 py-3 px-2">
-                                    @if (($koneksiin->status_in == '-' || $koneksiin->status_in == 'Revisi Installation') && $koneksiin->in_sccs_3 == '')
+                                    <?php if(($koneksiin->status_in == '-' || $koneksiin->status_in == 'Revisi Installation') && $koneksiin->in_sccs_3 == ''): ?>
                                         <div class="justify-center flex space-x-2">
                                             <input type="file" name="as_in_sccs_3" id="fileInput_in_sccs_3"
                                                 style="display: none;">
@@ -1586,11 +1622,11 @@
                                                 + Tambah dokumen
                                             </button>
                                         </div>
-                                    @elseif (
+                                    <?php elseif(
                                         ($koneksiin->status_in == '-' || $koneksiin->status_in == 'Revisi Installation') &&
                                             $koneksiin->in_sccs_3 != '' &&
                                             $koneksiin->status_in != 'Complete' &&
-                                            $koneksiin->status_in != 'Waiting Approval')
+                                            $koneksiin->status_in != 'Waiting Approval'): ?>
                                         <div class="justify-center flex space-x-2">
                                             <button type="button"
                                                 class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
@@ -1608,28 +1644,28 @@
                                                 </svg>
                                             </button>
                                         </div>
-                                    @endif
+                                    <?php endif; ?>
                                 </td>
                                 <input type="text" hidden name="as_up_by_sccs_in_3"
-                                    value="{{ Auth::user()->first_name }}">
-                                <input type="date" hidden name="as_date_in_sccs_3" value="{{ date('Y-m-d') }}">
+                                    value="<?php echo e(Auth::user()->first_name); ?>">
+                                <input type="date" hidden name="as_date_in_sccs_3" value="<?php echo e(date('Y-m-d')); ?>">
 
                             </tr>
 
                         </tbody>
                     </table>
                 </div>
-                {{-- Akhir --}}
+                
 
-                {{-- inspection report --}}
-                {{-- awal standar formulir --}}
+                
+                
                 <div class="flex justify-between">
                     <p class="font-medium text-lg bg-gray-800 px-4 py-1 w-fit text-white mb-2 rounded"> Inspection
                         Report
-                        @foreach ($standar_project as $spt)
-                            @if ($spt->file_in_ir_form != '')
+                        <?php $__currentLoopData = $standar_project; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $spt): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                            <?php if($spt->file_in_ir_form != ''): ?>
                                 <div class="flex justify-end mr-1 mt-4">
-                                    <a href="{{ asset('storage/supervisor/standarproject/' . $spt->file_in_ir_form) }}"
+                                    <a href="<?php echo e(asset('storage/supervisor/standarproject/' . $spt->file_in_ir_form)); ?>"
                                         download="">
                                         <div
                                             class="w-fit items-center space-x-1 flex fill-blue-600 hover:fill-blue-800">
@@ -1647,11 +1683,11 @@
                                         </div>
                                     </a>
                                 </div>
-                            @endif
-                        @endforeach
-                        {{-- tombol form --}}
+                            <?php endif; ?>
+                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                        
                 </div>
-                {{-- akhir standar formulir --}}
+                
                 <div class="">
 
                     <div class="overflow-x-auto rounded-md mb-5">
@@ -1664,14 +1700,14 @@
                                 <th class="w-[15%] font-medium">Upload</th>
                             </thead>
                             <tbody class="text-left border">
-                                {{-- 1 --}}
+                                
                                 <tr
                                     class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
                                     <td class="py-4 font-bold text-center">1.</td>
                                     <td class="flex justify-start py-4 items-center">
 
-                                        @if ($koneksiin->in_ir_1 != '')
-                                            <a href="{{ asset('storage/supervisor/project/05_IN/' . $koneksiin->in_ir_1) }}"
+                                        <?php if($koneksiin->in_ir_1 != ''): ?>
+                                            <a href="<?php echo e(asset('storage/supervisor/project/05_IN/' . $koneksiin->in_ir_1)); ?>"
                                                 target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
                                                 <svg width="22" height="17" viewBox="0 0 22 17"
                                                     fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -1682,25 +1718,26 @@
                                             </a>
 
                                             &emsp;
-                                        @endif
-                                        {{--  --}}
-                                        <a href="{{ asset('storage/supervisor/project/05_IN/' . $koneksiin->in_ir_1) }}"
+                                        <?php endif; ?>
+                                        
+                                        <a href="<?php echo e(asset('storage/supervisor/project/05_IN/' . $koneksiin->in_ir_1)); ?>"
                                             target="blank" download="" class="hover:underline">
-                                            {{ $koneksiin->in_ir_1 }}</a>
-                                        {{-- == --}}
+                                            <?php echo e($koneksiin->in_ir_1); ?></a>
+                                        
 
                                     </td>
                                     <td>
-                                        @if ($koneksiin->up_by_ir_in_1 != '')
+                                        <?php if($koneksiin->up_by_ir_in_1 != ''): ?>
                                             <div
                                                 class="items-center py-1 px-2 text-sm font-medium text-center text-white bg-orange-500 w-[100] mx-auto rounded">
-                                                {{ $koneksiin->up_by_ir_in_1 }}
+                                                <?php echo e($koneksiin->up_by_ir_in_1); ?>
+
                                             </div>
-                                        @endif
+                                        <?php endif; ?>
                                     </td>
-                                    <td class="text-center">{{ $koneksiin->date_in_ir_1 }}</td>
+                                    <td class="text-center"><?php echo e($koneksiin->date_in_ir_1); ?></td>
                                     <td class="space-y-2 py-3 px-2">
-                                        @if (($koneksiin->status_in == '-' || $koneksiin->status_in == 'Revisi Installation') && $koneksiin->in_ir_1 == '')
+                                        <?php if(($koneksiin->status_in == '-' || $koneksiin->status_in == 'Revisi Installation') && $koneksiin->in_ir_1 == ''): ?>
                                             <div class="justify-center flex space-x-2">
                                                 <input type="file" name="as_in_ir_1" id="fileInput_in_ir_1"
                                                     style="display: none;">
@@ -1709,11 +1746,11 @@
                                                     + Tambah dokumen
                                                 </button>
                                             </div>
-                                        @elseif (
+                                        <?php elseif(
                                             ($koneksiin->status_in == '-' || $koneksiin->status_in == 'Revisi Installation') &&
                                                 $koneksiin->in_ir_1 != '' &&
                                                 $koneksiin->status_in != 'Complete' &&
-                                                $koneksiin->status_in != 'Waiting Approval')
+                                                $koneksiin->status_in != 'Waiting Approval'): ?>
                                             <div class="justify-center flex space-x-2">
                                                 <button type="button"
                                                     class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
@@ -1731,22 +1768,22 @@
                                                     </svg>
                                                 </button>
                                             </div>
-                                        @endif
+                                        <?php endif; ?>
                                     </td>
                                     <input type="text" hidden name="as_up_by_ir_in_1"
-                                        value="{{ Auth::user()->first_name }}">
+                                        value="<?php echo e(Auth::user()->first_name); ?>">
                                     <input type="date" hidden name="as_date_in_ir_1"
-                                        value="{{ date('Y-m-d') }}">
+                                        value="<?php echo e(date('Y-m-d')); ?>">
 
                                 </tr>
-                                {{-- 2 --}}
+                                
                                 <tr
                                     class="hover:-translate-y-1 hover:scale-102 hover:bg-gray-100 duration-200 border-b">
                                     <td class="py-4 font-bold text-center">2.</td>
                                     <td class="flex justify-start py-4 items-center">
 
-                                        @if ($koneksiin->in_ir_2 != '')
-                                            <a href="{{ asset('storage/supervisor/project/05_IN/' . $koneksiin->in_ir_2) }}"
+                                        <?php if($koneksiin->in_ir_2 != ''): ?>
+                                            <a href="<?php echo e(asset('storage/supervisor/project/05_IN/' . $koneksiin->in_ir_2)); ?>"
                                                 target="blank" class=" py-2 px-1 rounded  hover:bg-gray-200   ">
                                                 <svg width="22" height="17" viewBox="0 0 22 17"
                                                     fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -1757,25 +1794,26 @@
                                             </a>
 
                                             &emsp;
-                                        @endif
-                                        {{--  --}}
-                                        <a href="{{ asset('storage/supervisor/project/05_IN/' . $koneksiin->in_ir_2) }}"
+                                        <?php endif; ?>
+                                        
+                                        <a href="<?php echo e(asset('storage/supervisor/project/05_IN/' . $koneksiin->in_ir_2)); ?>"
                                             target="blank" download="" class="hover:underline">
-                                            {{ $koneksiin->in_ir_2 }}</a>
-                                        {{-- == --}}
+                                            <?php echo e($koneksiin->in_ir_2); ?></a>
+                                        
 
                                     </td>
                                     <td>
-                                        @if ($koneksiin->up_by_ir_in_2 != '')
+                                        <?php if($koneksiin->up_by_ir_in_2 != ''): ?>
                                             <div
                                                 class="items-center py-1 px-2 text-sm font-medium text-center text-white bg-orange-500 w-[100] mx-auto rounded">
-                                                {{ $koneksiin->up_by_ir_in_2 }}
+                                                <?php echo e($koneksiin->up_by_ir_in_2); ?>
+
                                             </div>
-                                        @endif
+                                        <?php endif; ?>
                                     </td>
-                                    <td class="text-center">{{ $koneksiin->date_in_ir_2 }}</td>
+                                    <td class="text-center"><?php echo e($koneksiin->date_in_ir_2); ?></td>
                                     <td class="space-y-2 py-3 px-2">
-                                        @if (($koneksiin->status_in == '-' || $koneksiin->status_in == 'Revisi Installation') && $koneksiin->in_ir_2 == '')
+                                        <?php if(($koneksiin->status_in == '-' || $koneksiin->status_in == 'Revisi Installation') && $koneksiin->in_ir_2 == ''): ?>
                                             <div class="justify-center flex space-x-2">
                                                 <input type="file" name="as_in_ir_2" id="fileInput_in_ir_2"
                                                     style="display: none;">
@@ -1784,11 +1822,11 @@
                                                     + Tambah dokumen
                                                 </button>
                                             </div>
-                                        @elseif (
+                                        <?php elseif(
                                             ($koneksiin->status_in == '-' || $koneksiin->status_in == 'Revisi Installation') &&
                                                 $koneksiin->in_ir_2 != '' &&
                                                 $koneksiin->status_in != 'Complete' &&
-                                                $koneksiin->status_in != 'Waiting Approval')
+                                                $koneksiin->status_in != 'Waiting Approval'): ?>
                                             <div class="justify-center flex space-x-2">
                                                 <button type="button"
                                                     class="text-white bg-gray-500 hover:bg-gray-600 p-3 rounded-md cursor-pointer"
@@ -1806,29 +1844,29 @@
                                                     </svg>
                                                 </button>
                                             </div>
-                                        @endif
+                                        <?php endif; ?>
                                     </td>
                                     <input type="text" hidden name="as_up_by_ir_in_2"
-                                        value="{{ Auth::user()->first_name }}">
+                                        value="<?php echo e(Auth::user()->first_name); ?>">
                                     <input type="date" hidden name="as_date_in_ir_2"
-                                        value="{{ date('Y-m-d') }}">
+                                        value="<?php echo e(date('Y-m-d')); ?>">
 
                                 </tr>
                             </tbody>
                         </table>
                     </div>
-                    {{-- Akhir inspeksi report --}}
+                    
                 </div>
             </div>
-            {{-- bungkus --}}
+            
 
-            {{-- modal ubah --}}
-            @php
+            
+            <?php
                 $m = range(1, 4);
-            @endphp
+            ?>
 
-            @foreach ($m as $index => $number)
-                <div id="modal1{{ $number }}"
+            <?php $__currentLoopData = $m; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $index => $number): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                <div id="modal1<?php echo e($number); ?>"
                     class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 inset-0 justify-center items-center w-full max-h-full">
                     <div class="relative p-4 w-full max-w-2xl max-h-full">
                         <!-- Modal content -->
@@ -1858,7 +1896,8 @@
                                             Nama dokumen:
                                         </p>
                                         <p class="text-gray-900">
-                                            {{ $koneksiin->{'in_ipo_' . $number} }}
+                                            <?php echo e($koneksiin->{'in_ipo_' . $number}); ?>
+
                                         </p>
                                     </div>
                                     <div>
@@ -1866,7 +1905,8 @@
                                             Oleh:
                                         </p>
                                         <p class="text-gray-900">
-                                            {{ $koneksiin->{'up_by_ipo_in_' . $number} }}
+                                            <?php echo e($koneksiin->{'up_by_ipo_in_' . $number}); ?>
+
                                         </p>
                                     </div>
                                 </div>
@@ -1877,10 +1917,10 @@
                                     Unggah dokumen baru
                                 </p>
                                 <div class="items-center justify-center w-full border my-4">
-                                    @if ($koneksiin->{'in_ipo_' . $number} != '')
-                                        <input type="file"name="as_in_ipo_{{ $number }}" id="">
-                                    @else()
-                                    @endif
+                                    <?php if($koneksiin->{'in_ipo_' . $number} != ''): ?>
+                                        <input type="file"name="as_in_ipo_<?php echo e($number); ?>" id="">
+                                    <?php else: ?>
+                                    <?php endif; ?>
                                 </div>
                             </div>
                             <button type="submit"
@@ -1888,10 +1928,10 @@
                         </div>
                     </div>
                 </div>
-            @endforeach
+            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 
-            @foreach ($m as $index => $number)
-                <div id="modal2{{ $number }}"
+            <?php $__currentLoopData = $m; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $index => $number): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                <div id="modal2<?php echo e($number); ?>"
                     class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 inset-0 justify-center items-center w-full max-h-full">
                     <div class="relative p-4 w-full max-w-2xl max-h-full">
                         <!-- Modal content -->
@@ -1921,7 +1961,8 @@
                                             Nama dokumen:
                                         </p>
                                         <p class="text-gray-900">
-                                            {{ $koneksiin->{'in_ecr_' . $number} }}
+                                            <?php echo e($koneksiin->{'in_ecr_' . $number}); ?>
+
                                         </p>
                                     </div>
                                     <div>
@@ -1929,7 +1970,8 @@
                                             Oleh:
                                         </p>
                                         <p class="text-gray-900">
-                                            {{ $koneksiin->{'up_by_ecr_in_' . $number} }}
+                                            <?php echo e($koneksiin->{'up_by_ecr_in_' . $number}); ?>
+
                                         </p>
                                     </div>
                                 </div>
@@ -1940,10 +1982,10 @@
                                     Unggah dokumen baru
                                 </p>
                                 <div class="items-center justify-center w-full border my-4">
-                                    @if ($koneksiin->{'in_ecr_' . $number} != '')
-                                        <input type="file"name="as_in_ecr_{{ $number }}" id="">
-                                    @else()
-                                    @endif
+                                    <?php if($koneksiin->{'in_ecr_' . $number} != ''): ?>
+                                        <input type="file"name="as_in_ecr_<?php echo e($number); ?>" id="">
+                                    <?php else: ?>
+                                    <?php endif; ?>
                                 </div>
                             </div>
                             <button type="submit"
@@ -1951,10 +1993,10 @@
                         </div>
                     </div>
                 </div>
-            @endforeach
+            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 
-            @foreach ($m as $index => $number)
-                <div id="modal3{{ $number }}"
+            <?php $__currentLoopData = $m; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $index => $number): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                <div id="modal3<?php echo e($number); ?>"
                     class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 inset-0 justify-center items-center w-full max-h-full">
                     <div class="relative p-4 w-full max-w-2xl max-h-full">
                         <!-- Modal content -->
@@ -1984,7 +2026,8 @@
                                             Nama dokumen:
                                         </p>
                                         <p class="text-gray-900">
-                                            {{ $koneksiin->{'in_sc_' . $number} }}
+                                            <?php echo e($koneksiin->{'in_sc_' . $number}); ?>
+
                                         </p>
                                     </div>
                                     <div>
@@ -1992,7 +2035,8 @@
                                             Oleh:
                                         </p>
                                         <p class="text-gray-900">
-                                            {{ $koneksiin->{'up_by_sc_in_' . $number} }}
+                                            <?php echo e($koneksiin->{'up_by_sc_in_' . $number}); ?>
+
                                         </p>
                                     </div>
                                 </div>
@@ -2003,10 +2047,10 @@
                                     Unggah dokumen baru
                                 </p>
                                 <div class="items-center justify-center w-full border my-4">
-                                    @if ($koneksiin->{'in_sc_' . $number} != '')
-                                        <input type="file"name="as_in_sc_{{ $number }}" id="">
-                                    @else()
-                                    @endif
+                                    <?php if($koneksiin->{'in_sc_' . $number} != ''): ?>
+                                        <input type="file"name="as_in_sc_<?php echo e($number); ?>" id="">
+                                    <?php else: ?>
+                                    <?php endif; ?>
                                 </div>
                             </div>
                             <button type="submit"
@@ -2014,10 +2058,10 @@
                         </div>
                     </div>
                 </div>
-            @endforeach
+            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 
-            @foreach ($m as $index => $number)
-                <div id="modal4{{ $number }}"
+            <?php $__currentLoopData = $m; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $index => $number): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                <div id="modal4<?php echo e($number); ?>"
                     class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 inset-0 justify-center items-center w-full max-h-full">
                     <div class="relative p-4 w-full max-w-2xl max-h-full">
                         <!-- Modal content -->
@@ -2047,7 +2091,8 @@
                                             Nama dokumen:
                                         </p>
                                         <p class="text-gray-900">
-                                            {{ $koneksiin->{'in_sccs_' . $number} }}
+                                            <?php echo e($koneksiin->{'in_sccs_' . $number}); ?>
+
                                         </p>
                                     </div>
                                     <div>
@@ -2055,7 +2100,8 @@
                                             Oleh:
                                         </p>
                                         <p class="text-gray-900">
-                                            {{ $koneksiin->{'up_by_sccs_in_' . $number} }}
+                                            <?php echo e($koneksiin->{'up_by_sccs_in_' . $number}); ?>
+
                                         </p>
                                     </div>
                                 </div>
@@ -2066,10 +2112,10 @@
                                     Unggah dokumen baru
                                 </p>
                                 <div class="items-center justify-center w-full border my-4">
-                                    @if ($koneksiin->{'in_sccs_' . $number} != '')
-                                        <input type="file"name="as_in_sccs_{{ $number }}" id="">
-                                    @else()
-                                    @endif
+                                    <?php if($koneksiin->{'in_sccs_' . $number} != ''): ?>
+                                        <input type="file"name="as_in_sccs_<?php echo e($number); ?>" id="">
+                                    <?php else: ?>
+                                    <?php endif; ?>
                                 </div>
                             </div>
                             <button type="submit"
@@ -2077,10 +2123,10 @@
                         </div>
                     </div>
                 </div>
-            @endforeach
+            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 
-            @foreach ($m as $index => $number)
-                <div id="modal5{{ $number }}"
+            <?php $__currentLoopData = $m; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $index => $number): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                <div id="modal5<?php echo e($number); ?>"
                     class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 inset-0 justify-center items-center w-full max-h-full">
                     <div class="relative p-4 w-full max-w-2xl max-h-full">
                         <!-- Modal content -->
@@ -2110,7 +2156,8 @@
                                             Nama dokumen:
                                         </p>
                                         <p class="text-gray-900">
-                                            {{ $koneksiin->{'in_ir_' . $number} }}
+                                            <?php echo e($koneksiin->{'in_ir_' . $number}); ?>
+
                                         </p>
                                     </div>
                                     <div>
@@ -2118,7 +2165,8 @@
                                             Oleh:
                                         </p>
                                         <p class="text-gray-900">
-                                            {{ $koneksiin->{'up_by_ir_in_' . $number} }}
+                                            <?php echo e($koneksiin->{'up_by_ir_in_' . $number}); ?>
+
                                         </p>
                                     </div>
                                 </div>
@@ -2129,10 +2177,10 @@
                                     Unggah dokumen baru
                                 </p>
                                 <div class="items-center justify-center w-full border my-4">
-                                    @if ($koneksiin->{'in_ir_' . $number} != '')
-                                        <input type="file"name="as_in_ir_{{ $number }}" id="">
-                                    @else()
-                                    @endif
+                                    <?php if($koneksiin->{'in_ir_' . $number} != ''): ?>
+                                        <input type="file"name="as_in_ir_<?php echo e($number); ?>" id="">
+                                    <?php else: ?>
+                                    <?php endif; ?>
                                 </div>
                             </div>
                             <button type="submit"
@@ -2140,16 +2188,16 @@
                         </div>
                     </div>
                 </div>
-            @endforeach
-            {{-- selesai modal ubah --}}
-            <input type="text" name="last_update_name" value="{{ Auth::user()->first_name }}" hidden>
-            <input type="text" name="last_update_date" value="{{ date('d-M-Y') }}" hidden>
+            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+            
+            <input type="text" name="last_update_name" value="<?php echo e(Auth::user()->first_name); ?>" hidden>
+            <input type="text" name="last_update_date" value="<?php echo e(date('d-M-Y')); ?>" hidden>
         </form>
     </div>
-    {{-- Akhir progress file --}}
+    
 
 
-    @if (
+    <?php if(
         /* 1m */
         $koneksiin->in_ipo_1 ||
             $koneksiin->in_ipo_2 ||
@@ -2168,19 +2216,19 @@
             $koneksiin->in_sccs_3 ||
             /* 5q */
             $koneksiin->in_ir_1 ||
-            $koneksiin->in_ir_2 != '')
-        {{-- Tombol Approve --}}
+            $koneksiin->in_ir_2 != ''): ?>
+        
         <div class="grid grid-cols-2 gap-2 mt-4">
-            @if ($koneksiin->status_in != 'Complete')
+            <?php if($koneksiin->status_in != 'Complete'): ?>
                 <form action="" method="post" enctype="multipart/form-data">
-                    @csrf
-                    @method('PUT')
+                    <?php echo csrf_field(); ?>
+                    <?php echo method_field('PUT'); ?>
                     <input type="text" name="check" value="donecheck" hidden>
                     <input type="text" name="progress" value="Installation" hidden>
                     <input type="text" name="status_in" value="Complete" hidden>
-                    <input type="date" hidden name="status_in_date" value="{{ date('Y-m-d') }}">
-                    <input type="text" name="approval_by" value="{{ Auth::user()->first_name }}" hidden>
-                    <input type="text" name="approval_date" value="{{ date('Y-m-d') }}" hidden>
+                    <input type="date" hidden name="status_in_date" value="<?php echo e(date('Y-m-d')); ?>">
+                    <input type="text" name="approval_by" value="<?php echo e(Auth::user()->first_name); ?>" hidden>
+                    <input type="text" name="approval_date" value="<?php echo e(date('Y-m-d')); ?>" hidden>
 
                     <div class="flex space-x-1 w-full">
                         <button type="submit"
@@ -2199,17 +2247,17 @@
                         </button>
                     </div>
                 </form>
-            @endif
-            @if ($koneksiin->status_in != 'Revisi Installation' && $koneksicl->status_cl != 'Complete')
+            <?php endif; ?>
+            <?php if($koneksiin->status_in != 'Revisi Installation' && $koneksicl->status_cl != 'Complete'): ?>
                 <form action="" method="post" enctype="multipart/form-data">
-                    @csrf
-                    @method('PUT')
+                    <?php echo csrf_field(); ?>
+                    <?php echo method_field('PUT'); ?>
                     <input type="text" name="check" value="donecheck" hidden>
                     <input type="text" name="progress" value="Waiting Approval Installation" hidden>
                     <input type="text" name="status_in" value="Revisi Installation" hidden>
-                    <input type="date" hidden name="status_in_date" value="{{ date('Y-m-d') }}">
-                    <input type="text" name="approval_by" value="{{ Auth::user()->first_name }}" hidden>
-                    <input type="text" name="approval_date" value="{{ date('Y-m-d') }}" hidden>
+                    <input type="date" hidden name="status_in_date" value="<?php echo e(date('Y-m-d')); ?>">
+                    <input type="text" name="approval_by" value="<?php echo e(Auth::user()->first_name); ?>" hidden>
+                    <input type="text" name="approval_date" value="<?php echo e(date('Y-m-d')); ?>" hidden>
 
                     <button type="submit"
                         class="rounded-lg items-center text-white p-3 my-1 w-full hover:bg-yellow-600 bg-yellow-400 flex space-x-2">
@@ -2226,28 +2274,28 @@
                         </div>
                     </button>
                 </form>
-            @endif
+            <?php endif; ?>
         </div>
-    @endif
-    {{-- Akhir Tombol Approve --}}
+    <?php endif; ?>
+    
     </div>
 
-    {{-- hapus IN --}}
-    @php
+    
+    <?php
         $num = range(1, 4);
-    @endphp
-    {{-- 1 --}}
-    @foreach ($num as $index => $number)
+    ?>
+    
+    <?php $__currentLoopData = $num; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $index => $number): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
         <form action="" method="post" enctype="multipart/form-data">
-            @csrf
-            @method('PUT')
-            <div id="dropdown1{{ $number }}"
+            <?php echo csrf_field(); ?>
+            <?php echo method_field('PUT'); ?>
+            <div id="dropdown1<?php echo e($number); ?>"
                 class="z-10 hidden bg-gray-800 rounded-lg w-110% p-4 shadow-md">
-                @if ($number)
-                    <input type="text" hidden name="up_by_ipo_in_{{ $number }}" value="">
-                    <input type="text" hidden name="date_in_ipo_{{ $number }}" value="">
-                    <input type="text" hidden name="in_ipo_{{ $number }}" value="">
-                @endif
+                <?php if($number): ?>
+                    <input type="text" hidden name="up_by_ipo_in_<?php echo e($number); ?>" value="">
+                    <input type="text" hidden name="date_in_ipo_<?php echo e($number); ?>" value="">
+                    <input type="text" hidden name="in_ipo_<?php echo e($number); ?>" value="">
+                <?php endif; ?>
                 <p class="text-white">Apakah anda yakin untuk menghapus dokumen ini?</p>
                 <div class="grid grid-cols-1 space-x-2 mt-2">
                     <button type="submit"
@@ -2257,20 +2305,20 @@
                 </div>
             </div>
         </form>
-    @endforeach
+    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 
-    {{-- 2 --}}
-    @foreach ($num as $index => $number)
+    
+    <?php $__currentLoopData = $num; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $index => $number): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
         <form action="" method="post" enctype="multipart/form-data">
-            @csrf
-            @method('PUT')
-            <div id="dropdown2{{ $number }}"
+            <?php echo csrf_field(); ?>
+            <?php echo method_field('PUT'); ?>
+            <div id="dropdown2<?php echo e($number); ?>"
                 class="z-10 hidden bg-gray-800 rounded-lg w-110% p-4 shadow-md">
-                @if ($number)
-                    <input type="text" hidden name="up_by_ecr_in_{{ $number }}" value="">
-                    <input type="text" hidden name="date_in_ecr_{{ $number }}" value="">
-                    <input type="text" hidden name="in_ecr_{{ $number }}" value="">
-                @endif
+                <?php if($number): ?>
+                    <input type="text" hidden name="up_by_ecr_in_<?php echo e($number); ?>" value="">
+                    <input type="text" hidden name="date_in_ecr_<?php echo e($number); ?>" value="">
+                    <input type="text" hidden name="in_ecr_<?php echo e($number); ?>" value="">
+                <?php endif; ?>
                 <p class="text-white">Apakah anda yakin untuk menghapus dokumen ini?</p>
                 <div class="grid grid-cols-1 space-x-2 mt-2">
                     <button type="submit"
@@ -2280,20 +2328,20 @@
                 </div>
             </div>
         </form>
-    @endforeach
+    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 
-    {{-- 3 --}}
-    @foreach ($num as $index => $number)
+    
+    <?php $__currentLoopData = $num; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $index => $number): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
         <form action="" method="post" enctype="multipart/form-data">
-            @csrf
-            @method('PUT')
-            <div id="dropdown3{{ $number }}"
+            <?php echo csrf_field(); ?>
+            <?php echo method_field('PUT'); ?>
+            <div id="dropdown3<?php echo e($number); ?>"
                 class="z-10 hidden bg-gray-800 rounded-lg w-110% p-4 shadow-md">
-                @if ($number)
-                    <input type="text" hidden name="up_by_sc_in_{{ $number }}" value="">
-                    <input type="text" hidden name="date_in_sc_{{ $number }}" value="">
-                    <input type="text" hidden name="in_sc_{{ $number }}" value="">
-                @endif
+                <?php if($number): ?>
+                    <input type="text" hidden name="up_by_sc_in_<?php echo e($number); ?>" value="">
+                    <input type="text" hidden name="date_in_sc_<?php echo e($number); ?>" value="">
+                    <input type="text" hidden name="in_sc_<?php echo e($number); ?>" value="">
+                <?php endif; ?>
                 <p class="text-white">Apakah anda yakin untuk menghapus dokumen ini?</p>
                 <div class="grid grid-cols-1 space-x-2 mt-2">
                     <button type="submit"
@@ -2303,20 +2351,20 @@
                 </div>
             </div>
         </form>
-    @endforeach
+    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 
-    {{--  4 --}}
-    @foreach ($num as $index => $number)
+    
+    <?php $__currentLoopData = $num; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $index => $number): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
         <form action="" method="post" enctype="multipart/form-data">
-            @csrf
-            @method('PUT')
-            <div id="dropdown4{{ $number }}"
+            <?php echo csrf_field(); ?>
+            <?php echo method_field('PUT'); ?>
+            <div id="dropdown4<?php echo e($number); ?>"
                 class="z-10 hidden bg-gray-800 rounded-lg w-110% p-4 shadow-md">
-                @if ($number)
-                    <input type="text" hidden name="up_by_sccs_in_{{ $number }}" value="">
-                    <input type="text" hidden name="date_in_sccs_{{ $number }}" value="">
-                    <input type="text" hidden name="in_sccs_{{ $number }}" value="">
-                @endif
+                <?php if($number): ?>
+                    <input type="text" hidden name="up_by_sccs_in_<?php echo e($number); ?>" value="">
+                    <input type="text" hidden name="date_in_sccs_<?php echo e($number); ?>" value="">
+                    <input type="text" hidden name="in_sccs_<?php echo e($number); ?>" value="">
+                <?php endif; ?>
                 <p class="text-white">Apakah anda yakin untuk menghapus dokumen ini?</p>
                 <div class="grid grid-cols-1 space-x-2 mt-2">
                     <button type="submit"
@@ -2326,20 +2374,20 @@
                 </div>
             </div>
         </form>
-    @endforeach
+    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 
-    {{-- 5 --}}
-    @foreach ($num as $index => $number)
+    
+    <?php $__currentLoopData = $num; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $index => $number): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
         <form action="" method="post" enctype="multipart/form-data">
-            @csrf
-            @method('PUT')
-            <div id="dropdown5{{ $number }}"
+            <?php echo csrf_field(); ?>
+            <?php echo method_field('PUT'); ?>
+            <div id="dropdown5<?php echo e($number); ?>"
                 class="z-10 hidden bg-gray-800 rounded-lg w-110% p-4 shadow-md">
-                @if ($number)
-                    <input type="text" hidden name="up_by_ir_in_{{ $number }}" value="">
-                    <input type="text" hidden name="date_in_ir_{{ $number }}" value="">
-                    <input type="text" hidden name="in_ir_{{ $number }}" value="">
-                @endif
+                <?php if($number): ?>
+                    <input type="text" hidden name="up_by_ir_in_<?php echo e($number); ?>" value="">
+                    <input type="text" hidden name="date_in_ir_<?php echo e($number); ?>" value="">
+                    <input type="text" hidden name="in_ir_<?php echo e($number); ?>" value="">
+                <?php endif; ?>
                 <p class="text-white">Apakah anda yakin untuk menghapus dokumen ini?</p>
                 <div class="grid grid-cols-1 space-x-2 mt-2">
                     <button type="submit"
@@ -2349,10 +2397,10 @@
                 </div>
             </div>
         </form>
-    @endforeach
+    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 
 </div>
-{{-- tutup bungkus --}}
+
 
 <script>
     function simulateEscape() {
@@ -2383,13 +2431,13 @@
         });
     }
 
-    const kartuProyekId = @json($viewdataproject->id);
+    const kartuProyekId = <?php echo json_encode($viewdataproject->id, 15, 512) ?>;
     const elementId = "countdown-" + kartuProyekId;
 
-    const serverTimeStr = "{{ $serverTime }}"; // Menggunakan waktu server yang disertakan
+    const serverTimeStr = "<?php echo e($serverTime); ?>"; // Menggunakan waktu server yang disertakan
     const serverTime = new Date(serverTimeStr);
 
-    const deadlineStr = "{{ $viewdataproject->date_end }}";
+    const deadlineStr = "<?php echo e($viewdataproject->date_end); ?>";
     const deadline = new Date(deadlineStr);
 
     // Menggunakan waktu UTC untuk konsistensi
@@ -2434,7 +2482,7 @@
     document.getElementById(elementId).style.backgroundColor = warnaLatarBelakang;
     document.getElementById(elementId).style.color = 'white';
 
-    let is_project_closed = '{{ $viewdataproject->progress }}'
+    let is_project_closed = '<?php echo e($viewdataproject->progress); ?>'
 
         if (hari < 0 && is_project_closed != 'Closed') {
             text =
@@ -2445,10 +2493,12 @@
             console.log('proyek belum melewati deadline')
         }
 
-    /* console.log('Server Time (ISO):', "{{ $serverTime }}");
-    console.log('Deadline (ISO):', "{{ $viewdataproject->date_end }}");
-    console.log('Time Difference:', {{ $timeDiff }});
+    /* console.log('Server Time (ISO):', "<?php echo e($serverTime); ?>");
+    console.log('Deadline (ISO):', "<?php echo e($viewdataproject->date_end); ?>");
+    console.log('Time Difference:', <?php echo e($timeDiff); ?>);
     console.log('data yang dipass:', hari) */
 </script>
 
 </div>
+
+<?php echo $__env->make('layouts.layout_supervisor', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\simpro_TA\sim-pro\resources\views/supervisor/project/05-detail-installation.blade.php ENDPATH**/ ?>

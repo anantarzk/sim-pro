@@ -2057,6 +2057,8 @@ class SpvProjectController extends Controller
         $id_in_5,
         $id_cl_6
     ) {
+
+
         $viewdataproject = CONTROLPROJECT::findOrFail($id);
 
         // Seluruh tabel dan tahap control project

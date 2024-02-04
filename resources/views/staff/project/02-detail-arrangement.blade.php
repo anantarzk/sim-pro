@@ -468,7 +468,6 @@
 
 
     <div id="DeadlineCheck">
-
         @if ($koneksifr->status_fr != 'Complete')
             <p class="bg-gray-600 uppercase p-3 mt-2 text-center font-bold text-white">Tahapan wajib sebelumnya belum
                 disetujui</p>
@@ -2776,22 +2775,21 @@
         document.getElementById(elementId).style.backgroundColor = warnaLatarBelakang;
         document.getElementById(elementId).style.color = 'white';
 
-        console.log('Server Time (ISO):', "{{ $serverTime }}");
-        console.log('Deadline (ISO):', "{{ $viewdataproject->date_end }}");
-        console.log('Time Difference:', {{ $timeDiff }});
-        console.log('data yang dipass:', hari)
-
-
         let is_project_closed = '{{ $viewdataproject->progress }}'
 
         if (hari < 0 && is_project_closed != 'Closed') {
             text =
-                '<p class="bg-gray-600 uppercase p-3 mt-2 text-center font-bold text-white">Project melewati deadline!</p>'
+                '<p class="bg-red-600 uppercase p-3 mt-2 text-center font-bold text-white">Proyek melewati deadline!, silahkan hubungi atasan.</p>'
 
             document.getElementById('DeadlineCheck').innerHTML = text
         } else {
-            console.log('uhuy')
+            console.log('proyek belum melewati deadline')
         }
+
+        /* console.log('Server Time (ISO):', "{{ $serverTime }}");
+        console.log('Deadline (ISO):', "{{ $viewdataproject->date_end }}");
+        console.log('Time Difference:', {{ $timeDiff }});
+        console.log('data yang dipass:', hari) */
     </script>
 
     {{-- Hapus AR --}}

@@ -481,8 +481,8 @@
     </div>
     {{-- akhir stepper --}}
 
-
-    @if ($koneksifr->status_fr != 'Complete' || $koneksiar->status_ar != 'Complete')
+    <div id="DeadlineCheck">
+        @if ($koneksifr->status_fr != 'Complete' || $koneksiar->status_ar != 'Complete')
     <p class="bg-gray-600 uppercase p-3 mt-2 text-center font-bold text-white">Tahapan sebelumnya belum disetujui</p>
     @else
     {{-- Awal progress file --}}
@@ -8851,6 +8851,8 @@
         </p>
     @endif
     @endif
+    </div>
+
 
     {{-- hapus PO --}}
     @php
@@ -9042,10 +9044,21 @@
     document.getElementById(elementId).style.backgroundColor = warnaLatarBelakang;
     document.getElementById(elementId).style.color = 'white';
 
-    console.log('Server Time (ISO):', "{{ $serverTime }}");
+    let is_project_closed = '{{ $viewdataproject->progress }}'
+
+        if (hari < 0 && is_project_closed != 'Closed') {
+            text =
+                '<p class="bg-red-600 uppercase p-3 mt-2 text-center font-bold text-white">Proyek melewati deadline!, silahkan hubungi atasan.</p>'
+
+            document.getElementById('DeadlineCheck').innerHTML = text
+        } else {
+            console.log('proyek belum melewati deadline')
+        }
+
+    /* console.log('Server Time (ISO):', "{{ $serverTime }}");
     console.log('Deadline (ISO):', "{{ $viewdataproject->date_end }}");
     console.log('Time Difference:', {{ $timeDiff }});
-    console.log('data yang dipass:', hari)
+    console.log('data yang dipass:', hari) */
     </script>
 </div>
 {{-- tutup bungkus --}}

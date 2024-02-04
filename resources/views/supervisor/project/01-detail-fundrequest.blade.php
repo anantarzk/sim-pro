@@ -456,10 +456,7 @@
     </div>
     {{-- akhir --}}
 
-    @if ($timeDiff < 0)
-        <p class="bg-gray-600 uppercase p-3 mt-2 text-center font-bold text-white">Proyek telah melewati deadline,
-            silahkan sesuaikan</p>
-    @else
+    <div id="DeadlineCheck">
         {{-- Awal progress file --}}
         <div class="bg-white mt-3 w-full rounded-md shadow-md p-3">
             <div class="flex justify-between items-center">
@@ -1094,7 +1091,11 @@
             </div>
         @endif
         {{-- Akhir Tombol Approve --}}
-    @endif
+    </div>
+
+
+
+
     <script>
         function simulateEscape() {
             // Create a new KeyboardEvent for the "Escape" key
@@ -1175,10 +1176,21 @@
         document.getElementById(elementId).style.backgroundColor = warnaLatarBelakang;
         document.getElementById(elementId).style.color = 'white';
 
-        console.log('Server Time (ISO):', "{{ $serverTime }}");
+        let is_project_closed = '{{ $viewdataproject->progress }}'
+
+        if (hari < 0 && is_project_closed != 'Closed') {
+            text =
+                '<p class="bg-red-600 uppercase p-3 mt-2 text-center font-bold text-white">Proyek melewati deadline!, silahkan sesuaikan deadline proyek(tanggal selesai).</p>'
+
+            document.getElementById('DeadlineCheck').innerHTML = text
+        } else {
+            console.log('proyek belum melewati deadline')
+        }
+
+        /* console.log('Server Time (ISO):', "{{ $serverTime }}");
         console.log('Deadline (ISO):', "{{ $viewdataproject->date_end }}");
         console.log('Time Difference:', {{ $timeDiff }});
-        console.log('data yang dipass:', hari)
+        console.log('data yang dipass:', hari) */
     </script>
     {{-- Hapus FR --}}
 

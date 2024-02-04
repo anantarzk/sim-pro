@@ -486,8 +486,8 @@
     </div>
     {{-- akhir stepper --}}
 
-
-    {{-- Awal progress file --}}
+    <div id="DeadlineCheck">
+        {{-- Awal progress file --}}
     <div class="bg-white mt-3 w-full rounded-md shadow-md p-3">
         {{-- awal stepper khusus purchasing --}}
         <div class="max-w-2xl mx-auto mb-16 mt-2">
@@ -8041,24 +8041,6 @@
     </div>
     {{-- bungkus --}}
 
-    {{-- <input type="text" name="approval_by" value="{{ Auth::user()->first_name }}" hidden>
-<input type="text" name="approval_date" value="{{ date('Y-m-d') }}" hidden>
-
-<input type="text" name="status_purchasing" value="Purchasing - PR" hidden>
-<input type="date" hidden name="status_purchasing_date" value="{{ date('Y-m-d') }}">
-
-<input type="text" name="status_pr_01" value="Complete" hidden>
-<input type="date" hidden name="status_pr_01_date" value="{{ date('Y-m-d') }}">
-
-<input type="text" name="check" value="donecheck" hidden>
-<input type="text" name="progress" value="Purchasing - PR" hidden>
-<input type="text" name="last_update_name" value="{{ Auth::user()->first_name }}" hidden>
-<input type="text" name="last_update_date" value="{{ date('d-M-Y') }}" hidden>
-
-<button type="submit"
-    class="bg-orange-500 w-full hover:bg-orange-600 text-white font-bold py-2 rounded-lg mt-3 shadow-md">
-    Klik untuk submit dokumen
-</button> --}}
 
     {{-- modal tambah --}}
     @php
@@ -8752,6 +8734,8 @@
     </div>
 @endif
 {{-- Akhir Tombol Approve --}}
+    </div>
+
 
 
 <script>
@@ -8828,10 +8812,21 @@
     document.getElementById(elementId).style.backgroundColor = warnaLatarBelakang;
     document.getElementById(elementId).style.color = 'white';
 
-    console.log('Server Time (ISO):', "{{ $serverTime }}");
+    let is_project_closed = '{{ $viewdataproject->progress }}'
+
+        if (hari < 0 && is_project_closed != 'Closed') {
+            text =
+                '<p class="bg-red-600 uppercase p-3 mt-2 text-center font-bold text-white">Proyek melewati deadline!, silahkan sesuaikan deadline proyek (tanggal selesai).</p>'
+
+            document.getElementById('DeadlineCheck').innerHTML = text
+        } else {
+            console.log('proyek belum melewati deadline')
+        }
+
+    /* console.log('Server Time (ISO):', "{{ $serverTime }}");
     console.log('Deadline (ISO):', "{{ $viewdataproject->date_end }}");
     console.log('Time Difference:', {{ $timeDiff }});
-    console.log('data yang dipass:', hari)
+    console.log('data yang dipass:', hari) */
 </script>
 
 {{-- hapus pr --}}

@@ -1127,6 +1127,8 @@
     console.log('Deadline (ISO):', "{{ $viewdataproject->date_end }}");
     console.log('Time Difference:', {{ $timeDiff }});
     console.log('data yang dipass:', hari)
+
+    
     </script>
 
     {{-- Hapus FR --}}

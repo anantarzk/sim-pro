@@ -1,6 +1,4 @@
-{{-- Memanggil file untuk layout --}}
-@extends('layouts.layout_supervisor')
-@section('title_page', 'Seluruh Project')
+<?php $__env->startSection('title_page', 'Seluruh Project'); ?>
 
 <div id="cari" tabindex="-1" aria-hidden="true"
     class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 inset-0 justify-center items-center w-full max-h-full">
@@ -52,53 +50,56 @@
                                     <div>
                                         <p class="text-md font-semibold">PIC proyek</p>
                                         <div class="grid grid-cols-3 gap-4">
-                                            {{-- pic 1 --}}
+                                            
                                             <div class="relative z-0 w-full group">
                                                 <select id="pic1_select" name="pic_1_me"
                                                     class="block py-2.5 px-0 w-full text-sm text-gray-500 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-gray-400 focus:outline-none focus:ring-0 focus:border-orange-500 peer"><!-- Add your classes here -->
                                                     <option disabled selected value="">Mechanical</option>
                                                     <option disabled value="">Pilih PIC : </option>
-                                                    @foreach ($users as $pic)
-                                                        @if ($pic->section == 'Mechanical')
-                                                            <option value="{{ $pic->first_name }}">
-                                                                {{ $pic->first_name }}
+                                                    <?php $__currentLoopData = $users; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $pic): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                                        <?php if($pic->section == 'Mechanical'): ?>
+                                                            <option value="<?php echo e($pic->first_name); ?>">
+                                                                <?php echo e($pic->first_name); ?>
+
                                                             </option>
-                                                        @endif
-                                                    @endforeach
+                                                        <?php endif; ?>
+                                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                                     <option value="">None</option>
                                                 </select>
                                             </div>
 
-                                            {{-- pic 2 --}}
+                                            
                                             <div class="relative z-0 w-full group">
                                                 <select id="pic2_select" name="pic_2_el"
                                                     class="block py-2.5 px-0 w-full text-sm text-gray-500 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-gray-400 focus:outline-none focus:ring-0 focus:border-orange-500 peer"><!-- Add your classes here -->
                                                     <option disabled selected value="">Electrical</option>
                                                     <option disabled value="">Pilih PIC : </option>
-                                                    @foreach ($users as $pic)
-                                                        @if ($pic->section == 'Electrical')
-                                                            <option value="{{ $pic->first_name }}">
-                                                                {{ $pic->first_name }}
+                                                    <?php $__currentLoopData = $users; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $pic): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                                        <?php if($pic->section == 'Electrical'): ?>
+                                                            <option value="<?php echo e($pic->first_name); ?>">
+                                                                <?php echo e($pic->first_name); ?>
+
                                                             </option>
-                                                        @endif
-                                                    @endforeach
+                                                        <?php endif; ?>
+                                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                                     <option value="">None</option>
                                                 </select>
                                             </div>
 
-                                            {{-- pic 3 --}}
+                                            
                                             <div class="relative z-0 w-full group">
                                                 <select id="pic3_select" name="pic_3_mit"
                                                     class="block py-2.5 px-0 w-full text-sm text-gray-500 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-gray-400 focus:outline-none focus:ring-0 focus:border-orange-500 peer"><!-- Add your classes here -->
                                                     <option disabled selected value="">Manufacturing IT</option>
                                                     <option disabled value="">Pilih PIC : </option>
-                                                    @foreach ($users as $pic)
-                                                        @if ($pic->section == 'Manufacturing IT')
-                                                            <option value="{{ $pic->first_name }}">
-                                                                {{ $pic->first_name }}
+                                                    <?php $__currentLoopData = $users; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $pic): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                                        <?php if($pic->section == 'Manufacturing IT'): ?>
+                                                            <option value="<?php echo e($pic->first_name); ?>">
+                                                                <?php echo e($pic->first_name); ?>
+
                                                             </option>
-                                                        @endif
-                                                    @endforeach
+                                                        <?php endif; ?>
+                                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                                     <option value="">None</option>
                                                 </select>
                                             </div>
@@ -217,12 +218,13 @@
     <div class="my-20 mx-10">
 
         <div class="flex justify-between mt-1 mb-5">
-            {{-- kiri --}}
+            
             <div class="flex space-x-3">
-                {{-- dashboard status --}}
+                
                 <div class="flex items-center bg-gray-700 text-white px-4">
                     <div class="font-bold text-4xl p-2">
-                        {{ $totalproject }}
+                        <?php echo e($totalproject); ?>
+
                     </div>
                     <div class="pl-3 text-xl">
                         Seluruh Proyek Aktif
@@ -230,7 +232,7 @@
                 </div>
             </div>
 
-            {{-- kanan --}}
+            
             <button type="button" class=" text-white bg-orange-500 hover:bg-orange-600 p-3 rounded-md cursor-pointer"
                 data-modal-target="cari" data-modal-show="cari" data-modal-toggle="cari">
                 <div class="flex space-x-2 text-center">
@@ -243,11 +245,11 @@
                 </div>
             </button>
         </div>
-        <p class="italic mb-1 mt-3 text-lg">{{ $filterMessage }}</p>
-        {{-- Notifikasi --}}
-        {{-- Notifikasi sukses --}}
-        {{-- Mengambil sesion status --}}
-        @if (Session::has('statusedited'))
+        <p class="italic mb-1 mt-3 text-lg"><?php echo e($filterMessage); ?></p>
+        
+        
+        
+        <?php if(Session::has('statusedited')): ?>
             <div id="alert-3" class="flex p-4 mb-4 bg-green-100 rounded-lg dark:bg-green-200" role="alert">
                 <svg aria-hidden="true" class="flex-shrink-0 w-5 h-5 text-green-700 dark:text-green-800"
                     fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
@@ -257,8 +259,9 @@
                 </svg>
                 <span class="sr-only">Info</span>
                 <div class="ml-3 text-sm font-medium text-green-700 dark:text-green-800">
-                    {{-- Tampilkan isi teks message --}}
-                    {{ Session::get('message') }}
+                    
+                    <?php echo e(Session::get('message')); ?>
+
                 </div>
                 <button type="button"
                     class="ml-auto -mx-1.5 -my-1.5 bg-green-100 text-green-500 rounded-lg focus:ring-2 focus:ring-green-400 p-1.5 hover:bg-green-200 inline-flex h-8 w-8 dark:bg-green-200 dark:text-green-600 dark:hover:bg-green-300"
@@ -272,7 +275,7 @@
                     </svg>
                 </button>
             </div>
-        @elseif (Session::has('statushapus'))
+        <?php elseif(Session::has('statushapus')): ?>
             <div id="alert-2" class="flex p-4 mb-4 bg-red-100 rounded-lg dark:bg-red-200" role="alert">
                 <svg aria-hidden="true" class="flex-shrink-0 w-5 h-5 text-red-700 dark:text-red-800"
                     fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
@@ -282,8 +285,9 @@
                 </svg>
                 <span class="sr-only">Info</span>
                 <div class="ml-3 text-sm font-medium text-red-700 dark:text-red-800">
-                    {{-- Tampilkan isi teks messagedeleted --}}
-                    {{ Session::get('messagedeleted') }}
+                    
+                    <?php echo e(Session::get('messagedeleted')); ?>
+
                 </div>
                 <button type="button"
                     class="ml-auto -mx-1.5 -my-1.5 bg-red-100 text-red-500 rounded-lg focus:ring-2 focus:ring-red-400 p-1.5 hover:bg-red-200 inline-flex h-8 w-8 dark:bg-red-200 dark:text-red-600 dark:hover:bg-red-300"
@@ -296,11 +300,11 @@
                     </svg>
                 </button>
             </div>
-        @endif
-        {{-- end notifikasi --}}
+        <?php endif; ?>
+        
 
 
-        {{-- Tabel view all projects --}}
+        
         <div class="rounded-lg overflow-auto">
             <table class="w-full">
                 <thead class="text-md text-gray-700 bg-gray-300 text-center table-fixed sticky top-0">
@@ -313,17 +317,17 @@
                     <th class="w-[5%] font-medium">Aksi</th>
                 </thead>
                 <tbody>
-                    @if ($noResult == 1)
+                    <?php if($noResult == 1): ?>
                         <tr>
                             <td colspan="7" class="text-center bg-white py-4 italic text-lg font-semibold">Data
                                 tidak ditemukan.</td>
                         </tr>
-                    @else
-                        {{-- Ambil data dari controler --}}
-                        @foreach ($project as $object)
-                            @if ($object->archive_at == '')
+                    <?php else: ?>
+                        
+                        <?php $__currentLoopData = $project; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $object): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                            <?php if($object->archive_at == ''): ?>
                                 <tr class="bg-white border border-gray-300 hover:bg-gray-100 text-center">
-                                    @php
+                                    <?php
                                         $koneksifr = $object->koneksikefr;
                                         $koneksiar = $object->koneksikear;
                                         $koneksipr = $object->koneksikepr01;
@@ -333,19 +337,19 @@
                                         $koneksimn = $object->koneksikemn;
                                         $koneksiin = $object->koneksikein;
                                         $koneksicl = $object->koneksikecl;
-                                    @endphp
-                                    {{-- Loop i++ --}}
+                                    ?>
+                                    
                                     <td class="p-2">
-                                        {{ $loop->iteration }}.
+                                        <?php echo e($loop->iteration); ?>.
                                     </td>
 
-                                    {{-- nama proyek --}}
+                                    
                                     <td class="p-2 text-left">
                                         <div class="max-w-3xl">
                                             <div class="container">
-                                                {{-- Mengenerate project yang dipilih berdasarkan id --}}
+                                                
 
-                                                @if (
+                                                <?php if(
                                                     $object->id == $object->koneksikefr->id_fr_1 &&
                                                         $object->id == $object->koneksikear->id_ar_2 &&
                                                         $object->id == $object->koneksikepr01->id_pr_01_3 &&
@@ -354,50 +358,55 @@
                                                         $object->id == $object->koneksikepay04->id_pay_04_3 &&
                                                         $object->id == $object->koneksikemn->id_mn_4 &&
                                                         $object->id == $object->koneksikein->id_in_5 &&
-                                                        $object->id == $object->koneksikecl->id_cl_6)
+                                                        $object->id == $object->koneksikecl->id_cl_6): ?>
                                                     <a
-                                                        href="/redirect-proyek/{{ $object->id }}/{{ $object->koneksikefr->id_fr_1 }}/{{ $object->koneksikear->id_ar_2 }}/{{ $object->koneksikepr01->id_pr_01_3 }}/{{ $object->koneksikepa02->id_pa_02_3 }}/{{ $object->koneksikepo03->id_po_03_3 }}/{{ $object->koneksikepay04->id_pay_04_3 }}/{{ $object->koneksikemn->id_mn_4 }}/{{ $object->koneksikein->id_in_5 }}/{{ $object->koneksikecl->id_cl_6 }}">
+                                                        href="/redirect-proyek/<?php echo e($object->id); ?>/<?php echo e($object->koneksikefr->id_fr_1); ?>/<?php echo e($object->koneksikear->id_ar_2); ?>/<?php echo e($object->koneksikepr01->id_pr_01_3); ?>/<?php echo e($object->koneksikepa02->id_pa_02_3); ?>/<?php echo e($object->koneksikepo03->id_po_03_3); ?>/<?php echo e($object->koneksikepay04->id_pay_04_3); ?>/<?php echo e($object->koneksikemn->id_mn_4); ?>/<?php echo e($object->koneksikein->id_in_5); ?>/<?php echo e($object->koneksikecl->id_cl_6); ?>">
                                                         <p
                                                             class="mb-1 text-base font-normal tracking-normal text-gray-900 hover:underline capitalize">
-                                                            {{ $object->project_name }}
+                                                            <?php echo e($object->project_name); ?>
+
                                                         </p>
                                                     </a>
-                                                @endif
+                                                <?php endif; ?>
                                             </div>
                                         </div>
                                     </td>
-                                    {{-- io number --}}
+                                    
                                     <td class="p-2 text-left uppercase">
-                                        {{ $object->io_number }}
+                                        <?php echo e($object->io_number); ?>
+
                                     </td>
 
-                                    {{-- pic --}}
+                                    
                                     <td class="p-2 flex text-left space-x-1 overflow-auto">
-                                        {{-- Menampilkan PIC project --}}
-                                        @if ($object->pic_1_me != '')
+                                        
+                                        <?php if($object->pic_1_me != ''): ?>
                                             <div class="bg-orange-500 px-2 py-1 text-white rounded">
-                                                {{ $object->pic_1_me }}
+                                                <?php echo e($object->pic_1_me); ?>
+
                                             </div>
-                                        @endif
-                                        @if ($object->pic_2_el != '')
+                                        <?php endif; ?>
+                                        <?php if($object->pic_2_el != ''): ?>
                                             <div class="bg-orange-500 px-2 py-1 text-white rounded">
-                                                &nbsp;{{ $object->pic_2_el }}
+                                                &nbsp;<?php echo e($object->pic_2_el); ?>
+
                                             </div>
-                                        @endif
-                                        @if ($object->pic_3_mit != '')
+                                        <?php endif; ?>
+                                        <?php if($object->pic_3_mit != ''): ?>
                                             <div class="bg-orange-500 px-2 py-1 text-white rounded">
-                                                &nbsp;{{ $object->pic_3_mit }}
+                                                &nbsp;<?php echo e($object->pic_3_mit); ?>
+
                                             </div>
-                                        @endif
+                                        <?php endif; ?>
                                     </td>
 
-                                    {{-- deadline tenggat waktu tooltip --}}
+                                    
                                     <td>
-                                        @php
+                                        <?php
                                             $deadline = hitungMundur($object->date_end);
-                                        @endphp
+                                        ?>
 
-                                        @if ($object->progress == 'Closed')
+                                        <?php if($object->progress == 'Closed'): ?>
                                             <div
                                                 class=" space-x-1 font-medium items-center py-1 px-3 text-center text-md rounded-xl drop-shadow-md flex justify-center w-fit bg-green-700 text-white">
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="22"
@@ -413,44 +422,44 @@
                                                     SELESAI
                                                 </p>
                                             </div>
-                                        @else
-                                            @if ($deadline > 150)
+                                        <?php else: ?>
+                                            <?php if($deadline > 150): ?>
                                                 <div
                                                     class="items-center py-1 px-2 text-center text-md rounded drop-shadow-md flex justify-center w-fit bg-green-500 text-white">
-                                                    {{ $deadline }} Hari
+                                                    <?php echo e($deadline); ?> Hari
                                                 </div>
-                                            @elseif ($deadline > 100)
+                                            <?php elseif($deadline > 100): ?>
                                                 <div
                                                     class="items-center py-1 px-2 text-center text-md rounded drop-shadow-md flex justify-center w-fit bg-blue-500 text-white">
-                                                    {{ $deadline }} Hari
+                                                    <?php echo e($deadline); ?> Hari
                                                 </div>
-                                            @elseif ($deadline > 70)
+                                            <?php elseif($deadline > 70): ?>
                                                 <div
                                                     class="items-center py-1 px-2 text-center text-md rounded drop-shadow-md flex justify-center w-fit bg-yellow-400 text-white">
-                                                    {{ $deadline }} Hari
+                                                    <?php echo e($deadline); ?> Hari
                                                 </div>
-                                            @elseif ($deadline > 30)
+                                            <?php elseif($deadline > 30): ?>
                                                 <div
                                                     class="items-center py-1 px-2 text-center text-md rounded drop-shadow-md flex justify-center w-fit bg-orange-400 text-white">
-                                                    {{ $deadline }} Hari
+                                                    <?php echo e($deadline); ?> Hari
                                                 </div>
-                                            @elseif ($deadline > 0 && $deadline <= 30)
+                                            <?php elseif($deadline > 0 && $deadline <= 30): ?>
                                                 <div
                                                     class="items-center py-1 px-2 text-center text-md rounded drop-shadow-md flex justify-center w-fit bg-red-600 text-white">
-                                                    {{ $deadline }} Hari
+                                                    <?php echo e($deadline); ?> Hari
                                                 </div>
-                                            @elseif ($deadline < 0)
+                                            <?php elseif($deadline < 0): ?>
                                                 <div
                                                     class="items-center py-1 px-2 text-center text-md rounded drop-shadow-md flex justify-center w-fit bg-red-600 text-white">
                                                     Lewat Deadline
                                                 </div>
-                                            @endif
-                                        @endif
+                                            <?php endif; ?>
+                                        <?php endif; ?>
                                     </td>
                                     <td>
-                                        {{-- awal bar --}}
-                                        {{-- progress bar --}}
-                                        @php
+                                        
+                                        
+                                        <?php
                                             $totalStages = 9;
                                             $completedStages = 0;
 
@@ -485,19 +494,19 @@
                                             if ($overallProgress > 85) {
                                                 $barColor = 'bg-green-700';
                                             }
-                                        @endphp
+                                        ?>
                                         <div class="w-full bg-gray-200 rounded-full my-2">
                                             <div class="text-sm font-medium text-white text-center leading-none rounded-lg hover:cursor-default relative transition-all duration-500
-                                        {{ $barColor }}"
-                                                style="width: {{ $overallProgress }}%;">
-                                                <p class="text-sm">{{ $overallProgress }}%</p>
+                                        <?php echo e($barColor); ?>"
+                                                style="width: <?php echo e($overallProgress); ?>%;">
+                                                <p class="text-sm"><?php echo e($overallProgress); ?>%</p>
                                             </div>
                                         </div>
-                                        {{-- akhir bar --}}
+                                        
                                     </td>
-                                    {{-- aksi --}}
+                                    
                                     <td class="flex justify-center items-center">
-                                        <a href="/edit-project/{{ $object->id }}"
+                                        <a href="/edit-project/<?php echo e($object->id); ?>"
                                             class="inline-flex items-center"><button
                                                 class="hover:text-white font-semibold rounded-md hover:bg-blue-600 text-blue-600 w-full  p-2 focus:bg-blue-400 hover:fill-white fill-blue-600">
                                                 <div class="flex justify-center items-center text-center space-x-1">
@@ -510,7 +519,7 @@
                                                 </div>
                                             </button>
                                         </a>
-                                        <a href="/hapus-project/{{ $object->id }}"
+                                        <a href="/hapus-project/<?php echo e($object->id); ?>"
                                             class="inline-flex items-center"><button
                                                 class="hover:bg-red-600 text-red-600 font-semibold rounded-md hover:text-white w-full p-2 focus:bg-red-400 hover:fill-white fill-red-600">
                                                 <div class="flex justify-center items-center text-center space-x-1">
@@ -524,7 +533,7 @@
                                                 </div>
                                             </button>
                                         </a>
-                                        <a href="/arsip-project/{{ $object->id }}/{{ $object->koneksikefr->id_fr_1 }}/{{ $object->koneksikear->id_ar_2 }}/{{ $object->koneksikepr01->id_pr_01_3 }}/{{ $object->koneksikepa02->id_pa_02_3 }}/{{ $object->koneksikepo03->id_po_03_3 }}/{{ $object->koneksikepay04->id_pay_04_3 }}/{{ $object->koneksikemn->id_mn_4 }}/{{ $object->koneksikein->id_in_5 }}/{{ $object->koneksikecl->id_cl_6 }}"
+                                        <a href="/arsip-project/<?php echo e($object->id); ?>/<?php echo e($object->koneksikefr->id_fr_1); ?>/<?php echo e($object->koneksikear->id_ar_2); ?>/<?php echo e($object->koneksikepr01->id_pr_01_3); ?>/<?php echo e($object->koneksikepa02->id_pa_02_3); ?>/<?php echo e($object->koneksikepo03->id_po_03_3); ?>/<?php echo e($object->koneksikepay04->id_pay_04_3); ?>/<?php echo e($object->koneksikemn->id_mn_4); ?>/<?php echo e($object->koneksikein->id_in_5); ?>/<?php echo e($object->koneksikecl->id_cl_6); ?>"
                                             class="inline-flex items-center"><button
                                                 class="hover:text-white font-semibold rounded-md hover:bg-orange-500 text-orange-500 w-full  p-2 focus:bg-orange-500 hover:fill-white fill-orange-500">
                                                 <div class="flex justify-center items-center text-center space-x-1">
@@ -539,19 +548,20 @@
                                         </a>
                                     </td>
                                 </tr>
-                            @endif
-                        @endforeach
-                    @endif
+                            <?php endif; ?>
+                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                    <?php endif; ?>
                 </tbody>
             </table>
-            {{-- Akhir  Tabel --}}
+            
         </div>
 
-        {{ $project->withQueryString()->links() }}
+        <?php echo e($project->withQueryString()->links()); ?>
+
     </div>
 </div>
 
-@php
+<?php
     function hitungMundur($dateEnd)
     {
         $sekarang = time();
@@ -568,7 +578,7 @@
             return $hari;
         }
     }
-@endphp
+?>
 <script>
     function simulateEscape() {
         // Create a new KeyboardEvent for the "Escape" key
@@ -623,3 +633,5 @@
     }
 </script>
 </div>
+
+<?php echo $__env->make('layouts.layout_supervisor', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\sim-pro\resources\views/supervisor/project/00-tabelproject.blade.php ENDPATH**/ ?>

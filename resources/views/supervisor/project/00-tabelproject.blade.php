@@ -552,9 +552,10 @@
 </div>
 
 @php
+    date_default_timezone_set('UTC');
     function hitungMundur($dateEnd)
     {
-        $sekarang = time();
+        $sekarang = gmdate('U');
         $deadlineTimestamp = strtotime($dateEnd);
         $selisihWaktu = $deadlineTimestamp - $sekarang;
 

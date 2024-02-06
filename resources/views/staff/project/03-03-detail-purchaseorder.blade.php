@@ -9004,12 +9004,12 @@
 
     // Menggunakan waktu UTC untuk konsistensi
     const sekarang = new Date(
-        serverTime.getUTCFullYear(),
+        /* serverTime.getUTCFullYear(),
         serverTime.getUTCMonth(),
         serverTime.getUTCDate(),
         serverTime.getUTCHours(),
         serverTime.getUTCMinutes(),
-        serverTime.getUTCSeconds()
+        serverTime.getUTCSeconds() */
     );
 
     const selisihWaktu = deadline - sekarang;

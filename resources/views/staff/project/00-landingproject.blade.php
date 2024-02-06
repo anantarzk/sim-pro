@@ -473,27 +473,27 @@
                                                             @if ($deadline > 150)
                                                                 <div
                                                                     class="items-center py-1 px-2 text-center text-md rounded drop-shadow-md flex justify-center w-fit bg-green-500 text-white mt-1">
-                                                                    Deadline dalam {{ $deadline }}
+                                                                    Deadline dalam {{ $deadline }} hari
                                                                 </div>
                                                             @elseif ($deadline > 100)
                                                                 <div
                                                                     class="items-center py-1 px-2 text-center text-md rounded drop-shadow-md flex justify-center w-fit bg-blue-500 text-white mt-1">
-                                                                    Deadline dalam {{ $deadline }}
+                                                                    Deadline dalam {{ $deadline }} hari
                                                                 </div>
                                                             @elseif ($deadline > 70)
                                                                 <div
                                                                     class="items-center py-1 px-2 text-center text-md rounded drop-shadow-md flex justify-center w-fit bg-yellow-400 text-white mt-1">
-                                                                    Deadline dalam {{ $deadline }}
+                                                                    Deadline dalam {{ $deadline }} hari
                                                                 </div>
                                                             @elseif ($deadline > 30)
                                                                 <div
                                                                     class="items-center py-1 px-2 text-center text-md rounded drop-shadow-md flex justify-center w-fit bg-orange-400 text-white mt-1">
-                                                                    Deadline dalam {{ $deadline }}
+                                                                    Deadline dalam {{ $deadline }} hari
                                                                 </div>
                                                             @elseif ($deadline < 30 && $deadline > 0)
                                                                 <div
                                                                     class="items-center py-1 px-2 text-center text-md rounded drop-shadow-md flex justify-center w-fit bg-red-600 text-white">
-                                                                    Deadline dalam {{ $deadline }}
+                                                                    Deadline dalam {{ $deadline }} hari
                                                                 </div>
                                                             @elseif ($deadline < 0)
                                                                 <div
@@ -552,7 +552,7 @@
             return $hari;
         } else {
             // Return the remaining days
-            return $hari . ' Hari';
+            return $hari;
         }
     }
 @endphp

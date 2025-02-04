@@ -490,6 +490,11 @@
                                                                     class="items-center py-1 px-2 text-center text-md rounded drop-shadow-md flex justify-center w-fit bg-orange-400 text-white mt-1">
                                                                     Deadline dalam {{ $deadline }}
                                                                 </div>
+                                                            @elseif ($deadline < 30 && $deadline > 0)
+                                                                <div
+                                                                    class="items-center py-1 px-2 text-center text-md rounded drop-shadow-md flex justify-center w-fit bg-red-600 text-white">
+                                                                    Deadline dalam {{ $deadline }}
+                                                                </div>
                                                             @elseif ($deadline < 0)
                                                                 <div
                                                                     class="items-center py-1 px-2 text-center text-md rounded drop-shadow-md flex justify-center w-fit bg-red-600 text-white">

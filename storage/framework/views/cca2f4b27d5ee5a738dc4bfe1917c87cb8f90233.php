@@ -484,8 +484,8 @@
     </div>
     
 
-
-    
+    <div id="DeadlineCheck">
+        
     <div class="bg-white mt-3 w-full rounded-md shadow-md p-3">
         
         <div class="max-w-2xl mx-auto mb-16 mt-2">
@@ -8225,7 +8225,6 @@
     </div>
     
 
-    
 
     
     <?php
@@ -8930,6 +8929,8 @@
         <?php endif; ?>
     </div>
 <?php endif; ?>
+
+    </div>
 
 
 
